@@ -101,11 +101,11 @@ El override `docker-compose.local.yml` publica PostgreSQL solamente en `127.0.0.
 
 ## Autorización
 
-| Rol | Responsabilidad |
-|---|---|
-| `DATA_OFFICER` | Registro, corrección e importación de datos |
-| `ANALYST` | Consulta y trazabilidad |
-| `METHODOLOGY_STEWARD` | Gobierno semántico, publicación y calidad |
+| Rol                   | Responsabilidad                             |
+| --------------------- | ------------------------------------------- |
+| `DATA_OFFICER`        | Registro, corrección e importación de datos |
+| `ANALYST`             | Consulta y trazabilidad                     |
+| `METHODOLOGY_STEWARD` | Gobierno semántico, publicación y calidad   |
 
 El token debe incluir los claims configurados en `AUTH_ROLE_CLAIM` y `AUTH_ORGANIZATION_CLAIM`.
 
