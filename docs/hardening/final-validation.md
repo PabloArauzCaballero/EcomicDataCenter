@@ -33,6 +33,8 @@ yarn local:seed
 yarn local:verify
 ```
 
+El workflow `backend-quality` reproduce este mismo recorrido mediante Docker Compose antes de aprobar el candidato.
+
 Para inspeccionar servicios o detenerlos:
 
 ```bash
