@@ -15,7 +15,7 @@ import { DATABASE_CONNECTIONS } from '../src/database/database.tokens';
 
 function createDatabaseDouble(): Sequelize {
   return {
-    close: async (): Promise<void> => undefined,
+    close: (): Promise<void> => Promise.resolve(),
   } as unknown as Sequelize;
 }
 
