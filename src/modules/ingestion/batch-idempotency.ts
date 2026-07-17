@@ -29,12 +29,14 @@ function fingerprint(value: unknown): string {
 }
 
 export function manualRequestFingerprint(input: RegisterObservationInput): string {
-  const { batchCode: _idempotencyKey, ...payload } = input;
+  const { batchCode, ...payload } = input;
+  void batchCode;
   return fingerprint(payload);
 }
 
 export function batchRequestFingerprint(input: ImportObservationBatchInput): string {
-  const { batchCode: _idempotencyKey, ...payload } = input;
+  const { batchCode, ...payload } = input;
+  void batchCode;
   return fingerprint(payload);
 }
 
