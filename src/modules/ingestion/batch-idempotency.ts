@@ -28,16 +28,30 @@ function fingerprint(value: unknown): string {
     .digest('hex');
 }
 
+/**
+ * Hashes only the validated business payload, excluding the idempotency key.
+ * Explicit field selection prevents accidental enumerable properties from
+ * changing replay semantics when callers construct typed objects with spreads.
+ */
 export function manualRequestFingerprint(input: RegisterObservationInput): string {
-  const { batchCode, ...payload } = input;
-  void batchCode;
-  return fingerprint(payload);
+  return fingerprint({
+    datasetVersionId: input.datasetVersionId,
+    sourceArtifactId: input.sourceArtifactId,
+    submittedByOrganizationId: input.submittedByOrganizationId,
+    record: input.record,
+  });
 }
 
+/** Hashes the batch command independently of key order and `batchCode`. */
 export function batchRequestFingerprint(input: ImportObservationBatchInput): string {
-  const { batchCode, ...payload } = input;
-  void batchCode;
-  return fingerprint(payload);
+  return fingerprint({
+    datasetVersionId: input.datasetVersionId,
+    sourceArtifactId: input.sourceArtifactId,
+    submittedByOrganizationId: input.submittedByOrganizationId,
+    entryMethod: input.entryMethod,
+    ...(input.notes === undefined ? {} : { notes: input.notes }),
+    records: input.records,
+  });
 }
 
 function assertFingerprint(batch: DataEntryBatchModel, expected: string): void {
