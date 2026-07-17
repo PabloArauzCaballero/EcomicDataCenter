@@ -2,27 +2,49 @@ import 'dotenv/config';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { RequestMethod } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fastify';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { Test } from '@nestjs/testing';
+import type { Sequelize } from 'sequelize-typescript';
 import { stringify } from 'yaml';
 import { AppModule } from '../src/app.module';
 import { getEnvironment } from '../src/config/environment';
+import type { DatabaseConnections } from '../src/database/database-connections';
+import { DATABASE_CONNECTIONS } from '../src/database/database.tokens';
+
+function createDatabaseDouble(): Sequelize {
+  return {
+    close: async (): Promise<void> => undefined,
+  } as unknown as Sequelize;
+}
+
+/**
+ * Builds the API contract without opening PostgreSQL pools.
+ *
+ * OpenAPI generation is a deterministic build-time operation. Depending on a
+ * live database made contract export fail for infrastructure reasons unrelated
+ * to controller metadata and also created unnecessary sockets in CI.
+ */
+async function createContractApplication(): Promise<NestFastifyApplication> {
+  const database = createDatabaseDouble();
+  const connections: DatabaseConnections = { writer: database, reader: database };
+  const moduleReference = await Test.createTestingModule({ imports: [AppModule] })
+    .overrideProvider(DATABASE_CONNECTIONS)
+    .useValue(connections)
+    .compile();
+  const application = moduleReference.createNestApplication<NestFastifyApplication>(
+    new FastifyAdapter(),
+    { logger: false },
+  );
+  await application.init();
+  return application;
+}
 
 async function exportOpenApi(): Promise<void> {
   let application: NestFastifyApplication | undefined;
 
   try {
-    application = await NestFactory.create<NestFastifyApplication>(
-      AppModule,
-      new FastifyAdapter(),
-      {
-        logger: false,
-        // Export runs in CI and must reject with the original bootstrap error
-        // instead of allowing Nest to terminate the process without diagnostics.
-        abortOnError: false,
-      },
-    );
+    application = await createContractApplication();
     const environment = getEnvironment();
     application.setGlobalPrefix(`${environment.API_PREFIX}/${environment.API_VERSION}`, {
       exclude: [
