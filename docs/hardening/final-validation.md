@@ -2,21 +2,36 @@
 
 ## Candidato
 
-La validación final debe referenciar el SHA exacto que se someterá a revisión. Este archivo se completa con resultados verificables; no transforma un check pendiente en aprobado.
+La evidencia válida corresponde siempre al SHA visible como `head` del PR #1 y a los workflows asociados a ese mismo commit. Un resultado de un commit anterior no aprueba el candidato actual.
 
 ## Gates automáticos
 
-| Gate | Estado | Evidencia |
+| Gate | Estado exigido | Evidencia |
 |---|---|---|
-| Instalación con lockfile congelado | Pendiente de última ejecución | GitHub Actions `backend-quality` |
-| Auditoría de dependencias | Aprobada en el candidato previo; debe repetirse en el SHA final | `yarn security:audit` |
-| Formato, lint y TypeScript | Pendiente de última ejecución | GitHub Actions `backend-quality` |
-| Validadores de arquitectura, seguridad y nomenclatura | Pendiente de última ejecución | `yarn quality:all` |
-| Pruebas | Pendiente de última ejecución | `yarn test` |
-| Migraciones, privilegios y seeds | Pendiente de última ejecución | GitHub Actions con PostgreSQL 17 |
-| Build de aplicación e imagen | Pendiente de última ejecución | `yarn build` y Docker runtime target |
-| Contratos OpenAPI/Postman | Pendiente de última ejecución | Validadores y drift check |
-| CodeQL | Pendiente de última ejecución | Workflow `codeql` |
+| Instalación con lockfile congelado | Exitoso | GitHub Actions `backend-quality` |
+| Auditoría de dependencias | Exitoso o riesgo aceptado formalmente | `yarn security:audit` |
+| Docker Compose y override local | Exitoso | Validación de ambas topologías en CI |
+| Formato, lint y TypeScript | Exitoso | `format:check`, `lint` y `typecheck` |
+| Arquitectura, seguridad y nomenclatura | Exitoso | `yarn quality:all` |
+| Pruebas | Exitoso | `yarn test` |
+| Migraciones, privilegios y seeds | Exitoso | GitHub Actions con PostgreSQL 17 |
+| Build de aplicación e imagen | Exitoso | `yarn build` y target Docker `runtime` |
+| Contratos OpenAPI/Postman | Exitoso y sin drift | Validadores y comparación Git |
+| CodeQL | Exitoso | Workflow `codeql` |
+
+## Verificación local preparada
+
+La rama incluye un flujo reproducible para pruebas locales:
+
+```bash
+corepack enable
+yarn local:env
+yarn install --frozen-lockfile
+yarn local:up
+yarn local:verify
+```
+
+El detalle y el modo alternativo con API en host se encuentran en `local-verification.md`.
 
 ## Gates externos
 
@@ -27,6 +42,6 @@ La validación final debe referenciar el SHA exacto que se someterá a revisión
 
 ## Dictamen
 
-**Estado actual: listo para revisión técnica de la rama, no aprobado para despliegue productivo.**
+**Estado actual: preparado para prueba local y revisión técnica; no aprobado para despliegue productivo.**
 
-El dictamen solo cambia después de adjuntar evidencia para todos los bloqueos indicados en `findings.md` y `production-review-checklist.md`.
+El dictamen solo cambia después de que el SHA final complete los gates automáticos y se adjunte evidencia para los bloqueos de `findings.md` y `production-review-checklist.md`.
