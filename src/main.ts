@@ -6,7 +6,7 @@ import { RequestMethod } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fastify';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import type { FastifyRequest } from 'fastify';
+import type { IncomingMessage } from 'node:http';
 import { Logger } from 'nestjs-pino';
 import { AppModule } from './app.module';
 import { createRequestId } from './common/http/request-id';
@@ -21,7 +21,7 @@ async function bootstrap(): Promise<void> {
     connectionTimeout: environment.HTTP_CONNECTION_TIMEOUT_MS,
     keepAliveTimeout: environment.HTTP_KEEP_ALIVE_TIMEOUT_MS,
     requestIdHeader: false,
-    genReqId: (request: FastifyRequest): string => createRequestId(request.headers['x-request-id']),
+    genReqId: (request: IncomingMessage): string => createRequestId(request.headers['x-request-id']),
   });
   let application: NestFastifyApplication | undefined;
 
