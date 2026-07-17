@@ -28,7 +28,7 @@
     "quality:files": "python scripts/check_file_limits.py",
     "quality:diagrams": "python scripts/validate_diagrams.py",
     "smoke": "tsx scripts/smoke.ts",
-    "quality:syntax": "node --check eslint.config.mjs && node --check jest.config.cjs && node --check scripts/check_identifier_language.cjs && node --check scripts/check_typescript_syntax.cjs && node scripts/check_typescript_syntax.cjs",
+    "quality:syntax": "node --check eslint.config.mjs && node --check jest.config.cjs && node --check scripts/check_identifier_language.cjs && node --check scripts/check_typescript_syntax.cjs && node --check scripts/create-local-env.cjs && node --check scripts/verify-local-stack.cjs && node scripts/check_typescript_syntax.cjs",
     "quality:naming": "node scripts/check_identifier_language.cjs",
     "quality:project": "python scripts/validate_project.py",
     "quality:openapi": "python scripts/validate_openapi.py",
@@ -50,6 +50,14 @@
     "quality:operations": "python scripts/validate_operations.py",
     "security:audit": "yarn audit --groups dependencies --level high",
     "compose:validate": "docker compose config --quiet",
+    "local:env": "node scripts/create-local-env.cjs",
+    "local:env:host": "node scripts/create-local-env.cjs --host",
+    "local:up": "docker compose up --build -d",
+    "local:verify": "node scripts/verify-local-stack.cjs",
+    "local:logs": "docker compose logs --tail=200 api migrate postgres nginx",
+    "local:down": "docker compose down",
+    "local:db:up": "docker compose -f docker-compose.yml -f docker-compose.local.yml up -d postgres",
+    "local:db:down": "docker compose -f docker-compose.yml -f docker-compose.local.yml down",
     "release:verify": "sh scripts/run_release_verification.sh"
   },
   "dependencies": {
