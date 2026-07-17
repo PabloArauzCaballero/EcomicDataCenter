@@ -31,6 +31,7 @@
 | HD-018 | Alta | Observabilidad | La ruta Pino `res.headers.set-cookie` era inválida para `fast-redact` y podía impedir el arranque real del proceso. | Resuelto | Se cambió a notación segura `res.headers["set-cookie"]`; el bootstrap de metadatos y el build de imagen lo verifican. |
 | HD-019 | Media | Contratos | La exportación OpenAPI abría pools PostgreSQL y ocultaba errores de bootstrap, acoplando un artefacto determinista a infraestructura externa. | Resuelto | Exportador basado en `TestingModule`, conexiones dobles sin sockets, errores preservados y gate de CI con diagnóstico descargable ante fallos. |
 | HD-020 | Media | Verificación local | La documentación local no estaba respaldada por una ejecución automática end-to-end del mismo flujo. | Resuelto | CI levanta Compose completo, ejecuta migraciones, seeds, health/readiness y smoke tests por NGINX, y siempre destruye volúmenes temporales. |
+| HD-021 | Alta | Arranque local | Swagger estaba habilitado en desarrollo, pero faltaba `@fastify/static`, dependencia requerida por el adapter Fastify para servir sus recursos; el API entraba en reinicio continuo. | Resuelto | Se añadió `@fastify/static` compatible con Fastify 5, se actualizó el lockfile y el flujo Docker completo queda como gate de regresión. |
 
 ## Conclusión técnica
 
