@@ -6,18 +6,18 @@
   "license": "UNLICENSED",
   "packageManager": "yarn@1.22.22",
   "engines": {
-    "node": ">=20.19"
+    "node": ">=20.19 <21 || >=22 <23"
   },
   "scripts": {
     "dev": "tsx watch src/main.ts",
     "build": "nest build",
     "start": "node dist/main.js",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint . --max-warnings=0",
+    "lint": "eslint . --max-warnings=0 --cache --cache-location artifacts/eslint/.cache",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "test": "jest --runInBand",
-    "test:unit": "jest --runInBand --testPathPatterns=src",
+    "test:unit": "jest --runInBand",
     "test:e2e": "jest --config test/jest-e2e.json --runInBand",
     "db:migrate": "tsx src/database/cli/migrate.ts",
     "db:migrate:undo": "tsx src/database/cli/migrate-undo.ts",
@@ -47,6 +47,8 @@
     "quality:security": "python scripts/validate_security_contracts.py",
     "quality:async-scope": "python scripts/validate_async_scope.py",
     "quality:operations": "python scripts/validate_operations.py",
+    "security:audit": "yarn audit --groups dependencies --level high",
+    "compose:validate": "docker compose config --quiet",
     "release:verify": "sh scripts/run_release_verification.sh"
   },
   "dependencies": {
@@ -63,7 +65,7 @@
     "nestjs-pino": "4.6.1",
     "pg": "8.16.3",
     "pino": "9.9.5",
-    "pino-http": "^11.0.0",
+    "pino-http": "11.0.0",
     "prom-client": "15.1.3",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.2",

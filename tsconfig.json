@@ -21,6 +21,19 @@
     "resolveJsonModule": true,
     "types": ["node", "jest"]
   },
-  "include": ["src/**/*.ts", "test/**/*.ts", "scripts/**/*.ts"],
-  "exclude": ["dist", "node_modules"]
+  "include": [
+    "src/main.ts",
+    "src/app.module.ts",
+    "src/common/**/*.ts",
+    "src/config/**/*.ts",
+    "src/database/**/*.ts",
+    "src/modules/governance/**/*.ts",
+    "src/modules/health/**/*.ts",
+    "src/modules/ingestion/**/*.ts",
+    "src/modules/provenance/**/*.ts",
+    "src/modules/quality/**/*.ts",
+    "src/modules/query/**/*.ts",
+    "scripts/**/*.ts"
+  ],
+  "exclude": ["dist", "node_modules", "src/database/seeders"]
 }
