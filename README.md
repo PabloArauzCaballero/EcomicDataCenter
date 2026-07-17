@@ -50,7 +50,15 @@ yarn local:up
 
 NGINX es la única entrada pública. El API espera a que el migrador termine correctamente.
 
-### 3. Ejecutar verificación local
+### 3. Cargar catálogos y datos locales
+
+```bash
+yarn local:seed
+```
+
+El comando ejecuta primero los boot seeds idempotentes y después los datos sintéticos de desarrollo. Para probar una base mínima sin datos demo, use solamente `yarn local:seed:boot`.
+
+### 4. Ejecutar verificación local
 
 ```bash
 yarn local:verify
@@ -70,7 +78,7 @@ Puntos de acceso:
 - Swagger local: `http://localhost:8080/docs`
 - Métricas: internas; NGINX no publica `/metrics`
 
-### 4. Logs y apagado
+### 5. Logs y apagado
 
 ```bash
 yarn local:logs
