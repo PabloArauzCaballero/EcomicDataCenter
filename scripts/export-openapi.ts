@@ -10,12 +10,21 @@ import { AppModule } from '../src/app.module';
 import { getEnvironment } from '../src/config/environment';
 
 async function exportOpenApi(): Promise<void> {
-  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter(), {
-    logger: false,
-  });
+  let application: NestFastifyApplication | undefined;
+
   try {
+    application = await NestFactory.create<NestFastifyApplication>(
+      AppModule,
+      new FastifyAdapter(),
+      {
+        logger: false,
+        // Export runs in CI and must reject with the original bootstrap error
+        // instead of allowing Nest to terminate the process without diagnostics.
+        abortOnError: false,
+      },
+    );
     const environment = getEnvironment();
-    app.setGlobalPrefix(`${environment.API_PREFIX}/${environment.API_VERSION}`, {
+    application.setGlobalPrefix(`${environment.API_PREFIX}/${environment.API_VERSION}`, {
       exclude: [
         { path: 'health', method: RequestMethod.GET },
         { path: 'ready', method: RequestMethod.GET },
@@ -27,16 +36,17 @@ async function exportOpenApi(): Promise<void> {
       .setVersion('1.0.0')
       .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT' })
       .build();
-    const document = SwaggerModule.createDocument(app, config);
+    const document = SwaggerModule.createDocument(application, config);
     const directory = resolve('artifacts/openapi');
     await mkdir(directory, { recursive: true });
     await writeFile(resolve(directory, 'runtime-openapi.yaml'), stringify(document), 'utf8');
   } finally {
-    await app.close();
+    if (application) await application.close();
   }
 }
 
 exportOpenApi().catch((error: unknown) => {
-  process.stderr.write(`${error instanceof Error ? error.message : 'OpenAPI export failed'}\n`);
+  const message = error instanceof Error ? (error.stack ?? error.message) : 'OpenAPI export failed';
+  process.stderr.write(`${message}\n`);
   process.exitCode = 1;
 });
