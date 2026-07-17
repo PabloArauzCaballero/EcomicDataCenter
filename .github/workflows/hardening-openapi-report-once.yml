@@ -37,6 +37,7 @@ jobs:
       DATABASE_MIGRATOR_URL: postgresql://observatory_migrator:migrator@127.0.0.1:5432/observatorio_economico
       DATABASE_WRITER_URL: postgresql://observatory_writer:writer@127.0.0.1:5432/observatorio_economico
       DATABASE_READER_URL: postgresql://observatory_reader:reader@127.0.0.1:5432/observatorio_economico
+      BACKUP_DATABASE_URL: postgresql://observatory_backup:backup@127.0.0.1:5432/observatorio_economico
       DATABASE_SSL: 'false'
       AUTH_MODE: disabled
       SWAGGER_ENABLED: 'false'
@@ -60,17 +61,20 @@ jobs:
           CREATE ROLE backend_migrator NOLOGIN NOINHERIT;
           CREATE ROLE backend_writer NOLOGIN NOINHERIT;
           CREATE ROLE backend_reader NOLOGIN NOINHERIT;
+          CREATE ROLE backup_operator NOLOGIN NOINHERIT;
           CREATE ROLE observatory_migrator LOGIN INHERIT PASSWORD 'migrator';
           CREATE ROLE observatory_writer LOGIN INHERIT PASSWORD 'writer';
           CREATE ROLE observatory_reader LOGIN INHERIT PASSWORD 'reader';
+          CREATE ROLE observatory_backup LOGIN INHERIT PASSWORD 'backup';
           GRANT backend_migrator TO observatory_migrator;
           GRANT backend_writer TO observatory_writer;
           GRANT backend_reader TO observatory_reader;
+          GRANT backup_operator TO observatory_backup;
           ALTER ROLE observatory_reader SET default_transaction_read_only = on;
           REVOKE CREATE ON DATABASE observatorio_economico FROM PUBLIC;
           REVOKE CREATE ON SCHEMA public FROM PUBLIC;
           GRANT CONNECT, CREATE ON DATABASE observatorio_economico TO backend_migrator;
-          GRANT CONNECT ON DATABASE observatorio_economico TO backend_writer, backend_reader;
+          GRANT CONNECT ON DATABASE observatorio_economico TO backend_writer, backend_reader, backup_operator;
           SQL
           yarn db:migrate
       - name: Capture OpenAPI export diagnostics
