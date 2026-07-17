@@ -1,10 +1,19 @@
+import type { CreationAttributes } from 'sequelize';
+import type {
+  ObservationAttributeValueModel,
+  ObservationMeasureModel,
+  SeriesDimensionValueModel,
+} from '../../database/models';
 import type {
   AttributeValueInput,
   DimensionValueInput,
   MeasureValueInput,
 } from './observation-input.schemas';
 
-export function mapDimensionValue(seriesId: string, value: DimensionValueInput): object {
+export function mapDimensionValue(
+  seriesId: string,
+  value: DimensionValueInput,
+): CreationAttributes<SeriesDimensionValueModel> {
   return {
     seriesId,
     dimensionDefinitionId: value.dimensionDefinitionId,
@@ -17,7 +26,10 @@ export function mapDimensionValue(seriesId: string, value: DimensionValueInput):
   };
 }
 
-export function mapMeasureValue(observationRevisionId: string, value: MeasureValueInput): object {
+export function mapMeasureValue(
+  observationRevisionId: string,
+  value: MeasureValueInput,
+): CreationAttributes<ObservationMeasureModel> {
   return {
     observationRevisionId,
     measureDefinitionId: value.measureDefinitionId,
@@ -30,7 +42,7 @@ export function mapMeasureValue(observationRevisionId: string, value: MeasureVal
 export function mapAttributeValue(
   observationRevisionId: string,
   value: AttributeValueInput,
-): object {
+): CreationAttributes<ObservationAttributeValueModel> {
   return {
     observationRevisionId,
     attributeDefinitionId: value.attributeDefinitionId,
