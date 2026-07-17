@@ -1,0 +1,88 @@
+{
+  "organization": {
+    "organizationId": "40000000-0000-4000-8000-000000000001",
+    "code": "DEMO-OBS",
+    "legalName": "Synthetic Economic Observatory",
+    "shortName": "DEMO OBS",
+    "organizationType": "SYNTHETIC",
+    "countryCode": "BO",
+    "officialStatisticsProducer": false,
+    "isActive": true,
+    "validFrom": "2026-01-01"
+  },
+  "domain": {
+    "statisticalDomainId": "40000000-0000-4000-8000-000000000002",
+    "code": "DEMO-PRICES",
+    "name": "Synthetic prices",
+    "sortOrder": 1,
+    "isActive": true
+  },
+  "source": {
+    "sourceId": "40000000-0000-4000-8000-000000000003",
+    "frequencyId": "10000000-0000-4000-8000-000000000004",
+    "code": "DEMO-SOURCE",
+    "name": "Synthetic monthly source",
+    "sourceType": "SYNTHETIC",
+    "accessMethod": "FILE",
+    "isActive": true
+  },
+  "artifact": {
+    "sourceArtifactId": "40000000-0000-4000-8000-000000000004",
+    "artifactType": "CSV",
+    "storageUri": "mock://observatory/demo-prices.csv",
+    "mimeType": "text/csv",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "retrievedAt": "2026-01-01T00:00:00.000Z",
+    "fileSizeBytes": "128",
+    "metadataJson": { "synthetic": true }
+  },
+  "concepts": [
+    { "conceptId": "40000000-0000-4000-8000-000000000005", "code": "GEO", "name": "Geography", "definition": "Synthetic geography code.", "conceptType": "DIMENSION" },
+    { "conceptId": "40000000-0000-4000-8000-000000000006", "code": "OBS_VALUE", "name": "Observation value", "definition": "Synthetic index value.", "conceptType": "MEASURE" }
+  ],
+  "codeList": {
+    "codeListId": "40000000-0000-4000-8000-000000000007",
+    "code": "DEMO-GEO",
+    "name": "Synthetic geography codes",
+    "versionCode": "1.0",
+    "items": [
+      { "codeItemId": "40000000-0000-4000-8000-000000000008", "code": "BO", "name": "Synthetic Bolivia" }
+    ]
+  },
+  "methodology": {
+    "methodologyId": "40000000-0000-4000-8000-000000000009",
+    "methodologyVersionId": "40000000-0000-4000-8000-000000000010",
+    "code": "DEMO-METHOD",
+    "name": "Synthetic methodology",
+    "methodologyType": "SYNTHETIC",
+    "versionCode": "1.0",
+    "title": "Synthetic methodology version 1.0",
+    "validFrom": "2026-01-01",
+    "publicationDate": "2026-01-01"
+  },
+  "structure": {
+    "dataStructureId": "40000000-0000-4000-8000-000000000011",
+    "dimensionDefinitionId": "40000000-0000-4000-8000-000000000012",
+    "measureDefinitionId": "40000000-0000-4000-8000-000000000013",
+    "code": "DEMO-STRUCTURE",
+    "name": "Synthetic price structure",
+    "versionCode": "1.0"
+  },
+  "dataset": {
+    "datasetId": "40000000-0000-4000-8000-000000000014",
+    "datasetVersionId": "40000000-0000-4000-8000-000000000015",
+    "code": "DEMO-PRICE-INDEX",
+    "name": "Synthetic price index",
+    "versionCode": "1.0",
+    "title": "Synthetic price index version 1.0",
+    "validFrom": "2026-01-01",
+    "publicationDate": "2026-01-01"
+  },
+  "indicator": {
+    "indicatorId": "40000000-0000-4000-8000-000000000016",
+    "indicatorVersionId": "40000000-0000-4000-8000-000000000017",
+    "code": "DEMO-INDEX",
+    "name": "Synthetic index",
+    "definition": "Synthetic indicator for integration tests."
+  }
+}

@@ -1,0 +1,8 @@
+[
+  { "frequencyId": "10000000-0000-4000-8000-000000000001", "code": "A", "name": "Annual", "periodsPerYear": 1, "isoDuration": "P1Y" },
+  { "frequencyId": "10000000-0000-4000-8000-000000000002", "code": "S", "name": "Semiannual", "periodsPerYear": 2, "isoDuration": "P6M" },
+  { "frequencyId": "10000000-0000-4000-8000-000000000003", "code": "Q", "name": "Quarterly", "periodsPerYear": 4, "isoDuration": "P3M" },
+  { "frequencyId": "10000000-0000-4000-8000-000000000004", "code": "M", "name": "Monthly", "periodsPerYear": 12, "isoDuration": "P1M" },
+  { "frequencyId": "10000000-0000-4000-8000-000000000005", "code": "W", "name": "Weekly", "periodsPerYear": 52, "isoDuration": "P1W" },
+  { "frequencyId": "10000000-0000-4000-8000-000000000006", "code": "D", "name": "Daily", "periodsPerYear": 365, "isoDuration": "P1D" }
+]

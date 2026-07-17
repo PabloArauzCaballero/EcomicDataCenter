@@ -1,0 +1,25 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam shadowing false
+title Modelo por schemas
+
+package "provenance" {
+  component "4 tablas" as provenance_tables
+}
+package "semantic" {
+  component "11 tablas" as semantic_tables
+}
+package "metadata" {
+  component "9 tablas" as metadata_tables
+}
+package "statistics" {
+  component "9 tablas" as statistics_tables
+}
+package "quality_lineage" {
+  component "7 tablas" as quality_lineage_tables
+}
+provenance_tables --> metadata_tables : fuentes y productores
+semantic_tables --> metadata_tables : definiciones
+metadata_tables --> statistics_tables : estructura y versiones
+statistics_tables --> quality_lineage_tables : evaluación y linaje
+@enduml

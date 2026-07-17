@@ -1,0 +1,4536 @@
+{
+  "model": "Observatorio Económico y de Mercados de Bolivia",
+  "version": "1.0-final-logical",
+  "entity_count": 40,
+  "field_count": 377,
+  "packages": {
+    "provenance": 4,
+    "semantic": 11,
+    "metadata": 9,
+    "statistics": 9,
+    "quality_lineage": 7
+  },
+  "entities": [
+    {
+      "package": "provenance",
+      "table": "organization",
+      "alias": "organization",
+      "fields": [
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "organization_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "parent_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "code",
+          "type": "varchar(50)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "legal_name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "short_name",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "organization_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "country_code",
+          "type": "char(2)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "official_statistics_producer",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "valid_from",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "organization",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "provenance",
+      "table": "source",
+      "alias": "source",
+      "fields": [
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "source_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "frequency_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "source_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "access_method",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "official_uri",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "license_code",
+          "type": "varchar(80)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "active_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "active_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "provenance",
+      "table": "source_artifact",
+      "alias": "source_artifact",
+      "fields": [
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "source_artifact_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "source_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "artifact_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "original_filename",
+          "type": "varchar(255)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "original_uri",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "storage_uri",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "mime_type",
+          "type": "varchar(120)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "sha256",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "publication_date",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "retrieved_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "file_size_bytes",
+          "type": "bigint?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "source_artifact",
+          "field": "metadata_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "provenance",
+      "table": "data_entry_batch",
+      "alias": "data_entry_batch",
+      "fields": [
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "data_entry_batch_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "dataset_version_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "source_artifact_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "submitted_by_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "batch_code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "entry_method",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "received_count",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "accepted_count",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "rejected_count",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "submitted_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "started_at",
+          "type": "timestamptz?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "completed_at",
+          "type": "timestamptz?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "request_fingerprint",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "result_json",
+          "type": "jsonb?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "provenance",
+          "table": "data_entry_batch",
+          "field": "notes",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "semantic",
+      "table": "statistical_domain",
+      "alias": "statistical_domain",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "statistical_domain",
+          "field": "statistical_domain_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "statistical_domain",
+          "field": "parent_domain_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "statistical_domain",
+          "field": "code",
+          "type": "varchar(50)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "semantic",
+          "table": "statistical_domain",
+          "field": "name",
+          "type": "varchar(180)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "statistical_domain",
+          "field": "description",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "statistical_domain",
+          "field": "sort_order",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "statistical_domain",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "semantic",
+      "table": "concept",
+      "alias": "concept",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "concept",
+          "field": "concept_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "concept",
+          "field": "owner_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "concept",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "concept",
+          "field": "name",
+          "type": "varchar(180)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "concept",
+          "field": "definition",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "concept",
+          "field": "concept_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "concept",
+          "field": "valid_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "concept",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(owner_organization_id, code)"
+      ]
+    },
+    {
+      "package": "semantic",
+      "table": "code_list",
+      "alias": "code_list",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "code_list",
+          "field": "code_list_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "code_list",
+          "field": "owner_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "code_list",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_list",
+          "field": "name",
+          "type": "varchar(180)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_list",
+          "field": "version_code",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_list",
+          "field": "valid_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_list",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(owner_organization_id, code, version_code)"
+      ]
+    },
+    {
+      "package": "semantic",
+      "table": "code_item",
+      "alias": "code_item",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "code_item_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "code_list_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "parent_code_item_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "description",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "sort_order",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "valid_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "code_item",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(code_list_id, code)"
+      ]
+    },
+    {
+      "package": "semantic",
+      "table": "classification",
+      "alias": "classification",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "classification",
+          "field": "classification_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification",
+          "field": "custodian_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification",
+          "field": "classification_type",
+          "type": "varchar(50)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(custodian_organization_id, code)"
+      ]
+    },
+    {
+      "package": "semantic",
+      "table": "classification_version",
+      "alias": "classification_version",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "classification_version",
+          "field": "classification_version_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification_version",
+          "field": "classification_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification_version",
+          "field": "version_code",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_version",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_version",
+          "field": "valid_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_version",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_version",
+          "field": "publication_date",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_version",
+          "field": "is_current",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_version",
+          "field": "methodology_uri",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(classification_id, version_code)"
+      ]
+    },
+    {
+      "package": "semantic",
+      "table": "classification_item",
+      "alias": "classification_item",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "classification_item_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "classification_version_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "parent_item_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "name",
+          "type": "varchar(300)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "description",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "level_no",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "sort_order",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "valid_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_item",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(classification_version_id, code)"
+      ]
+    },
+    {
+      "package": "semantic",
+      "table": "classification_mapping",
+      "alias": "classification_mapping",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "classification_mapping",
+          "field": "classification_mapping_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification_mapping",
+          "field": "source_item_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification_mapping",
+          "field": "target_item_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "classification_mapping",
+          "field": "equivalence_type",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_mapping",
+          "field": "weight",
+          "type": "numeric(18,10)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_mapping",
+          "field": "valid_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_mapping",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "classification_mapping",
+          "field": "evidence_note",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(source_item_id, target_item_id, valid_from)"
+      ]
+    },
+    {
+      "package": "semantic",
+      "table": "geographic_unit",
+      "alias": "geographic_unit",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "geographic_unit",
+          "field": "geographic_unit_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "geographic_unit",
+          "field": "parent_geographic_unit_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "geographic_unit",
+          "field": "official_code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "geographic_unit",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "geographic_unit",
+          "field": "geographic_level",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "geographic_unit",
+          "field": "valid_from",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "geographic_unit",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "geographic_unit",
+          "field": "geometry_reference",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(official_code, valid_from)"
+      ]
+    },
+    {
+      "package": "semantic",
+      "table": "unit_measure",
+      "alias": "unit_measure",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "unit_measure",
+          "field": "unit_measure_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "unit_measure",
+          "field": "base_unit_measure_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "semantic",
+          "table": "unit_measure",
+          "field": "code",
+          "type": "varchar(50)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "semantic",
+          "table": "unit_measure",
+          "field": "name",
+          "type": "varchar(180)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "unit_measure",
+          "field": "symbol",
+          "type": "varchar(30)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "unit_measure",
+          "field": "multiplier_power10",
+          "type": "smallint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "unit_measure",
+          "field": "value_kind",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "semantic",
+      "table": "frequency",
+      "alias": "frequency",
+      "fields": [
+        {
+          "package": "semantic",
+          "table": "frequency",
+          "field": "frequency_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "semantic",
+          "table": "frequency",
+          "field": "code",
+          "type": "varchar(10)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "semantic",
+          "table": "frequency",
+          "field": "name",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "frequency",
+          "field": "periods_per_year",
+          "type": "smallint?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "semantic",
+          "table": "frequency",
+          "field": "iso_duration",
+          "type": "varchar(40)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "metadata",
+      "table": "statistical_operation",
+      "alias": "statistical_operation",
+      "fields": [
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "statistical_operation_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "producer_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "operation_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "objective",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "population_scope",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "geographic_scope",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "collection_method",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "start_date",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "end_date",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "statistical_operation",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(producer_organization_id, code)"
+      ]
+    },
+    {
+      "package": "metadata",
+      "table": "methodology",
+      "alias": "methodology",
+      "fields": [
+        {
+          "package": "metadata",
+          "table": "methodology",
+          "field": "methodology_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "metadata",
+          "table": "methodology",
+          "field": "owner_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "methodology",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology",
+          "field": "methodology_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology",
+          "field": "description",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology",
+          "field": "is_official",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(owner_organization_id, code)"
+      ]
+    },
+    {
+      "package": "metadata",
+      "table": "methodology_version",
+      "alias": "methodology_version",
+      "fields": [
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "methodology_version_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "methodology_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "version_code",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "title",
+          "type": "varchar(300)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "formula_description",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "universe_definition",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "sampling_method",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "missing_data_treatment",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "seasonal_adjustment_method",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "revision_policy",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "confidentiality_policy",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "valid_from",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "publication_date",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "document_uri",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "methodology_version",
+          "field": "is_current",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(methodology_id, version_code)"
+      ]
+    },
+    {
+      "package": "metadata",
+      "table": "dataset",
+      "alias": "dataset",
+      "fields": [
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "dataset_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "statistical_operation_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "source_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "producer_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "statistical_domain_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "name",
+          "type": "varchar(300)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "description",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "data_nature",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "publication_status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "license_code",
+          "type": "varchar(80)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset",
+          "field": "confidentiality_level",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(producer_organization_id, code)"
+      ]
+    },
+    {
+      "package": "metadata",
+      "table": "dataset_version",
+      "alias": "dataset_version",
+      "fields": [
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "dataset_version_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "dataset_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "methodology_version_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "data_structure_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "version_code",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "title",
+          "type": "varchar(300)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "reference_base_period",
+          "type": "varchar(40)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "valid_from",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "publication_date",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "is_current",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dataset_version",
+          "field": "change_reason",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(dataset_id, version_code)"
+      ]
+    },
+    {
+      "package": "metadata",
+      "table": "data_structure",
+      "alias": "data_structure",
+      "fields": [
+        {
+          "package": "metadata",
+          "table": "data_structure",
+          "field": "data_structure_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "metadata",
+          "table": "data_structure",
+          "field": "owner_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "data_structure",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "data_structure",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "data_structure",
+          "field": "version_code",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "data_structure",
+          "field": "valid_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "data_structure",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "data_structure",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(owner_organization_id, code, version_code)"
+      ]
+    },
+    {
+      "package": "metadata",
+      "table": "dimension_definition",
+      "alias": "dimension_definition",
+      "fields": [
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "dimension_definition_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "data_structure_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "concept_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "code_list_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "classification_version_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "role",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "position_no",
+          "type": "smallint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "attachment_level",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "representation_kind",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "is_required",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "dimension_definition",
+          "field": "is_time_dimension",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(data_structure_id, code)",
+        "UQ(data_structure_id, position_no)"
+      ]
+    },
+    {
+      "package": "metadata",
+      "table": "measure_definition",
+      "alias": "measure_definition",
+      "fields": [
+        {
+          "package": "metadata",
+          "table": "measure_definition",
+          "field": "measure_definition_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "metadata",
+          "table": "measure_definition",
+          "field": "data_structure_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "measure_definition",
+          "field": "concept_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "measure_definition",
+          "field": "unit_measure_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "measure_definition",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "measure_definition",
+          "field": "name",
+          "type": "varchar(180)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "measure_definition",
+          "field": "data_type",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "measure_definition",
+          "field": "precision_scale",
+          "type": "smallint?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "measure_definition",
+          "field": "is_primary_measure",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(data_structure_id, code)"
+      ]
+    },
+    {
+      "package": "metadata",
+      "table": "attribute_definition",
+      "alias": "attribute_definition",
+      "fields": [
+        {
+          "package": "metadata",
+          "table": "attribute_definition",
+          "field": "attribute_definition_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "metadata",
+          "table": "attribute_definition",
+          "field": "data_structure_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "attribute_definition",
+          "field": "concept_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "attribute_definition",
+          "field": "code_list_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "metadata",
+          "table": "attribute_definition",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "attribute_definition",
+          "field": "name",
+          "type": "varchar(180)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "attribute_definition",
+          "field": "data_type",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "attribute_definition",
+          "field": "attachment_level",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "metadata",
+          "table": "attribute_definition",
+          "field": "is_required",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(data_structure_id, code)"
+      ]
+    },
+    {
+      "package": "statistics",
+      "table": "indicator",
+      "alias": "indicator",
+      "fields": [
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "indicator_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "statistical_domain_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "owner_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "short_name",
+          "type": "varchar(120)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "definition",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "indicator_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "data_nature",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "preferred_direction",
+          "type": "varchar(20)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(owner_organization_id, code)"
+      ]
+    },
+    {
+      "package": "statistics",
+      "table": "indicator_version",
+      "alias": "indicator_version",
+      "fields": [
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "indicator_version_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "indicator_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "methodology_version_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "unit_measure_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "frequency_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "version_number",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "definition",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "calculation_formula",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "valid_from",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "indicator_version",
+          "field": "change_reason",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(indicator_id, version_number)"
+      ]
+    },
+    {
+      "package": "statistics",
+      "table": "dataset_indicator",
+      "alias": "dataset_indicator",
+      "fields": [
+        {
+          "package": "statistics",
+          "table": "dataset_indicator",
+          "field": "dataset_indicator_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "statistics",
+          "table": "dataset_indicator",
+          "field": "dataset_version_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "dataset_indicator",
+          "field": "indicator_version_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "dataset_indicator",
+          "field": "is_primary",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "dataset_indicator",
+          "field": "sort_order",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(dataset_version_id, indicator_version_id)"
+      ]
+    },
+    {
+      "package": "statistics",
+      "table": "series",
+      "alias": "series",
+      "fields": [
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "series_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "dataset_version_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "indicator_version_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "frequency_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "unit_measure_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "series_key",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "series_key_hash",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "valid_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "series",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(dataset_version_id, series_key_hash)"
+      ]
+    },
+    {
+      "package": "statistics",
+      "table": "series_dimension_value",
+      "alias": "series_dimension_value",
+      "fields": [
+        {
+          "package": "statistics",
+          "table": "series_dimension_value",
+          "field": "series_dimension_value_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "statistics",
+          "table": "series_dimension_value",
+          "field": "series_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "series_dimension_value",
+          "field": "dimension_definition_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "series_dimension_value",
+          "field": "code_item_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "series_dimension_value",
+          "field": "classification_item_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "series_dimension_value",
+          "field": "geographic_unit_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "series_dimension_value",
+          "field": "text_value",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "series_dimension_value",
+          "field": "numeric_value",
+          "type": "numeric(38,12)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "series_dimension_value",
+          "field": "date_value",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(series_id, dimension_definition_id)"
+      ]
+    },
+    {
+      "package": "statistics",
+      "table": "observation",
+      "alias": "observation",
+      "fields": [
+        {
+          "package": "statistics",
+          "table": "observation",
+          "field": "observation_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation",
+          "field": "series_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation",
+          "field": "period_start",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation",
+          "field": "period_end",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation",
+          "field": "period_code",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation",
+          "field": "reference_date",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(series_id, period_start, period_end)"
+      ]
+    },
+    {
+      "package": "statistics",
+      "table": "observation_revision",
+      "alias": "observation_revision",
+      "fields": [
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "observation_revision_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "observation_id",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "source_artifact_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "data_entry_batch_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "revision_number",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "confidentiality_status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "publication_date",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "capture_date",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "vintage_date",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "valid_from",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "valid_to",
+          "type": "timestamptz?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "is_current",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "revision_reason",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "normalized_hash",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(observation_id, revision_number)"
+      ]
+    },
+    {
+      "package": "statistics",
+      "table": "observation_measure",
+      "alias": "observation_measure",
+      "fields": [
+        {
+          "package": "statistics",
+          "table": "observation_measure",
+          "field": "observation_measure_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_measure",
+          "field": "observation_revision_id",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_measure",
+          "field": "measure_definition_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_measure",
+          "field": "numeric_value",
+          "type": "numeric(38,12)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_measure",
+          "field": "text_value",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_measure",
+          "field": "boolean_value",
+          "type": "boolean?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(observation_revision_id, measure_definition_id)"
+      ]
+    },
+    {
+      "package": "statistics",
+      "table": "observation_attribute_value",
+      "alias": "observation_attribute_value",
+      "fields": [
+        {
+          "package": "statistics",
+          "table": "observation_attribute_value",
+          "field": "observation_attribute_value_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_attribute_value",
+          "field": "observation_revision_id",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_attribute_value",
+          "field": "attribute_definition_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_attribute_value",
+          "field": "code_item_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "statistics",
+          "table": "observation_attribute_value",
+          "field": "numeric_value",
+          "type": "numeric(38,12)?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_attribute_value",
+          "field": "text_value",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_attribute_value",
+          "field": "boolean_value",
+          "type": "boolean?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(observation_revision_id, attribute_definition_id)"
+      ]
+    },
+    {
+      "package": "quality_lineage",
+      "table": "quality_dimension",
+      "alias": "quality_dimension",
+      "fields": [
+        {
+          "package": "quality_lineage",
+          "table": "quality_dimension",
+          "field": "quality_dimension_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_dimension",
+          "field": "code",
+          "type": "varchar(50)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_dimension",
+          "field": "name",
+          "type": "varchar(180)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_dimension",
+          "field": "description",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "quality_lineage",
+      "table": "quality_rule",
+      "alias": "quality_rule",
+      "fields": [
+        {
+          "package": "quality_lineage",
+          "table": "quality_rule",
+          "field": "quality_rule_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_rule",
+          "field": "quality_dimension_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_rule",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_rule",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_rule",
+          "field": "rule_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_rule",
+          "field": "severity",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_rule",
+          "field": "target_entity_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_rule",
+          "field": "configuration_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_rule",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "quality_lineage",
+      "table": "quality_assessment",
+      "alias": "quality_assessment",
+      "fields": [
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "quality_assessment_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "quality_rule_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "data_entry_batch_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "target_entity_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "target_entity_id",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "status",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "measured_value",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "threshold_value",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "details",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "assessed_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "quality_lineage",
+      "table": "data_issue",
+      "alias": "data_issue",
+      "fields": [
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "data_issue_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "quality_assessment_id",
+          "type": "bigint?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "issue_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "severity",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "target_entity_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "target_entity_id",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "title",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "description",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "detected_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "resolved_at",
+          "type": "timestamptz?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "data_issue",
+          "field": "resolution_notes",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "quality_lineage",
+      "table": "lineage_relation",
+      "alias": "lineage_relation",
+      "fields": [
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "lineage_relation_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "methodology_version_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "source_entity_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "source_entity_id",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "target_entity_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "target_entity_id",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "relation_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "transformation_description",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "formula",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "lineage_relation",
+          "field": "created_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "quality_lineage",
+      "table": "indicator_relation",
+      "alias": "indicator_relation",
+      "fields": [
+        {
+          "package": "quality_lineage",
+          "table": "indicator_relation",
+          "field": "indicator_relation_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "indicator_relation",
+          "field": "source_indicator_version_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "indicator_relation",
+          "field": "target_indicator_version_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "indicator_relation",
+          "field": "relation_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "indicator_relation",
+          "field": "formula",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "indicator_relation",
+          "field": "description",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "indicator_relation",
+          "field": "valid_from",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "indicator_relation",
+          "field": "valid_to",
+          "type": "date?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "quality_lineage",
+      "table": "series_break",
+      "alias": "series_break",
+      "fields": [
+        {
+          "package": "quality_lineage",
+          "table": "series_break",
+          "field": "series_break_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "series_break",
+          "field": "series_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "series_break",
+          "field": "methodology_version_id",
+          "type": "uuid?",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "series_break",
+          "field": "break_date",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "series_break",
+          "field": "break_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "series_break",
+          "field": "reason",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "series_break",
+          "field": "is_comparable_before_after",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "series_break",
+          "field": "linking_method",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "series_break",
+          "field": "notes",
+          "type": "text?",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    }
+  ],
+  "source_file": "systemInfo/relationalModel.puml"
+}

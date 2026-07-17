@@ -1,0 +1,20 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Estado — data_issue
+skinparam shadowing false
+[*] --> OPEN
+OPEN --> TRIAGED : classify
+TRIAGED --> IN_CORRECTION : assign
+TRIAGED --> DISMISSED : falsePositive / acceptedException
+IN_CORRECTION --> RESOLVED : correctionApplied
+RESOLVED --> VERIFIED : qualityRecheckPassed
+RESOLVED --> IN_CORRECTION : recheckFailed
+VERIFIED --> CLOSED : close
+CLOSED --> REOPENED : newEvidence
+REOPENED --> TRIAGED
+DISMISSED --> [*]
+CLOSED --> [*]
+@enduml

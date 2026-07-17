@@ -1,0 +1,29 @@
+@startuml
+!pragma layout smetana
+title Contexto del sistema — Core del Observatorio Económico
+skinparam shadowing false
+skinparam rectangleStyle rounded
+
+actor "Técnico institucional\nde datos" as officer
+actor "Analista /\ninvestigador" as analyst
+actor "Responsable\nmetodológico" as steward
+rectangle "Sistema fuente\ninstitucional" as source
+rectangle "Proveedor de identidad\nOIDC/JWKS" as idp
+rectangle "Core de datos del\nObservatorio Económico" as core
+rectangle "Almacenamiento de\nartefactos fuente" as objectstore
+rectangle "Plataforma de\nobservabilidad" as telemetry
+
+officer --> core : Registra y corrige datos
+analyst --> core : Consulta datos y trazabilidad
+steward --> core : Mantiene metadatos y calidad
+source --> core : Importa lotes autenticados
+core --> idp : Valida firma y claims JWT
+core --> objectstore : Referencia URI + SHA-256\n[transferencia no implementada]
+core --> telemetry : Logs y métricas redactados
+
+note bottom of core
+Responsable de integridad, revisiones,
+procedencia, calidad y linaje.
+No administra identidades ni frontend.
+end note
+@enduml

@@ -1,0 +1,122 @@
+services:
+  nginx:
+    image: nginx:1.29.0-alpine
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./infra/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/cache/nginx
+    networks: [edge, app]
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      target: runtime
+    env_file: .env
+    expose: ["3000"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks: [app]
+    restart: unless-stopped
+
+  migrate:
+    build:
+      context: .
+      target: runtime
+    command: ["node", "dist/database/cli/migrate.js"]
+    env_file: .env
+    depends_on:
+      backup:
+    image: postgres:17.5-alpine
+    profiles: ["operations"]
+    entrypoint: ["/bin/sh", "/opt/backup/run-backup.sh"]
+    environment:
+      BACKUP_DATABASE_URL: ${BACKUP_DATABASE_URL:?required}
+      BACKUP_DESTINATION: /backups
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-30}
+    volumes:
+      - ./infra/backup/run-backup.sh:/opt/backup/run-backup.sh:ro
+      - backup_data:/backups
+    depends_on:
+      postgres:
+        condition: service_healthy
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks: [app]
+    restart: "no"
+
+  postgres:
+        condition: service_healthy
+    networks: [app]
+    restart: "no"
+
+  backup:
+    image: postgres:17.5-alpine
+    profiles: ["operations"]
+    entrypoint: ["/bin/sh", "/opt/backup/run-backup.sh"]
+    environment:
+      BACKUP_DATABASE_URL: ${BACKUP_DATABASE_URL:?required}
+      BACKUP_DESTINATION: /backups
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-30}
+    volumes:
+      - ./infra/backup/run-backup.sh:/opt/backup/run-backup.sh:ro
+      - backup_data:/backups
+    depends_on:
+      postgres:
+        condition: service_healthy
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks: [app]
+    restart: "no"
+
+  postgres:
+    image: postgres:17.5-alpine
+    environment:
+      POSTGRES_DB: observatorio_economico
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:?required}
+      MIGRATOR_PASSWORD: ${MIGRATOR_PASSWORD:?required}
+      WRITER_PASSWORD: ${WRITER_PASSWORD:?required}
+      READER_PASSWORD: ${READER_PASSWORD:?required}
+      BACKUP_PASSWORD: ${BACKUP_PASSWORD:?required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init-local.sh:/docker-entrypoint-initdb.d/010-roles.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d observatorio_economico"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [app]
+    restart: unless-stopped
+
+networks:
+  edge: {}
+  app:
+    internal: true
+
+volumes:
+  postgres_data: {}
+  backup_data: {}

@@ -1,0 +1,30 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Evaluar calidad y resolver incidencia
+skinparam shadowing false
+start
+:Seleccionar lote, serie u observación;
+:Obtener reglas aplicables;
+repeat
+  :Ejecutar regla;
+  :Registrar quality_assessment;
+  if (¿Resultado FAIL o WARNING?) then (Sí)
+    :Crear o actualizar data_issue;
+  endif
+repeat while (¿Quedan reglas?) is (Sí)
+if (¿Hay incidencia?) then (Sí)
+  :Clasificar y asignar responsable;
+  :Analizar fuente, metodología y linaje;
+  :Corregir dato o justificar excepción;
+  :Reejecutar controles;
+  if (¿Control superado?) then (Sí)
+    :Resolver, verificar y cerrar incidencia;
+  else (No)
+    :Mantener abierta o reabrir;
+  endif
+endif
+stop
+@enduml

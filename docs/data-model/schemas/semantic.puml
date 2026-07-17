@@ -1,0 +1,114 @@
+@startuml
+hide methods
+hide stereotypes
+skinparam shadowing false
+title Schema semantic
+
+entity "statistical_domain" as statistical_domain {
+  *statistical_domain_id : uuid <<PK>>
+  parent_domain_id : uuid? <<FK>>
+  code : varchar(50) <<UQ>>
+  name : varchar(180)
+  description : text?
+  sort_order : integer
+  is_active : boolean
+}
+entity "concept" as concept {
+  *concept_id : uuid <<PK>>
+  owner_organization_id : uuid <<FK>>
+  code : varchar(80)
+  name : varchar(180)
+  definition : text
+  concept_type : varchar(40)
+  valid_from : date?
+  valid_to : date?
+}
+entity "code_list" as code_list {
+  *code_list_id : uuid <<PK>>
+  owner_organization_id : uuid <<FK>>
+  code : varchar(80)
+  name : varchar(180)
+  version_code : varchar(40)
+  valid_from : date?
+  valid_to : date?
+}
+entity "code_item" as code_item {
+  *code_item_id : uuid <<PK>>
+  code_list_id : uuid <<FK>>
+  parent_code_item_id : uuid? <<FK>>
+  code : varchar(80)
+  name : varchar(250)
+  description : text?
+  sort_order : integer
+  valid_from : date?
+  valid_to : date?
+  is_active : boolean
+}
+entity "classification" as classification {
+  *classification_id : uuid <<PK>>
+  custodian_organization_id : uuid <<FK>>
+  code : varchar(80)
+  name : varchar(250)
+  classification_type : varchar(50)
+}
+entity "classification_version" as classification_version {
+  *classification_version_id : uuid <<PK>>
+  classification_id : uuid <<FK>>
+  version_code : varchar(40)
+  name : varchar(250)
+  valid_from : date?
+  valid_to : date?
+  publication_date : date?
+  is_current : boolean
+  methodology_uri : text?
+}
+entity "classification_item" as classification_item {
+  *classification_item_id : uuid <<PK>>
+  classification_version_id : uuid <<FK>>
+  parent_item_id : uuid? <<FK>>
+  code : varchar(80)
+  name : varchar(300)
+  description : text?
+  level_no : integer
+  sort_order : integer
+  valid_from : date?
+  valid_to : date?
+}
+entity "classification_mapping" as classification_mapping {
+  *classification_mapping_id : uuid <<PK>>
+  source_item_id : uuid <<FK>>
+  target_item_id : uuid <<FK>>
+  equivalence_type : varchar(30)
+  weight : numeric(18,10)?
+  valid_from : date?
+  valid_to : date?
+  evidence_note : text?
+}
+entity "geographic_unit" as geographic_unit {
+  *geographic_unit_id : uuid <<PK>>
+  parent_geographic_unit_id : uuid? <<FK>>
+  official_code : varchar(80)
+  name : varchar(250)
+  geographic_level : varchar(40)
+  valid_from : date
+  valid_to : date?
+  geometry_reference : text?
+}
+entity "unit_measure" as unit_measure {
+  *unit_measure_id : uuid <<PK>>
+  base_unit_measure_id : uuid? <<FK>>
+  code : varchar(50) <<UQ>>
+  name : varchar(180)
+  symbol : varchar(30)?
+  multiplier_power10 : smallint
+  value_kind : varchar(30)
+}
+entity "frequency" as frequency {
+  *frequency_id : uuid <<PK>>
+  code : varchar(10) <<UQ>>
+  name : varchar(80)
+  periods_per_year : smallint?
+  iso_duration : varchar(40)?
+}
+
+@enduml

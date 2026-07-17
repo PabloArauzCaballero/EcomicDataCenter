@@ -1,0 +1,619 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{longtable,booktabs,array,xcolor,hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\title{Modelo físico del Observatorio Económico y de Mercados de Bolivia}
+\author{Documento técnico generado desde el catálogo validado}
+\date{15 de julio de 2026}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Lectura rápida}
+El modelo funciona como una biblioteca estadística auditable: procedencia identifica el origen; semántica define el significado; metadatos fija metodología y estructura; estadísticas conserva valores y revisiones; calidad y linaje explica validaciones y transformaciones. Ninguna cifra publicada se sobrescribe silenciosamente.
+\section{Criterios físicos}
+La implementación usa PostgreSQL con schemas separados, claves foráneas, restricciones de estado, índices parciales para versiones actuales, credenciales reader/writer separadas y migraciones versionadas. Los objetos de aplicación no se crean en \texttt{public}.
+
+\section{Schema \texttt{provenance}}
+Quién produjo el dato, de dónde se obtuvo y qué lote lo incorporó.
+\subsection{\texttt{organization}}
+Tabla técnica del dominio \texttt{provenance}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{organization\_id} & \texttt{uuid} & No & PK \\
+\texttt{parent\_organization\_id} & \texttt{uuid} & Sí & FK, nullable \\
+\texttt{code} & \texttt{varchar(50)} & No & UQ \\
+\texttt{legal\_name} & \texttt{varchar(250)} & No & --- \\
+\texttt{short\_name} & \texttt{varchar(80)} & No & --- \\
+\texttt{organization\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{country\_code} & \texttt{char(2)} & No & --- \\
+\texttt{official\_statistics\_producer} & \texttt{boolean} & No & --- \\
+\texttt{is\_active} & \texttt{boolean} & No & --- \\
+\texttt{valid\_from} & \texttt{date} & No & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{source}}
+Tabla técnica del dominio \texttt{provenance}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{source\_id} & \texttt{uuid} & No & PK \\
+\texttt{organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{frequency\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & UQ \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{source\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{access\_method} & \texttt{varchar(40)} & No & --- \\
+\texttt{official\_uri} & \texttt{text?} & Sí & --- \\
+\texttt{license\_code} & \texttt{varchar(80)?} & Sí & --- \\
+\texttt{active\_from} & \texttt{date?} & Sí & --- \\
+\texttt{active\_to} & \texttt{date?} & Sí & --- \\
+\texttt{is\_active} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{source\_artifact}}
+Tabla técnica del dominio \texttt{provenance}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{source\_artifact\_id} & \texttt{uuid} & No & PK \\
+\texttt{source\_id} & \texttt{uuid} & No & FK \\
+\texttt{artifact\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{original\_filename} & \texttt{varchar(255)?} & Sí & --- \\
+\texttt{original\_uri} & \texttt{text?} & Sí & --- \\
+\texttt{storage\_uri} & \texttt{text} & No & --- \\
+\texttt{mime\_type} & \texttt{varchar(120)?} & Sí & --- \\
+\texttt{sha256} & \texttt{char(64)} & No & UQ \\
+\texttt{publication\_date} & \texttt{date?} & Sí & --- \\
+\texttt{retrieved\_at} & \texttt{timestamptz} & No & --- \\
+\texttt{file\_size\_bytes} & \texttt{bigint?} & Sí & --- \\
+\texttt{metadata\_json} & \texttt{jsonb} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{data\_entry\_batch}}
+Tabla técnica del dominio \texttt{provenance}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{data\_entry\_batch\_id} & \texttt{uuid} & No & PK \\
+\texttt{dataset\_version\_id} & \texttt{uuid} & No & FK \\
+\texttt{source\_artifact\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{submitted\_by\_organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{batch\_code} & \texttt{varchar(80)} & No & UQ \\
+\texttt{entry\_method} & \texttt{varchar(30)} & No & --- \\
+\texttt{status} & \texttt{varchar(30)} & No & --- \\
+\texttt{received\_count} & \texttt{bigint} & No & --- \\
+\texttt{accepted\_count} & \texttt{bigint} & No & --- \\
+\texttt{rejected\_count} & \texttt{bigint} & No & --- \\
+\texttt{submitted\_at} & \texttt{timestamptz} & No & --- \\
+\texttt{started\_at} & \texttt{timestamptz?} & Sí & --- \\
+\texttt{completed\_at} & \texttt{timestamptz?} & Sí & --- \\
+\texttt{request\_fingerprint} & \texttt{char(64)} & No & --- \\
+\texttt{result\_json} & \texttt{jsonb?} & Sí & --- \\
+\texttt{notes} & \texttt{text?} & Sí & --- \\
+\bottomrule\end{longtable}
+\section{Schema \texttt{semantic}}
+Definiciones, códigos, clasificaciones, geografía, unidades y frecuencias.
+\subsection{\texttt{statistical\_domain}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{statistical\_domain\_id} & \texttt{uuid} & No & PK \\
+\texttt{parent\_domain\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{code} & \texttt{varchar(50)} & No & UQ \\
+\texttt{name} & \texttt{varchar(180)} & No & --- \\
+\texttt{description} & \texttt{text?} & Sí & --- \\
+\texttt{sort\_order} & \texttt{integer} & No & --- \\
+\texttt{is\_active} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{concept}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{concept\_id} & \texttt{uuid} & No & PK \\
+\texttt{owner\_organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(180)} & No & --- \\
+\texttt{definition} & \texttt{text} & No & --- \\
+\texttt{concept\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{valid\_from} & \texttt{date?} & Sí & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{code\_list}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{code\_list\_id} & \texttt{uuid} & No & PK \\
+\texttt{owner\_organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(180)} & No & --- \\
+\texttt{version\_code} & \texttt{varchar(40)} & No & --- \\
+\texttt{valid\_from} & \texttt{date?} & Sí & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{code\_item}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{code\_item\_id} & \texttt{uuid} & No & PK \\
+\texttt{code\_list\_id} & \texttt{uuid} & No & FK \\
+\texttt{parent\_code\_item\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{description} & \texttt{text?} & Sí & --- \\
+\texttt{sort\_order} & \texttt{integer} & No & --- \\
+\texttt{valid\_from} & \texttt{date?} & Sí & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\texttt{is\_active} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{classification}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{classification\_id} & \texttt{uuid} & No & PK \\
+\texttt{custodian\_organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{classification\_type} & \texttt{varchar(50)} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{classification\_version}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{classification\_version\_id} & \texttt{uuid} & No & PK \\
+\texttt{classification\_id} & \texttt{uuid} & No & FK \\
+\texttt{version\_code} & \texttt{varchar(40)} & No & --- \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{valid\_from} & \texttt{date?} & Sí & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\texttt{publication\_date} & \texttt{date?} & Sí & --- \\
+\texttt{is\_current} & \texttt{boolean} & No & --- \\
+\texttt{methodology\_uri} & \texttt{text?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{classification\_item}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{classification\_item\_id} & \texttt{uuid} & No & PK \\
+\texttt{classification\_version\_id} & \texttt{uuid} & No & FK \\
+\texttt{parent\_item\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(300)} & No & --- \\
+\texttt{description} & \texttt{text?} & Sí & --- \\
+\texttt{level\_no} & \texttt{integer} & No & --- \\
+\texttt{sort\_order} & \texttt{integer} & No & --- \\
+\texttt{valid\_from} & \texttt{date?} & Sí & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{classification\_mapping}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{classification\_mapping\_id} & \texttt{uuid} & No & PK \\
+\texttt{source\_item\_id} & \texttt{uuid} & No & FK \\
+\texttt{target\_item\_id} & \texttt{uuid} & No & FK \\
+\texttt{equivalence\_type} & \texttt{varchar(30)} & No & --- \\
+\texttt{weight} & \texttt{numeric(18,10)?} & Sí & --- \\
+\texttt{valid\_from} & \texttt{date?} & Sí & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\texttt{evidence\_note} & \texttt{text?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{geographic\_unit}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{geographic\_unit\_id} & \texttt{uuid} & No & PK \\
+\texttt{parent\_geographic\_unit\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{official\_code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{geographic\_level} & \texttt{varchar(40)} & No & --- \\
+\texttt{valid\_from} & \texttt{date} & No & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\texttt{geometry\_reference} & \texttt{text?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{unit\_measure}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{unit\_measure\_id} & \texttt{uuid} & No & PK \\
+\texttt{base\_unit\_measure\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{code} & \texttt{varchar(50)} & No & UQ \\
+\texttt{name} & \texttt{varchar(180)} & No & --- \\
+\texttt{symbol} & \texttt{varchar(30)?} & Sí & --- \\
+\texttt{multiplier\_power10} & \texttt{smallint} & No & --- \\
+\texttt{value\_kind} & \texttt{varchar(30)} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{frequency}}
+Tabla técnica del dominio \texttt{semantic}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{frequency\_id} & \texttt{uuid} & No & PK \\
+\texttt{code} & \texttt{varchar(10)} & No & UQ \\
+\texttt{name} & \texttt{varchar(80)} & No & --- \\
+\texttt{periods\_per\_year} & \texttt{smallint?} & Sí & --- \\
+\texttt{iso\_duration} & \texttt{varchar(40)?} & Sí & --- \\
+\bottomrule\end{longtable}
+\section{Schema \texttt{metadata}}
+Operaciones estadísticas, metodologías, estructuras, datasets y sus versiones.
+\subsection{\texttt{statistical\_operation}}
+Tabla técnica del dominio \texttt{metadata}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{statistical\_operation\_id} & \texttt{uuid} & No & PK \\
+\texttt{producer\_organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{operation\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{objective} & \texttt{text} & No & --- \\
+\texttt{population\_scope} & \texttt{text?} & Sí & --- \\
+\texttt{geographic\_scope} & \texttt{text?} & Sí & --- \\
+\texttt{collection\_method} & \texttt{text?} & Sí & --- \\
+\texttt{start\_date} & \texttt{date?} & Sí & --- \\
+\texttt{end\_date} & \texttt{date?} & Sí & --- \\
+\texttt{status} & \texttt{varchar(30)} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{methodology}}
+Tabla técnica del dominio \texttt{metadata}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{methodology\_id} & \texttt{uuid} & No & PK \\
+\texttt{owner\_organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{methodology\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{description} & \texttt{text?} & Sí & --- \\
+\texttt{is\_official} & \texttt{boolean} & No & --- \\
+\texttt{is\_active} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{methodology\_version}}
+Tabla técnica del dominio \texttt{metadata}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{methodology\_version\_id} & \texttt{uuid} & No & PK \\
+\texttt{methodology\_id} & \texttt{uuid} & No & FK \\
+\texttt{version\_code} & \texttt{varchar(40)} & No & --- \\
+\texttt{title} & \texttt{varchar(300)} & No & --- \\
+\texttt{status} & \texttt{varchar(30)} & No & --- \\
+\texttt{formula\_description} & \texttt{text?} & Sí & --- \\
+\texttt{universe\_definition} & \texttt{text?} & Sí & --- \\
+\texttt{sampling\_method} & \texttt{text?} & Sí & --- \\
+\texttt{missing\_data\_treatment} & \texttt{text?} & Sí & --- \\
+\texttt{seasonal\_adjustment\_method} & \texttt{text?} & Sí & --- \\
+\texttt{revision\_policy} & \texttt{text?} & Sí & --- \\
+\texttt{confidentiality\_policy} & \texttt{text?} & Sí & --- \\
+\texttt{valid\_from} & \texttt{date} & No & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\texttt{publication\_date} & \texttt{date?} & Sí & --- \\
+\texttt{document\_uri} & \texttt{text?} & Sí & --- \\
+\texttt{is\_current} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{dataset}}
+Tabla técnica del dominio \texttt{metadata}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{dataset\_id} & \texttt{uuid} & No & PK \\
+\texttt{statistical\_operation\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{source\_id} & \texttt{uuid} & No & FK \\
+\texttt{producer\_organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{statistical\_domain\_id} & \texttt{uuid} & No & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(300)} & No & --- \\
+\texttt{description} & \texttt{text?} & Sí & --- \\
+\texttt{data\_nature} & \texttt{varchar(40)} & No & --- \\
+\texttt{publication\_status} & \texttt{varchar(30)} & No & --- \\
+\texttt{license\_code} & \texttt{varchar(80)?} & Sí & --- \\
+\texttt{confidentiality\_level} & \texttt{varchar(30)} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{dataset\_version}}
+Tabla técnica del dominio \texttt{metadata}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{dataset\_version\_id} & \texttt{uuid} & No & PK \\
+\texttt{dataset\_id} & \texttt{uuid} & No & FK \\
+\texttt{methodology\_version\_id} & \texttt{uuid} & No & FK \\
+\texttt{data\_structure\_id} & \texttt{uuid} & No & FK \\
+\texttt{version\_code} & \texttt{varchar(40)} & No & --- \\
+\texttt{title} & \texttt{varchar(300)} & No & --- \\
+\texttt{status} & \texttt{varchar(30)} & No & --- \\
+\texttt{reference\_base\_period} & \texttt{varchar(40)?} & Sí & --- \\
+\texttt{valid\_from} & \texttt{date} & No & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\texttt{publication\_date} & \texttt{date?} & Sí & --- \\
+\texttt{is\_current} & \texttt{boolean} & No & --- \\
+\texttt{change\_reason} & \texttt{text?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{data\_structure}}
+Tabla técnica del dominio \texttt{metadata}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{data\_structure\_id} & \texttt{uuid} & No & PK \\
+\texttt{owner\_organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{version\_code} & \texttt{varchar(40)} & No & --- \\
+\texttt{valid\_from} & \texttt{date?} & Sí & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\texttt{is\_active} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{dimension\_definition}}
+Tabla técnica del dominio \texttt{metadata}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{dimension\_definition\_id} & \texttt{uuid} & No & PK \\
+\texttt{data\_structure\_id} & \texttt{uuid} & No & FK \\
+\texttt{concept\_id} & \texttt{uuid} & No & FK \\
+\texttt{code\_list\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{classification\_version\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{role} & \texttt{varchar(30)} & No & --- \\
+\texttt{position\_no} & \texttt{smallint} & No & --- \\
+\texttt{attachment\_level} & \texttt{varchar(20)} & No & --- \\
+\texttt{representation\_kind} & \texttt{varchar(30)} & No & --- \\
+\texttt{is\_required} & \texttt{boolean} & No & --- \\
+\texttt{is\_time\_dimension} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{measure\_definition}}
+Tabla técnica del dominio \texttt{metadata}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{measure\_definition\_id} & \texttt{uuid} & No & PK \\
+\texttt{data\_structure\_id} & \texttt{uuid} & No & FK \\
+\texttt{concept\_id} & \texttt{uuid} & No & FK \\
+\texttt{unit\_measure\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(180)} & No & --- \\
+\texttt{data\_type} & \texttt{varchar(30)} & No & --- \\
+\texttt{precision\_scale} & \texttt{smallint?} & Sí & --- \\
+\texttt{is\_primary\_measure} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{attribute\_definition}}
+Tabla técnica del dominio \texttt{metadata}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{attribute\_definition\_id} & \texttt{uuid} & No & PK \\
+\texttt{data\_structure\_id} & \texttt{uuid} & No & FK \\
+\texttt{concept\_id} & \texttt{uuid} & No & FK \\
+\texttt{code\_list\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(180)} & No & --- \\
+\texttt{data\_type} & \texttt{varchar(30)} & No & --- \\
+\texttt{attachment\_level} & \texttt{varchar(20)} & No & --- \\
+\texttt{is\_required} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\section{Schema \texttt{statistics}}
+Indicadores, series, observaciones, revisiones, medidas y atributos.
+\subsection{\texttt{indicator}}
+Tabla técnica del dominio \texttt{statistics}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{indicator\_id} & \texttt{uuid} & No & PK \\
+\texttt{statistical\_domain\_id} & \texttt{uuid} & No & FK \\
+\texttt{owner\_organization\_id} & \texttt{uuid} & No & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & --- \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{short\_name} & \texttt{varchar(120)?} & Sí & --- \\
+\texttt{definition} & \texttt{text} & No & --- \\
+\texttt{indicator\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{data\_nature} & \texttt{varchar(40)} & No & --- \\
+\texttt{preferred\_direction} & \texttt{varchar(20)?} & Sí & --- \\
+\texttt{is\_active} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{indicator\_version}}
+Tabla técnica del dominio \texttt{statistics}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{indicator\_version\_id} & \texttt{uuid} & No & PK \\
+\texttt{indicator\_id} & \texttt{uuid} & No & FK \\
+\texttt{methodology\_version\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{unit\_measure\_id} & \texttt{uuid} & No & FK \\
+\texttt{frequency\_id} & \texttt{uuid} & No & FK \\
+\texttt{version\_number} & \texttt{integer} & No & --- \\
+\texttt{definition} & \texttt{text} & No & --- \\
+\texttt{calculation\_formula} & \texttt{text?} & Sí & --- \\
+\texttt{valid\_from} & \texttt{date} & No & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\texttt{change\_reason} & \texttt{text?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{dataset\_indicator}}
+Tabla técnica del dominio \texttt{statistics}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{dataset\_indicator\_id} & \texttt{uuid} & No & PK \\
+\texttt{dataset\_version\_id} & \texttt{uuid} & No & FK \\
+\texttt{indicator\_version\_id} & \texttt{uuid} & No & FK \\
+\texttt{is\_primary} & \texttt{boolean} & No & --- \\
+\texttt{sort\_order} & \texttt{integer} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{series}}
+Tabla técnica del dominio \texttt{statistics}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{series\_id} & \texttt{uuid} & No & PK \\
+\texttt{dataset\_version\_id} & \texttt{uuid} & No & FK \\
+\texttt{indicator\_version\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{frequency\_id} & \texttt{uuid} & No & FK \\
+\texttt{unit\_measure\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{series\_key} & \texttt{text} & No & --- \\
+\texttt{series\_key\_hash} & \texttt{char(64)} & No & --- \\
+\texttt{status} & \texttt{varchar(30)} & No & --- \\
+\texttt{valid\_from} & \texttt{date?} & Sí & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{series\_dimension\_value}}
+Tabla técnica del dominio \texttt{statistics}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{series\_dimension\_value\_id} & \texttt{bigint} & No & PK \\
+\texttt{series\_id} & \texttt{uuid} & No & FK \\
+\texttt{dimension\_definition\_id} & \texttt{uuid} & No & FK \\
+\texttt{code\_item\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{classification\_item\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{geographic\_unit\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{text\_value} & \texttt{text?} & Sí & --- \\
+\texttt{numeric\_value} & \texttt{numeric(38,12)?} & Sí & --- \\
+\texttt{date\_value} & \texttt{date?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{observation}}
+Tabla técnica del dominio \texttt{statistics}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{observation\_id} & \texttt{bigint} & No & PK \\
+\texttt{series\_id} & \texttt{uuid} & No & FK \\
+\texttt{period\_start} & \texttt{date} & No & --- \\
+\texttt{period\_end} & \texttt{date} & No & --- \\
+\texttt{period\_code} & \texttt{varchar(40)} & No & --- \\
+\texttt{reference\_date} & \texttt{date?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{observation\_revision}}
+Tabla técnica del dominio \texttt{statistics}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{observation\_revision\_id} & \texttt{bigint} & No & PK \\
+\texttt{observation\_id} & \texttt{bigint} & No & FK \\
+\texttt{source\_artifact\_id} & \texttt{uuid} & No & FK \\
+\texttt{data\_entry\_batch\_id} & \texttt{uuid} & No & FK \\
+\texttt{revision\_number} & \texttt{integer} & No & --- \\
+\texttt{status} & \texttt{varchar(30)} & No & --- \\
+\texttt{confidentiality\_status} & \texttt{varchar(30)} & No & --- \\
+\texttt{publication\_date} & \texttt{date?} & Sí & --- \\
+\texttt{capture\_date} & \texttt{timestamptz} & No & --- \\
+\texttt{vintage\_date} & \texttt{date} & No & --- \\
+\texttt{valid\_from} & \texttt{timestamptz} & No & --- \\
+\texttt{valid\_to} & \texttt{timestamptz?} & Sí & --- \\
+\texttt{is\_current} & \texttt{boolean} & No & --- \\
+\texttt{revision\_reason} & \texttt{text?} & Sí & --- \\
+\texttt{normalized\_hash} & \texttt{char(64)} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{observation\_measure}}
+Tabla técnica del dominio \texttt{statistics}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{observation\_measure\_id} & \texttt{bigint} & No & PK \\
+\texttt{observation\_revision\_id} & \texttt{bigint} & No & FK \\
+\texttt{measure\_definition\_id} & \texttt{uuid} & No & FK \\
+\texttt{numeric\_value} & \texttt{numeric(38,12)?} & Sí & --- \\
+\texttt{text\_value} & \texttt{text?} & Sí & --- \\
+\texttt{boolean\_value} & \texttt{boolean?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{observation\_attribute\_value}}
+Tabla técnica del dominio \texttt{statistics}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{observation\_attribute\_value\_id} & \texttt{bigint} & No & PK \\
+\texttt{observation\_revision\_id} & \texttt{bigint} & No & FK \\
+\texttt{attribute\_definition\_id} & \texttt{uuid} & No & FK \\
+\texttt{code\_item\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{numeric\_value} & \texttt{numeric(38,12)?} & Sí & --- \\
+\texttt{text\_value} & \texttt{text?} & Sí & --- \\
+\texttt{boolean\_value} & \texttt{boolean?} & Sí & --- \\
+\bottomrule\end{longtable}
+\section{Schema \texttt{quality\_lineage}}
+Reglas, evaluaciones, incidencias, linaje, relaciones y rupturas de serie.
+\subsection{\texttt{quality\_dimension}}
+Tabla técnica del dominio \texttt{quality\_lineage}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{quality\_dimension\_id} & \texttt{uuid} & No & PK \\
+\texttt{code} & \texttt{varchar(50)} & No & UQ \\
+\texttt{name} & \texttt{varchar(180)} & No & --- \\
+\texttt{description} & \texttt{text?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{quality\_rule}}
+Tabla técnica del dominio \texttt{quality\_lineage}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{quality\_rule\_id} & \texttt{uuid} & No & PK \\
+\texttt{quality\_dimension\_id} & \texttt{uuid} & No & FK \\
+\texttt{code} & \texttt{varchar(80)} & No & UQ \\
+\texttt{name} & \texttt{varchar(250)} & No & --- \\
+\texttt{rule\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{severity} & \texttt{varchar(20)} & No & --- \\
+\texttt{target\_entity\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{configuration\_json} & \texttt{jsonb} & No & --- \\
+\texttt{is\_active} & \texttt{boolean} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{quality\_assessment}}
+Tabla técnica del dominio \texttt{quality\_lineage}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{quality\_assessment\_id} & \texttt{bigint} & No & PK \\
+\texttt{quality\_rule\_id} & \texttt{uuid} & No & FK \\
+\texttt{data\_entry\_batch\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{target\_entity\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{target\_entity\_id} & \texttt{varchar(80)} & No & --- \\
+\texttt{status} & \texttt{varchar(20)} & No & --- \\
+\texttt{measured\_value} & \texttt{text?} & Sí & --- \\
+\texttt{threshold\_value} & \texttt{text?} & Sí & --- \\
+\texttt{details} & \texttt{jsonb} & No & --- \\
+\texttt{assessed\_at} & \texttt{timestamptz} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{data\_issue}}
+Tabla técnica del dominio \texttt{quality\_lineage}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{data\_issue\_id} & \texttt{uuid} & No & PK \\
+\texttt{quality\_assessment\_id} & \texttt{bigint?} & Sí & FK \\
+\texttt{issue\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{severity} & \texttt{varchar(20)} & No & --- \\
+\texttt{target\_entity\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{target\_entity\_id} & \texttt{varchar(80)} & No & --- \\
+\texttt{title} & \texttt{varchar(250)} & No & --- \\
+\texttt{description} & \texttt{text} & No & --- \\
+\texttt{status} & \texttt{varchar(30)} & No & --- \\
+\texttt{detected\_at} & \texttt{timestamptz} & No & --- \\
+\texttt{resolved\_at} & \texttt{timestamptz?} & Sí & --- \\
+\texttt{resolution\_notes} & \texttt{text?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{lineage\_relation}}
+Tabla técnica del dominio \texttt{quality\_lineage}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{lineage\_relation\_id} & \texttt{uuid} & No & PK \\
+\texttt{methodology\_version\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{source\_entity\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{source\_entity\_id} & \texttt{varchar(80)} & No & --- \\
+\texttt{target\_entity\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{target\_entity\_id} & \texttt{varchar(80)} & No & --- \\
+\texttt{relation\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{transformation\_description} & \texttt{text?} & Sí & --- \\
+\texttt{formula} & \texttt{text?} & Sí & --- \\
+\texttt{created\_at} & \texttt{timestamptz} & No & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{indicator\_relation}}
+Tabla técnica del dominio \texttt{quality\_lineage}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{indicator\_relation\_id} & \texttt{uuid} & No & PK \\
+\texttt{source\_indicator\_version\_id} & \texttt{uuid} & No & FK \\
+\texttt{target\_indicator\_version\_id} & \texttt{uuid} & No & FK \\
+\texttt{relation\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{formula} & \texttt{text?} & Sí & --- \\
+\texttt{description} & \texttt{text?} & Sí & --- \\
+\texttt{valid\_from} & \texttt{date?} & Sí & --- \\
+\texttt{valid\_to} & \texttt{date?} & Sí & --- \\
+\bottomrule\end{longtable}
+\subsection{\texttt{series\_break}}
+Tabla técnica del dominio \texttt{quality\_lineage}. Su identidad se conserva mediante la clave primaria y sus relaciones se validan por migraciones PostgreSQL.
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} p{0.18\textwidth} p{0.12\textwidth} p{0.34\textwidth}}
+\toprule Campo & Tipo & Nulo & Restricciones \\ \midrule\endhead
+\texttt{series\_break\_id} & \texttt{uuid} & No & PK \\
+\texttt{series\_id} & \texttt{uuid} & No & FK \\
+\texttt{methodology\_version\_id} & \texttt{uuid?} & Sí & FK \\
+\texttt{break\_date} & \texttt{date} & No & --- \\
+\texttt{break\_type} & \texttt{varchar(40)} & No & --- \\
+\texttt{reason} & \texttt{text} & No & --- \\
+\texttt{is\_comparable\_before\_after} & \texttt{boolean} & No & --- \\
+\texttt{linking\_method} & \texttt{text?} & Sí & --- \\
+\texttt{notes} & \texttt{text?} & Sí & --- \\
+\bottomrule\end{longtable}
+\section{Vistas y proyecciones}
+\texttt{read\_models.current\_observation\_value} estabiliza la lectura de la revisión publicada actual sin permitir escrituras. Las consultas históricas continúan leyendo las revisiones base mediante fecha de corte para preservar reproducibilidad.
+\section{Glosario}
+\begin{description}
+\item[Serie] Combinación única de dimensiones no temporales.
+\item[Observación] Periodo de una serie.
+\item[Revisión] Versión publicada o rechazada del valor observado.
+\item[Vintage] Fecha desde la cual una revisión estaba disponible.
+\item[Linaje] Relación verificable entre un dato fuente y uno derivado.
+\end{description}
+\section{Nota didáctica}
+Una cifra sin fuente, metodología, versión y fecha de disponibilidad no es un dato reproducible; es solo un número. El modelo conserva esas cuatro piezas como parte del núcleo.
+\end{document}

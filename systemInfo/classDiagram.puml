@@ -1,0 +1,433 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Diagrama de clases — Modelo lógico final del core estadístico
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+hide empty methods
+
+package "Procedencia" {
+  class Organization <<Aggregate>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +type: OrganizationType
+    +officialStatisticsProducer: Boolean
+    +isActive: Boolean
+    +addChild()
+  }
+  class Source <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +sourceType: SourceType
+    +accessMethod: AccessMethod
+    +expectedFrequency: Frequency
+    +activate()
+    +deactivate()
+  }
+  class SourceArtifact <<ImmutableEntity>> {
+    +id: UUID
+    +artifactType: ArtifactType
+    +sha256: String
+    +originalUri: String
+    +storageUri: String
+    +publicationDate: Date?
+    +retrievedAt: Instant
+    +verifyIntegrity()
+  }
+  class DataEntryBatch <<Aggregate>> {
+    +id: UUID
+    +batchCode: String
+    +entryMethod: EntryMethod
+    +status: BatchStatus
+    +receivedCount: Long
+    +acceptedCount: Long
+    +rejectedCount: Long
+    +startValidation()
+    +commit()
+    +reject()
+  }
+}
+
+package "Semántica y clasificaciones" {
+  class StatisticalDomain <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+  }
+  class Concept <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +definition: Text
+    +conceptType: ConceptType
+  }
+  class CodeList <<Aggregate>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +version: String
+    +addItem()
+  }
+  class CodeItem <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +validFrom: Date
+    +validTo: Date?
+  }
+  class Classification <<Aggregate>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +type: ClassificationType
+  }
+  class ClassificationVersion <<Entity>> {
+    +id: UUID
+    +versionCode: String
+    +validFrom: Date
+    +validTo: Date?
+    +isCurrent: Boolean
+  }
+  class ClassificationItem <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +level: Integer
+  }
+  class ClassificationMapping <<Entity>> {
+    +id: UUID
+    +equivalenceType: EquivalenceType
+    +weight: Decimal?
+    +validFrom: Date?
+    +validTo: Date?
+  }
+  class GeographicUnit <<Entity>> {
+    +id: UUID
+    +officialCode: String
+    +name: String
+    +level: GeographicLevel
+    +validFrom: Date
+    +validTo: Date?
+  }
+  class UnitMeasure <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +symbol: String?
+    +multiplier: Integer
+  }
+  class Frequency <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +periodsPerYear: Integer?
+  }
+}
+
+package "Metadatos y estructura" {
+  class StatisticalOperation <<Aggregate>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +operationType: OperationType
+    +objective: Text
+    +status: OperationStatus
+  }
+  class Methodology <<Aggregate>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +methodologyType: MethodologyType
+  }
+  class MethodologyVersion <<Entity>> {
+    +id: UUID
+    +versionCode: String
+    +status: VersionStatus
+    +formulaDescription: Text?
+    +revisionPolicy: Text?
+    +validFrom: Date
+    +validTo: Date?
+    +submitForReview()
+    +publish()
+  }
+  class Dataset <<Aggregate>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +dataNature: DataNature
+    +publicationStatus: PublicationStatus
+    +createVersion()
+  }
+  class DatasetVersion <<Entity>> {
+    +id: UUID
+    +versionCode: String
+    +status: VersionStatus
+    +referenceBasePeriod: String?
+    +validFrom: Date
+    +validTo: Date?
+    +publish()
+    +supersede()
+  }
+  class DataStructure <<Aggregate>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +version: String
+    +validateKey()
+  }
+  class DimensionDefinition <<Entity>> {
+    +id: UUID
+    +code: String
+    +position: Integer
+    +attachmentLevel: AttachmentLevel
+    +representationKind: RepresentationKind
+    +required: Boolean
+  }
+  class MeasureDefinition <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +dataType: ValueType
+    +precision: Integer?
+    +primary: Boolean
+  }
+  class AttributeDefinition <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +dataType: ValueType
+    +attachmentLevel: AttachmentLevel
+  }
+}
+
+package "Núcleo estadístico" {
+  class Indicator <<Aggregate>> {
+    +id: UUID
+    +code: String
+    +name: String
+    +definition: Text
+    +dataNature: DataNature
+    +isActive: Boolean
+    +createVersion()
+  }
+  class IndicatorVersion <<Entity>> {
+    +id: UUID
+    +versionNumber: Integer
+    +definition: Text
+    +calculationFormula: Text?
+    +validFrom: Date
+    +validTo: Date?
+  }
+  class DatasetIndicator <<AssociationClass>> {
+    +id: UUID
+    +primary: Boolean
+    +sortOrder: Integer
+  }
+  class Series <<Aggregate>> {
+    +id: UUID
+    +key: String
+    +keyHash: String
+    +status: SeriesStatus
+    +validFrom: Date?
+    +validTo: Date?
+    +resolveObservation()
+  }
+  class SeriesDimensionValue <<Entity>> {
+    +id: Long
+    +textValue: String?
+    +numericValue: Decimal?
+    +dateValue: Date?
+    +validateExclusiveValue()
+  }
+  class Observation <<Aggregate>> {
+    +id: Long
+    +periodStart: Date
+    +periodEnd: Date
+    +periodCode: String
+    +addRevision()
+  }
+  class ObservationRevision <<Entity>> {
+    +id: Long
+    +revisionNumber: Integer
+    +status: RevisionStatus
+    +publicationDate: Date?
+    +vintageDate: Date
+    +isCurrent: Boolean
+    +supersede()
+    +withdraw()
+  }
+  class ObservationMeasure <<Entity>> {
+    +id: Long
+    +numericValue: Decimal?
+    +textValue: Text?
+    +booleanValue: Boolean?
+    +validateExclusiveValue()
+  }
+  class ObservationAttributeValue <<Entity>> {
+    +id: Long
+    +numericValue: Decimal?
+    +textValue: Text?
+    +booleanValue: Boolean?
+  }
+}
+
+package "Calidad, linaje y comparabilidad" {
+  class QualityDimension <<Entity>> {
+    +id: UUID
+    +code: String
+    +name: String
+  }
+  class QualityRule <<Aggregate>> {
+    +id: UUID
+    +code: String
+    +ruleType: RuleType
+    +severity: Severity
+    +targetEntityType: EntityType
+    +configuration: Json
+  }
+  class QualityAssessment <<Entity>> {
+    +id: Long
+    +status: AssessmentStatus
+    +measuredValue: String?
+    +thresholdValue: String?
+    +assessedAt: Instant
+  }
+  class DataIssue <<Aggregate>> {
+    +id: UUID
+    +issueType: IssueType
+    +severity: Severity
+    +status: IssueStatus
+    +open()
+    +resolve()
+    +verify()
+    +reopen()
+  }
+  class LineageRelation <<Entity>> {
+    +id: UUID
+    +relationType: LineageType
+    +sourceEntityType: EntityType
+    +sourceEntityId: String
+    +targetEntityType: EntityType
+    +targetEntityId: String
+    +formula: Text?
+  }
+  class IndicatorRelation <<Entity>> {
+    +id: UUID
+    +relationType: IndicatorRelationType
+    +formula: Text?
+    +validFrom: Date?
+    +validTo: Date?
+  }
+  class SeriesBreak <<Entity>> {
+    +id: UUID
+    +breakDate: Date
+    +breakType: SeriesBreakType
+    +comparableBeforeAfter: Boolean
+    +linkingMethod: Text?
+  }
+}
+
+Organization "0..1" <-- "0..*" Organization : parent
+Organization "1" -- "0..*" Source : publishes >
+Source "1" -- "0..*" SourceArtifact : materializes >
+Organization "1" -- "0..*" DataEntryBatch : submits >
+DatasetVersion "1" -- "0..*" DataEntryBatch
+SourceArtifact "0..1" -- "0..*" DataEntryBatch
+
+StatisticalDomain "0..1" <-- "0..*" StatisticalDomain : parent
+CodeList "1" *-- "1..*" CodeItem
+CodeItem "0..1" <-- "0..*" CodeItem : parent
+Classification "1" *-- "1..*" ClassificationVersion
+ClassificationVersion "1" *-- "0..*" ClassificationItem
+ClassificationItem "0..1" <-- "0..*" ClassificationItem : parent
+ClassificationItem "1" -- "0..*" ClassificationMapping : source
+ClassificationItem "1" -- "0..*" ClassificationMapping : target
+GeographicUnit "0..1" <-- "0..*" GeographicUnit : parent
+UnitMeasure "0..1" <-- "0..*" UnitMeasure : base
+Organization "1" -- "0..*" Classification : custodian
+Organization "1" -- "0..*" Concept : defines
+
+Organization "1" -- "0..*" StatisticalOperation : produces
+Organization "1" -- "0..*" Methodology : owns
+Methodology "1" *-- "1..*" MethodologyVersion
+StatisticalOperation "0..1" -- "0..*" Dataset
+Source "1" -- "0..*" Dataset
+Organization "1" -- "0..*" Dataset : produces
+StatisticalDomain "1" -- "0..*" Dataset
+Dataset "1" *-- "1..*" DatasetVersion
+MethodologyVersion "1" -- "0..*" DatasetVersion
+DataStructure "1" -- "0..*" DatasetVersion
+Organization "1" -- "0..*" DataStructure : maintains
+DataStructure "1" *-- "1..*" DimensionDefinition
+DataStructure "1" *-- "1..*" MeasureDefinition
+DataStructure "1" *-- "0..*" AttributeDefinition
+Concept "1" -- "0..*" DimensionDefinition
+Concept "1" -- "0..*" MeasureDefinition
+Concept "1" -- "0..*" AttributeDefinition
+CodeList "0..1" -- "0..*" DimensionDefinition
+ClassificationVersion "0..1" -- "0..*" DimensionDefinition
+CodeList "0..1" -- "0..*" AttributeDefinition
+UnitMeasure "0..1" -- "0..*" MeasureDefinition
+
+StatisticalDomain "1" -- "0..*" Indicator
+Organization "1" -- "0..*" Indicator : owns
+Indicator "1" *-- "1..*" IndicatorVersion
+MethodologyVersion "0..1" -- "0..*" IndicatorVersion
+UnitMeasure "1" -- "0..*" IndicatorVersion
+Frequency "1" -- "0..*" IndicatorVersion
+DatasetVersion "1" -- "0..*" DatasetIndicator
+IndicatorVersion "1" -- "0..*" DatasetIndicator
+DatasetVersion "1" -- "0..*" Series
+IndicatorVersion "0..1" -- "0..*" Series
+Frequency "1" -- "0..*" Series
+UnitMeasure "0..1" -- "0..*" Series
+Series "1" *-- "1..*" SeriesDimensionValue
+DimensionDefinition "1" -- "0..*" SeriesDimensionValue
+CodeItem "0..1" -- "0..*" SeriesDimensionValue
+ClassificationItem "0..1" -- "0..*" SeriesDimensionValue
+GeographicUnit "0..1" -- "0..*" SeriesDimensionValue
+Series "1" *-- "0..*" Observation
+Observation "1" *-- "1..*" ObservationRevision
+SourceArtifact "1" -- "0..*" ObservationRevision
+DataEntryBatch "1" -- "0..*" ObservationRevision
+ObservationRevision "1" *-- "1..*" ObservationMeasure
+MeasureDefinition "1" -- "0..*" ObservationMeasure
+ObservationRevision "1" *-- "0..*" ObservationAttributeValue
+AttributeDefinition "1" -- "0..*" ObservationAttributeValue
+
+QualityDimension "1" -- "0..*" QualityRule
+QualityRule "1" -- "0..*" QualityAssessment
+DataEntryBatch "0..1" -- "0..*" QualityAssessment
+QualityAssessment "0..1" -- "0..*" DataIssue
+IndicatorVersion "1" -- "0..*" IndicatorRelation : source
+IndicatorVersion "1" -- "0..*" IndicatorRelation : target
+Series "1" -- "0..*" SeriesBreak
+MethodologyVersion "0..1" -- "0..*" SeriesBreak
+
+note right of SeriesDimensionValue
+Restricción XOR:
+exactamente una referencia/valor entre
+codeItem, classificationItem,
+geographicUnit, text, numeric o date.
+end note
+
+note right of ObservationMeasure
+Restricción XOR:
+exactamente un valor entre
+numericValue, textValue o booleanValue.
+end note
+
+note bottom of LineageRelation
+Relación polimórfica controlada para enlazar
+artefactos, lotes, revisiones, series,
+datasets e indicadores sin duplicar tablas
+de linaje por cada tipo.
+end note
+@enduml

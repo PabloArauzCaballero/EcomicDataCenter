@@ -1,0 +1,126 @@
+@startuml
+hide methods
+hide stereotypes
+skinparam shadowing false
+title Schema metadata
+
+entity "statistical_operation" as statistical_operation {
+  *statistical_operation_id : uuid <<PK>>
+  producer_organization_id : uuid <<FK>>
+  code : varchar(80)
+  name : varchar(250)
+  operation_type : varchar(40)
+  objective : text
+  population_scope : text?
+  geographic_scope : text?
+  collection_method : text?
+  start_date : date?
+  end_date : date?
+  status : varchar(30)
+}
+entity "methodology" as methodology {
+  *methodology_id : uuid <<PK>>
+  owner_organization_id : uuid <<FK>>
+  code : varchar(80)
+  name : varchar(250)
+  methodology_type : varchar(40)
+  description : text?
+  is_official : boolean
+  is_active : boolean
+}
+entity "methodology_version" as methodology_version {
+  *methodology_version_id : uuid <<PK>>
+  methodology_id : uuid <<FK>>
+  version_code : varchar(40)
+  title : varchar(300)
+  status : varchar(30)
+  formula_description : text?
+  universe_definition : text?
+  sampling_method : text?
+  missing_data_treatment : text?
+  seasonal_adjustment_method : text?
+  revision_policy : text?
+  confidentiality_policy : text?
+  valid_from : date
+  valid_to : date?
+  publication_date : date?
+  document_uri : text?
+  is_current : boolean
+}
+entity "dataset" as dataset {
+  *dataset_id : uuid <<PK>>
+  statistical_operation_id : uuid? <<FK>>
+  source_id : uuid <<FK>>
+  producer_organization_id : uuid <<FK>>
+  statistical_domain_id : uuid <<FK>>
+  code : varchar(80)
+  name : varchar(300)
+  description : text?
+  data_nature : varchar(40)
+  publication_status : varchar(30)
+  license_code : varchar(80)?
+  confidentiality_level : varchar(30)
+}
+entity "dataset_version" as dataset_version {
+  *dataset_version_id : uuid <<PK>>
+  dataset_id : uuid <<FK>>
+  methodology_version_id : uuid <<FK>>
+  data_structure_id : uuid <<FK>>
+  version_code : varchar(40)
+  title : varchar(300)
+  status : varchar(30)
+  reference_base_period : varchar(40)?
+  valid_from : date
+  valid_to : date?
+  publication_date : date?
+  is_current : boolean
+  change_reason : text?
+}
+entity "data_structure" as data_structure {
+  *data_structure_id : uuid <<PK>>
+  owner_organization_id : uuid <<FK>>
+  code : varchar(80)
+  name : varchar(250)
+  version_code : varchar(40)
+  valid_from : date?
+  valid_to : date?
+  is_active : boolean
+}
+entity "dimension_definition" as dimension_definition {
+  *dimension_definition_id : uuid <<PK>>
+  data_structure_id : uuid <<FK>>
+  concept_id : uuid <<FK>>
+  code_list_id : uuid? <<FK>>
+  classification_version_id : uuid? <<FK>>
+  code : varchar(80)
+  role : varchar(30)
+  position_no : smallint
+  attachment_level : varchar(20)
+  representation_kind : varchar(30)
+  is_required : boolean
+  is_time_dimension : boolean
+}
+entity "measure_definition" as measure_definition {
+  *measure_definition_id : uuid <<PK>>
+  data_structure_id : uuid <<FK>>
+  concept_id : uuid <<FK>>
+  unit_measure_id : uuid? <<FK>>
+  code : varchar(80)
+  name : varchar(180)
+  data_type : varchar(30)
+  precision_scale : smallint?
+  is_primary_measure : boolean
+}
+entity "attribute_definition" as attribute_definition {
+  *attribute_definition_id : uuid <<PK>>
+  data_structure_id : uuid <<FK>>
+  concept_id : uuid <<FK>>
+  code_list_id : uuid? <<FK>>
+  code : varchar(80)
+  name : varchar(180)
+  data_type : varchar(30)
+  attachment_level : varchar(20)
+  is_required : boolean
+}
+
+@enduml

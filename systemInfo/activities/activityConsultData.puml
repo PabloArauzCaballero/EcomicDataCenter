@@ -1,0 +1,34 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Consultar datos estadísticos
+skinparam shadowing false
+start
+:Seleccionar indicador o dataset;
+:Definir periodo;
+:Definir filtros dimensionales;
+:Elegir revisión actual o vintage;
+:Validar filtros contra la estructura;
+if (¿Filtros válidos?) then (No)
+  :Informar dimensión o código inválido;
+  stop
+endif
+:Localizar series compatibles;
+:Recuperar observaciones;
+if (¿Consulta por vintage?) then (Sí)
+  :Seleccionar revisión vigente\nen la fecha de corte;
+else (No)
+  :Seleccionar revisión actual;
+endif
+:Adjuntar medidas y atributos;
+:Adjuntar fuente, metodología,\ncalidad y rupturas de serie;
+if (¿Hay datos?) then (Sí)
+  :Ordenar y paginar;
+  :Presentar o exportar;
+else (No)
+  :Informar ausencia de resultados;
+endif
+stop
+@enduml

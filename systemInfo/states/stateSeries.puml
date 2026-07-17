@@ -1,0 +1,22 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Estado — series
+skinparam shadowing false
+[*] --> ACTIVE
+ACTIVE --> SUSPENDED : temporaryDataStop
+SUSPENDED --> ACTIVE : resume
+ACTIVE --> DISCONTINUED : permanentEnd
+ACTIVE --> SUPERSEDED : replacementSeries
+SUSPENDED --> DISCONTINUED
+DISCONTINUED --> [*]
+SUPERSEDED --> [*]
+
+note right of SUPERSEDED
+La relación con la serie sustituta
+se documenta mediante lineage_relation
+y, cuando aplique, series_break.
+end note
+@enduml

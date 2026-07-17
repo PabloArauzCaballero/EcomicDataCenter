@@ -1,0 +1,51 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Estados principales — Vista consolidada
+skinparam shadowing false
+skinparam state {
+  BackgroundColor #F7F9FC
+  BorderColor #334E68
+}
+
+state "DatasetVersion" as DV {
+  [*] --> DRAFT
+  DRAFT --> UNDER_REVIEW
+  UNDER_REVIEW --> APPROVED
+  UNDER_REVIEW --> DRAFT : correcciones
+  APPROVED --> PUBLISHED
+  PUBLISHED --> SUPERSEDED : nueva versión vigente
+  PUBLISHED --> WITHDRAWN : retiro excepcional
+  SUPERSEDED --> [*]
+  WITHDRAWN --> [*]
+}
+
+state "ObservationRevision" as OR {
+  [*] --> REV_DRAFT
+  REV_DRAFT --> VALIDATED
+  REV_DRAFT --> REJECTED
+  VALIDATED --> PUBLISHED_REV
+  PUBLISHED_REV --> SUPERSEDED_REV : revisión posterior
+  PUBLISHED_REV --> WITHDRAWN_REV
+  REJECTED --> [*]
+  SUPERSEDED_REV --> [*]
+  WITHDRAWN_REV --> [*]
+}
+
+state "DataEntryBatch" as DB {
+  [*] --> CREATED
+  CREATED --> VALIDATING
+  VALIDATING --> REJECTED_BATCH
+  VALIDATING --> ACCEPTED
+  ACCEPTED --> COMMITTING
+  COMMITTING --> COMMITTED
+  COMMITTING --> PARTIAL
+  COMMITTING --> FAILED
+  REJECTED_BATCH --> [*]
+  COMMITTED --> [*]
+  PARTIAL --> [*]
+  FAILED --> [*]
+}
+@enduml

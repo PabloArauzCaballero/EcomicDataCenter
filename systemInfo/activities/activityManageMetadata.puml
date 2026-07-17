@@ -1,0 +1,29 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Mantener metodología, estructura y versión de dataset
+skinparam shadowing false
+start
+:Crear o seleccionar metodología;
+:Crear versión metodológica en DRAFT;
+:Definir dataset o nueva versión;
+:Definir estructura de datos;
+:Configurar dimensiones, medidas y atributos;
+:Vincular clasificaciones y listas de códigos;
+:Validar unicidad, posiciones y representaciones;
+if (¿Modelo consistente?) then (No)
+  :Corregir inconsistencias;
+  stop
+endif
+:Enviar a revisión metodológica;
+if (¿Aprobado?) then (Sí)
+  :Publicar versión metodológica;
+  :Publicar versión de dataset;
+  :Habilitar registro y consulta;
+else (No)
+  :Retornar a corrección o retirar;
+endif
+stop
+@enduml

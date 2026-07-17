@@ -1,0 +1,84 @@
+@startuml
+hide methods
+hide stereotypes
+skinparam shadowing false
+title Schema quality_lineage
+
+entity "quality_dimension" as quality_dimension {
+  *quality_dimension_id : uuid <<PK>>
+  code : varchar(50) <<UQ>>
+  name : varchar(180)
+  description : text?
+}
+entity "quality_rule" as quality_rule {
+  *quality_rule_id : uuid <<PK>>
+  quality_dimension_id : uuid <<FK>>
+  code : varchar(80) <<UQ>>
+  name : varchar(250)
+  rule_type : varchar(40)
+  severity : varchar(20)
+  target_entity_type : varchar(40)
+  configuration_json : jsonb
+  is_active : boolean
+}
+entity "quality_assessment" as quality_assessment {
+  *quality_assessment_id : bigint <<PK>>
+  quality_rule_id : uuid <<FK>>
+  data_entry_batch_id : uuid? <<FK>>
+  target_entity_type : varchar(40)
+  target_entity_id : varchar(80)
+  status : varchar(20)
+  measured_value : text?
+  threshold_value : text?
+  details : jsonb
+  assessed_at : timestamptz
+}
+entity "data_issue" as data_issue {
+  *data_issue_id : uuid <<PK>>
+  quality_assessment_id : bigint? <<FK>>
+  issue_type : varchar(40)
+  severity : varchar(20)
+  target_entity_type : varchar(40)
+  target_entity_id : varchar(80)
+  title : varchar(250)
+  description : text
+  status : varchar(30)
+  detected_at : timestamptz
+  resolved_at : timestamptz?
+  resolution_notes : text?
+}
+entity "lineage_relation" as lineage_relation {
+  *lineage_relation_id : uuid <<PK>>
+  methodology_version_id : uuid? <<FK>>
+  source_entity_type : varchar(40)
+  source_entity_id : varchar(80)
+  target_entity_type : varchar(40)
+  target_entity_id : varchar(80)
+  relation_type : varchar(40)
+  transformation_description : text?
+  formula : text?
+  created_at : timestamptz
+}
+entity "indicator_relation" as indicator_relation {
+  *indicator_relation_id : uuid <<PK>>
+  source_indicator_version_id : uuid <<FK>>
+  target_indicator_version_id : uuid <<FK>>
+  relation_type : varchar(40)
+  formula : text?
+  description : text?
+  valid_from : date?
+  valid_to : date?
+}
+entity "series_break" as series_break {
+  *series_break_id : uuid <<PK>>
+  series_id : uuid <<FK>>
+  methodology_version_id : uuid? <<FK>>
+  break_date : date
+  break_type : varchar(40)
+  reason : text
+  is_comparable_before_after : boolean
+  linking_method : text?
+  notes : text?
+}
+
+@enduml

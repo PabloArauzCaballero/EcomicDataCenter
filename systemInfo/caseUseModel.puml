@@ -1,0 +1,76 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Casos de uso — Core de datos del Observatorio Económico
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor #F7F9FC
+  BorderColor #394B59
+  ArrowColor #394B59
+}
+skinparam actor {
+  BorderColor #394B59
+  FontColor #243B53
+}
+
+actor "Técnico institucional\nde datos" as DataOfficer
+actor "Analista / investigador" as Analyst
+actor "Responsable metodológico" as Steward
+actor "Sistema fuente\ninstitucional" as SourceSystem
+
+rectangle "Core de datos del Observatorio" {
+  usecase "UC-01\nRegistrar dato" as UC01
+  usecase "UC-02\nImportar lote de datos" as UC02
+  usecase "UC-03\nConsultar datos" as UC03
+  usecase "UC-04\nConsultar revisión histórica\n(vintage)" as UC04
+  usecase "UC-05\nConsultar trazabilidad,\nmetodología y calidad" as UC05
+  usecase "UC-06\nMantener catálogos,\nclasificaciones y estructura" as UC06
+
+  usecase "Identificar dataset\ny versión vigente" as INC1
+  usecase "Validar dimensiones,\nperiodo y medidas" as INC2
+  usecase "Resolver o crear serie" as INC3
+  usecase "Crear observación\no nueva revisión" as INC4
+  usecase "Preservar artefacto\ny lote de ingreso" as INC5
+  usecase "Aplicar reglas\nde calidad" as INC6
+  usecase "Filtrar por indicador,\ndimensiones y tiempo" as INC7
+  usecase "Adjuntar metadatos,\nfuente y estado" as INC8
+}
+
+DataOfficer --> UC01
+DataOfficer --> UC02
+SourceSystem --> UC02
+Analyst --> UC03
+Analyst --> UC04
+Analyst --> UC05
+Steward --> UC05
+Steward --> UC06
+
+UC01 .> INC1 : <<include>>
+UC01 .> INC2 : <<include>>
+UC01 .> INC3 : <<include>>
+UC01 .> INC4 : <<include>>
+UC01 .> INC6 : <<include>>
+
+UC02 .> INC1 : <<include>>
+UC02 .> INC5 : <<include>>
+UC02 .> INC2 : <<include>>
+UC02 .> INC3 : <<include>>
+UC02 .> INC4 : <<include>>
+UC02 .> INC6 : <<include>>
+
+UC03 .> INC7 : <<include>>
+UC03 .> INC8 : <<include>>
+UC04 .> INC7 : <<include>>
+UC04 .> INC8 : <<include>>
+UC05 .> INC8 : <<include>>
+
+note bottom of UC01
+Los casos de uso principales son deliberadamente simples:
+registrar y consultar. La complejidad se conserva en el
+modelo de datos, no en la interacción del usuario.
+end note
+@enduml

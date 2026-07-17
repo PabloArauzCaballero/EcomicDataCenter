@@ -1,0 +1,37 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Actividad principal — Registrar o consultar datos
+skinparam shadowing false
+start
+:Identificar necesidad del usuario;
+if (¿Registrar o consultar?) then (Registrar)
+  :Seleccionar dataset y versión;
+  :Capturar dato individual o lote;
+  :Validar estructura, dimensiones,\nperiodo, medidas y procedencia;
+  if (¿Validación superada?) then (Sí)
+    :Resolver o crear serie;
+    :Crear observación o nueva revisión;
+    :Aplicar reglas de calidad;
+    if (¿Falla crítica?) then (Sí)
+      :Rechazar o poner en cuarentena;
+    else (No)
+      :Confirmar registro y trazabilidad;
+    endif
+  else (No)
+    :Informar errores sin modificar datos;
+  endif
+else (Consultar)
+  :Definir indicador, dimensiones,\nperiodo y versión temporal;
+  :Ejecutar consulta;
+  if (¿Hay resultados?) then (Sí)
+    :Adjuntar fuente, metodología,\nestado, calidad y revisión;
+    :Presentar o exportar resultado;
+  else (No)
+    :Informar ausencia de datos\ny filtros aplicados;
+  endif
+endif
+stop
+@enduml

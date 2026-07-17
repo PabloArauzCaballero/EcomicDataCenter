@@ -1,0 +1,22 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Estado conceptual — source_artifact
+skinparam shadowing false
+[*] --> CAPTURED
+CAPTURED --> VERIFIED : hashAndMetadataValid
+CAPTURED --> QUARANTINED : integrityOrFormatProblem
+VERIFIED --> ACCEPTED : linkedToBatch
+QUARANTINED --> VERIFIED : correctedOrReacquired
+QUARANTINED --> REJECTED : unusable
+ACCEPTED --> ARCHIVED : retentionPolicy
+REJECTED --> [*]
+ARCHIVED --> [*]
+
+note right of ACCEPTED
+El artefacto es inmutable.
+Una corrección genera un nuevo artefacto.
+end note
+@enduml

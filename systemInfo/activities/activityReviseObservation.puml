@@ -1,0 +1,30 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Registrar revisión de una observación
+skinparam shadowing false
+start
+:Seleccionar observación existente;
+:Verificar nueva publicación o corrección;
+:Comparar hash y valores;
+if (¿Existe cambio real?) then (No)
+  :Registrar que no hubo modificación;
+  stop
+endif
+:Crear revisión N+1 en borrador;
+:Vincular artefacto y lote;
+:Registrar nuevas medidas y atributos;
+:Ejecutar controles de consistencia;
+if (¿Revisión válida?) then (Sí)
+  :Cerrar vigencia de revisión anterior;
+  :Marcar revisión anterior SUPERSEDED;
+  :Marcar nueva revisión PUBLISHED y current;
+  :Registrar relación REVISED_FROM;
+else (No)
+  :Marcar revisión REJECTED;
+  :Abrir incidencia;
+endif
+stop
+@enduml

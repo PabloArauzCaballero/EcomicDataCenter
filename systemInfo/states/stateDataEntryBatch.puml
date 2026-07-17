@@ -1,0 +1,27 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Estado — data_entry_batch
+skinparam shadowing false
+[*] --> CREATED
+CREATED --> VALIDATING : start
+CREATED --> CANCELLED : cancel
+VALIDATING --> REJECTED : invalidSchema / criticalError
+VALIDATING --> ACCEPTED : structuralValidationPassed
+ACCEPTED --> COMMITTING : persist
+COMMITTING --> COMMITTED : allAccepted
+COMMITTING --> PARTIAL : someRejected
+COMMITTING --> FAILED : transactionOrInfrastructureFailure
+FAILED --> VALIDATING : authorizedRetry
+REJECTED --> [*]
+COMMITTED --> [*]
+PARTIAL --> [*]
+CANCELLED --> [*]
+
+note right of PARTIAL
+Los registros aceptados y rechazados
+quedan contabilizados y trazables.
+end note
+@enduml

@@ -1,0 +1,23 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Consultar trazabilidad de una cifra
+skinparam shadowing false
+start
+:Seleccionar observación y revisión;
+:Recuperar lote de ingreso;
+:Recuperar artefacto fuente y hash;
+:Recuperar dataset, metodología y estructura;
+:Recuperar relaciones de linaje;
+if (¿Dato derivado?) then (Sí)
+  :Recorrer insumos y fórmula;
+  :Recuperar revisiones fuente exactas;
+endif
+:Recuperar evaluaciones de calidad;
+:Recuperar rupturas y relaciones de indicador;
+:Construir expediente de trazabilidad;
+:Mostrar o exportar evidencia;
+stop
+@enduml

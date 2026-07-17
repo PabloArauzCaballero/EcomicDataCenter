@@ -1,0 +1,26 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Mantener clasificación y correspondencias
+skinparam shadowing false
+start
+:Seleccionar clasificación;
+if (¿Nueva versión?) then (Sí)
+  :Crear classification_version;
+else (No)
+  :Seleccionar versión editable;
+endif
+:Importar o registrar ítems jerárquicos;
+:Validar códigos únicos y niveles;
+:Definir correspondencias con otra versión;
+:Clasificar equivalencia y ponderación;
+if (¿Validación completa?) then (Sí)
+  :Marcar versión vigente;
+  :Cerrar vigencia de versión reemplazada;
+else (No)
+  :Mantener en borrador;
+endif
+stop
+@enduml

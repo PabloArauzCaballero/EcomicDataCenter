@@ -1,0 +1,106 @@
+@startuml
+hide methods
+hide stereotypes
+skinparam shadowing false
+title Schema statistics
+
+entity "indicator" as indicator {
+  *indicator_id : uuid <<PK>>
+  statistical_domain_id : uuid <<FK>>
+  owner_organization_id : uuid <<FK>>
+  code : varchar(80)
+  name : varchar(250)
+  short_name : varchar(120)?
+  definition : text
+  indicator_type : varchar(40)
+  data_nature : varchar(40)
+  preferred_direction : varchar(20)?
+  is_active : boolean
+}
+entity "indicator_version" as indicator_version {
+  *indicator_version_id : uuid <<PK>>
+  indicator_id : uuid <<FK>>
+  methodology_version_id : uuid? <<FK>>
+  unit_measure_id : uuid <<FK>>
+  frequency_id : uuid <<FK>>
+  version_number : integer
+  definition : text
+  calculation_formula : text?
+  valid_from : date
+  valid_to : date?
+  change_reason : text?
+}
+entity "dataset_indicator" as dataset_indicator {
+  *dataset_indicator_id : uuid <<PK>>
+  dataset_version_id : uuid <<FK>>
+  indicator_version_id : uuid <<FK>>
+  is_primary : boolean
+  sort_order : integer
+}
+entity "series" as series {
+  *series_id : uuid <<PK>>
+  dataset_version_id : uuid <<FK>>
+  indicator_version_id : uuid? <<FK>>
+  frequency_id : uuid <<FK>>
+  unit_measure_id : uuid? <<FK>>
+  series_key : text
+  series_key_hash : char(64)
+  status : varchar(30)
+  valid_from : date?
+  valid_to : date?
+}
+entity "series_dimension_value" as series_dimension_value {
+  *series_dimension_value_id : bigint <<PK>>
+  series_id : uuid <<FK>>
+  dimension_definition_id : uuid <<FK>>
+  code_item_id : uuid? <<FK>>
+  classification_item_id : uuid? <<FK>>
+  geographic_unit_id : uuid? <<FK>>
+  text_value : text?
+  numeric_value : numeric(38,12)?
+  date_value : date?
+}
+entity "observation" as observation {
+  *observation_id : bigint <<PK>>
+  series_id : uuid <<FK>>
+  period_start : date
+  period_end : date
+  period_code : varchar(40)
+  reference_date : date?
+}
+entity "observation_revision" as observation_revision {
+  *observation_revision_id : bigint <<PK>>
+  observation_id : bigint <<FK>>
+  source_artifact_id : uuid <<FK>>
+  data_entry_batch_id : uuid <<FK>>
+  revision_number : integer
+  status : varchar(30)
+  confidentiality_status : varchar(30)
+  publication_date : date?
+  capture_date : timestamptz
+  vintage_date : date
+  valid_from : timestamptz
+  valid_to : timestamptz?
+  is_current : boolean
+  revision_reason : text?
+  normalized_hash : char(64)
+}
+entity "observation_measure" as observation_measure {
+  *observation_measure_id : bigint <<PK>>
+  observation_revision_id : bigint <<FK>>
+  measure_definition_id : uuid <<FK>>
+  numeric_value : numeric(38,12)?
+  text_value : text?
+  boolean_value : boolean?
+}
+entity "observation_attribute_value" as observation_attribute_value {
+  *observation_attribute_value_id : bigint <<PK>>
+  observation_revision_id : bigint <<FK>>
+  attribute_definition_id : uuid <<FK>>
+  code_item_id : uuid? <<FK>>
+  numeric_value : numeric(38,12)?
+  text_value : text?
+  boolean_value : boolean?
+}
+
+@enduml

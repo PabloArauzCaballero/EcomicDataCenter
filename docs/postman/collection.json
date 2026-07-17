@@ -1,0 +1,1602 @@
+{
+  "info": {
+    "_postman_id": "5ca9ea63-822b-49a0-9f80-b84ae16dce81",
+    "name": "Observatorio Económico Core API",
+    "description": "Colección generada desde docs/endpoints/openapi.yaml. No contiene secretos.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{accessToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "rootUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "apiBaseUrl",
+      "value": "http://localhost:8080/api/v1"
+    },
+    {
+      "key": "accessToken",
+      "value": ""
+    },
+    {
+      "key": "id",
+      "value": "00000000-0000-4000-8000-000000000001"
+    },
+    {
+      "key": "observationId",
+      "value": "00000000-0000-4000-8000-000000000001"
+    },
+    {
+      "key": "revisionId",
+      "value": "00000000-0000-4000-8000-000000000001"
+    }
+  ],
+  "item": [
+    {
+      "name": "Data ingestion",
+      "item": [
+        {
+          "name": "Register or revise one observation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/data/observations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "data",
+                "observations"
+              ]
+            },
+            "description": "Register or revise one observation",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"batchCode\": \"string\",\n  \"datasetVersionId\": \"00000000-0000-4000-8000-000000000001\",\n  \"sourceArtifactId\": \"00000000-0000-4000-8000-000000000001\",\n  \"submittedByOrganizationId\": \"00000000-0000-4000-8000-000000000001\",\n  \"record\": {\n    \"indicatorVersionId\": \"00000000-0000-4000-8000-000000000001\",\n    \"frequencyId\": \"00000000-0000-4000-8000-000000000001\",\n    \"unitMeasureId\": \"00000000-0000-4000-8000-000000000001\",\n    \"periodStart\": \"2026-01-31\",\n    \"periodEnd\": \"2026-01-31\",\n    \"periodCode\": \"string\",\n    \"dimensions\": [\n      {\n        \"dimensionDefinitionId\": \"00000000-0000-4000-8000-000000000001\",\n        \"codeItemId\": \"00000000-0000-4000-8000-000000000001\",\n        \"classificationItemId\": \"00000000-0000-4000-8000-000000000001\",\n        \"geographicUnitId\": \"00000000-0000-4000-8000-000000000001\"\n      }\n    ],\n    \"measures\": [\n      {\n        \"measureDefinitionId\": \"00000000-0000-4000-8000-000000000001\",\n        \"numericValue\": \"string\",\n        \"textValue\": \"string\",\n        \"booleanValue\": true\n      }\n    ],\n    \"confidentialityStatus\": \"string\",\n    \"vintageDate\": \"2026-01-31\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Import up to 500 observations with partial results",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/data/observation-batches",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "data",
+                "observation-batches"
+              ]
+            },
+            "description": "Import up to 500 observations with partial results",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"datasetVersionId\": \"00000000-0000-4000-8000-000000000001\",\n  \"sourceArtifactId\": \"00000000-0000-4000-8000-000000000001\",\n  \"submittedByOrganizationId\": \"00000000-0000-4000-8000-000000000001\",\n  \"batchCode\": \"string\",\n  \"entryMethod\": \"FILE\",\n  \"records\": [\n    {\n      \"indicatorVersionId\": \"00000000-0000-4000-8000-000000000001\",\n      \"frequencyId\": \"00000000-0000-4000-8000-000000000001\",\n      \"unitMeasureId\": \"00000000-0000-4000-8000-000000000001\",\n      \"periodStart\": \"2026-01-31\",\n      \"periodEnd\": \"2026-01-31\",\n      \"periodCode\": \"string\",\n      \"dimensions\": [\n        {\n          \"dimensionDefinitionId\": \"00000000-0000-4000-8000-000000000001\",\n          \"codeItemId\": \"00000000-0000-4000-8000-000000000001\",\n          \"classificationItemId\": \"00000000-0000-4000-8000-000000000001\",\n          \"geographicUnitId\": \"00000000-0000-4000-8000-000000000001\"\n        }\n      ],\n      \"measures\": [\n        {\n          \"measureDefinitionId\": \"00000000-0000-4000-8000-000000000001\",\n          \"numericValue\": \"string\",\n          \"textValue\": \"string\",\n          \"booleanValue\": true\n        }\n      ],\n      \"confidentialityStatus\": \"string\",\n      \"vintageDate\": \"2026-01-31\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Data query",
+      "item": [
+        {
+          "name": "Query current or vintage observations",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/data/query",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "data",
+                "query"
+              ]
+            },
+            "description": "Query current or vintage observations",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"datasetVersionId\": \"00000000-0000-4000-8000-000000000001\",\n  \"indicatorVersionId\": \"00000000-0000-4000-8000-000000000001\",\n  \"periodFrom\": \"2026-01-31\",\n  \"periodTo\": \"2026-01-31\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get provenance, quality and lineage",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/data/observations/{{observationId}}/revisions/{{revisionId}}/trace",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "data",
+                "observations",
+                "{{observationId}}",
+                "revisions",
+                "{{revisionId}}",
+                "trace"
+              ]
+            },
+            "description": "Get provenance, quality and lineage",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Metadata governance",
+      "item": [
+        {
+          "name": "Create statistical domain",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/domains",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "domains"
+              ]
+            },
+            "description": "Create statistical domain",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create statistical concept",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/concepts",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "concepts"
+              ]
+            },
+            "description": "Create statistical concept",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create frequency",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/frequencies",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "frequencies"
+              ]
+            },
+            "description": "Create frequency",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create unit of measure",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/units",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "units"
+              ]
+            },
+            "description": "Create unit of measure",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create geographic unit",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/geographies",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "geographies"
+              ]
+            },
+            "description": "Create geographic unit",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create code list and items",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/code-lists",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "code-lists"
+              ]
+            },
+            "description": "Create code list and items",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create classification version and items",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/classifications",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "classifications"
+              ]
+            },
+            "description": "Create classification version and items",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create classification mapping",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/classification-mappings",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "classification-mappings"
+              ]
+            },
+            "description": "Create classification mapping",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create statistical operation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/statistical-operations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "statistical-operations"
+              ]
+            },
+            "description": "Create statistical operation",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create methodology and first version",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/methodologies",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "methodologies"
+              ]
+            },
+            "description": "Create methodology and first version",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create multidimensional data structure",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/data-structures",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "data-structures"
+              ]
+            },
+            "description": "Create multidimensional data structure",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create dataset and first version",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/datasets",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "datasets"
+              ]
+            },
+            "description": "Create dataset and first version",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create indicator and first version",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/indicators",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "indicators"
+              ]
+            },
+            "description": "Create indicator and first version",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add methodology version",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/methodologies/{{id}}/versions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "methodologies",
+                "{{id}}",
+                "versions"
+              ]
+            },
+            "description": "Add methodology version",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add dataset version",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/datasets/{{id}}/versions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "datasets",
+                "{{id}}",
+                "versions"
+              ]
+            },
+            "description": "Add dataset version",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Apply an allowed version state transition",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/methodology-versions/{{id}}/transitions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "methodology-versions",
+                "{{id}}",
+                "transitions"
+              ]
+            },
+            "description": "Apply an allowed version state transition",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"targetStatus\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Apply an allowed version state transition",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/governance/dataset-versions/{{id}}/transitions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "governance",
+                "dataset-versions",
+                "{{id}}",
+                "transitions"
+              ]
+            },
+            "description": "Apply an allowed version state transition",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"targetStatus\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Operations",
+      "item": [
+        {
+          "name": "Process liveness",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{rootUrl}}/health",
+              "host": [
+                "{{rootUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            },
+            "description": "Process liveness",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Critical dependency readiness",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{rootUrl}}/ready",
+              "host": [
+                "{{rootUrl}}"
+              ],
+              "path": [
+                "ready"
+              ]
+            },
+            "description": "Critical dependency readiness",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Prometheus metrics when enabled",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{rootUrl}}/metrics",
+              "host": [
+                "{{rootUrl}}"
+              ],
+              "path": [
+                "metrics"
+              ]
+            },
+            "description": "Prometheus metrics when enabled",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Provenance",
+      "item": [
+        {
+          "name": "Create producer or custodian organization",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/provenance/organizations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "provenance",
+                "organizations"
+              ]
+            },
+            "description": "Create producer or custodian organization",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parentOrganizationId\": \"00000000-0000-4000-8000-000000000001\",\n  \"code\": \"string\",\n  \"legalName\": \"string\",\n  \"shortName\": \"string\",\n  \"organizationType\": \"string\",\n  \"countryCode\": \"string\",\n  \"officialStatisticsProducer\": true,\n  \"validFrom\": \"2026-01-31\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List organizations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/provenance/organizations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "provenance",
+                "organizations"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "List organizations",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create statistical source",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/provenance/sources",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "provenance",
+                "sources"
+              ]
+            },
+            "description": "Create statistical source",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organizationId\": \"00000000-0000-4000-8000-000000000001\",\n  \"frequencyId\": \"00000000-0000-4000-8000-000000000001\",\n  \"code\": \"string\",\n  \"name\": \"string\",\n  \"sourceType\": \"string\",\n  \"accessMethod\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List sources",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/provenance/sources",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "provenance",
+                "sources"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "List sources",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register immutable source artifact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/provenance/artifacts",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "provenance",
+                "artifacts"
+              ]
+            },
+            "description": "Register immutable source artifact",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceId\": \"00000000-0000-4000-8000-000000000001\",\n  \"artifactType\": \"string\",\n  \"originalFilename\": \"string\",\n  \"originalUri\": \"string\",\n  \"storageUri\": \"string\",\n  \"sha256\": \"string\",\n  \"retrievedAt\": \"2026-01-31T12:00:00Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get source artifact metadata",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/provenance/artifacts/{{id}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "provenance",
+                "artifacts",
+                "{{id}}"
+              ]
+            },
+            "description": "Get source artifact metadata",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Quality and lineage",
+      "item": [
+        {
+          "name": "Create quality dimension",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/quality/dimensions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "quality",
+                "dimensions"
+              ]
+            },
+            "description": "Create quality dimension",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create executable quality rule",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/quality/rules",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "quality",
+                "rules"
+              ]
+            },
+            "description": "Create executable quality rule",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create lineage relation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/quality/lineage-relations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "quality",
+                "lineage-relations"
+              ]
+            },
+            "description": "Create lineage relation",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create indicator relation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/quality/indicator-relations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "quality",
+                "indicator-relations"
+              ]
+            },
+            "description": "Create indicator relation",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register comparability break",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/quality/series-breaks",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "quality",
+                "series-breaks"
+              ]
+            },
+            "description": "Register comparability break",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List quality issues",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/quality/issues",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "quality",
+                "issues"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "severity",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "List quality issues",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Apply issue workflow transition",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/quality/issues/{{id}}/transitions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "quality",
+                "issues",
+                "{{id}}",
+                "transitions"
+              ]
+            },
+            "description": "Apply issue workflow transition",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"targetStatus\": \"TRIAGED\",\n  \"resolutionNotes\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

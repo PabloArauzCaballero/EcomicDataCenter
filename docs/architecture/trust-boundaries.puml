@@ -1,0 +1,36 @@
+@startuml
+title Fronteras de confianza
+skinparam shadowing false
+skinparam rectangleStyle rounded
+
+rectangle "No confiable" #FFF2F2 {
+  actor Cliente
+  rectangle "Sistema fuente" as source
+}
+rectangle "Borde controlado" #FFF9E6 {
+  rectangle NGINX
+}
+rectangle "Aplicación confiable" #EEF7FF {
+  rectangle "API NestJS" as api
+  rectangle "Migraciones" as migration
+}
+rectangle "Datos restringidos" #EEFFEE {
+  database "PostgreSQL writer" as writer
+  database "PostgreSQL reader" as reader
+}
+rectangle "Servicios externos" #F5EEFF {
+  rectangle "OIDC/JWKS" as idp
+  rectangle "Observabilidad" as obs
+  rectangle "Artefactos" as artifacts
+}
+
+Cliente --> NGINX : JWT + input no confiable
+source --> NGINX : JWT + lote no confiable
+NGINX --> api : request limitado
+api --> idp : validación de firma
+api --> writer : comandos autorizados
+api --> reader : consultas paginadas
+migration --> writer : DDL controlado
+api --> obs : telemetría redactada
+api ..> artifacts : URI/hash; integración futura
+@enduml

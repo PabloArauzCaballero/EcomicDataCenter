@@ -1,0 +1,44 @@
+$ python scripts/check_file_limits.py
+WARN 246 scripts/generate_migrations.py
+WARN 244 scripts/build_openapi.py
+PASS: 2 files require design review; no prohibited file exceeds 299 lines.
+$ python scripts/check_clean_code.py
+Clean-code validation passed for 130 TypeScript files.
+$ python scripts/validate_architecture.py
+Architecture validation passed for 130 TypeScript files.
+$ python scripts/validate_physical_model.py
+PASS: physical model validated — 40 tables, 375 fields, 76 foreign keys, indexed FK coverage and hardened grants.
+$ python scripts/validate_project.py
+PASS: project structure, 40 models, schemas, JSON and source markers validated.
+$ python scripts/validate_diagrams.py
+VALIDATION_OK
+- Diagramas PlantUML: 21
+- Entidades relacionales: 40
+- Clases lógicas: 40
+- Actividades específicas: 8
+- Estados específicos: 7
+$ python scripts/validate_openapi.py
+PASS: 35 paths and 37 operations validated.
+$ python scripts/validate_contract_routes.py
+PASS: 37 controller routes match OpenAPI.
+$ python scripts/validate_local_imports.py
+PASS: 259 local imports resolved.
+$ node scripts/check_typescript_syntax.cjs
+PASS: 133 TypeScript files parsed and transpiled.
+$ sh -n infra/postgres/init-local.sh scripts/verify_database_privileges.sh
+PASS: shell syntax
+$ JSON/YAML parse
+PASS: JSON and YAML parsed
+$ artifact hygiene
+PASS: no .env
+PASS: no node_modules
+PASS: no dist
+PASS: no obvious embedded secrets
+$ PDF
+Pages:           18
+Page size:       595.276 x 841.89 pts (A4)
+PDF version:     1.7
+$ file counts
+FILES_EXCLUDING_MANIFEST=289
+TYPESCRIPT_FILES=133
+MIGRATIONS=14

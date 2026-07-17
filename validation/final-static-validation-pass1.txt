@@ -1,0 +1,25 @@
+# Final static validation pass 1
+2026-07-16T14:26:47Z
+WARN 246 scripts/generate_migrations.py
+WARN 270 scripts/build_openapi.py
+PASS: 2 files require design review; no prohibited file exceeds 299 lines.
+PASS: 151 TypeScript files parsed and transpiled.
+PASS: 297 local imports resolved.
+VALIDATION_OK
+- Diagramas PlantUML: 21
+- Entidades relacionales: 40
+- Clases lógicas: 40
+- Actividades específicas: 8
+- Estados específicos: 7
+Clean-code validation passed for 148 TypeScript files.
+Architecture validation passed for 148 TypeScript files.
+PASS: physical model validated — 40 tables, 377 fields, 76 foreign keys, indexed FK coverage and hardened grants.
+PASS: exactly two seed catalogs validated — 3 boot files, 1 synthetic mock file, 32 stable UUIDs.
+PASS: reader/writer isolation, 2 query repositories and bounded transaction retry validated.
+PASS: 8 core use-case controls validated.
+PASS: 8 security controls and 35 OpenAPI paths validated.
+PASS: asynchronous scope is explicitly deferred; no queue or pseudo-worker was introduced.
+PASS: 12 operational controls validated; release reproducibility is BLOCKED: yarn.lock missing.
+PASS: project structure, 40 models, schemas, JSON and source markers validated.
+PASS: 35 paths and 37 operations validated.
+PASS: 37 controller routes match OpenAPI.

@@ -1,0 +1,31 @@
+@startuml
+title Despliegue base — Docker/entorno institucional
+skinparam shadowing false
+
+cloud Internet
+node "Host / plataforma" {
+  node "NGINX\núnico puerto público" as nginx
+  node "API NestJS\nno root, read-only FS" as api
+  node "Migration Job\nno persistente" as migration
+  database "PostgreSQL dedicado" as postgres
+  folder "Volumen PostgreSQL" as pgdata
+}
+cloud "Proveedor OIDC/JWKS" as idp
+cloud "Secret manager / CI" as secrets
+cloud "Colector de observabilidad" as collector
+
+Internet --> nginx : 443
+nginx --> api : red interna
+api --> postgres : writer / reader
+migration --> postgres : migrator
+postgres --> pgdata
+api --> idp : HTTPS
+secrets --> api : variables en runtime
+secrets --> migration : credencial migrator
+api --> collector : stdout + scrape interno
+
+note bottom of nginx
+PostgreSQL y API no publican
+puertos al host.
+end note
+@enduml

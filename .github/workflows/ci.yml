@@ -1,0 +1,102 @@
+name: backend-quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    services:
+      postgres:
+        image: postgres:17.5-alpine
+        env:
+          POSTGRES_DB: observatorio_economico
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d observatorio_economico"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      NODE_ENV: test
+      APP_HOST: 127.0.0.1
+      APP_PORT: 3000
+      APP_NAME: observatorio-economico-core
+      API_PREFIX: api
+      API_VERSION: v1
+      CORS_ORIGINS: http://localhost:3001
+      DATABASE_MIGRATOR_URL: postgresql://observatory_migrator:migrator@127.0.0.1:5432/observatorio_economico
+      DATABASE_WRITER_URL: postgresql://observatory_writer:writer@127.0.0.1:5432/observatorio_economico
+      DATABASE_READER_URL: postgresql://observatory_reader:reader@127.0.0.1:5432/observatorio_economico
+      BACKUP_DATABASE_URL: postgresql://observatory_backup:backup@127.0.0.1:5432/observatorio_economico
+      DATABASE_SSL: "false"
+      AUTH_MODE: disabled
+      SWAGGER_ENABLED: "false"
+      METRICS_ENABLED: "true"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.16.0
+      - run: corepack enable
+      - name: Require reproducible lockfile
+        run: test -f yarn.lock
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Install PostgreSQL client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Bootstrap least-privilege database roles
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql -h 127.0.0.1 -U postgres -d observatorio_economico <<'SQL'
+          CREATE ROLE backend_migrator NOLOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS;
+          CREATE ROLE backend_writer NOLOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS;
+          CREATE ROLE backend_reader NOLOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS;
+          CREATE ROLE backup_operator NOLOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT NOBYPASSRLS;
+          CREATE ROLE observatory_migrator LOGIN INHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOBYPASSRLS PASSWORD 'migrator';
+          CREATE ROLE observatory_writer LOGIN INHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOBYPASSRLS PASSWORD 'writer';
+          CREATE ROLE observatory_reader LOGIN INHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOBYPASSRLS PASSWORD 'reader';
+          CREATE ROLE observatory_backup LOGIN INHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOBYPASSRLS PASSWORD 'backup';
+          GRANT backend_migrator TO observatory_migrator;
+          GRANT backend_writer TO observatory_writer;
+          GRANT backend_reader TO observatory_reader;
+          GRANT backup_operator TO observatory_backup;
+          ALTER ROLE observatory_reader SET default_transaction_read_only = on;
+          REVOKE CREATE ON DATABASE observatorio_economico FROM PUBLIC;
+          REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+          GRANT CONNECT, CREATE ON DATABASE observatorio_economico TO backend_migrator;
+          GRANT CONNECT ON DATABASE observatorio_economico TO backend_writer, backend_reader, backup_operator;
+          SQL
+      - run: yarn format:check
+      - run: yarn lint
+      - run: yarn typecheck
+      - run: yarn quality:all
+      - run: yarn test
+      - name: Verify migration install, upgrade and rollback cycle
+        run: yarn db:verify:migrations
+      - run: yarn db:migrate
+      - name: Verify PostgreSQL privilege matrix
+        run: sh scripts/verify_database_privileges.sh
+      - run: yarn db:seed:boot && yarn db:seed:boot
+      - run: yarn db:seed:mock && yarn db:seed:mock
+      - run: yarn db:seed:verify
+      - name: Confirm mock seeds are rejected in production
+        run: AUTH_MODE=jwks AUTH_JWKS_URI=https://identity.example.test/jwks AUTH_ISSUER=https://identity.example.test/ AUTH_AUDIENCE=observatorio NODE_ENV=production yarn db:seed:mock && exit 1 || exit 0
+      - run: yarn build
+      - run: yarn openapi:export
+      - run: python scripts/validate_openapi.py
+      - run: python scripts/validate_contract_routes.py
+      - run: python scripts/generate_postman.py
+      - name: Confirm generated contracts have no drift
+        run: git diff --exit-code -- docs/endpoints/openapi.yaml docs/postman/collection.json

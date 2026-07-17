@@ -1,0 +1,6 @@
+[
+  { "unitMeasureId": "30000000-0000-4000-8000-000000000001", "baseUnitMeasureId": null, "code": "BOB", "name": "Boliviano", "symbol": "Bs", "multiplierPower10": 0, "valueKind": "CURRENCY" },
+  { "unitMeasureId": "30000000-0000-4000-8000-000000000002", "baseUnitMeasureId": null, "code": "PERCENT", "name": "Percent", "symbol": "%", "multiplierPower10": 0, "valueKind": "RATE" },
+  { "unitMeasureId": "30000000-0000-4000-8000-000000000003", "baseUnitMeasureId": null, "code": "INDEX", "name": "Index", "symbol": null, "multiplierPower10": 0, "valueKind": "INDEX" },
+  { "unitMeasureId": "30000000-0000-4000-8000-000000000004", "baseUnitMeasureId": null, "code": "COUNT", "name": "Count", "symbol": null, "multiplierPower10": 0, "valueKind": "COUNT" }
+]

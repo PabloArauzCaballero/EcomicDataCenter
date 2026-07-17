@@ -1,0 +1,67 @@
+@startuml
+hide methods
+hide stereotypes
+skinparam shadowing false
+title Schema provenance
+
+entity "organization" as organization {
+  *organization_id : uuid <<PK>>
+  parent_organization_id : uuid <<FK, nullable>>
+  code : varchar(50) <<UQ>>
+  legal_name : varchar(250)
+  short_name : varchar(80)
+  organization_type : varchar(40)
+  country_code : char(2)
+  official_statistics_producer : boolean
+  is_active : boolean
+  valid_from : date
+  valid_to : date?
+}
+entity "source" as source {
+  *source_id : uuid <<PK>>
+  organization_id : uuid <<FK>>
+  frequency_id : uuid? <<FK>>
+  code : varchar(80) <<UQ>>
+  name : varchar(250)
+  source_type : varchar(40)
+  access_method : varchar(40)
+  official_uri : text?
+  license_code : varchar(80)?
+  active_from : date?
+  active_to : date?
+  is_active : boolean
+}
+entity "source_artifact" as source_artifact {
+  *source_artifact_id : uuid <<PK>>
+  source_id : uuid <<FK>>
+  artifact_type : varchar(40)
+  original_filename : varchar(255)?
+  original_uri : text?
+  storage_uri : text
+  mime_type : varchar(120)?
+  sha256 : char(64) <<UQ>>
+  publication_date : date?
+  retrieved_at : timestamptz
+  file_size_bytes : bigint?
+  metadata_json : jsonb
+}
+entity "data_entry_batch" as data_entry_batch {
+  *data_entry_batch_id : uuid <<PK>>
+  dataset_version_id : uuid <<FK>>
+  source_artifact_id : uuid? <<FK>>
+  submitted_by_organization_id : uuid <<FK>>
+  batch_code : varchar(80) <<UQ>>
+  entry_method : varchar(30)
+  status : varchar(30)
+  received_count : bigint
+  accepted_count : bigint
+  rejected_count : bigint
+  submitted_at : timestamptz
+  started_at : timestamptz?
+  completed_at : timestamptz?
+  request_fingerprint : char(64)
+  result_json : jsonb?
+  notes : text?
+}
+
+@enduml

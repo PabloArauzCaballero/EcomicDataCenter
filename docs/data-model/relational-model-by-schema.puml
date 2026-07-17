@@ -1,0 +1,678 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Modelo relacional — Core final del Data Center Económico
+left to right direction
+hide circle
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam linetype ortho
+skinparam entity {
+  BackgroundColor #FBFCFE
+  BorderColor #334E68
+}
+
+package provenance {
+  entity "organization" as organization {
+    * organization_id : uuid <<PK>>
+    --
+    parent_organization_id : uuid <<FK, nullable>>
+    code : varchar(50) <<UQ>>
+    legal_name : varchar(250)
+    short_name : varchar(80)
+    organization_type : varchar(40)
+    country_code : char(2)
+    official_statistics_producer : boolean
+    is_active : boolean
+    valid_from : date
+    valid_to : date?
+  }
+  entity "source" as source {
+    * source_id : uuid <<PK>>
+    --
+    organization_id : uuid <<FK>>
+    frequency_id : uuid? <<FK>>
+    code : varchar(80) <<UQ>>
+    name : varchar(250)
+    source_type : varchar(40)
+    access_method : varchar(40)
+    official_uri : text?
+    license_code : varchar(80)?
+    active_from : date?
+    active_to : date?
+    is_active : boolean
+  }
+  entity "source_artifact" as source_artifact {
+    * source_artifact_id : uuid <<PK>>
+    --
+    source_id : uuid <<FK>>
+    artifact_type : varchar(40)
+    original_filename : varchar(255)?
+    original_uri : text?
+    storage_uri : text
+    mime_type : varchar(120)?
+    sha256 : char(64) <<UQ>>
+    publication_date : date?
+    retrieved_at : timestamptz
+    file_size_bytes : bigint?
+    metadata_json : jsonb
+  }
+  entity "data_entry_batch" as data_entry_batch {
+    * data_entry_batch_id : uuid <<PK>>
+    --
+    dataset_version_id : uuid <<FK>>
+    source_artifact_id : uuid? <<FK>>
+    submitted_by_organization_id : uuid <<FK>>
+    batch_code : varchar(80) <<UQ>>
+    entry_method : varchar(30)
+    status : varchar(30)
+    received_count : bigint
+    accepted_count : bigint
+    rejected_count : bigint
+    submitted_at : timestamptz
+    started_at : timestamptz?
+    completed_at : timestamptz?
+    notes : text?
+  }
+}
+
+package semantic {
+  entity "statistical_domain" as statistical_domain {
+    * statistical_domain_id : uuid <<PK>>
+    --
+    parent_domain_id : uuid? <<FK>>
+    code : varchar(50) <<UQ>>
+    name : varchar(180)
+    description : text?
+    sort_order : integer
+    is_active : boolean
+  }
+  entity "concept" as concept {
+    * concept_id : uuid <<PK>>
+    --
+    owner_organization_id : uuid <<FK>>
+    code : varchar(80)
+    name : varchar(180)
+    definition : text
+    concept_type : varchar(40)
+    valid_from : date?
+    valid_to : date?
+    --
+    UQ(owner_organization_id, code)
+  }
+  entity "code_list" as code_list {
+    * code_list_id : uuid <<PK>>
+    --
+    owner_organization_id : uuid <<FK>>
+    code : varchar(80)
+    name : varchar(180)
+    version_code : varchar(40)
+    valid_from : date?
+    valid_to : date?
+    --
+    UQ(owner_organization_id, code, version_code)
+  }
+  entity "code_item" as code_item {
+    * code_item_id : uuid <<PK>>
+    --
+    code_list_id : uuid <<FK>>
+    parent_code_item_id : uuid? <<FK>>
+    code : varchar(80)
+    name : varchar(250)
+    description : text?
+    sort_order : integer
+    valid_from : date?
+    valid_to : date?
+    is_active : boolean
+    --
+    UQ(code_list_id, code)
+  }
+  entity "classification" as classification {
+    * classification_id : uuid <<PK>>
+    --
+    custodian_organization_id : uuid <<FK>>
+    code : varchar(80)
+    name : varchar(250)
+    classification_type : varchar(50)
+    --
+    UQ(custodian_organization_id, code)
+  }
+  entity "classification_version" as classification_version {
+    * classification_version_id : uuid <<PK>>
+    --
+    classification_id : uuid <<FK>>
+    version_code : varchar(40)
+    name : varchar(250)
+    valid_from : date?
+    valid_to : date?
+    publication_date : date?
+    is_current : boolean
+    methodology_uri : text?
+    --
+    UQ(classification_id, version_code)
+  }
+  entity "classification_item" as classification_item {
+    * classification_item_id : uuid <<PK>>
+    --
+    classification_version_id : uuid <<FK>>
+    parent_item_id : uuid? <<FK>>
+    code : varchar(80)
+    name : varchar(300)
+    description : text?
+    level_no : integer
+    sort_order : integer
+    valid_from : date?
+    valid_to : date?
+    --
+    UQ(classification_version_id, code)
+  }
+  entity "classification_mapping" as classification_mapping {
+    * classification_mapping_id : uuid <<PK>>
+    --
+    source_item_id : uuid <<FK>>
+    target_item_id : uuid <<FK>>
+    equivalence_type : varchar(30)
+    weight : numeric(18,10)?
+    valid_from : date?
+    valid_to : date?
+    evidence_note : text?
+    --
+    UQ(source_item_id, target_item_id, valid_from)
+  }
+  entity "geographic_unit" as geographic_unit {
+    * geographic_unit_id : uuid <<PK>>
+    --
+    parent_geographic_unit_id : uuid? <<FK>>
+    official_code : varchar(80)
+    name : varchar(250)
+    geographic_level : varchar(40)
+    valid_from : date
+    valid_to : date?
+    geometry_reference : text?
+    --
+    UQ(official_code, valid_from)
+  }
+  entity "unit_measure" as unit_measure {
+    * unit_measure_id : uuid <<PK>>
+    --
+    base_unit_measure_id : uuid? <<FK>>
+    code : varchar(50) <<UQ>>
+    name : varchar(180)
+    symbol : varchar(30)?
+    multiplier_power10 : smallint
+    value_kind : varchar(30)
+  }
+  entity "frequency" as frequency {
+    * frequency_id : uuid <<PK>>
+    --
+    code : varchar(10) <<UQ>>
+    name : varchar(80)
+    periods_per_year : smallint?
+    iso_duration : varchar(40)?
+  }
+}
+
+package metadata {
+  entity "statistical_operation" as statistical_operation {
+    * statistical_operation_id : uuid <<PK>>
+    --
+    producer_organization_id : uuid <<FK>>
+    code : varchar(80)
+    name : varchar(250)
+    operation_type : varchar(40)
+    objective : text
+    population_scope : text?
+    geographic_scope : text?
+    collection_method : text?
+    start_date : date?
+    end_date : date?
+    status : varchar(30)
+    --
+    UQ(producer_organization_id, code)
+  }
+  entity "methodology" as methodology {
+    * methodology_id : uuid <<PK>>
+    --
+    owner_organization_id : uuid <<FK>>
+    code : varchar(80)
+    name : varchar(250)
+    methodology_type : varchar(40)
+    description : text?
+    is_official : boolean
+    is_active : boolean
+    --
+    UQ(owner_organization_id, code)
+  }
+  entity "methodology_version" as methodology_version {
+    * methodology_version_id : uuid <<PK>>
+    --
+    methodology_id : uuid <<FK>>
+    version_code : varchar(40)
+    title : varchar(300)
+    status : varchar(30)
+    formula_description : text?
+    universe_definition : text?
+    sampling_method : text?
+    missing_data_treatment : text?
+    seasonal_adjustment_method : text?
+    revision_policy : text?
+    confidentiality_policy : text?
+    valid_from : date
+    valid_to : date?
+    publication_date : date?
+    document_uri : text?
+    is_current : boolean
+    --
+    UQ(methodology_id, version_code)
+  }
+  entity "dataset" as dataset {
+    * dataset_id : uuid <<PK>>
+    --
+    statistical_operation_id : uuid? <<FK>>
+    source_id : uuid <<FK>>
+    producer_organization_id : uuid <<FK>>
+    statistical_domain_id : uuid <<FK>>
+    code : varchar(80)
+    name : varchar(300)
+    description : text?
+    data_nature : varchar(40)
+    publication_status : varchar(30)
+    license_code : varchar(80)?
+    confidentiality_level : varchar(30)
+    --
+    UQ(producer_organization_id, code)
+  }
+  entity "dataset_version" as dataset_version {
+    * dataset_version_id : uuid <<PK>>
+    --
+    dataset_id : uuid <<FK>>
+    methodology_version_id : uuid <<FK>>
+    data_structure_id : uuid <<FK>>
+    version_code : varchar(40)
+    title : varchar(300)
+    status : varchar(30)
+    reference_base_period : varchar(40)?
+    valid_from : date
+    valid_to : date?
+    publication_date : date?
+    is_current : boolean
+    change_reason : text?
+    --
+    UQ(dataset_id, version_code)
+  }
+  entity "data_structure" as data_structure {
+    * data_structure_id : uuid <<PK>>
+    --
+    owner_organization_id : uuid <<FK>>
+    code : varchar(80)
+    name : varchar(250)
+    version_code : varchar(40)
+    valid_from : date?
+    valid_to : date?
+    is_active : boolean
+    --
+    UQ(owner_organization_id, code, version_code)
+  }
+  entity "dimension_definition" as dimension_definition {
+    * dimension_definition_id : uuid <<PK>>
+    --
+    data_structure_id : uuid <<FK>>
+    concept_id : uuid <<FK>>
+    code_list_id : uuid? <<FK>>
+    classification_version_id : uuid? <<FK>>
+    code : varchar(80)
+    role : varchar(30)
+    position_no : smallint
+    attachment_level : varchar(20)
+    representation_kind : varchar(30)
+    is_required : boolean
+    is_time_dimension : boolean
+    --
+    UQ(data_structure_id, code)
+    UQ(data_structure_id, position_no)
+  }
+  entity "measure_definition" as measure_definition {
+    * measure_definition_id : uuid <<PK>>
+    --
+    data_structure_id : uuid <<FK>>
+    concept_id : uuid <<FK>>
+    unit_measure_id : uuid? <<FK>>
+    code : varchar(80)
+    name : varchar(180)
+    data_type : varchar(30)
+    precision_scale : smallint?
+    is_primary_measure : boolean
+    --
+    UQ(data_structure_id, code)
+  }
+  entity "attribute_definition" as attribute_definition {
+    * attribute_definition_id : uuid <<PK>>
+    --
+    data_structure_id : uuid <<FK>>
+    concept_id : uuid <<FK>>
+    code_list_id : uuid? <<FK>>
+    code : varchar(80)
+    name : varchar(180)
+    data_type : varchar(30)
+    attachment_level : varchar(20)
+    is_required : boolean
+    --
+    UQ(data_structure_id, code)
+  }
+}
+
+package statistics {
+  entity "indicator" as indicator {
+    * indicator_id : uuid <<PK>>
+    --
+    statistical_domain_id : uuid <<FK>>
+    owner_organization_id : uuid <<FK>>
+    code : varchar(80)
+    name : varchar(250)
+    short_name : varchar(120)?
+    definition : text
+    indicator_type : varchar(40)
+    data_nature : varchar(40)
+    preferred_direction : varchar(20)?
+    is_active : boolean
+    --
+    UQ(owner_organization_id, code)
+  }
+  entity "indicator_version" as indicator_version {
+    * indicator_version_id : uuid <<PK>>
+    --
+    indicator_id : uuid <<FK>>
+    methodology_version_id : uuid? <<FK>>
+    unit_measure_id : uuid <<FK>>
+    frequency_id : uuid <<FK>>
+    version_number : integer
+    definition : text
+    calculation_formula : text?
+    valid_from : date
+    valid_to : date?
+    change_reason : text?
+    --
+    UQ(indicator_id, version_number)
+  }
+  entity "dataset_indicator" as dataset_indicator {
+    * dataset_indicator_id : uuid <<PK>>
+    --
+    dataset_version_id : uuid <<FK>>
+    indicator_version_id : uuid <<FK>>
+    is_primary : boolean
+    sort_order : integer
+    --
+    UQ(dataset_version_id, indicator_version_id)
+  }
+  entity "series" as series {
+    * series_id : uuid <<PK>>
+    --
+    dataset_version_id : uuid <<FK>>
+    indicator_version_id : uuid? <<FK>>
+    frequency_id : uuid <<FK>>
+    unit_measure_id : uuid? <<FK>>
+    series_key : text
+    series_key_hash : char(64)
+    status : varchar(30)
+    valid_from : date?
+    valid_to : date?
+    --
+    UQ(dataset_version_id, series_key_hash)
+  }
+  entity "series_dimension_value" as series_dimension_value {
+    * series_dimension_value_id : bigint <<PK>>
+    --
+    series_id : uuid <<FK>>
+    dimension_definition_id : uuid <<FK>>
+    code_item_id : uuid? <<FK>>
+    classification_item_id : uuid? <<FK>>
+    geographic_unit_id : uuid? <<FK>>
+    text_value : text?
+    numeric_value : numeric(38,12)?
+    date_value : date?
+    --
+    UQ(series_id, dimension_definition_id)
+  }
+  entity "observation" as observation {
+    * observation_id : bigint <<PK>>
+    --
+    series_id : uuid <<FK>>
+    period_start : date
+    period_end : date
+    period_code : varchar(40)
+    reference_date : date?
+    --
+    UQ(series_id, period_start, period_end)
+  }
+  entity "observation_revision" as observation_revision {
+    * observation_revision_id : bigint <<PK>>
+    --
+    observation_id : bigint <<FK>>
+    source_artifact_id : uuid <<FK>>
+    data_entry_batch_id : uuid <<FK>>
+    revision_number : integer
+    status : varchar(30)
+    confidentiality_status : varchar(30)
+    publication_date : date?
+    capture_date : timestamptz
+    vintage_date : date
+    valid_from : timestamptz
+    valid_to : timestamptz?
+    is_current : boolean
+    revision_reason : text?
+    normalized_hash : char(64)
+    --
+    UQ(observation_id, revision_number)
+  }
+  entity "observation_measure" as observation_measure {
+    * observation_measure_id : bigint <<PK>>
+    --
+    observation_revision_id : bigint <<FK>>
+    measure_definition_id : uuid <<FK>>
+    numeric_value : numeric(38,12)?
+    text_value : text?
+    boolean_value : boolean?
+    --
+    UQ(observation_revision_id, measure_definition_id)
+  }
+  entity "observation_attribute_value" as observation_attribute_value {
+    * observation_attribute_value_id : bigint <<PK>>
+    --
+    observation_revision_id : bigint <<FK>>
+    attribute_definition_id : uuid <<FK>>
+    code_item_id : uuid? <<FK>>
+    numeric_value : numeric(38,12)?
+    text_value : text?
+    boolean_value : boolean?
+    --
+    UQ(observation_revision_id, attribute_definition_id)
+  }
+}
+
+package quality_lineage {
+  entity "quality_dimension" as quality_dimension {
+    * quality_dimension_id : uuid <<PK>>
+    --
+    code : varchar(50) <<UQ>>
+    name : varchar(180)
+    description : text?
+  }
+  entity "quality_rule" as quality_rule {
+    * quality_rule_id : uuid <<PK>>
+    --
+    quality_dimension_id : uuid <<FK>>
+    code : varchar(80) <<UQ>>
+    name : varchar(250)
+    rule_type : varchar(40)
+    severity : varchar(20)
+    target_entity_type : varchar(40)
+    configuration_json : jsonb
+    is_active : boolean
+  }
+  entity "quality_assessment" as quality_assessment {
+    * quality_assessment_id : bigint <<PK>>
+    --
+    quality_rule_id : uuid <<FK>>
+    data_entry_batch_id : uuid? <<FK>>
+    target_entity_type : varchar(40)
+    target_entity_id : varchar(80)
+    status : varchar(20)
+    measured_value : text?
+    threshold_value : text?
+    details : jsonb
+    assessed_at : timestamptz
+  }
+  entity "data_issue" as data_issue {
+    * data_issue_id : uuid <<PK>>
+    --
+    quality_assessment_id : bigint? <<FK>>
+    issue_type : varchar(40)
+    severity : varchar(20)
+    target_entity_type : varchar(40)
+    target_entity_id : varchar(80)
+    title : varchar(250)
+    description : text
+    status : varchar(30)
+    detected_at : timestamptz
+    resolved_at : timestamptz?
+    resolution_notes : text?
+  }
+  entity "lineage_relation" as lineage_relation {
+    * lineage_relation_id : uuid <<PK>>
+    --
+    methodology_version_id : uuid? <<FK>>
+    source_entity_type : varchar(40)
+    source_entity_id : varchar(80)
+    target_entity_type : varchar(40)
+    target_entity_id : varchar(80)
+    relation_type : varchar(40)
+    transformation_description : text?
+    formula : text?
+    created_at : timestamptz
+  }
+  entity "indicator_relation" as indicator_relation {
+    * indicator_relation_id : uuid <<PK>>
+    --
+    source_indicator_version_id : uuid <<FK>>
+    target_indicator_version_id : uuid <<FK>>
+    relation_type : varchar(40)
+    formula : text?
+    description : text?
+    valid_from : date?
+    valid_to : date?
+  }
+  entity "series_break" as series_break {
+    * series_break_id : uuid <<PK>>
+    --
+    series_id : uuid <<FK>>
+    methodology_version_id : uuid? <<FK>>
+    break_date : date
+    break_type : varchar(40)
+    reason : text
+    is_comparable_before_after : boolean
+    linking_method : text?
+    notes : text?
+  }
+}
+
+organization ||--o{ organization : parent
+organization ||--o{ source
+frequency ||--o{ source
+source ||--o{ source_artifact
+organization ||--o{ data_entry_batch
+source_artifact |o--o{ data_entry_batch
+dataset_version ||--o{ data_entry_batch
+
+statistical_domain ||--o{ statistical_domain : parent
+organization ||--o{ concept
+organization ||--o{ code_list
+code_list ||--o{ code_item
+code_item |o--o{ code_item : parent
+organization ||--o{ classification
+classification ||--o{ classification_version
+classification_version ||--o{ classification_item
+classification_item |o--o{ classification_item : parent
+classification_item ||--o{ classification_mapping : source
+classification_item ||--o{ classification_mapping : target
+geographic_unit |o--o{ geographic_unit : parent
+unit_measure |o--o{ unit_measure : base
+
+organization ||--o{ statistical_operation
+organization ||--o{ methodology
+methodology ||--o{ methodology_version
+statistical_operation |o--o{ dataset
+source ||--o{ dataset
+organization ||--o{ dataset
+statistical_domain ||--o{ dataset
+dataset ||--o{ dataset_version
+methodology_version ||--o{ dataset_version
+data_structure ||--o{ dataset_version
+organization ||--o{ data_structure
+data_structure ||--o{ dimension_definition
+data_structure ||--o{ measure_definition
+data_structure ||--o{ attribute_definition
+concept ||--o{ dimension_definition
+concept ||--o{ measure_definition
+concept ||--o{ attribute_definition
+code_list |o--o{ dimension_definition
+classification_version |o--o{ dimension_definition
+code_list |o--o{ attribute_definition
+unit_measure |o--o{ measure_definition
+
+statistical_domain ||--o{ indicator
+organization ||--o{ indicator
+indicator ||--o{ indicator_version
+methodology_version |o--o{ indicator_version
+unit_measure ||--o{ indicator_version
+frequency ||--o{ indicator_version
+dataset_version ||--o{ dataset_indicator
+indicator_version ||--o{ dataset_indicator
+dataset_version ||--o{ series
+indicator_version |o--o{ series
+frequency ||--o{ series
+unit_measure |o--o{ series
+series ||--o{ series_dimension_value
+dimension_definition ||--o{ series_dimension_value
+code_item |o--o{ series_dimension_value
+classification_item |o--o{ series_dimension_value
+geographic_unit |o--o{ series_dimension_value
+series ||--o{ observation
+observation ||--o{ observation_revision
+source_artifact ||--o{ observation_revision
+data_entry_batch ||--o{ observation_revision
+observation_revision ||--o{ observation_measure
+measure_definition ||--o{ observation_measure
+observation_revision ||--o{ observation_attribute_value
+attribute_definition ||--o{ observation_attribute_value
+code_item |o--o{ observation_attribute_value
+
+quality_dimension ||--o{ quality_rule
+quality_rule ||--o{ quality_assessment
+data_entry_batch |o--o{ quality_assessment
+quality_assessment |o--o{ data_issue
+methodology_version |o--o{ lineage_relation
+indicator_version ||--o{ indicator_relation : source
+indicator_version ||--o{ indicator_relation : target
+series ||--o{ series_break
+methodology_version |o--o{ series_break
+
+note bottom of series_dimension_value
+CHECK: exactamente uno entre
+code_item_id, classification_item_id,
+geographic_unit_id, text_value,
+numeric_value y date_value.
+end note
+
+note bottom of observation_measure
+CHECK: exactamente uno entre
+numeric_value, text_value y boolean_value.
+end note
+
+note bottom of observation_revision
+Índice parcial recomendado:
+UNIQUE(observation_id)
+WHERE is_current = true.
+end note
+@enduml

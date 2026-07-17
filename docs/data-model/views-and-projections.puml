@@ -1,0 +1,18 @@
+@startuml
+skinparam shadowing false
+title Vistas y proyecciones
+entity "read_models.current_observation_value" as current_view {
+  observation_id : bigint
+  series_id : uuid
+  dataset_version_id : uuid
+  period_start : date
+  period_end : date
+  observation_revision_id : bigint
+  revision_number : integer
+  confidentiality_status : varchar
+  source_artifact_id : uuid
+}
+statistics.observation --> current_view
+statistics.observation_revision --> current_view
+statistics.series --> current_view
+@enduml

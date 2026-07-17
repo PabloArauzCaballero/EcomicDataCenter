@@ -1,0 +1,27 @@
+$ python scripts/check_clean_code.py
+Clean-code validation passed for 124 TypeScript files.
+$ python scripts/validate_architecture.py
+Architecture validation passed for 124 TypeScript files.
+$ python scripts/check_file_limits.py
+WARN 246 scripts/generate_migrations.py
+WARN 244 scripts/build_openapi.py
+PASS: 2 files require design review; no prohibited file exceeds 299 lines.
+$ node scripts/check_typescript_syntax.cjs
+PASS: 127 TypeScript files parsed and transpiled.
+$ python scripts/validate_local_imports.py
+PASS: 252 local imports resolved.
+$ python scripts/validate_diagrams.py
+VALIDATION_OK
+- Diagramas PlantUML: 21
+- Entidades relacionales: 40
+- Clases lógicas: 40
+- Actividades específicas: 8
+- Estados específicos: 7
+$ python scripts/validate_project.py
+PASS: project structure, 40 models, schemas, JSON and source markers validated.
+$ python scripts/validate_openapi.py
+PASS: 35 paths and 37 operations validated.
+$ python scripts/validate_contract_routes.py
+PASS: 37 controller routes match OpenAPI.
+$ node package.json parse
+PASS: package.json is valid JSON.

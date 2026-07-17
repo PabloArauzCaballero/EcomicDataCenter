@@ -1,0 +1,32 @@
+@startuml
+title Contenedores lógicos — Core del Observatorio
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+actor Client as client
+cloud "Proveedor JWT/JWKS" as idp
+node "Zona de borde" {
+  component "NGINX" as nginx
+}
+node "Zona de aplicación" {
+  component "API NestJS/Fastify\nstateless" as api
+  component "Proceso de migración\nseparado" as migrator
+}
+database "PostgreSQL\nwriter" as writer
+database "PostgreSQL\nreader" as reader
+component "Logs/Métricas" as obs
+
+client --> nginx : HTTPS + JWT
+nginx --> api : HTTP privado + request ID
+api --> idp : HTTPS/JWKS
+api --> writer : DML transaccional
+api --> reader : SELECT read-only
+migrator --> writer : DDL con credencial migrator
+api --> obs : stdout / Prometheus interno
+
+note right of reader
+Puede apuntar inicialmente al mismo
+clúster físico, pero usa credenciales
+y pool separados.
+end note
+@enduml

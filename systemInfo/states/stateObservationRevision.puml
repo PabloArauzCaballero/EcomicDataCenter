@@ -1,0 +1,22 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Estado — observation_revision
+skinparam shadowing false
+[*] --> DRAFT
+DRAFT --> VALIDATED : validationPassed
+DRAFT --> REJECTED : validationFailed
+VALIDATED --> PUBLISHED : approveAndPublish
+PUBLISHED --> SUPERSEDED : publishNextRevision
+PUBLISHED --> WITHDRAWN : invalidatePublication
+REJECTED --> DRAFT : correct
+SUPERSEDED --> [*]
+WITHDRAWN --> [*]
+
+note right of PUBLISHED
+Una sola revisión PUBLISHED puede
+ser current=true por observación.
+end note
+@enduml

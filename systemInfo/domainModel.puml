@@ -1,0 +1,89 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Modelo de dominio simplificado — Observatorio Económico
+left to right direction
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+class Institucion
+class Fuente
+class ArtefactoFuente
+class LoteIngreso
+class OperacionEstadistica
+class Metodologia
+class VersionMetodologia
+class Dataset
+class VersionDataset
+class EstructuraDatos
+class Dimension
+class Medida
+class Atributo
+class Indicador
+class VersionIndicador
+class Serie
+class ValorDimension
+class Observacion
+class RevisionObservacion
+class ValorMedida
+class ValorAtributo
+class ReglaCalidad
+class EvaluacionCalidad
+class IncidenciaDato
+class RelacionLinaje
+class Clasificacion
+class VersionClasificacion
+class ItemClasificacion
+class UnidadGeografica
+
+Institucion "1" -- "0..*" Fuente
+Fuente "1" -- "0..*" ArtefactoFuente
+ArtefactoFuente "0..1" -- "0..*" LoteIngreso
+Institucion "1" -- "0..*" OperacionEstadistica
+OperacionEstadistica "0..1" -- "0..*" Dataset
+Fuente "1" -- "0..*" Dataset
+Metodologia "1" -- "1..*" VersionMetodologia
+Dataset "1" -- "1..*" VersionDataset
+VersionMetodologia "1" -- "0..*" VersionDataset
+EstructuraDatos "1" -- "0..*" VersionDataset
+EstructuraDatos "1" -- "1..*" Dimension
+EstructuraDatos "1" -- "1..*" Medida
+EstructuraDatos "1" -- "0..*" Atributo
+Indicador "1" -- "1..*" VersionIndicador
+VersionDataset "1" -- "0..*" Serie
+VersionIndicador "0..1" -- "0..*" Serie
+Serie "1" -- "1..*" ValorDimension
+Serie "1" -- "0..*" Observacion
+Observacion "1" -- "1..*" RevisionObservacion
+RevisionObservacion "1" -- "1..*" ValorMedida
+RevisionObservacion "1" -- "0..*" ValorAtributo
+ArtefactoFuente "1" -- "0..*" RevisionObservacion
+LoteIngreso "1" -- "0..*" RevisionObservacion
+ReglaCalidad "1" -- "0..*" EvaluacionCalidad
+EvaluacionCalidad "0..1" -- "0..*" IncidenciaDato
+Clasificacion "1" -- "1..*" VersionClasificacion
+VersionClasificacion "1" -- "0..*" ItemClasificacion
+Dimension "1" -- "0..*" ValorDimension
+ItemClasificacion "0..1" -- "0..*" ValorDimension
+UnidadGeografica "0..1" -- "0..*" ValorDimension
+RelacionLinaje ..> ArtefactoFuente
+RelacionLinaje ..> RevisionObservacion
+RelacionLinaje ..> Dataset
+RelacionLinaje ..> Indicador
+
+note right of RevisionObservacion
+La cifra se versiona.
+Nunca se sobrescribe
+silenciosamente.
+end note
+
+note right of ValorMedida
+Una revisión puede contener
+valor principal, límites de
+confianza, error estándar u
+otras medidas.
+end note
+@enduml

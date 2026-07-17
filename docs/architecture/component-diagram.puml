@@ -1,0 +1,50 @@
+@startuml
+title Componentes internos de la API
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+component "Auth + Roles" as auth
+component "Provenance Module" as provenance
+component "Governance Module" as governance
+component "Ingestion Module" as ingestion
+component "Query Module" as query
+component "Quality Module" as quality
+component "Health Module" as health
+component "Error + Validation" as cross
+component "Observability" as obs
+component "Database Module" as db
+
+auth --> provenance
+ auth --> governance
+ auth --> ingestion
+ auth --> query
+ auth --> quality
+cross --> provenance
+cross --> governance
+cross --> ingestion
+cross --> query
+cross --> quality
+provenance --> db : writer/reader
+ governance --> db : writer
+ ingestion --> db : writer + transaction
+ query --> db : reader
+ quality --> db : writer/reader
+ health --> db : readiness
+provenance --> obs
+governance --> obs
+ingestion --> obs
+query --> obs
+quality --> obs
+health --> obs
+
+note bottom of ingestion
+Registro y revisión coordinan
+la transacción de negocio.
+Repositories encapsulan persistencia.
+end note
+
+note bottom of query
+SQL constante, parametrizado,
+paginado y orientado a proyección.
+end note
+@enduml

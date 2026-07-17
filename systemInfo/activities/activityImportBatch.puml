@@ -1,0 +1,53 @@
+' Modelo final del Observatorio Económico y de Mercados de Bolivia
+' Fuente: elaboración propia basada en SDMX 3.1, GSIM 2.0, UN-NQAF e INE Bolivia.
+' Archivo autónomo: no requiere includes externos.
+
+@startuml
+title Importar lote de datos
+skinparam shadowing false
+start
+:Recibir archivo, API o paquete SDMX;
+:Calcular hash SHA-256;
+if (¿Artefacto ya existe?) then (Sí)
+  :Detectar posible duplicado;
+  if (¿Reprocesamiento autorizado?) then (No)
+    :Finalizar sin duplicar datos;
+    stop
+  endif
+endif
+:Preservar artefacto original;
+:Crear data_entry_batch;
+:Validar formato y esquema;
+if (¿Esquema inválido?) then (Sí)
+  :Rechazar lote;
+  :Registrar detalle de errores;
+  stop
+endif
+:Normalizar códigos y periodos;
+:Mapear clasificaciones;
+while (¿Quedan registros?) is (Sí)
+  :Validar dimensiones y medidas;
+  if (¿Registro válido?) then (Sí)
+    :Resolver o crear serie;
+    :Crear observación o revisión;
+    :Registrar medidas y atributos;
+    :Incrementar aceptados;
+  else (No)
+    :Registrar rechazo granular;
+    :Incrementar rechazados;
+  endif
+endwhile (No)
+:Ejecutar controles agregados;
+if (¿Falla crítica de lote?) then (Sí)
+  :Revertir confirmación de datos;
+  :Marcar lote FAILED o REJECTED;
+else (No)
+  if (¿Existen rechazos?) then (Sí)
+    :Marcar lote PARTIAL;
+  else (No)
+    :Marcar lote COMMITTED;
+  endif
+endif
+:Conservar métricas y trazabilidad;
+stop
+@enduml
