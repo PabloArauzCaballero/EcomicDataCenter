@@ -145,7 +145,23 @@ jobs:
       - run: yarn build
       - name: Build hardened runtime image
         run: docker build --target runtime -t observatorio-economico:${{ github.sha }} .
-      - run: yarn openapi:export
+      - name: Export OpenAPI
+        id: openapi-export
+        continue-on-error: true
+        run: |
+          mkdir -p artifacts/openapi
+          yarn openapi:export > artifacts/openapi/export.log 2>&1
+      - name: Upload OpenAPI diagnostics
+        if: steps.openapi-export.outcome == 'failure'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: openapi-export-log
+          path: artifacts/openapi/export.log
+          if-no-files-found: error
+          retention-days: 1
+      - name: Enforce OpenAPI export success
+        if: steps.openapi-export.outcome == 'failure'
+        run: exit 1
       - run: python scripts/validate_openapi.py
       - run: python scripts/validate_contract_routes.py
       - run: python scripts/generate_postman.py
