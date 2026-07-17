@@ -8,10 +8,14 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   quality:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 45
     services:
       postgres:
         image: postgres:17.5-alpine
@@ -28,6 +32,7 @@ jobs:
           --health-retries 10
 
     env:
+      CI: "true"
       NODE_ENV: test
       APP_HOST: 127.0.0.1
       APP_PORT: 3000
@@ -45,14 +50,21 @@ jobs:
       METRICS_ENABLED: "true"
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 22.16.0
+          cache: yarn
       - run: corepack enable
       - name: Require reproducible lockfile
         run: test -f yarn.lock
       - run: yarn install --frozen-lockfile --non-interactive
+      - name: Audit production dependencies
+        run: yarn security:audit
+      - name: Validate Docker Compose topology
+        run: cp .env.example .env && yarn compose:validate
       - name: Install PostgreSQL client
         run: sudo apt-get update && sudo apt-get install -y postgresql-client
       - name: Bootstrap least-privilege database roles
@@ -94,6 +106,8 @@ jobs:
       - name: Confirm mock seeds are rejected in production
         run: AUTH_MODE=jwks AUTH_JWKS_URI=https://identity.example.test/jwks AUTH_ISSUER=https://identity.example.test/ AUTH_AUDIENCE=observatorio NODE_ENV=production yarn db:seed:mock && exit 1 || exit 0
       - run: yarn build
+      - name: Build hardened runtime image
+        run: docker build --target runtime -t observatorio-economico:${{ github.sha }} .
       - run: yarn openapi:export
       - run: python scripts/validate_openapi.py
       - run: python scripts/validate_contract_routes.py
