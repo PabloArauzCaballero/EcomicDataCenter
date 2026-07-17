@@ -28,7 +28,7 @@
     "quality:files": "python scripts/check_file_limits.py",
     "quality:diagrams": "python scripts/validate_diagrams.py",
     "smoke": "tsx scripts/smoke.ts",
-    "quality:syntax": "node scripts/check_typescript_syntax.cjs",
+    "quality:syntax": "node --check eslint.config.mjs && node --check jest.config.cjs && node --check scripts/check_identifier_language.cjs && node --check scripts/check_typescript_syntax.cjs && node scripts/check_typescript_syntax.cjs",
     "quality:naming": "node scripts/check_identifier_language.cjs",
     "quality:project": "python scripts/validate_project.py",
     "quality:openapi": "python scripts/validate_openapi.py",
