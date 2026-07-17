@@ -36,7 +36,6 @@ const spanishTerms = new Set([
   'reglas',
   'resultado',
   'resultados',
-  'revision',
   'usuario',
   'usuarios',
   'valor',
