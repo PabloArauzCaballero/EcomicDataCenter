@@ -3,10 +3,7 @@ import type { Sequelize } from 'sequelize-typescript';
 import { ReadQueryExecutor } from '../common/persistence/read-query.executor';
 import { ENVIRONMENT } from '../config/configuration.module';
 import type { Environment } from '../config/environment';
-import {
-  initializeDatabaseConnections,
-  type DatabaseConnections,
-} from './database-connections';
+import { initializeDatabaseConnections, type DatabaseConnections } from './database-connections';
 import { DATABASE_CONNECTIONS, READER_DATABASE, WRITER_DATABASE } from './database.tokens';
 
 @Global()
@@ -35,15 +32,10 @@ import { DATABASE_CONNECTIONS, READER_DATABASE, WRITER_DATABASE } from './databa
 export class DatabaseModule {}
 
 class DatabaseLifecycle implements OnApplicationShutdown {
-  constructor(
-    @Inject(DATABASE_CONNECTIONS) private readonly connections: DatabaseConnections,
-  ) {}
+  constructor(@Inject(DATABASE_CONNECTIONS) private readonly connections: DatabaseConnections) {}
 
   /** Closes both pools during graceful process termination. */
   async onApplicationShutdown(): Promise<void> {
-    await Promise.allSettled([
-      this.connections.writer.close(),
-      this.connections.reader.close(),
-    ]);
+    await Promise.allSettled([this.connections.writer.close(), this.connections.reader.close()]);
   }
 }

@@ -15,8 +15,14 @@ describe('initializeDatabaseConnections', () => {
   it('returns both authenticated pools', async () => {
     const writerAuthenticate = jest.fn(async () => undefined);
     const readerAuthenticate = jest.fn(async () => undefined);
-    const writer = databaseDouble(writerAuthenticate, jest.fn(async () => undefined));
-    const reader = databaseDouble(readerAuthenticate, jest.fn(async () => undefined));
+    const writer = databaseDouble(
+      writerAuthenticate,
+      jest.fn(async () => undefined),
+    );
+    const reader = databaseDouble(
+      readerAuthenticate,
+      jest.fn(async () => undefined),
+    );
 
     const result = await initializeDatabaseConnections(environment, {
       createWriter: () => writer,
@@ -32,7 +38,10 @@ describe('initializeDatabaseConnections', () => {
     const startupFailure = new Error('reader unavailable');
     const writerClose = jest.fn(async () => undefined);
     const readerClose = jest.fn(async () => undefined);
-    const writer = databaseDouble(jest.fn(async () => undefined), writerClose);
+    const writer = databaseDouble(
+      jest.fn(async () => undefined),
+      writerClose,
+    );
     const reader = databaseDouble(
       jest.fn(async () => Promise.reject(startupFailure)),
       readerClose,
