@@ -167,19 +167,33 @@ jobs:
       - run: python scripts/generate_postman.py
       - name: Confirm generated contracts have no drift
         run: git diff --exit-code -- docs/endpoints/openapi.yaml docs/postman/collection.json
-      - name: Start full local Docker stack
-        run: docker compose up --build -d
-      - name: Seed full local Docker stack
-        run: yarn local:seed
-      - name: Verify full local Docker stack
-        env:
-          SMOKE_BASE_URL: http://127.0.0.1:8080
-        run: yarn local:verify
-      - name: Capture full local stack logs on failure
-        if: failure()
+      - name: Run full local Docker workflow
+        id: local-docker
+        continue-on-error: true
         run: |
-          docker compose ps
-          docker compose logs --no-color --tail=300
+          mkdir -p artifacts/local-stack
+          {
+            docker compose up --build -d
+            yarn local:seed
+            SMOKE_BASE_URL=http://127.0.0.1:8080 yarn local:verify
+          } > artifacts/local-stack/workflow.log 2>&1
+      - name: Capture full local Docker diagnostics
+        if: always()
+        run: |
+          mkdir -p artifacts/local-stack
+          docker compose ps --all > artifacts/local-stack/compose-ps.txt 2>&1 || true
+          docker compose logs --no-color --tail=500 > artifacts/local-stack/compose.log 2>&1 || true
+      - name: Upload full local Docker diagnostics
+        if: steps.local-docker.outcome == 'failure'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: local-docker-workflow-log
+          path: artifacts/local-stack
+          if-no-files-found: error
+          retention-days: 1
+      - name: Enforce full local Docker workflow
+        if: steps.local-docker.outcome == 'failure'
+        run: exit 1
       - name: Stop full local Docker stack
         if: always()
         run: docker compose down --volumes --remove-orphans
