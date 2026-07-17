@@ -110,7 +110,7 @@ export class QualityEvaluatorService {
         const passed = numeric !== undefined && Number(numeric) >= 0;
         return {
           status: passed ? 'PASS' : 'FAIL',
-          measuredValue: numeric,
+          ...(numeric === undefined ? {} : { measuredValue: numeric }),
           thresholdValue: '>= 0',
           details: config,
         };
@@ -126,7 +126,7 @@ export class QualityEvaluatorService {
         const maximumOk = config.maximum === undefined || parsed <= Number(config.maximum);
         return {
           status: Number.isFinite(parsed) && minimumOk && maximumOk ? 'PASS' : 'FAIL',
-          measuredValue: numeric,
+          ...(numeric === undefined ? {} : { measuredValue: numeric }),
           thresholdValue: `${config.minimum ?? '-∞'}..${config.maximum ?? '+∞'}`,
           details: config,
         };
