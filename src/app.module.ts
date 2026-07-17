@@ -16,6 +16,16 @@ import { ProvenanceModule } from './modules/provenance/provenance.module';
 import { QualityModule } from './modules/quality/quality.module';
 import { DataQueryModule } from './modules/query/data-query.module';
 
+interface LoggableRequest {
+  readonly id?: string | number;
+  readonly method?: string;
+  readonly url?: string;
+}
+
+interface LoggableResponse {
+  readonly statusCode?: number;
+}
+
 const environment = getEnvironment();
 
 @Module({
@@ -35,8 +45,12 @@ const environment = getEnvironment();
         },
         autoLogging: false,
         serializers: {
-          req: (request) => ({ id: request.id, method: request.method, url: request.url }),
-          res: (response) => ({ statusCode: response.statusCode }),
+          req: (request: LoggableRequest) => ({
+            id: request.id,
+            method: request.method,
+            url: request.url,
+          }),
+          res: (response: LoggableResponse) => ({ statusCode: response.statusCode }),
         },
       },
     }),
