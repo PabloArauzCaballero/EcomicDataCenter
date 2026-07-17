@@ -2,9 +2,11 @@
 
 ## Resultado del análisis estático
 
-No se identificó una fuga de memoria determinista en el núcleo activo. No existen caches de crecimiento ilimitado, listeners registrados por request ni intervalos persistentes. El cliente JWKS tiene cache y tasa acotadas; las conexiones Sequelize se cierran durante el apagado de Nest; los reintentos serializables tienen número y demora máximos.
+No se identificó una fuga de memoria determinista en el núcleo activo. No existen caches de crecimiento ilimitado, listeners registrados por request ni intervalos persistentes. El cliente JWKS tiene cache y tasa acotadas; los reintentos serializables tienen número y demora máximos.
 
-La ausencia de una fuga confirmada no equivale a una prueba de estabilidad prolongada. El release gate exige carga sostenida con observación de RSS, heap usado, event-loop lag, conexiones activas y latencia.
+Sí se identificó un riesgo de fuga durante arranque parcial: si el writer se autenticaba y el reader fallaba antes de que Nest completara la creación de la aplicación, el pool writer podía conservar sockets y evitar que el proceso terminara. Los dos pools ahora se inicializan como un grupo atómico y ambos se cierran ante cualquier error de construcción o autenticación.
+
+La ausencia de una fuga confirmada en ejecución normal no equivale a una prueba de estabilidad prolongada. El release gate exige carga sostenida con observación de RSS, heap usado, event-loop lag, conexiones activas y latencia.
 
 ## Controles aplicados
 
@@ -12,6 +14,7 @@ La ausencia de una fuga confirmada no equivale a una prueba de estabilidad prolo
 - Timeouts de conexión, request y keep-alive en Fastify.
 - Timeouts de conexión, adquisición, statement e inactividad transaccional en PostgreSQL.
 - Pools reader/writer separados y acotados.
+- Inicialización atómica de ambos pools y cleanup ante arranque parcial fallido.
 - Cierre de ambos pools mediante `OnApplicationShutdown`.
 - Lotes de ingestión limitados a 500 registros y procesados secuencialmente dentro de una transacción.
 - Consultas paginadas con `pageSize <= 200` y límite operacional para offset profundo.
