@@ -9,7 +9,7 @@ La validación final debe referenciar el SHA exacto que se someterá a revisión
 | Gate | Estado | Evidencia |
 |---|---|---|
 | Instalación con lockfile congelado | Pendiente de última ejecución | GitHub Actions `backend-quality` |
-| Auditoría de dependencias | Bloqueante hasta revisión | `yarn security:audit` y HD-007 |
+| Auditoría de dependencias | Aprobada en el candidato previo; debe repetirse en el SHA final | `yarn security:audit` |
 | Formato, lint y TypeScript | Pendiente de última ejecución | GitHub Actions `backend-quality` |
 | Validadores de arquitectura, seguridad y nomenclatura | Pendiente de última ejecución | `yarn quality:all` |
 | Pruebas | Pendiente de última ejecución | `yarn test` |
