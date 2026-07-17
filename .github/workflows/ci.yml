@@ -101,7 +101,23 @@ jobs:
       - run: yarn format:check
       - run: yarn lint
       - run: yarn typecheck
-      - run: yarn quality:all
+      - run: yarn quality:files
+      - run: yarn quality:syntax
+      - run: yarn quality:naming
+      - run: yarn quality:imports
+      - run: yarn quality:diagrams
+      - run: yarn quality:clean-code
+      - run: yarn quality:architecture
+      - run: yarn quality:physical-model
+      - run: yarn quality:seeds
+      - run: yarn quality:persistence
+      - run: yarn quality:use-cases
+      - run: yarn quality:security
+      - run: yarn quality:async-scope
+      - run: yarn quality:operations
+      - run: yarn quality:project
+      - run: yarn quality:openapi
+      - run: yarn quality:routes
       - run: yarn test
       - name: Verify migration install, upgrade and rollback cycle
         run: yarn db:verify:migrations
