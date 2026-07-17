@@ -1,0 +1,46 @@
+yarn run v1.22.22
+$ tsc --noEmit
+scripts/smoke.ts(16,55): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(input: string | URL | Request, init?: RequestInit | undefined): Promise<Response>', gave the following error.
+    Argument of type '{ headers: { authorization: string; } | undefined; signal: AbortSignal; }' is not assignable to parameter of type 'RequestInit' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Types of property 'headers' are incompatible.
+        Type '{ authorization: string; } | undefined' is not assignable to type 'HeadersInit'.
+          Type 'undefined' is not assignable to type 'HeadersInit'.
+  Overload 2 of 2, '(input: URL | RequestInfo, init?: RequestInit | undefined): Promise<Response>', gave the following error.
+    Argument of type '{ headers: { authorization: string; } | undefined; signal: AbortSignal; }' is not assignable to parameter of type 'RequestInit' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Types of property 'headers' are incompatible.
+        Type '{ authorization: string; } | undefined' is not assignable to type 'HeadersInit'.
+          Type 'undefined' is not assignable to type 'HeadersInit'.
+src/database/database.module.ts(27,5): error TS2449: Class 'DatabaseLifecycle' used before its declaration.
+src/database/migration.runner.ts(34,30): error TS2345: Argument of type '{ migrations: { glob: [string, { cwd: string; }]; }; context: { sequelize: Sequelize; }; storage: SequelizeStorage; }' is not assignable to parameter of type 'UmzugOptions<{ sequelize: Sequelize; }>'.
+  Property 'logger' is missing in type '{ migrations: { glob: [string, { cwd: string; }]; }; context: { sequelize: Sequelize; }; storage: SequelizeStorage; }' but required in type 'UmzugOptions<{ sequelize: Sequelize; }>'.
+src/main.ts(24,5): error TS2322: Type '(request: FastifyRequest) => string' is not assignable to type '(req: IncomingMessage) => string'.
+  Types of parameters 'request' and 'req' are incompatible.
+    Type 'IncomingMessage' is missing the following properties from type 'FastifyRequest<RouteGenericInterface, RawServerDefault, IncomingMessage, FastifySchema, FastifyTypeProviderDefault, unknown, FastifyBaseLogger, ResolveFastifyRequestType<...>>': params, raw, query, server, and 15 more.
+src/main.ts(41,32): error TS2345: Argument of type 'FastifyHelmet' is not assignable to parameter of type 'FastifyPluginCallback<FastifyHelmetOptions> | FastifyPluginAsync<FastifyHelmetOptions> | Promise<...> | Promise<...>'.
+  Type 'FastifyHelmet' is not assignable to type 'FastifyPluginCallback<FastifyHelmetOptions>'.
+    Types of parameters 'instance' and 'instance' are incompatible.
+      Type 'FastifyInstance<RawServerDefault, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>' is missing the following properties from type 'FastifyInstance<RawServerDefault, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>': createRateLimit, rateLimit
+src/main.ts(45,32): error TS2345: Argument of type 'FastifyRateLimit' is not assignable to parameter of type 'FastifyPluginCallback<RateLimitPluginOptions> | FastifyPluginAsync<RateLimitPluginOptions> | Promise<...> | Promise<...>'.
+  Type 'FastifyRateLimit' is not assignable to type 'FastifyPluginCallback<RateLimitPluginOptions>'.
+    Types of parameters 'instance' and 'instance' are incompatible.
+      Type 'FastifyInstance<RawServerDefault, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>' is missing the following properties from type 'FastifyInstance<RawServerDefault, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, FastifyTypeProviderDefault>': createRateLimit, rateLimit
+src/modules/ingestion/observation-write.repository.ts(118,9): error TS2345: Argument of type 'object[]' is not assignable to parameter of type 'readonly Optional<InferCreationAttributes<SeriesDimensionValueModel, { omit: never; }>, NullishPropertiesOf<InferCreationAttributes<SeriesDimensionValueModel, { ...; }>>>[]'.
+  Type 'object' is not assignable to type 'Optional<InferCreationAttributes<SeriesDimensionValueModel, { omit: never; }>, NullishPropertiesOf<InferCreationAttributes<SeriesDimensionValueModel, { ...; }>>>'.
+    Type '{}' is missing the following properties from type 'Omit<InferCreationAttributes<SeriesDimensionValueModel, { omit: never; }>, NullishPropertiesOf<InferCreationAttributes<SeriesDimensionValueModel, { ...; }>>>': dimensionDefinitionId, seriesId
+src/modules/ingestion/quality-evaluator.service.ts(111,9): error TS2375: Type '{ status: "PASS" | "FAIL"; measuredValue: string | undefined; thresholdValue: string; details: { measureDefinitionId: string; }; }' is not assignable to type 'RuleOutcome' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'measuredValue' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/modules/ingestion/quality-evaluator.service.ts(127,9): error TS2375: Type '{ status: "PASS" | "FAIL"; measuredValue: string | undefined; thresholdValue: string; details: { measureDefinitionId: string; minimum?: string | undefined; maximum?: string | undefined; }; }' is not assignable to type 'RuleOutcome' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'measuredValue' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/modules/ingestion/revision-write.repository.ts(56,7): error TS2345: Argument of type 'object[]' is not assignable to parameter of type 'readonly Optional<InferCreationAttributes<ObservationMeasureModel, { omit: never; }>, NullishPropertiesOf<InferCreationAttributes<ObservationMeasureModel, { ...; }>>>[]'.
+  Type 'object' is not assignable to type 'Optional<InferCreationAttributes<ObservationMeasureModel, { omit: never; }>, NullishPropertiesOf<InferCreationAttributes<ObservationMeasureModel, { ...; }>>>'.
+    Type '{}' is missing the following properties from type 'Omit<InferCreationAttributes<ObservationMeasureModel, { omit: never; }>, NullishPropertiesOf<InferCreationAttributes<ObservationMeasureModel, { ...; }>>>': measureDefinitionId, observationRevisionId
+src/modules/ingestion/revision-write.repository.ts(60,7): error TS2345: Argument of type 'object[]' is not assignable to parameter of type 'readonly Optional<InferCreationAttributes<ObservationAttributeValueModel, { omit: never; }>, NullishPropertiesOf<InferCreationAttributes<ObservationAttributeValueModel, { ...; }>>>[]'.
+  Type 'object' is not assignable to type 'Optional<InferCreationAttributes<ObservationAttributeValueModel, { omit: never; }>, NullishPropertiesOf<InferCreationAttributes<ObservationAttributeValueModel, { ...; }>>>'.
+    Type '{}' is missing the following properties from type 'Omit<InferCreationAttributes<ObservationAttributeValueModel, { omit: never; }>, NullishPropertiesOf<InferCreationAttributes<ObservationAttributeValueModel, { ...; }>>>': attributeDefinitionId, observationRevisionId
+error Command failed with exit code 2.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
