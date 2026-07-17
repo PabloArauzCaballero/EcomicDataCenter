@@ -32,17 +32,27 @@ async function check(name: string, path: string, token?: string): Promise<CheckR
   }
 }
 
+async function checkProtectedRoute(): Promise<CheckResult> {
+  const token = process.env.SMOKE_TOKEN;
+  if (token) {
+    return check('protected sources', '/api/v1/provenance/sources?page=1&pageSize=1', token);
+  }
+  if (process.env.AUTH_MODE === 'disabled') {
+    return check('protected sources in local auth mode', '/api/v1/provenance/sources?page=1&pageSize=1');
+  }
+  return {
+    name: 'protected sources',
+    status: 'SKIP',
+    detail: 'SMOKE_TOKEN is required when authentication is enabled',
+  };
+}
+
 async function main(): Promise<void> {
   const checks: CheckResult[] = [
     await check('liveness', '/health'),
     await check('readiness', '/ready'),
+    await checkProtectedRoute(),
   ];
-  const token = process.env.SMOKE_TOKEN;
-  checks.push(
-    token
-      ? await check('protected sources', '/api/v1/provenance/sources?page=1&pageSize=1', token)
-      : { name: 'protected sources', status: 'SKIP', detail: 'SMOKE_TOKEN not provided' },
-  );
   const report = {
     executedAt: new Date().toISOString(),
     baseUrl,
