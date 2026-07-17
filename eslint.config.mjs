@@ -27,9 +27,21 @@ const quarantinedPaths = [
   'src/modules/users/**',
 ];
 
+const separatelyValidatedJavaScript = [
+  'eslint.config.mjs',
+  'jest.config.cjs',
+  'scripts/*.cjs',
+];
+
 export default tseslint.config(
   {
-    ignores: ['dist/**', 'coverage/**', 'artifacts/**', ...quarantinedPaths],
+    ignores: [
+      'dist/**',
+      'coverage/**',
+      'artifacts/**',
+      ...quarantinedPaths,
+      ...separatelyValidatedJavaScript,
+    ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
@@ -37,13 +49,7 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        projectService: {
-          allowDefaultProject: [
-            'eslint.config.mjs',
-            'jest.config.cjs',
-            'scripts/*.cjs',
-          ],
-        },
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
