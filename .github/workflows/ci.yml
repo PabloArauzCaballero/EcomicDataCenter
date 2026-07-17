@@ -118,7 +118,20 @@ jobs:
       - run: yarn quality:project
       - run: yarn quality:openapi
       - run: yarn quality:routes
-      - run: yarn test
+      - name: Test common and configuration
+        run: yarn jest src/common src/config --runInBand --passWithNoTests
+      - name: Test database
+        run: yarn jest src/database --runInBand --passWithNoTests
+      - name: Test governance
+        run: yarn jest src/modules/governance --runInBand --passWithNoTests
+      - name: Test ingestion
+        run: yarn jest src/modules/ingestion --runInBand --passWithNoTests
+      - name: Test provenance and quality
+        run: yarn jest src/modules/provenance src/modules/quality --runInBand --passWithNoTests
+      - name: Test query and health
+        run: yarn jest src/modules/query src/modules/health --runInBand --passWithNoTests
+      - name: Test complete suite
+        run: yarn test
       - name: Verify migration install, upgrade and rollback cycle
         run: yarn db:verify:migrations
       - run: yarn db:migrate
