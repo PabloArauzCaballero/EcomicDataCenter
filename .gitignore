@@ -10,6 +10,8 @@ backups/
 *.dump
 *.backup
 *.sql.gz
+__pycache__/
+*.py[cod]
 **/smoke-results*.json
 **/stress-results*.json
 **/load-results*.json
