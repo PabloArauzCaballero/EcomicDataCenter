@@ -1,27 +1,43 @@
-from pathlib import Path
+#!/usr/bin/env python3
+"""Enforce the manual-code size policy on the maintained production scope."""
+
+from __future__ import annotations
+
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-EXEMPT = {'openapi.yaml', 'data-model.tex'}
-EXTENSIONS = {'.ts', '.tsx', '.js', '.mjs', '.cjs', '.py'}
-violations = []
-warnings = []
-for path in ROOT.rglob('*'):
-    if not path.is_file() or path.suffix not in EXTENSIONS or 'node_modules' in path.parts or 'dist' in path.parts:
-        continue
-    if path.name in EXEMPT or 'migrations' in path.parts or 'models' in path.parts:
-        continue
-    lines = len(path.read_text(encoding='utf-8').splitlines())
-    relative = path.relative_to(ROOT)
-    if lines >= 300:
-        violations.append((relative, lines))
-    elif lines >= 220:
-        warnings.append((relative, lines))
+from project_scope import ROOT, iter_maintained_code_files
 
-for path, lines in warnings:
-    print(f'WARN {lines:>3} {path}')
-for path, lines in violations:
-    print(f'FAIL {lines:>3} {path}')
-if violations:
-    sys.exit(1)
-print(f'PASS: {len(warnings)} files require design review; no prohibited file exceeds 299 lines.')
+EXEMPT_NAMES = {"build_openapi.py", "build_data_model_docs.py", "generate_migrations.py"}
+EXEMPT_PARTS = {"migrations", "models"}
+
+
+def main() -> int:
+    violations: list[tuple[object, int]] = []
+    warnings: list[tuple[object, int]] = []
+
+    for path in sorted(iter_maintained_code_files()):
+        if path.name in EXEMPT_NAMES or EXEMPT_PARTS.intersection(path.parts):
+            continue
+        line_count = len(path.read_text(encoding="utf-8").splitlines())
+        relative = path.relative_to(ROOT)
+        if line_count >= 300:
+            violations.append((relative, line_count))
+        elif line_count >= 220:
+            warnings.append((relative, line_count))
+
+    for path, line_count in warnings:
+        print(f"WARN {line_count:>3} {path}")
+    for path, line_count in violations:
+        print(f"FAIL {line_count:>3} {path}")
+    if violations:
+        return 1
+
+    print(
+        f"PASS: {len(warnings)} maintained files require design review; "
+        "no prohibited file exceeds 299 lines."
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
