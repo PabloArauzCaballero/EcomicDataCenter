@@ -13,10 +13,10 @@ const baseUrl = process.env.SMOKE_BASE_URL ?? 'http://localhost:8080';
 
 async function check(name: string, path: string, token?: string): Promise<CheckResult> {
   try {
-    const response = await fetch(`${baseUrl}${path}`, {
-      headers: token ? { authorization: `Bearer ${token}` } : undefined,
-      signal: AbortSignal.timeout(10_000),
-    });
+    const request: RequestInit = { signal: AbortSignal.timeout(10_000) };
+    if (token) request.headers = { authorization: `Bearer ${token}` };
+
+    const response = await fetch(`${baseUrl}${path}`, request);
     return {
       name,
       status: response.ok ? 'PASS' : 'FAIL',
