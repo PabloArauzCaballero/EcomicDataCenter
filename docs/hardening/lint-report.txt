@@ -1,0 +1,166 @@
+yarn run v1.22.22
+$ /home/runner/work/EcomicDataCenter/EcomicDataCenter/node_modules/.bin/eslint . --max-warnings=0 --format stylish
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/eslint.config.mjs
+  0:0  error  Parsing error: /home/runner/work/EcomicDataCenter/EcomicDataCenter/eslint.config.mjs was not found by the project service. Consider either including it in the tsconfig.json or including it in allowDefaultProject
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/jest.config.cjs
+  0:0  error  Parsing error: /home/runner/work/EcomicDataCenter/EcomicDataCenter/jest.config.cjs was not found by the project service. Consider either including it in the tsconfig.json or including it in allowDefaultProject
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/scripts/check_identifier_language.cjs
+  0:0  error  Parsing error: /home/runner/work/EcomicDataCenter/EcomicDataCenter/scripts/check_identifier_language.cjs was not found by the project service. Consider either including it in the tsconfig.json or including it in allowDefaultProject
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/scripts/check_typescript_syntax.cjs
+  0:0  error  Parsing error: /home/runner/work/EcomicDataCenter/EcomicDataCenter/scripts/check_typescript_syntax.cjs was not found by the project service. Consider either including it in the tsconfig.json or including it in allowDefaultProject
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/app.module.ts
+  38:32  error  Unsafe assignment of an `any` value                 @typescript-eslint/no-unsafe-assignment
+  38:44  error  Unsafe member access .id on an `any` value          @typescript-eslint/no-unsafe-member-access
+  38:48  error  Unsafe assignment of an `any` value                 @typescript-eslint/no-unsafe-assignment
+  38:64  error  Unsafe member access .method on an `any` value      @typescript-eslint/no-unsafe-member-access
+  38:72  error  Unsafe assignment of an `any` value                 @typescript-eslint/no-unsafe-assignment
+  38:85  error  Unsafe member access .url on an `any` value         @typescript-eslint/no-unsafe-member-access
+  39:33  error  Unsafe assignment of an `any` value                 @typescript-eslint/no-unsafe-assignment
+  39:54  error  Unsafe member access .statusCode on an `any` value  @typescript-eslint/no-unsafe-member-access
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/common/auth/auth.decorators.ts
+  8:26  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  9:46  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/common/persistence/tests/serializable-retry.spec.ts
+  24:36  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+  28:16  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+  38:42  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+  42:79  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/database/seeds/schemas/seed.schemas.ts
+  5:32  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  6:40  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/database/tests/database-connections.spec.ts
+  16:49  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+  17:49  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+  20:24  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+  24:24  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+  39:42  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+  40:42  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+  42:24  error  Async arrow function has no 'await' expression  @typescript-eslint/require-await
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/main.ts
+  23:52  error  Unsafe member access .headers on an `any` value  @typescript-eslint/no-unsafe-member-access
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/governance/dataset.service.ts
+  20:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  44:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  55:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  79:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/governance/governance.controller.ts
+   57:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   63:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   69:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   75:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   81:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   89:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   95:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  103:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  112:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  121:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  129:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  138:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  146:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  152:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  161:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  167:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  176:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/governance/metadata-catalog.service.ts
+   26:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   43:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  114:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/governance/metadata.service.ts
+  24:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  28:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  32:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  36:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  40:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  44:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  48:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  52:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  56:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/governance/methodology.service.ts
+  15:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  42:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  56:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  80:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/governance/semantic.service.ts
+   37:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   49:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   62:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   72:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   84:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   97:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  140:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  199:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/ingestion/batch-idempotency.ts
+  32:22  error  '_idempotencyKey' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  37:22  error  '_idempotencyKey' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/ingestion/ingestion.controller.ts
+  31:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  42:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/ingestion/tests/batch-idempotency.spec.ts
+  25:1  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/provenance/provenance.controller.ts
+  28:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  36:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  45:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  51:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  58:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  66:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/provenance/provenance.service.ts
+   20:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   42:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   64:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   87:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  106:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  125:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  138:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/quality/quality.controller.ts
+  33:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  41:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  47:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  55:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  63:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  71:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  78:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/quality/quality.service.ts
+   45:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   54:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   68:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+   89:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  105:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  119:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  145:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/query/data-query.controller.ts
+  26:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  36:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+/home/runner/work/EcomicDataCenter/EcomicDataCenter/src/modules/query/data-query.service.ts
+  14:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+  28:3  error  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+✖ 109 problems (109 errors, 0 warnings)
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
