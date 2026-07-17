@@ -38,7 +38,21 @@ yarn local:up
 
 El servicio `migrate` debe terminar con código cero antes de que el API arranque.
 
-### 4. Verificar salud y smoke tests
+### 4. Cargar catálogos y datos sintéticos
+
+```bash
+yarn local:seed
+```
+
+`local:seed` ejecuta los boot seeds idempotentes y después los mock seeds de desarrollo. Para una prueba sin datos demo:
+
+```bash
+yarn local:seed:boot
+```
+
+Los mock seeds se rechazan cuando `NODE_ENV=production`.
+
+### 5. Verificar salud y smoke tests
 
 ```bash
 yarn local:verify
@@ -53,7 +67,7 @@ Puntos de acceso:
 - Readiness: `http://localhost:8080/ready`
 - Swagger local: `http://localhost:8080/docs`
 
-### 5. Diagnóstico y apagado
+### 6. Diagnóstico y apagado
 
 ```bash
 yarn local:logs
