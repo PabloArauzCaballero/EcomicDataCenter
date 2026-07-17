@@ -1,0 +1,84 @@
+name: hardening-openapi-report-once
+
+on:
+  push:
+    branches: [HARDENING]
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17.5-alpine
+        env:
+          POSTGRES_DB: observatorio_economico
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d observatorio_economico"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      NODE_ENV: test
+      APP_HOST: 127.0.0.1
+      APP_PORT: 3000
+      APP_NAME: observatorio-economico-core
+      API_PREFIX: api
+      API_VERSION: v1
+      CORS_ORIGINS: http://localhost:3001
+      DATABASE_MIGRATOR_URL: postgresql://observatory_migrator:migrator@127.0.0.1:5432/observatorio_economico
+      DATABASE_WRITER_URL: postgresql://observatory_writer:writer@127.0.0.1:5432/observatorio_economico
+      DATABASE_READER_URL: postgresql://observatory_reader:reader@127.0.0.1:5432/observatorio_economico
+      DATABASE_SSL: 'false'
+      AUTH_MODE: disabled
+      SWAGGER_ENABLED: 'false'
+      METRICS_ENABLED: 'true'
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          ref: HARDENING
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive --silent
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+      - name: Prepare database
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql -h 127.0.0.1 -U postgres -d observatorio_economico <<'SQL'
+          CREATE ROLE backend_migrator NOLOGIN NOINHERIT;
+          CREATE ROLE backend_writer NOLOGIN NOINHERIT;
+          CREATE ROLE backend_reader NOLOGIN NOINHERIT;
+          CREATE ROLE observatory_migrator LOGIN INHERIT PASSWORD 'migrator';
+          CREATE ROLE observatory_writer LOGIN INHERIT PASSWORD 'writer';
+          CREATE ROLE observatory_reader LOGIN INHERIT PASSWORD 'reader';
+          GRANT backend_migrator TO observatory_migrator;
+          GRANT backend_writer TO observatory_writer;
+          GRANT backend_reader TO observatory_reader;
+          ALTER ROLE observatory_reader SET default_transaction_read_only = on;
+          REVOKE CREATE ON DATABASE observatorio_economico FROM PUBLIC;
+          REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+          GRANT CONNECT, CREATE ON DATABASE observatorio_economico TO backend_migrator;
+          GRANT CONNECT ON DATABASE observatorio_economico TO backend_writer, backend_reader;
+          SQL
+          yarn db:migrate
+      - name: Capture OpenAPI export diagnostics
+        run: |
+          yarn openapi:export > docs/hardening/openapi-export-report.txt 2>&1 || true
+          rm .github/workflows/hardening-openapi-report-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          git commit -m "chore: capture OpenAPI export diagnostics"
+          git push origin HEAD:HARDENING
