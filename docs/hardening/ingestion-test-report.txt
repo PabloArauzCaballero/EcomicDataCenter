@@ -1,0 +1,45 @@
+yarn run v1.22.22
+$ /home/runner/work/EcomicDataCenter/EcomicDataCenter/node_modules/.bin/jest src/modules/ingestion --runInBand --verbose
+FAIL src/modules/ingestion/tests/batch-idempotency.spec.ts
+  batch idempotency
+    ✓ does not include the batch code in a request fingerprint (6 ms)
+    ✓ changes the fingerprint when business data changes
+    ✕ creates a stable fingerprint for a batch payload (3 ms)
+    ✓ replays a validated stored registration response (1 ms)
+
+  ● batch idempotency › creates a stable fingerprint for a batch payload
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "72fb7eab6ca8399ef43c29b708ff855e3149bd4d98c94b1e2be347b3f195e105"
+    Received: "78b881cdb56cc93967cd99962aff462ffef6829e779f088783c8e4b78ee95b85"
+
+    [0m [90m 84 |[39m       batchCode[33m:[39m input[33m.[39mbatchCode[33m,[39m
+     [90m 85 |[39m     }[33m;[39m
+    [31m[1m>[22m[39m[90m 86 |[39m     expect(batchRequestFingerprint(input))[33m.[39mtoBe(batchRequestFingerprint(reordered))[33m;[39m
+     [90m    |[39m                                            [31m[1m^[22m[39m
+     [90m 87 |[39m   })[33m;[39m
+     [90m 88 |[39m
+     [90m 89 |[39m   it([32m'replays a validated stored registration response'[39m[33m,[39m () [33m=>[39m {[0m
+
+      at Object.<anonymous> (src/modules/ingestion/tests/batch-idempotency.spec.ts:86:44)
+
+PASS src/modules/ingestion/tests/observation-normalizer.spec.ts
+  observation normalizer
+    ✓ builds the same revision hash regardless of measure order
+    ✓ changes the hash when a business value changes (1 ms)
+    ✓ orders dimensions by structure position
+
+PASS src/modules/ingestion/tests/observation-input.schemas.spec.ts
+  observationRecordSchema
+    ✓ accepts one typed value per definition (2 ms)
+    ✓ rejects two values in one dimension (1 ms)
+    ✓ rejects a period whose end precedes its start
+
+Test Suites: 1 failed, 2 passed, 3 total
+Tests:       1 failed, 9 passed, 10 total
+Snapshots:   0 total
+Time:        1.738 s
+Ran all test suites matching /src\/modules\/ingestion/i.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
