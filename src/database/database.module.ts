@@ -6,6 +6,15 @@ import type { Environment } from '../config/environment';
 import { initializeDatabaseConnections, type DatabaseConnections } from './database-connections';
 import { DATABASE_CONNECTIONS, READER_DATABASE, WRITER_DATABASE } from './database.tokens';
 
+class DatabaseLifecycle implements OnApplicationShutdown {
+  constructor(@Inject(DATABASE_CONNECTIONS) private readonly connections: DatabaseConnections) {}
+
+  /** Closes both pools during graceful process termination. */
+  async onApplicationShutdown(): Promise<void> {
+    await Promise.allSettled([this.connections.writer.close(), this.connections.reader.close()]);
+  }
+}
+
 @Global()
 @Module({
   providers: [
@@ -30,12 +39,3 @@ import { DATABASE_CONNECTIONS, READER_DATABASE, WRITER_DATABASE } from './databa
   exports: [WRITER_DATABASE, READER_DATABASE, ReadQueryExecutor],
 })
 export class DatabaseModule {}
-
-class DatabaseLifecycle implements OnApplicationShutdown {
-  constructor(@Inject(DATABASE_CONNECTIONS) private readonly connections: DatabaseConnections) {}
-
-  /** Closes both pools during graceful process termination. */
-  async onApplicationShutdown(): Promise<void> {
-    await Promise.allSettled([this.connections.writer.close(), this.connections.reader.close()]);
-  }
-}
