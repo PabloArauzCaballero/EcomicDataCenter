@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { dimensionValueSchema } from '../../common/statistical/dimension-value.schema';
 
+const MAX_OFFSET_PAGE = 10_000;
+
 export const dataQuerySchema = z
   .object({
     datasetVersionId: z.string().uuid(),
@@ -9,14 +11,18 @@ export const dataQuerySchema = z
     periodTo: z.iso.date().optional(),
     vintageDate: z.iso.date().optional(),
     dimensions: z.array(dimensionValueSchema).max(20).default([]),
-    page: z.number().int().min(1).default(1),
+    page: z.number().int().min(1).max(MAX_OFFSET_PAGE).default(1),
     pageSize: z.number().int().min(1).max(200).default(50),
     sortDirection: z.enum(['asc', 'desc']).default('asc'),
   })
   .strict()
   .superRefine((value, context) => {
     if (value.periodFrom && value.periodTo && value.periodTo < value.periodFrom) {
-      context.addIssue({ code: 'custom', path: ['periodTo'], message: 'periodTo precedes periodFrom' });
+      context.addIssue({
+        code: 'custom',
+        path: ['periodTo'],
+        message: 'periodTo precedes periodFrom',
+      });
     }
   });
 
