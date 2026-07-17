@@ -4,7 +4,7 @@ module.exports = {
   roots: [
     '<rootDir>/src/common',
     '<rootDir>/src/config',
-    '<rootDir>/src/database/seeds',
+    '<rootDir>/src/database',
     '<rootDir>/src/modules/governance',
     '<rootDir>/src/modules/ingestion',
     '<rootDir>/src/modules/query',
@@ -14,6 +14,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/common/**/*.ts',
     'src/config/**/*.ts',
+    'src/database/database-connections.ts',
     'src/modules/governance/**/*.ts',
     'src/modules/ingestion/**/*.ts',
     'src/modules/provenance/**/*.ts',
