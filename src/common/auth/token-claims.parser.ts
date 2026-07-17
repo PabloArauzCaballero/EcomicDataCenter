@@ -17,9 +17,8 @@ export function parseActorClaims(
 
   const roles = parseRoles(parsed.data[environment.AUTH_ROLE_CLAIM]);
   const rawOrganization = parsed.data[environment.AUTH_ORGANIZATION_CLAIM];
-  const organization = rawOrganization === undefined
-    ? undefined
-    : organizationIdSchema.safeParse(rawOrganization);
+  const organization =
+    rawOrganization === undefined ? undefined : organizationIdSchema.safeParse(rawOrganization);
   if (organization && !organization.success) {
     throw new UnauthorizedException('Organization claim is invalid');
   }

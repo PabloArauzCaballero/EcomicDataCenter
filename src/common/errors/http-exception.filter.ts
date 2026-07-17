@@ -1,10 +1,4 @@
-import {
-  ArgumentsHost,
-  Catch,
-  ExceptionFilter,
-  HttpException,
-  HttpStatus,
-} from '@nestjs/common';
+import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { PinoLogger } from 'nestjs-pino';
 import {
@@ -32,9 +26,16 @@ export class HttpExceptionFilter implements ExceptionFilter {
         path: issue.path.map(String),
         message: issue.message,
       }));
-      this.send(response, HttpStatus.BAD_REQUEST, requestId, 'VALIDATION_ERROR', 'Invalid request', {
-        issues,
-      });
+      this.send(
+        response,
+        HttpStatus.BAD_REQUEST,
+        requestId,
+        'VALIDATION_ERROR',
+        'Invalid request',
+        {
+          issues,
+        },
+      );
       return;
     }
     if (exception instanceof ApplicationError) {

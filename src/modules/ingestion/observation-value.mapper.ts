@@ -27,7 +27,10 @@ export function mapMeasureValue(observationRevisionId: string, value: MeasureVal
   };
 }
 
-export function mapAttributeValue(observationRevisionId: string, value: AttributeValueInput): object {
+export function mapAttributeValue(
+  observationRevisionId: string,
+  value: AttributeValueInput,
+): object {
   return {
     observationRevisionId,
     attributeDefinitionId: value.attributeDefinitionId,

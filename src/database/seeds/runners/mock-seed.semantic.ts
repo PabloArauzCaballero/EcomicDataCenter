@@ -1,10 +1,5 @@
 import type { Transaction } from 'sequelize';
-import {
-  CodeItemModel,
-  CodeListModel,
-  ConceptModel,
-  StatisticalDomainModel,
-} from '../../models';
+import { CodeItemModel, CodeListModel, ConceptModel, StatisticalDomainModel } from '../../models';
 import type { MockSeed } from '../schemas/seed.schemas';
 
 /** Reconciles deterministic semantic catalogs used by the synthetic dataset. */
@@ -13,7 +8,11 @@ export async function reconcileMockSemantics(
   transaction: Transaction,
 ): Promise<void> {
   await StatisticalDomainModel.upsert(
-    { ...seed.domain, parentDomainId: null, description: 'Synthetic domain for non-production tests.' },
+    {
+      ...seed.domain,
+      parentDomainId: null,
+      description: 'Synthetic domain for non-production tests.',
+    },
     { transaction },
   );
 

@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'statistical_domain', schema: 'semantic', timestamps: false, underscored: true })
+@Table({
+  tableName: 'statistical_domain',
+  schema: 'semantic',
+  timestamps: false,
+  underscored: true,
+})
 export class StatisticalDomainModel extends Model<
   InferAttributes<StatisticalDomainModel>,
   InferCreationAttributes<StatisticalDomainModel>
 > {
-  @Column({ field: 'statistical_domain_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'statistical_domain_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare statisticalDomainId: CreationOptional<string>;
 
   @Column({ field: 'parent_domain_id', type: DataType.UUID, allowNull: true })
@@ -26,5 +37,4 @@ export class StatisticalDomainModel extends Model<
 
   @Column({ field: 'is_active', type: DataType.BOOLEAN, allowNull: false })
   declare isActive: boolean;
-
 }

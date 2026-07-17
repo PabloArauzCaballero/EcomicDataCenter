@@ -1,11 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import type { Transaction } from 'sequelize';
 import { z } from 'zod';
-import {
-  DataIssueModel,
-  QualityAssessmentModel,
-  QualityRuleModel,
-} from '../../database/models';
+import { DataIssueModel, QualityAssessmentModel, QualityRuleModel } from '../../database/models';
 import type { ObservationRecordInput } from './observation-input.schemas';
 
 const requiredMeasureConfig = z.object({ measureDefinitionId: z.string().uuid() }).strict();
@@ -97,19 +93,33 @@ export class QualityEvaluatorService {
     try {
       if (ruleType === 'REQUIRED_MEASURE') {
         const config = requiredMeasureConfig.parse(configuration);
-        const exists = record.measures.some((item) => item.measureDefinitionId === config.measureDefinitionId);
-        return { status: exists ? 'PASS' : 'FAIL', details: { measureDefinitionId: config.measureDefinitionId } };
+        const exists = record.measures.some(
+          (item) => item.measureDefinitionId === config.measureDefinitionId,
+        );
+        return {
+          status: exists ? 'PASS' : 'FAIL',
+          details: { measureDefinitionId: config.measureDefinitionId },
+        };
       }
       if (ruleType === 'NON_NEGATIVE') {
         const config = nonNegativeConfig.parse(configuration);
-        const measure = record.measures.find((item) => item.measureDefinitionId === config.measureDefinitionId);
+        const measure = record.measures.find(
+          (item) => item.measureDefinitionId === config.measureDefinitionId,
+        );
         const numeric = measure?.numericValue;
         const passed = numeric !== undefined && Number(numeric) >= 0;
-        return { status: passed ? 'PASS' : 'FAIL', measuredValue: numeric, thresholdValue: '>= 0', details: config };
+        return {
+          status: passed ? 'PASS' : 'FAIL',
+          measuredValue: numeric,
+          thresholdValue: '>= 0',
+          details: config,
+        };
       }
       if (ruleType === 'NUMERIC_RANGE') {
         const config = numericRangeConfig.parse(configuration);
-        const measure = record.measures.find((item) => item.measureDefinitionId === config.measureDefinitionId);
+        const measure = record.measures.find(
+          (item) => item.measureDefinitionId === config.measureDefinitionId,
+        );
         const numeric = measure?.numericValue;
         const parsed = numeric === undefined ? Number.NaN : Number(numeric);
         const minimumOk = config.minimum === undefined || parsed >= Number(config.minimum);

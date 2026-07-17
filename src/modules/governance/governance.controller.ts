@@ -101,7 +101,8 @@ export class GovernanceController {
   @Post('classification-mappings')
   @ApiOperation({ operationId: 'createClassificationMapping' })
   createMapping(
-    @Body(new ZodValidationPipe(createClassificationMappingSchema)) input: CreateClassificationMappingInput,
+    @Body(new ZodValidationPipe(createClassificationMappingSchema))
+    input: CreateClassificationMappingInput,
   ) {
     return this.semantics.createClassificationMapping(input);
   }
@@ -109,7 +110,8 @@ export class GovernanceController {
   @Post('statistical-operations')
   @ApiOperation({ operationId: 'createStatisticalOperation' })
   createOperation(
-    @Body(new ZodValidationPipe(createStatisticalOperationSchema)) input: CreateStatisticalOperationInput,
+    @Body(new ZodValidationPipe(createStatisticalOperationSchema))
+    input: CreateStatisticalOperationInput,
   ) {
     return this.metadata.createStatisticalOperation(input);
   }

@@ -6,7 +6,13 @@ export class GeographicUnitModel extends Model<
   InferAttributes<GeographicUnitModel>,
   InferCreationAttributes<GeographicUnitModel>
 > {
-  @Column({ field: 'geographic_unit_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'geographic_unit_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare geographicUnitId: CreationOptional<string>;
 
   @Column({ field: 'parent_geographic_unit_id', type: DataType.UUID, allowNull: true })
@@ -29,5 +35,4 @@ export class GeographicUnitModel extends Model<
 
   @Column({ field: 'geometry_reference', type: DataType.TEXT, allowNull: true })
   declare geometryReference: string | null;
-
 }

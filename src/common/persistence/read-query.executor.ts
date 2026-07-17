@@ -22,10 +22,7 @@ export class ReadQueryExecutor {
     private readonly logger: PinoLogger,
   ) {}
 
-  async run<T>(
-    operation: string,
-    query: (context: ReadQueryContext) => Promise<T>,
-  ): Promise<T> {
+  async run<T>(operation: string, query: (context: ReadQueryContext) => Promise<T>): Promise<T> {
     const startedAt = process.hrtime.bigint();
     let outcome: 'success' | 'error' = 'success';
     try {
@@ -42,10 +39,7 @@ export class ReadQueryExecutor {
     } catch (error) {
       outcome = 'error';
       if (error instanceof ApplicationError) throw error;
-      this.logger.error(
-        { error: toSafeErrorLog(error), operation },
-        'Read query failed',
-      );
+      this.logger.error({ error: toSafeErrorLog(error), operation }, 'Read query failed');
       throw new InfrastructureError('Read operation failed', { operation });
     } finally {
       const durationMs = Number(process.hrtime.bigint() - startedAt) / 1_000_000;

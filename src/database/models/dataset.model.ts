@@ -6,7 +6,13 @@ export class DatasetModel extends Model<
   InferAttributes<DatasetModel>,
   InferCreationAttributes<DatasetModel>
 > {
-  @Column({ field: 'dataset_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'dataset_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare datasetId: CreationOptional<string>;
 
   @Column({ field: 'statistical_operation_id', type: DataType.UUID, allowNull: true })
@@ -41,5 +47,4 @@ export class DatasetModel extends Model<
 
   @Column({ field: 'confidentiality_level', type: DataType.STRING(30), allowNull: false })
   declare confidentialityLevel: string;
-
 }

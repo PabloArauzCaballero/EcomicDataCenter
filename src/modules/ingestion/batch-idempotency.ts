@@ -1,8 +1,16 @@
 import { createHash } from 'node:crypto';
 import { ConflictError, InfrastructureError } from '../../common/errors/application.error';
 import type { DataEntryBatchModel } from '../../database/models';
-import type { ImportObservationBatchInput, RegisterObservationInput } from './observation-input.schemas';
-import { batchImportResultSchema, registrationResultSchema, type BatchImportResult, type RegistrationResult } from './ingestion-results';
+import type {
+  ImportObservationBatchInput,
+  RegisterObservationInput,
+} from './observation-input.schemas';
+import {
+  batchImportResultSchema,
+  registrationResultSchema,
+  type BatchImportResult,
+  type RegistrationResult,
+} from './ingestion-results';
 
 function canonicalize(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(canonicalize);
@@ -15,7 +23,9 @@ function canonicalize(value: unknown): unknown {
 }
 
 function fingerprint(value: unknown): string {
-  return createHash('sha256').update(JSON.stringify(canonicalize(value))).digest('hex');
+  return createHash('sha256')
+    .update(JSON.stringify(canonicalize(value)))
+    .digest('hex');
 }
 
 export function manualRequestFingerprint(input: RegisterObservationInput): string {
@@ -37,7 +47,10 @@ function assertFingerprint(batch: DataEntryBatchModel, expected: string): void {
   }
 }
 
-export function replayRegistration(batch: DataEntryBatchModel, expected: string): RegistrationResult {
+export function replayRegistration(
+  batch: DataEntryBatchModel,
+  expected: string,
+): RegistrationResult {
   assertFingerprint(batch, expected);
   if (!batch.resultJson) {
     throw new ConflictError('An operation with this batchCode is still in progress', {

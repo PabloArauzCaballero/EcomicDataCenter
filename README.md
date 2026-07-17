@@ -2,7 +2,6 @@
 
 > Estado formal del plan: **10 de 10 fases trabajadas y cerradas estáticamente**. El release productivo permanece bloqueado hasta completar los gates runtime e institucionales descritos en `validation/validation-report.md`.
 
-
 Backend de producción para el núcleo de datos del **Observatorio de la Situación Económica y de los Mercados de Bolivia**. La implementación transforma el modelo lógico de 40 entidades en una API NestJS y un modelo físico PostgreSQL, manteniendo como núcleo dos operaciones: registrar datos y consultarlos con trazabilidad histórica.
 
 ## Capacidades implementadas
@@ -10,7 +9,7 @@ Backend de producción para el núcleo de datos del **Observatorio de la Situaci
 - Procedencia: organizaciones, fuentes y artefactos inmutables.
 - Gobierno semántico: dominios, conceptos, frecuencias, unidades, geografía, listas y clasificaciones versionadas.
 - Metadatos: operaciones estadísticas, metodologías, estructuras, datasets e indicadores.
-- Registro individual transaccional con revisión y conservación de *vintages*.
+- Registro individual transaccional con revisión y conservación de _vintages_.
 - Importación por lotes de hasta 500 observaciones con resultados parciales, `SAVEPOINT` por registro y replay idempotente.
 - Consulta actual o según una fecha de corte, paginada en servidor.
 - Calidad, incidencias, rupturas de serie, linaje y relaciones entre indicadores.
@@ -87,11 +86,11 @@ docker compose up --build
 
 ## Autorización
 
-| Rol | Responsabilidad |
-|---|---|
-| `DATA_OFFICER` | Registro, corrección e importación de datos |
-| `ANALYST` | Consulta y trazabilidad |
-| `METHODOLOGY_STEWARD` | Gobierno semántico, publicación y calidad |
+| Rol                   | Responsabilidad                             |
+| --------------------- | ------------------------------------------- |
+| `DATA_OFFICER`        | Registro, corrección e importación de datos |
+| `ANALYST`             | Consulta y trazabilidad                     |
+| `METHODOLOGY_STEWARD` | Gobierno semántico, publicación y calidad   |
 
 El token debe incluir los claims configurados en `AUTH_ROLE_CLAIM` y `AUTH_ORGANIZATION_CLAIM`.
 

@@ -1,7 +1,32 @@
 [
-  { "qualityDimensionId": "20000000-0000-4000-8000-000000000001", "code": "RELEVANCE", "name": "Relevance", "description": "Degree to which data meet user needs." },
-  { "qualityDimensionId": "20000000-0000-4000-8000-000000000002", "code": "ACCURACY", "name": "Accuracy and reliability", "description": "Closeness of estimates to the intended values." },
-  { "qualityDimensionId": "20000000-0000-4000-8000-000000000003", "code": "TIMELINESS", "name": "Timeliness and punctuality", "description": "Delay and adherence to publication schedules." },
-  { "qualityDimensionId": "20000000-0000-4000-8000-000000000004", "code": "COHERENCE", "name": "Coherence and comparability", "description": "Consistency across time, domains and sources." },
-  { "qualityDimensionId": "20000000-0000-4000-8000-000000000005", "code": "ACCESSIBILITY", "name": "Accessibility and clarity", "description": "Ease of access and interpretation." }
+  {
+    "qualityDimensionId": "20000000-0000-4000-8000-000000000001",
+    "code": "RELEVANCE",
+    "name": "Relevance",
+    "description": "Degree to which data meet user needs."
+  },
+  {
+    "qualityDimensionId": "20000000-0000-4000-8000-000000000002",
+    "code": "ACCURACY",
+    "name": "Accuracy and reliability",
+    "description": "Closeness of estimates to the intended values."
+  },
+  {
+    "qualityDimensionId": "20000000-0000-4000-8000-000000000003",
+    "code": "TIMELINESS",
+    "name": "Timeliness and punctuality",
+    "description": "Delay and adherence to publication schedules."
+  },
+  {
+    "qualityDimensionId": "20000000-0000-4000-8000-000000000004",
+    "code": "COHERENCE",
+    "name": "Coherence and comparability",
+    "description": "Consistency across time, domains and sources."
+  },
+  {
+    "qualityDimensionId": "20000000-0000-4000-8000-000000000005",
+    "code": "ACCESSIBILITY",
+    "name": "Accessibility and clarity",
+    "description": "Ease of access and interpretation."
+  }
 ]

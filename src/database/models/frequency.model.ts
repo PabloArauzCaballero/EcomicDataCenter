@@ -6,7 +6,13 @@ export class FrequencyModel extends Model<
   InferAttributes<FrequencyModel>,
   InferCreationAttributes<FrequencyModel>
 > {
-  @Column({ field: 'frequency_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'frequency_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare frequencyId: CreationOptional<string>;
 
   @Column({ field: 'code', type: DataType.STRING(10), allowNull: false, unique: true })
@@ -20,5 +26,4 @@ export class FrequencyModel extends Model<
 
   @Column({ field: 'iso_duration', type: DataType.STRING(40), allowNull: true })
   declare isoDuration: string | null;
-
 }

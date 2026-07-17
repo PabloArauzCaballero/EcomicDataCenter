@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'dimension_definition', schema: 'metadata', timestamps: false, underscored: true })
+@Table({
+  tableName: 'dimension_definition',
+  schema: 'metadata',
+  timestamps: false,
+  underscored: true,
+})
 export class DimensionDefinitionModel extends Model<
   InferAttributes<DimensionDefinitionModel>,
   InferCreationAttributes<DimensionDefinitionModel>
 > {
-  @Column({ field: 'dimension_definition_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'dimension_definition_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare dimensionDefinitionId: CreationOptional<string>;
 
   @Column({ field: 'data_structure_id', type: DataType.UUID, allowNull: false })
@@ -41,5 +52,4 @@ export class DimensionDefinitionModel extends Model<
 
   @Column({ field: 'is_time_dimension', type: DataType.BOOLEAN, allowNull: false })
   declare isTimeDimension: boolean;
-
 }

@@ -6,7 +6,13 @@ export class DataIssueModel extends Model<
   InferAttributes<DataIssueModel>,
   InferCreationAttributes<DataIssueModel>
 > {
-  @Column({ field: 'data_issue_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'data_issue_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare dataIssueId: CreationOptional<string>;
 
   @Column({ field: 'quality_assessment_id', type: DataType.BIGINT, allowNull: true })
@@ -41,5 +47,4 @@ export class DataIssueModel extends Model<
 
   @Column({ field: 'resolution_notes', type: DataType.TEXT, allowNull: true })
   declare resolutionNotes: string | null;
-
 }

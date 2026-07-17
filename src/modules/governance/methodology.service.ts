@@ -27,7 +27,11 @@ export class MethodologyService {
         },
         { transaction },
       );
-      const version = await this.createVersionRecord(methodology.methodologyId, input.version, transaction);
+      const version = await this.createVersionRecord(
+        methodology.methodologyId,
+        input.version,
+        transaction,
+      );
       return {
         methodologyId: methodology.methodologyId,
         methodologyVersionId: version.methodologyVersionId,
@@ -113,7 +117,9 @@ export class MethodologyService {
     });
     if (current && current.methodologyVersionId !== version.methodologyVersionId) {
       if (current.validFrom > version.validFrom) {
-        throw new BusinessRuleError('The new current version cannot start before the current version');
+        throw new BusinessRuleError(
+          'The new current version cannot start before the current version',
+        );
       }
       await current.update(
         { status: 'SUPERSEDED', isCurrent: false, validTo: version.validFrom },
@@ -122,5 +128,4 @@ export class MethodologyService {
     }
     await version.update({ status: 'PUBLISHED', isCurrent: true }, { transaction });
   }
-
 }

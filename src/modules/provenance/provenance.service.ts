@@ -19,7 +19,8 @@ export class ProvenanceService {
 
   async createOrganization(input: CreateOrganizationInput) {
     const duplicate = await OrganizationModel.findOne({ where: { code: input.code } });
-    if (duplicate) throw new ConflictError('organization code already exists', { code: input.code });
+    if (duplicate)
+      throw new ConflictError('organization code already exists', { code: input.code });
     if (input.parentOrganizationId) {
       const parent = await OrganizationModel.findByPk(input.parentOrganizationId);
       if (!parent) throw new NotFoundError('organization', input.parentOrganizationId);

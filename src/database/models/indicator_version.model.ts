@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'indicator_version', schema: 'statistics', timestamps: false, underscored: true })
+@Table({
+  tableName: 'indicator_version',
+  schema: 'statistics',
+  timestamps: false,
+  underscored: true,
+})
 export class IndicatorVersionModel extends Model<
   InferAttributes<IndicatorVersionModel>,
   InferCreationAttributes<IndicatorVersionModel>
 > {
-  @Column({ field: 'indicator_version_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'indicator_version_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare indicatorVersionId: CreationOptional<string>;
 
   @Column({ field: 'indicator_id', type: DataType.UUID, allowNull: false })
@@ -38,5 +49,4 @@ export class IndicatorVersionModel extends Model<
 
   @Column({ field: 'change_reason', type: DataType.TEXT, allowNull: true })
   declare changeReason: string | null;
-
 }

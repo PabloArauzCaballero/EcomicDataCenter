@@ -37,7 +37,6 @@ export class BusinessRuleError extends ApplicationError {
   }
 }
 
-
 export class InfrastructureError extends ApplicationError {
   constructor(message: string, details?: Readonly<Record<string, unknown>>) {
     super('INFRASTRUCTURE_ERROR', message, 503, details);

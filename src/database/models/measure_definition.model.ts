@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'measure_definition', schema: 'metadata', timestamps: false, underscored: true })
+@Table({
+  tableName: 'measure_definition',
+  schema: 'metadata',
+  timestamps: false,
+  underscored: true,
+})
 export class MeasureDefinitionModel extends Model<
   InferAttributes<MeasureDefinitionModel>,
   InferCreationAttributes<MeasureDefinitionModel>
 > {
-  @Column({ field: 'measure_definition_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'measure_definition_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare measureDefinitionId: CreationOptional<string>;
 
   @Column({ field: 'data_structure_id', type: DataType.UUID, allowNull: false })
@@ -32,5 +43,4 @@ export class MeasureDefinitionModel extends Model<
 
   @Column({ field: 'is_primary_measure', type: DataType.BOOLEAN, allowNull: false })
   declare isPrimaryMeasure: boolean;
-
 }

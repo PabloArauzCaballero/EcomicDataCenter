@@ -1,7 +1,11 @@
 import { randomUUID } from 'node:crypto';
 import { Inject, Injectable } from '@nestjs/common';
 import { QueryTypes, type Sequelize } from 'sequelize';
-import { BusinessRuleError, ConflictError, NotFoundError } from '../../common/errors/application.error';
+import {
+  BusinessRuleError,
+  ConflictError,
+  NotFoundError,
+} from '../../common/errors/application.error';
 import { READER_DATABASE, WRITER_DATABASE } from '../../database/database.tokens';
 import {
   DataIssueModel,
@@ -62,7 +66,10 @@ export class QualityService {
   }
 
   createLineage(input: CreateLineageRelationInput) {
-    if (input.sourceEntityType === input.targetEntityType && input.sourceEntityId === input.targetEntityId) {
+    if (
+      input.sourceEntityType === input.targetEntityType &&
+      input.sourceEntityId === input.targetEntityId
+    ) {
       throw new ConflictError('Lineage source and target cannot be the same entity');
     }
     return LineageRelationModel.create({
@@ -111,7 +118,10 @@ export class QualityService {
 
   async transitionIssue(id: string, input: IssueTransitionInput) {
     return this.writer.transaction(async (transaction) => {
-      const issue = await DataIssueModel.findByPk(id, { transaction, lock: transaction.LOCK.UPDATE });
+      const issue = await DataIssueModel.findByPk(id, {
+        transaction,
+        lock: transaction.LOCK.UPDATE,
+      });
       if (!issue) throw new NotFoundError('data_issue', id);
       if (!ISSUE_TRANSITIONS[issue.status]?.includes(input.targetStatus)) {
         throw new BusinessRuleError('Invalid data issue state transition', {

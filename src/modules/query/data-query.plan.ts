@@ -29,7 +29,9 @@ export function buildDataQueryPlan(input: DataQueryInput): DataQueryPlan {
     predicates.push('o.period_start <= :periodTo');
     replacements.periodTo = input.periodTo;
   }
-  predicates.push(...input.dimensions.map((filter, index) => dimensionPredicate(filter, index, replacements)));
+  predicates.push(
+    ...input.dimensions.map((filter, index) => dimensionPredicate(filter, index, replacements)),
+  );
 
   if (input.vintageDate) replacements.vintageCutoff = `${input.vintageDate}T23:59:59.999Z`;
   return {

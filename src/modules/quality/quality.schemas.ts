@@ -11,7 +11,13 @@ export const createQualityDimensionSchema = z.object({
 
 const qualityConfigSchema = z.union([
   z.object({ measureDefinitionId: uuid }).strict(),
-  z.object({ measureDefinitionId: uuid, minimum: z.string().optional(), maximum: z.string().optional() }).strict(),
+  z
+    .object({
+      measureDefinitionId: uuid,
+      minimum: z.string().optional(),
+      maximum: z.string().optional(),
+    })
+    .strict(),
 ]);
 
 export const createQualityRuleSchema = z.object({
@@ -58,7 +64,15 @@ export const createSeriesBreakSchema = z.object({
 });
 
 export const issueTransitionSchema = z.object({
-  targetStatus: z.enum(['TRIAGED', 'IN_CORRECTION', 'RESOLVED', 'VERIFIED', 'CLOSED', 'REOPENED', 'DISMISSED']),
+  targetStatus: z.enum([
+    'TRIAGED',
+    'IN_CORRECTION',
+    'RESOLVED',
+    'VERIFIED',
+    'CLOSED',
+    'REOPENED',
+    'DISMISSED',
+  ]),
   resolutionNotes: z.string().max(20_000).optional(),
 });
 

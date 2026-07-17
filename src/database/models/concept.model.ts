@@ -6,7 +6,13 @@ export class ConceptModel extends Model<
   InferAttributes<ConceptModel>,
   InferCreationAttributes<ConceptModel>
 > {
-  @Column({ field: 'concept_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'concept_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare conceptId: CreationOptional<string>;
 
   @Column({ field: 'owner_organization_id', type: DataType.UUID, allowNull: false })
@@ -29,5 +35,4 @@ export class ConceptModel extends Model<
 
   @Column({ field: 'valid_to', type: DataType.DATEONLY, allowNull: true })
   declare validTo: string | null;
-
 }

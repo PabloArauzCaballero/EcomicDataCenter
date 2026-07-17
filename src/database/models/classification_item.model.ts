@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'classification_item', schema: 'semantic', timestamps: false, underscored: true })
+@Table({
+  tableName: 'classification_item',
+  schema: 'semantic',
+  timestamps: false,
+  underscored: true,
+})
 export class ClassificationItemModel extends Model<
   InferAttributes<ClassificationItemModel>,
   InferCreationAttributes<ClassificationItemModel>
 > {
-  @Column({ field: 'classification_item_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'classification_item_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare classificationItemId: CreationOptional<string>;
 
   @Column({ field: 'classification_version_id', type: DataType.UUID, allowNull: false })
@@ -35,5 +46,4 @@ export class ClassificationItemModel extends Model<
 
   @Column({ field: 'valid_to', type: DataType.DATEONLY, allowNull: true })
   declare validTo: string | null;
-
 }

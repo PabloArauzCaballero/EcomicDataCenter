@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'series_break', schema: 'quality_lineage', timestamps: false, underscored: true })
+@Table({
+  tableName: 'series_break',
+  schema: 'quality_lineage',
+  timestamps: false,
+  underscored: true,
+})
 export class SeriesBreakModel extends Model<
   InferAttributes<SeriesBreakModel>,
   InferCreationAttributes<SeriesBreakModel>
 > {
-  @Column({ field: 'series_break_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'series_break_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare seriesBreakId: CreationOptional<string>;
 
   @Column({ field: 'series_id', type: DataType.UUID, allowNull: false })
@@ -32,5 +43,4 @@ export class SeriesBreakModel extends Model<
 
   @Column({ field: 'notes', type: DataType.TEXT, allowNull: true })
   declare notes: string | null;
-
 }

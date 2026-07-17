@@ -24,7 +24,11 @@ async function check(name: string, path: string, token?: string): Promise<CheckR
       ...(!response.ok ? { detail: `HTTP ${response.status}` } : {}),
     };
   } catch (error) {
-    return { name, status: 'FAIL', detail: error instanceof Error ? error.message : 'Network error' };
+    return {
+      name,
+      status: 'FAIL',
+      detail: error instanceof Error ? error.message : 'Network error',
+    };
   }
 }
 
@@ -49,7 +53,11 @@ async function main(): Promise<void> {
   };
   const directory = resolve('artifacts/smoke');
   await mkdir(directory, { recursive: true });
-  await writeFile(resolve(directory, 'smoke-results.json'), JSON.stringify(report, null, 2), 'utf8');
+  await writeFile(
+    resolve(directory, 'smoke-results.json'),
+    JSON.stringify(report, null, 2),
+    'utf8',
+  );
   if (report.failed) process.exitCode = 1;
 }
 

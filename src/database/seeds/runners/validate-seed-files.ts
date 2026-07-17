@@ -1,4 +1,9 @@
-import { frequencySeedSchema, mockSeedSchema, qualityDimensionSeedSchema, unitSeedSchema } from '../schemas/seed.schemas';
+import {
+  frequencySeedSchema,
+  mockSeedSchema,
+  qualityDimensionSeedSchema,
+  unitSeedSchema,
+} from '../schemas/seed.schemas';
 import { readSeed } from './seed.utils';
 
 /** Validates both permitted persistent seed catalogs without connecting to PostgreSQL. */

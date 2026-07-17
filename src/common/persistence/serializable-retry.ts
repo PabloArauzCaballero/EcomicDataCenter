@@ -24,7 +24,10 @@ export function isRetryableTransactionError(error: unknown): boolean {
   return RETRYABLE_TRANSACTION_CODES.has(databaseErrorCode(error) ?? '');
 }
 
-function retryDelay(attempt: number, options: Required<Pick<TransactionRetryOptions, 'baseDelayMs' | 'maximumDelayMs' | 'random'>>): number {
+function retryDelay(
+  attempt: number,
+  options: Required<Pick<TransactionRetryOptions, 'baseDelayMs' | 'maximumDelayMs' | 'random'>>,
+): number {
   const ceiling = Math.min(options.maximumDelayMs, options.baseDelayMs * 2 ** (attempt - 1));
   return Math.floor(options.random() * ceiling);
 }
@@ -46,7 +49,9 @@ export async function withSerializableRetry<T>(
     maximumDelayMs: options.maximumDelayMs ?? 250,
     random: options.random ?? Math.random,
   };
-  const sleep = options.sleep ?? ((milliseconds: number) => new Promise<void>((resolve) => setTimeout(resolve, milliseconds)));
+  const sleep =
+    options.sleep ??
+    ((milliseconds: number) => new Promise<void>((resolve) => setTimeout(resolve, milliseconds)));
 
   if (!Number.isInteger(maxAttempts) || maxAttempts < 1 || maxAttempts > 10) {
     throw new RangeError('maxAttempts must be an integer between 1 and 10');

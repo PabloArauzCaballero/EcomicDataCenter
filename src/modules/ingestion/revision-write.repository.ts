@@ -53,9 +53,7 @@ export class RevisionWriteRepository {
       { transaction },
     );
     await ObservationMeasureModel.bulkCreate(
-      values.record.measures.map((value) =>
-        mapMeasureValue(revision.observationRevisionId, value),
-      ),
+      values.record.measures.map((value) => mapMeasureValue(revision.observationRevisionId, value)),
       { transaction },
     );
     await ObservationAttributeValueModel.bulkCreate(

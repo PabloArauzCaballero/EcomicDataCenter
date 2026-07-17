@@ -19,14 +19,20 @@ export class DataQueryController {
 
   @Post('query')
   @Roles(ACTOR_ROLES.ANALYST, ACTOR_ROLES.METHODOLOGY_STEWARD)
-  @ApiOperation({ operationId: 'queryObservations', summary: 'Query current or vintage observations' })
+  @ApiOperation({
+    operationId: 'queryObservations',
+    summary: 'Query current or vintage observations',
+  })
   search(@Body(new ZodValidationPipe(dataQuerySchema)) input: DataQueryInput) {
     return this.service.search(input);
   }
 
   @Get('observations/:observationId/revisions/:revisionId/trace')
   @Roles(ACTOR_ROLES.ANALYST, ACTOR_ROLES.METHODOLOGY_STEWARD)
-  @ApiOperation({ operationId: 'getObservationTrace', summary: 'Get provenance, quality and lineage' })
+  @ApiOperation({
+    operationId: 'getObservationTrace',
+    summary: 'Get provenance, quality and lineage',
+  })
   trace(@Param(new ZodValidationPipe(traceParamsSchema)) params: TraceParams) {
     return this.service.trace(params.observationId, params.revisionId);
   }

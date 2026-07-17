@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'attribute_definition', schema: 'metadata', timestamps: false, underscored: true })
+@Table({
+  tableName: 'attribute_definition',
+  schema: 'metadata',
+  timestamps: false,
+  underscored: true,
+})
 export class AttributeDefinitionModel extends Model<
   InferAttributes<AttributeDefinitionModel>,
   InferCreationAttributes<AttributeDefinitionModel>
 > {
-  @Column({ field: 'attribute_definition_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'attribute_definition_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare attributeDefinitionId: CreationOptional<string>;
 
   @Column({ field: 'data_structure_id', type: DataType.UUID, allowNull: false })
@@ -32,5 +43,4 @@ export class AttributeDefinitionModel extends Model<
 
   @Column({ field: 'is_required', type: DataType.BOOLEAN, allowNull: false })
   declare isRequired: boolean;
-
 }

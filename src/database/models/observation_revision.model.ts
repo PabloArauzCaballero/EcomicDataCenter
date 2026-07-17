@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'observation_revision', schema: 'statistics', timestamps: false, underscored: true })
+@Table({
+  tableName: 'observation_revision',
+  schema: 'statistics',
+  timestamps: false,
+  underscored: true,
+})
 export class ObservationRevisionModel extends Model<
   InferAttributes<ObservationRevisionModel>,
   InferCreationAttributes<ObservationRevisionModel>
 > {
-  @Column({ field: 'observation_revision_id', type: DataType.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true })
+  @Column({
+    field: 'observation_revision_id',
+    type: DataType.BIGINT,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  })
   declare observationRevisionId: CreationOptional<string>;
 
   @Column({ field: 'observation_id', type: DataType.BIGINT, allowNull: false })
@@ -50,5 +61,4 @@ export class ObservationRevisionModel extends Model<
 
   @Column({ field: 'normalized_hash', type: DataType.CHAR(64), allowNull: false })
   declare normalizedHash: string;
-
 }

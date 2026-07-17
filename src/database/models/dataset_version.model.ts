@@ -6,7 +6,13 @@ export class DatasetVersionModel extends Model<
   InferAttributes<DatasetVersionModel>,
   InferCreationAttributes<DatasetVersionModel>
 > {
-  @Column({ field: 'dataset_version_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'dataset_version_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare datasetVersionId: CreationOptional<string>;
 
   @Column({ field: 'dataset_id', type: DataType.UUID, allowNull: false })
@@ -44,5 +50,4 @@ export class DatasetVersionModel extends Model<
 
   @Column({ field: 'change_reason', type: DataType.TEXT, allowNull: true })
   declare changeReason: string | null;
-
 }

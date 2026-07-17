@@ -6,7 +6,13 @@ export class ObservationModel extends Model<
   InferAttributes<ObservationModel>,
   InferCreationAttributes<ObservationModel>
 > {
-  @Column({ field: 'observation_id', type: DataType.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true })
+  @Column({
+    field: 'observation_id',
+    type: DataType.BIGINT,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  })
   declare observationId: CreationOptional<string>;
 
   @Column({ field: 'series_id', type: DataType.UUID, allowNull: false })
@@ -23,5 +29,4 @@ export class ObservationModel extends Model<
 
   @Column({ field: 'reference_date', type: DataType.DATEONLY, allowNull: true })
   declare referenceDate: string | null;
-
 }

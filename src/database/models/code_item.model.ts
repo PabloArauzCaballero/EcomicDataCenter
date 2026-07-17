@@ -6,7 +6,13 @@ export class CodeItemModel extends Model<
   InferAttributes<CodeItemModel>,
   InferCreationAttributes<CodeItemModel>
 > {
-  @Column({ field: 'code_item_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'code_item_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare codeItemId: CreationOptional<string>;
 
   @Column({ field: 'code_list_id', type: DataType.UUID, allowNull: false })
@@ -35,5 +41,4 @@ export class CodeItemModel extends Model<
 
   @Column({ field: 'is_active', type: DataType.BOOLEAN, allowNull: false })
   declare isActive: boolean;
-
 }

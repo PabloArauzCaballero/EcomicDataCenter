@@ -95,7 +95,10 @@ export class SemanticService {
   }
 
   createCodeList(input: CreateCodeListInput) {
-    this.assertUniqueCodes(input.items.map((item) => item.code), 'code list item');
+    this.assertUniqueCodes(
+      input.items.map((item) => item.code),
+      'code list item',
+    );
     return this.writer.transaction(async (transaction) => {
       const codeList = await CodeListModel.create(
         {
@@ -135,7 +138,10 @@ export class SemanticService {
   }
 
   createClassification(input: CreateClassificationInput) {
-    this.assertUniqueCodes(input.version.items.map((item) => item.code), 'classification item');
+    this.assertUniqueCodes(
+      input.version.items.map((item) => item.code),
+      'classification item',
+    );
     return this.writer.transaction(async (transaction) => {
       const classification = await ClassificationModel.create(
         {

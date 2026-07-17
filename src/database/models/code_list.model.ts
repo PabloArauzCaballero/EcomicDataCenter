@@ -6,7 +6,13 @@ export class CodeListModel extends Model<
   InferAttributes<CodeListModel>,
   InferCreationAttributes<CodeListModel>
 > {
-  @Column({ field: 'code_list_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'code_list_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare codeListId: CreationOptional<string>;
 
   @Column({ field: 'owner_organization_id', type: DataType.UUID, allowNull: false })
@@ -26,5 +32,4 @@ export class CodeListModel extends Model<
 
   @Column({ field: 'valid_to', type: DataType.DATEONLY, allowNull: true })
   declare validTo: string | null;
-
 }

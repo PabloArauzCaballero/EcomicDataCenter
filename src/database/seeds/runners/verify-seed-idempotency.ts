@@ -6,7 +6,8 @@ import { runMockSeeds } from './run-mock-seeds';
 import { captureBootSeedHash, captureMockSeedHash } from './seed-snapshot';
 
 function assertSame(first: string, second: string, catalog: string): void {
-  if (first !== second) throw new Error(`${catalog} seeds changed their logical state on second execution`);
+  if (first !== second)
+    throw new Error(`${catalog} seeds changed their logical state on second execution`);
 }
 
 /** Executes each permitted catalog twice and compares its complete deterministic state. */
@@ -43,7 +44,9 @@ export async function verifySeedIdempotency(): Promise<void> {
 
 if (require.main === module) {
   verifySeedIdempotency().catch((error: unknown) => {
-    process.stderr.write(`${error instanceof Error ? error.message : 'Seed verification failure'}\n`);
+    process.stderr.write(
+      `${error instanceof Error ? error.message : 'Seed verification failure'}\n`,
+    );
     process.exitCode = 1;
   });
 }

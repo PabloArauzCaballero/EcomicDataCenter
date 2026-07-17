@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'statistical_operation', schema: 'metadata', timestamps: false, underscored: true })
+@Table({
+  tableName: 'statistical_operation',
+  schema: 'metadata',
+  timestamps: false,
+  underscored: true,
+})
 export class StatisticalOperationModel extends Model<
   InferAttributes<StatisticalOperationModel>,
   InferCreationAttributes<StatisticalOperationModel>
 > {
-  @Column({ field: 'statistical_operation_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'statistical_operation_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare statisticalOperationId: CreationOptional<string>;
 
   @Column({ field: 'producer_organization_id', type: DataType.UUID, allowNull: false })
@@ -41,5 +52,4 @@ export class StatisticalOperationModel extends Model<
 
   @Column({ field: 'status', type: DataType.STRING(30), allowNull: false })
   declare status: string;
-
 }

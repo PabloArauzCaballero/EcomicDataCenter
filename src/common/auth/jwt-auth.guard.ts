@@ -42,7 +42,12 @@ export class JwtAuthGuard implements CanActivate {
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    if (this.reflector.getAllAndOverride<boolean>(PUBLIC_ROUTE, [context.getHandler(), context.getClass()])) {
+    if (
+      this.reflector.getAllAndOverride<boolean>(PUBLIC_ROUTE, [
+        context.getHandler(),
+        context.getClass(),
+      ])
+    ) {
       return true;
     }
     const request = context.switchToHttp().getRequest<FastifyRequest & { actor?: Actor }>();
@@ -100,5 +105,4 @@ export class JwtAuthGuard implements CanActivate {
       callback(error, key?.getPublicKey());
     });
   }
-
 }

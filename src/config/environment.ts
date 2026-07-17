@@ -11,8 +11,14 @@ const environmentSchema = z
     APP_HOST: z.string().default('127.0.0.1'),
     APP_PORT: z.coerce.number().int().min(1).max(65_535).default(3000),
     APP_NAME: z.string().default('observatorio-economico-core'),
-    API_PREFIX: z.string().regex(/^[a-z0-9/_-]+$/).default('api'),
-    API_VERSION: z.string().regex(/^v\d+$/).default('v1'),
+    API_PREFIX: z
+      .string()
+      .regex(/^[a-z0-9/_-]+$/)
+      .default('api'),
+    API_VERSION: z
+      .string()
+      .regex(/^v\d+$/)
+      .default('v1'),
     CORS_ORIGINS: z.string().default(''),
     BODY_LIMIT_BYTES: z.coerce.number().int().min(1024).max(10_485_760).default(1_048_576),
     RATE_LIMIT_MAX: z.coerce.number().int().min(1).max(100_000).default(300),

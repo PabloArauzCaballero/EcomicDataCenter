@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'classification_version', schema: 'semantic', timestamps: false, underscored: true })
+@Table({
+  tableName: 'classification_version',
+  schema: 'semantic',
+  timestamps: false,
+  underscored: true,
+})
 export class ClassificationVersionModel extends Model<
   InferAttributes<ClassificationVersionModel>,
   InferCreationAttributes<ClassificationVersionModel>
 > {
-  @Column({ field: 'classification_version_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'classification_version_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare classificationVersionId: CreationOptional<string>;
 
   @Column({ field: 'classification_id', type: DataType.UUID, allowNull: false })
@@ -32,5 +43,4 @@ export class ClassificationVersionModel extends Model<
 
   @Column({ field: 'methodology_uri', type: DataType.TEXT, allowNull: true })
   declare methodologyUri: string | null;
-
 }

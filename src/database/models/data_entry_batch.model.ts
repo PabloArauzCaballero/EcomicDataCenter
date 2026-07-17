@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'data_entry_batch', schema: 'provenance', timestamps: false, underscored: true })
+@Table({
+  tableName: 'data_entry_batch',
+  schema: 'provenance',
+  timestamps: false,
+  underscored: true,
+})
 export class DataEntryBatchModel extends Model<
   InferAttributes<DataEntryBatchModel>,
   InferCreationAttributes<DataEntryBatchModel>
 > {
-  @Column({ field: 'data_entry_batch_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'data_entry_batch_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare dataEntryBatchId: CreationOptional<string>;
 
   @Column({ field: 'dataset_version_id', type: DataType.UUID, allowNull: false })
@@ -53,5 +64,4 @@ export class DataEntryBatchModel extends Model<
 
   @Column({ field: 'notes', type: DataType.TEXT, allowNull: true })
   declare notes: string | null;
-
 }

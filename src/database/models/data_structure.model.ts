@@ -6,7 +6,13 @@ export class DataStructureModel extends Model<
   InferAttributes<DataStructureModel>,
   InferCreationAttributes<DataStructureModel>
 > {
-  @Column({ field: 'data_structure_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'data_structure_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare dataStructureId: CreationOptional<string>;
 
   @Column({ field: 'owner_organization_id', type: DataType.UUID, allowNull: false })
@@ -29,5 +35,4 @@ export class DataStructureModel extends Model<
 
   @Column({ field: 'is_active', type: DataType.BOOLEAN, allowNull: false })
   declare isActive: boolean;
-
 }

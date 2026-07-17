@@ -54,7 +54,14 @@ const dimensionSchema = z
     role: z.string().min(2).max(30),
     positionNo: z.number().int().positive(),
     attachmentLevel: z.string().min(2).max(20),
-    representationKind: z.enum(['CODE_LIST', 'CLASSIFICATION', 'GEOGRAPHY', 'TEXT', 'NUMERIC', 'DATE']),
+    representationKind: z.enum([
+      'CODE_LIST',
+      'CLASSIFICATION',
+      'GEOGRAPHY',
+      'TEXT',
+      'NUMERIC',
+      'DATE',
+    ]),
     isRequired: z.boolean(),
     isTimeDimension: z.boolean().default(false),
   })
@@ -70,7 +77,10 @@ const dimensionSchema = z
       });
     }
     if (value.codeListId && value.classificationVersionId) {
-      context.addIssue({ code: 'custom', message: 'A dimension cannot use both code list and classification' });
+      context.addIssue({
+        code: 'custom',
+        message: 'A dimension cannot use both code list and classification',
+      });
     }
   });
 
@@ -113,12 +123,28 @@ export const createDataStructureSchema = z
         context.addIssue({ code: 'custom', path: [path], message: `Duplicate ${path}` });
       }
     };
-    unique(value.dimensions.map((item) => item.code), 'dimensions');
-    unique(value.dimensions.map((item) => item.positionNo), 'dimensions');
-    unique(value.measures.map((item) => item.code), 'measures');
-    unique(value.attributes.map((item) => item.code), 'attributes');
+    unique(
+      value.dimensions.map((item) => item.code),
+      'dimensions',
+    );
+    unique(
+      value.dimensions.map((item) => item.positionNo),
+      'dimensions',
+    );
+    unique(
+      value.measures.map((item) => item.code),
+      'measures',
+    );
+    unique(
+      value.attributes.map((item) => item.code),
+      'attributes',
+    );
     if (value.dimensions.filter((item) => item.isTimeDimension).length > 1) {
-      context.addIssue({ code: 'custom', path: ['dimensions'], message: 'Only one time dimension is allowed' });
+      context.addIssue({
+        code: 'custom',
+        path: ['dimensions'],
+        message: 'Only one time dimension is allowed',
+      });
     }
   });
 

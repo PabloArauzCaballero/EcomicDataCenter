@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'quality_assessment', schema: 'quality_lineage', timestamps: false, underscored: true })
+@Table({
+  tableName: 'quality_assessment',
+  schema: 'quality_lineage',
+  timestamps: false,
+  underscored: true,
+})
 export class QualityAssessmentModel extends Model<
   InferAttributes<QualityAssessmentModel>,
   InferCreationAttributes<QualityAssessmentModel>
 > {
-  @Column({ field: 'quality_assessment_id', type: DataType.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true })
+  @Column({
+    field: 'quality_assessment_id',
+    type: DataType.BIGINT,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  })
   declare qualityAssessmentId: CreationOptional<string>;
 
   @Column({ field: 'quality_rule_id', type: DataType.UUID, allowNull: false })
@@ -35,5 +46,4 @@ export class QualityAssessmentModel extends Model<
 
   @Column({ field: 'assessed_at', type: DataType.DATE, allowNull: false })
   declare assessedAt: Date;
-
 }

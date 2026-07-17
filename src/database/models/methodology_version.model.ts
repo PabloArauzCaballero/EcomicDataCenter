@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'methodology_version', schema: 'metadata', timestamps: false, underscored: true })
+@Table({
+  tableName: 'methodology_version',
+  schema: 'metadata',
+  timestamps: false,
+  underscored: true,
+})
 export class MethodologyVersionModel extends Model<
   InferAttributes<MethodologyVersionModel>,
   InferCreationAttributes<MethodologyVersionModel>
 > {
-  @Column({ field: 'methodology_version_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'methodology_version_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare methodologyVersionId: CreationOptional<string>;
 
   @Column({ field: 'methodology_id', type: DataType.UUID, allowNull: false })
@@ -56,5 +67,4 @@ export class MethodologyVersionModel extends Model<
 
   @Column({ field: 'is_current', type: DataType.BOOLEAN, allowNull: false })
   declare isCurrent: boolean;
-
 }

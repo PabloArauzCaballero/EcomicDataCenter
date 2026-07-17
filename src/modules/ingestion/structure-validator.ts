@@ -50,23 +50,31 @@ export function validateRecordAgainstStructure(
   record: ObservationRecordInput,
   structure: StructureSnapshot,
 ): void {
-  const nonTimeDimensions = structure.dimensions.filter((definition) => !definition.isTimeDimension);
+  const nonTimeDimensions = structure.dimensions.filter(
+    (definition) => !definition.isTimeDimension,
+  );
   assertExactDefinitions(
     record.dimensions.map((value) => value.dimensionDefinitionId),
     new Set(nonTimeDimensions.map((definition) => definition.dimensionDefinitionId)),
-    nonTimeDimensions.filter((definition) => definition.isRequired).map((definition) => definition.dimensionDefinitionId),
+    nonTimeDimensions
+      .filter((definition) => definition.isRequired)
+      .map((definition) => definition.dimensionDefinitionId),
     'dimensions',
   );
   assertExactDefinitions(
     record.measures.map((value) => value.measureDefinitionId),
     new Set(structure.measures.map((definition) => definition.measureDefinitionId)),
-    structure.measures.filter((definition) => definition.isPrimaryMeasure).map((definition) => definition.measureDefinitionId),
+    structure.measures
+      .filter((definition) => definition.isPrimaryMeasure)
+      .map((definition) => definition.measureDefinitionId),
     'measures',
   );
   assertExactDefinitions(
     record.attributes.map((value) => value.attributeDefinitionId),
     new Set(structure.attributes.map((definition) => definition.attributeDefinitionId)),
-    structure.attributes.filter((definition) => definition.isRequired).map((definition) => definition.attributeDefinitionId),
+    structure.attributes
+      .filter((definition) => definition.isRequired)
+      .map((definition) => definition.attributeDefinitionId),
     'attributes',
   );
 
