@@ -38,7 +38,10 @@ async function checkProtectedRoute(): Promise<CheckResult> {
     return check('protected sources', '/api/v1/provenance/sources?page=1&pageSize=1', token);
   }
   if (process.env.AUTH_MODE === 'disabled') {
-    return check('protected sources in local auth mode', '/api/v1/provenance/sources?page=1&pageSize=1');
+    return check(
+      'protected sources in local auth mode',
+      '/api/v1/provenance/sources?page=1&pageSize=1',
+    );
   }
   return {
     name: 'protected sources',
