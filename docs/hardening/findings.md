@@ -26,7 +26,9 @@
 | HD-013 | Media | Nomenclatura | No existía una comprobación automática de identificadores en inglés. | Resuelto | Gate AST `quality:naming` sobre el alcance productivo. |
 | HD-014 | Media | Estándares | La documentación podía confundirse con una afirmación de certificación o nivel de disponibilidad físico. | Resuelto documentalmente | Matriz de estándares separa controles de software, organización e infraestructura física; prohíbe afirmar Tier, Rated o certificación sin auditoría. |
 | HD-015 | Alta | Recursos | Un fallo del reader durante el arranque podía dejar abierto el pool writer antes de completar la aplicación Nest. | Resuelto | Writer y reader se crean y autentican como un grupo atómico; cualquier fallo cierra todos los pools creados y tiene prueba unitaria. |
+| HD-016 | Media | Experiencia local | La guía indicaba ejecutar migraciones antes de iniciar PostgreSQL y el `.env.example` usaba el hostname Docker incluso para `yarn dev` en el host. | Resuelto | Generador de `.env` con modos Docker/host, override local de PostgreSQL y guía de verificación reproducible. |
+| HD-017 | Media | Repositorio | Permanecían un workflow temporal con permiso de escritura y un reporte de lint de diagnóstico dentro de la rama. | Resuelto | Eliminados `hardening-format.yml` y `lint-report.txt`; CI vuelve a ser exclusivamente de lectura. |
 
 ## Conclusión técnica
 
-La rama elimina defectos estructurales y reduce de forma material la superficie de ataque y el consumo no acotado. No se declara lista para desplegar mientras permanezcan abiertos HD-007, HD-010 y HD-011. Esos tres hallazgos requieren evidencia ejecutada, no una corrección documental.
+La rama elimina defectos estructurales y reduce de forma material la superficie de ataque, el consumo no acotado y la fricción de validación local. No se declara lista para desplegar mientras permanezcan abiertos HD-007, HD-010 y HD-011. Esos tres hallazgos requieren evidencia ejecutada, no una corrección documental.
