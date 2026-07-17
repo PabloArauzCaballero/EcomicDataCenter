@@ -21,8 +21,7 @@ async function bootstrap(): Promise<void> {
     connectionTimeout: environment.HTTP_CONNECTION_TIMEOUT_MS,
     keepAliveTimeout: environment.HTTP_KEEP_ALIVE_TIMEOUT_MS,
     requestIdHeader: false,
-    genReqId: (request: FastifyRequest): string =>
-      createRequestId(request.headers['x-request-id']),
+    genReqId: (request: FastifyRequest): string => createRequestId(request.headers['x-request-id']),
   });
   let application: NestFastifyApplication | undefined;
 

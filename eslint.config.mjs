@@ -27,11 +27,7 @@ const quarantinedPaths = [
   'src/modules/users/**',
 ];
 
-const separatelyValidatedJavaScript = [
-  'eslint.config.mjs',
-  'jest.config.cjs',
-  'scripts/*.cjs',
-];
+const separatelyValidatedJavaScript = ['eslint.config.mjs', 'jest.config.cjs', 'scripts/*.cjs'];
 
 export default tseslint.config(
   {
