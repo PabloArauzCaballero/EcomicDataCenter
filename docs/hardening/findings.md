@@ -25,6 +25,7 @@
 | HD-012 | Media | Operación | Los límites de CPU y memoria dependen de la plataforma real y no están demostrados en este repositorio. | Pendiente de entorno | Configurar requests/limits o equivalentes en la plataforma de despliegue y validar bajo carga. |
 | HD-013 | Media | Nomenclatura | No existía una comprobación automática de identificadores en inglés. | Resuelto | Gate AST `quality:naming` sobre el alcance productivo. |
 | HD-014 | Media | Estándares | La documentación podía confundirse con una afirmación de certificación o nivel de disponibilidad físico. | Resuelto documentalmente | Matriz de estándares separa controles de software, organización e infraestructura física; prohíbe afirmar Tier, Rated o certificación sin auditoría. |
+| HD-015 | Alta | Recursos | Un fallo del reader durante el arranque podía dejar abierto el pool writer antes de completar la aplicación Nest. | Resuelto | Writer y reader se crean y autentican como un grupo atómico; cualquier fallo cierra todos los pools creados y tiene prueba unitaria. |
 
 ## Conclusión técnica
 
