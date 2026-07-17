@@ -11,6 +11,8 @@ done
 [ -f yarn.lock ] || { echo 'BLOCKED: yarn.lock is required' >&2; exit 2; }
 
 yarn install --frozen-lockfile --non-interactive
+yarn security:audit
+yarn compose:validate
 yarn format:check
 yarn lint
 yarn typecheck
@@ -32,4 +34,4 @@ python scripts/generate_postman.py
 docker compose build api migrate
 docker compose up -d postgres migrate api nginx
 yarn smoke
-printf 'PASS: release verification commands completed. Run load and restore gates separately.\n'
+printf 'PASS: release verification commands completed. Run load, soak and restore gates separately.\n'
