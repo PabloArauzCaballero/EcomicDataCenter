@@ -1,0 +1,29 @@
+name: hardening-test-diagnostics
+
+on:
+  push:
+    branches: [HARDENING]
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive --silent
+      - name: Run concise Jest diagnostics
+        shell: bash
+        run: |
+          set +e
+          yarn test > /tmp/jest-output.txt 2>&1
+          status=$?
+          grep -E '^(FAIL|PASS|Test Suites:|Tests:|Snapshots:|Time:)|^[[:space:]]+●' /tmp/jest-output.txt || true
+          exit "$status"
