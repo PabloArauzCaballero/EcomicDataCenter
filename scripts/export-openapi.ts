@@ -2,8 +2,9 @@ import 'dotenv/config';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { RequestMethod } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
 import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fastify';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Test } from '@nestjs/testing';
 import type { Sequelize } from 'sequelize-typescript';
 import { stringify } from 'yaml';
@@ -28,7 +29,12 @@ function createDatabaseDouble(): Sequelize {
 async function createContractApplication(): Promise<NestFastifyApplication> {
   const database = createDatabaseDouble();
   const connections: DatabaseConnections = { writer: database, reader: database };
-  const moduleReference = await Test.createTestingModule({ imports: [AppModule] })
+  const moduleReference = await Test.createTestingModule({
+    imports: [AppModule],
+    // TestingModule does not install Nest's HTTP core Reflector automatically,
+    // while both global guards require it during provider construction.
+    providers: [Reflector],
+  })
     .overrideProvider(DATABASE_CONNECTIONS)
     .useValue(connections)
     .compile();
