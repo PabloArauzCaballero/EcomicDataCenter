@@ -6,9 +6,7 @@ const root = path.resolve(__dirname, '..');
 const configPath = path.join(root, 'tsconfig.json');
 const configFile = ts.readConfigFile(configPath, ts.sys.readFile);
 if (configFile.error) {
-  process.stderr.write(
-    `${ts.flattenDiagnosticMessageText(configFile.error.messageText, '\n')}\n`,
-  );
+  process.stderr.write(`${ts.flattenDiagnosticMessageText(configFile.error.messageText, '\n')}\n`);
   process.exit(1);
 }
 
@@ -66,7 +64,9 @@ for (const file of parsedConfig.fileNames.filter((name) => name.endsWith('.ts'))
     if (ts.isIdentifier(node)) {
       const identifier = node.text;
       const containsNonAscii = /[^\u0000-\u007f]/u.test(identifier);
-      const forbiddenTerms = identifierTokens(identifier).filter((token) => spanishTerms.has(token));
+      const forbiddenTerms = identifierTokens(identifier).filter((token) =>
+        spanishTerms.has(token),
+      );
       if (containsNonAscii || forbiddenTerms.length > 0) {
         const position = source.getLineAndCharacterOfPosition(node.getStart(source));
         violations.push(
