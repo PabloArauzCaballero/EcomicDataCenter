@@ -18,19 +18,27 @@ export class RequestContextInterceptor implements NestInterceptor {
     const startedAt = process.hrtime.bigint();
     return next.handle().pipe(
       finalize(() => {
-        const durationMs = Number(process.hrtime.bigint() - startedAt) / 1_000_000;
-        const route = request.routeOptions.url ?? 'unmatched';
-        this.metrics.observeRequest(request.method, route, response.statusCode, durationMs);
-        this.logger.info(
-          {
-            requestId: request.id,
-            method: request.method,
-            route,
-            statusCode: response.statusCode,
-            durationMs,
-          },
-          'Request completed',
-        );
+        // Observability must never break request delivery: a throw inside this
+        // teardown callback would corrupt the response and hang the connection.
+        try {
+          const durationMs = Number(process.hrtime.bigint() - startedAt) / 1_000_000;
+          const route = request.routeOptions.url ?? 'unmatched';
+          this.metrics.observeRequest(request.method, route, response.statusCode, durationMs);
+          this.logger.info(
+            {
+              requestId: request.id,
+              method: request.method,
+              route,
+              statusCode: response.statusCode,
+              durationMs,
+            },
+            'Request completed',
+          );
+        } catch (error) {
+          process.stderr.write(
+            `Request observability failed: ${error instanceof Error ? error.message : String(error)}\n`,
+          );
+        }
       }),
     );
   }
