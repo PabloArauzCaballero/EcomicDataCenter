@@ -5,7 +5,7 @@ services:
       api:
         condition: service_healthy
     ports:
-      - "8080:8080"
+      - '8080:8080'
     volumes:
       - ./infra/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     read_only: true
@@ -20,20 +20,28 @@ services:
       context: .
       target: runtime
     env_file: .env
-    expose: ["3000"]
+    expose: ['3000']
     depends_on:
       migrate:
         condition: service_completed_successfully
+    init: true
     read_only: true
     tmpfs: [/tmp]
     cap_drop: [ALL]
-    security_opt: ["no-new-privileges:true"]
+    security_opt: ['no-new-privileges:true']
     healthcheck:
-      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
       interval: 20s
       timeout: 5s
       retries: 5
       start_period: 20s
+    stop_grace_period: 30s
     networks: [app]
     restart: unless-stopped
 
@@ -41,39 +49,23 @@ services:
     build:
       context: .
       target: runtime
-    command: ["node", "dist/database/cli/migrate.js"]
+    command: ['node', 'dist/database/cli/migrate.js']
     env_file: .env
-    depends_on:
-      backup:
-    image: postgres:17.5-alpine
-    profiles: ["operations"]
-    entrypoint: ["/bin/sh", "/opt/backup/run-backup.sh"]
-    environment:
-      BACKUP_DATABASE_URL: ${BACKUP_DATABASE_URL:?required}
-      BACKUP_DESTINATION: /backups
-      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-30}
-    volumes:
-      - ./infra/backup/run-backup.sh:/opt/backup/run-backup.sh:ro
-      - backup_data:/backups
     depends_on:
       postgres:
         condition: service_healthy
+    init: true
     read_only: true
     tmpfs: [/tmp]
     cap_drop: [ALL]
-    security_opt: ["no-new-privileges:true"]
+    security_opt: ['no-new-privileges:true']
     networks: [app]
-    restart: "no"
-
-  postgres:
-        condition: service_healthy
-    networks: [app]
-    restart: "no"
+    restart: 'no'
 
   backup:
     image: postgres:17.5-alpine
-    profiles: ["operations"]
-    entrypoint: ["/bin/sh", "/opt/backup/run-backup.sh"]
+    profiles: ['operations']
+    entrypoint: ['/bin/sh', '/opt/backup/run-backup.sh']
     environment:
       BACKUP_DATABASE_URL: ${BACKUP_DATABASE_URL:?required}
       BACKUP_DESTINATION: /backups
@@ -87,9 +79,9 @@ services:
     read_only: true
     tmpfs: [/tmp]
     cap_drop: [ALL]
-    security_opt: ["no-new-privileges:true"]
+    security_opt: ['no-new-privileges:true']
     networks: [app]
-    restart: "no"
+    restart: 'no'
 
   postgres:
     image: postgres:17.5-alpine
@@ -105,10 +97,11 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./infra/postgres/init-local.sh:/docker-entrypoint-initdb.d/010-roles.sh:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d observatorio_economico"]
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d observatorio_economico']
       interval: 10s
       timeout: 5s
       retries: 10
+    stop_grace_period: 60s
     networks: [app]
     restart: unless-stopped
 

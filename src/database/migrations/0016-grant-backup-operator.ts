@@ -15,32 +15,32 @@ BEGIN
       provenance, semantic, metadata, statistics, quality_lineage
       TO backup_operator;
     REVOKE CREATE ON SCHEMA ${APPLICATION_SCHEMAS} FROM backup_operator;
+
+    ALTER DEFAULT PRIVILEGES IN SCHEMA
+      provenance, semantic, metadata, statistics, quality_lineage, read_models, infrastructure
+      GRANT SELECT ON TABLES TO backup_operator;
+    ALTER DEFAULT PRIVILEGES IN SCHEMA
+      provenance, semantic, metadata, statistics, quality_lineage
+      GRANT SELECT ON SEQUENCES TO backup_operator;
   END IF;
 END
 $$;
-
-ALTER DEFAULT PRIVILEGES IN SCHEMA
-  provenance, semantic, metadata, statistics, quality_lineage, read_models, infrastructure
-  GRANT SELECT ON TABLES TO backup_operator;
-ALTER DEFAULT PRIVILEGES IN SCHEMA
-  provenance, semantic, metadata, statistics, quality_lineage
-  GRANT SELECT ON SEQUENCES TO backup_operator;
   `);
 }
 
 /** Revokes application-object read access from the backup group role. */
 export async function down({ context }: MigrationContext): Promise<void> {
   await context.sequelize.query(`
-ALTER DEFAULT PRIVILEGES IN SCHEMA
-  provenance, semantic, metadata, statistics, quality_lineage, read_models, infrastructure
-  REVOKE SELECT ON TABLES FROM backup_operator;
-ALTER DEFAULT PRIVILEGES IN SCHEMA
-  provenance, semantic, metadata, statistics, quality_lineage
-  REVOKE SELECT ON SEQUENCES FROM backup_operator;
-
 DO $$
 BEGIN
   IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'backup_operator') THEN
+    ALTER DEFAULT PRIVILEGES IN SCHEMA
+      provenance, semantic, metadata, statistics, quality_lineage, read_models, infrastructure
+      REVOKE SELECT ON TABLES FROM backup_operator;
+    ALTER DEFAULT PRIVILEGES IN SCHEMA
+      provenance, semantic, metadata, statistics, quality_lineage
+      REVOKE SELECT ON SEQUENCES FROM backup_operator;
+
     REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA ${APPLICATION_SCHEMAS}
       FROM backup_operator;
     REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA

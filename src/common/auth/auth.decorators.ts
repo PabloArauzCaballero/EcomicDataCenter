@@ -8,7 +8,9 @@ export const REQUIRED_ROLES = 'required-roles';
 export const Public = () => SetMetadata(PUBLIC_ROUTE, true);
 export const Roles = (...roles: ActorRole[]) => SetMetadata(REQUIRED_ROLES, roles);
 
-export const CurrentActor = createParamDecorator((_data: unknown, context: ExecutionContext): Actor => {
-  const request = context.switchToHttp().getRequest<FastifyRequest & { actor: Actor }>();
-  return request.actor;
-});
+export const CurrentActor = createParamDecorator(
+  (_data: unknown, context: ExecutionContext): Actor => {
+    const request = context.switchToHttp().getRequest<FastifyRequest & { actor: Actor }>();
+    return request.actor;
+  },
+);

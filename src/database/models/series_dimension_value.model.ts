@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'series_dimension_value', schema: 'statistics', timestamps: false, underscored: true })
+@Table({
+  tableName: 'series_dimension_value',
+  schema: 'statistics',
+  timestamps: false,
+  underscored: true,
+})
 export class SeriesDimensionValueModel extends Model<
   InferAttributes<SeriesDimensionValueModel>,
   InferCreationAttributes<SeriesDimensionValueModel>
 > {
-  @Column({ field: 'series_dimension_value_id', type: DataType.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true })
+  @Column({
+    field: 'series_dimension_value_id',
+    type: DataType.BIGINT,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  })
   declare seriesDimensionValueId: CreationOptional<string>;
 
   @Column({ field: 'series_id', type: DataType.UUID, allowNull: false })
@@ -32,5 +43,4 @@ export class SeriesDimensionValueModel extends Model<
 
   @Column({ field: 'date_value', type: DataType.DATEONLY, allowNull: true })
   declare dateValue: string | null;
-
 }

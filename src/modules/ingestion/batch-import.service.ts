@@ -50,13 +50,7 @@ export class BatchImportService {
       const records: BatchRecordResult[] = [];
       for (const [index, record] of input.records.entries()) {
         records.push(
-          await this.processRecord(
-            index,
-            record,
-            input,
-            batch.dataEntryBatchId,
-            transaction,
-          ),
+          await this.processRecord(index, record, input, batch.dataEntryBatchId, transaction),
         );
       }
       const acceptedCount = records.filter((record) =>

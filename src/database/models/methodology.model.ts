@@ -6,7 +6,13 @@ export class MethodologyModel extends Model<
   InferAttributes<MethodologyModel>,
   InferCreationAttributes<MethodologyModel>
 > {
-  @Column({ field: 'methodology_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'methodology_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare methodologyId: CreationOptional<string>;
 
   @Column({ field: 'owner_organization_id', type: DataType.UUID, allowNull: false })
@@ -29,5 +35,4 @@ export class MethodologyModel extends Model<
 
   @Column({ field: 'is_active', type: DataType.BOOLEAN, allowNull: false })
   declare isActive: boolean;
-
 }

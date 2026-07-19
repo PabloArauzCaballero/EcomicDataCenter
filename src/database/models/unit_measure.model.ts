@@ -6,7 +6,13 @@ export class UnitMeasureModel extends Model<
   InferAttributes<UnitMeasureModel>,
   InferCreationAttributes<UnitMeasureModel>
 > {
-  @Column({ field: 'unit_measure_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'unit_measure_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare unitMeasureId: CreationOptional<string>;
 
   @Column({ field: 'base_unit_measure_id', type: DataType.UUID, allowNull: true })
@@ -26,5 +32,4 @@ export class UnitMeasureModel extends Model<
 
   @Column({ field: 'value_kind', type: DataType.STRING(30), allowNull: false })
   declare valueKind: string;
-
 }

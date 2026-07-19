@@ -39,6 +39,7 @@ export async function createMigrationRunner(environment: Environment): Promise<{
       tableName: 'migration_history',
       schema: 'infrastructure',
     }),
+    logger: undefined,
   });
   return { database, migrator };
 }

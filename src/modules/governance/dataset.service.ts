@@ -76,7 +76,11 @@ export class DatasetService {
     });
   }
 
-  private createVersionRecord(datasetId: string, input: DatasetVersionInput, transaction: Transaction) {
+  private createVersionRecord(
+    datasetId: string,
+    input: DatasetVersionInput,
+    transaction: Transaction,
+  ) {
     return DatasetVersionModel.create(
       {
         datasetVersionId: randomUUID(),
@@ -109,7 +113,9 @@ export class DatasetService {
     });
     if (current && current.datasetVersionId !== version.datasetVersionId) {
       if (current.validFrom > version.validFrom) {
-        throw new BusinessRuleError('The new current version cannot start before the current version');
+        throw new BusinessRuleError(
+          'The new current version cannot start before the current version',
+        );
       }
       await current.update(
         { status: 'SUPERSEDED', isCurrent: false, validTo: version.validFrom },
@@ -138,5 +144,4 @@ export class DatasetService {
       throw new BusinessRuleError('Dataset publication requires an active data structure');
     }
   }
-
 }

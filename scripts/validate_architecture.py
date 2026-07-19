@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Checks architectural dependency rules without requiring Node dependencies."""
+"""Check dependency boundaries for the maintained production application."""
 
 from __future__ import annotations
 
 import re
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+from project_scope import ROOT, iter_core_typescript_files
+
 SRC = ROOT / "src"
 IMPORT_PATTERN = re.compile(r"^import(?:[\s\S]*?)from\s+['\"]([^'\"]+)['\"];?", re.MULTILINE)
 
@@ -24,7 +25,7 @@ def resolve_relative(source: Path, specifier: str) -> Path:
 
 def main() -> int:
     violations: list[str] = []
-    files = sorted(SRC.rglob("*.ts"))
+    files = sorted(iter_core_typescript_files())
 
     for source in files:
         text = source.read_text(encoding="utf-8")
@@ -34,24 +35,37 @@ def main() -> int:
 
         for specifier in IMPORT_PATTERN.findall(text):
             if is_controller and not is_health_controller:
-                if "database/models" in specifier or specifier in {"sequelize", "sequelize-typescript"}:
-                    violations.append(f"{source.relative_to(ROOT)}: controller imports persistence detail {specifier}")
-
-            if specifier.startswith("."):
-                target = resolve_relative(source, specifier)
-                try:
-                    target_rel = target.relative_to(SRC)
-                except ValueError:
-                    continue
-                target_parts = target_rel.parts
-                target_module = target_parts[1] if len(target_parts) >= 3 and target_parts[0] == "modules" else None
-                if source_module and target_module and source_module != target_module:
+                if "database/models" in specifier or specifier in {
+                    "sequelize",
+                    "sequelize-typescript",
+                }:
                     violations.append(
-                        f"{source.relative_to(ROOT)}: module {source_module} imports internal module {target_module}"
+                        f"{source.relative_to(ROOT)}: controller imports persistence detail {specifier}"
                     )
-                source_parts = source.relative_to(SRC).parts
-                if source_parts[0] == "database" and target_parts and target_parts[0] == "modules":
-                    violations.append(f"{source.relative_to(ROOT)}: database layer depends on application module")
+
+            if not specifier.startswith("."):
+                continue
+            target = resolve_relative(source, specifier)
+            try:
+                target_relative = target.relative_to(SRC)
+            except ValueError:
+                continue
+            target_parts = target_relative.parts
+            target_module = (
+                target_parts[1]
+                if len(target_parts) >= 3 and target_parts[0] == "modules"
+                else None
+            )
+            if source_module and target_module and source_module != target_module:
+                violations.append(
+                    f"{source.relative_to(ROOT)}: module {source_module} imports internal module "
+                    f"{target_module}"
+                )
+            source_parts = source.relative_to(SRC).parts
+            if source_parts[0] == "database" and target_parts and target_parts[0] == "modules":
+                violations.append(
+                    f"{source.relative_to(ROOT)}: database layer depends on application module"
+                )
 
     required_docs = [
         "docs/architecture/architecture-profile.md",
@@ -67,7 +81,7 @@ def main() -> int:
     ]
     for relative in required_docs:
         if not (ROOT / relative).is_file():
-            violations.append(f"Missing required phase-2 artifact: {relative}")
+            violations.append(f"Missing required architecture artifact: {relative}")
 
     architecture_diagrams = [
         "docs/architecture/system-context.puml",
@@ -91,7 +105,7 @@ def main() -> int:
             print(f"- {violation}")
         return 1
 
-    print(f"Architecture validation passed for {len(files)} TypeScript files.")
+    print(f"Architecture validation passed for {len(files)} maintained TypeScript files.")
     return 0
 
 

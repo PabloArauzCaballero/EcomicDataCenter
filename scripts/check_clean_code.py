@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
-"""Conservative clean-code checks for production TypeScript source files."""
+"""Conservative clean-code checks for maintained production TypeScript."""
 
 from __future__ import annotations
 
 import re
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
+from project_scope import ROOT, iter_core_typescript_files
 
 FORBIDDEN_FILENAMES = {
     "utils.ts",
@@ -27,7 +25,7 @@ GENERIC_CLASS = re.compile(r"\bclass\s+\w*(?:Manager|Helper|Processor|Utils)\b")
 
 def main() -> int:
     violations: list[str] = []
-    files = sorted(SRC.rglob("*.ts"))
+    files = sorted(iter_core_typescript_files())
 
     for path in files:
         relative = path.relative_to(ROOT)
@@ -46,7 +44,7 @@ def main() -> int:
             print(f"- {violation}")
         return 1
 
-    print(f"Clean-code validation passed for {len(files)} TypeScript files.")
+    print(f"Clean-code validation passed for {len(files)} maintained TypeScript files.")
     return 0
 
 

@@ -106,7 +106,10 @@ export const createClassificationMappingSchema = z.object({
   sourceItemId: uuid,
   targetItemId: uuid,
   equivalenceType: z.string().min(2).max(30),
-  weight: z.string().regex(/^(?:0|[1-9]\d*)(?:\.\d+)?$/).optional(),
+  weight: z
+    .string()
+    .regex(/^(?:0|[1-9]\d*)(?:\.\d+)?$/)
+    .optional(),
   validFrom: date.optional(),
   validTo: date.optional(),
   evidenceNote: z.string().max(5_000).optional(),

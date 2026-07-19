@@ -24,7 +24,10 @@ export class IngestionController {
   @Post('observations')
   @HttpCode(HttpStatus.OK)
   @Roles(ACTOR_ROLES.DATA_OFFICER)
-  @ApiOperation({ operationId: 'registerObservation', summary: 'Register or revise one observation' })
+  @ApiOperation({
+    operationId: 'registerObservation',
+    summary: 'Register or revise one observation',
+  })
   register(
     @Body(new ZodValidationPipe(registerObservationSchema)) input: RegisterObservationInput,
     @CurrentActor() actor: Actor,

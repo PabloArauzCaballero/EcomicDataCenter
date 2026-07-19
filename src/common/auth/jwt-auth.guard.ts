@@ -9,8 +9,8 @@ import { Reflector } from '@nestjs/core';
 import type { FastifyRequest } from 'fastify';
 import jwt, { type JwtHeader, type SigningKeyCallback } from 'jsonwebtoken';
 import jwksClient, { type JwksClient } from 'jwks-rsa';
-import type { Environment } from '../../config/environment';
 import { ENVIRONMENT } from '../../config/configuration.module';
+import type { Environment } from '../../config/environment';
 import { ACTOR_ROLES, type Actor } from './actor';
 import { PUBLIC_ROUTE } from './auth.decorators';
 import { parseActorClaims } from './token-claims.parser';
@@ -25,7 +25,7 @@ export class JwtAuthGuard implements CanActivate {
   private readonly jwks?: JwksClient;
 
   constructor(
-    private readonly reflector: Reflector,
+    @Inject(Reflector) private readonly reflector: Reflector,
     @Inject(ENVIRONMENT) private readonly environment: Environment,
   ) {
     if (environment.AUTH_MODE === 'jwks' && environment.AUTH_JWKS_URI) {
@@ -42,7 +42,12 @@ export class JwtAuthGuard implements CanActivate {
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    if (this.reflector.getAllAndOverride<boolean>(PUBLIC_ROUTE, [context.getHandler(), context.getClass()])) {
+    if (
+      this.reflector.getAllAndOverride<boolean>(PUBLIC_ROUTE, [
+        context.getHandler(),
+        context.getClass(),
+      ])
+    ) {
       return true;
     }
     const request = context.switchToHttp().getRequest<FastifyRequest & { actor?: Actor }>();
@@ -100,5 +105,4 @@ export class JwtAuthGuard implements CanActivate {
       callback(error, key?.getPublicKey());
     });
   }
-
 }

@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'observation_attribute_value', schema: 'statistics', timestamps: false, underscored: true })
+@Table({
+  tableName: 'observation_attribute_value',
+  schema: 'statistics',
+  timestamps: false,
+  underscored: true,
+})
 export class ObservationAttributeValueModel extends Model<
   InferAttributes<ObservationAttributeValueModel>,
   InferCreationAttributes<ObservationAttributeValueModel>
 > {
-  @Column({ field: 'observation_attribute_value_id', type: DataType.BIGINT, allowNull: false, primaryKey: true, autoIncrement: true })
+  @Column({
+    field: 'observation_attribute_value_id',
+    type: DataType.BIGINT,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  })
   declare observationAttributeValueId: CreationOptional<string>;
 
   @Column({ field: 'observation_revision_id', type: DataType.BIGINT, allowNull: false })
@@ -26,5 +37,4 @@ export class ObservationAttributeValueModel extends Model<
 
   @Column({ field: 'boolean_value', type: DataType.BOOLEAN, allowNull: true })
   declare booleanValue: boolean | null;
-
 }

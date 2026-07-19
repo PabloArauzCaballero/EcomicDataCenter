@@ -1,10 +1,4 @@
-import {
-  ArgumentsHost,
-  Catch,
-  ExceptionFilter,
-  HttpException,
-  HttpStatus,
-} from '@nestjs/common';
+import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { PinoLogger } from 'nestjs-pino';
 import {
@@ -14,6 +8,7 @@ import {
 } from 'sequelize';
 import { ZodError } from 'zod';
 import { ApplicationError } from './application.error';
+import { toSafeErrorLog } from './error-logging';
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
@@ -26,9 +21,21 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const requestId = request.id;
 
     if (exception instanceof ZodError) {
-      this.send(response, HttpStatus.BAD_REQUEST, requestId, 'VALIDATION_ERROR', 'Invalid request', {
-        issues: exception.issues,
-      });
+      const issues = exception.issues.map((issue) => ({
+        code: issue.code,
+        path: issue.path.map(String),
+        message: issue.message,
+      }));
+      this.send(
+        response,
+        HttpStatus.BAD_REQUEST,
+        requestId,
+        'VALIDATION_ERROR',
+        'Invalid request',
+        {
+          issues,
+        },
+      );
       return;
     }
     if (exception instanceof ApplicationError) {
@@ -57,7 +64,13 @@ export class HttpExceptionFilter implements ExceptionFilter {
       return;
     }
     if (exception instanceof SequelizeValidationError) {
-      this.send(response, HttpStatus.UNPROCESSABLE_ENTITY, requestId, 'VALIDATION_ERROR', 'Invalid data');
+      this.send(
+        response,
+        HttpStatus.UNPROCESSABLE_ENTITY,
+        requestId,
+        'VALIDATION_ERROR',
+        'Invalid data',
+      );
       return;
     }
     if (exception instanceof HttpException) {
@@ -72,7 +85,10 @@ export class HttpExceptionFilter implements ExceptionFilter {
       return;
     }
 
-    this.logger.error({ err: exception, requestId, path: request.url }, 'Unhandled request error');
+    this.logger.error(
+      { error: toSafeErrorLog(exception), requestId, path: request.url },
+      'Unhandled request error',
+    );
     this.send(
       response,
       HttpStatus.INTERNAL_SERVER_ERROR,

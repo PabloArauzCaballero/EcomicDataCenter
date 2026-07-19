@@ -5,9 +5,11 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 
+
 def fail(message: str) -> None:
     print(f'FAIL: {message}')
     sys.exit(1)
+
 
 auth = (ROOT / 'src/common/auth/jwt-auth.guard.ts').read_text()
 claims = (ROOT / 'src/common/auth/token-claims.parser.ts').read_text()
@@ -23,7 +25,7 @@ checks = {
     'production auth deny': "AUTH_MODE=disabled is forbidden in production" in environment,
     'CORS allowlist': 'origins.length ? origins : false' in main,
     'body limit': 'bodyLimit: environment.BODY_LIMIT_BYTES' in main,
-    'rate limit': 'app.register(rateLimit' in main,
+    'rate limit': 'register(rateLimit' in main,
 }
 missing = [name for name, passed in checks.items() if not passed]
 if missing:

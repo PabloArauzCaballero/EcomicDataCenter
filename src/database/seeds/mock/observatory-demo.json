@@ -37,8 +37,20 @@
     "metadataJson": { "synthetic": true }
   },
   "concepts": [
-    { "conceptId": "40000000-0000-4000-8000-000000000005", "code": "GEO", "name": "Geography", "definition": "Synthetic geography code.", "conceptType": "DIMENSION" },
-    { "conceptId": "40000000-0000-4000-8000-000000000006", "code": "OBS_VALUE", "name": "Observation value", "definition": "Synthetic index value.", "conceptType": "MEASURE" }
+    {
+      "conceptId": "40000000-0000-4000-8000-000000000005",
+      "code": "GEO",
+      "name": "Geography",
+      "definition": "Synthetic geography code.",
+      "conceptType": "DIMENSION"
+    },
+    {
+      "conceptId": "40000000-0000-4000-8000-000000000006",
+      "code": "OBS_VALUE",
+      "name": "Observation value",
+      "definition": "Synthetic index value.",
+      "conceptType": "MEASURE"
+    }
   ],
   "codeList": {
     "codeListId": "40000000-0000-4000-8000-000000000007",
@@ -46,7 +58,11 @@
     "name": "Synthetic geography codes",
     "versionCode": "1.0",
     "items": [
-      { "codeItemId": "40000000-0000-4000-8000-000000000008", "code": "BO", "name": "Synthetic Bolivia" }
+      {
+        "codeItemId": "40000000-0000-4000-8000-000000000008",
+        "code": "BO",
+        "name": "Synthetic Bolivia"
+      }
     ]
   },
   "methodology": {

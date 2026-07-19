@@ -6,7 +6,13 @@ export class SourceModel extends Model<
   InferAttributes<SourceModel>,
   InferCreationAttributes<SourceModel>
 > {
-  @Column({ field: 'source_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'source_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare sourceId: CreationOptional<string>;
 
   @Column({ field: 'organization_id', type: DataType.UUID, allowNull: false })
@@ -41,5 +47,4 @@ export class SourceModel extends Model<
 
   @Column({ field: 'is_active', type: DataType.BOOLEAN, allowNull: false })
   declare isActive: boolean;
-
 }

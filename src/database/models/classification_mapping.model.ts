@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'classification_mapping', schema: 'semantic', timestamps: false, underscored: true })
+@Table({
+  tableName: 'classification_mapping',
+  schema: 'semantic',
+  timestamps: false,
+  underscored: true,
+})
 export class ClassificationMappingModel extends Model<
   InferAttributes<ClassificationMappingModel>,
   InferCreationAttributes<ClassificationMappingModel>
 > {
-  @Column({ field: 'classification_mapping_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'classification_mapping_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare classificationMappingId: CreationOptional<string>;
 
   @Column({ field: 'source_item_id', type: DataType.UUID, allowNull: false })
@@ -29,5 +40,4 @@ export class ClassificationMappingModel extends Model<
 
   @Column({ field: 'evidence_note', type: DataType.TEXT, allowNull: true })
   declare evidenceNote: string | null;
-
 }

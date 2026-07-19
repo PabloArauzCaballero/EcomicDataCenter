@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'lineage_relation', schema: 'quality_lineage', timestamps: false, underscored: true })
+@Table({
+  tableName: 'lineage_relation',
+  schema: 'quality_lineage',
+  timestamps: false,
+  underscored: true,
+})
 export class LineageRelationModel extends Model<
   InferAttributes<LineageRelationModel>,
   InferCreationAttributes<LineageRelationModel>
 > {
-  @Column({ field: 'lineage_relation_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'lineage_relation_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare lineageRelationId: CreationOptional<string>;
 
   @Column({ field: 'methodology_version_id', type: DataType.UUID, allowNull: true })
@@ -35,5 +46,4 @@ export class LineageRelationModel extends Model<
 
   @Column({ field: 'created_at', type: DataType.DATE, allowNull: false })
   declare createdAt: Date;
-
 }

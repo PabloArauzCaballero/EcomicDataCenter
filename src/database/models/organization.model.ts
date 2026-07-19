@@ -6,7 +6,13 @@ export class OrganizationModel extends Model<
   InferAttributes<OrganizationModel>,
   InferCreationAttributes<OrganizationModel>
 > {
-  @Column({ field: 'organization_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'organization_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare organizationId: CreationOptional<string>;
 
   @Column({ field: 'parent_organization_id', type: DataType.UUID, allowNull: true })
@@ -38,5 +44,4 @@ export class OrganizationModel extends Model<
 
   @Column({ field: 'valid_to', type: DataType.DATEONLY, allowNull: true })
   declare validTo: string | null;
-
 }

@@ -1,7 +1,12 @@
 import { createHash } from 'node:crypto';
 import { QueryTypes } from 'sequelize';
 import type { Sequelize } from 'sequelize-typescript';
-import { BOOT_FREQUENCY_IDS, BOOT_QUALITY_DIMENSION_IDS, BOOT_UNIT_IDS, MOCK_IDS } from '../seed-identifiers';
+import {
+  BOOT_FREQUENCY_IDS,
+  BOOT_QUALITY_DIMENSION_IDS,
+  BOOT_UNIT_IDS,
+  MOCK_IDS,
+} from '../seed-identifiers';
 
 interface SnapshotRow {
   snapshot: unknown;
@@ -18,10 +23,16 @@ function canonicalize(value: unknown): unknown {
 }
 
 function hashSnapshot(snapshot: unknown): string {
-  return createHash('sha256').update(JSON.stringify(canonicalize(snapshot))).digest('hex');
+  return createHash('sha256')
+    .update(JSON.stringify(canonicalize(snapshot)))
+    .digest('hex');
 }
 
-async function querySnapshot(database: Sequelize, sql: string, replacements: Record<string, unknown>): Promise<string> {
+async function querySnapshot(
+  database: Sequelize,
+  sql: string,
+  replacements: Record<string, unknown>,
+): Promise<string> {
   const [row] = await database.query<SnapshotRow>(sql, { replacements, type: QueryTypes.SELECT });
   if (!row) throw new Error('Seed snapshot query returned no row');
   return hashSnapshot(row.snapshot);

@@ -6,7 +6,13 @@ export class SourceArtifactModel extends Model<
   InferAttributes<SourceArtifactModel>,
   InferCreationAttributes<SourceArtifactModel>
 > {
-  @Column({ field: 'source_artifact_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'source_artifact_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare sourceArtifactId: CreationOptional<string>;
 
   @Column({ field: 'source_id', type: DataType.UUID, allowNull: false })
@@ -41,5 +47,4 @@ export class SourceArtifactModel extends Model<
 
   @Column({ field: 'metadata_json', type: DataType.JSONB, allowNull: false })
   declare metadataJson: Record<string, unknown>;
-
 }

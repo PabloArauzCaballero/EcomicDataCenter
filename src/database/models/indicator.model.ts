@@ -6,7 +6,13 @@ export class IndicatorModel extends Model<
   InferAttributes<IndicatorModel>,
   InferCreationAttributes<IndicatorModel>
 > {
-  @Column({ field: 'indicator_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'indicator_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare indicatorId: CreationOptional<string>;
 
   @Column({ field: 'statistical_domain_id', type: DataType.UUID, allowNull: false })
@@ -38,5 +44,4 @@ export class IndicatorModel extends Model<
 
   @Column({ field: 'is_active', type: DataType.BOOLEAN, allowNull: false })
   declare isActive: boolean;
-
 }

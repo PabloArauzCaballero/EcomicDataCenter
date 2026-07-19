@@ -36,8 +36,8 @@ describe('observationRecordSchema', () => {
   });
 
   it('rejects a period whose end precedes its start', () => {
-    expect(
-      observationRecordSchema.safeParse({ ...base, periodEnd: '2025-12-31' }).success,
-    ).toBe(false);
+    expect(observationRecordSchema.safeParse({ ...base, periodEnd: '2025-12-31' }).success).toBe(
+      false,
+    );
   });
 });

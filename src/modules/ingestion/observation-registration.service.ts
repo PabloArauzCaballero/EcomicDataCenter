@@ -7,10 +7,7 @@ import { WRITER_DATABASE } from '../../database/database.tokens';
 import { manualRequestFingerprint, replayRegistration } from './batch-idempotency';
 import type { RegistrationResult } from './ingestion-results';
 import { buildRevisionHash, buildSeriesIdentity } from './observation-normalizer';
-import type {
-  ObservationRecordInput,
-  RegisterObservationInput,
-} from './observation-input.schemas';
+import type { ObservationRecordInput, RegisterObservationInput } from './observation-input.schemas';
 import { ObservationWriteRepository } from './observation-write.repository';
 import { QualityEvaluatorService } from './quality-evaluator.service';
 import { RevisionWriteRepository } from './revision-write.repository';

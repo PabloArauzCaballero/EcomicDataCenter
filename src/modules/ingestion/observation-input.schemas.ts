@@ -57,16 +57,33 @@ export const observationRecordSchema = z
   .strict()
   .superRefine((value, context) => {
     if (value.periodEnd < value.periodStart) {
-      context.addIssue({ code: 'custom', path: ['periodEnd'], message: 'periodEnd precedes periodStart' });
+      context.addIssue({
+        code: 'custom',
+        path: ['periodEnd'],
+        message: 'periodEnd precedes periodStart',
+      });
     }
     const unique = (ids: string[], path: string): void => {
       if (new Set(ids).size !== ids.length) {
-        context.addIssue({ code: 'custom', path: [path], message: `Duplicate ${path} definitions` });
+        context.addIssue({
+          code: 'custom',
+          path: [path],
+          message: `Duplicate ${path} definitions`,
+        });
       }
     };
-    unique(value.dimensions.map((item) => item.dimensionDefinitionId), 'dimensions');
-    unique(value.measures.map((item) => item.measureDefinitionId), 'measures');
-    unique(value.attributes.map((item) => item.attributeDefinitionId), 'attributes');
+    unique(
+      value.dimensions.map((item) => item.dimensionDefinitionId),
+      'dimensions',
+    );
+    unique(
+      value.measures.map((item) => item.measureDefinitionId),
+      'measures',
+    );
+    unique(
+      value.attributes.map((item) => item.attributeDefinitionId),
+      'attributes',
+    );
   });
 
 export const registerObservationSchema = z

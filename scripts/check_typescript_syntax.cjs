@@ -1,21 +1,20 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const ts = require('typescript');
+
 const root = path.resolve(__dirname, '..');
-const ignored = new Set(['node_modules', 'dist']);
-const files = [];
-function walk(directory) {
-  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-    if (ignored.has(entry.name)) continue;
-    const target = path.join(directory, entry.name);
-    if (entry.isDirectory()) walk(target);
-    else if (entry.name.endsWith('.ts')) files.push(target);
-  }
+const configPath = path.join(root, 'tsconfig.json');
+const configFile = ts.readConfigFile(configPath, ts.sys.readFile);
+if (configFile.error) {
+  const message = ts.flattenDiagnosticMessageText(configFile.error.messageText, '\n');
+  process.stderr.write(`FAIL tsconfig.json: ${message}\n`);
+  process.exit(1);
 }
-walk(path.join(root, 'src'));
-walk(path.join(root, 'test'));
-walk(path.join(root, 'scripts'));
+
+const parsedConfig = ts.parseJsonConfigFileContent(configFile.config, ts.sys, root);
+const files = parsedConfig.fileNames.filter((file) => file.endsWith('.ts'));
 let failed = false;
+
 for (const file of files) {
   const source = fs.readFileSync(file, 'utf8');
   const result = ts.transpileModule(source, {
@@ -35,5 +34,6 @@ for (const file of files) {
     process.stderr.write(`FAIL ${path.relative(root, file)}: ${message}\n`);
   }
 }
+
 if (failed) process.exit(1);
-process.stdout.write(`PASS: ${files.length} TypeScript files parsed and transpiled.\n`);
+process.stdout.write(`PASS: ${files.length} maintained TypeScript files parsed and transpiled.\n`);

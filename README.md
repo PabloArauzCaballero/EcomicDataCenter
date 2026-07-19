@@ -1,99 +1,123 @@
 # Observatorio Económico Core Backend
 
-> Estado formal del plan: **10 de 10 fases trabajadas y cerradas estáticamente**. El release productivo permanece bloqueado hasta completar los gates runtime e institucionales descritos en `validation/validation-report.md`.
+> Estado: rama `HARDENING` preparada para validación técnica local y revisión previa a producción. La aprobación productiva continúa bloqueada hasta completar los gates runtime e institucionales indicados en `docs/hardening/production-review-checklist.md`.
 
-
-Backend de producción para el núcleo de datos del **Observatorio de la Situación Económica y de los Mercados de Bolivia**. La implementación transforma el modelo lógico de 40 entidades en una API NestJS y un modelo físico PostgreSQL, manteniendo como núcleo dos operaciones: registrar datos y consultarlos con trazabilidad histórica.
+Backend para el núcleo de datos del **Observatorio de la Situación Económica y de los Mercados de Bolivia**. La implementación transforma el modelo lógico en una API NestJS y un modelo físico PostgreSQL, manteniendo como capacidades centrales el registro y la consulta de datos con trazabilidad histórica.
 
 ## Capacidades implementadas
 
 - Procedencia: organizaciones, fuentes y artefactos inmutables.
 - Gobierno semántico: dominios, conceptos, frecuencias, unidades, geografía, listas y clasificaciones versionadas.
 - Metadatos: operaciones estadísticas, metodologías, estructuras, datasets e indicadores.
-- Registro individual transaccional con revisión y conservación de *vintages*.
+- Registro individual transaccional con revisión y conservación de _vintages_.
 - Importación por lotes de hasta 500 observaciones con resultados parciales, `SAVEPOINT` por registro y replay idempotente.
 - Consulta actual o según una fecha de corte, paginada en servidor.
 - Calidad, incidencias, rupturas de serie, linaje y relaciones entre indicadores.
 - JWT externo RS256/JWKS con issuer, audience, organización UUID, autorización por rol y política default-deny.
 - Logs estructurados, métricas Prometheus, liveness y readiness.
-- OpenAPI, Postman, PlantUML, modelo de datos LaTeX/PDF, backup/restore y runbooks.
+- OpenAPI, Postman, PlantUML, modelo de datos, backup/restore y runbooks.
 
-No se inventaron usuarios locales, dashboards, noticias, IA, pronósticos ni microdatos: esos elementos no pertenecen al modelo entregado.
+No se incorporaron usuarios locales, dashboards, noticias, IA, pronósticos ni microdatos porque no pertenecen al modelo entregado.
 
 ## Stack
 
-- Node.js `>=20.19 <24`
+- Node.js `>=20.19 <21` o `>=22 <23`
 - NestJS 11 + Fastify
 - TypeScript estricto
-- PostgreSQL + Sequelize 6 + Umzug
+- PostgreSQL 17 + Sequelize 6 + Umzug
 - Zod
 - Pino y Prometheus
 - Jest + Supertest
-- Yarn 1
+- Yarn `1.22.22`
 
-## Inicio local
+## Inicio local recomendado: stack completo con Docker
 
-### 1. Preparar configuración
-
-```bash
-cp .env.example .env
-```
-
-Cambie todos los valores `change-me`. `AUTH_MODE=disabled` está permitido únicamente fuera de producción.
-
-### 2. Instalar dependencias
+### 1. Preparar herramientas y configuración
 
 ```bash
 corepack enable
-yarn install
-```
-
-El entorno donde se generó este entregable no tuvo acceso al registro de paquetes, por lo que no fue posible producir un `yarn.lock` verificable. Antes de desplegar, genere y revise el lockfile en un entorno con red y luego use siempre:
-
-```bash
+yarn local:env
 yarn install --frozen-lockfile
 ```
 
-### 3. Ejecutar migraciones y seeds
+`yarn local:env` genera contraseñas aleatorias y crea un `.env` coherente para PostgreSQL, migraciones, API y backup. No sobrescribe un archivo existente.
+
+### 2. Construir e iniciar
 
 ```bash
-yarn db:migrate
-yarn db:verify:privileges
-yarn db:seed:boot
+yarn local:up
 ```
 
-Datos sintéticos de desarrollo, nunca en producción:
+NGINX es la única entrada pública. El API espera a que el migrador termine correctamente.
+
+### 3. Cargar catálogos y datos locales
 
 ```bash
-yarn db:seed:mock
+yarn local:seed
 ```
 
-### 4. Iniciar API
+El comando ejecuta primero los boot seeds idempotentes y después los datos sintéticos de desarrollo. Para probar una base mínima sin datos demo, use solamente `yarn local:seed:boot`.
+
+### 4. Ejecutar verificación local
 
 ```bash
-yarn dev
+yarn local:verify
 ```
 
-Con Docker Compose, NGINX es la única entrada pública:
+El comando espera liveness y readiness, ejecuta smoke tests y guarda evidencia en:
 
-```bash
-docker compose up --build
+```text
+artifacts/smoke/smoke-results.json
 ```
+
+Puntos de acceso:
 
 - API: `http://localhost:8080/api/v1`
 - Health: `http://localhost:8080/health`
 - Readiness: `http://localhost:8080/ready`
-- Métricas: `/metrics` únicamente en la red interna de la API; NGINX responde 404 por defecto
+- Swagger local: `http://localhost:8080/docs`
+- Métricas: internas; NGINX no publica `/metrics`
+
+### 5. Logs y apagado
+
+```bash
+yarn local:logs
+yarn local:down
+```
+
+La guía detallada, incluido el modo de depuración con API en host, está en `docs/hardening/local-verification.md`.
+
+## Desarrollo con API en el host
+
+```bash
+yarn local:env:host
+yarn local:db:up
+yarn db:migrate
+yarn db:verify:privileges
+yarn db:seed:boot
+yarn db:seed:mock
+yarn dev
+```
+
+En otra terminal:
+
+```bash
+yarn local:verify
+```
+
+El override `docker-compose.local.yml` publica PostgreSQL solamente en `127.0.0.1`.
 
 ## Autorización
 
-| Rol | Responsabilidad |
-|---|---|
-| `DATA_OFFICER` | Registro, corrección e importación de datos |
-| `ANALYST` | Consulta y trazabilidad |
-| `METHODOLOGY_STEWARD` | Gobierno semántico, publicación y calidad |
+| Rol                   | Responsabilidad                             |
+| --------------------- | ------------------------------------------- |
+| `DATA_OFFICER`        | Registro, corrección e importación de datos |
+| `ANALYST`             | Consulta y trazabilidad                     |
+| `METHODOLOGY_STEWARD` | Gobierno semántico, publicación y calidad   |
 
 El token debe incluir los claims configurados en `AUTH_ROLE_CLAIM` y `AUTH_ORGANIZATION_CLAIM`.
+
+`AUTH_MODE=disabled` está permitido únicamente fuera de producción. La validación de entorno rechaza ese modo en producción.
 
 ## Calidad
 
@@ -101,12 +125,12 @@ El token debe incluir los claims configurados en `AUTH_ROLE_CLAIM` y `AUTH_ORGAN
 yarn format:check
 yarn lint
 yarn typecheck
-yarn test
 yarn quality:all
+yarn test
 yarn build
 ```
 
-Los validadores que no requieren dependencias instaladas pueden ejecutarse directamente:
+Los validadores que no requieren una base en ejecución también pueden ejecutarse de manera individual:
 
 ```bash
 python scripts/check_file_limits.py
@@ -118,20 +142,25 @@ python scripts/validate_openapi.py
 python scripts/validate_contract_routes.py
 ```
 
-Consulte `validation/validation-report.md` para distinguir evidencia ejecutada de gates bloqueados.
-
 ### Gate de verificación de release
 
 En una estación con Yarn, PostgreSQL 17 y Docker:
 
 ```bash
-sh scripts/run_release_verification.sh
+yarn release:verify
 ```
 
-El script falla temprano si no existe `yarn.lock` o falta una herramienta. Carga, backup y restore se ejecutan después con datos y objetivos aprobados.
+El gate falla temprano si falta una herramienta, el lockfile no es reproducible, la auditoría de dependencias bloquea el release o una validación técnica falla. Carga prolongada, backup y restore requieren un entorno y objetivos aprobados.
 
 ## Documentación
 
+- Verificación local: `docs/hardening/local-verification.md`
+- Plan de hardening: `docs/hardening/plan.md`
+- Hallazgos: `docs/hardening/findings.md`
+- Eficiencia de recursos: `docs/hardening/resource-efficiency.md`
+- Controles de seguridad: `docs/hardening/security-controls.md`
+- Estándares de data center: `docs/hardening/data-center-standards-mapping.md`
+- Checklist de producción: `docs/hardening/production-review-checklist.md`
 - Arquitectura: `docs/architecture/architecture.md`
 - Flujos: `docs/architecture/flows.md`
 - Contrato HTTP: `docs/endpoints/openapi.yaml`
@@ -142,4 +171,3 @@ El script falla temprano si no existe `yarn.lock` o falta una herramienta. Carga
 - Roles y grants: `docs/data-model/schema-ownership-and-grants.md`
 - Decisiones: `docs/decisions/`
 - Runbooks: `docs/runbooks/`
-- Progreso y limitaciones: `docs/progress/progress-report.md`

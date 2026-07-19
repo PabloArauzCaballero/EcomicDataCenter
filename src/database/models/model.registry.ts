@@ -38,7 +38,7 @@ import {
   DataIssueModel,
   LineageRelationModel,
   IndicatorRelationModel,
-  SeriesBreakModel
+  SeriesBreakModel,
 } from './index';
 
 export const DATABASE_MODELS = [
@@ -81,5 +81,5 @@ export const DATABASE_MODELS = [
   DataIssueModel,
   LineageRelationModel,
   IndicatorRelationModel,
-  SeriesBreakModel
+  SeriesBreakModel,
 ] as const;

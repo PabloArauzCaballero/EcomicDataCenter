@@ -3,6 +3,7 @@ import { PinoLogger } from 'nestjs-pino';
 import type { Sequelize, Transaction } from 'sequelize';
 import { Transaction as SequelizeTransaction } from 'sequelize';
 import { ApplicationError, InfrastructureError } from '../errors/application.error';
+import { toSafeErrorLog } from '../errors/error-logging';
 import { MetricsService } from '../observability/metrics.service';
 import { READER_DATABASE } from '../../database/database.tokens';
 
@@ -38,7 +39,7 @@ export class ReadQueryExecutor {
     } catch (error) {
       outcome = 'error';
       if (error instanceof ApplicationError) throw error;
-      this.logger.error({ err: error, operation }, 'Read query failed');
+      this.logger.error({ error: toSafeErrorLog(error), operation }, 'Read query failed');
       throw new InfrastructureError('Read operation failed', { operation });
     } finally {
       const durationMs = Number(process.hrtime.bigint() - startedAt) / 1_000_000;

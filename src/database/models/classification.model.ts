@@ -6,7 +6,13 @@ export class ClassificationModel extends Model<
   InferAttributes<ClassificationModel>,
   InferCreationAttributes<ClassificationModel>
 > {
-  @Column({ field: 'classification_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'classification_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare classificationId: CreationOptional<string>;
 
   @Column({ field: 'custodian_organization_id', type: DataType.UUID, allowNull: false })
@@ -20,5 +26,4 @@ export class ClassificationModel extends Model<
 
   @Column({ field: 'classification_type', type: DataType.STRING(50), allowNull: false })
   declare classificationType: string;
-
 }

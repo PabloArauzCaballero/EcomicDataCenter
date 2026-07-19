@@ -14,11 +14,13 @@ describe('withSerializableRetry', () => {
 
   it('retries a serialization failure with bounded delay', async () => {
     let calls = 0;
-    const transaction = jest.fn(async (_options: unknown, operation: (value: Transaction) => Promise<string>) => {
-      calls += 1;
-      if (calls === 1) throw postgresError('40001');
-      return operation({} as Transaction);
-    });
+    const transaction = jest.fn(
+      async (_options: unknown, operation: (value: Transaction) => Promise<string>) => {
+        calls += 1;
+        if (calls === 1) throw postgresError('40001');
+        return operation({} as Transaction);
+      },
+    );
     const sleep = jest.fn(async () => undefined);
 
     const result = await withSerializableRetry(
@@ -33,8 +35,12 @@ describe('withSerializableRetry', () => {
   });
 
   it('does not retry business or constraint errors', async () => {
-    const transaction = jest.fn(async () => { throw postgresError('23505'); });
-    await expect(withSerializableRetry({ transaction } as unknown as Sequelize, async () => 'never')).rejects.toEqual(postgresError('23505'));
+    const transaction = jest.fn(async () => {
+      throw postgresError('23505');
+    });
+    await expect(
+      withSerializableRetry({ transaction } as unknown as Sequelize, async () => 'never'),
+    ).rejects.toEqual(postgresError('23505'));
     expect(transaction).toHaveBeenCalledTimes(1);
   });
 });

@@ -1,8 +1,16 @@
 import { createHash } from 'node:crypto';
 import { ConflictError, InfrastructureError } from '../../common/errors/application.error';
 import type { DataEntryBatchModel } from '../../database/models';
-import type { ImportObservationBatchInput, RegisterObservationInput } from './observation-input.schemas';
-import { batchImportResultSchema, registrationResultSchema, type BatchImportResult, type RegistrationResult } from './ingestion-results';
+import type {
+  ImportObservationBatchInput,
+  RegisterObservationInput,
+} from './observation-input.schemas';
+import {
+  batchImportResultSchema,
+  registrationResultSchema,
+  type BatchImportResult,
+  type RegistrationResult,
+} from './ingestion-results';
 
 function canonicalize(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(canonicalize);
@@ -15,17 +23,35 @@ function canonicalize(value: unknown): unknown {
 }
 
 function fingerprint(value: unknown): string {
-  return createHash('sha256').update(JSON.stringify(canonicalize(value))).digest('hex');
+  return createHash('sha256')
+    .update(JSON.stringify(canonicalize(value)))
+    .digest('hex');
 }
 
+/**
+ * Hashes only the validated business payload, excluding the idempotency key.
+ * Explicit field selection prevents accidental enumerable properties from
+ * changing replay semantics when callers construct typed objects with spreads.
+ */
 export function manualRequestFingerprint(input: RegisterObservationInput): string {
-  const { batchCode: _idempotencyKey, ...payload } = input;
-  return fingerprint(payload);
+  return fingerprint({
+    datasetVersionId: input.datasetVersionId,
+    sourceArtifactId: input.sourceArtifactId,
+    submittedByOrganizationId: input.submittedByOrganizationId,
+    record: input.record,
+  });
 }
 
+/** Hashes the batch command independently of key order and `batchCode`. */
 export function batchRequestFingerprint(input: ImportObservationBatchInput): string {
-  const { batchCode: _idempotencyKey, ...payload } = input;
-  return fingerprint(payload);
+  return fingerprint({
+    datasetVersionId: input.datasetVersionId,
+    sourceArtifactId: input.sourceArtifactId,
+    submittedByOrganizationId: input.submittedByOrganizationId,
+    entryMethod: input.entryMethod,
+    ...(input.notes === undefined ? {} : { notes: input.notes }),
+    records: input.records,
+  });
 }
 
 function assertFingerprint(batch: DataEntryBatchModel, expected: string): void {
@@ -37,7 +63,10 @@ function assertFingerprint(batch: DataEntryBatchModel, expected: string): void {
   }
 }
 
-export function replayRegistration(batch: DataEntryBatchModel, expected: string): RegistrationResult {
+export function replayRegistration(
+  batch: DataEntryBatchModel,
+  expected: string,
+): RegistrationResult {
   assertFingerprint(batch, expected);
   if (!batch.resultJson) {
     throw new ConflictError('An operation with this batchCode is still in progress', {

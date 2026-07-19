@@ -62,7 +62,9 @@ export class StructureRepository {
   ): Promise<void> {
     const [frequency, unit, indicatorLink] = await Promise.all([
       FrequencyModel.findByPk(record.frequencyId, { transaction }),
-      record.unitMeasureId ? UnitMeasureModel.findByPk(record.unitMeasureId, { transaction }) : null,
+      record.unitMeasureId
+        ? UnitMeasureModel.findByPk(record.unitMeasureId, { transaction })
+        : null,
       record.indicatorVersionId
         ? DatasetIndicatorModel.findOne({
             where: {
@@ -74,9 +76,12 @@ export class StructureRepository {
         : null,
     ]);
     if (!frequency) throw new NotFoundError('frequency', record.frequencyId);
-    if (record.unitMeasureId && !unit) throw new NotFoundError('unit_measure', record.unitMeasureId);
+    if (record.unitMeasureId && !unit)
+      throw new NotFoundError('unit_measure', record.unitMeasureId);
     if (record.indicatorVersionId && !indicatorLink) {
-      const indicator = await IndicatorVersionModel.findByPk(record.indicatorVersionId, { transaction });
+      const indicator = await IndicatorVersionModel.findByPk(record.indicatorVersionId, {
+        transaction,
+      });
       if (!indicator) throw new NotFoundError('indicator_version', record.indicatorVersionId);
       throw new BusinessRuleError('Indicator version is not linked to the dataset version');
     }
@@ -90,7 +95,9 @@ export class StructureRepository {
     structure: StructureSnapshot,
     transaction: Transaction,
   ): Promise<void> {
-    const codeIds = record.dimensions.flatMap((value) => (value.codeItemId ? [value.codeItemId] : []));
+    const codeIds = record.dimensions.flatMap((value) =>
+      value.codeItemId ? [value.codeItemId] : [],
+    );
     const classificationIds = record.dimensions.flatMap((value) =>
       value.classificationItemId ? [value.classificationItemId] : [],
     );
@@ -103,10 +110,15 @@ export class StructureRepository {
         where: { classificationItemId: { [Op.in]: classificationIds } },
         transaction,
       }),
-      GeographicUnitModel.findAll({ where: { geographicUnitId: { [Op.in]: geographyIds } }, transaction }),
+      GeographicUnitModel.findAll({
+        where: { geographicUnitId: { [Op.in]: geographyIds } },
+        transaction,
+      }),
     ]);
     const codeById = new Map(codes.map((item) => [item.codeItemId, item]));
-    const classificationById = new Map(classifications.map((item) => [item.classificationItemId, item]));
+    const classificationById = new Map(
+      classifications.map((item) => [item.classificationItemId, item]),
+    );
     const geographySet = new Set(geographies.map((item) => item.geographicUnitId));
     const definitionById = new Map(
       structure.dimensions.map((definition) => [definition.dimensionDefinitionId, definition]),
@@ -114,7 +126,10 @@ export class StructureRepository {
 
     for (const value of record.dimensions) {
       const definition = definitionById.get(value.dimensionDefinitionId);
-      if (value.codeItemId && codeById.get(value.codeItemId)?.codeListId !== definition?.codeListId) {
+      if (
+        value.codeItemId &&
+        codeById.get(value.codeItemId)?.codeListId !== definition?.codeListId
+      ) {
         throw new BusinessRuleError('Code item does not belong to the dimension code list');
       }
       if (
@@ -135,9 +150,14 @@ export class StructureRepository {
     structure: StructureSnapshot,
     transaction: Transaction,
   ): Promise<void> {
-    const codeIds = record.attributes.flatMap((value) => (value.codeItemId ? [value.codeItemId] : []));
+    const codeIds = record.attributes.flatMap((value) =>
+      value.codeItemId ? [value.codeItemId] : [],
+    );
     if (codeIds.length === 0) return;
-    const codes = await CodeItemModel.findAll({ where: { codeItemId: { [Op.in]: codeIds } }, transaction });
+    const codes = await CodeItemModel.findAll({
+      where: { codeItemId: { [Op.in]: codeIds } },
+      transaction,
+    });
     const codeById = new Map(codes.map((item) => [item.codeItemId, item]));
     const definitionById = new Map(
       structure.attributes.map((definition) => [definition.attributeDefinitionId, definition]),

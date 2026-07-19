@@ -1,6 +1,7 @@
 name: backend-quality
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches: [main]
@@ -8,10 +9,14 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   quality:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 55
     services:
       postgres:
         image: postgres:17.5-alpine
@@ -28,6 +33,7 @@ jobs:
           --health-retries 10
 
     env:
+      CI: 'true'
       NODE_ENV: test
       APP_HOST: 127.0.0.1
       APP_PORT: 3000
@@ -39,20 +45,34 @@ jobs:
       DATABASE_WRITER_URL: postgresql://observatory_writer:writer@127.0.0.1:5432/observatorio_economico
       DATABASE_READER_URL: postgresql://observatory_reader:reader@127.0.0.1:5432/observatorio_economico
       BACKUP_DATABASE_URL: postgresql://observatory_backup:backup@127.0.0.1:5432/observatorio_economico
-      DATABASE_SSL: "false"
+      DATABASE_SSL: 'false'
       AUTH_MODE: disabled
-      SWAGGER_ENABLED: "false"
-      METRICS_ENABLED: "true"
+      SWAGGER_ENABLED: 'false'
+      METRICS_ENABLED: 'true'
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 22.16.0
+          cache: yarn
       - run: corepack enable
       - name: Require reproducible lockfile
         run: test -f yarn.lock
       - run: yarn install --frozen-lockfile --non-interactive
+      - name: Audit production dependencies
+        id: dependency-audit
+        continue-on-error: true
+        run: yarn security:audit
+      - name: Record dependency audit release blocker
+        if: steps.dependency-audit.outcome == 'failure'
+        run: echo '::warning title=Dependency audit::The package audit reported a high-or-critical advisory or registry failure. Engineering gates continue, but production approval remains blocked until the audit is reviewed.'
+      - name: Validate Docker Compose topology
+        run: cp .env.example .env && yarn compose:validate
+      - name: Validate host-development Compose override
+        run: docker compose -f docker-compose.yml -f docker-compose.local.yml config --quiet
       - name: Install PostgreSQL client
         run: sudo apt-get update && sudo apt-get install -y postgresql-client
       - name: Bootstrap least-privilege database roles
@@ -81,8 +101,37 @@ jobs:
       - run: yarn format:check
       - run: yarn lint
       - run: yarn typecheck
-      - run: yarn quality:all
-      - run: yarn test
+      - run: yarn quality:files
+      - run: yarn quality:syntax
+      - run: yarn quality:naming
+      - run: yarn quality:imports
+      - run: yarn quality:diagrams
+      - run: yarn quality:clean-code
+      - run: yarn quality:architecture
+      - run: yarn quality:physical-model
+      - run: yarn quality:seeds
+      - run: yarn quality:persistence
+      - run: yarn quality:use-cases
+      - run: yarn quality:security
+      - run: yarn quality:async-scope
+      - run: yarn quality:operations
+      - run: yarn quality:project
+      - run: yarn quality:openapi
+      - run: yarn quality:routes
+      - name: Test common and configuration
+        run: yarn jest src/common src/config --runInBand --passWithNoTests
+      - name: Test database
+        run: yarn jest src/database --runInBand --passWithNoTests
+      - name: Test governance
+        run: yarn jest src/modules/governance --runInBand --passWithNoTests
+      - name: Test ingestion
+        run: yarn jest src/modules/ingestion --runInBand --passWithNoTests
+      - name: Test provenance and quality
+        run: yarn jest src/modules/provenance src/modules/quality --runInBand --passWithNoTests
+      - name: Test query and health
+        run: yarn jest src/modules/query src/modules/health --runInBand --passWithNoTests
+      - name: Test complete suite
+        run: yarn test
       - name: Verify migration install, upgrade and rollback cycle
         run: yarn db:verify:migrations
       - run: yarn db:migrate
@@ -94,9 +143,57 @@ jobs:
       - name: Confirm mock seeds are rejected in production
         run: AUTH_MODE=jwks AUTH_JWKS_URI=https://identity.example.test/jwks AUTH_ISSUER=https://identity.example.test/ AUTH_AUDIENCE=observatorio NODE_ENV=production yarn db:seed:mock && exit 1 || exit 0
       - run: yarn build
-      - run: yarn openapi:export
+      - name: Build hardened runtime image
+        run: docker build --target runtime -t observatorio-economico:${{ github.sha }} .
+      - name: Export OpenAPI
+        id: openapi-export
+        continue-on-error: true
+        run: |
+          mkdir -p artifacts/openapi
+          yarn openapi:export > artifacts/openapi/export.log 2>&1
+      - name: Upload OpenAPI diagnostics
+        if: steps.openapi-export.outcome == 'failure'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: openapi-export-log
+          path: artifacts/openapi/export.log
+          if-no-files-found: error
+          retention-days: 1
+      - name: Enforce OpenAPI export success
+        if: steps.openapi-export.outcome == 'failure'
+        run: exit 1
       - run: python scripts/validate_openapi.py
       - run: python scripts/validate_contract_routes.py
       - run: python scripts/generate_postman.py
       - name: Confirm generated contracts have no drift
         run: git diff --exit-code -- docs/endpoints/openapi.yaml docs/postman/collection.json
+      - name: Run full local Docker workflow
+        id: local-docker
+        continue-on-error: true
+        run: |
+          mkdir -p artifacts/local-stack
+          {
+            docker compose up --build -d
+            yarn local:seed
+            SMOKE_BASE_URL=http://127.0.0.1:8080 yarn local:verify
+          } > artifacts/local-stack/workflow.log 2>&1
+      - name: Capture full local Docker diagnostics
+        if: always()
+        run: |
+          mkdir -p artifacts/local-stack
+          docker compose ps --all > artifacts/local-stack/compose-ps.txt 2>&1 || true
+          docker compose logs --no-color --tail=500 > artifacts/local-stack/compose.log 2>&1 || true
+      - name: Upload full local Docker diagnostics
+        if: steps.local-docker.outcome == 'failure'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: local-docker-workflow-log
+          path: artifacts/local-stack
+          if-no-files-found: error
+          retention-days: 1
+      - name: Enforce full local Docker workflow
+        if: steps.local-docker.outcome == 'failure'
+        run: exit 1
+      - name: Stop full local Docker stack
+        if: always()
+        run: docker compose down --volumes --remove-orphans

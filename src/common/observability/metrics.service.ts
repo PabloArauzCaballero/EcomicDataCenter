@@ -41,7 +41,11 @@ export class MetricsService {
     this.requestDuration.observe(labels, durationMs / 1_000);
   }
 
-  observeDatabaseOperation(operation: string, outcome: 'success' | 'error', durationMs: number): void {
+  observeDatabaseOperation(
+    operation: string,
+    outcome: 'success' | 'error',
+    durationMs: number,
+  ): void {
     this.databaseDuration.observe({ operation, outcome }, durationMs / 1_000);
   }
 

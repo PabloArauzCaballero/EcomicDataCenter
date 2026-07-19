@@ -1,6 +1,11 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { frequencySeedSchema, mockSeedSchema, qualityDimensionSeedSchema, unitSeedSchema } from '../schemas/seed.schemas';
+import {
+  frequencySeedSchema,
+  mockSeedSchema,
+  qualityDimensionSeedSchema,
+  unitSeedSchema,
+} from '../schemas/seed.schemas';
 
 function json(name: string): unknown {
   return JSON.parse(readFileSync(resolve(__dirname, '..', name), 'utf8')) as unknown;
@@ -27,7 +32,8 @@ describe('persistent seed catalogs', () => {
     const artifact = seed.artifact;
     if (!artifact || typeof artifact !== 'object') throw new Error('Expected artifact object');
     const metadataJson = (artifact as Record<string, unknown>).metadataJson;
-    if (!metadataJson || typeof metadataJson !== 'object') throw new Error('Expected metadata object');
+    if (!metadataJson || typeof metadataJson !== 'object')
+      throw new Error('Expected metadata object');
     (metadataJson as Record<string, unknown>).synthetic = false;
     expect(() => mockSeedSchema.parse(seed)).toThrow();
   });

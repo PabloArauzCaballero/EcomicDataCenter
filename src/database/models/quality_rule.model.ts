@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'quality_rule', schema: 'quality_lineage', timestamps: false, underscored: true })
+@Table({
+  tableName: 'quality_rule',
+  schema: 'quality_lineage',
+  timestamps: false,
+  underscored: true,
+})
 export class QualityRuleModel extends Model<
   InferAttributes<QualityRuleModel>,
   InferCreationAttributes<QualityRuleModel>
 > {
-  @Column({ field: 'quality_rule_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'quality_rule_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare qualityRuleId: CreationOptional<string>;
 
   @Column({ field: 'quality_dimension_id', type: DataType.UUID, allowNull: false })
@@ -32,5 +43,4 @@ export class QualityRuleModel extends Model<
 
   @Column({ field: 'is_active', type: DataType.BOOLEAN, allowNull: false })
   declare isActive: boolean;
-
 }

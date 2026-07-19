@@ -61,12 +61,12 @@ export function buildRevisionHash(record: ObservationRecordInput): string {
       record.vintageDate,
       record.revisionReason?.normalize('NFC') ?? null,
     ],
-    measures: [...record.measures].sort((a, b) =>
-      a.measureDefinitionId.localeCompare(b.measureDefinitionId),
-    ).map(normalizedMeasure),
-    attributes: [...record.attributes].sort((a, b) =>
-      a.attributeDefinitionId.localeCompare(b.attributeDefinitionId),
-    ).map(normalizedAttribute),
+    measures: [...record.measures]
+      .sort((a, b) => a.measureDefinitionId.localeCompare(b.measureDefinitionId))
+      .map(normalizedMeasure),
+    attributes: [...record.attributes]
+      .sort((a, b) => a.attributeDefinitionId.localeCompare(b.attributeDefinitionId))
+      .map(normalizedAttribute),
     confidentialityStatus: record.confidentialityStatus,
   });
 }

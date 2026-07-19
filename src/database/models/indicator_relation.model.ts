@@ -1,12 +1,23 @@
 import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'indicator_relation', schema: 'quality_lineage', timestamps: false, underscored: true })
+@Table({
+  tableName: 'indicator_relation',
+  schema: 'quality_lineage',
+  timestamps: false,
+  underscored: true,
+})
 export class IndicatorRelationModel extends Model<
   InferAttributes<IndicatorRelationModel>,
   InferCreationAttributes<IndicatorRelationModel>
 > {
-  @Column({ field: 'indicator_relation_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'indicator_relation_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare indicatorRelationId: CreationOptional<string>;
 
   @Column({ field: 'source_indicator_version_id', type: DataType.UUID, allowNull: false })
@@ -29,5 +40,4 @@ export class IndicatorRelationModel extends Model<
 
   @Column({ field: 'valid_to', type: DataType.DATEONLY, allowNull: true })
   declare validTo: string | null;
-
 }

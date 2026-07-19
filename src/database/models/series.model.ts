@@ -6,7 +6,13 @@ export class SeriesModel extends Model<
   InferAttributes<SeriesModel>,
   InferCreationAttributes<SeriesModel>
 > {
-  @Column({ field: 'series_id', type: DataType.UUID, allowNull: false, primaryKey: true, defaultValue: DataType.UUIDV4 })
+  @Column({
+    field: 'series_id',
+    type: DataType.UUID,
+    allowNull: false,
+    primaryKey: true,
+    defaultValue: DataType.UUIDV4,
+  })
   declare seriesId: CreationOptional<string>;
 
   @Column({ field: 'dataset_version_id', type: DataType.UUID, allowNull: false })
@@ -35,5 +41,4 @@ export class SeriesModel extends Model<
 
   @Column({ field: 'valid_to', type: DataType.DATEONLY, allowNull: true })
   declare validTo: string | null;
-
 }

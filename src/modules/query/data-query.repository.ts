@@ -35,8 +35,9 @@ export class DataQueryRepository {
 
   async search(input: DataQueryInput): Promise<{ total: number; rows: readonly QueryRow[] }> {
     const plan = buildDataQueryPlan(input);
-    const rows = await this.executor.run('observations.search', ({ database, transaction }) => database.query<QueryRow>(
-      `
+    const rows = await this.executor.run('observations.search', ({ database, transaction }) =>
+      database.query<QueryRow>(
+        `
 WITH selected AS (
   SELECT
     o.observation_id,
@@ -145,9 +146,9 @@ SELECT
 FROM paged
 ORDER BY period_start ${plan.direction}, series_key ASC
       `,
-      { replacements: plan.replacements, type: QueryTypes.SELECT, transaction },
-    ));
+        { replacements: plan.replacements, type: QueryTypes.SELECT, transaction },
+      ),
+    );
     return { total: Number(rows[0]?.total_count ?? 0), rows };
   }
-
 }
