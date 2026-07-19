@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1784478260.1923773,
-    "ast_hash": "ce2839a7b5149ae0d7900b202db689dd",
+    "mtime": 1784422467.4283428,
+    "ast_hash": "739586e0817348cd5d000291dd396b58",
     "semantic_hash": ""
   },
   "scripts/build_data_model_docs.py": {
@@ -265,8 +265,8 @@
     "semantic_hash": ""
   },
   "src/common/http/request-context.interceptor.ts": {
-    "mtime": 1784478249.654307,
-    "ast_hash": "93ad3b0f19848c9c1226b5d080366081",
+    "mtime": 1784226786.5593455,
+    "ast_hash": "0d809c58e73be6f0077bb4182f79fcb6",
     "semantic_hash": ""
   },
   "src/common/http/request-id.ts": {
@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   "src/database/migrations/0016-grant-backup-operator.ts": {
-    "mtime": 1784475471.7437747,
-    "ast_hash": "52d56a3bec889302aa4ea07be7c837cc",
+    "mtime": 1784226786.359527,
+    "ast_hash": "38d5b6a29d2c8fd2d506b672b4060362",
     "semantic_hash": ""
   },
   "src/database/models/attribute_definition.model.ts": {
@@ -1642,21 +1642,6 @@
   "docs/data-model/data-model.pdf": {
     "mtime": 1784226785.687759,
     "ast_hash": "40584b02c66d4f5f37bf9145f45e2d5a",
-    "semantic_hash": ""
-  },
-  "infra/postgres/provision-remote-roles.sql": {
-    "mtime": 1784476454.7725213,
-    "ast_hash": "f73a61f7034f96c1dd0d6f9a919a4bc4",
-    "semantic_hash": ""
-  },
-  "scripts/provision-remote-roles.ts": {
-    "mtime": 1784476573.649629,
-    "ast_hash": "d04afe97f4d107c9e11321aaeaa99086",
-    "semantic_hash": ""
-  },
-  "src/database/cli/reapply-runtime-grants.ts": {
-    "mtime": 1784476764.518274,
-    "ast_hash": "80dfc7ce788b07068a3d178c4b7426cc",
     "semantic_hash": ""
   }
 }

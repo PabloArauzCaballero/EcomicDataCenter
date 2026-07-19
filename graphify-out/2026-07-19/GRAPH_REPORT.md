@@ -1,16 +1,16 @@
 # Graph Report - EcomicDataCenter  (2026-07-19)
 
 ## Corpus Check
-- 296 files · ~105,804 words
+- 293 files · ~104,659 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1920 nodes · 3110 edges · 186 communities (136 shown, 50 thin omitted)
+- 1907 nodes · 3098 edges · 168 communities (121 shown, 47 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.75)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8db23bcc`
+- Built from commit: `69226a67`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -178,80 +178,63 @@
 - README.md
 - README.md
 - README.md
-- data-query.controller.ts
-- environment.ts
-- OrganizationModel
-- read-query.executor.ts
-- DataQueryController
-- export-openapi.ts
-- observation-normalizer.ts
-- seed-snapshot.ts
-- JwtAuthGuard
-- Public
-- DataQueryInput
-- RolesGuard
-- reapply-runtime-grants.ts
-- UnitMeasureModel
-- ConfigurationModule
-- @nestjs/common
-- Injectable
 
 ## God Nodes (most connected - your core abstractions)
-1. `scripts` - 56 edges
+1. `scripts` - 54 edges
 2. `Prompt final especializado para backend con NestJS, TypeScript, Zod, JWT y Sequelize` - 46 edges
 3. `Lineamientos de programación profesional para código en producción` - 26 edges
 4. `Roles()` - 24 edges
 5. `GovernanceController` - 24 edges
-6. `sequelize` - 22 edges
-7. `compilerOptions` - 21 edges
+6. `compilerOptions` - 21 edges
+7. `MetricsService` - 20 edges
 8. `getEnvironment()` - 20 edges
-9. `MetricsService` - 18 edges
-10. `DatasetVersionModel` - 17 edges
+9. `sequelize` - 19 edges
+10. `MigrationContext` - 17 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `createContractApplication()` --references--> `test`  [EXTRACTED]
   scripts/export-openapi.ts → package.json
 - `withSerializableRetry()` --references--> `sequelize`  [EXTRACTED]
   src/common/persistence/serializable-retry.ts → package.json
+- `createContractApplication()` --indirect_call--> `AppModule`  [INFERRED]
+  scripts/export-openapi.ts → src/app.module.ts
 - `createMigrationRunner()` --references--> `sequelize`  [EXTRACTED]
   src/database/migration.runner.ts → package.json
 - `withMigrationLock()` --references--> `sequelize`  [EXTRACTED]
   src/database/migration.runner.ts → package.json
-- `createContractApplication()` --indirect_call--> `AppModule`  [INFERRED]
-  scripts/export-openapi.ts → src/app.module.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (186 total, 50 thin omitted)
+## Communities (168 total, 47 thin omitted)
 
 ### Community 0 - "environment.ts"
-Cohesion: 0.16
-Nodes (11): validateSeedFiles(), artifactSchema, conceptSchema, date, frequencySeedSchema, mockSeedSchema, organizationSchema, qualityDimensionSeedSchema (+3 more)
+Cohesion: 0.05
+Nodes (58): sequelize, test, createContractApplication(), createDatabaseDouble(), exportOpenApi(), sequelize, AppModule, Module (+50 more)
 
 ### Community 1 - "governance.controller.ts"
-Cohesion: 0.10
-Nodes (28): attributeSchema, createDatasetSchema, createDatasetVersionSchema, createDataStructureSchema, createIndicatorSchema, createMethodologySchema, createMethodologyVersionSchema, createStatisticalOperationSchema (+20 more)
+Cohesion: 0.05
+Nodes (50): chunkItems(), Injectable, ZodValidationPipe, GovernanceController, ApiBearerAuth, ApiOperation, ApiTags, Body (+42 more)
 
 ### Community 2 - "index.ts"
-Cohesion: 0.05
-Nodes (43): createReaderDatabase(), dialectOptions(), PostgresDialectOptions, ClassificationModel, Column, Table, ClassificationVersionModel, Column (+35 more)
+Cohesion: 0.04
+Nodes (47): PostgresDialectOptions, ClassificationItemModel, Column, Table, ClassificationMappingModel, Column, Table, CodeListModel (+39 more)
 
 ### Community 3 - "Roles"
-Cohesion: 0.08
-Nodes (28): Injectable, ZodValidationPipe, ProvenanceController, ApiBearerAuth, ApiOperation, ApiTags, Body, Controller (+20 more)
+Cohesion: 0.07
+Nodes (34): Roles(), OrganizationModel, Column, Table, SourceArtifactModel, Column, Table, SourceModel (+26 more)
 
 ### Community 4 - "scripts"
 Cohesion: 0.04
-Nodes (55): scripts, build, compose:validate, db:grants:reapply, db:migrate, db:migrate:undo, db:provision:roles, db:seed:boot (+47 more)
+Nodes (53): scripts, build, compose:validate, db:migrate, db:migrate:undo, db:seed:boot, db:seed:mock, db:seed:validate (+45 more)
 
 ### Community 5 - "data-query.controller.ts"
-Cohesion: 0.20
-Nodes (9): ReadQueryExecutor, Inject, Injectable, mapQueryRow(), DataQueryRepository, QueryRow, Injectable, TraceRepository (+1 more)
+Cohesion: 0.07
+Nodes (30): ReadQueryExecutor, Injectable, decimal, dimensionValueSchema, isoDate, uuid, DataQueryController, ApiBearerAuth (+22 more)
 
 ### Community 6 - "quality.controller.ts"
-Cohesion: 0.09
-Nodes (33): Roles(), QualityController, ApiBearerAuth, ApiOperation, ApiTags, Body, Controller, Get (+25 more)
+Cohesion: 0.08
+Nodes (33): QualityController, ApiBearerAuth, ApiOperation, ApiTags, Body, Controller, Get, Param (+25 more)
 
 ### Community 8 - "Prompt final especializado para backend con NestJS, TypeScript, Zod, JWT y Sequelize"
 Cohesion: 0.05
@@ -262,8 +245,8 @@ Cohesion: 0.05
 Nodes (40): jest, node, scripts/**/*.ts, src/app.module.ts, src/common/**/*.ts, src/config/**/*.ts, src/database/seeders, src/database/**/*.ts (+32 more)
 
 ### Community 10 - "actor.ts"
-Cohesion: 0.26
-Nodes (10): Actor, ACTOR_ROLES, ActorRole, TokenClaims, environment, allowedRoles, baseClaimsSchema, organizationIdSchema (+2 more)
+Cohesion: 0.10
+Nodes (21): HttpCode, Actor, ACTOR_ROLES, ActorRole, CurrentActor, JwtAuthGuard, TokenClaims, Inject (+13 more)
 
 ### Community 11 - "Lineamientos de programación profesional para código en producción"
 Cohesion: 0.06
@@ -274,8 +257,8 @@ Cohesion: 0.06
 Nodes (33): eslint, eslint-config-prettier, @eslint/js, jest, @nestjs/cli, @nestjs/testing, devDependencies, eslint (+25 more)
 
 ### Community 13 - "observation-input.schemas.ts"
-Cohesion: 0.15
-Nodes (15): attributeValueSchema, decimal, importObservationBatchSchema, isoDate, MeasureValueInput, measureValueSchema, observationRecordSchema, registerObservationSchema (+7 more)
+Cohesion: 0.11
+Nodes (24): DimensionValueInput, AttributeValueInput, attributeValueSchema, decimal, importObservationBatchSchema, isoDate, MeasureValueInput, measureValueSchema (+16 more)
 
 ### Community 14 - "Casos de uso del core de datos"
 Cohesion: 0.07
@@ -286,24 +269,24 @@ Cohesion: 0.08
 Nodes (23): 1. Resultado de la revisión final, 2. Núcleo obligatorio y extensión institucional, 32 entidades obligatorias, 3. Catálogo de entidades, 4. Reglas de integridad indispensables, 5. Índices principales, 6. Ejemplo lógico, 7. Datos oficiales y resultados académicos (+15 more)
 
 ### Community 16 - "app.module.ts"
-Cohesion: 0.08
-Nodes (21): Injectable, environment, LoggableRequest, LoggableResponse, RequestContextInterceptor, ObservabilityModule, Global, Module (+13 more)
+Cohesion: 0.09
+Nodes (22): environment, LoggableRequest, LoggableResponse, ObservabilityModule, Global, Module, ConfigurationModule, Global (+14 more)
 
 ### Community 17 - "observation-registration.service.ts"
-Cohesion: 0.21
-Nodes (10): ObservationRecordInput, RegisterWithinBatchInput, RegistrationWithoutBatch, EvaluationResult, nonNegativeConfig, numericRangeConfig, QualityEvaluatorService, requiredMeasureConfig (+2 more)
+Cohesion: 0.14
+Nodes (15): CodeItemModel, Column, Table, ObservationRecordInput, RegisterWithinBatchInput, RegistrationWithoutBatch, EvaluationResult, nonNegativeConfig (+7 more)
 
 ### Community 18 - "mock-seed.metadata.ts"
-Cohesion: 0.09
-Nodes (23): DataStructureModel, Column, Table, DatasetIndicatorModel, Column, Table, DatasetModel, Column (+15 more)
+Cohesion: 0.13
+Nodes (17): DataStructureModel, Column, Table, DatasetIndicatorModel, Column, Table, IndicatorModel, Column (+9 more)
 
 ### Community 19 - "DatasetVersionModel"
-Cohesion: 0.20
-Nodes (5): DatasetService, Inject, Injectable, CreateDatasetInput, DatasetVersionInput
+Cohesion: 0.14
+Nodes (11): DatasetModel, Column, Table, DatasetVersionModel, Column, Table, DatasetService, Inject (+3 more)
 
 ### Community 20 - "MethodologyVersionModel"
-Cohesion: 0.12
-Nodes (15): sequelize, ensureGroupRole(), ensureLoginRole(), GROUP_ROLES, LoginRole, main(), requireEnv(), sequelize (+7 more)
+Cohesion: 0.13
+Nodes (11): MethodologyModel, Column, Table, MethodologyVersionModel, Column, Table, CreateMethodologyInput, MethodologyVersionInput (+3 more)
 
 ### Community 21 - "Instrucciones generales de generación del proyecto"
 Cohesion: 0.10
@@ -314,12 +297,12 @@ Cohesion: 0.15
 Nodes (16): main(), main(), iter_core_typescript_files(), iter_files(), iter_maintained_code_files(), Path, Yield unique files from explicit roots without traversing quarantined code., Yield TypeScript files that belong to the deployed application graph. (+8 more)
 
 ### Community 23 - "observation-write.repository.ts"
-Cohesion: 0.15
-Nodes (10): DataEntryBatchModel, Column, Table, ObservationModel, Column, Table, mapDimensionValue(), BatchClaimInput (+2 more)
+Cohesion: 0.12
+Nodes (13): DataEntryBatchModel, Column, Table, SeriesDimensionValueModel, Column, Table, SeriesModel, Column (+5 more)
 
 ### Community 24 - "metadata-catalog.service.ts"
-Cohesion: 0.17
-Nodes (8): MetadataCatalogService, Inject, Injectable, CreateDataStructureInput, CreateIndicatorInput, CreateStatisticalOperationInput, MetadataService, Injectable
+Cohesion: 0.16
+Nodes (10): StatisticalOperationModel, Column, Table, MetadataCatalogService, Inject, Injectable, CreateIndicatorInput, CreateStatisticalOperationInput (+2 more)
 
 ### Community 25 - "Opción A: stack completo con Docker"
 Cohesion: 0.11
@@ -327,39 +310,39 @@ Nodes (18): 1. Crear configuración local coherente, 1. Crear configuración par
 
 ### Community 26 - "dependencies"
 Cohesion: 0.11
-Nodes (19): @fastify/helmet, @fastify/rate-limit, jwks-rsa, @nestjs/platform-fastify, dependencies, @fastify/helmet, @fastify/rate-limit, jwks-rsa (+11 more)
+Nodes (19): @fastify/rate-limit, jwks-rsa, @nestjs/common, @nestjs/platform-fastify, dependencies, @fastify/rate-limit, jwks-rsa, @nestjs/common (+11 more)
 
 ### Community 27 - "application.error.ts"
-Cohesion: 0.14
-Nodes (14): BusinessRuleError, ErrorCode, NotFoundError, FrequencyModel, Column, Table, GeographicUnitModel, Column (+6 more)
+Cohesion: 0.20
+Nodes (10): ApplicationError, BusinessRuleError, ErrorCode, InfrastructureError, NotFoundError, assertDatasetVersionTransition(), assertMethodologyVersionTransition(), assertTransition() (+2 more)
 
 ### Community 28 - "batch-idempotency.ts"
-Cohesion: 0.15
-Nodes (21): assertFingerprint(), batchRequestFingerprint(), canonicalize(), fingerprint(), manualRequestFingerprint(), replayBatchImport(), replayRegistration(), BatchImportService (+13 more)
+Cohesion: 0.18
+Nodes (16): assertFingerprint(), batchRequestFingerprint(), canonicalize(), fingerprint(), manualRequestFingerprint(), replayBatchImport(), replayRegistration(), batchImportResultSchema (+8 more)
 
 ### Community 29 - "Informe de fase 3 — modelo físico y PostgreSQL"
 Cohesion: 0.12
 Nodes (16): 10. Desviaciones, 11. Estado, 1. Objetivo, 2. Archivos creados, 3. Archivos modificados, 4. Avances verificables, 5. Correcciones principales, 6. Pruebas ejecutadas (+8 more)
 
 ### Community 30 - "semantic.service.ts"
-Cohesion: 0.40
-Nodes (3): DatabaseConnections, DatabaseLifecycle, Inject
+Cohesion: 0.19
+Nodes (9): ConflictError, ReadQueryContext, DatabaseConnections, DatabaseLifecycle, Inject, DATABASE_CONNECTIONS, READER_DATABASE, WRITER_DATABASE (+1 more)
 
 ### Community 31 - "batch-import.service.ts"
-Cohesion: 0.24
-Nodes (9): HttpCode, CurrentActor, IngestionController, ApiBearerAuth, ApiOperation, ApiTags, Body, Controller (+1 more)
+Cohesion: 0.21
+Nodes (9): BatchImportService, Injectable, IngestionController, ApiBearerAuth, ApiTags, Controller, BatchImportResult, BatchRecordResult (+1 more)
 
 ### Community 32 - ".registerWithinBatch"
-Cohesion: 0.17
-Nodes (6): MetricsService, Injectable, Inject, ObservationRegistrationService, Inject, Injectable
+Cohesion: 0.15
+Nodes (9): ObservationRevisionModel, Column, Table, Inject, ObservationRegistrationService, Inject, Injectable, RevisionWriteRepository (+1 more)
 
 ### Community 33 - "health.controller.ts"
-Cohesion: 0.30
-Nodes (7): ENVIRONMENT, DATABASE_CONNECTIONS, READER_DATABASE, WRITER_DATABASE, HealthController, Controller, database
+Cohesion: 0.22
+Nodes (7): Header, Public(), ENVIRONMENT, HealthController, Controller, Get, database
 
 ### Community 34 - "DimensionDefinitionModel"
-Cohesion: 0.13
-Nodes (13): AttributeDefinitionModel, Column, Table, DatasetVersionModel, Column, Table, DimensionDefinitionModel, Column (+5 more)
+Cohesion: 0.15
+Nodes (11): AttributeDefinitionModel, Column, Table, DimensionDefinitionModel, Column, Table, MeasureDefinitionModel, Column (+3 more)
 
 ### Community 35 - "Secuencia ejecutada"
 Cohesion: 0.13
@@ -382,16 +365,20 @@ Cohesion: 0.27
 Nodes (12): expected_type(), leading_index_columns(), load_fk_targets(), migration_source(), normalized_type(), parse_fks(), parse_tables(), Path (+4 more)
 
 ### Community 40 - "MetricsService"
-Cohesion: 0.33
-Nodes (5): Environment, DatabaseConnectionFactories, defaultFactories, initializeDatabaseConnections(), Inject
+Cohesion: 0.16
+Nodes (6): RequestContextInterceptor, Injectable, MetricsService, Injectable, Inject, Inject
 
 ### Community 41 - "Informe final de validación técnica"
 Cohesion: 0.14
 Nodes (13): 1. Evidencia ejecutada, 2. Cambios críticos validados, 3. Gates bloqueados, 4. Intento de type-check, 5. Intento de bootstrap de Yarn, 6. Gate de release reproducible, 7. Calificación objetiva, Informe final de validación técnica (+5 more)
 
+### Community 42 - "HttpExceptionFilter"
+Cohesion: 0.24
+Nodes (5): Catch, SafeErrorLog, stringProperty(), toSafeErrorLog(), HttpExceptionFilter
+
 ### Community 43 - "observation-value.mapper.ts"
-Cohesion: 0.22
-Nodes (8): ObservationRevisionModel, Column, Table, AttributeValueInput, mapAttributeValue(), mapMeasureValue(), RevisionWriteRepository, Injectable
+Cohesion: 0.24
+Nodes (8): ObservationAttributeValueModel, Column, Table, ObservationMeasureModel, Column, Table, mapAttributeValue(), mapMeasureValue()
 
 ### Community 44 - "ADR-NNNN: Título"
 Cohesion: 0.15
@@ -666,16 +653,16 @@ Cohesion: 0.83
 Nodes (3): collect_ids(), find_sensitive(), main()
 
 ### Community 113 - "ClassificationModel"
-Cohesion: 0.09
-Nodes (16): chunkItems(), ClassificationMappingModel, Column, Table, ConceptModel, Column, Table, StatisticalDomainModel (+8 more)
+Cohesion: 0.50
+Nodes (3): ClassificationModel, Column, Table
 
 ### Community 114 - "ClassificationVersionModel"
-Cohesion: 0.15
-Nodes (14): GovernanceController, ApiBearerAuth, ApiOperation, ApiTags, Body, Controller, Param, Post (+6 more)
+Cohesion: 0.50
+Nodes (3): ClassificationVersionModel, Column, Table
 
 ### Community 115 - "DataIssueModel"
-Cohesion: 0.23
-Nodes (15): createWriterDatabase(), QualityDimensionModel, Column, Table, reconcileFrequencies(), reconcileQualityDimensions(), reconcileUnits(), runBootSeeds() (+7 more)
+Cohesion: 0.50
+Nodes (3): DataIssueModel, Column, Table
 
 ### Community 121 - "21. Estrategias permitidas para envío de JWT"
 Cohesion: 0.67
@@ -685,85 +672,25 @@ Nodes (3): 21. Estrategias permitidas para envío de JWT, Opción A: JWT en cook
 Cohesion: 0.67
 Nodes (3): 7. Versionado de API, Opción A: prefijo por controller, Opción B: prefijo global y rutas versionadas
 
-### Community 138 - "@fastify/helmet"
-Cohesion: 0.13
-Nodes (13): ClassificationItemModel, Column, Table, CodeItemModel, Column, Table, CodeListModel, Column (+5 more)
-
-### Community 168 - "data-query.controller.ts"
-Cohesion: 0.21
-Nodes (10): decimal, dimensionValueSchema, isoDate, uuid, buildDataQueryPlan(), DataQueryPlan, dimensionPredicate(), dataQuerySchema (+2 more)
-
-### Community 169 - "environment.ts"
-Cohesion: 0.35
-Nodes (9): booleanFromString, environmentSchema, getEnvironment(), resetEnvironmentForTests(), main(), main(), main(), createMigrationRunner() (+1 more)
-
-### Community 170 - "OrganizationModel"
-Cohesion: 0.18
-Nodes (10): OrganizationModel, Column, Table, SourceArtifactModel, Column, Table, SourceModel, Column (+2 more)
-
-### Community 171 - "read-query.executor.ts"
-Cohesion: 0.21
-Nodes (7): ApplicationError, ConflictError, InfrastructureError, SafeErrorLog, stringProperty(), toSafeErrorLog(), ReadQueryContext
-
-### Community 172 - "DataQueryController"
-Cohesion: 0.15
-Nodes (8): DataQueryController, ApiBearerAuth, ApiTags, Controller, Get, Param, DataQueryService, Injectable
-
-### Community 173 - "export-openapi.ts"
-Cohesion: 0.27
-Nodes (8): test, createContractApplication(), createDatabaseDouble(), exportOpenApi(), AppModule, Module, createRequestId(), bootstrap()
-
-### Community 174 - "observation-normalizer.ts"
-Cohesion: 0.33
-Nodes (8): DimensionValueInput, buildRevisionHash(), buildSeriesIdentity(), dimensionToken(), normalizedAttribute(), normalizedMeasure(), OrderedDimension, stableHash()
-
-### Community 175 - "seed-snapshot.ts"
-Cohesion: 0.36
-Nodes (7): canonicalize(), hashSnapshot(), SnapshotRow, BOOT_FREQUENCY_IDS, BOOT_QUALITY_DIMENSION_IDS, BOOT_UNIT_IDS, MOCK_IDS
-
-### Community 176 - "JwtAuthGuard"
-Cohesion: 0.32
-Nodes (3): JwtAuthGuard, Inject, Injectable
-
-### Community 177 - "Public"
-Cohesion: 0.38
-Nodes (3): Header, Public(), Get
-
-### Community 178 - "DataQueryInput"
-Cohesion: 0.38
-Nodes (4): ApiOperation, Body, Post, DataQueryInput
-
-### Community 179 - "RolesGuard"
-Cohesion: 0.40
-Nodes (3): RolesGuard, Inject, Injectable
-
-### Community 181 - "UnitMeasureModel"
-Cohesion: 0.50
-Nodes (3): Column, Table, UnitMeasureModel
-
-### Community 182 - "ConfigurationModule"
-Cohesion: 0.67
-Nodes (3): ConfigurationModule, Global, Module
-
 ## Knowledge Gaps
-- **757 isolated node(s):** `name`, `version`, `private`, `description`, `license` (+752 more)
+- **753 isolated node(s):** `singleQuote`, `trailingComma`, `printWidth`, `semi`, `quarantinedPaths` (+748 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **50 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **47 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `sequelize` connect `MethodologyVersionModel` to `quality.controller.ts`, `environment.ts`, `DataQueryController`, `ClassificationModel`, `Public`, `DatasetVersionModel`, `withSerializableRetry`, `metadata-catalog.service.ts`, `dependencies`, `batch-idempotency.ts`?**
+- **Why does `sequelize` connect `environment.ts` to `governance.controller.ts`, `DimensionDefinitionModel`, `health.controller.ts`, `data-query.controller.ts`, `quality.controller.ts`, `DatasetVersionModel`, `MethodologyVersionModel`, `withSerializableRetry`, `metadata-catalog.service.ts`, `dependencies`, `batch-import.service.ts`?**
   _High betweenness centrality (0.066) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `dotenv`, `fastify`, `@fastify/static`, `jsonwebtoken`, `@nestjs/core`, `nestjs-pino`, `@nestjs/swagger`, `pg`, `pino`, `reflect-metadata`, `@nestjs/common`, `rxjs`, `MethodologyVersionModel`, `yaml`, `package.json`?**
-  _High betweenness centrality (0.066) - this node is a cross-community bridge._
-- **Why does `scripts` connect `scripts` to `package.json`, `export-openapi.ts`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
-- **What connects `name`, `version`, `private` to the rest of the system?**
-  _757 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `dependencies` connect `dependencies` to `environment.ts`, `dotenv`, `fastify`, `@fastify/helmet`, `@fastify/static`, `jsonwebtoken`, `@nestjs/core`, `nestjs-pino`, `@nestjs/swagger`, `pg`, `pino`, `reflect-metadata`, `rxjs`, `yaml`, `package.json`?**
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
+- **Why does `scripts` connect `scripts` to `environment.ts`, `package.json`?**
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+- **What connects `singleQuote`, `trailingComma`, `printWidth` to the rest of the system?**
+  _753 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `environment.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.0533515731874145 - nodes in this community are weakly interconnected._
 - **Should `governance.controller.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.0967741935483871 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05238095238095238 - nodes in this community are weakly interconnected._
 - **Should `index.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.05026300409117475 - nodes in this community are weakly interconnected._
-- **Should `Roles` be split into smaller, more focused modules?**
-  _Cohesion score 0.07568027210884354 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.044755244755244755 - nodes in this community are weakly interconnected._
