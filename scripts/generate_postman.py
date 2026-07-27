@@ -6,6 +6,13 @@ import json
 import re
 import yaml
 
+
+def write_utf8(path, content):
+    """Writes UTF-8 with LF endings so generated files do not depend on the OS."""
+    with open(path, 'w', encoding='utf-8', newline=chr(10)) as handle:
+        handle.write(content)
+
+
 ROOT = Path(__file__).resolve().parents[1]
 SPEC_PATH = ROOT / 'docs/endpoints/openapi.yaml'
 OUTPUT_PATH = ROOT / 'docs/postman/collection.json'
@@ -145,7 +152,7 @@ def main() -> None:
     }
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(json.dumps(collection, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    write_utf8(OUTPUT_PATH, json.dumps(collection, ensure_ascii=False, indent=2) + '\n')
     print(f'PASS: generated Postman collection with {sum(len(items) for items in groups.values())} requests.')
 
 

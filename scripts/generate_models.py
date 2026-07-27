@@ -5,6 +5,13 @@ import json
 import re
 from pathlib import Path
 
+
+def write_utf8(path, content):
+    """Writes UTF-8 with LF endings so generated files do not depend on the OS."""
+    with open(path, "w", encoding="utf-8", newline=chr(10)) as handle:
+        handle.write(content)
+
+
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / 'docs/model/model-catalog.json'
 OUT = ROOT / 'src/database/models'
@@ -104,18 +111,18 @@ def main() -> None:
     model_names: list[str] = []
     for entity in data['entities']:
         filename, content = render_model(entity)
-        (OUT / filename).write_text(content, encoding='utf-8')
+        write_utf8(OUT / filename, content)
         module = filename.removesuffix('.ts')
         class_name = pascal(str(entity['table'])) + 'Model'
         exports.append(f"export {{ {class_name} }} from './{module}';")
         model_names.append(class_name)
-    (OUT / 'index.ts').write_text('\n'.join(exports) + '\n', encoding='utf-8')
+    write_utf8(OUT / 'index.ts', '\n'.join(exports) + '\n')
     registry_import = ',\n  '.join(model_names)
     registry = (
         "import {\n  " + registry_import + "\n} from './index';\n\n"
         "export const DATABASE_MODELS = [\n  " + ',\n  '.join(model_names) + "\n] as const;\n"
     )
-    (OUT / 'model.registry.ts').write_text(registry, encoding='utf-8')
+    write_utf8(OUT / 'model.registry.ts', registry)
 
 
 if __name__ == '__main__':

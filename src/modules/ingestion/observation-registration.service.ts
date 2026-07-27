@@ -1,9 +1,11 @@
 import { ForbiddenException, Inject, Injectable } from '@nestjs/common';
 import type { Sequelize, Transaction } from 'sequelize';
+import { AuditService } from '../../common/audit/audit.service';
 import type { Actor } from '../../common/auth/actor';
 import { MetricsService } from '../../common/observability/metrics.service';
 import { withSerializableRetry } from '../../common/persistence.transaction';
 import { WRITER_DATABASE } from '../../database/database.tokens';
+import type { BatchRegistrationCache } from './batch-registration-cache';
 import { manualRequestFingerprint, replayRegistration } from './batch-idempotency';
 import type { RegistrationResult } from './ingestion-results';
 import { buildRevisionHash, buildSeriesIdentity } from './observation-normalizer';
@@ -32,6 +34,7 @@ export class ObservationRegistrationService {
     private readonly revisions: RevisionWriteRepository,
     private readonly quality: QualityEvaluatorService,
     private readonly metrics: MetricsService,
+    private readonly audit: AuditService,
   ) {}
 
   /** Registers one observation with durable batch-code idempotency. */
@@ -84,6 +87,15 @@ export class ObservationRegistrationService {
         },
         { transaction },
       );
+      await this.audit.recordInTransaction(
+        {
+          action: 'ingestion.observation.registered',
+          entityType: 'data_entry_batch',
+          entityReference: batch.dataEntryBatchId,
+          details: { status: registration.status, batchCode: input.batchCode },
+        },
+        transaction,
+      );
       return result;
     }).then((result) => {
       this.metrics.observeIngestion('single', result.status);
@@ -95,11 +107,15 @@ export class ObservationRegistrationService {
   async registerWithinBatch(
     input: RegisterWithinBatchInput,
     transaction: Transaction,
+    cache?: BatchRegistrationCache,
   ): Promise<RegistrationWithoutBatch> {
-    const structure = await this.structures.loadPublishedDatasetVersion(
-      input.datasetVersionId,
-      transaction,
-    );
+    // Reuse the batch-constant structure snapshot when the caller provides a
+    // cache; loading is unchanged (including its not-published rejection) the
+    // first time, so per-record behaviour is preserved.
+    const structure =
+      cache?.structure ??
+      (await this.structures.loadPublishedDatasetVersion(input.datasetVersionId, transaction));
+    if (cache && !cache.structure) cache.structure = structure;
     validateRecordAgainstStructure(input.record, structure);
     await this.structures.assertReferencedValues(input.record, structure, transaction);
 
@@ -159,6 +175,7 @@ export class ObservationRegistrationService {
       input.dataEntryBatchId,
       input.record,
       transaction,
+      cache,
     );
     if (evaluation.criticalFailure) {
       await revision.update({ status: 'REJECTED' }, { transaction });

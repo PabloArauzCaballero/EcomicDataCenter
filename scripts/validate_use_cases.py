@@ -9,12 +9,12 @@ def fail(message: str) -> None:
     print(f'FAIL: {message}')
     sys.exit(1)
 
-registration = (ROOT / 'src/modules/ingestion/observation-registration.service.ts').read_text()
-batch = (ROOT / 'src/modules/ingestion/batch-import.service.ts').read_text()
-repository = (ROOT / 'src/modules/ingestion/observation-write.repository.ts').read_text()
-normalizer = (ROOT / 'src/modules/ingestion/observation-normalizer.ts').read_text()
-schema = (ROOT / 'src/modules/ingestion/observation-input.schemas.ts').read_text()
-migrations = '\n'.join(path.read_text() for path in sorted((ROOT / 'src/database/migrations').glob('*.ts')))
+registration = (ROOT / 'src/modules/ingestion/observation-registration.service.ts').read_text(encoding='utf-8')
+batch = (ROOT / 'src/modules/ingestion/batch-import.service.ts').read_text(encoding='utf-8')
+repository = (ROOT / 'src/modules/ingestion/observation-write.repository.ts').read_text(encoding='utf-8')
+normalizer = (ROOT / 'src/modules/ingestion/observation-normalizer.ts').read_text(encoding='utf-8')
+schema = (ROOT / 'src/modules/ingestion/observation-input.schemas.ts').read_text(encoding='utf-8')
+migrations = '\n'.join(path.read_text(encoding='utf-8') for path in sorted((ROOT / 'src/database/migrations').glob('*.ts')))
 
 checks = {
     'manual batch-code idempotency': 'manualRequestFingerprint(input)' in registration and 'replayRegistration' in registration,

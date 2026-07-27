@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { QueryTypes, type Sequelize } from 'sequelize';
+import { QueryTypes, UniqueConstraintError, type Sequelize } from 'sequelize';
 import { ConflictError, NotFoundError } from '../../common/errors/application.error';
 import { READER_DATABASE, WRITER_DATABASE } from '../../database/database.tokens';
 import { OrganizationModel, SourceArtifactModel, SourceModel } from '../../database/models';
@@ -25,18 +25,27 @@ export class ProvenanceService {
       const parent = await OrganizationModel.findByPk(input.parentOrganizationId);
       if (!parent) throw new NotFoundError('organization', input.parentOrganizationId);
     }
-    return OrganizationModel.create({
-      parentOrganizationId: input.parentOrganizationId ?? null,
-      code: input.code,
-      legalName: input.legalName,
-      shortName: input.shortName,
-      organizationType: input.organizationType,
-      countryCode: input.countryCode,
-      officialStatisticsProducer: input.officialStatisticsProducer,
-      isActive: input.isActive,
-      validFrom: input.validFrom,
-      validTo: input.validTo ?? null,
-    });
+    // The findOne pre-check is a fast path, not a guarantee: two concurrent
+    // requests with the same code both pass it, and only the unique index stops
+    // the second insert. Translate that violation into the same 409 the caller
+    // would get sequentially, instead of leaking a raw 500.
+    return this.rejectDuplicate(
+      () =>
+        OrganizationModel.create({
+          parentOrganizationId: input.parentOrganizationId ?? null,
+          code: input.code,
+          legalName: input.legalName,
+          shortName: input.shortName,
+          organizationType: input.organizationType,
+          countryCode: input.countryCode,
+          officialStatisticsProducer: input.officialStatisticsProducer,
+          isActive: input.isActive,
+          validFrom: input.validFrom,
+          validTo: input.validTo ?? null,
+        }),
+      'organization code already exists',
+      { code: input.code },
+    );
   }
 
   async createSource(input: CreateSourceInput) {
@@ -46,19 +55,24 @@ export class ProvenanceService {
     ]);
     if (!organization) throw new NotFoundError('organization', input.organizationId);
     if (duplicate) throw new ConflictError('source code already exists', { code: input.code });
-    return SourceModel.create({
-      organizationId: input.organizationId,
-      frequencyId: input.frequencyId ?? null,
-      code: input.code,
-      name: input.name,
-      sourceType: input.sourceType,
-      accessMethod: input.accessMethod,
-      officialUri: input.officialUri ?? null,
-      licenseCode: input.licenseCode ?? null,
-      activeFrom: input.activeFrom ?? null,
-      activeTo: input.activeTo ?? null,
-      isActive: input.isActive,
-    });
+    return this.rejectDuplicate(
+      () =>
+        SourceModel.create({
+          organizationId: input.organizationId,
+          frequencyId: input.frequencyId ?? null,
+          code: input.code,
+          name: input.name,
+          sourceType: input.sourceType,
+          accessMethod: input.accessMethod,
+          officialUri: input.officialUri ?? null,
+          licenseCode: input.licenseCode ?? null,
+          activeFrom: input.activeFrom ?? null,
+          activeTo: input.activeTo ?? null,
+          isActive: input.isActive,
+        }),
+      'source code already exists',
+      { code: input.code },
+    );
   }
 
   async registerArtifact(input: CreateSourceArtifactInput) {
@@ -68,20 +82,44 @@ export class ProvenanceService {
     ]);
     if (!source) throw new NotFoundError('source', input.sourceId);
     if (duplicate) return { status: 'EXISTING', artifact: duplicate };
-    const artifact = await SourceArtifactModel.create({
-      sourceId: input.sourceId,
-      artifactType: input.artifactType,
-      originalFilename: input.originalFilename ?? null,
-      originalUri: input.originalUri ?? null,
-      storageUri: input.storageUri,
-      mimeType: input.mimeType ?? null,
-      sha256: input.sha256,
-      publicationDate: input.publicationDate ?? null,
-      retrievedAt: new Date(input.retrievedAt),
-      fileSizeBytes: input.fileSizeBytes ?? null,
-      metadataJson: input.metadataJson,
-    });
-    return { status: 'CREATED', artifact };
+    try {
+      const artifact = await SourceArtifactModel.create({
+        sourceId: input.sourceId,
+        artifactType: input.artifactType,
+        originalFilename: input.originalFilename ?? null,
+        originalUri: input.originalUri ?? null,
+        storageUri: input.storageUri,
+        mimeType: input.mimeType ?? null,
+        sha256: input.sha256,
+        publicationDate: input.publicationDate ?? null,
+        retrievedAt: new Date(input.retrievedAt),
+        fileSizeBytes: input.fileSizeBytes ?? null,
+        metadataJson: input.metadataJson,
+      });
+      return { status: 'CREATED', artifact };
+    } catch (error) {
+      // Registration is idempotent on sha256: a concurrent request that won the
+      // insert race means the artifact now exists, so return it as EXISTING
+      // rather than surfacing the unique violation as an error.
+      if (error instanceof UniqueConstraintError) {
+        const artifact = await SourceArtifactModel.findOne({ where: { sha256: input.sha256 } });
+        if (artifact) return { status: 'EXISTING', artifact };
+      }
+      throw error;
+    }
+  }
+
+  private async rejectDuplicate<T>(
+    create: () => Promise<T>,
+    message: string,
+    details: Record<string, unknown>,
+  ): Promise<T> {
+    try {
+      return await create();
+    } catch (error) {
+      if (error instanceof UniqueConstraintError) throw new ConflictError(message, details);
+      throw error;
+    }
   }
 
   async listOrganizations(input: ListProvenanceInput) {

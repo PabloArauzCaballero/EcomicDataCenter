@@ -16,6 +16,9 @@ export class RequestContextInterceptor implements NestInterceptor {
     const request = context.switchToHttp().getRequest<FastifyRequest>();
     const response = context.switchToHttp().getResponse<FastifyReply>();
     const startedAt = process.hrtime.bigint();
+    // Surface the correlation id on every response, not just error bodies, so an
+    // operator handed "request X was slow" can map it to the server log line.
+    void response.header('x-request-id', String(request.id));
     return next.handle().pipe(
       finalize(() => {
         // Observability must never break request delivery: a throw inside this

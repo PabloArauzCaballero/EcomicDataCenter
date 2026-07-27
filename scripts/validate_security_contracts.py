@@ -11,11 +11,11 @@ def fail(message: str) -> None:
     sys.exit(1)
 
 
-auth = (ROOT / 'src/common/auth/jwt-auth.guard.ts').read_text()
-claims = (ROOT / 'src/common/auth/token-claims.parser.ts').read_text()
-environment = (ROOT / 'src/config/environment.ts').read_text()
-main = (ROOT / 'src/main.ts').read_text()
-spec = yaml.safe_load((ROOT / 'docs/endpoints/openapi.yaml').read_text())
+auth = (ROOT / 'src/common/auth/jwt-auth.guard.ts').read_text(encoding='utf-8')
+claims = (ROOT / 'src/common/auth/token-claims.parser.ts').read_text(encoding='utf-8')
+environment = (ROOT / 'src/config/environment.ts').read_text(encoding='utf-8')
+main = (ROOT / 'src/main.ts').read_text(encoding='utf-8')
+spec = yaml.safe_load((ROOT / 'docs/endpoints/openapi.yaml').read_text(encoding='utf-8'))
 
 checks = {
     'RS256 allowlist': "algorithms: ['RS256']" in auth,

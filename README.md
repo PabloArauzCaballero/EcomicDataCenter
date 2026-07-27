@@ -15,9 +15,21 @@ Backend para el núcleo de datos del **Observatorio de la Situación Económica 
 - Calidad, incidencias, rupturas de serie, linaje y relaciones entre indicadores.
 - JWT externo RS256/JWKS con issuer, audience, organización UUID, autorización por rol y política default-deny.
 - Logs estructurados, métricas Prometheus, liveness y readiness.
+- Ingesta de agentes de IA: registro de agentes, ejecuciones trazadas, capa cruda inmutable y deduplicación por reintento.
+- Afirmaciones con evidencia citada, tipadas como hecho, estimación, opinión, pronóstico o inferencia de IA.
+- Detección de contradicciones entre fuentes, que coexisten hasta que una persona las resuelve con justificación.
+- Revisión humana obligatoria para afirmaciones críticas, de baja confianza o generadas por inferencia.
+- Entidades económicas con alias y resolución de menciones sin coincidencia difusa.
+- Auditoría append-only de toda acción sensible, garantizada por privilegio y por trigger.
+- Controles de entrada no confiable: anti-SSRF en localizadores, detección de prompt injection y separación de deberes agente/humano.
+- Reintentos acotados, dead-letter y barrido de elementos abandonados tras un reinicio.
+- Deduplicación de noticias sindicadas por similitud, conservando cada fuente original.
+- Aislamiento institucional en lectura por confidencialidad y organización productora.
+- Paginación por cursor para series extensas, sin coste creciente por profundidad.
+- Métricas de contradicciones abiertas, revisiones pendientes, dead-letters, fuentes desactualizadas y retraso de ingesta.
 - OpenAPI, Postman, PlantUML, modelo de datos, backup/restore y runbooks.
 
-No se incorporaron usuarios locales, dashboards, noticias, IA, pronósticos ni microdatos porque no pertenecen al modelo entregado.
+No se incorporaron usuarios locales, dashboards ni microdatos porque no pertenecen al modelo entregado. La capa de inteligencia por agentes de IA sí forma parte del alcance desde la incorporación de los esquemas `intelligence` y `audit`; su estado y lo que sigue pendiente están en [`ECONOMIC_DATACENTER_PRODUCTION_READINESS.md`](ECONOMIC_DATACENTER_PRODUCTION_READINESS.md).
 
 ## Stack
 

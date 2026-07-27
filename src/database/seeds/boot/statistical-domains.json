@@ -1,0 +1,434 @@
+[
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000001",
+    "parentDomainId": null,
+    "code": "MACRO",
+    "name": "Macroeconomía",
+    "description": "Agregados macroeconómicos y cuentas nacionales.",
+    "sortOrder": 1,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000002",
+    "parentDomainId": "60000000-0000-4000-8000-000000000001",
+    "code": "PRICES",
+    "name": "Precios e inflación",
+    "description": "Índices de precios, inflación y poder adquisitivo.",
+    "sortOrder": 2,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000003",
+    "parentDomainId": "60000000-0000-4000-8000-000000000001",
+    "code": "PRODUCTION",
+    "name": "Producción y productividad",
+    "description": "Producto, actividad económica y productividad.",
+    "sortOrder": 3,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000004",
+    "parentDomainId": "60000000-0000-4000-8000-000000000001",
+    "code": "DEMAND",
+    "name": "Consumo e inversión",
+    "description": "Consumo de hogares, inversión y formación de capital.",
+    "sortOrder": 4,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000005",
+    "parentDomainId": "60000000-0000-4000-8000-000000000001",
+    "code": "LABOUR",
+    "name": "Empleo y mercado laboral",
+    "description": "Empleo, desempleo, subempleo, salarios e informalidad.",
+    "sortOrder": 5,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000006",
+    "parentDomainId": null,
+    "code": "EXTERNAL",
+    "name": "Sector externo",
+    "description": "Comercio exterior, balanza de pagos y entorno internacional.",
+    "sortOrder": 6,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000007",
+    "parentDomainId": "60000000-0000-4000-8000-000000000006",
+    "code": "TRADE_EXPORTS",
+    "name": "Exportaciones",
+    "description": "Exportaciones por producto, destino y territorio.",
+    "sortOrder": 7,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000008",
+    "parentDomainId": "60000000-0000-4000-8000-000000000006",
+    "code": "TRADE_IMPORTS",
+    "name": "Importaciones",
+    "description": "Importaciones por producto, origen y territorio.",
+    "sortOrder": 8,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000009",
+    "parentDomainId": "60000000-0000-4000-8000-000000000006",
+    "code": "COMMODITY_PRICES",
+    "name": "Precios internacionales",
+    "description": "Cotizaciones internacionales de materias primas.",
+    "sortOrder": 9,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000010",
+    "parentDomainId": "60000000-0000-4000-8000-000000000006",
+    "code": "LOGISTICS",
+    "name": "Logística y corredores",
+    "description": "Costos logísticos, puertos y corredores de comercio.",
+    "sortOrder": 10,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000011",
+    "parentDomainId": null,
+    "code": "FINANCIAL",
+    "name": "Sistema financiero y mercados",
+    "description": "Intermediación financiera, mercados y riesgo.",
+    "sortOrder": 11,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000012",
+    "parentDomainId": "60000000-0000-4000-8000-000000000011",
+    "code": "BANKING",
+    "name": "Intermediación financiera",
+    "description": "Cartera, mora, liquidez, solvencia, captaciones y colocaciones.",
+    "sortOrder": 12,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000013",
+    "parentDomainId": "60000000-0000-4000-8000-000000000011",
+    "code": "EXCHANGE_RATE",
+    "name": "Mercado cambiario",
+    "description": "Cotizaciones de divisas por mercado y fuente.",
+    "sortOrder": 13,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000014",
+    "parentDomainId": "60000000-0000-4000-8000-000000000011",
+    "code": "SOVEREIGN_DEBT",
+    "name": "Deuda soberana",
+    "description": "Bonos soberanos, rendimientos y spreads.",
+    "sortOrder": 14,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000015",
+    "parentDomainId": "60000000-0000-4000-8000-000000000011",
+    "code": "SECURITIES_MARKET",
+    "name": "Bolsa de valores",
+    "description": "Emisores, instrumentos, calificaciones y hechos relevantes.",
+    "sortOrder": 15,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000016",
+    "parentDomainId": "60000000-0000-4000-8000-000000000011",
+    "code": "INSURANCE",
+    "name": "Seguros y fondos",
+    "description": "Seguros, fondos de inversión y pensiones.",
+    "sortOrder": 16,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000017",
+    "parentDomainId": null,
+    "code": "REAL_SECTORS",
+    "name": "Sectores productivos",
+    "description": "Actividades productivas por rama económica.",
+    "sortOrder": 17,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000018",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "AGRICULTURE",
+    "name": "Agricultura",
+    "description": "Producción agrícola y cadenas asociadas.",
+    "sortOrder": 18,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000019",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "LIVESTOCK",
+    "name": "Ganadería",
+    "description": "Producción pecuaria y cadenas asociadas.",
+    "sortOrder": 19,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000020",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "AGROINDUSTRY",
+    "name": "Agroindustria",
+    "description": "Transformación agroindustrial.",
+    "sortOrder": 20,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000021",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "HYDROCARBONS",
+    "name": "Hidrocarburos",
+    "description": "Exploración, producción, refinación y comercialización.",
+    "sortOrder": 21,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000022",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "MINING",
+    "name": "Minería",
+    "description": "Producción minera y metalúrgica.",
+    "sortOrder": 22,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000023",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "MANUFACTURING",
+    "name": "Manufactura",
+    "description": "Industria manufacturera.",
+    "sortOrder": 23,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000024",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "CONSTRUCTION",
+    "name": "Construcción",
+    "description": "Construcción pública y privada.",
+    "sortOrder": 24,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000025",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "COMMERCE",
+    "name": "Comercio",
+    "description": "Comercio mayorista y minorista.",
+    "sortOrder": 25,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000026",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "TRANSPORT",
+    "name": "Transporte",
+    "description": "Transporte de carga y pasajeros.",
+    "sortOrder": 26,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000027",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "TOURISM",
+    "name": "Turismo",
+    "description": "Turismo receptivo, emisivo e interno.",
+    "sortOrder": 27,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000028",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "SERVICES",
+    "name": "Servicios",
+    "description": "Servicios empresariales y personales.",
+    "sortOrder": 28,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000029",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "TELECOM",
+    "name": "Telecomunicaciones",
+    "description": "Telecomunicaciones y conectividad.",
+    "sortOrder": 29,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000030",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "TECHNOLOGY",
+    "name": "Tecnología y economía digital",
+    "description": "Tecnología, software y economía digital.",
+    "sortOrder": 30,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000031",
+    "parentDomainId": "60000000-0000-4000-8000-000000000017",
+    "code": "ENERGY",
+    "name": "Energía",
+    "description": "Generación, transmisión y distribución de energía.",
+    "sortOrder": 31,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000032",
+    "parentDomainId": null,
+    "code": "PUBLIC",
+    "name": "Sector público",
+    "description": "Finanzas públicas y política fiscal.",
+    "sortOrder": 32,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000033",
+    "parentDomainId": "60000000-0000-4000-8000-000000000032",
+    "code": "FISCAL",
+    "name": "Finanzas públicas",
+    "description": "Ingresos, gasto, déficit y presupuesto.",
+    "sortOrder": 33,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000034",
+    "parentDomainId": "60000000-0000-4000-8000-000000000032",
+    "code": "TAXATION",
+    "name": "Tributación y aranceles",
+    "description": "Recaudación, cambios tributarios y arancelarios.",
+    "sortOrder": 34,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000035",
+    "parentDomainId": "60000000-0000-4000-8000-000000000032",
+    "code": "REGULATION",
+    "name": "Regulación y política pública",
+    "description": "Leyes, decretos, resoluciones y regulación sectorial.",
+    "sortOrder": 35,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000036",
+    "parentDomainId": null,
+    "code": "SOCIAL",
+    "name": "Situación socioeconómica",
+    "description": "Condiciones de vida y desarrollo social.",
+    "sortOrder": 36,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000037",
+    "parentDomainId": "60000000-0000-4000-8000-000000000036",
+    "code": "POVERTY",
+    "name": "Pobreza y desigualdad",
+    "description": "Pobreza, desigualdad y distribución del ingreso.",
+    "sortOrder": 37,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000038",
+    "parentDomainId": "60000000-0000-4000-8000-000000000036",
+    "code": "HOUSEHOLD_INCOME",
+    "name": "Ingresos y costo de vida",
+    "description": "Ingresos, salarios, canasta familiar y costo de vida.",
+    "sortOrder": 38,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000039",
+    "parentDomainId": "60000000-0000-4000-8000-000000000036",
+    "code": "HEALTH",
+    "name": "Salud",
+    "description": "Cobertura, acceso y gasto en salud.",
+    "sortOrder": 39,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000040",
+    "parentDomainId": "60000000-0000-4000-8000-000000000036",
+    "code": "EDUCATION",
+    "name": "Educación",
+    "description": "Cobertura, acceso y resultados educativos.",
+    "sortOrder": 40,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000041",
+    "parentDomainId": "60000000-0000-4000-8000-000000000036",
+    "code": "HOUSING",
+    "name": "Vivienda y servicios básicos",
+    "description": "Vivienda y acceso a servicios básicos.",
+    "sortOrder": 41,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000042",
+    "parentDomainId": "60000000-0000-4000-8000-000000000036",
+    "code": "INFORMALITY",
+    "name": "Economía informal",
+    "description": "Actividad económica informal.",
+    "sortOrder": 42,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000043",
+    "parentDomainId": "60000000-0000-4000-8000-000000000036",
+    "code": "MIGRATION",
+    "name": "Migración y remesas",
+    "description": "Flujos migratorios y remesas.",
+    "sortOrder": 43,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000044",
+    "parentDomainId": "60000000-0000-4000-8000-000000000036",
+    "code": "TERRITORY",
+    "name": "Desarrollo regional",
+    "description": "Brechas territoriales y desarrollo regional.",
+    "sortOrder": 44,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000045",
+    "parentDomainId": null,
+    "code": "SENTIMENT",
+    "name": "Confianza e incertidumbre",
+    "description": "Expectativas, confianza y riesgo percibido.",
+    "sortOrder": 45,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000046",
+    "parentDomainId": "60000000-0000-4000-8000-000000000045",
+    "code": "CONFIDENCE",
+    "name": "Confianza económica",
+    "description": "Confianza del consumidor, empresarial y sectorial.",
+    "sortOrder": 46,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000047",
+    "parentDomainId": "60000000-0000-4000-8000-000000000045",
+    "code": "UNCERTAINTY",
+    "name": "Incertidumbre económica",
+    "description": "Incertidumbre, volatilidad y dispersión de expectativas.",
+    "sortOrder": 47,
+    "isActive": true
+  },
+  {
+    "statisticalDomainId": "60000000-0000-4000-8000-000000000048",
+    "parentDomainId": "60000000-0000-4000-8000-000000000045",
+    "code": "COUNTRY_RISK",
+    "name": "Riesgo país e institucional",
+    "description": "Riesgo político, regulatorio, fiscal y externo.",
+    "sortOrder": 48,
+    "isActive": true
+  }
+]

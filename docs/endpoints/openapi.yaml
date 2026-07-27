@@ -14,6 +14,8 @@ tags:
 - name: Data ingestion
 - name: Data query
 - name: Quality and lineage
+- name: Agent intelligence
+- name: Claim review
 paths:
   /health:
     get:
@@ -2704,6 +2706,896 @@ paths:
         in: path
         required: true
         schema: *id002
+  /api/v1/intelligence/agents:
+    post:
+      operationId: registerAgent
+      summary: Register an autonomous collector
+      tags:
+      - Agent intelligence
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - METHODOLOGY_STEWARD
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentRegistrationInput'
+  /api/v1/intelligence/agent-runs:
+    post:
+      operationId: openAgentRun
+      summary: Open an agent execution
+      tags:
+      - Agent intelligence
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - INGESTION_AGENT
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentRunInput'
+  /api/v1/intelligence/agent-runs/{id}:
+    get:
+      operationId: getAgentRun
+      summary: Get agent execution status
+      tags:
+      - Agent intelligence
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - INGESTION_AGENT
+      - ANALYST
+      - METHODOLOGY_STEWARD
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema: *id002
+  /api/v1/intelligence/agent-runs/{id}/submissions:
+    post:
+      operationId: submitAgentObservations
+      summary: Submit up to 200 collected items
+      tags:
+      - Agent intelligence
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - INGESTION_AGENT
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentSubmissionInput'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema: *id002
+  /api/v1/intelligence/agent-runs/{id}/completion:
+    post:
+      operationId: completeAgentRun
+      summary: Close an agent execution
+      tags:
+      - Agent intelligence
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - INGESTION_AGENT
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentRunCompletionInput'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema: *id002
+  /api/v1/intelligence/daily-analysis:
+    post:
+      operationId: submitDailyAnalysis
+      summary: Open a run, submit the daily claims and close the run in one call
+      tags:
+      - Agent intelligence
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - INGESTION_AGENT
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DailyAnalysisInput'
+  /api/v1/intelligence/dead-letters:
+    get:
+      operationId: listDeadLetters
+      summary: List items that exhausted their reprocessing attempts
+      tags:
+      - Agent intelligence
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - METHODOLOGY_STEWARD
+      - DATA_REVIEWER
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: agentRunId
+        in: query
+        schema: *id002
+  /api/v1/intelligence/raw-observations/{id}/reprocessing:
+    post:
+      operationId: reprocessRawObservation
+      summary: Requeue a rejected or quarantined item
+      tags:
+      - Agent intelligence
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - METHODOLOGY_STEWARD
+      - DATA_REVIEWER
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: rawObservationId
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^\d+$
+  /api/v1/intelligence/raw-observations/sweep:
+    post:
+      operationId: sweepAbandonedRawObservations
+      summary: Dead-letter items abandoned in flight after a restart
+      tags:
+      - Agent intelligence
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - METHODOLOGY_STEWARD
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SweepAbandonedInput'
+  /api/v1/intelligence/claims/search:
+    post:
+      operationId: searchClaims
+      summary: Search claims with evidence
+      tags:
+      - Claim review
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - ANALYST
+      - METHODOLOGY_STEWARD
+      - DATA_REVIEWER
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClaimQueryInput'
+  /api/v1/intelligence/review-tasks/{id}/decisions:
+    post:
+      operationId: decideReviewTask
+      summary: Approve or reject a pending claim
+      tags:
+      - Claim review
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - DATA_REVIEWER
+      - METHODOLOGY_STEWARD
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewDecisionInput'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema: *id002
+  /api/v1/intelligence/contradictions/{id}/resolutions:
+    post:
+      operationId: resolveContradiction
+      summary: Close a contradiction with a justification
+      tags:
+      - Claim review
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - DATA_REVIEWER
+      - METHODOLOGY_STEWARD
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContradictionResolutionInput'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema: *id002
 components:
   securitySchemes:
     bearerAuth:
@@ -2815,7 +3707,7 @@ components:
           type: string
           pattern: ^[a-f0-9]{64}$
         publicationDate: *id005
-        retrievedAt:
+        retrievedAt: &id006
           type: string
           format: date-time
         fileSizeBytes:
@@ -3291,3 +4183,314 @@ components:
       - reason
       - isComparableBeforeAfter
       additionalProperties: true
+    AgentRegistrationInput:
+      type: object
+      properties:
+        code:
+          type: string
+          maxLength: 80
+        name:
+          type: string
+          maxLength: 250
+        agentType:
+          type: string
+          enum:
+          - EXCHANGE_RATE
+          - SOVEREIGN_DEBT
+          - SECTOR
+          - SOCIOECONOMIC
+          - SENTIMENT
+          - UNCERTAINTY
+          - CORPORATE
+          - POLITICAL
+          - SECURITIES_MARKET
+          - FINANCIAL_SYSTEM
+          - EXTERNAL_SECTOR
+        provider:
+          type: string
+          maxLength: 80
+        modelIdentifier:
+          type: string
+          maxLength: 120
+        specialty:
+          type: string
+          maxLength: 120
+        promptVersion:
+          type: string
+          maxLength: 40
+        schemaVersion:
+          type: string
+          maxLength: 40
+        organizationId: *id002
+        configuration:
+          type: object
+          additionalProperties: true
+      additionalProperties: false
+      required:
+      - code
+      - name
+      - agentType
+      - provider
+      - modelIdentifier
+      - promptVersion
+      - schemaVersion
+      - organizationId
+    AgentRunInput:
+      type: object
+      properties:
+        agentCode:
+          type: string
+          maxLength: 80
+        triggerType:
+          type: string
+          enum:
+          - SCHEDULED
+          - MANUAL
+          - RETRY
+          - BACKFILL
+        attemptNo:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 1
+        promptVersion:
+          type: string
+          maxLength: 40
+        schemaVersion:
+          type: string
+          maxLength: 40
+      additionalProperties: false
+      required:
+      - agentCode
+      - triggerType
+      - promptVersion
+      - schemaVersion
+    ClaimEvidenceInput:
+      type: object
+      properties:
+        sourceArtifactId: *id002
+        excerpt:
+          type: string
+          minLength: 20
+          maxLength: 4000
+        locator:
+          type: string
+          maxLength: 2000
+        retrievedAt: *id006
+      additionalProperties: false
+      required:
+      - sourceArtifactId
+      - excerpt
+      - retrievedAt
+    FactClaimInput:
+      type: object
+      properties:
+        claimType: &id007
+          type: string
+          enum:
+          - FACT
+          - INDICATOR_READING
+          - ESTIMATE
+          - OPINION
+          - FORECAST
+          - AI_INFERENCE
+          - RISK
+          - OPPORTUNITY
+          - THREAT
+          - TREND
+          - RECOMMENDATION
+        assertion:
+          type: string
+          minLength: 20
+          maxLength: 4000
+        eventDate: *id005
+        publishedAt: *id006
+        timeHorizon:
+          type: string
+          enum:
+          - IMMEDIATE
+          - SHORT_TERM
+          - MEDIUM_TERM
+          - LONG_TERM
+          - STRUCTURAL
+        impactLevel:
+          type: string
+          enum:
+          - CRITICAL
+          - HIGH
+          - MEDIUM
+          - LOW
+          - NEGLIGIBLE
+        probability:
+          type: number
+          minimum: 0
+          maximum: 1
+        confidenceLevel:
+          type: string
+          enum:
+          - VERY_LOW
+          - LOW
+          - MEDIUM
+          - HIGH
+          - VERY_HIGH
+        confidenceScore:
+          type: number
+          minimum: 0
+          maximum: 1
+        statisticalDomainId: *id002
+        geographicUnitId: *id002
+        entityMentions:
+          type: array
+          items:
+            type: string
+            maxLength: 250
+          maxItems: 25
+        evidence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClaimEvidenceInput'
+          maxItems: 10
+      additionalProperties: false
+      required:
+      - claimType
+      - assertion
+      - confidenceLevel
+      - evidence
+    AgentSubmissionInput:
+      type: object
+      properties:
+        submissionCode:
+          type: string
+          maxLength: 80
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              rawPayload:
+                type: object
+                additionalProperties: true
+              claim:
+                $ref: '#/components/schemas/FactClaimInput'
+            additionalProperties: false
+            required:
+            - rawPayload
+            - claim
+          maxItems: 200
+      additionalProperties: false
+      required:
+      - submissionCode
+      - items
+    AgentRunCompletionInput:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - SUCCEEDED
+          - PARTIAL
+          - FAILED
+          - CANCELLED
+        sourcesConsulted:
+          type: integer
+          minimum: 0
+        warningCount:
+          type: integer
+          minimum: 0
+        estimatedCostUsd:
+          type: number
+          minimum: 0
+        errorSummary:
+          type: string
+          maxLength: 2000
+        checkpoint:
+          type: object
+          additionalProperties: true
+      additionalProperties: false
+      required:
+      - status
+    DailyAnalysisInput:
+      type: object
+      properties:
+        agent:
+          $ref: '#/components/schemas/AgentRunInput'
+        submission:
+          $ref: '#/components/schemas/AgentSubmissionInput'
+        completion:
+          $ref: '#/components/schemas/AgentRunCompletionInput'
+      additionalProperties: false
+      required:
+      - agent
+      - submission
+      - completion
+    ReviewDecisionInput:
+      type: object
+      properties:
+        decision:
+          type: string
+          enum:
+          - APPROVED
+          - REJECTED
+          - ESCALATED
+        rationale:
+          type: string
+          minLength: 10
+          maxLength: 2000
+      additionalProperties: false
+      required:
+      - decision
+      - rationale
+    ContradictionResolutionInput:
+      type: object
+      properties:
+        resolution:
+          type: string
+          enum:
+          - RESOLVED
+          - ACCEPTED_DIVERGENCE
+          - DISMISSED
+        rationale:
+          type: string
+          minLength: 10
+          maxLength: 2000
+        selectedReference:
+          type: string
+          maxLength: 80
+      additionalProperties: false
+      required:
+      - resolution
+      - rationale
+    ClaimQueryInput:
+      type: object
+      properties:
+        claimType: *id007
+        statisticalDomainId: *id002
+        geographicUnitId: *id002
+        economicEntityId: *id002
+        status:
+          type: string
+          enum:
+          - PUBLISHED
+          - PENDING_REVIEW
+          - REJECTED
+          - SUPERSEDED
+          default: PUBLISHED
+        page:
+          type: integer
+          minimum: 1
+          default: 1
+        pageSize:
+          type: integer
+          minimum: 1
+          maximum: 200
+          default: 50
+      additionalProperties: false
+    SweepAbandonedInput:
+      type: object
+      properties:
+        olderThanMinutes:
+          type: integer
+          minimum: 5
+          maximum: 10080
+          default: 60
+      additionalProperties: false

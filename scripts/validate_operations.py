@@ -12,20 +12,20 @@ def fail(message: str) -> None:
 
 
 compose_path = ROOT / 'docker-compose.yml'
-compose = yaml.safe_load(compose_path.read_text())
+compose = yaml.safe_load(compose_path.read_text(encoding='utf-8'))
 services = compose.get('services', {})
 nginx_service = services.get('nginx', {})
 api_service = services.get('api', {})
 backup_service = services.get('backup', {})
 networks = compose.get('networks', {})
 
-dockerfile = (ROOT / 'Dockerfile').read_text()
-nginx = (ROOT / 'infra/nginx/nginx.conf').read_text()
-environment = (ROOT / 'src/config/environment.ts').read_text()
-metrics = (ROOT / 'src/common/observability/metrics.service.ts').read_text()
-backup = (ROOT / 'infra/backup/run-backup.sh').read_text()
-backup_grants = (ROOT / 'src/database/migrations/0016-grant-backup-operator.ts').read_text()
-restore = (ROOT / 'infra/backup/restore-drill.sh').read_text()
+dockerfile = (ROOT / 'Dockerfile').read_text(encoding='utf-8')
+nginx = (ROOT / 'infra/nginx/nginx.conf').read_text(encoding='utf-8')
+environment = (ROOT / 'src/config/environment.ts').read_text(encoding='utf-8')
+metrics = (ROOT / 'src/common/observability/metrics.service.ts').read_text(encoding='utf-8')
+backup = (ROOT / 'infra/backup/run-backup.sh').read_text(encoding='utf-8')
+backup_grants = (ROOT / 'src/database/migrations/0016-grant-backup-operator.ts').read_text(encoding='utf-8')
+restore = (ROOT / 'infra/backup/restore-drill.sh').read_text(encoding='utf-8')
 
 public_port_services = [
     service_name

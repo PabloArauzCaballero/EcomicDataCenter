@@ -61,4 +61,7 @@ export class ObservationRevisionModel extends Model<
 
   @Column({ field: 'normalized_hash', type: DataType.CHAR(64), allowNull: false })
   declare normalizedHash: string;
+
+  @Column({ field: 'source_timezone', type: DataType.STRING(64), allowNull: true })
+  declare sourceTimezone: string | null;
 }

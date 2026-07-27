@@ -140,6 +140,10 @@ jobs:
       - run: yarn db:seed:boot && yarn db:seed:boot
       - run: yarn db:seed:mock && yarn db:seed:mock
       - run: yarn db:seed:verify
+      - name: Run integration tests against PostgreSQL
+        env:
+          INTEGRATION_DATABASE_URL: postgresql://observatory_migrator:migrator@127.0.0.1:5432/observatorio_economico
+        run: yarn test:integration
       - name: Confirm mock seeds are rejected in production
         run: AUTH_MODE=jwks AUTH_JWKS_URI=https://identity.example.test/jwks AUTH_ISSUER=https://identity.example.test/ AUTH_AUDIENCE=observatorio NODE_ENV=production yarn db:seed:mock && exit 1 || exit 0
       - run: yarn build

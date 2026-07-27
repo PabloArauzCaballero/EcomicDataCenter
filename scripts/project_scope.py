@@ -17,6 +17,7 @@ CORE_SOURCE_ROOTS = (
     ROOT / "src" / "modules" / "governance",
     ROOT / "src" / "modules" / "health",
     ROOT / "src" / "modules" / "ingestion",
+    ROOT / "src" / "modules" / "intelligence",
     ROOT / "src" / "modules" / "provenance",
     ROOT / "src" / "modules" / "quality",
     ROOT / "src" / "modules" / "query",

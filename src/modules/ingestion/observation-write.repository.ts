@@ -86,6 +86,29 @@ export class ObservationWriteRepository {
     return { batch, claimed };
   }
 
+  /** Loads a batch by identifier for the finalization step. */
+  async requireBatch(
+    dataEntryBatchId: string,
+    transaction: Transaction,
+  ): Promise<DataEntryBatchModel> {
+    const batch = await DataEntryBatchModel.findByPk(dataEntryBatchId, {
+      transaction,
+      lock: transaction.LOCK.UPDATE,
+    });
+    if (!batch) throw new NotFoundError('data_entry_batch', dataEntryBatchId);
+    return batch;
+  }
+
+  /** Loads a batch by its client-supplied code, used to replay a finished request. */
+  async requireBatchByCode(
+    batchCode: string,
+    transaction: Transaction,
+  ): Promise<DataEntryBatchModel> {
+    const batch = await DataEntryBatchModel.findOne({ where: { batchCode }, transaction });
+    if (!batch) throw new NotFoundError('data_entry_batch', batchCode);
+    return batch;
+  }
+
   async resolveSeries(
     values: {
       datasetVersionId: string;

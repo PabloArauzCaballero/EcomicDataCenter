@@ -248,6 +248,147 @@ paths[f"{API}/quality/issues"] = {"get": operation("listDataIssues", "List quali
 ])}
 paths[f"{API}/quality/issues/{{id}}/transitions"] = {"post": operation("transitionDataIssue", "Apply issue workflow transition", "Quality and lineage", ["METHODOLOGY_STEWARD", "DATA_OFFICER"], "IssueTransitionInput", [id_param()])}
 
+# --- Intelligence layer -----------------------------------------------------
+CLAIM_TYPE = {"type": "string", "enum": [
+    "FACT", "INDICATOR_READING", "ESTIMATE", "OPINION", "FORECAST", "AI_INFERENCE",
+    "RISK", "OPPORTUNITY", "THREAT", "TREND", "RECOMMENDATION",
+]}
+CONFIDENCE_LEVEL = {"type": "string", "enum": ["VERY_LOW", "LOW", "MEDIUM", "HIGH", "VERY_HIGH"]}
+
+schemas["AgentRegistrationInput"] = obj({
+    "code": {"type": "string", "maxLength": 80},
+    "name": {"type": "string", "maxLength": 250},
+    "agentType": {"type": "string", "enum": [
+        "EXCHANGE_RATE", "SOVEREIGN_DEBT", "SECTOR", "SOCIOECONOMIC", "SENTIMENT",
+        "UNCERTAINTY", "CORPORATE", "POLITICAL", "SECURITIES_MARKET",
+        "FINANCIAL_SYSTEM", "EXTERNAL_SECTOR",
+    ]},
+    "provider": {"type": "string", "maxLength": 80},
+    "modelIdentifier": {"type": "string", "maxLength": 120},
+    "specialty": {"type": "string", "maxLength": 120},
+    "promptVersion": {"type": "string", "maxLength": 40},
+    "schemaVersion": {"type": "string", "maxLength": 40},
+    "organizationId": UUID,
+    "configuration": {"type": "object", "additionalProperties": True},
+}, ("code", "name", "agentType", "provider", "modelIdentifier", "promptVersion", "schemaVersion", "organizationId"))
+
+schemas["AgentRunInput"] = obj({
+    "agentCode": {"type": "string", "maxLength": 80},
+    "triggerType": {"type": "string", "enum": ["SCHEDULED", "MANUAL", "RETRY", "BACKFILL"]},
+    "attemptNo": {"type": "integer", "minimum": 1, "maximum": 50, "default": 1},
+    "promptVersion": {"type": "string", "maxLength": 40},
+    "schemaVersion": {"type": "string", "maxLength": 40},
+}, ("agentCode", "triggerType", "promptVersion", "schemaVersion"))
+
+schemas["ClaimEvidenceInput"] = obj({
+    "sourceArtifactId": UUID,
+    "excerpt": {"type": "string", "minLength": 20, "maxLength": 4000},
+    "locator": {"type": "string", "maxLength": 2000},
+    "retrievedAt": DATETIME,
+}, ("sourceArtifactId", "excerpt", "retrievedAt"))
+
+schemas["FactClaimInput"] = obj({
+    "claimType": CLAIM_TYPE,
+    "assertion": {"type": "string", "minLength": 20, "maxLength": 4000},
+    "eventDate": DATE,
+    "publishedAt": DATETIME,
+    "timeHorizon": {"type": "string", "enum": ["IMMEDIATE", "SHORT_TERM", "MEDIUM_TERM", "LONG_TERM", "STRUCTURAL"]},
+    "impactLevel": {"type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW", "NEGLIGIBLE"]},
+    "probability": {"type": "number", "minimum": 0, "maximum": 1},
+    "confidenceLevel": CONFIDENCE_LEVEL,
+    "confidenceScore": {"type": "number", "minimum": 0, "maximum": 1},
+    "statisticalDomainId": UUID,
+    "geographicUnitId": UUID,
+    "entityMentions": array({"type": "string", "maxLength": 250}, 25),
+    "evidence": array(ref("ClaimEvidenceInput"), 10),
+}, ("claimType", "assertion", "confidenceLevel", "evidence"))
+
+schemas["AgentSubmissionInput"] = obj({
+    "submissionCode": {"type": "string", "maxLength": 80},
+    "items": array(obj({
+        "rawPayload": {"type": "object", "additionalProperties": True},
+        "claim": ref("FactClaimInput"),
+    }, ("rawPayload", "claim")), 200),
+}, ("submissionCode", "items"))
+
+schemas["AgentRunCompletionInput"] = obj({
+    "status": {"type": "string", "enum": ["SUCCEEDED", "PARTIAL", "FAILED", "CANCELLED"]},
+    "sourcesConsulted": {"type": "integer", "minimum": 0},
+    "warningCount": {"type": "integer", "minimum": 0},
+    "estimatedCostUsd": {"type": "number", "minimum": 0},
+    "errorSummary": {"type": "string", "maxLength": 2000},
+    "checkpoint": {"type": "object", "additionalProperties": True},
+}, ("status",))
+
+schemas["DailyAnalysisInput"] = obj({
+    "agent": ref("AgentRunInput"),
+    "submission": ref("AgentSubmissionInput"),
+    "completion": ref("AgentRunCompletionInput"),
+}, ("agent", "submission", "completion"))
+
+schemas["ReviewDecisionInput"] = obj({
+    "decision": {"type": "string", "enum": ["APPROVED", "REJECTED", "ESCALATED"]},
+    "rationale": {"type": "string", "minLength": 10, "maxLength": 2000},
+}, ("decision", "rationale"))
+
+schemas["ContradictionResolutionInput"] = obj({
+    "resolution": {"type": "string", "enum": ["RESOLVED", "ACCEPTED_DIVERGENCE", "DISMISSED"]},
+    "rationale": {"type": "string", "minLength": 10, "maxLength": 2000},
+    "selectedReference": {"type": "string", "maxLength": 80},
+}, ("resolution", "rationale"))
+
+schemas["ClaimQueryInput"] = obj({
+    "claimType": CLAIM_TYPE,
+    "statisticalDomainId": UUID,
+    "geographicUnitId": UUID,
+    "economicEntityId": UUID,
+    "status": {"type": "string", "enum": ["PUBLISHED", "PENDING_REVIEW", "REJECTED", "SUPERSEDED"], "default": "PUBLISHED"},
+    "page": {"type": "integer", "minimum": 1, "default": 1},
+    "pageSize": {"type": "integer", "minimum": 1, "maximum": 200, "default": 50},
+})
+
+schemas["SweepAbandonedInput"] = obj({
+    "olderThanMinutes": {"type": "integer", "minimum": 5, "maximum": 10080, "default": 60},
+})
+
+paths[f"{API}/intelligence/agents"] = {"post": operation(
+    "registerAgent", "Register an autonomous collector", "Agent intelligence",
+    ["METHODOLOGY_STEWARD"], "AgentRegistrationInput")}
+paths[f"{API}/intelligence/agent-runs"] = {"post": operation(
+    "openAgentRun", "Open an agent execution", "Agent intelligence",
+    ["INGESTION_AGENT"], "AgentRunInput")}
+paths[f"{API}/intelligence/agent-runs/{{id}}"] = {"get": operation(
+    "getAgentRun", "Get agent execution status", "Agent intelligence",
+    ["INGESTION_AGENT", "ANALYST", "METHODOLOGY_STEWARD"], parameters=[id_param()])}
+paths[f"{API}/intelligence/agent-runs/{{id}}/submissions"] = {"post": operation(
+    "submitAgentObservations", "Submit up to 200 collected items", "Agent intelligence",
+    ["INGESTION_AGENT"], "AgentSubmissionInput", [id_param()])}
+paths[f"{API}/intelligence/agent-runs/{{id}}/completion"] = {"post": operation(
+    "completeAgentRun", "Close an agent execution", "Agent intelligence",
+    ["INGESTION_AGENT"], "AgentRunCompletionInput", [id_param()])}
+paths[f"{API}/intelligence/daily-analysis"] = {"post": operation(
+    "submitDailyAnalysis", "Open a run, submit the daily claims and close the run in one call",
+    "Agent intelligence", ["INGESTION_AGENT"], "DailyAnalysisInput")}
+paths[f"{API}/intelligence/dead-letters"] = {"get": operation(
+    "listDeadLetters", "List items that exhausted their reprocessing attempts", "Agent intelligence",
+    ["METHODOLOGY_STEWARD", "DATA_REVIEWER"],
+    parameters=[{"name": "agentRunId", "in": "query", "schema": UUID}])}
+paths[f"{API}/intelligence/raw-observations/{{id}}/reprocessing"] = {"post": operation(
+    "reprocessRawObservation", "Requeue a rejected or quarantined item", "Agent intelligence",
+    ["METHODOLOGY_STEWARD", "DATA_REVIEWER"], parameters=[id_param("rawObservationId")])}
+paths[f"{API}/intelligence/raw-observations/sweep"] = {"post": operation(
+    "sweepAbandonedRawObservations", "Dead-letter items abandoned in flight after a restart",
+    "Agent intelligence", ["METHODOLOGY_STEWARD"], "SweepAbandonedInput")}
+paths[f"{API}/intelligence/claims/search"] = {"post": operation(
+    "searchClaims", "Search claims with evidence", "Claim review",
+    ["ANALYST", "METHODOLOGY_STEWARD", "DATA_REVIEWER"], "ClaimQueryInput")}
+paths[f"{API}/intelligence/review-tasks/{{id}}/decisions"] = {"post": operation(
+    "decideReviewTask", "Approve or reject a pending claim", "Claim review",
+    ["DATA_REVIEWER", "METHODOLOGY_STEWARD"], "ReviewDecisionInput", [id_param()])}
+paths[f"{API}/intelligence/contradictions/{{id}}/resolutions"] = {"post": operation(
+    "resolveContradiction", "Close a contradiction with a justification", "Claim review",
+    ["DATA_REVIEWER", "METHODOLOGY_STEWARD"], "ContradictionResolutionInput", [id_param()])}
+
 spec = {
     "openapi": "3.0.3",
     "info": {
@@ -256,7 +397,7 @@ spec = {
         "description": "Core estadístico para procedencia, metadatos, ingestión, revisión, consulta histórica, calidad y linaje.",
     },
     "servers": [{"url": "http://localhost:8080", "description": "Local via NGINX"}],
-    "tags": [{"name": name} for name in ["Operations", "Provenance", "Metadata governance", "Data ingestion", "Data query", "Quality and lineage"]],
+    "tags": [{"name": name} for name in ["Operations", "Provenance", "Metadata governance", "Data ingestion", "Data query", "Quality and lineage", "Agent intelligence", "Claim review"]],
     "paths": paths,
     "components": {
         "securitySchemes": {"bearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT"}},
@@ -266,5 +407,6 @@ spec = {
 
 output = ROOT / "docs/endpoints/openapi.yaml"
 output.parent.mkdir(parents=True, exist_ok=True)
-output.write_text(yaml.safe_dump(spec, sort_keys=False, allow_unicode=True), encoding="utf-8")
+with open(output, 'w', encoding='utf-8', newline=chr(10)) as handle:
+    handle.write(yaml.safe_dump(spec, sort_keys=False, allow_unicode=True))
 print(output)

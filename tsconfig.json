@@ -30,10 +30,12 @@
     "src/modules/governance/**/*.ts",
     "src/modules/health/**/*.ts",
     "src/modules/ingestion/**/*.ts",
+    "src/modules/intelligence/**/*.ts",
     "src/modules/provenance/**/*.ts",
     "src/modules/quality/**/*.ts",
     "src/modules/query/**/*.ts",
-    "scripts/**/*.ts"
+    "scripts/**/*.ts",
+    "test/**/*.ts"
   ],
   "exclude": ["dist", "node_modules", "src/database/seeders"]
 }

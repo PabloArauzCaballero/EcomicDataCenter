@@ -1,5 +1,11 @@
+import type { DisclosureScope } from '../../../common/auth/disclosure.policy';
 import { buildDataQueryPlan } from '../data-query.plan';
 import { dataQuerySchema } from '../data-query.schemas';
+
+const CUSTODIAN: DisclosureScope = { unrestricted: true, organizationId: null };
+const ORGANIZATION_ID = '40000000-0000-4000-8000-000000000001';
+const SCOPED: DisclosureScope = { unrestricted: false, organizationId: ORGANIZATION_ID };
+const ANONYMOUS: DisclosureScope = { unrestricted: false, organizationId: null };
 
 const DATASET_VERSION_ID = '40000000-0000-4000-8000-000000000015';
 const DIMENSION_ID = '40000000-0000-4000-8000-000000000012';
@@ -14,7 +20,7 @@ describe('buildDataQueryPlan', () => {
       pageSize: 25,
       sortDirection: 'desc',
     });
-    const plan = buildDataQueryPlan(input);
+    const plan = buildDataQueryPlan(input, CUSTODIAN);
     expect(plan.direction).toBe('DESC');
     expect(plan.replacements).toMatchObject({
       limit: 25,
@@ -29,8 +35,38 @@ describe('buildDataQueryPlan', () => {
       datasetVersionId: DATASET_VERSION_ID,
       vintageDate: '2026-06-30',
     });
-    const plan = buildDataQueryPlan(input);
+    const plan = buildDataQueryPlan(input, CUSTODIAN);
     expect(plan.revisionPredicate).toContain('valid_from <= :vintageCutoff');
     expect(plan.replacements.vintageCutoff).toBe('2026-06-30T23:59:59.999Z');
+  });
+
+  it('adds no disclosure predicate for a national custodian', () => {
+    const input = dataQuerySchema.parse({ datasetVersionId: DATASET_VERSION_ID });
+    const plan = buildDataQueryPlan(input, CUSTODIAN);
+    expect(plan.predicates.join(' ')).not.toContain('confidentiality_status');
+  });
+
+  it('lets an institution read public records or its own restricted records', () => {
+    const input = dataQuerySchema.parse({ datasetVersionId: DATASET_VERSION_ID });
+    const plan = buildDataQueryPlan(input, SCOPED);
+    const predicates = plan.predicates.join(' ');
+    expect(predicates).toContain('r.confidentiality_status IN (:publicConfidentiality)');
+    expect(predicates).toContain('dataset_owner.producer_organization_id = :scopeOrganizationId');
+    expect(plan.replacements.scopeOrganizationId).toBe(ORGANIZATION_ID);
+  });
+
+  it('restricts an actor without an organization to public records only', () => {
+    const input = dataQuerySchema.parse({ datasetVersionId: DATASET_VERSION_ID });
+    const plan = buildDataQueryPlan(input, ANONYMOUS);
+    const predicates = plan.predicates.join(' ');
+    expect(predicates).toContain('r.confidentiality_status IN (:publicConfidentiality)');
+    expect(predicates).not.toContain('scopeOrganizationId');
+  });
+
+  it('builds the revision predicate against the explicit candidate alias', () => {
+    const input = dataQuerySchema.parse({ datasetVersionId: DATASET_VERSION_ID });
+    const plan = buildDataQueryPlan(input, CUSTODIAN);
+    expect(plan.revisionPredicate).toContain('candidate.status');
+    expect(plan.revisionPredicate).not.toContain('r.');
   });
 });

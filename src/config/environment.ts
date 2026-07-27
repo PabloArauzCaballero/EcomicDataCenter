@@ -47,6 +47,8 @@ const environmentSchema = z
     AUTH_ORGANIZATION_CLAIM: z.string().min(1).default('organization_id'),
     SWAGGER_ENABLED: booleanFromString,
     METRICS_ENABLED: booleanFromString,
+    METRICS_SCRAPE_TOKEN: z.string().min(24).optional(),
+    RATE_LIMIT_AGENT_MAX: z.coerce.number().int().min(1).max(100_000).default(1200),
     BACKUP_ENABLED: booleanFromString,
     BACKUP_STRATEGY: z.enum(['pg_dump', 'managed_pitr']).default('pg_dump'),
     BACKUP_RETENTION_DAYS: z.coerce.number().int().min(1).max(3650).default(30),
@@ -76,6 +78,17 @@ const environmentSchema = z
           context.addIssue({ code: 'custom', path: [key], message: `${key} is required` });
         }
       }
+    }
+    if (
+      environment.NODE_ENV === 'production' &&
+      environment.METRICS_ENABLED &&
+      !environment.METRICS_SCRAPE_TOKEN
+    ) {
+      context.addIssue({
+        code: 'custom',
+        path: ['METRICS_SCRAPE_TOKEN'],
+        message: 'A scrape token is required when metrics are enabled in production',
+      });
     }
     if (environment.NODE_ENV === 'production' && !environment.DATABASE_MIGRATOR_URL) {
       context.addIssue({

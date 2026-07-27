@@ -5,6 +5,13 @@ import json
 import re
 from pathlib import Path
 
+
+def write_utf8(path, content):
+    """Writes UTF-8 with LF endings so generated files do not depend on the OS."""
+    with open(path, "w", encoding="utf-8", newline=chr(10)) as handle:
+        handle.write(content)
+
+
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / 'docs/model/model-catalog.json'
 OUT = ROOT / 'src/database/migrations'
@@ -88,6 +95,31 @@ FK_TARGETS = {
     'quality_lineage.indicator_relation.target_indicator_version_id': ('statistics', 'indicator_version', 'indicator_version_id'),
     'quality_lineage.series_break.series_id': ('statistics', 'series', 'series_id'),
     'quality_lineage.series_break.methodology_version_id': ('metadata', 'methodology_version', 'methodology_version_id'),
+    # Intelligence layer. Created by forward migrations 0017-0028, not by the
+    # baseline generator, but declared here so the drift gate stays exhaustive.
+    'intelligence.ai_agent.organization_id': ('provenance', 'organization', 'organization_id'),
+    'intelligence.agent_run.ai_agent_id': ('intelligence', 'ai_agent', 'ai_agent_id'),
+    'intelligence.raw_observation.agent_run_id': ('intelligence', 'agent_run', 'agent_run_id'),
+    'intelligence.raw_observation.source_artifact_id': ('provenance', 'source_artifact', 'source_artifact_id'),
+    'intelligence.economic_entity.parent_entity_id': ('intelligence', 'economic_entity', 'economic_entity_id'),
+    'intelligence.economic_entity.classification_item_id': ('semantic', 'classification_item', 'classification_item_id'),
+    'intelligence.economic_entity.geographic_unit_id': ('semantic', 'geographic_unit', 'geographic_unit_id'),
+    'intelligence.entity_alias.economic_entity_id': ('intelligence', 'economic_entity', 'economic_entity_id'),
+    'intelligence.fact_claim.agent_run_id': ('intelligence', 'agent_run', 'agent_run_id'),
+    'intelligence.fact_claim.raw_observation_id': ('intelligence', 'raw_observation', 'raw_observation_id'),
+    'intelligence.fact_claim.statistical_domain_id': ('semantic', 'statistical_domain', 'statistical_domain_id'),
+    'intelligence.fact_claim.geographic_unit_id': ('semantic', 'geographic_unit', 'geographic_unit_id'),
+    'intelligence.fact_claim.economic_entity_id': ('intelligence', 'economic_entity', 'economic_entity_id'),
+    'intelligence.fact_claim.superseded_by_claim_id': ('intelligence', 'fact_claim', 'fact_claim_id'),
+    'intelligence.claim_evidence.fact_claim_id': ('intelligence', 'fact_claim', 'fact_claim_id'),
+    'intelligence.claim_evidence.source_artifact_id': ('provenance', 'source_artifact', 'source_artifact_id'),
+    'intelligence.entity_mention.fact_claim_id': ('intelligence', 'fact_claim', 'fact_claim_id'),
+    'intelligence.entity_mention.economic_entity_id': ('intelligence', 'economic_entity', 'economic_entity_id'),
+    'intelligence.data_contradiction.resolved_by_review_task_id': ('intelligence', 'review_task', 'review_task_id'),
+    'intelligence.document_cluster.representative_claim_id': ('intelligence', 'fact_claim', 'fact_claim_id'),
+    'intelligence.claim_cluster_member.document_cluster_id': ('intelligence', 'document_cluster', 'document_cluster_id'),
+    'intelligence.claim_cluster_member.fact_claim_id': ('intelligence', 'fact_claim', 'fact_claim_id'),
+    'audit.audit_log.actor_organization_id': ('provenance', 'organization', 'organization_id'),
 }
 
 
@@ -195,6 +227,11 @@ def render_foreign_keys(data: dict) -> str:
     drops: list[str] = []
     for entity in data['entities']:
         schema, table = entity['package'], entity['table']
+        # The baseline migration 0007 only wires the schemas it created. Later
+        # schemas ship their own forward migrations so an applied history is
+        # never rewritten; FK_TARGETS stays complete for the drift gate.
+        if schema not in SCHEMAS:
+            continue
         for field in entity['fields']:
             if not field['foreign_key']:
                 continue
@@ -228,8 +265,7 @@ export async function down({{ context }}: MigrationContext): Promise<void> {{
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     data = json.loads(CATALOG.read_text(encoding='utf-8'))
-    (OUT / '0001-create-schemas.ts').write_text(
-        "import type { MigrationContext } from '../migration.types';\n\n"
+    write_utf8(OUT / '0001-create-schemas.ts', "import type { MigrationContext } from '../migration.types';\n\n"
         "export async function up({ context }: MigrationContext): Promise<void> {\n"
         "  await context.sequelize.query(`\n" + '\n'.join(f'CREATE SCHEMA IF NOT EXISTS {s};' for s in SCHEMAS) + "\n  `);\n}\n\n"
         "export async function down({ context }: MigrationContext): Promise<void> {\n"
@@ -238,8 +274,8 @@ def main() -> None:
     )
     for index, schema in enumerate(SCHEMAS[:5], start=2):
         entities = [e for e in data['entities'] if e['package'] == schema]
-        (OUT / f'{index:04d}-create-{schema}-tables.ts').write_text(render_schema_migration(schema, entities), encoding='utf-8')
-    (OUT / '0007-add-foreign-keys.ts').write_text(render_foreign_keys(data), encoding='utf-8')
+        (OUT / f'{index:04d}-create-{schema}-tables.ts').write_text(render_schema_migration(schema, entities))
+    write_utf8(OUT / '0007-add-foreign-keys.ts', render_foreign_keys(data))
 
 
 if __name__ == '__main__':

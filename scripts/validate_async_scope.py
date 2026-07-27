@@ -9,7 +9,7 @@ def fail(message: str) -> None:
     print(f'FAIL: {message}')
     sys.exit(1)
 
-package = json.loads((ROOT / 'package.json').read_text())
+package = json.loads((ROOT / 'package.json').read_text(encoding='utf-8'))
 dependencies = {**package.get('dependencies', {}), **package.get('devDependencies', {})}
 for forbidden in ['bullmq', 'bull', 'pg-boss', 'amqplib', 'kafkajs']:
     if forbidden in dependencies:
@@ -19,8 +19,8 @@ workers = [path for path in (ROOT / 'src').rglob('*') if path.is_file() and 'wor
 if workers:
     fail('worker files exist without an approved asynchronous contract')
 
-adr = (ROOT / 'docs/decisions/0003-no-queue-initially.md').read_text()
-assessment = (ROOT / 'docs/architecture/async-processing-assessment.md').read_text()
+adr = (ROOT / 'docs/decisions/0003-no-queue-initially.md').read_text(encoding='utf-8')
+assessment = (ROOT / 'docs/architecture/async-processing-assessment.md').read_text(encoding='utf-8')
 required = ['Estado: aceptado', 'lote máximo de 500', 'proceso persistente separado del API']
 combined = adr + '\n' + assessment
 missing = [token for token in required if token not in combined]

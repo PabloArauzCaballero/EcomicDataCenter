@@ -1,5 +1,6 @@
 import { Global, Inject, Module, OnApplicationShutdown } from '@nestjs/common';
 import type { Sequelize } from 'sequelize-typescript';
+import { DatabasePoolMetricsCollector } from '../common/observability/database-pool.collector';
 import { ReadQueryExecutor } from '../common/persistence/read-query.executor';
 import { ENVIRONMENT } from '../config/configuration.module';
 import type { Environment } from '../config/environment';
@@ -34,6 +35,7 @@ class DatabaseLifecycle implements OnApplicationShutdown {
       useFactory: (connections: DatabaseConnections): Sequelize => connections.reader,
     },
     DatabaseLifecycle,
+    DatabasePoolMetricsCollector,
     ReadQueryExecutor,
   ],
   exports: [WRITER_DATABASE, READER_DATABASE, ReadQueryExecutor],
