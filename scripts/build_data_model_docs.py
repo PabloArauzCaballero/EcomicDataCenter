@@ -2,6 +2,13 @@ from pathlib import Path
 import json
 import re
 
+
+def write_utf8(path, content):
+    """Writes UTF-8 with LF endings so generated files do not depend on the OS."""
+    with open(path, "w", encoding="utf-8", newline=chr(10)) as handle:
+        handle.write(content)
+
+
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = json.loads((ROOT / 'docs/model/model-catalog.json').read_text(encoding='utf-8'))
 ENTITIES = CATALOG['entities']
@@ -43,7 +50,7 @@ def build_schema_diagrams():
         content.append('')
         content.extend(relations)
         content.append('@enduml')
-        (ROOT / f'docs/data-model/schemas/{package}.puml').write_text('\n'.join(content) + '\n', encoding='utf-8')
+        write_utf8(ROOT / f'docs/data-model/schemas/{package}.puml', '\n'.join(content) + '\n')
 
     overview = ['@startuml', 'skinparam componentStyle rectangle', 'skinparam shadowing false', 'title Modelo por schemas', '']
     for package, description in DESCRIPTIONS.items():
@@ -56,8 +63,8 @@ def build_schema_diagrams():
         'statistics_tables --> quality_lineage_tables : evaluación y linaje',
         '@enduml',
     ])
-    (ROOT / 'docs/data-model/domain-model-by-schema.puml').write_text('\n'.join(overview) + '\n', encoding='utf-8')
-    (ROOT / 'docs/data-model/relational-model-by-schema.puml').write_text(source, encoding='utf-8')
+    write_utf8(ROOT / 'docs/data-model/domain-model-by-schema.puml', '\n'.join(overview) + '\n')
+    write_utf8(ROOT / 'docs/data-model/relational-model-by-schema.puml', source)
     view = '''@startuml
 skinparam shadowing false
 title Vistas y proyecciones
@@ -77,7 +84,7 @@ statistics.observation_revision --> current_view
 statistics.series --> current_view
 @enduml
 '''
-    (ROOT / 'docs/data-model/views-and-projections.puml').write_text(view, encoding='utf-8')
+    write_utf8(ROOT / 'docs/data-model/views-and-projections.puml', view)
 
 def build_tex():
     lines = [r'''\documentclass[11pt]{article}
@@ -125,7 +132,7 @@ La implementación usa PostgreSQL con schemas separados, claves foráneas, restr
 Una cifra sin fuente, metodología, versión y fecha de disponibilidad no es un dato reproducible; es solo un número. El modelo conserva esas cuatro piezas como parte del núcleo.
 \end{document}
 '''])
-    (ROOT / 'docs/data-model/data-model.tex').write_text('\n'.join(lines), encoding='utf-8')
+    write_utf8(ROOT / 'docs/data-model/data-model.tex', '\n'.join(lines))
 
 if __name__ == '__main__':
     build_schema_diagrams()

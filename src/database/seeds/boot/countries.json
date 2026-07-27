@@ -1,0 +1,292 @@
+[
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000001",
+    "parentGeographicUnitId": null,
+    "officialCode": "AR",
+    "name": "Argentina",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000002",
+    "parentGeographicUnitId": null,
+    "officialCode": "BR",
+    "name": "Brasil",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000003",
+    "parentGeographicUnitId": null,
+    "officialCode": "CL",
+    "name": "Chile",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000004",
+    "parentGeographicUnitId": null,
+    "officialCode": "PE",
+    "name": "Perú",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000005",
+    "parentGeographicUnitId": null,
+    "officialCode": "PY",
+    "name": "Paraguay",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000006",
+    "parentGeographicUnitId": null,
+    "officialCode": "UY",
+    "name": "Uruguay",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000007",
+    "parentGeographicUnitId": null,
+    "officialCode": "CO",
+    "name": "Colombia",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000008",
+    "parentGeographicUnitId": null,
+    "officialCode": "EC",
+    "name": "Ecuador",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000009",
+    "parentGeographicUnitId": null,
+    "officialCode": "VE",
+    "name": "Venezuela",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000010",
+    "parentGeographicUnitId": null,
+    "officialCode": "MX",
+    "name": "México",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000011",
+    "parentGeographicUnitId": null,
+    "officialCode": "US",
+    "name": "Estados Unidos",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000012",
+    "parentGeographicUnitId": null,
+    "officialCode": "CA",
+    "name": "Canadá",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000013",
+    "parentGeographicUnitId": null,
+    "officialCode": "CN",
+    "name": "China",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000014",
+    "parentGeographicUnitId": null,
+    "officialCode": "JP",
+    "name": "Japón",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000015",
+    "parentGeographicUnitId": null,
+    "officialCode": "KR",
+    "name": "Corea del Sur",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000016",
+    "parentGeographicUnitId": null,
+    "officialCode": "IN",
+    "name": "India",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000017",
+    "parentGeographicUnitId": null,
+    "officialCode": "ES",
+    "name": "España",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000018",
+    "parentGeographicUnitId": null,
+    "officialCode": "DE",
+    "name": "Alemania",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000019",
+    "parentGeographicUnitId": null,
+    "officialCode": "FR",
+    "name": "Francia",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000020",
+    "parentGeographicUnitId": null,
+    "officialCode": "IT",
+    "name": "Italia",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000021",
+    "parentGeographicUnitId": null,
+    "officialCode": "GB",
+    "name": "Reino Unido",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000022",
+    "parentGeographicUnitId": null,
+    "officialCode": "NL",
+    "name": "Países Bajos",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000023",
+    "parentGeographicUnitId": null,
+    "officialCode": "BE",
+    "name": "Bélgica",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000024",
+    "parentGeographicUnitId": null,
+    "officialCode": "CH",
+    "name": "Suiza",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000025",
+    "parentGeographicUnitId": null,
+    "officialCode": "RU",
+    "name": "Rusia",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000026",
+    "parentGeographicUnitId": null,
+    "officialCode": "TR",
+    "name": "Turquía",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000027",
+    "parentGeographicUnitId": null,
+    "officialCode": "AE",
+    "name": "Emiratos Árabes Unidos",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000028",
+    "parentGeographicUnitId": null,
+    "officialCode": "ZA",
+    "name": "Sudáfrica",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "80000000-0000-4000-8000-000000000029",
+    "parentGeographicUnitId": null,
+    "officialCode": "AU",
+    "name": "Australia",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1900-01-01",
+    "validTo": null,
+    "geometryReference": null
+  }
+]

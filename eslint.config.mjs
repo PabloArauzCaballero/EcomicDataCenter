@@ -27,7 +27,14 @@ const quarantinedPaths = [
   'src/modules/users/**',
 ];
 
-const separatelyValidatedJavaScript = ['eslint.config.mjs', 'jest.config.cjs', 'scripts/*.cjs'];
+// Operational tooling that ships outside the application graph. It is checked
+// by `yarn quality:syntax` instead of by the type-aware TypeScript rules.
+const separatelyValidatedJavaScript = [
+  'eslint.config.mjs',
+  'jest.config.cjs',
+  'scripts/*.cjs',
+  'scripts/*.mjs',
+];
 
 export default tseslint.config(
   {

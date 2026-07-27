@@ -1,0 +1,102 @@
+[
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "parentGeographicUnitId": null,
+    "officialCode": "BO",
+    "name": "Estado Plurinacional de Bolivia",
+    "geographicLevel": "COUNTRY",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000002",
+    "parentGeographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "officialCode": "01",
+    "name": "Chuquisaca",
+    "geographicLevel": "DEPARTMENT",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000003",
+    "parentGeographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "officialCode": "02",
+    "name": "La Paz",
+    "geographicLevel": "DEPARTMENT",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000004",
+    "parentGeographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "officialCode": "03",
+    "name": "Cochabamba",
+    "geographicLevel": "DEPARTMENT",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000005",
+    "parentGeographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "officialCode": "04",
+    "name": "Oruro",
+    "geographicLevel": "DEPARTMENT",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000006",
+    "parentGeographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "officialCode": "05",
+    "name": "Potosí",
+    "geographicLevel": "DEPARTMENT",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000007",
+    "parentGeographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "officialCode": "06",
+    "name": "Tarija",
+    "geographicLevel": "DEPARTMENT",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000008",
+    "parentGeographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "officialCode": "07",
+    "name": "Santa Cruz",
+    "geographicLevel": "DEPARTMENT",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000009",
+    "parentGeographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "officialCode": "08",
+    "name": "Beni",
+    "geographicLevel": "DEPARTMENT",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  },
+  {
+    "geographicUnitId": "50000000-0000-4000-8000-000000000010",
+    "parentGeographicUnitId": "50000000-0000-4000-8000-000000000001",
+    "officialCode": "09",
+    "name": "Pando",
+    "geographicLevel": "DEPARTMENT",
+    "validFrom": "1826-08-06",
+    "validTo": null,
+    "geometryReference": null
+  }
+]

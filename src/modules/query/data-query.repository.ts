@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { QueryTypes } from 'sequelize';
 import { ReadQueryExecutor } from '../../common/persistence/read-query.executor';
+import type { DisclosureScope } from '../../common/auth/disclosure.policy';
 import { buildDataQueryPlan } from './data-query.plan';
 import type { DataQueryInput } from './data-query.schemas';
 
@@ -33,8 +34,11 @@ export interface QueryRow {
 export class DataQueryRepository {
   constructor(private readonly executor: ReadQueryExecutor) {}
 
-  async search(input: DataQueryInput): Promise<{ total: number; rows: readonly QueryRow[] }> {
-    const plan = buildDataQueryPlan(input);
+  async search(
+    input: DataQueryInput,
+    scope: DisclosureScope,
+  ): Promise<{ total: number; rows: readonly QueryRow[] }> {
+    const plan = buildDataQueryPlan(input, scope);
     const rows = await this.executor.run('observations.search', ({ database, transaction }) =>
       database.query<QueryRow>(
         `
@@ -63,16 +67,19 @@ WITH selected AS (
     SELECT candidate.*
     FROM statistics.observation_revision candidate
     WHERE candidate.observation_id = o.observation_id
-      AND ${plan.revisionPredicate.replaceAll('r.', 'candidate.')}
+      AND ${plan.revisionPredicate}
     ORDER BY candidate.valid_from DESC, candidate.revision_number DESC
     LIMIT 1
   ) r ON true
   JOIN provenance.source_artifact artifact ON artifact.source_artifact_id = r.source_artifact_id
   JOIN provenance.source source ON source.source_id = artifact.source_id
   JOIN provenance.organization organization ON organization.organization_id = source.organization_id
+  JOIN metadata.dataset_version dataset_version
+    ON dataset_version.dataset_version_id = s.dataset_version_id
+  JOIN metadata.dataset dataset_owner ON dataset_owner.dataset_id = dataset_version.dataset_id
   WHERE ${plan.predicates.join('\n    AND ')}
 ), paged AS (
-  SELECT selected.*, COUNT(*) OVER() AS total_count
+  SELECT selected.*, ${plan.keyset ? '0::bigint' : 'COUNT(*) OVER()'} AS total_count
   FROM selected
   ORDER BY period_start ${plan.direction}, series_key ASC
   LIMIT :limit OFFSET :offset
@@ -124,18 +131,18 @@ SELECT
       ON definition.dimension_definition_id = value.dimension_definition_id
     WHERE value.series_id = paged.series_id
   ), '[]'::jsonb) AS dimensions,
-  jsonb_build_object(
-    'assessmentCount', (
-      SELECT COUNT(*) FROM quality_lineage.quality_assessment assessment
-      WHERE assessment.target_entity_type = 'OBSERVATION_REVISION'
-        AND assessment.target_entity_id = paged.observation_revision_id::text
-    ),
-    'failedAssessmentCount', (
-      SELECT COUNT(*) FROM quality_lineage.quality_assessment assessment
-      WHERE assessment.target_entity_type = 'OBSERVATION_REVISION'
-        AND assessment.target_entity_id = paged.observation_revision_id::text
-        AND assessment.status = 'FAIL'
-    ),
+  (
+    -- One scan of quality_assessment yields both counts via FILTER instead of
+    -- scanning the same target rows twice; merged with the open-issue count so
+    -- the emitted shape stays { assessmentCount, failedAssessmentCount, openIssueCount }.
+    SELECT jsonb_build_object(
+      'assessmentCount', COUNT(*),
+      'failedAssessmentCount', COUNT(*) FILTER (WHERE assessment.status = 'FAIL')
+    )
+    FROM quality_lineage.quality_assessment assessment
+    WHERE assessment.target_entity_type = 'OBSERVATION_REVISION'
+      AND assessment.target_entity_id = paged.observation_revision_id::text
+  ) || jsonb_build_object(
     'openIssueCount', (
       SELECT COUNT(*) FROM quality_lineage.data_issue issue
       WHERE issue.target_entity_type = 'OBSERVATION_REVISION'

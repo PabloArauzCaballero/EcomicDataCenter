@@ -34,7 +34,48 @@ describe('parseActorClaims', () => {
   it('rejects a data officer without an organization', () => {
     expect(() =>
       parseActorClaims({ sub: 'subject-3', roles: ['DATA_OFFICER'] }, environment),
-    ).toThrow('Data officers require an organization claim');
+    ).toThrow('This role requires an organization claim');
+  });
+
+  it('rejects an ingestion agent without an organization', () => {
+    expect(() =>
+      parseActorClaims({ sub: 'agent-1', roles: ['INGESTION_AGENT'] }, environment),
+    ).toThrow('This role requires an organization claim');
+  });
+
+  it('accepts an ingestion agent scoped to one organization', () => {
+    const actor = parseActorClaims(
+      { sub: 'agent-2', roles: ['INGESTION_AGENT'], organization_id: organizationId },
+      environment,
+    );
+    expect(actor.roles).toEqual([ACTOR_ROLES.INGESTION_AGENT]);
+    expect(actor.organizationId).toBe(organizationId);
+  });
+
+  it('refuses a token that mixes an agent identity with a human role', () => {
+    expect(() =>
+      parseActorClaims(
+        {
+          sub: 'agent-3',
+          roles: ['INGESTION_AGENT', 'METHODOLOGY_STEWARD'],
+          organization_id: organizationId,
+        },
+        environment,
+      ),
+    ).toThrow('An ingestion agent cannot hold additional roles');
+  });
+
+  it('refuses an agent that also claims the reviewer role it would be approved by', () => {
+    expect(() =>
+      parseActorClaims(
+        {
+          sub: 'agent-4',
+          roles: ['INGESTION_AGENT', 'DATA_REVIEWER'],
+          organization_id: organizationId,
+        },
+        environment,
+      ),
+    ).toThrow('An ingestion agent cannot hold additional roles');
   });
 
   it('rejects malformed organization identifiers', () => {

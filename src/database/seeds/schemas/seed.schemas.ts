@@ -1,52 +1,7 @@
 import { z } from 'zod';
+import { code, date, uuid } from './seed.primitives';
 
-const uuid = z.string().uuid();
-const date = z.iso.date();
-const code = (maximum: number) => z.string().trim().min(1).max(maximum);
-const nullableText = (maximum: number) => z.string().trim().min(1).max(maximum).nullable();
-
-export const frequencySeedSchema = z
-  .array(
-    z
-      .object({
-        frequencyId: uuid,
-        code: code(10),
-        name: code(80),
-        periodsPerYear: z.number().int().min(1).max(366).nullable(),
-        isoDuration: nullableText(40),
-      })
-      .strict(),
-  )
-  .min(1);
-
-export const qualityDimensionSeedSchema = z
-  .array(
-    z
-      .object({
-        qualityDimensionId: uuid,
-        code: code(50),
-        name: code(180),
-        description: z.string().trim().min(1).max(5_000).nullable(),
-      })
-      .strict(),
-  )
-  .min(1);
-
-export const unitSeedSchema = z
-  .array(
-    z
-      .object({
-        unitMeasureId: uuid,
-        baseUnitMeasureId: uuid.nullable(),
-        code: code(50),
-        name: code(180),
-        symbol: nullableText(30),
-        multiplierPower10: z.number().int().min(-18).max(18),
-        valueKind: z.enum(['CURRENCY', 'RATE', 'INDEX', 'COUNT', 'QUANTITY', 'DURATION']),
-      })
-      .strict(),
-  )
-  .min(1);
+export * from './boot-seed.schemas';
 
 const organizationSchema = z
   .object({

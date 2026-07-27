@@ -1,5 +1,5 @@
-import { createHash } from 'node:crypto';
 import { ConflictError, InfrastructureError } from '../../common/errors/application.error';
+import { canonicalHash } from '../../common/hashing/canonical-hash';
 import type { DataEntryBatchModel } from '../../database/models';
 import type {
   ImportObservationBatchInput,
@@ -12,21 +12,7 @@ import {
   type RegistrationResult,
 } from './ingestion-results';
 
-function canonicalize(value: unknown): unknown {
-  if (Array.isArray(value)) return value.map(canonicalize);
-  if (!value || typeof value !== 'object') return value;
-  return Object.fromEntries(
-    Object.entries(value as Record<string, unknown>)
-      .sort(([left], [right]) => left.localeCompare(right))
-      .map(([key, entry]) => [key, canonicalize(entry)]),
-  );
-}
-
-function fingerprint(value: unknown): string {
-  return createHash('sha256')
-    .update(JSON.stringify(canonicalize(value)))
-    .digest('hex');
-}
+const fingerprint = canonicalHash;
 
 /**
  * Hashes only the validated business payload, excluding the idempotency key.
@@ -54,7 +40,14 @@ export function batchRequestFingerprint(input: ImportObservationBatchInput): str
   });
 }
 
-function assertFingerprint(batch: DataEntryBatchModel, expected: string): void {
+/**
+ * Rejects reuse of a batchCode with a different payload.
+ *
+ * Exported so the claim step can enforce it on an existing-but-unfinished batch,
+ * closing the in-flight window where a mismatched payload would otherwise be
+ * processed and attributed under the original batch's provenance.
+ */
+export function assertBatchFingerprint(batch: DataEntryBatchModel, expected: string): void {
   if (batch.requestFingerprint !== expected) {
     throw new ConflictError('batchCode was already used with a different request', {
       batchId: batch.dataEntryBatchId,
@@ -67,7 +60,7 @@ export function replayRegistration(
   batch: DataEntryBatchModel,
   expected: string,
 ): RegistrationResult {
-  assertFingerprint(batch, expected);
+  assertBatchFingerprint(batch, expected);
   if (!batch.resultJson) {
     throw new ConflictError('An operation with this batchCode is still in progress', {
       batchId: batch.dataEntryBatchId,
@@ -80,7 +73,7 @@ export function replayRegistration(
 }
 
 export function replayBatchImport(batch: DataEntryBatchModel, expected: string): BatchImportResult {
-  assertFingerprint(batch, expected);
+  assertBatchFingerprint(batch, expected);
   if (!batch.resultJson) {
     throw new ConflictError('An operation with this batchCode is still in progress', {
       batchId: batch.dataEntryBatchId,

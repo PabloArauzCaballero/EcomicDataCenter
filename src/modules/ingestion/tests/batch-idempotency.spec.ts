@@ -1,5 +1,7 @@
+import { ConflictError } from '../../../common/errors/application.error';
 import type { DataEntryBatchModel } from '../../../database/models';
 import {
+  assertBatchFingerprint,
   batchRequestFingerprint,
   manualRequestFingerprint,
   replayRegistration,
@@ -103,5 +105,25 @@ describe('batch idempotency', () => {
     } as unknown as DataEntryBatchModel;
 
     expect(replayRegistration(batch, expected).status).toBe('PUBLISHED');
+  });
+
+  it('accepts an existing batch whose fingerprint matches the replayed request', () => {
+    const batch = {
+      requestFingerprint: 'fingerprint-a',
+      dataEntryBatchId: UUIDS.batch,
+      batchCode: 'batch-001',
+    } as unknown as DataEntryBatchModel;
+
+    expect(() => assertBatchFingerprint(batch, 'fingerprint-a')).not.toThrow();
+  });
+
+  it('rejects reuse of a batch code with a different payload before reprocessing', () => {
+    const batch = {
+      requestFingerprint: 'fingerprint-a',
+      dataEntryBatchId: UUIDS.batch,
+      batchCode: 'batch-001',
+    } as unknown as DataEntryBatchModel;
+
+    expect(() => assertBatchFingerprint(batch, 'fingerprint-b')).toThrow(ConflictError);
   });
 });

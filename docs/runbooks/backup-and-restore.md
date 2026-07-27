@@ -41,3 +41,20 @@ observatorio-<UTC>.dump.sha256
 ## Criterio de aprobación
 
 Un archivo existente no cuenta como respaldo válido. El gate pasa únicamente cuando checksum, restauración, migraciones y smoke read-only terminan correctamente y existe evidencia con tiempos medidos.
+
+## Registro de pruebas de restauración
+
+Cada drill debe dejar un artefacto firmado. El más reciente está en
+`artifacts/restore/restore-drill-report.md` junto a su `.sha256`.
+
+Para ejecutar uno nuevo:
+
+1. Generar el respaldo con `infra/backup/run-backup.sh` (produce `.dump` y `.sha256`).
+2. Levantar una instancia PostgreSQL **independiente** de la productiva.
+3. Restaurar con `infra/backup/restore-drill.sh`, que verifica el checksum antes
+   de restaurar y ejecuta un smoke de solo lectura al terminar.
+4. Comparar conteos entre origen y destino, y confirmar que los disparadores de
+   inmutabilidad siguen activos.
+5. Cronometrar el paso 3 completo: ese es el RTO.
+
+Un respaldo cuya restauración no se ha probado no cuenta como respaldo.

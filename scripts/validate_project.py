@@ -16,11 +16,15 @@ for item in required:
 
 catalog = json.loads((ROOT / 'docs/model/model-catalog.json').read_text(encoding='utf-8'))
 models = list((ROOT / 'src/database/models').glob('*.model.ts'))
-if len(catalog['entities']) != 40: errors.append('catalog does not contain 40 entities')
-if len(models) != 40: errors.append(f'expected 40 Sequelize models, found {len(models)}')
+entity_count = len(catalog['entities'])
+if entity_count != catalog['entity_count']:
+    errors.append(f'catalog entity_count {catalog["entity_count"]} does not match {entity_count} entities')
+if len(models) != entity_count:
+    errors.append(f'expected {entity_count} Sequelize models, found {len(models)}')
 
 migration_text = '\n'.join(path.read_text(encoding='utf-8') for path in sorted((ROOT / 'src/database/migrations').glob('*.ts')))
-for schema in ['provenance', 'semantic', 'metadata', 'statistics', 'quality_lineage', 'read_models']:
+for schema in ['provenance', 'semantic', 'metadata', 'statistics', 'quality_lineage',
+               'read_models', 'intelligence', 'audit']:
     if f'CREATE SCHEMA IF NOT EXISTS {schema}' not in migration_text:
         errors.append(f'migration does not create schema {schema}')
 if re.search(r'CREATE\s+(?:TABLE|VIEW|TYPE|FUNCTION)\s+public\.', migration_text, re.I):
@@ -39,4 +43,4 @@ for json_path in ROOT.rglob('*.json'):
 
 for error in errors: print(f'FAIL: {error}')
 if errors: sys.exit(1)
-print(f'PASS: project structure, 40 models, schemas, JSON and source markers validated.')
+print(f'PASS: project structure, {entity_count} models, schemas, JSON and source markers validated.')

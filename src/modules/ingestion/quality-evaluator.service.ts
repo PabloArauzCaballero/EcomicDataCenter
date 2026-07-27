@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import type { Transaction } from 'sequelize';
 import { z } from 'zod';
 import { DataIssueModel, QualityAssessmentModel, QualityRuleModel } from '../../database/models';
+import type { BatchRegistrationCache } from './batch-registration-cache';
 import type { ObservationRecordInput } from './observation-input.schemas';
 
 const requiredMeasureConfig = z.object({ measureDefinitionId: z.string().uuid() }).strict();
@@ -34,11 +35,9 @@ export class QualityEvaluatorService {
     dataEntryBatchId: string,
     record: ObservationRecordInput,
     transaction: Transaction,
+    cache?: BatchRegistrationCache,
   ): Promise<EvaluationResult> {
-    const rules = await QualityRuleModel.findAll({
-      where: { isActive: true, targetEntityType: 'OBSERVATION_REVISION' },
-      transaction,
-    });
+    const rules = await this.loadActiveRules(transaction, cache);
     const assessmentIds: string[] = [];
     const issueIds: string[] = [];
     let criticalFailure = false;
@@ -83,6 +82,25 @@ export class QualityEvaluatorService {
       }
     }
     return { criticalFailure, assessmentIds, issueIds };
+  }
+
+  /**
+   * Loads the active rule set, reusing a batch-scoped snapshot when present.
+   *
+   * The rule set is batch-constant, so loading it once and reusing it avoids one
+   * redundant query per record without changing evaluation for any record.
+   */
+  private async loadActiveRules(
+    transaction: Transaction,
+    cache?: BatchRegistrationCache,
+  ): Promise<readonly QualityRuleModel[]> {
+    if (cache?.rules) return cache.rules;
+    const rules = await QualityRuleModel.findAll({
+      where: { isActive: true, targetEntityType: 'OBSERVATION_REVISION' },
+      transaction,
+    });
+    if (cache) cache.rules = rules;
+    return rules;
   }
 
   private evaluateRule(

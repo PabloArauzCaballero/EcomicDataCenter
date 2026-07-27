@@ -14,9 +14,17 @@ export const dataQuerySchema = z
     page: z.number().int().min(1).max(MAX_OFFSET_PAGE).default(1),
     pageSize: z.number().int().min(1).max(200).default(50),
     sortDirection: z.enum(['asc', 'desc']).default('asc'),
+    cursor: z.string().min(1).max(4000).optional(),
   })
   .strict()
   .superRefine((value, context) => {
+    if (value.cursor && value.page > 1) {
+      context.addIssue({
+        code: 'custom',
+        path: ['cursor'],
+        message: 'cursor and page cannot be combined; a cursor already encodes the position',
+      });
+    }
     if (value.periodFrom && value.periodTo && value.periodTo < value.periodFrom) {
       context.addIssue({
         code: 'custom',

@@ -59,9 +59,14 @@ def main() -> int:
         print('FAIL: SQL seed files are forbidden')
         return 1
 
-    json_files = sorted(SEEDS.glob('boot/*.json')) + sorted(SEEDS.glob('mock/*.json'))
-    if len(json_files) != 4:
-        print(f'FAIL: expected 4 seed JSON files, found {len(json_files)}')
+    boot_files = sorted(SEEDS.glob('boot/*.json'))
+    mock_files = sorted(SEEDS.glob('mock/*.json'))
+    json_files = boot_files + mock_files
+    if len(boot_files) < 3:
+        print(f'FAIL: expected at least 3 boot catalogs, found {len(boot_files)}')
+        return 1
+    if len(mock_files) != 1:
+        print(f'FAIL: expected exactly 1 synthetic mock catalog, found {len(mock_files)}')
         return 1
 
     all_ids: list[str] = []
@@ -97,7 +102,7 @@ def main() -> int:
         print('FAIL: production rejection guard is missing')
         return 1
 
-    print(f'PASS: exactly two seed catalogs validated — 3 boot files, 1 synthetic mock file, {len(all_ids)} stable UUIDs.')
+    print(f'PASS: exactly two seed catalogs validated — {len(boot_files)} boot files, {len(mock_files)} synthetic mock file, {len(all_ids)} stable UUIDs.')
     return 0
 
 

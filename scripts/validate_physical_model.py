@@ -18,7 +18,10 @@ ROOT = Path(__file__).resolve().parents[1]
 MIGRATIONS = ROOT / 'src/database/migrations'
 CATALOG = ROOT / 'docs/model/model-catalog.json'
 GENERATOR = ROOT / 'scripts/generate_migrations.py'
-ALL_SCHEMAS = {'provenance', 'semantic', 'metadata', 'statistics', 'quality_lineage', 'read_models'}
+ALL_SCHEMAS = {
+    'provenance', 'semantic', 'metadata', 'statistics', 'quality_lineage', 'read_models',
+    'intelligence', 'audit',
+}
 READER_TABLES = {
     'provenance.organization', 'provenance.source', 'provenance.source_artifact',
     'provenance.data_entry_batch', 'metadata.dataset', 'metadata.dataset_version',

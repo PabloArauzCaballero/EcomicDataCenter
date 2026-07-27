@@ -1,21 +1,51 @@
+import { PUBLIC_CONFIDENTIALITY, type DisclosureScope } from '../../common/auth/disclosure.policy';
 import type { DimensionValueInput } from '../../common/statistical/dimension-value.schema';
 import type { DataQueryInput } from './data-query.schemas';
+import { decodeCursor } from './pagination-cursor';
+
+/**
+ * Alias of the correlated subquery that selects one revision per observation.
+ *
+ * The predicate is built against this alias directly. An earlier version
+ * rewrote `r.` into `candidate.` with a string replacement, which would have
+ * silently corrupted any future alias or column containing that fragment.
+ */
+export const REVISION_CANDIDATE_ALIAS = 'candidate';
 
 export interface DataQueryPlan {
   readonly replacements: Readonly<Record<string, unknown>>;
   readonly predicates: readonly string[];
   readonly revisionPredicate: string;
   readonly direction: 'ASC' | 'DESC';
+  /** True when the client paginates by keyset and no total is computed. */
+  readonly keyset: boolean;
 }
 
-/** Builds a parameterized plan; only the validated sort direction is interpolated. */
-export function buildDataQueryPlan(input: DataQueryInput): DataQueryPlan {
+/**
+ * Builds a parameterized plan; only the validated sort direction is interpolated.
+ *
+ * The disclosure predicate is appended here rather than in the repository so
+ * that no caller can build a query that omits it.
+ */
+export function buildDataQueryPlan(input: DataQueryInput, scope: DisclosureScope): DataQueryPlan {
   const replacements: Record<string, unknown> = {
     datasetVersionId: input.datasetVersionId,
     limit: input.pageSize,
-    offset: (input.page - 1) * input.pageSize,
+    offset: input.cursor ? 0 : (input.page - 1) * input.pageSize,
   };
   const predicates = ['s.dataset_version_id = :datasetVersionId'];
+  if (!scope.unrestricted) {
+    replacements.publicConfidentiality = [...PUBLIC_CONFIDENTIALITY];
+    if (scope.organizationId) {
+      replacements.scopeOrganizationId = scope.organizationId;
+      predicates.push(
+        '(r.confidentiality_status IN (:publicConfidentiality)' +
+          ' OR dataset_owner.producer_organization_id = :scopeOrganizationId)',
+      );
+    } else {
+      predicates.push('r.confidentiality_status IN (:publicConfidentiality)');
+    }
+  }
 
   if (input.indicatorVersionId) {
     predicates.push('s.indicator_version_id = :indicatorVersionId');
@@ -33,14 +63,30 @@ export function buildDataQueryPlan(input: DataQueryInput): DataQueryPlan {
     ...input.dimensions.map((filter, index) => dimensionPredicate(filter, index, replacements)),
   );
 
+  if (input.cursor) {
+    const cursor = decodeCursor(input.cursor);
+    replacements.cursorPeriodStart = cursor.periodStart;
+    replacements.cursorSeriesKey = cursor.seriesKey;
+    // Compare the sort key as a tuple so ties on period_start still advance.
+    predicates.push(
+      input.sortDirection === 'desc'
+        ? '(o.period_start, s.series_key) < (:cursorPeriodStart::date, :cursorSeriesKey)'
+        : '(o.period_start, s.series_key) > (:cursorPeriodStart::date, :cursorSeriesKey)',
+    );
+  }
+
   if (input.vintageDate) replacements.vintageCutoff = `${input.vintageDate}T23:59:59.999Z`;
   return {
     replacements,
     predicates,
+    keyset: input.cursor !== undefined,
     revisionPredicate: input.vintageDate
-      ? `r.status = 'PUBLISHED' AND r.valid_from <= :vintageCutoff
-         AND (r.valid_to IS NULL OR r.valid_to > :vintageCutoff)`
-      : `r.status = 'PUBLISHED' AND r.is_current = true`,
+      ? `${REVISION_CANDIDATE_ALIAS}.status = 'PUBLISHED'
+         AND ${REVISION_CANDIDATE_ALIAS}.valid_from <= :vintageCutoff
+         AND (${REVISION_CANDIDATE_ALIAS}.valid_to IS NULL
+              OR ${REVISION_CANDIDATE_ALIAS}.valid_to > :vintageCutoff)`
+      : `${REVISION_CANDIDATE_ALIAS}.status = 'PUBLISHED'
+         AND ${REVISION_CANDIDATE_ALIAS}.is_current = true`,
     direction: input.sortDirection === 'desc' ? 'DESC' : 'ASC',
   };
 }

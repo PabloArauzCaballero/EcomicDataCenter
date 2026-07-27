@@ -1,1 +1,18 @@
+# Normalise line endings so the formatting gate is reproducible.
+#
+# Without this, a Windows checkout with core.autocrlf=true produces CRLF files
+# while Prettier expects LF, so `yarn format:check` fails for every developer on
+# Windows while passing in CI. Storing and checking out LF makes the release
+# gate behave identically on every machine.
+* text=auto eol=lf
+
+# Shell scripts must keep LF or they fail to execute inside Linux containers.
+*.sh text eol=lf
+
+# Binary artifacts must never be normalised.
+*.png binary
+*.jpg binary
+*.pdf binary
+*.dump binary
+
 graphify-out/graph.json merge=graphify

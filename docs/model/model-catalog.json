@@ -1,14 +1,16 @@
 {
   "model": "Observatorio Económico y de Mercados de Bolivia",
   "version": "1.0-final-logical",
-  "entity_count": 40,
-  "field_count": 377,
+  "entity_count": 53,
+  "field_count": 518,
   "packages": {
     "provenance": 4,
     "semantic": 11,
     "metadata": 9,
     "statistics": 9,
-    "quality_lineage": 7
+    "quality_lineage": 7,
+    "intelligence": 12,
+    "audit": 1
   },
   "entities": [
     {
@@ -3624,6 +3626,17 @@
           "unique": false,
           "nullable": false,
           "tags": ""
+        },
+        {
+          "package": "statistics",
+          "table": "observation_revision",
+          "field": "source_timezone",
+          "type": "varchar(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
         }
       ],
       "unique_constraints": [
@@ -4526,6 +4539,1662 @@
           "foreign_key": false,
           "unique": false,
           "nullable": true,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "intelligence",
+      "table": "agent_run",
+      "alias": "agent_run",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "agent_run_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "ai_agent_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "correlation_id",
+          "type": "varchar(128)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "trigger_type",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "attempt_no",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "started_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "completed_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "sources_consulted",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "records_received",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "records_accepted",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "records_rejected",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "records_quarantined",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "warning_count",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "error_summary",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "checkpoint_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "estimated_cost_usd",
+          "type": "numeric(12,4)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "prompt_version",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "agent_run",
+          "field": "schema_version",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "intelligence",
+      "table": "ai_agent",
+      "alias": "ai_agent",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "ai_agent_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "agent_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "provider",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "model_identifier",
+          "type": "varchar(120)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "specialty",
+          "type": "varchar(120)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "prompt_version",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "schema_version",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "credential_fingerprint",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "configuration_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "last_run_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "ai_agent",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "intelligence",
+      "table": "claim_cluster_member",
+      "alias": "claim_cluster_member",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "claim_cluster_member",
+          "field": "claim_cluster_member_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_cluster_member",
+          "field": "document_cluster_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_cluster_member",
+          "field": "fact_claim_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_cluster_member",
+          "field": "similarity",
+          "type": "numeric(5,4)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_cluster_member",
+          "field": "joined_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(document_cluster_id, fact_claim_id)"
+      ]
+    },
+    {
+      "package": "intelligence",
+      "table": "claim_evidence",
+      "alias": "claim_evidence",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "claim_evidence",
+          "field": "claim_evidence_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_evidence",
+          "field": "fact_claim_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_evidence",
+          "field": "source_artifact_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_evidence",
+          "field": "excerpt",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_evidence",
+          "field": "excerpt_hash",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_evidence",
+          "field": "locator",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "claim_evidence",
+          "field": "retrieved_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(fact_claim_id, excerpt_hash)"
+      ]
+    },
+    {
+      "package": "intelligence",
+      "table": "data_contradiction",
+      "alias": "data_contradiction",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "data_contradiction_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "resolved_by_review_task_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "subject_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "primary_reference",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "contradicting_reference",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "detection_method",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "divergence_ratio",
+          "type": "numeric(12,6)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "probable_cause",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "detected_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "resolved_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "selected_reference",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "data_contradiction",
+          "field": "resolution_rationale",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": [
+        "UQ(subject_type, primary_reference, contradicting_reference)"
+      ]
+    },
+    {
+      "package": "intelligence",
+      "table": "document_cluster",
+      "alias": "document_cluster",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "document_cluster",
+          "field": "document_cluster_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "document_cluster",
+          "field": "representative_claim_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "document_cluster",
+          "field": "cluster_fingerprint",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "intelligence",
+          "table": "document_cluster",
+          "field": "member_count",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "document_cluster",
+          "field": "first_seen_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "document_cluster",
+          "field": "last_seen_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "intelligence",
+      "table": "economic_entity",
+      "alias": "economic_entity",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "economic_entity_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "parent_entity_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "classification_item_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "geographic_unit_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "entity_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "legal_name",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "short_name",
+          "type": "varchar(120)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "tax_identifier",
+          "type": "varchar(50)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "country_code",
+          "type": "char(2)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "economic_relevance",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "economic_entity",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(entity_type, legal_name, country_code)"
+      ]
+    },
+    {
+      "package": "intelligence",
+      "table": "entity_alias",
+      "alias": "entity_alias",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "entity_alias",
+          "field": "entity_alias_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "entity_alias",
+          "field": "economic_entity_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "entity_alias",
+          "field": "alias",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "entity_alias",
+          "field": "normalized_alias",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "entity_alias",
+          "field": "alias_type",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(normalized_alias, economic_entity_id)"
+      ]
+    },
+    {
+      "package": "intelligence",
+      "table": "entity_mention",
+      "alias": "entity_mention",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "entity_mention",
+          "field": "entity_mention_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "entity_mention",
+          "field": "fact_claim_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "entity_mention",
+          "field": "economic_entity_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "entity_mention",
+          "field": "mention_text",
+          "type": "varchar(250)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "entity_mention",
+          "field": "resolution_method",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "entity_mention",
+          "field": "resolution_confidence",
+          "type": "numeric(5,4)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "intelligence",
+      "table": "fact_claim",
+      "alias": "fact_claim",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "fact_claim_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "agent_run_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "raw_observation_id",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "statistical_domain_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "geographic_unit_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "economic_entity_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "superseded_by_claim_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "claim_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "assertion",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "event_date",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "published_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "time_horizon",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "impact_level",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "probability",
+          "type": "numeric(5,4)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "confidence_level",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "confidence_score",
+          "type": "numeric(5,4)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "content_hash",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "fact_claim",
+          "field": "created_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "intelligence",
+      "table": "raw_observation",
+      "alias": "raw_observation",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "raw_observation_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "agent_run_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": false,
+          "tags": "FK"
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "source_artifact_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "payload_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "payload_hash",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "received_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "processing_status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "rejection_reason",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "retry_count",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "last_error",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "raw_observation",
+          "field": "dead_lettered_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": [
+        "UQ(agent_run_id, payload_hash)"
+      ]
+    },
+    {
+      "package": "intelligence",
+      "table": "review_task",
+      "alias": "review_task",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "review_task_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "target_type",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "target_reference",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "reason",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "priority",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "status",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "assigned_to",
+          "type": "varchar(120)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "decided_by",
+          "type": "varchar(120)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "decision_rationale",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "created_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "review_task",
+          "field": "resolved_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "audit",
+      "table": "audit_log",
+      "alias": "audit_log",
+      "fields": [
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "audit_log_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "actor_organization_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "actor_subject",
+          "type": "varchar(200)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "actor_roles",
+          "type": "varchar(200)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "action",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "entity_type",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "entity_reference",
+          "type": "varchar(120)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "outcome",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "correlation_id",
+          "type": "varchar(128)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "client_context",
+          "type": "varchar(100)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "details_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "audit",
+          "table": "audit_log",
+          "field": "occurred_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
           "tags": ""
         }
       ],

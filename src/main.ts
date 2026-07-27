@@ -6,11 +6,32 @@ import { RequestMethod } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fastify';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { createHash } from 'node:crypto';
 import type { IncomingMessage } from 'node:http';
 import { Logger } from 'nestjs-pino';
 import { AppModule } from './app.module';
 import { createRequestId } from './common/http/request-id';
 import { getEnvironment } from './config/environment';
+
+/**
+ * Derives a stable per-caller key without verifying the token.
+ *
+ * Rate limiting runs before authentication, so the subject cannot be trusted
+ * here; hashing the credential yields a per-credential bucket that an attacker
+ * cannot forge into someone else's quota, and unauthenticated traffic still
+ * falls back to the address.
+ */
+function rateLimitKey(authorization: string | undefined, ip: string): string {
+  const [scheme, token] = authorization?.split(' ') ?? [];
+  if (scheme !== 'Bearer' || !token) return `ip:${ip}`;
+  return `token:${createHash('sha256').update(token).digest('base64url')}`;
+}
+
+/** True when the caller presents a bearer credential, which agents always do. */
+function hasAgentIdentity(authorization: string | undefined): boolean {
+  const [scheme, token] = authorization?.split(' ') ?? [];
+  return scheme === 'Bearer' && Boolean(token);
+}
 
 async function bootstrap(): Promise<void> {
   const environment = getEnvironment();
@@ -44,9 +65,15 @@ async function bootstrap(): Promise<void> {
       crossOriginResourcePolicy: { policy: 'same-site' },
     });
     await application.register(rateLimit, {
-      max: environment.RATE_LIMIT_MAX,
+      max: (request) =>
+        hasAgentIdentity(request.headers.authorization)
+          ? environment.RATE_LIMIT_AGENT_MAX
+          : environment.RATE_LIMIT_MAX,
       timeWindow: environment.RATE_LIMIT_WINDOW_MS,
-      keyGenerator: (request) => request.ip,
+      // Keying on the authenticated subject rather than the address stops many
+      // agents behind one NAT from sharing a quota, and confines a compromised
+      // agent to its own budget instead of everyone else's.
+      keyGenerator: (request) => rateLimitKey(request.headers.authorization, request.ip),
     });
     const origins = environment.CORS_ORIGINS.split(',')
       .map((origin) => origin.trim())

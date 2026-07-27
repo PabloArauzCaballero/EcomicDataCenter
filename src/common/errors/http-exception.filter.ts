@@ -10,6 +10,13 @@ import { ZodError } from 'zod';
 import { ApplicationError } from './application.error';
 import { toSafeErrorLog } from './error-logging';
 
+/** Reads the status a Fastify plugin attached to its error, when it set one. */
+function readPluginStatus(exception: unknown): number | undefined {
+  if (typeof exception !== 'object' || exception === null) return undefined;
+  const status = (exception as { statusCode?: unknown }).statusCode;
+  return typeof status === 'number' && status >= 400 && status <= 599 ? status : undefined;
+}
+
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
   constructor(private readonly logger: PinoLogger) {}
@@ -85,8 +92,32 @@ export class HttpExceptionFilter implements ExceptionFilter {
       return;
     }
 
+    // Fastify plugins signal their own outcome with a numeric statusCode rather
+    // than a Nest exception. Rate limiting is the common case: without this the
+    // client receives 500 instead of 429, cannot tell "slow down" from "broken",
+    // and every throttled request is logged as an unhandled error.
+    const pluginStatus = readPluginStatus(exception);
+    if (pluginStatus) {
+      this.send(
+        response,
+        pluginStatus,
+        requestId,
+        this.httpErrorCode(pluginStatus),
+        pluginStatus === Number(HttpStatus.TOO_MANY_REQUESTS)
+          ? 'Rate limit exceeded'
+          : 'Request could not be processed',
+      );
+      return;
+    }
+
     this.logger.error(
-      { error: toSafeErrorLog(exception), requestId, path: request.url },
+      // Log the path only, never the query string: a sensitive filter value
+      // passed as a query parameter must not land in logs verbatim.
+      {
+        error: toSafeErrorLog(exception),
+        requestId,
+        path: request.url.split('?')[0] ?? request.url,
+      },
       'Unhandled request error',
     );
     this.send(

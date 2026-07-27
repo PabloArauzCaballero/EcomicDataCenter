@@ -75,10 +75,27 @@ async function ensureLoginRole(database: Sequelize, role: LoginRole): Promise<vo
 async function main(): Promise<void> {
   const connectionUrl = process.env.DATABASE_MIGRATOR_URL ?? requireEnv('DATABASE_WRITER_URL');
   const loginRoles: readonly LoginRole[] = [
-    { login: 'observatory_migrator', group: 'backend_migrator', password: requireEnv('MIGRATOR_PASSWORD') },
-    { login: 'observatory_writer', group: 'backend_writer', password: requireEnv('WRITER_PASSWORD') },
-    { login: 'observatory_reader', group: 'backend_reader', password: requireEnv('READER_PASSWORD'), readOnly: true },
-    { login: 'observatory_backup', group: 'backup_operator', password: requireEnv('BACKUP_PASSWORD') },
+    {
+      login: 'observatory_migrator',
+      group: 'backend_migrator',
+      password: requireEnv('MIGRATOR_PASSWORD'),
+    },
+    {
+      login: 'observatory_writer',
+      group: 'backend_writer',
+      password: requireEnv('WRITER_PASSWORD'),
+    },
+    {
+      login: 'observatory_reader',
+      group: 'backend_reader',
+      password: requireEnv('READER_PASSWORD'),
+      readOnly: true,
+    },
+    {
+      login: 'observatory_backup',
+      group: 'backup_operator',
+      password: requireEnv('BACKUP_PASSWORD'),
+    },
   ];
 
   const database = new Sequelize(connectionUrl, {

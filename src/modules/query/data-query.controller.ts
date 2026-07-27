@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { ACTOR_ROLES } from '../../common/auth/actor';
-import { Roles } from '../../common/auth/auth.decorators';
+import { ACTOR_ROLES, type Actor } from '../../common/auth/actor';
+import { CurrentActor, Roles } from '../../common/auth/auth.decorators';
 import { ZodValidationPipe } from '../../common/validation/zod-validation.pipe';
 import {
   dataQuerySchema,
@@ -23,8 +23,11 @@ export class DataQueryController {
     operationId: 'queryObservations',
     summary: 'Query current or vintage observations',
   })
-  search(@Body(new ZodValidationPipe(dataQuerySchema)) input: DataQueryInput) {
-    return this.service.search(input);
+  search(
+    @Body(new ZodValidationPipe(dataQuerySchema)) input: DataQueryInput,
+    @CurrentActor() actor: Actor,
+  ) {
+    return this.service.search(input, actor);
   }
 
   @Get('observations/:observationId/revisions/:revisionId/trace')

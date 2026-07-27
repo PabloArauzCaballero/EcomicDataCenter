@@ -43,6 +43,510 @@
   ],
   "item": [
     {
+      "name": "Agent intelligence",
+      "item": [
+        {
+          "name": "Register an autonomous collector",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/agents",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "agents"
+              ]
+            },
+            "description": "Register an autonomous collector",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"string\",\n  \"name\": \"string\",\n  \"agentType\": \"EXCHANGE_RATE\",\n  \"provider\": \"string\",\n  \"modelIdentifier\": \"string\",\n  \"promptVersion\": \"string\",\n  \"schemaVersion\": \"string\",\n  \"organizationId\": \"00000000-0000-4000-8000-000000000001\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Open an agent execution",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/agent-runs",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "agent-runs"
+              ]
+            },
+            "description": "Open an agent execution",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agentCode\": \"string\",\n  \"triggerType\": \"SCHEDULED\",\n  \"attemptNo\": 1,\n  \"promptVersion\": \"string\",\n  \"schemaVersion\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get agent execution status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/agent-runs/{{id}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "agent-runs",
+                "{{id}}"
+              ]
+            },
+            "description": "Get agent execution status",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit up to 200 collected items",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/agent-runs/{{id}}/submissions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "agent-runs",
+                "{{id}}",
+                "submissions"
+              ]
+            },
+            "description": "Submit up to 200 collected items",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"submissionCode\": \"string\",\n  \"items\": [\n    {\n      \"rawPayload\": {},\n      \"claim\": {\n        \"claimType\": \"FACT\",\n        \"assertion\": \"string\",\n        \"eventDate\": \"2026-01-31\",\n        \"publishedAt\": \"2026-01-31T12:00:00Z\",\n        \"confidenceLevel\": \"VERY_LOW\",\n        \"evidence\": [\n          {\n            \"sourceArtifactId\": null,\n            \"excerpt\": null,\n            \"locator\": null,\n            \"retrievedAt\": null\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Close an agent execution",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/agent-runs/{{id}}/completion",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "agent-runs",
+                "{{id}}",
+                "completion"
+              ]
+            },
+            "description": "Close an agent execution",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"SUCCEEDED\",\n  \"sourcesConsulted\": 0,\n  \"warningCount\": 0,\n  \"estimatedCostUsd\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Open a run, submit the daily claims and close the run in one call",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/daily-analysis",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "daily-analysis"
+              ]
+            },
+            "description": "Open a run, submit the daily claims and close the run in one call",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agent\": {\n    \"agentCode\": \"string\",\n    \"triggerType\": \"SCHEDULED\",\n    \"attemptNo\": 1,\n    \"promptVersion\": \"string\",\n    \"schemaVersion\": \"string\"\n  },\n  \"submission\": {\n    \"submissionCode\": \"string\",\n    \"items\": [\n      {\n        \"rawPayload\": {},\n        \"claim\": {\n          \"claimType\": \"FACT\",\n          \"assertion\": \"string\",\n          \"eventDate\": \"2026-01-31\",\n          \"publishedAt\": \"2026-01-31T12:00:00Z\",\n          \"confidenceLevel\": \"VERY_LOW\",\n          \"evidence\": [\n            null\n          ]\n        }\n      }\n    ]\n  },\n  \"completion\": {\n    \"status\": \"SUCCEEDED\",\n    \"sourcesConsulted\": 0,\n    \"warningCount\": 0,\n    \"estimatedCostUsd\": 0\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List items that exhausted their reprocessing attempts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/dead-letters",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "dead-letters"
+              ],
+              "query": [
+                {
+                  "key": "agentRunId",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "List items that exhausted their reprocessing attempts",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Requeue a rejected or quarantined item",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/raw-observations/{{id}}/reprocessing",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "raw-observations",
+                "{{id}}",
+                "reprocessing"
+              ]
+            },
+            "description": "Requeue a rejected or quarantined item",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dead-letter items abandoned in flight after a restart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/raw-observations/sweep",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "raw-observations",
+                "sweep"
+              ]
+            },
+            "description": "Dead-letter items abandoned in flight after a restart",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"olderThanMinutes\": 60\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Claim review",
+      "item": [
+        {
+          "name": "Search claims with evidence",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/claims/search",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "claims",
+                "search"
+              ]
+            },
+            "description": "Search claims with evidence",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"claimType\": \"FACT\",\n  \"statisticalDomainId\": \"00000000-0000-4000-8000-000000000001\",\n  \"geographicUnitId\": \"00000000-0000-4000-8000-000000000001\",\n  \"economicEntityId\": \"00000000-0000-4000-8000-000000000001\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Approve or reject a pending claim",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/review-tasks/{{id}}/decisions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "review-tasks",
+                "{{id}}",
+                "decisions"
+              ]
+            },
+            "description": "Approve or reject a pending claim",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"decision\": \"APPROVED\",\n  \"rationale\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Close a contradiction with a justification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/intelligence/contradictions/{{id}}/resolutions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "intelligence",
+                "contradictions",
+                "{{id}}",
+                "resolutions"
+              ]
+            },
+            "description": "Close a contradiction with a justification",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resolution\": \"RESOLVED\",\n  \"rationale\": \"string\",\n  \"selectedReference\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Data ingestion",
       "item": [
         {
