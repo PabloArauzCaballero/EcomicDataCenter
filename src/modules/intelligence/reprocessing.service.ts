@@ -3,6 +3,8 @@ import { Op, type Sequelize } from 'sequelize';
 import { AuditService } from '../../common/audit/audit.service';
 import { BusinessRuleError, NotFoundError } from '../../common/errors/application.error';
 import { MetricsService } from '../../common/observability/metrics.service';
+import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
+import { TracingService } from '../../common/observability/tracing.service';
 import { withSerializableRetry } from '../../common/persistence.transaction';
 import { WRITER_DATABASE } from '../../database/database.tokens';
 import { RawObservationModel } from '../../database/models';
@@ -17,6 +19,7 @@ export class ReprocessingService {
     @Inject(WRITER_DATABASE) private readonly writer: Sequelize,
     private readonly metrics: MetricsService,
     private readonly audit: AuditService,
+    private readonly tracing: TracingService,
   ) {}
 
   /**
@@ -25,6 +28,12 @@ export class ReprocessingService {
    * This is the dead-letter view. It is a query over durable state rather than
    * a separate broker, which keeps the operational surface to one database and
    * respects the deferred-queue decision recorded in ADR 0003.
+   *
+   * It stays on the writer pool despite being a read: migration 0025 isolates
+   * `raw_observation` from the reader and 0029 re-grants only
+   * `(processing_status, received_at)` for the metrics collector, so the
+   * untrusted payload columns this view needs are unreachable from the reader
+   * by design. Routing it there would fail with "permission denied".
    */
   async deadLetters(agentRunId?: string): Promise<readonly DeadLetterItem[]> {
     const rows = await RawObservationModel.findAll({
@@ -53,7 +62,20 @@ export class ReprocessingService {
    * originally submitted.
    */
   reprocess(rawObservationId: string): Promise<ReprocessResult> {
-    return withSerializableRetry(this.writer, async (transaction) => {
+    return this.tracing.runInSpan(
+      'intelligence.reprocess-observation',
+      {
+        [APP_ATTRIBUTES.module]: 'intelligence',
+        [APP_ATTRIBUTES.operation]: 'reprocess-observation',
+        [APP_ATTRIBUTES.entityType]: 'raw-observation',
+        [APP_ATTRIBUTES.entityId]: rawObservationId,
+      },
+      () => this.requeueObservation(rawObservationId),
+    );
+  }
+
+  private async requeueObservation(rawObservationId: string): Promise<ReprocessResult> {
+    const result = await withSerializableRetry(this.writer, async (transaction) => {
       const row = await RawObservationModel.findByPk(rawObservationId, { transaction });
       if (!row) throw new NotFoundError('raw_observation', rawObservationId);
       if (!isRetryable(row.processingStatus)) {
@@ -82,7 +104,6 @@ export class ReprocessingService {
           },
           transaction,
         );
-        this.metrics.observeIntelligence('raw', 'rejected');
         return {
           rawObservationId,
           outcome: 'DEAD_LETTER',
@@ -111,6 +132,11 @@ export class ReprocessingService {
         nextAttemptDelaySeconds: decision.delaySeconds,
       } satisfies ReprocessResult;
     });
+    // Counted after the commit: the callback is replayed on a serialization
+    // conflict, so counting inside it inflates the metric once per attempt and
+    // records outcomes that a rollback discarded.
+    if (result.outcome === 'DEAD_LETTER') this.metrics.observeIntelligence('raw', 'rejected');
+    return result;
   }
 
   /**
@@ -120,9 +146,9 @@ export class ReprocessingService {
    * will ever advance. Sweeping them makes the loss visible instead of letting
    * an agent run appear complete while some of its data was never normalized.
    */
-  sweepAbandoned(olderThanMinutes: number): Promise<{ sweptCount: number }> {
+  async sweepAbandoned(olderThanMinutes: number): Promise<{ sweptCount: number }> {
     const threshold = new Date(Date.now() - olderThanMinutes * 60_000);
-    return withSerializableRetry(this.writer, async (transaction) => {
+    const result = await withSerializableRetry(this.writer, async (transaction) => {
       const [sweptCount] = await RawObservationModel.update(
         {
           processingStatus: 'DEAD_LETTER',
@@ -147,9 +173,12 @@ export class ReprocessingService {
           },
           transaction,
         );
-        this.metrics.observeIntelligence('raw', 'rejected', sweptCount);
       }
       return { sweptCount };
     });
+    if (result.sweptCount > 0) {
+      this.metrics.observeIntelligence('raw', 'rejected', result.sweptCount);
+    }
+    return result;
   }
 }

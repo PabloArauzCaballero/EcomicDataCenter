@@ -1,9 +1,12 @@
-import { ForbiddenException, Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import type { Sequelize, Transaction } from 'sequelize';
 import { AuditService } from '../../common/audit/audit.service';
 import type { Actor } from '../../common/auth/actor';
+import { assertActorOrganization } from '../../common/auth/organization-scope';
 import { ApplicationError } from '../../common/errors/application.error';
 import { MetricsService } from '../../common/observability/metrics.service';
+import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
+import { TracingService } from '../../common/observability/tracing.service';
 import { withSerializableRetry } from '../../common/persistence.transaction';
 import { WRITER_DATABASE } from '../../database/database.tokens';
 import {
@@ -33,6 +36,7 @@ export class BatchImportService {
     private readonly writes: ObservationWriteRepository,
     private readonly metrics: MetricsService,
     private readonly audit: AuditService,
+    private readonly tracing: TracingService,
   ) {}
 
   /**
@@ -45,7 +49,28 @@ export class BatchImportService {
    * operation is idempotent on its own.
    */
   async import(input: ImportObservationBatchInput, actor: Actor): Promise<BatchImportResult> {
-    this.assertActorOrganization(actor, input.submittedByOrganizationId);
+    return this.tracing.runInSpan(
+      'ingestion.import-batch',
+      {
+        [APP_ATTRIBUTES.module]: 'ingestion',
+        [APP_ATTRIBUTES.operation]: 'import-batch',
+        [APP_ATTRIBUTES.entityType]: 'data-entry-batch',
+        [APP_ATTRIBUTES.organizationId]: input.submittedByOrganizationId,
+        [APP_ATTRIBUTES.batchSize]: input.records.length,
+      },
+      () => this.importBatch(input, actor),
+    );
+  }
+
+  private async importBatch(
+    input: ImportObservationBatchInput,
+    actor: Actor,
+  ): Promise<BatchImportResult> {
+    assertActorOrganization(
+      actor,
+      input.submittedByOrganizationId,
+      'Actor cannot submit a batch for another organization',
+    );
     const requestFingerprint = batchRequestFingerprint(input);
 
     const claim = await withSerializableRetry(this.writer, async (transaction) => {
@@ -131,12 +156,12 @@ export class BatchImportService {
   }
 
   /** Writes the terminal batch state and the replayable response. */
-  private finalize(
+  private async finalize(
     input: ImportObservationBatchInput,
     batchId: string,
     records: readonly BatchRecordResult[],
   ): Promise<BatchImportResult> {
-    return withSerializableRetry(this.writer, async (transaction) => {
+    const committed = await withSerializableRetry(this.writer, async (transaction) => {
       const acceptedCount = records.filter((record) =>
         ['PUBLISHED', 'UNCHANGED'].includes(record.status),
       ).length;
@@ -171,11 +196,15 @@ export class BatchImportService {
         },
         transaction,
       );
-      for (const record of result.records) {
-        this.metrics.observeIngestion('batch', record.status);
-      }
       return result;
     });
+    // Counted after the commit: the finalize callback is replayed on a
+    // serialization conflict, so counting inside it reports the whole batch once
+    // per attempt and reports records that a rollback discarded.
+    for (const record of committed.records) {
+      this.metrics.observeIngestion('batch', record.status);
+    }
+    return committed;
   }
 
   private async processRecord(
@@ -221,12 +250,6 @@ export class BatchImportService {
         status: 'INVALID',
         error: { code: error.code, message: error.message },
       };
-    }
-  }
-
-  private assertActorOrganization(actor: Actor, submittedByOrganizationId: string): void {
-    if (actor.organizationId && actor.organizationId !== submittedByOrganizationId) {
-      throw new ForbiddenException('Actor cannot submit a batch for another organization');
     }
   }
 }

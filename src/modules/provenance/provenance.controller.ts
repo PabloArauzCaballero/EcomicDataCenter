@@ -52,8 +52,12 @@ export class ProvenanceController {
     return this.service.listSources(query);
   }
 
+  // A collector registers the document it just fetched, which is production of
+  // evidence, not approval of it: separation of duties only forbids an agent
+  // from reviewing or publishing its own claims, and every claim it later cites
+  // still needs this artifact to exist before the batch is accepted.
   @Post('artifacts')
-  @Roles(ACTOR_ROLES.DATA_OFFICER, ACTOR_ROLES.METHODOLOGY_STEWARD)
+  @Roles(ACTOR_ROLES.DATA_OFFICER, ACTOR_ROLES.METHODOLOGY_STEWARD, ACTOR_ROLES.INGESTION_AGENT)
   @ApiOperation({ operationId: 'registerSourceArtifact' })
   registerArtifact(
     @Body(new ZodValidationPipe(createSourceArtifactSchema)) input: CreateSourceArtifactInput,

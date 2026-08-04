@@ -31,6 +31,9 @@ out/
 .env
 .env.*
 !.env.example
+# Credencial del colector de ChatGPT. Ya cubierto por `.env.*`; se declara
+# aparte para que quede explícito que contiene un secreto en claro.
+.env.chatgpt
 *.pem
 *.key
 *.p12

@@ -1,8 +1,11 @@
-import { ForbiddenException, Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import type { Sequelize, Transaction } from 'sequelize';
 import { AuditService } from '../../common/audit/audit.service';
 import type { Actor } from '../../common/auth/actor';
+import { assertActorOrganization } from '../../common/auth/organization-scope';
 import { MetricsService } from '../../common/observability/metrics.service';
+import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
+import { TracingService } from '../../common/observability/tracing.service';
 import { withSerializableRetry } from '../../common/persistence.transaction';
 import { WRITER_DATABASE } from '../../database/database.tokens';
 import type { BatchRegistrationCache } from './batch-registration-cache';
@@ -35,11 +38,32 @@ export class ObservationRegistrationService {
     private readonly quality: QualityEvaluatorService,
     private readonly metrics: MetricsService,
     private readonly audit: AuditService,
+    private readonly tracing: TracingService,
   ) {}
 
   /** Registers one observation with durable batch-code idempotency. */
   register(input: RegisterObservationInput, actor: Actor): Promise<RegistrationResult> {
-    this.assertActorOrganization(actor, input.submittedByOrganizationId);
+    return this.tracing.runInSpan(
+      'ingestion.register-observation',
+      {
+        [APP_ATTRIBUTES.module]: 'ingestion',
+        [APP_ATTRIBUTES.operation]: 'register-observation',
+        [APP_ATTRIBUTES.entityType]: 'observation',
+        [APP_ATTRIBUTES.organizationId]: input.submittedByOrganizationId,
+      },
+      () => this.registerObservation(input, actor),
+    );
+  }
+
+  private registerObservation(
+    input: RegisterObservationInput,
+    actor: Actor,
+  ): Promise<RegistrationResult> {
+    assertActorOrganization(
+      actor,
+      input.submittedByOrganizationId,
+      'Actor cannot submit data for another organization',
+    );
     const requestFingerprint = manualRequestFingerprint(input);
 
     return withSerializableRetry(this.writer, async (transaction) => {
@@ -199,11 +223,5 @@ export class ObservationRegistrationService {
       revisionNumber: revision.revisionNumber,
       qualityIssueIds: [...evaluation.issueIds],
     };
-  }
-
-  private assertActorOrganization(actor: Actor, submittedByOrganizationId: string): void {
-    if (actor.organizationId && actor.organizationId !== submittedByOrganizationId) {
-      throw new ForbiddenException('Actor cannot submit data for another organization');
-    }
   }
 }

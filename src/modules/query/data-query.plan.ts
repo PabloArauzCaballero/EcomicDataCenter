@@ -67,10 +67,15 @@ export function buildDataQueryPlan(input: DataQueryInput, scope: DisclosureScope
     const cursor = decodeCursor(input.cursor);
     replacements.cursorPeriodStart = cursor.periodStart;
     replacements.cursorSeriesKey = cursor.seriesKey;
-    // Compare the sort key as a tuple so ties on period_start still advance.
+    // The keyset predicate must mirror the emitted ORDER BY exactly, and the
+    // tie-breaker `series_key` is always ascending regardless of the period
+    // direction. A symmetric tuple comparison would instead mean
+    // `series_key DESC` on a descending page: rows tied on period_start would
+    // then be re-served on the next page while their successors were skipped.
     predicates.push(
       input.sortDirection === 'desc'
-        ? '(o.period_start, s.series_key) < (:cursorPeriodStart::date, :cursorSeriesKey)'
+        ? '(o.period_start < :cursorPeriodStart::date' +
+            ' OR (o.period_start = :cursorPeriodStart::date AND s.series_key > :cursorSeriesKey))'
         : '(o.period_start, s.series_key) > (:cursorPeriodStart::date, :cursorSeriesKey)',
     );
   }

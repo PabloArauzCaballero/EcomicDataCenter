@@ -88,6 +88,70 @@ export const currencySeedSchema = unitSeedSchema;
 
 export const countrySeedSchema = geographicUnitSeedSchema;
 
+/**
+ * Identity the hosted collector writes for.
+ *
+ * The organization is declared once and injected into the source and the agent
+ * by the runner rather than repeated in the catalog, so the file cannot describe
+ * a source owned by one institution and an agent owned by another.
+ */
+export const agentBootstrapSeedSchema = z
+  .object({
+    organization: z
+      .object({
+        organizationId: uuid,
+        code: code(50),
+        legalName: code(250),
+        shortName: code(80),
+        organizationType: code(40),
+        countryCode: z.string().regex(/^[A-Z]{2}$/),
+        officialStatisticsProducer: z.boolean(),
+        isActive: z.literal(true),
+        validFrom: date,
+      })
+      .strict(),
+    source: z
+      .object({
+        sourceId: uuid,
+        code: code(80),
+        name: code(250),
+        sourceType: code(40),
+        accessMethod: code(40),
+        isActive: z.literal(true),
+      })
+      .strict(),
+    agent: z
+      .object({
+        aiAgentId: uuid,
+        code: z
+          .string()
+          .regex(/^[A-Z0-9][A-Z0-9_-]*$/u)
+          .min(2)
+          .max(80),
+        name: code(250),
+        agentType: z.enum([
+          'EXCHANGE_RATE',
+          'SOVEREIGN_DEBT',
+          'SECTOR',
+          'SOCIOECONOMIC',
+          'SENTIMENT',
+          'UNCERTAINTY',
+          'CORPORATE',
+          'POLITICAL',
+          'SECURITIES_MARKET',
+          'FINANCIAL_SYSTEM',
+          'EXTERNAL_SECTOR',
+        ]),
+        provider: code(80),
+        modelIdentifier: code(120),
+        specialty: code(120),
+        promptVersion: code(40),
+        schemaVersion: code(40),
+      })
+      .strict(),
+  })
+  .strict();
+
 const boundedText = (maximum: number) => z.string().trim().min(1).max(maximum);
 
 export const economicActivitySeedSchema = z

@@ -1,12 +1,14 @@
-import { ForbiddenException, Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import type { Sequelize } from 'sequelize';
 import { AuditService } from '../../common/audit/audit.service';
 import type { Actor } from '../../common/auth/actor';
+import { assertActorOrganization } from '../../common/auth/organization-scope';
 import { BusinessRuleError } from '../../common/errors/application.error';
 import { MetricsService } from '../../common/observability/metrics.service';
+import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
+import { TracingService } from '../../common/observability/tracing.service';
 import { withSerializableRetry } from '../../common/persistence.transaction';
 import { WRITER_DATABASE } from '../../database/database.tokens';
-import { AiAgentModel } from '../../database/models';
 import { IntelligenceWriteRepository } from './intelligence-write.repository';
 import type {
   CompleteAgentRunInput,
@@ -26,6 +28,7 @@ export class ReviewService {
     private readonly repository: IntelligenceWriteRepository,
     private readonly metrics: MetricsService,
     private readonly audit: AuditService,
+    private readonly tracing: TracingService,
   ) {}
 
   /**
@@ -40,7 +43,25 @@ export class ReviewService {
     input: ReviewDecisionInput,
     actor: Actor,
   ): Promise<{ reviewTaskId: string; status: string; claimStatus: string | null }> {
-    return withSerializableRetry(this.writer, async (transaction) => {
+    return this.tracing.runInSpan(
+      'intelligence.review-decision',
+      {
+        [APP_ATTRIBUTES.module]: 'intelligence',
+        [APP_ATTRIBUTES.operation]: 'review-decision',
+        [APP_ATTRIBUTES.entityType]: 'review-task',
+        [APP_ATTRIBUTES.entityId]: reviewTaskId,
+        'app.review.decision': input.decision,
+      },
+      () => this.applyDecision(reviewTaskId, input, actor),
+    );
+  }
+
+  private async applyDecision(
+    reviewTaskId: string,
+    input: ReviewDecisionInput,
+    actor: Actor,
+  ): Promise<{ reviewTaskId: string; status: string; claimStatus: string | null }> {
+    const result = await withSerializableRetry(this.writer, async (transaction) => {
       const task = await this.repository.requireReviewTask(reviewTaskId, transaction);
       if (task.status !== 'PENDING' && task.status !== 'IN_REVIEW') {
         throw new BusinessRuleError('The review task is already resolved', {
@@ -78,18 +99,23 @@ export class ReviewService {
         },
         transaction,
       );
-      this.metrics.observeIntelligence('review', 'resolved');
       return { reviewTaskId, status: input.decision, claimStatus: claimStatus ?? null };
     });
+    // Counted after the commit: a serialization conflict replays the callback,
+    // so a counter incremented inside it would report one resolution per
+    // attempt, and an attempt that ends in rollback would report one that never
+    // happened.
+    this.metrics.observeIntelligence('review', 'resolved');
+    return result;
   }
 
   /** Closes a contradiction with an explicit, attributable justification. */
-  resolveContradiction(
+  async resolveContradiction(
     dataContradictionId: string,
     input: ResolveContradictionInput,
     actor: Actor,
   ): Promise<{ dataContradictionId: string; status: string }> {
-    return withSerializableRetry(this.writer, async (transaction) => {
+    const result = await withSerializableRetry(this.writer, async (transaction) => {
       const contradiction = await this.repository.requireContradiction(
         dataContradictionId,
         transaction,
@@ -118,9 +144,10 @@ export class ReviewService {
         },
         transaction,
       );
-      this.metrics.observeIntelligence('contradiction', 'resolved');
       return { dataContradictionId, status: input.resolution };
     });
+    this.metrics.observeIntelligence('contradiction', 'resolved');
+    return result;
   }
 
   /** Closes an agent run and stores the checkpoint needed to resume it. */
@@ -134,10 +161,12 @@ export class ReviewService {
       // A run identifier is not a capability: without this check any agent that
       // learns another organization's run id could close it and overwrite its
       // checkpoint, corrupting a foreign run's resumability and audit trail.
-      const agent = await AiAgentModel.findByPk(run.aiAgentId, { transaction });
-      if (actor.organizationId && agent && actor.organizationId !== agent.organizationId) {
-        throw new ForbiddenException('Actor cannot complete a run of another organization');
-      }
+      const agent = await this.repository.requireAgentById(run.aiAgentId, transaction);
+      assertActorOrganization(
+        actor,
+        agent.organizationId,
+        'Actor cannot complete a run of another organization',
+      );
       await run.update(
         {
           status: input.status,

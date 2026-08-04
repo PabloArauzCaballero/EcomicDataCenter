@@ -23,6 +23,7 @@ import {
   statisticalDomainSeedSchema,
   unitSeedSchema,
 } from '../schemas/seed.schemas';
+import { reconcileAgentBootstrap } from './boot-seed.agent-bootstrap';
 import { readSeed } from './seed.utils';
 
 async function reconcileFrequencies(transaction: Transaction): Promise<void> {
@@ -102,6 +103,7 @@ export async function runBootSeeds(): Promise<void> {
       await reconcileCurrencies(transaction);
       await reconcileCountries(transaction);
       await reconcileEconomicActivities(transaction);
+      await reconcileAgentBootstrap(transaction);
     });
   } finally {
     await database.close();

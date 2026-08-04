@@ -4,6 +4,8 @@ import { QueryTypes } from 'sequelize';
 import { toSafeErrorLog } from '../errors/error-logging';
 import { ReadQueryExecutor } from '../persistence/read-query.executor';
 import { MetricsService } from './metrics.service';
+import { APP_ATTRIBUTES } from './telemetry.constants';
+import { TracingService } from './tracing.service';
 
 const COLLECTION_INTERVAL_MS = 60_000;
 
@@ -31,6 +33,7 @@ export class DomainMetricsCollector implements OnModuleInit, OnApplicationShutdo
     private readonly executor: ReadQueryExecutor,
     private readonly metrics: MetricsService,
     private readonly logger: PinoLogger,
+    private readonly tracing: TracingService,
   ) {}
 
   onModuleInit(): void {
@@ -53,6 +56,21 @@ export class DomainMetricsCollector implements OnModuleInit, OnApplicationShutdo
   /** Reads the current counts and publishes them; failures never propagate. */
   async collect(): Promise<void> {
     if (this.stopped) return;
+    // Scheduled work has no incoming request to inherit from. A root span keeps
+    // the collection in its own trace instead of grafting a background job onto
+    // whichever request happened to be in flight.
+    await this.tracing.runInRootSpan(
+      'scheduler.domain-metrics',
+      {
+        [APP_ATTRIBUTES.module]: 'observability',
+        [APP_ATTRIBUTES.operation]: 'collect-domain-metrics',
+        [APP_ATTRIBUTES.jobName]: 'domain-metrics',
+      },
+      () => this.publishCounts(),
+    );
+  }
+
+  private async publishCounts(): Promise<void> {
     try {
       const rows = await this.executor.run(
         'observability.domain_counts',
@@ -93,6 +111,9 @@ SELECT
       // flight can outlive the connection pools. Reporting that as a failure
       // would make every clean shutdown look like an incident.
       if (this.stopped) return;
+      // The failure is swallowed for the caller but must still be visible in the
+      // trace: otherwise a job that never publishes a gauge looks successful.
+      this.tracing.recordException(error);
       // This best-effort path must never throw: the contract-export build boots
       // the module with no logger and a database double, and the initial collect
       // would otherwise crash it. Optional chaining keeps telemetry loss silent

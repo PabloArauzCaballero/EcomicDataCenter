@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AgentRegistryService } from './agent-registry.service';
+import { AgentRunQueryRepository } from './agent-run-query.repository';
 import { ClaimPersistenceService } from './claim-persistence.service';
 import { ClaimQueryRepository } from './claim-query.repository';
 import { ClaimQueryService } from './claim-query.service';
@@ -23,6 +24,7 @@ import { SubmissionService } from './submission.service';
   controllers: [IntelligenceController, ClaimReviewController],
   providers: [
     AgentRegistryService,
+    AgentRunQueryRepository,
     ClaimPersistenceService,
     ClaimQueryRepository,
     ClaimQueryService,

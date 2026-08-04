@@ -10,6 +10,10 @@ const environmentSchema = z
     NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
     APP_HOST: z.string().default('127.0.0.1'),
     APP_PORT: z.coerce.number().int().min(1).max(65_535).default(3000),
+    // Injected by the platform on Render, Heroku, Fly and Cloud Run. It wins
+    // over APP_PORT because the host routes traffic to the port it assigned:
+    // binding anywhere else makes the deploy loop until it times out.
+    PORT: z.coerce.number().int().min(1).max(65_535).optional(),
     APP_NAME: z.string().default('observatorio-economico-core'),
     API_PREFIX: z
       .string()
@@ -39,7 +43,13 @@ const environmentSchema = z
     DATABASE_POOL_ACQUIRE_MS: z.coerce.number().int().min(1000).max(120_000).default(15_000),
     DATABASE_POOL_IDLE_MS: z.coerce.number().int().min(1000).max(300_000).default(10_000),
     DATABASE_STATEMENT_TIMEOUT_MS: z.coerce.number().int().min(1000).max(300_000).default(15_000),
-    AUTH_MODE: z.enum(['disabled', 'jwks']).default('disabled'),
+    // `agent_key` authenticates one hosted collector with a shared secret when
+    // no identity provider exists. It grants the ingestion role alone; see ADR
+    // 0016 for the boundary that makes a single long-lived credential tolerable.
+    AUTH_MODE: z.enum(['disabled', 'jwks', 'agent_key']).default('disabled'),
+    // Long enough that guessing is not a threat model. Never logged: Pino
+    // redacts `req.headers.authorization`, which is where it travels.
+    AGENT_INGESTION_KEY: z.string().min(32).optional(),
     AUTH_JWKS_URI: z.string().url().optional(),
     AUTH_ISSUER: z.string().min(1).optional(),
     AUTH_AUDIENCE: z.string().min(1).optional(),
@@ -56,6 +66,36 @@ const environmentSchema = z
     BACKUP_ENCRYPTION_ENABLED: booleanFromString,
     BACKUP_COMPRESSION: z.enum(['none', 'gzip', 'custom']).default('custom'),
     BACKUP_MAX_DURATION_SECONDS: z.coerce.number().int().min(60).max(86_400).default(3600),
+    // Tracing is opt-in: no existing process changes behaviour until it is enabled.
+    OTEL_ENABLED: booleanFromString,
+    OTEL_SERVICE_NAME: z.string().min(1).max(120).default('observatorio-economico-api'),
+    OTEL_SERVICE_NAMESPACE: z.string().min(1).max(120).default('observatorio-economico'),
+    OTEL_SERVICE_VERSION: z.string().min(1).max(40).default('1.0.0'),
+    OTEL_DEPLOYMENT_ENVIRONMENT: z.string().min(1).max(40).optional(),
+    OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: z.string().url().default('http://localhost:4318/v1/traces'),
+    OTEL_EXPORT_TIMEOUT_MS: z.coerce.number().int().min(1000).max(60_000).default(10_000),
+    OTEL_TRACES_SAMPLER: z
+      .enum([
+        'always_on',
+        'always_off',
+        'traceidratio',
+        'parentbased_always_on',
+        'parentbased_always_off',
+        'parentbased_traceidratio',
+      ])
+      .default('parentbased_traceidratio'),
+    OTEL_TRACES_SAMPLER_ARG: z.coerce.number().min(0).max(1).default(1),
+    // Read natively by the OpenTelemetry SDK; validated here so a typo fails at
+    // startup instead of silently disabling context propagation.
+    OTEL_PROPAGATORS: z
+      .string()
+      .regex(
+        /^(tracecontext|baggage|b3|b3multi|jaeger|none)(,(tracecontext|baggage|b3|b3multi|jaeger|none))*$/,
+      )
+      .default('tracecontext,baggage'),
+    OTEL_DIAG_LOG_LEVEL: z
+      .enum(['NONE', 'ERROR', 'WARN', 'INFO', 'DEBUG', 'VERBOSE', 'ALL'])
+      .default('ERROR'),
   })
   .superRefine((environment, context) => {
     if (environment.NODE_ENV === 'production' && environment.AUTH_MODE === 'disabled') {
@@ -70,6 +110,13 @@ const environmentSchema = z
         code: 'custom',
         path: ['SWAGGER_ENABLED'],
         message: 'Swagger must be disabled in production',
+      });
+    }
+    if (environment.AUTH_MODE === 'agent_key' && !environment.AGENT_INGESTION_KEY) {
+      context.addIssue({
+        code: 'custom',
+        path: ['AGENT_INGESTION_KEY'],
+        message: 'AUTH_MODE=agent_key requires a shared key of at least 32 characters',
       });
     }
     if (environment.AUTH_MODE === 'jwks') {
@@ -97,7 +144,13 @@ const environmentSchema = z
         message: 'A separate migrator credential is required in production',
       });
     }
-  });
+  })
+  // Resolved once, here, so every consumer reads a single listening port and no
+  // caller has to remember which variable the current host happens to use.
+  .transform((environment) => ({
+    ...environment,
+    APP_PORT: environment.PORT ?? environment.APP_PORT,
+  }));
 
 export type Environment = z.infer<typeof environmentSchema>;
 

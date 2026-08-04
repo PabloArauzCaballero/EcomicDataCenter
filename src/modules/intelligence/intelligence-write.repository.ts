@@ -30,6 +30,19 @@ export class IntelligenceWriteRepository {
     return agent;
   }
 
+  /**
+   * Loads the agent that owns a run, which every isolation check needs.
+   *
+   * A missing row must fail rather than resolve to `undefined`: the caller uses
+   * it to compare organizations, so an absent agent would silently skip that
+   * comparison and turn a run identifier into a cross-institution capability.
+   */
+  async requireAgentById(aiAgentId: string, transaction: Transaction): Promise<AiAgentModel> {
+    const agent = await AiAgentModel.findByPk(aiAgentId, { transaction });
+    if (!agent) throw new NotFoundError('ai_agent', aiAgentId);
+    return agent;
+  }
+
   async requireRun(agentRunId: string, transaction: Transaction): Promise<AgentRunModel> {
     const run = await AgentRunModel.findByPk(agentRunId, { transaction });
     if (!run) throw new NotFoundError('agent_run', agentRunId);

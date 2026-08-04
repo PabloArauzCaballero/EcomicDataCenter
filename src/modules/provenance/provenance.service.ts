@@ -1,6 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { QueryTypes, UniqueConstraintError, type Sequelize } from 'sequelize';
 import { ConflictError, NotFoundError } from '../../common/errors/application.error';
+import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
+import { TracingService } from '../../common/observability/tracing.service';
 import { READER_DATABASE, WRITER_DATABASE } from '../../database/database.tokens';
 import { OrganizationModel, SourceArtifactModel, SourceModel } from '../../database/models';
 import type {
@@ -15,6 +17,7 @@ export class ProvenanceService {
   constructor(
     @Inject(WRITER_DATABASE) private readonly writer: Sequelize,
     @Inject(READER_DATABASE) private readonly reader: Sequelize,
+    private readonly tracing: TracingService,
   ) {}
 
   async createOrganization(input: CreateOrganizationInput) {
@@ -75,7 +78,20 @@ export class ProvenanceService {
     );
   }
 
-  async registerArtifact(input: CreateSourceArtifactInput) {
+  registerArtifact(input: CreateSourceArtifactInput) {
+    return this.tracing.runInSpan(
+      'provenance.register-artifact',
+      {
+        [APP_ATTRIBUTES.module]: 'provenance',
+        [APP_ATTRIBUTES.operation]: 'register-artifact',
+        [APP_ATTRIBUTES.entityType]: 'source-artifact',
+        [APP_ATTRIBUTES.entityId]: input.sourceId,
+      },
+      () => this.persistArtifact(input),
+    );
+  }
+
+  private async persistArtifact(input: CreateSourceArtifactInput) {
     const [source, duplicate] = await Promise.all([
       SourceModel.findByPk(input.sourceId),
       SourceArtifactModel.findOne({ where: { sha256: input.sha256 } }),

@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { QueryTypes } from 'sequelize';
 import type { Sequelize } from 'sequelize-typescript';
 import {
+  AGENT_BOOTSTRAP_IDS,
   BOOT_FREQUENCY_IDS,
   BOOT_QUALITY_DIMENSION_IDS,
   BOOT_UNIT_IDS,
@@ -51,12 +52,29 @@ export function captureBootSeedHash(database: Sequelize): Promise<string> {
               FROM quality_lineage.quality_dimension WHERE quality_dimension_id IN (:qualityIds)) item), '[]'::jsonb),
       'units', COALESCE((SELECT jsonb_agg(to_jsonb(item) ORDER BY item.code)
         FROM (SELECT unit_measure_id, base_unit_measure_id, code, name, symbol, multiplier_power10, value_kind
-              FROM semantic.unit_measure WHERE unit_measure_id IN (:unitIds)) item), '[]'::jsonb)
+              FROM semantic.unit_measure WHERE unit_measure_id IN (:unitIds)) item), '[]'::jsonb),
+      'agentOrganization', (SELECT to_jsonb(item)
+        FROM (SELECT organization_id, code, legal_name, short_name, organization_type, country_code,
+                     official_statistics_producer, is_active, valid_from, valid_to
+              FROM provenance.organization WHERE organization_id = :agentOrganizationId) item),
+      'agentSource', (SELECT to_jsonb(item)
+        FROM (SELECT source_id, organization_id, code, name, source_type, access_method, is_active
+              FROM provenance.source WHERE source_id = :agentSourceId) item),
+      -- last_run_at and the credential fingerprint belong to the running system,
+      -- not to the catalog, so they stay out of the hash the idempotency check
+      -- compares between two consecutive seed executions.
+      'agent', (SELECT to_jsonb(item)
+        FROM (SELECT ai_agent_id, organization_id, code, name, agent_type, provider, model_identifier,
+                     specialty, prompt_version, schema_version, configuration_json, status, is_active
+              FROM intelligence.ai_agent WHERE ai_agent_id = :agentId) item)
     ) AS snapshot`,
     {
       frequencyIds: [...BOOT_FREQUENCY_IDS],
       qualityIds: [...BOOT_QUALITY_DIMENSION_IDS],
       unitIds: [...BOOT_UNIT_IDS],
+      agentOrganizationId: AGENT_BOOTSTRAP_IDS.organization,
+      agentSourceId: AGENT_BOOTSTRAP_IDS.source,
+      agentId: AGENT_BOOTSTRAP_IDS.agent,
     },
   );
 }

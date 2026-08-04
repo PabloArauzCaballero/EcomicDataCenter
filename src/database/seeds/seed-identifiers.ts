@@ -25,6 +25,13 @@ export const BOOT_UNIT_IDS = [
 
 export const SYNTHETIC_INDEX_UNIT_ID = BOOT_UNIT_IDS[2];
 
+/** Identity the hosted collector writes for, declared by boot/agent-bootstrap.json. */
+export const AGENT_BOOTSTRAP_IDS = Object.freeze({
+  organization: '92000000-0000-4000-8000-000000000001',
+  source: '92000000-0000-4000-8000-000000000002',
+  agent: '92000000-0000-4000-8000-000000000003',
+});
+
 export const MOCK_IDS = Object.freeze({
   organization: '40000000-0000-4000-8000-000000000001',
   domain: '40000000-0000-4000-8000-000000000002',

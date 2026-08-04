@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import type { Actor } from '../../common/auth/actor';
+import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
+import { TracingService } from '../../common/observability/tracing.service';
 import { AgentRegistryService } from './agent-registry.service';
 import type { DailyAnalysisResult } from './intelligence-results';
 import type { SubmitDailyAnalysisInput } from './intelligence.schemas';
@@ -12,6 +14,7 @@ export class DailyAnalysisService {
     private readonly agents: AgentRegistryService,
     private readonly submissions: SubmissionService,
     private readonly reviews: ReviewService,
+    private readonly tracing: TracingService,
   ) {}
 
   /**
@@ -28,10 +31,30 @@ export class DailyAnalysisService {
     actor: Actor,
     correlationId: string,
   ): Promise<DailyAnalysisResult> {
+    return this.tracing.runInSpan(
+      'intelligence.daily-analysis',
+      {
+        [APP_ATTRIBUTES.module]: 'intelligence',
+        [APP_ATTRIBUTES.operation]: 'daily-analysis',
+        [APP_ATTRIBUTES.entityType]: 'agent-run',
+        [APP_ATTRIBUTES.batchSize]: input.submission.items.length,
+      },
+      async () => this.execute(input, actor, correlationId),
+    );
+  }
+
+  private async execute(
+    input: SubmitDailyAnalysisInput,
+    actor: Actor,
+    correlationId: string,
+  ): Promise<DailyAnalysisResult> {
     const run = await this.agents.open(input.agent, actor, correlationId);
+    this.tracing.setAttributes({ [APP_ATTRIBUTES.entityId]: run.agentRunId });
     try {
+      this.tracing.addEvent('agent-run.opened');
       const submission = await this.submissions.submit(run.agentRunId, input.submission, actor);
       const completion = await this.reviews.completeRun(run.agentRunId, input.completion, actor);
+      this.tracing.addEvent('agent-run.completed');
       return {
         agentRunId: run.agentRunId,
         agentCode: run.agentCode,
