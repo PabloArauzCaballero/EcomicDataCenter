@@ -1,0 +1,32 @@
+{
+  "organization": {
+    "organizationId": "92000000-0000-4000-8000-000000000001",
+    "code": "OBSERVATORIO",
+    "legalName": "Observatorio de la Situación Económica y de los Mercados de Bolivia",
+    "shortName": "Observatorio",
+    "organizationType": "RESEARCH_OBSERVATORY",
+    "countryCode": "BO",
+    "officialStatisticsProducer": false,
+    "isActive": true,
+    "validFrom": "1970-01-01"
+  },
+  "source": {
+    "sourceId": "92000000-0000-4000-8000-000000000002",
+    "code": "AI-AGENT-COLLECTION",
+    "name": "Recolección documental de agentes autónomos de inteligencia artificial",
+    "sourceType": "AI_AGENT",
+    "accessMethod": "API",
+    "isActive": true
+  },
+  "agent": {
+    "aiAgentId": "92000000-0000-4000-8000-000000000003",
+    "code": "CHATGPT_DAILY_MACRO",
+    "name": "Colector diario ChatGPT de coyuntura económica",
+    "agentType": "SECTOR",
+    "provider": "OpenAI",
+    "modelIdentifier": "gpt-5",
+    "specialty": "Coyuntura macroeconómica y sectorial de Bolivia",
+    "promptVersion": "2026-08-04.1",
+    "schemaVersion": "1.0.0"
+  }
+}

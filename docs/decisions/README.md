@@ -18,3 +18,5 @@ Los ADR son inmutables después de aceptarse. Una decisión nueva reemplaza a la
 | 0012 | Confidencialidad default-deny | Propuesto; bloqueado por política |
 | 0013 | Idempotencia de replay para submission de agentes | Propuesto; bloqueado por evidencia |
 | 0014 | Estrategia de reprocesamiento de cuarentena | Propuesto; bloqueado por modelo de datos |
+| 0015 | Trazabilidad distribuida con OpenTelemetry y Jaeger | Aceptado |
+| 0016 | Credencial compartida para el colector alojado | Aceptado |

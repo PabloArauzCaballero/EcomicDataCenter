@@ -19,6 +19,19 @@ export class ApplicationError extends Error {
   }
 }
 
+/**
+ * Rejects a malformed request at the edge, keeping the field-level reasons.
+ *
+ * The reasons travel as a typed application error rather than as a framework
+ * exception so the filter emits them under `details`; without this the caller
+ * only ever learns that "something" in the payload was invalid.
+ */
+export class RequestValidationError extends ApplicationError {
+  constructor(details: Readonly<Record<string, unknown>>) {
+    super('VALIDATION_ERROR', 'Invalid request', 400, details);
+  }
+}
+
 export class NotFoundError extends ApplicationError {
   constructor(entity: string, identifier: string) {
     super('NOT_FOUND', `${entity} not found`, 404, { identifier });

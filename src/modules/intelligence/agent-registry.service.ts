@@ -1,12 +1,14 @@
-import { ForbiddenException, Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { randomUUID } from 'node:crypto';
 import type { Sequelize } from 'sequelize';
 import { AuditService } from '../../common/audit/audit.service';
 import type { Actor } from '../../common/auth/actor';
+import { assertActorOrganization } from '../../common/auth/organization-scope';
 import { ConflictError } from '../../common/errors/application.error';
 import { withSerializableRetry } from '../../common/persistence.transaction';
 import { WRITER_DATABASE } from '../../database/database.tokens';
 import { AgentRunModel, AiAgentModel } from '../../database/models';
+import { AgentRunQueryRepository } from './agent-run-query.repository';
 import type { AgentRunStatus } from './intelligence-results';
 import { IntelligenceWriteRepository } from './intelligence-write.repository';
 import type { OpenAgentRunInput, RegisterAgentInput } from './intelligence.schemas';
@@ -16,6 +18,7 @@ export class AgentRegistryService {
   constructor(
     @Inject(WRITER_DATABASE) private readonly writer: Sequelize,
     private readonly repository: IntelligenceWriteRepository,
+    private readonly runs: AgentRunQueryRepository,
     private readonly audit: AuditService,
   ) {}
 
@@ -111,16 +114,13 @@ export class AgentRegistryService {
   }
 
   /** Reports run progress so an agent can resume after a failure. */
-  status(agentRunId: string, actor: Actor): Promise<AgentRunStatus> {
-    return withSerializableRetry(this.writer, async (transaction) => {
-      const run = await this.repository.requireRun(agentRunId, transaction);
-      const agent = await AiAgentModel.findByPk(run.aiAgentId, { transaction });
-      // Institution-scoped roles (an ingestion agent) may only read their own
-      // runs; unscoped custodian roles keep cross-institutional visibility, as
-      // the disclosure policy grants them.
-      if (agent) this.assertActorOrganization(actor, agent.organizationId);
-      return this.toStatus(run, agent?.code ?? 'unknown');
-    });
+  async status(agentRunId: string, actor: Actor): Promise<AgentRunStatus> {
+    const run = await this.runs.requireStatus(agentRunId);
+    // Institution-scoped roles (an ingestion agent) may only read their own
+    // runs; unscoped custodian roles keep cross-institutional visibility, as
+    // the disclosure policy grants them.
+    this.assertActorOrganization(actor, run.organizationId);
+    return run.status;
   }
 
   private toStatus(run: AgentRunModel, agentCode: string): AgentRunStatus {
@@ -139,8 +139,10 @@ export class AgentRegistryService {
   }
 
   private assertActorOrganization(actor: Actor, organizationId: string): void {
-    if (actor.organizationId && actor.organizationId !== organizationId) {
-      throw new ForbiddenException('Actor cannot operate agents of another organization');
-    }
+    assertActorOrganization(
+      actor,
+      organizationId,
+      'Actor cannot operate agents of another organization',
+    );
   }
 }

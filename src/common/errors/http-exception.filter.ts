@@ -1,4 +1,5 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
+import { context as activeContext, trace } from '@opentelemetry/api';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { PinoLogger } from 'nestjs-pino';
 import {
@@ -7,6 +8,8 @@ import {
   ValidationError as SequelizeValidationError,
 } from 'sequelize';
 import { ZodError } from 'zod';
+import { recordSpanFailure } from '../observability/span-failure';
+import { toSafeValidationIssues } from '../validation/zod-issue';
 import { ApplicationError } from './application.error';
 import { toSafeErrorLog } from './error-logging';
 
@@ -27,12 +30,9 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const request = context.getRequest<FastifyRequest>();
     const requestId = request.id;
 
+    // Reached when a schema is parsed outside the validation pipe — a rule
+    // configuration or a seed file, never a request body.
     if (exception instanceof ZodError) {
-      const issues = exception.issues.map((issue) => ({
-        code: issue.code,
-        path: issue.path.map(String),
-        message: issue.message,
-      }));
       this.send(
         response,
         HttpStatus.BAD_REQUEST,
@@ -40,12 +40,13 @@ export class HttpExceptionFilter implements ExceptionFilter {
         'VALIDATION_ERROR',
         'Invalid request',
         {
-          issues,
+          issues: toSafeValidationIssues(exception),
         },
       );
       return;
     }
     if (exception instanceof ApplicationError) {
+      this.recordServerFault(exception, exception.statusCode);
       this.send(
         response,
         exception.statusCode,
@@ -82,6 +83,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     }
     if (exception instanceof HttpException) {
       const status = exception.getStatus();
+      this.recordServerFault(exception, status);
       this.send(
         response,
         status,
@@ -98,6 +100,13 @@ export class HttpExceptionFilter implements ExceptionFilter {
     // and every throttled request is logged as an unhandled error.
     const pluginStatus = readPluginStatus(exception);
     if (pluginStatus) {
+      // A 4xx from a plugin is an expected client outcome, but a 5xx is a
+      // server fault that would otherwise be answered and forgotten: without
+      // this the only trace of a failing plugin is the status code the client
+      // saw, which never reaches the operator.
+      if (pluginStatus >= Number(HttpStatus.INTERNAL_SERVER_ERROR)) {
+        this.logFailure(exception, requestId, request, 'Plugin request error');
+      }
       this.send(
         response,
         pluginStatus,
@@ -110,6 +119,42 @@ export class HttpExceptionFilter implements ExceptionFilter {
       return;
     }
 
+    this.logFailure(exception, requestId, request, 'Unhandled request error');
+    this.send(
+      response,
+      HttpStatus.INTERNAL_SERVER_ERROR,
+      requestId,
+      'INTERNAL_ERROR',
+      'Unexpected server error',
+    );
+  }
+
+  /**
+   * Publishes the failure to the active span.
+   *
+   * The HTTP instrumentation sets the span status from the response code, but
+   * it never sees the exception because this filter turns it into a response.
+   * Recording it here is what makes a trace say *why* a request failed, and it
+   * happens exactly once, only for faults the operator has to act on: a 400 is
+   * an expected client outcome, not a server failure.
+   */
+  private recordOnSpan(exception: unknown): void {
+    const span = trace.getSpan(activeContext.active());
+    if (span) recordSpanFailure(span, exception);
+  }
+
+  /** Records only server-side faults; a 4xx is an expected client outcome. */
+  private recordServerFault(exception: unknown, status: number): void {
+    if (status >= Number(HttpStatus.INTERNAL_SERVER_ERROR)) this.recordOnSpan(exception);
+  }
+
+  private logFailure(
+    exception: unknown,
+    requestId: string,
+    request: FastifyRequest,
+    message: string,
+  ): void {
+    this.recordOnSpan(exception);
     this.logger.error(
       // Log the path only, never the query string: a sensitive filter value
       // passed as a query parameter must not land in logs verbatim.
@@ -118,14 +163,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
         requestId,
         path: request.url.split('?')[0] ?? request.url,
       },
-      'Unhandled request error',
-    );
-    this.send(
-      response,
-      HttpStatus.INTERNAL_SERVER_ERROR,
-      requestId,
-      'INTERNAL_ERROR',
-      'Unexpected server error',
+      message,
     );
   }
 

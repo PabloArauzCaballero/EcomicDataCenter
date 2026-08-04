@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import type { Actor } from '../../common/auth/actor';
 import { resolveDisclosureScope } from '../../common/auth/disclosure.policy';
+import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
+import { TracingService } from '../../common/observability/tracing.service';
 import { mapQueryRow } from './data-query.mapper';
 import { encodeCursor } from './pagination-cursor';
 import type { DataQueryInput } from './data-query.schemas';
@@ -12,9 +14,24 @@ export class DataQueryService {
   constructor(
     private readonly queries: DataQueryRepository,
     private readonly traces: TraceRepository,
+    private readonly tracing: TracingService,
   ) {}
 
-  async search(input: DataQueryInput, actor: Actor) {
+  search(input: DataQueryInput, actor: Actor) {
+    return this.tracing.runInSpan(
+      'query.search-observations',
+      {
+        [APP_ATTRIBUTES.module]: 'query',
+        [APP_ATTRIBUTES.operation]: 'search-observations',
+        // Page size and mode are bounded values; filter values never are.
+        'app.query.page_size': input.pageSize,
+        'app.query.mode': input.vintageDate ? 'VINTAGE' : 'CURRENT',
+      },
+      () => this.executeSearch(input, actor),
+    );
+  }
+
+  private async executeSearch(input: DataQueryInput, actor: Actor) {
     const result = await this.queries.search(input, resolveDisclosureScope(actor));
     const last = result.rows.at(-1);
     // A keyset page reports no total: computing it would reintroduce the full

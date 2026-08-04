@@ -1,4 +1,5 @@
 import {
+  agentBootstrapSeedSchema,
   frequencySeedSchema,
   mockSeedSchema,
   qualityDimensionSeedSchema,
@@ -12,6 +13,7 @@ export async function validateSeedFiles(): Promise<void> {
     readSeed('boot/frequencies.json', frequencySeedSchema),
     readSeed('boot/quality-dimensions.json', qualityDimensionSeedSchema),
     readSeed('boot/units.json', unitSeedSchema),
+    readSeed('boot/agent-bootstrap.json', agentBootstrapSeedSchema),
     readSeed('mock/observatory-demo.json', mockSeedSchema),
   ]);
 }

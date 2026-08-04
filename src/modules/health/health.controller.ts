@@ -8,22 +8,13 @@ import {
   ServiceUnavailableException,
 } from '@nestjs/common';
 import type { FastifyReply } from 'fastify';
-import { timingSafeEqual } from 'node:crypto';
 import type { Sequelize } from 'sequelize-typescript';
 import { Public } from '../../common/auth/auth.decorators';
+import { matchesBearerToken } from '../../common/auth/bearer-token';
 import { MetricsService } from '../../common/observability/metrics.service';
 import { ENVIRONMENT } from '../../config/configuration.module';
 import type { Environment } from '../../config/environment';
 import { READER_DATABASE, WRITER_DATABASE } from '../../database/database.tokens';
-
-/** Compares a bearer token in constant time to avoid leaking it by timing. */
-function matchesBearerToken(authorization: string | undefined, expected: string): boolean {
-  const [scheme, token] = authorization?.split(' ') ?? [];
-  if (scheme !== 'Bearer' || !token) return false;
-  const provided = Buffer.from(token);
-  const reference = Buffer.from(expected);
-  return provided.length === reference.length && timingSafeEqual(provided, reference);
-}
 
 @Controller()
 export class HealthController {

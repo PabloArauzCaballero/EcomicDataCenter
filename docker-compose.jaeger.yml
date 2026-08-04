@@ -1,0 +1,49 @@
+# Local tracing backend. Kept out of `docker-compose.yml` on purpose: the
+# operational gate (`yarn quality:operations`) requires that only `nginx`
+# publishes ports in the production topology, and Jaeger's in-memory storage is
+# a development convenience that must never reach production (ADR-0015).
+#
+#   Standalone (backend running on the host with `yarn dev`):
+#     docker compose -f docker-compose.jaeger.yml up -d
+#     OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://localhost:4318/v1/traces
+#
+#   Alongside the containerized stack:
+#     docker compose -f docker-compose.yml -f docker-compose.jaeger.yml up -d
+#     OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://jaeger:4318/v1/traces
+#
+# The API never declares a dependency on this service: a tracing backend that is
+# down must cost buffered spans, never a failed request.
+services:
+  jaeger:
+    image: jaegertracing/jaeger:2.20.0
+    # Bound to the loopback interface only. An unauthenticated trace UI reachable
+    # from the local network would expose every request path of the datacenter.
+    ports:
+      - '127.0.0.1:16686:16686' # Jaeger UI and query API
+      - '127.0.0.1:4318:4318' # OTLP/HTTP receiver
+      - '127.0.0.1:4317:4317' # OTLP/gRPC receiver
+    environment:
+      # In-memory storage: development only. Traces are lost on restart, which is
+      # exactly why production uses the topology in
+      # docs/observability/03-production-topology.md.
+      JAEGER_LISTEN_HOST: 0.0.0.0
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '-O', '-', 'http://127.0.0.1:16686/']
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    stop_grace_period: 10s
+    # `observability` carries the published ports; `app` is the internal network
+    # of the main stack, so the containerized API can export without leaving it.
+    networks: [observability, app]
+    restart: unless-stopped
+
+networks:
+  observability: {}
+  app:
+    internal: true
