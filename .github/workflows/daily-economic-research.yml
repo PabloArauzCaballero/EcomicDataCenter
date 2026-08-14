@@ -1,0 +1,52 @@
+name: daily-economic-research
+
+on:
+  workflow_dispatch:
+  schedule:
+    # America/La_Paz is UTC-4 year-round: 06:30 local = 10:30 UTC.
+    - cron: '30 10 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-economic-research
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    env:
+      ECONOMIC_API_BASE_URL: ${{ vars.ECONOMIC_API_BASE_URL }}
+      ECONOMIC_STORAGE_BASE_URL: ${{ vars.ECONOMIC_STORAGE_BASE_URL }}
+      ECONOMIC_STORAGE_REPOSITORY: ${{ vars.ECONOMIC_STORAGE_REPOSITORY }}
+      ECONOMIC_SOURCE_ID: ${{ vars.ECONOMIC_SOURCE_ID }}
+      ECONOMIC_AGENT_CODE: ${{ vars.ECONOMIC_AGENT_CODE }}
+      ECONOMIC_PROMPT_VERSION: ${{ vars.ECONOMIC_PROMPT_VERSION }}
+      ECONOMIC_SCHEMA_VERSION: ${{ vars.ECONOMIC_SCHEMA_VERSION }}
+      ECONOMIC_TIMEZONE: ${{ vars.ECONOMIC_TIMEZONE }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+      ECONOMIC_COLLECTOR_KEY: ${{ secrets.ECONOMIC_COLLECTOR_KEY }}
+      ECONOMIC_STORAGE_TOKEN: ${{ secrets.ECONOMIC_STORAGE_TOKEN }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Run daily collector
+        run: yarn daily:collect
+      - name: Publish execution report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: daily-economic-report-${{ github.run_id }}
+          path: artifacts/daily-economic-report.json
+          if-no-files-found: warn
+          retention-days: 30
