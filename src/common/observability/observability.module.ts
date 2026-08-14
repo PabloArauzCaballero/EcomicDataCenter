@@ -1,5 +1,4 @@
 import { Global, Module } from '@nestjs/common';
-import { DomainMetricsCollector } from './domain-metrics.collector';
 import { MessagingTraceService } from './messaging-trace.service';
 import { MetricsService } from './metrics.service';
 import { TelemetryLifecycle } from './telemetry.lifecycle';
@@ -10,7 +9,6 @@ import { TracingService } from './tracing.service';
 @Module({
   providers: [
     MetricsService,
-    DomainMetricsCollector,
     TracingService,
     TraceContextService,
     MessagingTraceService,

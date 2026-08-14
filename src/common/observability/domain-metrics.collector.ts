@@ -1,4 +1,4 @@
-import { Injectable, type OnApplicationShutdown, type OnModuleInit } from '@nestjs/common';
+import { Inject, Injectable, type OnApplicationShutdown, type OnModuleInit } from '@nestjs/common';
 import { PinoLogger } from 'nestjs-pino';
 import { QueryTypes } from 'sequelize';
 import { toSafeErrorLog } from '../errors/error-logging';
@@ -30,10 +30,10 @@ export class DomainMetricsCollector implements OnModuleInit, OnApplicationShutdo
   private stopped = false;
 
   constructor(
-    private readonly executor: ReadQueryExecutor,
-    private readonly metrics: MetricsService,
-    private readonly logger: PinoLogger,
-    private readonly tracing: TracingService,
+    @Inject(ReadQueryExecutor) private readonly executor: ReadQueryExecutor,
+    @Inject(MetricsService) private readonly metrics: MetricsService,
+    @Inject(PinoLogger) private readonly logger: PinoLogger,
+    @Inject(TracingService) private readonly tracing: TracingService,
   ) {}
 
   onModuleInit(): void {
