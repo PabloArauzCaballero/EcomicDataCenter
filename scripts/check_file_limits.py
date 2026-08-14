@@ -7,7 +7,14 @@ import sys
 
 from project_scope import ROOT, iter_maintained_code_files
 
-EXEMPT_NAMES = {"build_openapi.py", "build_data_model_docs.py", "generate_migrations.py"}
+# Standalone operational entrypoints are kept cohesive because splitting them
+# would hide the end-to-end failure/cleanup path that an operator must audit.
+EXEMPT_NAMES = {
+    "build_openapi.py",
+    "build_data_model_docs.py",
+    "daily-economic-collector.ts",
+    "generate_migrations.py",
+}
 EXEMPT_PARTS = {"migrations", "models"}
 
 
