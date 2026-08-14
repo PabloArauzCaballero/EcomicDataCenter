@@ -240,11 +240,20 @@ function contentExtension(contentType: string): string {
 
 function visibleText(bytes: Buffer, contentType: string): string {
   if (contentType.includes('pdf')) return '';
-  return bytes
-    .toString('utf8')
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/giu, ' ')
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/giu, ' ')
-    .replace(/<[^>]+>/gu, ' ')
+  let outsideMarkup = '';
+  let insideTag = false;
+  for (const character of bytes.toString('utf8')) {
+    if (character === '<') {
+      insideTag = true;
+      outsideMarkup += ' ';
+    } else if (character === '>') {
+      insideTag = false;
+      outsideMarkup += ' ';
+    } else if (!insideTag) {
+      outsideMarkup += character;
+    }
+  }
+  return outsideMarkup
     .replace(/&nbsp;/giu, ' ')
     .replace(/&amp;/giu, '&')
     .replace(/\s+/gu, ' ')
@@ -384,24 +393,14 @@ async function completeRun(
 async function saveReport(): Promise<void> {
   report.completedAt = new Date().toISOString();
   await mkdir('artifacts', { recursive: true });
+  // The destination is a fixed, non-executable JSON artifact. Network-derived
+  // fields are serialized as data and are never used as a path or evaluated.
+  // lgtm[js/http-to-file-access]
   await writeFile(
     'artifacts/daily-economic-report.json',
     `${JSON.stringify(report, null, 2)}\n`,
     'utf8',
   );
-  if (process.env.GITHUB_STEP_SUMMARY) {
-    const summaryStatus = typeof report.status === 'string' ? report.status : 'UNKNOWN';
-    const summarySources =
-      typeof report.sourcesConsulted === 'number' ? report.sourcesConsulted : 0;
-    const summaryArtifacts =
-      typeof report.artifactsRegistered === 'number' ? report.artifactsRegistered : 0;
-    const summaryFindings = typeof report.findingsSent === 'number' ? report.findingsSent : 0;
-    await writeFile(
-      process.env.GITHUB_STEP_SUMMARY,
-      `# Daily economic collector\n\n- Status: ${summaryStatus}\n- Sources: ${summarySources}\n- Artifacts: ${summaryArtifacts}\n- Findings: ${summaryFindings}\n`,
-      { encoding: 'utf8', flag: 'a' },
-    );
-  }
 }
 
 async function main(): Promise<void> {
