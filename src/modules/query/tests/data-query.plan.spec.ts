@@ -1,6 +1,7 @@
 import type { DisclosureScope } from '../../../common/auth/disclosure.policy';
 import { buildDataQueryPlan } from '../data-query.plan';
 import { dataQuerySchema } from '../data-query.schemas';
+import { encodeCursor } from '../pagination-cursor';
 
 const CUSTODIAN: DisclosureScope = { unrestricted: true, organizationId: null };
 const ORGANIZATION_ID = '40000000-0000-4000-8000-000000000001';
@@ -68,5 +69,37 @@ describe('buildDataQueryPlan', () => {
     const plan = buildDataQueryPlan(input, CUSTODIAN);
     expect(plan.revisionPredicate).toContain('candidate.status');
     expect(plan.revisionPredicate).not.toContain('r.');
+  });
+
+  it('advances an ascending keyset page with the ordered tuple comparison', () => {
+    const input = dataQuerySchema.parse({
+      datasetVersionId: DATASET_VERSION_ID,
+      cursor: encodeCursor({ periodStart: '2026-01-01', seriesKey: 'B' }),
+      sortDirection: 'asc',
+    });
+    const plan = buildDataQueryPlan(input, CUSTODIAN);
+    expect(plan.keyset).toBe(true);
+    expect(plan.replacements.offset).toBe(0);
+    expect(plan.predicates.join(' ')).toContain(
+      '(o.period_start, s.series_key) > (:cursorPeriodStart::date, :cursorSeriesKey)',
+    );
+  });
+
+  // The page is emitted as `period_start DESC, series_key ASC`. A symmetric
+  // tuple comparison would ask for `series_key <` on the ties, re-serving rows
+  // already returned and skipping the rest of the tie group.
+  it('keeps the ascending tie-breaker on a descending keyset page', () => {
+    const input = dataQuerySchema.parse({
+      datasetVersionId: DATASET_VERSION_ID,
+      cursor: encodeCursor({ periodStart: '2026-01-01', seriesKey: 'B' }),
+      sortDirection: 'desc',
+    });
+    const plan = buildDataQueryPlan(input, CUSTODIAN);
+    const predicates = plan.predicates.join(' ');
+    expect(predicates).toContain('o.period_start < :cursorPeriodStart::date');
+    expect(predicates).toContain(
+      'o.period_start = :cursorPeriodStart::date AND s.series_key > :cursorSeriesKey',
+    );
+    expect(predicates).not.toContain('s.series_key < :cursorSeriesKey');
   });
 });

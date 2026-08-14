@@ -18,6 +18,8 @@ Las versiones seleccionadas son las fijadas en `package.json`. La fase 2 evalúa
 | Contrato API | @nestjs/swagger, zod-openapi | @nestjs/swagger 11.2.0 + YAML versionado | Nest 11 | Swagger UI desactivable; contrato revisado en CI | MIT | Fuera de hot path salvo generación | Generador Zod/OpenAPI probado | ADR-0008 |
 | Pruebas | Jest, Vitest | Jest 29.7.0 + Supertest 7.1.3 | ts-jest 29; Nest testing | Mantener versiones compatibles; no mezclar runners | MIT | Ejecución CI, no runtime | Vitest tras prueba de compatibilidad | Stack existente |
 | Reverse proxy | NGINX, proxy de plataforma | NGINX 1.29.0-alpine en Compose | HTTP privado hacia Fastify | Imagen fijada; escaneo obligatorio | BSD-2-Clause | Rate limit y keepalive en borde | Ingress/Gateway de plataforma | ADR-0010 |
+| Trazas distribuidas | `jaeger-client` nativo, OpenTelemetry con `auto-instrumentations-node`, OpenTelemetry con instrumentaciones explícitas | `@opentelemetry/api` 1.9.x + `sdk-node` 0.221.x + instrumentaciones explícitas (`http`, `fastify`, `nestjs-core`, `pg`, `pino`) | Node ≥20.6; peer `@opentelemetry/api >=1.3 <1.10` | Núcleo oficial OpenTelemetry; `jaeger-client` descontinuado desde 2022 y descartado | Apache-2.0 | Exportación asíncrona por lotes fuera del camino de respuesta; medida en `docs/observability/05-performance-results.md` | Cambiar el exportador OTLP por otro backend sin tocar el dominio | ADR-0015 |
+| Transporte de trazas | OTLP/HTTP JSON, OTLP/HTTP protobuf, OTLP/gRPC | `@opentelemetry/exporter-trace-otlp-http` 0.221.x | HTTP/1.1 a través de la infraestructura ya operada | Una dependencia, sin binarios nativos ni `protobufjs` | Apache-2.0 | ~30 % más de payload que protobuf, irrelevante al volumen actual | Exportador protobuf o gRPC cambiando un paquete en `telemetry.bootstrap.ts` | ADR-0015 §3 |
 
 \* La licencia indicada debe confirmarse mediante SBOM/licence scan sobre el árbol resuelto por `yarn.lock`; no sustituye verificación legal.
 
@@ -28,7 +30,9 @@ Las versiones seleccionadas son las fijadas en `package.json`. La fase 2 evalúa
 | Redis/cache | No existe evidencia de necesidad ni política de invalidación. |
 | BullMQ/pg-boss | No existe trabajo diferido actual; ver ADR-0003. |
 | Circuit breaker | Solo existe JWKS de lectura con cache/timeout; reevaluar al agregar integraciones. |
-| OpenTelemetry completo | Diferido hasta que existan procesos distribuidos o requisito enterprise. |
+| OpenTelemetry métricas y logs | Diferido: `prom-client` cubre métricas y Pino cubre logs. OpenTelemetry se adopta **solo para trazas** (ADR-0015); dos librerías para la misma responsabilidad requerirían un ADR nuevo. |
+| Instrumentación de Sequelize | No se instala: `instrumentation-pg` ya cubre la consulta real y una segunda capa duplicaría spans (ADR-0015 y `docs/observability/01-architecture-design.md` §5). |
+| `auto-instrumentations-node` | Descartado: instala instrumentaciones para tecnologías inexistentes en el repositorio. |
 | Kubernetes/Helm | Diferido hasta definir plataforma y disponibilidad. |
 
 ## Gate de actualización

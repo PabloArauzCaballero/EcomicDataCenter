@@ -1,4 +1,7 @@
-import 'dotenv/config';
+// Must stay the first import: OpenTelemetry patches modules as they are
+// required, so Fastify, Nest, pg and pino have to be loaded after it. The
+// bootstrap loads `dotenv/config` itself before reading the environment.
+import './common/observability/telemetry.bootstrap';
 import 'reflect-metadata';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
@@ -11,6 +14,7 @@ import type { IncomingMessage } from 'node:http';
 import { Logger } from 'nestjs-pino';
 import { AppModule } from './app.module';
 import { createRequestId } from './common/http/request-id';
+import { fastifyTracingPlugin } from './common/observability/fastify-tracing.plugin';
 import { getEnvironment } from './config/environment';
 
 /**
@@ -60,6 +64,12 @@ async function bootstrap(): Promise<void> {
         { path: 'metrics', method: RequestMethod.GET },
       ],
     });
+    if (environment.OTEL_ENABLED) {
+      // Registered before the security plugins so the request span already
+      // exists when helmet and the rate limiter run: a throttled request is
+      // then visible in the trace instead of disappearing before it starts.
+      await application.register(fastifyTracingPlugin());
+    }
     await application.register(helmet, {
       contentSecurityPolicy: !environment.SWAGGER_ENABLED,
       crossOriginResourcePolicy: { policy: 'same-site' },

@@ -1,6 +1,11 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { geographicUnitSeedSchema, statisticalDomainSeedSchema } from '../schemas/seed.schemas';
+import {
+  agentBootstrapSeedSchema,
+  geographicUnitSeedSchema,
+  statisticalDomainSeedSchema,
+} from '../schemas/seed.schemas';
+import { AGENT_BOOTSTRAP_IDS } from '../seed-identifiers';
 
 const BOOT_DIRECTORY = join(__dirname, '..', 'boot');
 
@@ -85,5 +90,23 @@ describe('boot/statistical-domains.json', () => {
 
   it('keeps every seeded domain active', () => {
     expect(domains.every((domain) => domain.isActive)).toBe(true);
+  });
+});
+
+describe('boot/agent-bootstrap.json', () => {
+  const bootstrap = agentBootstrapSeedSchema.parse(readCatalog('agent-bootstrap.json'));
+
+  it('declares the identities the runtime resolves by their stable identifier', () => {
+    expect(bootstrap.organization.organizationId).toBe(AGENT_BOOTSTRAP_IDS.organization);
+    expect(bootstrap.source.sourceId).toBe(AGENT_BOOTSTRAP_IDS.source);
+    expect(bootstrap.agent.aiAgentId).toBe(AGENT_BOOTSTRAP_IDS.agent);
+  });
+
+  it('registers the collector the daily-analysis contract names', () => {
+    expect(bootstrap.agent.code).toBe('CHATGPT_DAILY_MACRO');
+  });
+
+  it('keeps the observatory out of the official statistics producers', () => {
+    expect(bootstrap.organization.officialStatisticsProducer).toBe(false);
   });
 });

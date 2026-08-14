@@ -1,4 +1,5 @@
 import type { Actor } from '../../../common/auth/actor';
+import { TracingService } from '../../../common/observability/tracing.service';
 import type { AgentRegistryService } from '../agent-registry.service';
 import { DailyAnalysisService } from '../daily-analysis.service';
 import type { ReviewService } from '../review.service';
@@ -64,6 +65,7 @@ function buildService(overrides: {
     { open } as unknown as AgentRegistryService,
     { submit } as unknown as SubmissionService,
     { completeRun } as unknown as ReviewService,
+    new TracingService(),
   );
   return { service, open, submit, completeRun };
 }
