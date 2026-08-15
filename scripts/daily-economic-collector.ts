@@ -217,7 +217,7 @@ const researchOutputSchema = z.object({
         entityMentions: z.array(z.string().min(2).max(250)).max(25),
       }),
     )
-    .max(12),
+    .max(8),
 });
 
 function parseResearchOutput(raw: string): ResearchOutput {
@@ -234,10 +234,10 @@ function researchPrompt(since: Date, now: Date): string {
   const schema = {
     type: 'object',
     additionalProperties: false,
-    properties: { candidates: { type: 'array', maxItems: 12, items: candidateSchema } },
+    properties: { candidates: { type: 'array', maxItems: 8, items: candidateSchema } },
     required: ['candidates'],
   };
-  return `Investiga novedades económicas verificables publicadas entre ${since.toISOString()} y ${now.toISOString()} que afecten a Bolivia. Prioriza BCB, INE, ASFI, MEFP, ministerios, organismos multilaterales y documentos corporativos oficiales. Usa búsqueda web y visita cada fuente; no uses solamente snippets. Cada excerpt debe ser una cita textual corta que aparezca literalmente en la URL indicada. No inventes fechas, cifras ni URLs. Si no hay novedades suficientemente sustentadas, devuelve {"candidates":[]}. Responde únicamente con JSON válido según este esquema: ${JSON.stringify(schema)}`;
+  return `Investiga novedades económicas verificables publicadas entre ${since.toISOString()} y ${now.toISOString()} que afecten a Bolivia. Prioriza BCB, INE, ASFI, MEFP, ministerios, organismos multilaterales y documentos corporativos oficiales. Usa búsqueda web y devuelve como máximo 8 resultados. Cada excerpt debe ser una cita textual corta que aparezca literalmente en la URL indicada; el colector descargará después cada URL y rechazará la cita si no coincide. No inventes fechas, cifras ni URLs. Si no hay novedades suficientemente sustentadas, devuelve {"candidates":[]}. Responde únicamente con JSON válido según este esquema: ${JSON.stringify(schema)}`;
 }
 
 async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput> {
@@ -256,13 +256,13 @@ async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput>
           {
             role: 'system',
             content:
-              'Eres un investigador económico riguroso. Busca, abre y verifica fuentes primarias antes de responder. La respuesta completa debe ser JSON válido.',
+              'Eres un investigador económico riguroso. Busca y prioriza fuentes primarias verificables. La respuesta completa debe ser JSON válido.',
           },
           { role: 'user', content: researchPrompt(since, now) },
         ],
         response_format: { type: 'json_object' },
         search_settings: { country: 'bolivia' },
-        compound_custom: { tools: { enabled_tools: ['web_search', 'visit_website'] } },
+        compound_custom: { tools: { enabled_tools: ['web_search'] } },
       }),
     },
     [200],
@@ -298,7 +298,7 @@ async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutpu
               type: 'object',
               additionalProperties: false,
               properties: {
-                candidates: { type: 'array', maxItems: 12, items: candidateSchema },
+                candidates: { type: 'array', maxItems: 8, items: candidateSchema },
               },
               required: ['candidates'],
             },
