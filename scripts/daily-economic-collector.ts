@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { z } from 'zod';
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 
@@ -34,8 +35,6 @@ const requiredNames = [
   'ECONOMIC_TIMEZONE',
   'ECONOMIC_COLLECTOR_KEY',
   'ECONOMIC_STORAGE_TOKEN',
-  'OPENAI_API_KEY',
-  'OPENAI_MODEL',
 ] as const;
 
 const env = Object.fromEntries(
@@ -45,6 +44,19 @@ const env = Object.fromEntries(
     return [name, value];
   }),
 ) as Record<(typeof requiredNames)[number], string>;
+
+const aiProvider = (process.env.AI_PROVIDER?.trim().toLowerCase() || 'groq') as 'groq' | 'openai';
+if (!['groq', 'openai'].includes(aiProvider)) {
+  throw new Error(`Unsupported AI_PROVIDER: ${aiProvider}`);
+}
+const aiModel =
+  process.env.AI_MODEL?.trim() || (aiProvider === 'groq' ? 'groq/compound' : 'gpt-5.6-terra');
+const aiApiKey = process.env[aiProvider === 'groq' ? 'GROQ_API_KEY' : 'OPENAI_API_KEY']?.trim();
+if (!aiApiKey) {
+  throw new Error(
+    `Missing required configuration: ${aiProvider === 'groq' ? 'GROQ_API_KEY' : 'OPENAI_API_KEY'}`,
+  );
+}
 
 const report: Record<string, Json> = {
   startedAt: new Date().toISOString(),
@@ -121,8 +133,8 @@ const candidateSchema = {
     title: { type: 'string', minLength: 3, maxLength: 300 },
     url: { type: 'string' },
     publisher: { type: 'string', minLength: 2, maxLength: 200 },
-    publishedAt: { type: ['string', 'null'] },
-    eventDate: { type: ['string', 'null'] },
+    publishedAt: { type: ['string', 'null'], format: 'date-time' },
+    eventDate: { type: ['string', 'null'], format: 'date' },
     claimType: {
       type: 'string',
       enum: [
@@ -184,19 +196,98 @@ function extractOutputText(response: {
     .join('');
 }
 
-async function research(): Promise<ResearchOutput> {
-  const now = new Date();
-  const since = new Date(now.getTime() - 72 * 60 * 60 * 1000);
+const researchOutputSchema = z.object({
+  candidates: z
+    .array(
+      z.object({
+        title: z.string().min(3).max(300),
+        url: z.url(),
+        publisher: z.string().min(2).max(200),
+        publishedAt: z.iso.datetime({ offset: true }).nullable(),
+        eventDate: z.iso.date().nullable(),
+        claimType: z.enum(candidateSchema.properties.claimType.enum),
+        assertion: z.string().min(20).max(4000),
+        excerpt: z.string().min(20).max(4000),
+        confidenceLevel: z.enum(candidateSchema.properties.confidenceLevel.enum),
+        confidenceScore: z.number().min(0).max(1).nullable(),
+        impactLevel: z.enum(['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'NEGLIGIBLE']).nullable(),
+        timeHorizon: z
+          .enum(['IMMEDIATE', 'SHORT_TERM', 'MEDIUM_TERM', 'LONG_TERM', 'STRUCTURAL'])
+          .nullable(),
+        entityMentions: z.array(z.string().min(2).max(250)).max(25),
+      }),
+    )
+    .max(12),
+});
+
+function parseResearchOutput(raw: string): ResearchOutput {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error('AI provider returned invalid JSON');
+  }
+  return researchOutputSchema.parse(parsed);
+}
+
+function researchPrompt(since: Date, now: Date): string {
+  const schema = {
+    type: 'object',
+    additionalProperties: false,
+    properties: { candidates: { type: 'array', maxItems: 12, items: candidateSchema } },
+    required: ['candidates'],
+  };
+  return `Investiga novedades económicas verificables publicadas entre ${since.toISOString()} y ${now.toISOString()} que afecten a Bolivia. Prioriza BCB, INE, ASFI, MEFP, ministerios, organismos multilaterales y documentos corporativos oficiales. Usa búsqueda web y visita cada fuente; no uses solamente snippets. Cada excerpt debe ser una cita textual corta que aparezca literalmente en la URL indicada. No inventes fechas, cifras ni URLs. Si no hay novedades suficientemente sustentadas, devuelve {"candidates":[]}. Responde únicamente con JSON válido según este esquema: ${JSON.stringify(schema)}`;
+}
+
+async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput> {
+  const response = await request(
+    'https://api.groq.com/openai/v1/chat/completions',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${aiApiKey}`,
+        'Content-Type': 'application/json',
+        'Groq-Model-Version': 'latest',
+      },
+      body: JSON.stringify({
+        model: aiModel,
+        messages: [
+          {
+            role: 'system',
+            content:
+              'Eres un investigador económico riguroso. Busca, abre y verifica fuentes primarias antes de responder. La respuesta completa debe ser JSON válido.',
+          },
+          { role: 'user', content: researchPrompt(since, now) },
+        ],
+        response_format: { type: 'json_object' },
+        citation_options: 'enabled',
+        search_settings: { country: 'bolivia' },
+        compound_custom: { tools: { enabled_tools: ['web_search', 'visit_website'] } },
+      }),
+    },
+    [200],
+    300_000,
+  );
+  const payload = (await response.json()) as {
+    choices?: Array<{ message?: { content?: string } }>;
+  };
+  const content = payload.choices?.[0]?.message?.content;
+  if (!content) throw new Error('Groq returned no JSON output');
+  return parseResearchOutput(content);
+}
+
+async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutput> {
   const response = await request(
     'https://api.openai.com/v1/responses',
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${aiApiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: env.OPENAI_MODEL,
+        model: aiModel,
         tools: [{ type: 'web_search' }],
         reasoning: { effort: 'medium' },
         text: {
@@ -228,7 +319,15 @@ async function research(): Promise<ResearchOutput> {
     throw new Error(`OpenAI response status: ${payload.status ?? 'missing'}`);
   const outputText = extractOutputText(payload);
   if (!outputText) throw new Error('OpenAI returned no structured output');
-  return JSON.parse(outputText) as ResearchOutput;
+  return parseResearchOutput(outputText);
+}
+
+async function research(): Promise<ResearchOutput> {
+  const now = new Date();
+  const since = new Date(now.getTime() - 72 * 60 * 60 * 1000);
+  report.aiProvider = aiProvider;
+  report.aiModel = aiModel;
+  return aiProvider === 'groq' ? researchWithGroq(since, now) : researchWithOpenAi(since, now);
 }
 
 function contentExtension(contentType: string): string {

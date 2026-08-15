@@ -26,9 +26,11 @@ jobs:
       ECONOMIC_PROMPT_VERSION: ${{ vars.ECONOMIC_PROMPT_VERSION }}
       ECONOMIC_SCHEMA_VERSION: ${{ vars.ECONOMIC_SCHEMA_VERSION }}
       ECONOMIC_TIMEZONE: ${{ vars.ECONOMIC_TIMEZONE }}
-      OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+      AI_PROVIDER: ${{ vars.AI_PROVIDER || 'groq' }}
+      AI_MODEL: ${{ vars.AI_MODEL || 'groq/compound' }}
       ECONOMIC_COLLECTOR_KEY: ${{ secrets.ECONOMIC_COLLECTOR_KEY }}
       ECONOMIC_STORAGE_TOKEN: ${{ secrets.ECONOMIC_STORAGE_TOKEN }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
