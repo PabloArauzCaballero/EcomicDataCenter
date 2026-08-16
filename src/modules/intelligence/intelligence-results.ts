@@ -1,10 +1,6 @@
 /** Outcome of one submitted item, mirroring how the pipeline handled it. */
 export type SubmissionOutcome =
-  | 'PUBLISHED'
-  | 'PENDING_REVIEW'
-  | 'QUARANTINED'
-  | 'DUPLICATE'
-  | 'REJECTED';
+  'PUBLISHED' | 'PENDING_REVIEW' | 'QUARANTINED' | 'DUPLICATE' | 'REJECTED';
 
 export interface SubmissionItemResult {
   readonly index: number;

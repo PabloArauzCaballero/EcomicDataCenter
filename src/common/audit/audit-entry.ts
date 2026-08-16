@@ -41,7 +41,7 @@ export function describeActor(actor: Actor | undefined): {
 export function summarizeBody(body: unknown): Record<string, unknown> {
   if (!body || typeof body !== 'object') return { bodyPresent: body !== undefined };
   if (Array.isArray(body)) return { bodyType: 'array', itemCount: body.length };
-  const keys = Object.keys(body as Record<string, unknown>);
+  const keys = Object.keys(body);
   return {
     bodyType: 'object',
     fieldCount: keys.length,

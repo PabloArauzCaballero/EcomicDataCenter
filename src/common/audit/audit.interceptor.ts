@@ -94,7 +94,7 @@ function resolveEntityType(url: string): string {
 /** Records why a request failed without copying a message that may echo input. */
 function describeRejection(error: unknown): string {
   if (typeof error === 'object' && error && 'status' in error) {
-    return `status:${String((error as { status: unknown }).status)}`;
+    return `status:${String(error.status)}`;
   }
   return error instanceof Error ? `error:${error.name}` : 'error:Unknown';
 }
