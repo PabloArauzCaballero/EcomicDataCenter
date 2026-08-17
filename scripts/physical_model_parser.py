@@ -43,7 +43,9 @@ def expected_type(raw: str, primary_key: bool) -> str:
 
 def parse_tables(sql: str) -> dict[tuple[str, str], dict[str, object]]:
     tables: dict[tuple[str, str], dict[str, object]] = {}
-    pattern = re.compile(r'CREATE TABLE\s+(\w+)\.(\w+)\s*\((.*?)\n\);', re.I | re.S)
+    pattern = re.compile(
+        r'CREATE TABLE\s+(?:IF NOT EXISTS\s+)?(\w+)\.(\w+)\s*\((.*?)\n\);', re.I | re.S,
+    )
     for schema, table, body in pattern.findall(sql):
         columns: dict[str, dict[str, object]] = {}
         uniques: set[tuple[str, ...]] = set()
@@ -126,7 +128,8 @@ def leading_index_columns(sql: str, tables: dict[tuple[str, str], dict[str, obje
             if properties['primary_key']:
                 covered.add(f'{schema}.{table}.{column}')
     pattern = re.compile(
-        r'CREATE\s+(?:UNIQUE\s+)?INDEX\s+\w+\s+ON\s+(\w+)\.(\w+)\s*\(([^)]+)\)', re.I,
+        r'CREATE\s+(?:UNIQUE\s+)?INDEX\s+(?:IF NOT EXISTS\s+)?\w+\s+ON\s+'
+        r'(\w+)\.(\w+)\s*\(([^)]+)\)', re.I,
     )
     for schema, table, columns in pattern.findall(sql):
         first = columns.split(',')[0].strip().split()[0]
