@@ -2,46 +2,46 @@ import type { MigrationContext } from '../migration.types';
 
 export async function up({ context }: MigrationContext): Promise<void> {
   await context.sequelize.query(`
-CREATE UNIQUE INDEX uq_classification_version_current
+CREATE UNIQUE INDEX IF NOT EXISTS uq_classification_version_current
   ON semantic.classification_version (classification_id)
   WHERE is_current = true;
 
-CREATE UNIQUE INDEX uq_methodology_version_current
+CREATE UNIQUE INDEX IF NOT EXISTS uq_methodology_version_current
   ON metadata.methodology_version (methodology_id)
   WHERE is_current = true;
 
-CREATE UNIQUE INDEX uq_dataset_version_current
+CREATE UNIQUE INDEX IF NOT EXISTS uq_dataset_version_current
   ON metadata.dataset_version (dataset_id)
   WHERE is_current = true;
 
-CREATE UNIQUE INDEX uq_observation_revision_current
+CREATE UNIQUE INDEX IF NOT EXISTS uq_observation_revision_current
   ON statistics.observation_revision (observation_id)
   WHERE is_current = true;
 
-CREATE INDEX ix_observation_revision_vintage
+CREATE INDEX IF NOT EXISTS ix_observation_revision_vintage
   ON statistics.observation_revision (observation_id, vintage_date DESC, revision_number DESC);
-CREATE INDEX ix_observation_revision_batch
+CREATE INDEX IF NOT EXISTS ix_observation_revision_batch
   ON statistics.observation_revision (data_entry_batch_id);
-CREATE INDEX ix_observation_period
+CREATE INDEX IF NOT EXISTS ix_observation_period
   ON statistics.observation (period_start, period_end, series_id);
-CREATE INDEX ix_series_dataset_status
+CREATE INDEX IF NOT EXISTS ix_series_dataset_status
   ON statistics.series (dataset_version_id, status);
-CREATE INDEX ix_series_dimension_code
+CREATE INDEX IF NOT EXISTS ix_series_dimension_code
   ON statistics.series_dimension_value (dimension_definition_id, code_item_id)
   WHERE code_item_id IS NOT NULL;
-CREATE INDEX ix_series_dimension_classification
+CREATE INDEX IF NOT EXISTS ix_series_dimension_classification
   ON statistics.series_dimension_value (dimension_definition_id, classification_item_id)
   WHERE classification_item_id IS NOT NULL;
-CREATE INDEX ix_series_dimension_geography
+CREATE INDEX IF NOT EXISTS ix_series_dimension_geography
   ON statistics.series_dimension_value (dimension_definition_id, geographic_unit_id)
   WHERE geographic_unit_id IS NOT NULL;
-CREATE INDEX ix_quality_assessment_target
+CREATE INDEX IF NOT EXISTS ix_quality_assessment_target
   ON quality_lineage.quality_assessment (target_entity_type, target_entity_id, assessed_at DESC);
-CREATE INDEX ix_data_issue_target_status
+CREATE INDEX IF NOT EXISTS ix_data_issue_target_status
   ON quality_lineage.data_issue (target_entity_type, target_entity_id, status);
-CREATE INDEX ix_lineage_target
+CREATE INDEX IF NOT EXISTS ix_lineage_target
   ON quality_lineage.lineage_relation (target_entity_type, target_entity_id);
-CREATE INDEX ix_lineage_source
+CREATE INDEX IF NOT EXISTS ix_lineage_source
   ON quality_lineage.lineage_relation (source_entity_type, source_entity_id);
 
 CREATE OR REPLACE FUNCTION semantic.enforce_classification_parent_version()
@@ -64,6 +64,7 @@ BEGIN
 END;
 $$;
 
+DROP TRIGGER IF EXISTS trg_classification_parent_version ON semantic.classification_item;
 CREATE TRIGGER trg_classification_parent_version
 BEFORE INSERT OR UPDATE OF parent_item_id, classification_version_id
 ON semantic.classification_item
@@ -89,6 +90,7 @@ BEGIN
 END;
 $$;
 
+DROP TRIGGER IF EXISTS trg_code_item_parent_list ON semantic.code_item;
 CREATE TRIGGER trg_code_item_parent_list
 BEFORE INSERT OR UPDATE OF parent_code_item_id, code_list_id
 ON semantic.code_item
@@ -103,6 +105,7 @@ BEGIN
 END;
 $$;
 
+DROP TRIGGER IF EXISTS trg_source_artifact_immutable_update ON provenance.source_artifact;
 CREATE TRIGGER trg_source_artifact_immutable_update
 BEFORE UPDATE OR DELETE ON provenance.source_artifact
 FOR EACH ROW EXECUTE FUNCTION provenance.reject_source_artifact_mutation();
