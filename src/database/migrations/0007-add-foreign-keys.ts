@@ -1,7 +1,15 @@
 import type { MigrationContext } from '../migration.types';
 
+function isDuplicateObject(error: unknown): boolean {
+  if (!error || typeof error !== 'object' || !('original' in error)) return false;
+  const original = error.original;
+  return Boolean(
+    original && typeof original === 'object' && 'code' in original && original.code === '42710',
+  );
+}
+
 export async function up({ context }: MigrationContext): Promise<void> {
-  await context.sequelize.query(`
+  const statements = `
 ALTER TABLE provenance.organization ADD CONSTRAINT fk_organization_parent_organization_id FOREIGN KEY (parent_organization_id) REFERENCES provenance.organization (organization_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 ALTER TABLE provenance.source ADD CONSTRAINT fk_source_organization_id FOREIGN KEY (organization_id) REFERENCES provenance.organization (organization_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 ALTER TABLE provenance.source ADD CONSTRAINT fk_source_frequency_id FOREIGN KEY (frequency_id) REFERENCES semantic.frequency (frequency_id) ON UPDATE CASCADE ON DELETE RESTRICT;
@@ -78,7 +86,17 @@ ALTER TABLE quality_lineage.indicator_relation ADD CONSTRAINT fk_indicator_relat
 ALTER TABLE quality_lineage.indicator_relation ADD CONSTRAINT fk_indicator_relation_target_indicator_version_id FOREIGN KEY (target_indicator_version_id) REFERENCES statistics.indicator_version (indicator_version_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 ALTER TABLE quality_lineage.series_break ADD CONSTRAINT fk_series_break_series_id FOREIGN KEY (series_id) REFERENCES statistics.series (series_id) ON UPDATE CASCADE ON DELETE RESTRICT;
 ALTER TABLE quality_lineage.series_break ADD CONSTRAINT fk_series_break_methodology_version_id FOREIGN KEY (methodology_version_id) REFERENCES metadata.methodology_version (methodology_version_id) ON UPDATE CASCADE ON DELETE RESTRICT;
-  `);
+  `
+    .split(';')
+    .map((statement) => statement.trim())
+    .filter(Boolean);
+  for (const statement of statements) {
+    try {
+      await context.sequelize.query(statement);
+    } catch (error) {
+      if (!isDuplicateObject(error)) throw error;
+    }
+  }
 }
 
 export async function down({ context }: MigrationContext): Promise<void> {
