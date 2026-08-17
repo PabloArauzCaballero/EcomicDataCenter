@@ -1,11 +1,18 @@
 import 'dotenv/config';
 import { getEnvironment } from '../../config/environment';
-import { createMigrationRunner, withMigrationLock } from '../migration.runner';
+import {
+  createMigrationRunner,
+  reconcileLegacyMigrationHistory,
+  withMigrationLock,
+} from '../migration.runner';
 
 async function main(): Promise<void> {
   const { database, migrator } = await createMigrationRunner(getEnvironment());
   try {
-    await withMigrationLock(database, () => migrator.up());
+    await withMigrationLock(database, async () => {
+      await reconcileLegacyMigrationHistory(database, migrator);
+      await migrator.up();
+    });
   } finally {
     await database.close();
   }

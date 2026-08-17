@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize';
+import { QueryTypes, Sequelize } from 'sequelize';
 import { SequelizeStorage, Umzug } from 'umzug';
 import type { Environment } from '../config/environment';
 
@@ -10,6 +10,13 @@ const MIGRATION_UNLOCK_SQL = `
 SELECT pg_advisory_unlock(
   hashtextextended(current_database() || ':observatorio-economico:migrations', 0)
 )`;
+
+const LEGACY_PROVENANCE_TABLES = [
+  'provenance.organization',
+  'provenance.source',
+  'provenance.source_artifact',
+  'provenance.data_entry_batch',
+] as const;
 
 export async function createMigrationRunner(environment: Environment): Promise<{
   database: Sequelize;
@@ -42,6 +49,45 @@ export async function createMigrationRunner(environment: Environment): Promise<{
     logger: undefined,
   });
   return { database, migrator };
+}
+
+/**
+ * Repairs the one known legacy baseline created before migration metadata was
+ * persisted. It never guesses from a single table: every object created by
+ * migration 0002 must exist before the migration is recorded as executed.
+ */
+export async function reconcileLegacyMigrationHistory(
+  database: Sequelize,
+  migrator: Umzug<{ sequelize: Sequelize }>,
+): Promise<void> {
+  const pending = await migrator.pending();
+  const provenanceMigration = pending.find((item) =>
+    item.name.startsWith('0002-create-provenance-tables.'),
+  );
+  if (!provenanceMigration) return;
+
+  const rows = await database.query<{ relation_name: string; relation: string | null }>(
+    `SELECT relation_name, to_regclass(relation_name) AS relation
+       FROM unnest(ARRAY[:tables]::text[]) AS item(relation_name)`,
+    {
+      replacements: { tables: [...LEGACY_PROVENANCE_TABLES] },
+      type: QueryTypes.SELECT,
+    },
+  );
+  const existing = rows.filter((row) => row.relation !== null).map((row) => row.relation_name);
+  if (existing.length === 0) return;
+  if (existing.length !== LEGACY_PROVENANCE_TABLES.length) {
+    throw new Error(
+      `Unsafe partial provenance baseline; found ${existing.join(', ')}. Repair the schema before migrating.`,
+    );
+  }
+
+  await database.query(
+    `INSERT INTO infrastructure.migration_history (name)
+     VALUES (:name)
+     ON CONFLICT (name) DO NOTHING`,
+    { replacements: { name: provenanceMigration.name } },
+  );
 }
 
 /** Serializes migration commands across replicas using a PostgreSQL advisory lock. */
