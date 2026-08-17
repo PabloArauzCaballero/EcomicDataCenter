@@ -2,7 +2,7 @@ import type { MigrationContext } from '../migration.types';
 
 export async function up({ context }: MigrationContext): Promise<void> {
   await context.sequelize.query(`
-CREATE TABLE semantic.statistical_domain (
+CREATE TABLE IF NOT EXISTS semantic.statistical_domain (
   statistical_domain_id uuid NOT NULL PRIMARY KEY,
   parent_domain_id uuid,
   code varchar(50) NOT NULL UNIQUE,
@@ -12,7 +12,7 @@ CREATE TABLE semantic.statistical_domain (
   is_active boolean NOT NULL
 );
 
-CREATE TABLE semantic.concept (
+CREATE TABLE IF NOT EXISTS semantic.concept (
   concept_id uuid NOT NULL PRIMARY KEY,
   owner_organization_id uuid NOT NULL,
   code varchar(80) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE semantic.concept (
   CONSTRAINT ck_concept_valid_from_valid_to CHECK (valid_to IS NULL OR valid_to >= valid_from)
 );
 
-CREATE TABLE semantic.code_list (
+CREATE TABLE IF NOT EXISTS semantic.code_list (
   code_list_id uuid NOT NULL PRIMARY KEY,
   owner_organization_id uuid NOT NULL,
   code varchar(80) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE semantic.code_list (
   CONSTRAINT ck_code_list_valid_from_valid_to CHECK (valid_to IS NULL OR valid_to >= valid_from)
 );
 
-CREATE TABLE semantic.code_item (
+CREATE TABLE IF NOT EXISTS semantic.code_item (
   code_item_id uuid NOT NULL PRIMARY KEY,
   code_list_id uuid NOT NULL,
   parent_code_item_id uuid,
@@ -52,7 +52,7 @@ CREATE TABLE semantic.code_item (
   CONSTRAINT ck_code_item_valid_from_valid_to CHECK (valid_to IS NULL OR valid_to >= valid_from)
 );
 
-CREATE TABLE semantic.classification (
+CREATE TABLE IF NOT EXISTS semantic.classification (
   classification_id uuid NOT NULL PRIMARY KEY,
   custodian_organization_id uuid NOT NULL,
   code varchar(80) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE semantic.classification (
   CONSTRAINT uq_classification_custodian_organization_id_code UNIQUE (custodian_organization_id, code)
 );
 
-CREATE TABLE semantic.classification_version (
+CREATE TABLE IF NOT EXISTS semantic.classification_version (
   classification_version_id uuid NOT NULL PRIMARY KEY,
   classification_id uuid NOT NULL,
   version_code varchar(40) NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE semantic.classification_version (
   CONSTRAINT ck_classification_version_valid_from_valid_to CHECK (valid_to IS NULL OR valid_to >= valid_from)
 );
 
-CREATE TABLE semantic.classification_item (
+CREATE TABLE IF NOT EXISTS semantic.classification_item (
   classification_item_id uuid NOT NULL PRIMARY KEY,
   classification_version_id uuid NOT NULL,
   parent_item_id uuid,
@@ -90,7 +90,7 @@ CREATE TABLE semantic.classification_item (
   CONSTRAINT ck_classification_item_valid_from_valid_to CHECK (valid_to IS NULL OR valid_to >= valid_from)
 );
 
-CREATE TABLE semantic.classification_mapping (
+CREATE TABLE IF NOT EXISTS semantic.classification_mapping (
   classification_mapping_id uuid NOT NULL PRIMARY KEY,
   source_item_id uuid NOT NULL,
   target_item_id uuid NOT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE semantic.classification_mapping (
   CONSTRAINT ck_classification_mapping_weight CHECK (weight IS NULL OR weight >= 0)
 );
 
-CREATE TABLE semantic.geographic_unit (
+CREATE TABLE IF NOT EXISTS semantic.geographic_unit (
   geographic_unit_id uuid NOT NULL PRIMARY KEY,
   parent_geographic_unit_id uuid,
   official_code varchar(80) NOT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE semantic.geographic_unit (
   CONSTRAINT ck_geographic_unit_valid_from_valid_to CHECK (valid_to IS NULL OR valid_to >= valid_from)
 );
 
-CREATE TABLE semantic.unit_measure (
+CREATE TABLE IF NOT EXISTS semantic.unit_measure (
   unit_measure_id uuid NOT NULL PRIMARY KEY,
   base_unit_measure_id uuid,
   code varchar(50) NOT NULL UNIQUE,
@@ -127,7 +127,7 @@ CREATE TABLE semantic.unit_measure (
   value_kind varchar(30) NOT NULL
 );
 
-CREATE TABLE semantic.frequency (
+CREATE TABLE IF NOT EXISTS semantic.frequency (
   frequency_id uuid NOT NULL PRIMARY KEY,
   code varchar(10) NOT NULL UNIQUE,
   name varchar(80) NOT NULL,

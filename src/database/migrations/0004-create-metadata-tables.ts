@@ -2,7 +2,7 @@ import type { MigrationContext } from '../migration.types';
 
 export async function up({ context }: MigrationContext): Promise<void> {
   await context.sequelize.query(`
-CREATE TABLE metadata.statistical_operation (
+CREATE TABLE IF NOT EXISTS metadata.statistical_operation (
   statistical_operation_id uuid NOT NULL PRIMARY KEY,
   producer_organization_id uuid NOT NULL,
   code varchar(80) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE metadata.statistical_operation (
   CONSTRAINT ck_statistical_operation_start_date_end_date CHECK (end_date IS NULL OR end_date >= start_date)
 );
 
-CREATE TABLE metadata.methodology (
+CREATE TABLE IF NOT EXISTS metadata.methodology (
   methodology_id uuid NOT NULL PRIMARY KEY,
   owner_organization_id uuid NOT NULL,
   code varchar(80) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE metadata.methodology (
   CONSTRAINT uq_methodology_owner_organization_id_code UNIQUE (owner_organization_id, code)
 );
 
-CREATE TABLE metadata.methodology_version (
+CREATE TABLE IF NOT EXISTS metadata.methodology_version (
   methodology_version_id uuid NOT NULL PRIMARY KEY,
   methodology_id uuid NOT NULL,
   version_code varchar(40) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE metadata.methodology_version (
   CONSTRAINT ck_methodology_version_status CHECK (status IN ('DRAFT','TECHNICAL_REVIEW','METHODOLOGICAL_REVIEW','APPROVED','PUBLISHED','SUPERSEDED','WITHDRAWN','REJECTED'))
 );
 
-CREATE TABLE metadata.dataset (
+CREATE TABLE IF NOT EXISTS metadata.dataset (
   dataset_id uuid NOT NULL PRIMARY KEY,
   statistical_operation_id uuid,
   source_id uuid NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE metadata.dataset (
   CONSTRAINT ck_dataset_data_nature CHECK (data_nature IN ('OFFICIAL_STATISTIC','ADMINISTRATIVE_RECORD','OFFICIAL_EXTERNAL','OBSERVATORY_DERIVED','ACADEMIC_ESTIMATE','EXPERIMENTAL','FORECAST','SCENARIO'))
 );
 
-CREATE TABLE metadata.dataset_version (
+CREATE TABLE IF NOT EXISTS metadata.dataset_version (
   dataset_version_id uuid NOT NULL PRIMARY KEY,
   dataset_id uuid NOT NULL,
   methodology_version_id uuid NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE metadata.dataset_version (
   CONSTRAINT ck_dataset_version_status CHECK (status IN ('DRAFT','UNDER_REVIEW','APPROVED','PUBLISHED','SUPERSEDED','WITHDRAWN','REJECTED'))
 );
 
-CREATE TABLE metadata.data_structure (
+CREATE TABLE IF NOT EXISTS metadata.data_structure (
   data_structure_id uuid NOT NULL PRIMARY KEY,
   owner_organization_id uuid NOT NULL,
   code varchar(80) NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE metadata.data_structure (
   CONSTRAINT ck_data_structure_valid_from_valid_to CHECK (valid_to IS NULL OR valid_to >= valid_from)
 );
 
-CREATE TABLE metadata.dimension_definition (
+CREATE TABLE IF NOT EXISTS metadata.dimension_definition (
   dimension_definition_id uuid NOT NULL PRIMARY KEY,
   data_structure_id uuid NOT NULL,
   concept_id uuid NOT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE metadata.dimension_definition (
   CONSTRAINT ck_dimension_position CHECK (position_no > 0)
 );
 
-CREATE TABLE metadata.measure_definition (
+CREATE TABLE IF NOT EXISTS metadata.measure_definition (
   measure_definition_id uuid NOT NULL PRIMARY KEY,
   data_structure_id uuid NOT NULL,
   concept_id uuid NOT NULL,
@@ -134,7 +134,7 @@ CREATE TABLE metadata.measure_definition (
   CONSTRAINT uq_measure_definition_data_structure_id_code UNIQUE (data_structure_id, code)
 );
 
-CREATE TABLE metadata.attribute_definition (
+CREATE TABLE IF NOT EXISTS metadata.attribute_definition (
   attribute_definition_id uuid NOT NULL PRIMARY KEY,
   data_structure_id uuid NOT NULL,
   concept_id uuid NOT NULL,
