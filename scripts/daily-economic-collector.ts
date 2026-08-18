@@ -12,7 +12,10 @@ import {
   visibleText,
 } from '../src/modules/intelligence/evidence-quality';
 import { ungroundedNumbers } from '../src/modules/intelligence/quantitative-grounding';
-import { extractPdfText } from '../src/modules/intelligence/pdf-text-extraction';
+import {
+  extractPdfEvidence,
+  pdfMetadataPublicationDates,
+} from '../src/modules/intelligence/pdf-text-extraction';
 import {
   canonicalSourceUrl,
   htmlSourceMetadata,
@@ -402,13 +405,16 @@ async function persistEvidence(candidate: Candidate) {
     }
   }
   if (!bytes.length) throw new Error(`Unsupported source size: ${bytes.length}`);
-  const text = contentType.includes('pdf')
-    ? await extractPdfText(bytes)
-    : visibleText(bytes, contentType);
+  const pdfEvidence = contentType.includes('pdf') ? await extractPdfEvidence(bytes) : undefined;
+  const text = pdfEvidence?.text ?? visibleText(bytes, contentType);
   requireVerifiableText(text, contentType);
   const sourceMetadata = contentType.includes('html')
     ? htmlSourceMetadata(bytes.toString('utf8'))
-    : { publishers: [], publicationDates: [], canonicalUrls: [] };
+    : {
+        publishers: [],
+        publicationDates: pdfEvidence ? pdfMetadataPublicationDates(pdfEvidence.metadata) : [],
+        canonicalUrls: [],
+      };
   const publicationDateVerified = publicationMetadataMatches(
     candidate.publishedAt ?? '',
     sourceMetadata.publicationDates,
@@ -491,6 +497,7 @@ async function persistEvidence(candidate: Candidate) {
         publisher: verifiedPublisher,
         aiReportedPublisher: candidate.publisher,
         sourcePublicationDates: sourceMetadata.publicationDates,
+        ...(pdfEvidence ? { pdfMetadata: pdfEvidence.metadata } : {}),
         publicationDateVerification:
           publicationDateVerified === true
             ? 'MATCHED_SOURCE_METADATA'
