@@ -37,7 +37,10 @@ import {
   readResponseBodyLimited,
   validatePublicSourceUrl,
 } from '../src/modules/intelligence/safe-source-fetch';
-import { sourceResponseProvenance } from '../src/modules/intelligence/source-response-provenance';
+import {
+  assessSourceBodyLength,
+  sourceResponseProvenance,
+} from '../src/modules/intelligence/source-response-provenance';
 import { decodeSourceText } from '../src/modules/intelligence/source-text-decoding';
 import {
   economicResearchInstructions,
@@ -387,6 +390,7 @@ async function downloadEvidenceSource(rawUrl: string | URL) {
     sourceUrl: sourceFetch.finalUrl,
     redirectCount: sourceFetch.redirectCount,
     httpProvenance: sourceResponseProvenance(sourceFetch.response),
+    bodyLengthAssessment: assessSourceBodyLength(sourceFetch.response, bytes.length),
     contentTypeAssessment,
     ...(textDecoding ? { decodedText: textDecoding.text, textDecoding } : {}),
   };
@@ -533,6 +537,7 @@ async function persistEvidence(candidate: Candidate) {
         resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
         sourceRedirectCount,
         httpProvenance: downloaded.httpProvenance,
+        bodyLengthVerification: downloaded.bodyLengthAssessment,
         contentTypeVerification: downloaded.contentTypeAssessment,
         canonicalized,
         storageVerification: 'MATCHED_SHA256_AND_SIZE',
