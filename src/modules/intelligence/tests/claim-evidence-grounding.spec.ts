@@ -45,10 +45,40 @@ describe('groundClaimToExcerpt', () => {
       directionAligned: true,
       assertionDirections: [],
       excerptDirections: [],
+      assertionSignedDirections: [],
+      excerptSignedDirections: [],
       assertionTermCount: 5,
       matchedTermCount: 0,
       matchedTerms: [],
       coverage: 0,
+    });
+  });
+
+  it('scopes an unrelated negation to its own economic direction', () => {
+    expect(
+      assessLexicalGrounding(
+        'La inflación aumentó durante julio.',
+        'La inflación aumentó durante julio, pero las exportaciones no disminuyeron.',
+      ),
+    ).toMatchObject({
+      status: 'SUPPORTED',
+      polarityAligned: true,
+      assertionSignedDirections: ['UP'],
+      excerptSignedDirections: ['UP', 'NOT_DOWN'],
+    });
+  });
+
+  it('rejects negation attached to the asserted economic direction', () => {
+    expect(
+      assessLexicalGrounding(
+        'La inflación aumentó durante julio.',
+        'La inflación no aumentó durante julio, aunque las exportaciones crecieron.',
+      ),
+    ).toMatchObject({
+      status: 'LIMITED',
+      polarityAligned: false,
+      assertionSignedDirections: ['UP'],
+      excerptSignedDirections: ['NOT_UP', 'UP'],
     });
   });
 

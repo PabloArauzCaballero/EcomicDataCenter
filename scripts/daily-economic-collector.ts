@@ -782,6 +782,8 @@ async function main(): Promise<void> {
             directionAligned: evidence.lexicalGrounding.directionAligned,
             assertionDirections: evidence.lexicalGrounding.assertionDirections,
             excerptDirections: evidence.lexicalGrounding.excerptDirections,
+            assertionSignedDirections: evidence.lexicalGrounding.assertionSignedDirections,
+            excerptSignedDirections: evidence.lexicalGrounding.excerptSignedDirections,
           });
         }
         const claim: CorroboratedClaim = {
