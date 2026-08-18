@@ -9,9 +9,9 @@ import {
   publicationWindowIssue,
   requireVerifiableText,
   resolveLinkedArticle,
-  ungroundedNumbers,
   visibleText,
 } from '../src/modules/intelligence/evidence-quality';
+import { ungroundedNumbers } from '../src/modules/intelligence/quantitative-grounding';
 import {
   htmlSourceMetadata,
   publicationMetadataMatches,
