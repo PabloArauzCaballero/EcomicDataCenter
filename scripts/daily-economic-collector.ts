@@ -27,6 +27,7 @@ import {
   readResponseBodyLimited,
   validatePublicSourceUrl,
 } from '../src/modules/intelligence/safe-source-fetch';
+import { sourceResponseProvenance } from '../src/modules/intelligence/source-response-provenance';
 import {
   economicResearchInstructions,
   economicResearchSystemInstruction,
@@ -371,6 +372,7 @@ async function downloadEvidenceSource(rawUrl: string | URL) {
     contentType: effectiveContentType(bytes, declaredContentType),
     sourceUrl: sourceFetch.finalUrl,
     redirectCount: sourceFetch.redirectCount,
+    httpProvenance: sourceResponseProvenance(sourceFetch.response),
   };
 }
 
@@ -509,6 +511,7 @@ async function persistEvidence(candidate: Candidate) {
         discoveredUri: discoveredUrl.toString(),
         resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
         sourceRedirectCount,
+        httpProvenance: downloaded.httpProvenance,
         canonicalized,
         storageVerification: 'MATCHED_SHA256_AND_SIZE',
         claimGroundingScope: 'CITED_EXCERPT',
