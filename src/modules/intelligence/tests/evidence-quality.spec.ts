@@ -1,6 +1,7 @@
 import {
   evidenceCandidateKey,
   groundedEntities,
+  requireVerifiableText,
   resolveLinkedArticle,
   ungroundedNumbers,
   visibleText,
@@ -77,6 +78,20 @@ describe('visibleText', () => {
 
   it('decodes entities only once', () => {
     expect(visibleText(Buffer.from('&amp;quot;'), 'text/html')).toBe('&quot;');
+  });
+});
+
+describe('requireVerifiableText', () => {
+  it('rejects content for which quote grounding cannot be performed', () => {
+    const sourceText = visibleText(Buffer.from('%PDF-1.7'), 'application/pdf');
+
+    expect(() => requireVerifiableText(sourceText, 'application/pdf')).toThrow(
+      'Evidence content is not text-verifiable (application/pdf)',
+    );
+  });
+
+  it('accepts extracted textual evidence', () => {
+    expect(() => requireVerifiableText('Dato oficial verificable', 'text/html')).not.toThrow();
   });
 });
 

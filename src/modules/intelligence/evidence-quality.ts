@@ -46,6 +46,12 @@ export function visibleText(bytes: Buffer, contentType: string): string {
     .trim();
 }
 
+export function requireVerifiableText(sourceText: string, contentType: string): void {
+  if (!sourceText.trim()) {
+    throw new Error(`Evidence content is not text-verifiable (${contentType})`);
+  }
+}
+
 function hrefFromOpeningTag(tag: string): string | undefined {
   const match = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/iu.exec(tag);
   return match?.[1] ?? match?.[2] ?? match?.[3];

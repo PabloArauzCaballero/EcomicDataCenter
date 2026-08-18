@@ -5,6 +5,7 @@ import {
   comparable,
   evidenceCandidateKey,
   groundedEntities,
+  requireVerifiableText,
   resolveLinkedArticle,
   ungroundedNumbers,
   visibleText,
@@ -377,14 +378,15 @@ async function persistEvidence(candidate: Candidate) {
   if (!bytes.length || bytes.length > 5_000_000)
     throw new Error(`Unsupported source size: ${bytes.length}`);
   const text = visibleText(bytes, contentType);
-  if (text && !comparable(text).includes(comparable(candidate.title))) {
+  requireVerifiableText(text, contentType);
+  if (!comparable(text).includes(comparable(candidate.title))) {
     throw new Error('The candidate title was not found in the final downloaded source');
   }
-  if (text && !comparable(text).includes(comparable(candidate.excerpt))) {
+  if (!comparable(text).includes(comparable(candidate.excerpt))) {
     throw new Error('The cited excerpt was not found in the downloaded source');
   }
   const unsupportedNumbers = ungroundedNumbers(candidate.assertion, text);
-  if (text && unsupportedNumbers.length) {
+  if (unsupportedNumbers.length) {
     throw new Error(
       `The assertion contains figures absent from the downloaded source: ${unsupportedNumbers.join(', ')}`,
     );
