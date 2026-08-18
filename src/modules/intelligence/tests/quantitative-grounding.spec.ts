@@ -66,4 +66,14 @@ describe('ungroundedNumbers', () => {
       '1,5',
     ]);
   });
+
+  it('requires distinct numeric occurrences in the same semantic order', () => {
+    const source = 'El índice bajó de 38,7 a 31,3 puntos durante 2026.';
+
+    expect(ungroundedNumbers('El índice terminó en 31.3 puntos.', source)).toEqual([]);
+    expect(ungroundedNumbers('El índice subió de 31.3 a 38.7 puntos.', source)).toEqual(['38.7']);
+    expect(
+      ungroundedNumbers('Se registraron 3 casos y otros 3 casos.', 'Se registraron 3 casos.'),
+    ).toEqual(['3']);
+  });
 });
