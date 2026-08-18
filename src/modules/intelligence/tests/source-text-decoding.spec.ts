@@ -10,7 +10,45 @@ describe('decodeSourceText', () => {
       text: 'Información económica',
       encoding: 'windows-1252',
       declaredEncoding: 'iso-8859-1',
-      selectionSource: 'DECLARED',
+      httpDeclaredEncoding: 'iso-8859-1',
+      selectionSource: 'HTTP_HEADER',
+      replacementCharacterCount: 0,
+    });
+  });
+
+  it('uses an HTML meta declaration when the HTTP header omits charset', () => {
+    const html = '<meta charset="windows-1252"><main>Información económica</main>';
+
+    expect(decodeSourceText(Buffer.from(html, 'latin1'), 'text/html', 'text/html')).toMatchObject({
+      text: html,
+      encoding: 'windows-1252',
+      declaredEncoding: 'windows-1252',
+      htmlMetaEncoding: 'windows-1252',
+      selectionSource: 'HTML_META',
+    });
+  });
+
+  it('keeps HTTP precedence while retaining a conflicting HTML declaration for audit', () => {
+    const html = '<meta charset="windows-1252"><main>Información económica</main>';
+
+    expect(
+      decodeSourceText(Buffer.from(html), 'text/html; charset=utf-8', 'text/html'),
+    ).toMatchObject({
+      text: html,
+      encoding: 'utf-8',
+      httpDeclaredEncoding: 'utf-8',
+      htmlMetaEncoding: 'windows-1252',
+      selectionSource: 'HTTP_HEADER',
+    });
+  });
+
+  it('detects undeclared Windows-1252 only when bytes are invalid UTF-8', () => {
+    const bytes = Buffer.from('Información económica', 'latin1');
+
+    expect(decodeSourceText(bytes, 'text/html', 'text/html')).toMatchObject({
+      text: 'Información económica',
+      encoding: 'windows-1252',
+      selectionSource: 'INVALID_UTF8_WINDOWS_1252_FALLBACK',
       replacementCharacterCount: 0,
     });
   });
@@ -37,6 +75,7 @@ describe('decodeSourceText', () => {
       text: 'Dato oficial',
       encoding: 'utf-16le',
       declaredEncoding: 'utf-8',
+      httpDeclaredEncoding: 'utf-8',
       selectionSource: 'BOM',
     });
   });

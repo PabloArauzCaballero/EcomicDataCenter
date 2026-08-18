@@ -1,8 +1,16 @@
 export interface SourceTextDecoding {
   text: string;
   encoding: 'utf-8' | 'windows-1252' | 'utf-16le' | 'utf-16be';
-  selectionSource: 'BOM' | 'DECLARED' | 'DEFAULT' | 'UNSUPPORTED_DECLARATION_FALLBACK';
+  selectionSource:
+    | 'BOM'
+    | 'HTTP_HEADER'
+    | 'HTML_META'
+    | 'DEFAULT'
+    | 'INVALID_UTF8_WINDOWS_1252_FALLBACK'
+    | 'UNSUPPORTED_DECLARATION_FALLBACK';
   declaredEncoding?: string;
+  httpDeclaredEncoding?: string;
+  htmlMetaEncoding?: string;
   replacementCharacterCount: number;
 }
 
@@ -24,6 +32,25 @@ function declaredCharset(contentType: string): string | undefined {
   return value && value.length <= 100 ? value : undefined;
 }
 
+function htmlMetaCharset(bytes: Buffer, effectiveContentType?: string): string | undefined {
+  if (!effectiveContentType?.includes('html')) return undefined;
+  const prefix = bytes.subarray(0, 8_192).toString('latin1');
+  for (const match of prefix.matchAll(/<meta\b[^>]{0,1000}>/giu)) {
+    const value = declaredCharset(match[0]);
+    if (value) return value;
+  }
+  return undefined;
+}
+
+function validUtf8(bytes: Buffer): boolean {
+  try {
+    new TextDecoder('utf-8', { fatal: true }).decode(bytes);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function byteOrderMark(bytes: Buffer): SourceTextDecoding['encoding'] | undefined {
   if (bytes.subarray(0, 3).equals(Buffer.from([0xef, 0xbb, 0xbf]))) return 'utf-8';
   if (bytes.subarray(0, 2).equals(Buffer.from([0xff, 0xfe]))) return 'utf-16le';
@@ -32,28 +59,56 @@ function byteOrderMark(bytes: Buffer): SourceTextDecoding['encoding'] | undefine
 }
 
 /** Decodes bounded source bytes using only a conservative set of stateless encodings. */
-export function decodeSourceText(bytes: Buffer, declaredContentType: string): SourceTextDecoding {
+export function decodeSourceText(
+  bytes: Buffer,
+  declaredContentType: string,
+  effectiveContentType = declaredContentType,
+): SourceTextDecoding {
   const bomEncoding = byteOrderMark(bytes);
-  const declaredEncoding = declaredCharset(declaredContentType);
-  const supportedDeclaration = declaredEncoding ? encodingAliases.get(declaredEncoding) : undefined;
-  const encoding = bomEncoding ?? supportedDeclaration ?? 'utf-8';
+  const httpDeclaredEncoding = declaredCharset(declaredContentType);
+  const htmlMetaEncoding = htmlMetaCharset(bytes, effectiveContentType);
+  const supportedHttpDeclaration = httpDeclaredEncoding
+    ? encodingAliases.get(httpDeclaredEncoding)
+    : undefined;
+  const supportedHtmlDeclaration = htmlMetaEncoding
+    ? encodingAliases.get(htmlMetaEncoding)
+    : undefined;
+  const hasUnsupportedDeclaration = Boolean(
+    (httpDeclaredEncoding && !supportedHttpDeclaration) ||
+    (!httpDeclaredEncoding && htmlMetaEncoding && !supportedHtmlDeclaration),
+  );
+  const useWindowsFallback =
+    !bomEncoding && !httpDeclaredEncoding && !htmlMetaEncoding && !validUtf8(bytes);
+  const encoding =
+    bomEncoding ??
+    supportedHttpDeclaration ??
+    supportedHtmlDeclaration ??
+    (useWindowsFallback ? 'windows-1252' : 'utf-8');
   const selectionSource = bomEncoding
     ? 'BOM'
-    : supportedDeclaration
-      ? 'DECLARED'
-      : declaredEncoding
-        ? 'UNSUPPORTED_DECLARATION_FALLBACK'
-        : 'DEFAULT';
+    : supportedHttpDeclaration
+      ? 'HTTP_HEADER'
+      : supportedHtmlDeclaration
+        ? 'HTML_META'
+        : hasUnsupportedDeclaration
+          ? 'UNSUPPORTED_DECLARATION_FALLBACK'
+          : useWindowsFallback
+            ? 'INVALID_UTF8_WINDOWS_1252_FALLBACK'
+            : 'DEFAULT';
   const text = new TextDecoder(encoding).decode(bytes);
   let replacementCharacterCount = 0;
   for (const character of text) {
     if (character === '\ufffd') replacementCharacterCount += 1;
   }
-  return {
+  const result: SourceTextDecoding = {
     text,
     encoding,
     selectionSource,
-    ...(declaredEncoding ? { declaredEncoding } : {}),
     replacementCharacterCount,
   };
+  const declaredEncoding = httpDeclaredEncoding ?? htmlMetaEncoding;
+  if (declaredEncoding) result.declaredEncoding = declaredEncoding;
+  if (httpDeclaredEncoding) result.httpDeclaredEncoding = httpDeclaredEncoding;
+  if (htmlMetaEncoding) result.htmlMetaEncoding = htmlMetaEncoding;
+  return result;
 }
