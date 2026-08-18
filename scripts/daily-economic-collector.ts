@@ -15,6 +15,10 @@ import {
   htmlSourceMetadata,
   publicationMetadataMatches,
 } from '../src/modules/intelligence/source-metadata';
+import {
+  fetchPublicSource,
+  validatePublicSourceUrl,
+} from '../src/modules/intelligence/safe-source-fetch';
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 
@@ -83,23 +87,6 @@ const report: Record<string, Json> = {
 };
 
 const researchWindowMilliseconds = 72 * 60 * 60 * 1000;
-
-function safeUrl(raw: string): URL {
-  const url = new URL(raw);
-  if (!['http:', 'https:'].includes(url.protocol))
-    throw new Error('Only HTTP(S) sources are allowed');
-  const host = url.hostname.toLowerCase();
-  if (
-    host === 'localhost' ||
-    host === '::1' ||
-    host.endsWith('.local') ||
-    /^(127\.|10\.|192\.168\.|169\.254\.)/u.test(host) ||
-    /^172\.(1[6-9]|2\d|3[01])\./u.test(host)
-  ) {
-    throw new Error('Private network source rejected');
-  }
-  return url;
-}
 
 async function request(
   url: string,
@@ -354,14 +341,17 @@ function contentExtension(contentType: string): string {
 }
 
 async function persistEvidence(candidate: Candidate) {
-  const discoveredUrl = safeUrl(candidate.url);
+  const discoveredUrl = validatePublicSourceUrl(candidate.url);
   let sourceUrl = discoveredUrl;
-  let sourceResponse = await request(
+  let sourceFetch = await fetchPublicSource(
     sourceUrl.toString(),
     { headers: { 'User-Agent': 'EconomicDataCenterCollector/1.0' } },
-    [200],
     45_000,
   );
+  let sourceResponse = sourceFetch.response;
+  let sourceRedirectCount = sourceFetch.redirectCount;
+  sourceUrl = sourceFetch.finalUrl;
+  if (sourceResponse.status !== 200) throw new Error(`Source returned ${sourceResponse.status}`);
   let bytes = Buffer.from(await sourceResponse.arrayBuffer());
   let contentType =
     (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
@@ -369,13 +359,16 @@ async function persistEvidence(candidate: Candidate) {
   if (contentType.includes('html')) {
     const linkedArticle = resolveLinkedArticle(bytes.toString('utf8'), sourceUrl, candidate.title);
     if (linkedArticle) {
-      sourceUrl = safeUrl(linkedArticle.toString());
-      sourceResponse = await request(
-        sourceUrl.toString(),
+      sourceFetch = await fetchPublicSource(
+        linkedArticle.toString(),
         { headers: { 'User-Agent': 'EconomicDataCenterCollector/1.0' } },
-        [200],
         45_000,
       );
+      sourceResponse = sourceFetch.response;
+      sourceRedirectCount += sourceFetch.redirectCount;
+      sourceUrl = sourceFetch.finalUrl;
+      if (sourceResponse.status !== 200)
+        throw new Error(`Source returned ${sourceResponse.status}`);
       bytes = Buffer.from(await sourceResponse.arrayBuffer());
       contentType =
         (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
@@ -466,6 +459,7 @@ async function persistEvidence(candidate: Candidate) {
             : 'SOURCE_METADATA_UNAVAILABLE',
         discoveredUri: discoveredUrl.toString(),
         resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
+        sourceRedirectCount,
       },
     }),
   });
