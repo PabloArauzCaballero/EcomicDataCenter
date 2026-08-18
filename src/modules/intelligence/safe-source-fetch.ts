@@ -77,6 +77,7 @@ export function validatePublicSourceUrl(raw: string | URL): URL {
     throw new Error('Only HTTP(S) sources are allowed');
   }
   if (url.username || url.password) throw new Error('Source URL credentials are not allowed');
+  if (url.port) throw new Error('Source URL uses a non-default web port');
   const host = url.hostname.toLocaleLowerCase('en').replace(/^\[|\]$/gu, '');
   if (host === 'localhost' || host.endsWith('.localhost') || host.endsWith('.local')) {
     throw new Error('Private network source rejected');

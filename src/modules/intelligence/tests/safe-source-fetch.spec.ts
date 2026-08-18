@@ -64,6 +64,21 @@ describe('validatePublicSourceUrl', () => {
       'Source URL credentials are not allowed',
     );
   });
+
+  it('accepts default web ports and rejects arbitrary service ports', () => {
+    expect(validatePublicSourceUrl('http://example.com:80/report').toString()).toBe(
+      'http://example.com/report',
+    );
+    expect(validatePublicSourceUrl('https://example.com:443/report').toString()).toBe(
+      'https://example.com/report',
+    );
+    expect(() => validatePublicSourceUrl('https://example.com:8443/report')).toThrow(
+      'Source URL uses a non-default web port',
+    );
+    expect(() => validatePublicSourceUrl('http://example.com:22/report')).toThrow(
+      'Source URL uses a non-default web port',
+    );
+  });
 });
 
 describe('fetchPublicSource', () => {
@@ -114,6 +129,25 @@ describe('fetchPublicSource', () => {
         resolver: async () => ['93.184.216.34'],
       }),
     ).rejects.toThrow('Source redirect cannot downgrade HTTPS');
+    expect(fetcher).toHaveBeenCalledTimes(1);
+  });
+
+  it('rejects a redirect to a non-default service port before connecting to it', async () => {
+    const fetcher = jest.fn(async () =>
+      Promise.resolve(
+        new Response(null, {
+          status: 302,
+          headers: { location: 'https://example.com:8443/internal' },
+        }),
+      ),
+    );
+
+    await expect(
+      fetchPublicSource('https://example.com/start', {}, 5_000, {
+        fetcher,
+        resolver: async () => ['93.184.216.34'],
+      }),
+    ).rejects.toThrow('Source URL uses a non-default web port');
     expect(fetcher).toHaveBeenCalledTimes(1);
   });
 });
