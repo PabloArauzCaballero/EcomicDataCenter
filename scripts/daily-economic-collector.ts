@@ -16,6 +16,11 @@ import {
   groundClaimToExcerpt,
 } from '../src/modules/intelligence/claim-evidence-grounding';
 import {
+  consolidateCorroboratingClaims,
+  type CorroboratedClaim,
+  type CorroboratedClaimItem,
+} from '../src/modules/intelligence/claim-corroboration';
+import {
   extractPdfEvidence,
   pdfMetadataPublicationDates,
 } from '../src/modules/intelligence/pdf-text-extraction';
@@ -641,7 +646,7 @@ async function main(): Promise<void> {
     report.sourcesConsulted = output.candidates.length;
     agentRunId = await openRun();
     report.agentRunId = agentRunId;
-    const items = [];
+    const items: CorroboratedClaimItem[] = [];
     const seenEvidence = new Set<string>();
     const publicationWindowEnd = new Date(Date.now() + 15 * 60 * 1000);
     const publicationWindowStart = new Date(
@@ -721,7 +726,7 @@ async function main(): Promise<void> {
             matchedTermCount: evidence.lexicalGrounding.matchedTermCount,
           });
         }
-        const claim: Record<string, Json> = {
+        const claim: CorroboratedClaim = {
           claimType: candidate.claimType,
           assertion: candidate.assertion,
           confidenceLevel: calibratedConfidence.confidenceLevel,
@@ -742,15 +747,17 @@ async function main(): Promise<void> {
         }
         if (candidate.impactLevel) claim.impactLevel = candidate.impactLevel;
         if (candidate.timeHorizon) claim.timeHorizon = candidate.timeHorizon;
+        const rawSource = {
+          title: candidate.title,
+          publisher: evidence.publisher,
+          url: evidence.sourceUrl,
+          discoveredUrl: candidate.url,
+          sha256: evidence.sha256,
+          storageUri: evidence.storageUri,
+          publishedAt: candidate.publishedAt,
+        };
         items.push({
-          rawPayload: {
-            title: candidate.title,
-            publisher: evidence.publisher,
-            url: evidence.sourceUrl,
-            discoveredUrl: candidate.url,
-            sha256: evidence.sha256,
-            storageUri: evidence.storageUri,
-          },
+          rawPayload: { ...rawSource, sources: [rawSource] },
           claim,
         });
       } catch (error) {
@@ -759,7 +766,15 @@ async function main(): Promise<void> {
         );
       }
     }
-    if (items.length) {
+    const consolidatedItems = consolidateCorroboratingClaims(items);
+    if (consolidatedItems.length < items.length) {
+      (report.qualityAdjustments as Json[]).push({
+        action: 'CONSOLIDATED_CORROBORATING_CLAIMS',
+        inputClaimCount: items.length,
+        outputClaimCount: consolidatedItems.length,
+      });
+    }
+    if (consolidatedItems.length) {
       const date = new Intl.DateTimeFormat('en-CA', {
         timeZone: env.ECONOMIC_TIMEZONE,
         year: 'numeric',
@@ -771,12 +786,12 @@ async function main(): Promise<void> {
       const submissionCode = `DAILY_${date}_PART_001`;
       const response = await backend(`/api/v1/intelligence/agent-runs/${agentRunId}/submissions`, {
         method: 'POST',
-        body: JSON.stringify({ submissionCode, items }),
+        body: JSON.stringify({ submissionCode, items: consolidatedItems }),
       });
       const submission = (await response.json()) as Record<string, Json>;
       report.submissionCode = submissionCode;
       report.submission = submission;
-      report.findingsSent = items.length;
+      report.findingsSent = consolidatedItems.length;
     }
     await completeRun(
       agentRunId,
