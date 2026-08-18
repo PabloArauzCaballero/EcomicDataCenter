@@ -78,13 +78,21 @@ export class IntelligenceWriteRepository {
   /**
    * Stores the raw payload and reports whether it is a replay.
    *
-   * The unique constraint on (agent_run_id, payload_hash) is what makes a
-   * retried network call idempotent without a separate key.
+   * The global lookup prevents a later run from inserting the same evidence
+   * again. The surrounding SERIALIZABLE transaction protects concurrent runs,
+   * while the unique (agent_run_id, payload_hash) constraint still protects a
+   * retried request inside one run.
    */
   async claimRawObservation(
     values: { agentRunId: string; payloadHash: string; payload: Record<string, unknown> },
     transaction: Transaction,
   ): Promise<{ raw: RawObservationModel; created: boolean }> {
+    const existing = await RawObservationModel.findOne({
+      where: { payloadHash: values.payloadHash },
+      order: [['rawObservationId', 'ASC']],
+      transaction,
+    });
+    if (existing) return { raw: existing, created: false };
     const [raw, created] = await RawObservationModel.findOrCreate({
       where: { agentRunId: values.agentRunId, payloadHash: values.payloadHash },
       defaults: {
