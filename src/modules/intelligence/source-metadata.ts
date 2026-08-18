@@ -23,14 +23,14 @@ function jsonLdValues(html: string): {
     typeof value === 'string' && value.trim().length > 0 && value.length <= 500
       ? value.trim()
       : undefined;
-  const visit = (value: unknown, depth: number): void => {
+  const collectDocumentNodes = (value: unknown, depth: number): void => {
     if (depth > maximumJsonLdDepth || visitedNodes >= maximumJsonLdNodes) return;
-    visitedNodes += 1;
     if (Array.isArray(value)) {
-      for (const item of value) visit(item, depth + 1);
+      for (const item of value) collectDocumentNodes(item, depth + 1);
       return;
     }
     if (!value || typeof value !== 'object') return;
+    visitedNodes += 1;
     const node = value as Record<string, unknown>;
     const publishedAt = boundedString(node.datePublished);
     if (publishedAt) publicationDates.add(publishedAt);
@@ -49,7 +49,8 @@ function jsonLdValues(html: string): {
       const url = boundedString(entity['@id'] ?? entity.url);
       if (url) canonicalUrls.add(url);
     }
-    for (const nested of Object.values(node)) visit(nested, depth + 1);
+    collectDocumentNodes(node['@graph'], depth + 1);
+    collectDocumentNodes(node.mainEntity, depth + 1);
   };
   while (cursor < html.length) {
     const opening = normalizedHtml.indexOf('<script', cursor);
@@ -63,7 +64,7 @@ function jsonLdValues(html: string): {
       const source = html.slice(openingEnd + 1, closing).trim();
       if (source.length <= maximumJsonLdCharacters) {
         try {
-          visit(JSON.parse(source), 0);
+          collectDocumentNodes(JSON.parse(source), 0);
         } catch {
           // Malformed structured metadata is ignored; visible evidence remains authoritative.
         }
