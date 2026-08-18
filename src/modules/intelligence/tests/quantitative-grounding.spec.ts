@@ -51,4 +51,19 @@ describe('ungroundedNumbers', () => {
       ungroundedNumbers('Se registraron 1.000 operaciones.', 'Se registraron 1000 operaciones.'),
     ).toEqual([]);
   });
+
+  it('normalizes exact thousand and million magnitude words', () => {
+    expect(ungroundedNumbers('Se registraron 2 mil casos.', 'Se registraron 2000 casos.')).toEqual(
+      [],
+    );
+    expect(
+      ungroundedNumbers(
+        'La inversión llegó a USD 1,5 millones.',
+        'La inversión llegó a USD 1.500.000.',
+      ),
+    ).toEqual([]);
+    expect(ungroundedNumbers('Se registraron 1,5 millones.', 'Se registraron 1500.')).toEqual([
+      '1,5',
+    ]);
+  });
 });
