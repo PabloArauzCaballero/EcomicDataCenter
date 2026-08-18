@@ -1,6 +1,13 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { z } from 'zod';
+import {
+  comparable,
+  groundedEntities,
+  resolveLinkedArticle,
+  ungroundedNumbers,
+  visibleText,
+} from '../src/modules/intelligence/evidence-quality';
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 
@@ -65,6 +72,7 @@ const report: Record<string, Json> = {
   sourcesConsulted: 0,
   artifactsRegistered: 0,
   findingsSent: 0,
+  qualityAdjustments: [],
 };
 
 function safeUrl(raw: string): URL {
@@ -237,7 +245,7 @@ function researchPrompt(since: Date, now: Date): string {
     properties: { candidates: { type: 'array', maxItems: 8, items: candidateSchema } },
     required: ['candidates'],
   };
-  return `Investiga novedades económicas verificables publicadas entre ${since.toISOString()} y ${now.toISOString()} que afecten a Bolivia. Prioriza BCB, INE, ASFI, MEFP, ministerios, organismos multilaterales y documentos corporativos oficiales. Usa búsqueda web y devuelve como máximo 8 resultados. Cada excerpt debe ser una cita textual corta que aparezca literalmente en la URL indicada; el colector descargará después cada URL y rechazará la cita si no coincide. No inventes fechas, cifras ni URLs. Si no hay novedades suficientemente sustentadas, devuelve {"candidates":[]}. Responde únicamente con JSON válido según este esquema: ${JSON.stringify(schema)}`;
+  return `Investiga novedades económicas verificables publicadas entre ${since.toISOString()} y ${now.toISOString()} que afecten a Bolivia. Prioriza fuentes primarias: BCB, INE, ASFI, MEFP, ministerios, organismos multilaterales y documentos corporativos oficiales. Usa búsqueda web y devuelve como máximo 8 resultados. La URL debe apuntar al artículo o documento específico: nunca uses una portada, página de categoría, buscador ni página de resultados. Cada excerpt debe ser una cita textual corta que aparezca literalmente en esa URL; el colector descargará la fuente y rechazará la cita si no coincide. La assertion solo puede contener cifras presentes en la fuente. entityMentions solo puede incluir nombres que aparezcan literalmente en la fuente. Si una nota secundaria cita un estudio, atribuye el dato a la organización que realmente lo elaboró. No inventes fechas, cifras, entidades ni URLs. Si no hay novedades suficientemente sustentadas, devuelve {"candidates":[]}. Responde únicamente con JSON válido según este esquema: ${JSON.stringify(schema)}`;
 }
 
 async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput> {
@@ -336,50 +344,51 @@ function contentExtension(contentType: string): string {
   return 'txt';
 }
 
-function visibleText(bytes: Buffer, contentType: string): string {
-  if (contentType.includes('pdf')) return '';
-  let outsideMarkup = '';
-  let insideTag = false;
-  for (const character of bytes.toString('utf8')) {
-    if (character === '<') {
-      insideTag = true;
-      outsideMarkup += ' ';
-    } else if (character === '>') {
-      insideTag = false;
-      outsideMarkup += ' ';
-    } else if (!insideTag) {
-      outsideMarkup += character;
-    }
-  }
-  return outsideMarkup
-    .replace(/&nbsp;/giu, ' ')
-    .replace(/&amp;/giu, '&')
-    .replace(/\s+/gu, ' ')
-    .trim();
-}
-
-function comparable(value: string): string {
-  return value.normalize('NFKC').replace(/\s+/gu, ' ').trim().toLocaleLowerCase('es');
-}
-
 async function persistEvidence(candidate: Candidate) {
-  const sourceUrl = safeUrl(candidate.url);
-  const sourceResponse = await request(
+  const discoveredUrl = safeUrl(candidate.url);
+  let sourceUrl = discoveredUrl;
+  let sourceResponse = await request(
     sourceUrl.toString(),
     { headers: { 'User-Agent': 'EconomicDataCenterCollector/1.0' } },
     [200],
     45_000,
   );
-  const bytes = Buffer.from(await sourceResponse.arrayBuffer());
-  if (!bytes.length || bytes.length > 5_000_000)
-    throw new Error(`Unsupported source size: ${bytes.length}`);
-  const contentType =
+  let bytes = Buffer.from(await sourceResponse.arrayBuffer());
+  let contentType =
     (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
     'text/plain';
+  if (contentType.includes('html')) {
+    const linkedArticle = resolveLinkedArticle(bytes.toString('utf8'), sourceUrl, candidate.title);
+    if (linkedArticle) {
+      sourceUrl = safeUrl(linkedArticle.toString());
+      sourceResponse = await request(
+        sourceUrl.toString(),
+        { headers: { 'User-Agent': 'EconomicDataCenterCollector/1.0' } },
+        [200],
+        45_000,
+      );
+      bytes = Buffer.from(await sourceResponse.arrayBuffer());
+      contentType =
+        (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
+        'text/plain';
+    }
+  }
+  if (!bytes.length || bytes.length > 5_000_000)
+    throw new Error(`Unsupported source size: ${bytes.length}`);
   const text = visibleText(bytes, contentType);
+  if (text && !comparable(text).includes(comparable(candidate.title))) {
+    throw new Error('The candidate title was not found in the final downloaded source');
+  }
   if (text && !comparable(text).includes(comparable(candidate.excerpt))) {
     throw new Error('The cited excerpt was not found in the downloaded source');
   }
+  const unsupportedNumbers = ungroundedNumbers(candidate.assertion, text);
+  if (text && unsupportedNumbers.length) {
+    throw new Error(
+      `The assertion contains figures absent from the downloaded source: ${unsupportedNumbers.join(', ')}`,
+    );
+  }
+  const entityMentions = groundedEntities(candidate.entityMentions, text);
   const sha256 = createHash('sha256').update(bytes).digest('hex');
   const path = `evidence/${sha256.slice(0, 2)}/${sha256.slice(2, 4)}/${sha256}.${contentExtension(contentType)}`;
   const githubUrl = `https://api.github.com/repos/${env.ECONOMIC_STORAGE_REPOSITORY}/contents/${path}`;
@@ -425,7 +434,12 @@ async function persistEvidence(candidate: Candidate) {
       ...(candidate.publishedAt ? { publicationDate: candidate.publishedAt.slice(0, 10) } : {}),
       retrievedAt,
       fileSizeBytes: String(bytes.length),
-      metadataJson: { title: candidate.title, publisher: candidate.publisher },
+      metadataJson: {
+        title: candidate.title,
+        publisher: candidate.publisher,
+        discoveredUri: discoveredUrl.toString(),
+        resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
+      },
     }),
   });
   const artifactPayload = (await artifactResponse.json()) as {
@@ -433,7 +447,14 @@ async function persistEvidence(candidate: Candidate) {
   };
   const sourceArtifactId = artifactPayload.artifact?.sourceArtifactId;
   if (!sourceArtifactId) throw new Error('Backend did not return sourceArtifactId');
-  return { sourceArtifactId, retrievedAt, storageUri, sha256 };
+  return {
+    sourceArtifactId,
+    retrievedAt,
+    storageUri,
+    sha256,
+    sourceUrl: sourceUrl.toString(),
+    entityMentions,
+  };
 }
 
 function backend(path: string, init: RequestInit): Promise<Response> {
@@ -515,16 +536,26 @@ async function main(): Promise<void> {
       try {
         const evidence = await persistEvidence(candidate);
         report.artifactsRegistered = Number(report.artifactsRegistered) + 1;
+        const droppedEntityMentions = candidate.entityMentions.filter(
+          (entity) => !evidence.entityMentions.includes(entity),
+        );
+        if (droppedEntityMentions.length) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: evidence.sourceUrl,
+            action: 'DROPPED_UNGROUNDED_ENTITY_MENTIONS',
+            entityMentions: droppedEntityMentions,
+          });
+        }
         const claim: Record<string, Json> = {
           claimType: candidate.claimType,
           assertion: candidate.assertion,
           confidenceLevel: candidate.confidenceLevel,
-          entityMentions: candidate.entityMentions,
+          entityMentions: evidence.entityMentions,
           evidence: [
             {
               sourceArtifactId: evidence.sourceArtifactId,
               excerpt: candidate.excerpt,
-              locator: candidate.url,
+              locator: evidence.sourceUrl,
               retrievedAt: evidence.retrievedAt,
             },
           ],
@@ -538,7 +569,8 @@ async function main(): Promise<void> {
           rawPayload: {
             title: candidate.title,
             publisher: candidate.publisher,
-            url: candidate.url,
+            url: evidence.sourceUrl,
+            discoveredUrl: candidate.url,
             sha256: evidence.sha256,
             storageUri: evidence.storageUri,
           },
