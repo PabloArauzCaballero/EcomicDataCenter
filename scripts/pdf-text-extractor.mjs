@@ -3,6 +3,14 @@ import { getDocument } from 'pdfjs-dist/legacy/build/pdf.mjs';
 const maximumInputBytes = 5_000_000;
 const maximumPages = 100;
 const maximumTextCharacters = 1_000_000;
+const maximumMetadataCharacters = 500;
+
+function metadataString(info, key) {
+  const value = info?.[key];
+  if (typeof value !== 'string') return undefined;
+  const normalized = value.trim().slice(0, maximumMetadataCharacters);
+  return normalized || undefined;
+}
 
 async function readStandardInput() {
   const chunks = [];
@@ -30,6 +38,7 @@ async function main() {
   try {
     const document = await loadingTask.promise;
     if (document.numPages > maximumPages) throw new Error('PDF exceeds the page limit');
+    const { info } = await document.getMetadata();
     const pages = [];
     let totalCharacters = 0;
     for (let pageNumber = 1; pageNumber <= document.numPages; pageNumber += 1) {
@@ -41,7 +50,19 @@ async function main() {
       pages.push(text);
       page.cleanup();
     }
-    process.stdout.write(pages.join('\n'));
+    process.stdout.write(
+      JSON.stringify({
+        text: pages.join('\n'),
+        metadata: {
+          title: metadataString(info, 'Title'),
+          author: metadataString(info, 'Author'),
+          creator: metadataString(info, 'Creator'),
+          producer: metadataString(info, 'Producer'),
+          creationDate: metadataString(info, 'CreationDate'),
+          modificationDate: metadataString(info, 'ModDate'),
+        },
+      }),
+    );
   } finally {
     await loadingTask.destroy();
   }
