@@ -15,6 +15,25 @@ export function evidenceCandidateKey(rawUrl: string, excerpt: string): string {
   return `${url.toString()}\n${comparable(excerpt)}`;
 }
 
+export type PublicationWindowIssue = 'MISSING_PUBLICATION_DATE' | 'OUTSIDE_PUBLICATION_WINDOW';
+
+export function publicationWindowIssue(
+  publishedAt: string | null,
+  windowStart: Date,
+  windowEnd: Date,
+): PublicationWindowIssue | undefined {
+  if (!publishedAt) return 'MISSING_PUBLICATION_DATE';
+  const publicationTime = Date.parse(publishedAt);
+  if (
+    !Number.isFinite(publicationTime) ||
+    publicationTime < windowStart.getTime() ||
+    publicationTime > windowEnd.getTime()
+  ) {
+    return 'OUTSIDE_PUBLICATION_WINDOW';
+  }
+  return undefined;
+}
+
 export function visibleText(bytes: Buffer, contentType: string): string {
   if (contentType.includes('pdf')) return '';
   let outsideMarkup = '';

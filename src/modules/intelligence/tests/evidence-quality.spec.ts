@@ -1,11 +1,31 @@
 import {
   evidenceCandidateKey,
   groundedEntities,
+  publicationWindowIssue,
   requireVerifiableText,
   resolveLinkedArticle,
   ungroundedNumbers,
   visibleText,
 } from '../evidence-quality';
+
+describe('publicationWindowIssue', () => {
+  const start = new Date('2026-08-15T12:00:00.000Z');
+  const end = new Date('2026-08-18T12:00:00.000Z');
+
+  it('accepts a publication inside the research window', () => {
+    expect(publicationWindowIssue('2026-08-17T08:30:00-04:00', start, end)).toBeUndefined();
+  });
+
+  it('rejects missing, stale and future publication dates', () => {
+    expect(publicationWindowIssue(null, start, end)).toBe('MISSING_PUBLICATION_DATE');
+    expect(publicationWindowIssue('2026-08-14T23:00:00Z', start, end)).toBe(
+      'OUTSIDE_PUBLICATION_WINDOW',
+    );
+    expect(publicationWindowIssue('2026-08-19T00:00:00Z', start, end)).toBe(
+      'OUTSIDE_PUBLICATION_WINDOW',
+    );
+  });
+});
 
 describe('evidenceCandidateKey', () => {
   it('deduplicates tracking variants of the same quoted source', () => {
