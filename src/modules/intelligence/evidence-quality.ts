@@ -84,14 +84,14 @@ export function effectiveContentType(bytes: Buffer, declaredContentType: string)
   return declaredContentType;
 }
 
-export function visibleText(bytes: Buffer, contentType: string): string {
+export function visibleText(input: Buffer | string, contentType: string): string {
   const textCompatible =
     contentType.startsWith('text/') ||
     contentType.includes('html') ||
     contentType.includes('xml') ||
     contentType.includes('json');
   if (!textCompatible) return '';
-  const source = bytes.toString('utf8');
+  const source = typeof input === 'string' ? input : input.toString('utf8');
   let outsideMarkup = '';
   if (!contentType.includes('html') && !contentType.includes('xml')) {
     outsideMarkup = source;
