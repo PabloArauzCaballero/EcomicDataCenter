@@ -102,17 +102,34 @@ function directionForTerm(term: string): EconomicDirection | null {
     : null;
 }
 
+function hasScopedNegation(tokens: readonly string[], directionIndex: number): boolean {
+  let wordCount = 0;
+  for (let index = directionIndex - 1; index >= 0 && wordCount < 4; index -= 1) {
+    const token = tokens[index];
+    if (!token) continue;
+    if (/^[.,;:!?]$/u.test(token)) break;
+    wordCount += 1;
+    if (!/^(?:no|nunca|jamas|sin|not|never|without)$/u.test(token)) continue;
+    const nextToken = tokens[index + 1];
+    const isDiscourseMarker =
+      (token === 'no' && /^(?:solo|solamente|obstante)$/u.test(nextToken ?? '')) ||
+      (token === 'sin' && nextToken === 'embargo') ||
+      (token === 'not' && nextToken === 'only');
+    if (!isDiscourseMarker) return true;
+  }
+  return false;
+}
+
 function economicDirectionSequences(value: string): {
   directions: EconomicDirection[];
   signedDirections: SignedEconomicDirection[];
 } {
   const normalized = value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('es');
-  const terms = normalized.match(/\p{L}[\p{L}\p{N}]*/gu) ?? [];
-  const pairs = terms.flatMap((term, index) => {
+  const tokens = normalized.match(/\p{L}[\p{L}\p{N}]*|[.,;:!?]/gu) ?? [];
+  const pairs = tokens.flatMap((term, index) => {
     const direction = directionForTerm(term);
     if (!direction) return [];
-    const previousTerm = terms[index - 1];
-    const negated = /^(?:no|nunca|jamas|sin|not|never|without)$/u.test(previousTerm ?? '');
+    const negated = hasScopedNegation(tokens, index);
     return [{ direction, signedDirection: negated ? (`NOT_${direction}` as const) : direction }];
   });
   const distinctPairs = pairs.filter(
