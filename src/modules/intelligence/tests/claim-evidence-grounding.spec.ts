@@ -43,10 +43,40 @@ describe('groundClaimToExcerpt', () => {
       status: 'UNSUPPORTED',
       polarityAligned: true,
       directionAligned: true,
+      assertionDirections: [],
+      excerptDirections: [],
       assertionTermCount: 5,
       matchedTermCount: 0,
       matchedTerms: [],
       coverage: 0,
+    });
+  });
+
+  it('rejects reversed directions in a compound economic assertion', () => {
+    expect(
+      assessLexicalGrounding(
+        'La inflación aumentó y las exportaciones disminuyeron.',
+        'La inflación disminuyó y las exportaciones aumentaron.',
+      ),
+    ).toMatchObject({
+      status: 'LIMITED',
+      directionAligned: false,
+      assertionDirections: ['UP', 'DOWN'],
+      excerptDirections: ['DOWN', 'UP'],
+    });
+  });
+
+  it('accepts an ordered compound direction sequence within additional context', () => {
+    expect(
+      assessLexicalGrounding(
+        'La inflación aumentó y las exportaciones disminuyeron.',
+        'El desempleo se mantuvo estable; la inflación subió y las exportaciones bajaron; luego la producción creció.',
+      ),
+    ).toMatchObject({
+      status: 'SUPPORTED',
+      directionAligned: true,
+      assertionDirections: ['UP', 'DOWN'],
+      excerptDirections: ['STABLE', 'UP', 'DOWN', 'UP'],
     });
   });
 

@@ -780,6 +780,8 @@ async function main(): Promise<void> {
             coverage: evidence.lexicalGrounding.coverage,
             polarityAligned: evidence.lexicalGrounding.polarityAligned,
             directionAligned: evidence.lexicalGrounding.directionAligned,
+            assertionDirections: evidence.lexicalGrounding.assertionDirections,
+            excerptDirections: evidence.lexicalGrounding.excerptDirections,
           });
         }
         const claim: CorroboratedClaim = {
