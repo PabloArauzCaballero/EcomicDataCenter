@@ -29,10 +29,8 @@ import {
   canonicalSourceUrl,
   htmlSourceMetadata,
 } from '../src/modules/intelligence/source-metadata';
-import {
-  assessPublicationMetadata,
-  calibrateConfidenceForPublicationDate,
-} from '../src/modules/intelligence/publication-metadata';
+import { assessPublicationMetadata } from '../src/modules/intelligence/publication-metadata';
+import { calibrateConfidenceForSourceMetadata } from '../src/modules/intelligence/source-metadata-confidence';
 import { verifyStoredEvidenceBlob } from '../src/modules/intelligence/storage-integrity';
 import type { GitHubBlobPayload } from '../src/modules/intelligence/storage-integrity';
 import {
@@ -737,15 +735,21 @@ async function main(): Promise<void> {
           candidate.confidenceScore,
           evidence.lexicalGrounding,
         );
-        const calibratedConfidence = calibrateConfidenceForPublicationDate(
+        const calibratedConfidence = calibrateConfidenceForSourceMetadata(
           groundingConfidence.confidenceLevel,
           groundingConfidence.confidenceScore,
-          evidence.publicationDateVerified,
+          {
+            publicationDateVerified: evidence.publicationDateVerified,
+            publisherVerified: evidence.publisherVerified,
+          },
         );
-        if (!evidence.publicationDateVerified) {
+        for (const reason of calibratedConfidence.reasons) {
           (report.qualityAdjustments as Json[]).push({
             sourceUrl: evidence.sourceUrl,
-            action: 'ROUTED_TO_REVIEW_UNVERIFIED_PUBLICATION_DATE',
+            action:
+              reason === 'UNVERIFIED_PUBLICATION_DATE'
+                ? 'ROUTED_TO_REVIEW_UNVERIFIED_PUBLICATION_DATE'
+                : 'ROUTED_TO_REVIEW_UNVERIFIED_PUBLISHER',
             aiReportedConfidenceLevel: candidate.confidenceLevel,
             calibratedConfidenceLevel: calibratedConfidence.confidenceLevel,
           });

@@ -53,19 +53,3 @@ export function assessPublicationMetadata(
   if (hasConflictingDeclarations || outcomes.size > 1) return 'AMBIGUOUS';
   return outcomes.has(true) ? 'MATCHED' : 'CONTRADICTED';
 }
-
-/** Prevents an AI-only publication timestamp from satisfying automatic publication confidence. */
-export function calibrateConfidenceForPublicationDate(
-  confidenceLevel: string,
-  confidenceScore: number | null,
-  publicationDateVerified: boolean,
-): { confidenceLevel: string; confidenceScore: number | null; adjusted: boolean } {
-  if (publicationDateVerified) {
-    return { confidenceLevel, confidenceScore, adjusted: false };
-  }
-  return {
-    confidenceLevel: 'LOW',
-    confidenceScore: confidenceScore === null ? null : Math.min(confidenceScore, 0.49),
-    adjusted: confidenceLevel !== 'LOW' || (confidenceScore !== null && confidenceScore > 0.49),
-  };
-}
