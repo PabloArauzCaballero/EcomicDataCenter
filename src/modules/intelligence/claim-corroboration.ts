@@ -17,6 +17,13 @@ export interface CorroboratingSource {
   publishedAt: string | null;
 }
 
+export interface CorroborationSummary {
+  sourceCount: number;
+  publisherCount: number;
+  independentContentCount: number;
+  independentlyCorroborated: boolean;
+}
+
 export interface CorroboratedClaim {
   claimType: string;
   assertion: string;
@@ -31,8 +38,24 @@ export interface CorroboratedClaim {
 }
 
 export interface CorroboratedClaimItem {
-  rawPayload: CorroboratingSource & { sources: CorroboratingSource[] };
+  rawPayload: CorroboratingSource & {
+    sources: CorroboratingSource[];
+    corroboration: CorroborationSummary;
+  };
   claim: CorroboratedClaim;
+}
+
+export function summarizeCorroboration(
+  sources: readonly CorroboratingSource[],
+): CorroborationSummary {
+  const publishers = new Set(sources.map(({ publisher }) => comparable(publisher)));
+  const contentHashes = new Set(sources.map(({ sha256 }) => sha256.toLocaleLowerCase('en')));
+  return {
+    sourceCount: sources.length,
+    publisherCount: publishers.size,
+    independentContentCount: contentHashes.size,
+    independentlyCorroborated: contentHashes.size > 1,
+  };
 }
 
 const confidenceRank = new Map([
@@ -101,7 +124,11 @@ export function consolidateCorroboratingClaims(
     const existing = byKey.get(key);
     if (!existing || existing.claim.evidence.length + item.claim.evidence.length > 10) {
       const copy = {
-        rawPayload: { ...item.rawPayload, sources: [...item.rawPayload.sources] },
+        rawPayload: {
+          ...item.rawPayload,
+          sources: [...item.rawPayload.sources],
+          corroboration: summarizeCorroboration(item.rawPayload.sources),
+        },
         claim: {
           ...item.claim,
           entityMentions: [...item.claim.entityMentions],
@@ -113,10 +140,19 @@ export function consolidateCorroboratingClaims(
       continue;
     }
     mergeClaim(existing.claim, item.claim);
-    const sourceHashes = new Set(existing.rawPayload.sources.map(({ sha256 }) => sha256));
+    const sourceKeys = new Set(
+      existing.rawPayload.sources.map(
+        ({ sha256, url, discoveredUrl }) => `${sha256}\n${url}\n${discoveredUrl}`,
+      ),
+    );
     for (const source of item.rawPayload.sources) {
-      if (!sourceHashes.has(source.sha256)) existing.rawPayload.sources.push(source);
+      const sourceKey = `${source.sha256}\n${source.url}\n${source.discoveredUrl}`;
+      if (!sourceKeys.has(sourceKey)) {
+        existing.rawPayload.sources.push(source);
+        sourceKeys.add(sourceKey);
+      }
     }
+    existing.rawPayload.corroboration = summarizeCorroboration(existing.rawPayload.sources);
   }
   return result;
 }

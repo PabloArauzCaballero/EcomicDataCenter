@@ -17,6 +17,7 @@ import {
 } from '../src/modules/intelligence/claim-evidence-grounding';
 import {
   consolidateCorroboratingClaims,
+  summarizeCorroboration,
   type CorroboratedClaim,
   type CorroboratedClaimItem,
 } from '../src/modules/intelligence/claim-corroboration';
@@ -757,7 +758,11 @@ async function main(): Promise<void> {
           publishedAt: candidate.publishedAt,
         };
         items.push({
-          rawPayload: { ...rawSource, sources: [rawSource] },
+          rawPayload: {
+            ...rawSource,
+            sources: [rawSource],
+            corroboration: summarizeCorroboration([rawSource]),
+          },
           claim,
         });
       } catch (error) {
@@ -772,6 +777,14 @@ async function main(): Promise<void> {
         action: 'CONSOLIDATED_CORROBORATING_CLAIMS',
         inputClaimCount: items.length,
         outputClaimCount: consolidatedItems.length,
+      });
+    }
+    for (const item of consolidatedItems) {
+      if (item.rawPayload.corroboration.sourceCount < 2) continue;
+      (report.qualityAdjustments as Json[]).push({
+        action: 'ASSESSED_CLAIM_CORROBORATION',
+        assertionSha256: createHash('sha256').update(item.claim.assertion).digest('hex'),
+        ...item.rawPayload.corroboration,
       });
     }
     if (consolidatedItems.length) {
