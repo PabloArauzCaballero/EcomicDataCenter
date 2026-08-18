@@ -74,16 +74,6 @@ export function publicationWindowIssue(
   return undefined;
 }
 
-export function effectiveContentType(bytes: Buffer, declaredContentType: string): string {
-  const prefix = bytes.subarray(0, 1_024).toString('utf8').trimStart();
-  if (bytes.subarray(0, 5).toString('ascii') === '%PDF-') return 'application/pdf';
-  if (/^<!doctype\s+html|^<html\b|<head\b|<body\b/iu.test(prefix)) return 'text/html';
-  if (/^[{[]/u.test(prefix) && declaredContentType.includes('text/plain')) {
-    return 'application/json';
-  }
-  return declaredContentType;
-}
-
 export function visibleText(input: Buffer | string, contentType: string): string {
   const textCompatible =
     contentType.startsWith('text/') ||
