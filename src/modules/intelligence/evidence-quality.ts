@@ -72,6 +72,34 @@ export function evidenceCandidateKey(rawUrl: string, excerpt: string): string {
 }
 
 export type PublicationWindowIssue = 'MISSING_PUBLICATION_DATE' | 'OUTSIDE_PUBLICATION_WINDOW';
+export type PublicationLocalDateIssue =
+  'MISSING_PUBLICATION_DATE' | 'OUTSIDE_LOCAL_PUBLICATION_DATE';
+
+function localDateKey(value: Date, timeZone: string): string {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(value);
+  const part = (type: Intl.DateTimeFormatPartTypes): string =>
+    parts.find((candidate) => candidate.type === type)?.value ?? '';
+  return `${part('year')}-${part('month')}-${part('day')}`;
+}
+
+/** Requires evidence to belong to the collector's current local calendar date. */
+export function publicationLocalDateIssue(
+  publishedAt: string | null,
+  runAt: Date,
+  timeZone: string,
+): PublicationLocalDateIssue | undefined {
+  if (!publishedAt) return 'MISSING_PUBLICATION_DATE';
+  const publicationTime = Date.parse(publishedAt);
+  if (!Number.isFinite(publicationTime)) return 'OUTSIDE_LOCAL_PUBLICATION_DATE';
+  return localDateKey(new Date(publicationTime), timeZone) === localDateKey(runAt, timeZone)
+    ? undefined
+    : 'OUTSIDE_LOCAL_PUBLICATION_DATE';
+}
 
 export function publicationWindowIssue(
   publishedAt: string | null,

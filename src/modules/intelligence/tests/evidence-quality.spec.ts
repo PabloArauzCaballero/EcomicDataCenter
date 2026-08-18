@@ -3,6 +3,7 @@ import {
   evidenceCandidateKey,
   groundedEntities,
   locateExcerpt,
+  publicationLocalDateIssue,
   publicationWindowIssue,
   requireVerifiableText,
   resolveLinkedArticle,
@@ -92,6 +93,28 @@ describe('publicationWindowIssue', () => {
     );
     expect(publicationWindowIssue('2026-08-19T00:00:00Z', start, end)).toBe(
       'OUTSIDE_PUBLICATION_WINDOW',
+    );
+  });
+});
+
+describe('publicationLocalDateIssue', () => {
+  const runAt = new Date('2026-08-18T12:00:00.000Z');
+
+  it('accepts only the current calendar date in the configured timezone', () => {
+    expect(
+      publicationLocalDateIssue('2026-08-18T00:15:00-04:00', runAt, 'America/La_Paz'),
+    ).toBeUndefined();
+    expect(publicationLocalDateIssue('2026-08-17T23:59:59-04:00', runAt, 'America/La_Paz')).toBe(
+      'OUTSIDE_LOCAL_PUBLICATION_DATE',
+    );
+  });
+
+  it('uses the configured timezone at UTC date boundaries', () => {
+    expect(publicationLocalDateIssue('2026-08-18T02:00:00.000Z', runAt, 'America/La_Paz')).toBe(
+      'OUTSIDE_LOCAL_PUBLICATION_DATE',
+    );
+    expect(publicationLocalDateIssue(null, runAt, 'America/La_Paz')).toBe(
+      'MISSING_PUBLICATION_DATE',
     );
   });
 });

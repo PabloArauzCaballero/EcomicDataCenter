@@ -6,6 +6,7 @@ import {
   comparable,
   evidenceCandidateKey,
   locateExcerpt,
+  publicationLocalDateIssue,
   publicationWindowIssue,
   requireVerifiableText,
   resolveLinkedArticle,
@@ -674,6 +675,20 @@ async function main(): Promise<void> {
     );
     for (const candidate of output.candidates) {
       try {
+        const localDateIssue = publicationLocalDateIssue(
+          candidate.publishedAt,
+          new Date(),
+          env.ECONOMIC_TIMEZONE,
+        );
+        if (localDateIssue) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: candidate.url,
+            action: `SKIPPED_${localDateIssue}`,
+            publishedAt: candidate.publishedAt,
+            timeZone: env.ECONOMIC_TIMEZONE,
+          });
+          continue;
+        }
         const publicationIssue = publicationWindowIssue(
           candidate.publishedAt,
           publicationWindowStart,
