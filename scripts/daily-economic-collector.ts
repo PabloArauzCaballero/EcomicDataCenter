@@ -11,7 +11,10 @@ import {
   resolveLinkedArticle,
   visibleText,
 } from '../src/modules/intelligence/evidence-quality';
-import { groundClaimToExcerpt } from '../src/modules/intelligence/claim-evidence-grounding';
+import {
+  calibrateConfidenceForGrounding,
+  groundClaimToExcerpt,
+} from '../src/modules/intelligence/claim-evidence-grounding';
 import {
   extractPdfEvidence,
   pdfMetadataPublicationDates,
@@ -526,6 +529,7 @@ async function persistEvidence(candidate: Candidate) {
         canonicalized,
         storageVerification: 'MATCHED_SHA256_AND_SIZE',
         claimGroundingScope: 'CITED_EXCERPT',
+        lexicalGrounding: grounding.lexicalGrounding,
         excerptTextLocator: excerptLocator,
         textExtractionStrategy: pdfEvidence ? 'PDFJS_TEXT_V1' : 'VISIBLE_TEXT_V1',
         ...(downloaded.textDecoding
@@ -558,6 +562,7 @@ async function persistEvidence(candidate: Candidate) {
     publisher: verifiedPublisher,
     publisherVerified: sourceMetadata.publishers.length > 0,
     publicationDateVerified: publicationDateAssessment === 'MATCHED',
+    lexicalGrounding: grounding.lexicalGrounding,
     canonicalized,
   };
 }
@@ -701,10 +706,25 @@ async function main(): Promise<void> {
             entityMentions: droppedEntityMentions,
           });
         }
+        const unsupportedLexicalGrounding = evidence.lexicalGrounding.status === 'UNSUPPORTED';
+        const calibratedConfidence = calibrateConfidenceForGrounding(
+          candidate.confidenceLevel,
+          candidate.confidenceScore,
+          evidence.lexicalGrounding,
+        );
+        if (unsupportedLexicalGrounding) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: evidence.sourceUrl,
+            action: 'ROUTED_TO_REVIEW_UNSUPPORTED_LEXICAL_GROUNDING',
+            aiReportedConfidenceLevel: candidate.confidenceLevel,
+            assertionTermCount: evidence.lexicalGrounding.assertionTermCount,
+            matchedTermCount: evidence.lexicalGrounding.matchedTermCount,
+          });
+        }
         const claim: Record<string, Json> = {
           claimType: candidate.claimType,
           assertion: candidate.assertion,
-          confidenceLevel: candidate.confidenceLevel,
+          confidenceLevel: calibratedConfidence.confidenceLevel,
           entityMentions: evidence.entityMentions,
           evidence: [
             {
@@ -717,7 +737,9 @@ async function main(): Promise<void> {
         };
         if (candidate.eventDate) claim.eventDate = candidate.eventDate;
         if (candidate.publishedAt) claim.publishedAt = candidate.publishedAt;
-        if (candidate.confidenceScore !== null) claim.confidenceScore = candidate.confidenceScore;
+        if (calibratedConfidence.confidenceScore !== null) {
+          claim.confidenceScore = calibratedConfidence.confidenceScore;
+        }
         if (candidate.impactLevel) claim.impactLevel = candidate.impactLevel;
         if (candidate.timeHorizon) claim.timeHorizon = candidate.timeHorizon;
         items.push({
