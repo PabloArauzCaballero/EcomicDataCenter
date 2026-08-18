@@ -47,6 +47,48 @@ describe('htmlSourceMetadata', () => {
     expect(visibleText(Buffer.from(html), 'text/html')).toBe('Texto visible');
   });
 
+  it('ignores metadata from nested related articles', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'NewsArticle',
+      datePublished: '2026-08-18T09:15:00-04:00',
+      publisher: { name: 'Fuente principal' },
+      relatedArticle: {
+        '@type': 'NewsArticle',
+        datePublished: '2026-08-17T08:00:00-04:00',
+        publisher: { name: 'Fuente relacionada' },
+      },
+    })}</script>`;
+
+    expect(htmlSourceMetadata(html)).toEqual({
+      publishers: ['Fuente principal'],
+      publicationDates: ['2026-08-18T09:15:00-04:00'],
+      canonicalUrls: [],
+    });
+  });
+
+  it('reads document nodes from @graph and direct mainEntity', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebPage',
+          mainEntity: {
+            '@type': 'Report',
+            datePublished: '2026-08-18T10:00:00-04:00',
+            publisher: { name: 'Institución oficial' },
+            mainEntityOfPage: { '@id': '/informe-oficial' },
+          },
+        },
+      ],
+    })}</script>`;
+
+    expect(htmlSourceMetadata(html)).toEqual({
+      publishers: ['Institución oficial'],
+      publicationDates: ['2026-08-18T10:00:00-04:00'],
+      canonicalUrls: ['/informe-oficial'],
+    });
+  });
+
   it('ignores malformed and oversized JSON-LD', () => {
     const malformed = '<script type="application/ld+json">{not-json}</script>';
     const oversized = `<script type="application/ld+json">${' '.repeat(100_001)}</script>`;
