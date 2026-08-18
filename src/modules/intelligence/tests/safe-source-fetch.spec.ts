@@ -45,6 +45,12 @@ describe('isPrivateAddress', () => {
     '::1',
     'fc00::1',
     'fe80::1',
+    '192.0.2.1',
+    '198.51.100.1',
+    '203.0.113.1',
+    '198.18.0.1',
+    '2001:db8::1',
+    '::ffff:7f00:1',
   ])('rejects private address %s', (address) => expect(isPrivateAddress(address)).toBe(true));
 
   it.each(['8.8.8.8', '1.1.1.1', '2606:4700:4700::1111'])('accepts public address %s', (address) =>
@@ -55,10 +61,10 @@ describe('isPrivateAddress', () => {
 describe('validatePublicSourceUrl', () => {
   it('rejects local hosts and embedded credentials', () => {
     expect(() => validatePublicSourceUrl('http://localhost/report')).toThrow(
-      'Private network source rejected',
+      'Non-public network source rejected',
     );
     expect(() => validatePublicSourceUrl('http://[::1]/report')).toThrow(
-      'Private network source rejected',
+      'Non-public network source rejected',
     );
     expect(() => validatePublicSourceUrl('https://user:secret@example.com/report')).toThrow(
       'Source URL credentials are not allowed',
@@ -79,9 +85,30 @@ describe('validatePublicSourceUrl', () => {
       'Source URL uses a non-default web port',
     );
   });
+
+  it('rejects literal reserved and IPv4-mapped loopback addresses', () => {
+    expect(() => validatePublicSourceUrl('https://198.51.100.1/report')).toThrow(
+      'Non-public network source rejected',
+    );
+    expect(() => validatePublicSourceUrl('https://[::ffff:7f00:1]/report')).toThrow(
+      'Non-public network source rejected',
+    );
+  });
 });
 
 describe('fetchPublicSource', () => {
+  it('does not connect when DNS returns any non-global address', async () => {
+    const fetcher = jest.fn();
+
+    await expect(
+      fetchPublicSource('https://example.com/start', {}, 5_000, {
+        fetcher,
+        resolver: async () => ['93.184.216.34', '198.51.100.1'],
+      }),
+    ).rejects.toThrow('Source hostname resolved to a non-public or unavailable address');
+    expect(fetcher).not.toHaveBeenCalled();
+  });
+
   it('blocks a public URL that redirects to a private address', async () => {
     const fetcher = jest.fn(async () =>
       Promise.resolve(
@@ -94,7 +121,7 @@ describe('fetchPublicSource', () => {
         fetcher,
         resolver: async () => ['93.184.216.34'],
       }),
-    ).rejects.toThrow('Private network source rejected');
+    ).rejects.toThrow('Non-public network source rejected');
     expect(fetcher).toHaveBeenCalledTimes(1);
   });
 

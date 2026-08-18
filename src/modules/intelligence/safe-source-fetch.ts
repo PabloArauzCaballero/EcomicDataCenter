@@ -1,5 +1,6 @@
 import { lookup } from 'node:dns/promises';
 import { isIP } from 'node:net';
+import * as ipaddr from 'ipaddr.js';
 
 type Fetcher = (input: string, init: RequestInit) => Promise<Response>;
 type HostResolver = (hostname: string) => Promise<readonly string[]>;
@@ -39,36 +40,11 @@ export async function readResponseBodyLimited(
   return Buffer.concat(chunks, totalBytes);
 }
 
-function ipv4Parts(address: string): number[] | undefined {
-  if (isIP(address) !== 4) return undefined;
-  return address.split('.').map(Number);
-}
-
+/** Returns true unless the address is globally routable unicast. */
 export function isPrivateAddress(address: string): boolean {
   const normalized = address.toLocaleLowerCase('en').split('%')[0] ?? address;
-  const mappedIpv4 = /^::ffff:(\d+\.\d+\.\d+\.\d+)$/u.exec(normalized)?.[1];
-  const ipv4 = ipv4Parts(mappedIpv4 ?? normalized);
-  if (ipv4) {
-    const [first = 0, second = 0] = ipv4;
-    return (
-      first === 0 ||
-      first === 10 ||
-      first === 127 ||
-      (first === 100 && second >= 64 && second <= 127) ||
-      (first === 169 && second === 254) ||
-      (first === 172 && second >= 16 && second <= 31) ||
-      (first === 192 && second === 168) ||
-      first >= 224
-    );
-  }
-  if (isIP(normalized) !== 6) return false;
-  return (
-    normalized === '::' ||
-    normalized === '::1' ||
-    /^f[cd]/u.test(normalized) ||
-    /^fe[89ab]/u.test(normalized) ||
-    /^ff/u.test(normalized)
-  );
+  if (!ipaddr.isValid(normalized)) return true;
+  return ipaddr.process(normalized).range() !== 'unicast';
 }
 
 export function validatePublicSourceUrl(raw: string | URL): URL {
@@ -80,9 +56,9 @@ export function validatePublicSourceUrl(raw: string | URL): URL {
   if (url.port) throw new Error('Source URL uses a non-default web port');
   const host = url.hostname.toLocaleLowerCase('en').replace(/^\[|\]$/gu, '');
   if (host === 'localhost' || host.endsWith('.localhost') || host.endsWith('.local')) {
-    throw new Error('Private network source rejected');
+    throw new Error('Non-public network source rejected');
   }
-  if (isIP(host) && isPrivateAddress(host)) throw new Error('Private network source rejected');
+  if (isIP(host) && isPrivateAddress(host)) throw new Error('Non-public network source rejected');
   return url;
 }
 
@@ -95,7 +71,7 @@ async function assertPublicResolution(url: URL, resolver: HostResolver): Promise
   const hostname = url.hostname.replace(/^\[|\]$/gu, '');
   const addresses = await resolver(hostname);
   if (!addresses.length || addresses.some(isPrivateAddress)) {
-    throw new Error('Source hostname resolved to a private or unavailable address');
+    throw new Error('Source hostname resolved to a non-public or unavailable address');
   }
 }
 
