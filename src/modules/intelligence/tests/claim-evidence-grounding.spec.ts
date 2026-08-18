@@ -61,6 +61,20 @@ describe('groundClaimToExcerpt', () => {
     });
   });
 
+  it('requires material coverage rather than two incidental matching terms', () => {
+    expect(
+      assessLexicalGrounding(
+        'Las exportaciones mineras privadas alcanzaron un récord histórico nacional.',
+        'Las exportaciones mineras bajaron.',
+      ),
+    ).toMatchObject({
+      status: 'LIMITED',
+      matchedTerms: ['exportaciones', 'mineras'],
+      matchedTermCount: 2,
+      coverage: 0.2857,
+    });
+  });
+
   it('routes unsupported assertions to low confidence without inventing a score', () => {
     const unsupported = assessLexicalGrounding(
       'Las exportaciones mineras alcanzaron un récord.',
@@ -75,6 +89,17 @@ describe('groundClaimToExcerpt', () => {
     expect(calibrateConfidenceForGrounding('HIGH', null, unsupported)).toEqual({
       confidenceLevel: 'LOW',
       confidenceScore: null,
+      adjusted: true,
+    });
+  });
+
+  it.each([
+    assessLexicalGrounding('La inflación mensual cambió abruptamente.', 'La inflación fue menor.'),
+    assessLexicalGrounding('3,2%', 'El índice fue 3,2%.'),
+  ])('routes %s lexical grounding to review', (grounding) => {
+    expect(calibrateConfidenceForGrounding('HIGH', 0.9, grounding)).toEqual({
+      confidenceLevel: 'LOW',
+      confidenceScore: 0.49,
       adjusted: true,
     });
   });

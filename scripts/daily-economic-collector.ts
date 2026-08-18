@@ -731,7 +731,7 @@ async function main(): Promise<void> {
             entityMentions: droppedEntityMentions,
           });
         }
-        const unsupportedLexicalGrounding = evidence.lexicalGrounding.status === 'UNSUPPORTED';
+        const requiresLexicalReview = evidence.lexicalGrounding.status !== 'SUPPORTED';
         const groundingConfidence = calibrateConfidenceForGrounding(
           candidate.confidenceLevel,
           candidate.confidenceScore,
@@ -770,13 +770,14 @@ async function main(): Promise<void> {
             calibratedConfidenceLevel: calibratedConfidence.confidenceLevel,
           });
         }
-        if (unsupportedLexicalGrounding) {
+        if (requiresLexicalReview) {
           (report.qualityAdjustments as Json[]).push({
             sourceUrl: evidence.sourceUrl,
-            action: 'ROUTED_TO_REVIEW_UNSUPPORTED_LEXICAL_GROUNDING',
+            action: `ROUTED_TO_REVIEW_${evidence.lexicalGrounding.status}_LEXICAL_GROUNDING`,
             aiReportedConfidenceLevel: candidate.confidenceLevel,
             assertionTermCount: evidence.lexicalGrounding.assertionTermCount,
             matchedTermCount: evidence.lexicalGrounding.matchedTermCount,
+            coverage: evidence.lexicalGrounding.coverage,
           });
         }
         const claim: CorroboratedClaim = {
