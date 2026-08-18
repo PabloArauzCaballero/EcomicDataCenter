@@ -80,17 +80,24 @@ function numericOccurrences(value: string): NumericOccurrence[] {
   return occurrences;
 }
 
-/** Returns figures whose value and stated unit do not occur together in the evidence. */
+function occurrencesMatch(claimed: NumericOccurrence, found: NumericOccurrence): boolean {
+  return (
+    found.comparable === claimed.comparable &&
+    [...claimed.units].every((unit) => found.units.has(unit))
+  );
+}
+
+/** Returns figures that cannot map to distinct, ordered evidence occurrences with their units. */
 export function ungroundedNumbers(assertion: string, sourceText: string): string[] {
   const evidence = numericOccurrences(sourceText);
-  const unsupported = numericOccurrences(assertion)
-    .filter((claimed) =>
-      evidence.every(
-        (found) =>
-          found.comparable !== claimed.comparable ||
-          [...claimed.units].some((unit) => !found.units.has(unit)),
-      ),
-    )
-    .map(({ raw }) => raw);
+  const unsupported: string[] = [];
+  let evidenceCursor = 0;
+  for (const claimed of numericOccurrences(assertion)) {
+    const relativeIndex = evidence
+      .slice(evidenceCursor)
+      .findIndex((found) => occurrencesMatch(claimed, found));
+    if (relativeIndex < 0) unsupported.push(claimed.raw);
+    else evidenceCursor += relativeIndex + 1;
+  }
   return [...new Set(unsupported)];
 }
