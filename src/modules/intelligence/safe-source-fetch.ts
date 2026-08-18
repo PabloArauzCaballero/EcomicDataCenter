@@ -123,7 +123,11 @@ export async function fetchPublicSource(
     if (redirectCount === 5) throw new Error('Source exceeded the redirect limit');
     const location = response.headers.get('location');
     if (!location) throw new Error('Source redirect did not provide a destination');
-    currentUrl = validatePublicSourceUrl(new URL(location, currentUrl));
+    const redirectUrl = validatePublicSourceUrl(new URL(location, currentUrl));
+    if (currentUrl.protocol === 'https:' && redirectUrl.protocol !== 'https:') {
+      throw new Error('Source redirect cannot downgrade HTTPS');
+    }
+    currentUrl = redirectUrl;
   }
   throw new Error('Source exceeded the redirect limit');
 }
