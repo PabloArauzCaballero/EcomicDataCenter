@@ -751,6 +751,7 @@ async function main(): Promise<void> {
         const rawSource = {
           title: candidate.title,
           publisher: evidence.publisher,
+          publisherVerified: evidence.publisherVerified,
           url: evidence.sourceUrl,
           discoveredUrl: candidate.url,
           sha256: evidence.sha256,

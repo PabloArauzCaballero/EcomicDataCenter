@@ -10,6 +10,7 @@ export interface CorroboratingEvidence {
 export interface CorroboratingSource {
   title: string;
   publisher: string;
+  publisherVerified: boolean;
   url: string;
   discoveredUrl: string;
   sha256: string;
@@ -20,6 +21,8 @@ export interface CorroboratingSource {
 export interface CorroborationSummary {
   sourceCount: number;
   publisherCount: number;
+  verifiedPublisherCount: number;
+  unverifiedSourceCount: number;
   independentContentCount: number;
   publisherDiverse: boolean;
   contentDiverse: boolean;
@@ -51,12 +54,19 @@ export function summarizeCorroboration(
   sources: readonly CorroboratingSource[],
 ): CorroborationSummary {
   const publishers = new Set(sources.map(({ publisher }) => comparable(publisher)));
+  const verifiedPublishers = new Set(
+    sources
+      .filter(({ publisherVerified }) => publisherVerified)
+      .map(({ publisher }) => comparable(publisher)),
+  );
   const contentHashes = new Set(sources.map(({ sha256 }) => sha256.toLocaleLowerCase('en')));
-  const publisherDiverse = publishers.size > 1;
+  const publisherDiverse = verifiedPublishers.size > 1;
   const contentDiverse = contentHashes.size > 1;
   return {
     sourceCount: sources.length,
     publisherCount: publishers.size,
+    verifiedPublisherCount: verifiedPublishers.size,
+    unverifiedSourceCount: sources.filter(({ publisherVerified }) => !publisherVerified).length,
     independentContentCount: contentHashes.size,
     publisherDiverse,
     contentDiverse,

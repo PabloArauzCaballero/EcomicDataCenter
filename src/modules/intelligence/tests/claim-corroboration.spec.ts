@@ -9,6 +9,7 @@ function item(overrides: Partial<CorroboratedClaimItem['claim']> = {}): Corrobor
   const source = {
     title: `Informe ${index}`,
     publisher: `Fuente ${index}`,
+    publisherVerified: true,
     url: `https://example.com/${index}`,
     discoveredUrl: `https://example.com/${index}`,
     sha256: index.repeat(64),
@@ -70,6 +71,8 @@ describe('consolidateCorroboratingClaims', () => {
     expect(consolidated[0]?.rawPayload.corroboration).toEqual({
       sourceCount: 2,
       publisherCount: 2,
+      verifiedPublisherCount: 2,
+      unverifiedSourceCount: 0,
       independentContentCount: 2,
       publisherDiverse: true,
       contentDiverse: true,
@@ -92,6 +95,8 @@ describe('consolidateCorroboratingClaims', () => {
     expect(consolidated?.rawPayload.corroboration).toEqual({
       sourceCount: 2,
       publisherCount: 2,
+      verifiedPublisherCount: 2,
+      unverifiedSourceCount: 0,
       independentContentCount: 1,
       publisherDiverse: true,
       contentDiverse: false,
@@ -113,6 +118,31 @@ describe('consolidateCorroboratingClaims', () => {
     expect(consolidated?.rawPayload.corroboration).toEqual({
       sourceCount: 2,
       publisherCount: 1,
+      verifiedPublisherCount: 1,
+      unverifiedSourceCount: 0,
+      independentContentCount: 2,
+      publisherDiverse: false,
+      contentDiverse: true,
+      independentlyCorroborated: false,
+    });
+  });
+
+  it('does not use an AI-reported unverified publisher as institutional corroboration', () => {
+    const first = item();
+    const second = item({ confidenceLevel: 'LOW' });
+    second.rawPayload.publisherVerified = false;
+    second.rawPayload.sources[0] = {
+      ...second.rawPayload.sources[0]!,
+      publisherVerified: false,
+    };
+
+    const [consolidated] = consolidateCorroboratingClaims([first, second]);
+
+    expect(consolidated?.rawPayload.corroboration).toEqual({
+      sourceCount: 2,
+      publisherCount: 2,
+      verifiedPublisherCount: 1,
+      unverifiedSourceCount: 1,
       independentContentCount: 2,
       publisherDiverse: false,
       contentDiverse: true,
