@@ -1,9 +1,31 @@
 import {
+  evidenceCandidateKey,
   groundedEntities,
   resolveLinkedArticle,
   ungroundedNumbers,
   visibleText,
 } from '../evidence-quality';
+
+describe('evidenceCandidateKey', () => {
+  it('deduplicates tracking variants of the same quoted source', () => {
+    const excerpt = 'El índice alcanzó 31,3 puntos durante julio.';
+    const clean = evidenceCandidateKey('https://example.com/report?year=2026', excerpt);
+    const tracked = evidenceCandidateKey(
+      'https://example.com/report?utm_source=newsletter&year=2026#results',
+      `  ${excerpt.toLocaleUpperCase('es')}  `,
+    );
+
+    expect(tracked).toBe(clean);
+  });
+
+  it('keeps different excerpts from the same article as separate evidence', () => {
+    const url = 'https://example.com/report';
+
+    expect(evidenceCandidateKey(url, 'La inflación subió.')).not.toBe(
+      evidenceCandidateKey(url, 'Las exportaciones bajaron.'),
+    );
+  });
+});
 
 describe('resolveLinkedArticle', () => {
   it('upgrades a section page to the article whose label matches the candidate title', () => {

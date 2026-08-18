@@ -4,6 +4,17 @@ export function comparable(value: string): string {
   return value.normalize('NFKC').replace(/\s+/gu, ' ').trim().toLocaleLowerCase('es');
 }
 
+/** Stable identity for the same quoted evidence despite tracking parameters or fragments. */
+export function evidenceCandidateKey(rawUrl: string, excerpt: string): string {
+  const url = new URL(rawUrl);
+  url.hash = '';
+  for (const parameter of [...url.searchParams.keys()]) {
+    if (/^(utm_.+|fbclid|gclid)$/iu.test(parameter)) url.searchParams.delete(parameter);
+  }
+  url.searchParams.sort();
+  return `${url.toString()}\n${comparable(excerpt)}`;
+}
+
 export function visibleText(bytes: Buffer, contentType: string): string {
   if (contentType.includes('pdf')) return '';
   let outsideMarkup = '';

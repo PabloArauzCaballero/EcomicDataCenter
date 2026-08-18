@@ -3,6 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { z } from 'zod';
 import {
   comparable,
+  evidenceCandidateKey,
   groundedEntities,
   resolveLinkedArticle,
   ungroundedNumbers,
@@ -532,8 +533,18 @@ async function main(): Promise<void> {
     agentRunId = await openRun();
     report.agentRunId = agentRunId;
     const items = [];
+    const seenEvidence = new Set<string>();
     for (const candidate of output.candidates) {
       try {
+        const candidateKey = evidenceCandidateKey(candidate.url, candidate.excerpt);
+        if (seenEvidence.has(candidateKey)) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: candidate.url,
+            action: 'SKIPPED_DUPLICATE_EVIDENCE_CANDIDATE',
+          });
+          continue;
+        }
+        seenEvidence.add(candidateKey);
         const evidence = await persistEvidence(candidate);
         report.artifactsRegistered = Number(report.artifactsRegistered) + 1;
         const droppedEntityMentions = candidate.entityMentions.filter(
