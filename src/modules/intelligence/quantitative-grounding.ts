@@ -18,6 +18,26 @@ function comparableNumber(value: string): string {
   return signed(hasDecimal ? `${whole}.${fraction}` : whole);
 }
 
+function scaleComparableNumber(value: string, decimalPower: number): string {
+  if (decimalPower === 0) return value;
+  const negative = value.startsWith('-');
+  const unsigned = value.replace(/^-/, '');
+  const [whole = '0', fraction = ''] = unsigned.split('.');
+  const digits = `${whole}${fraction}`.replace(/^0+(?=\d)/u, '') || '0';
+  const remainingDecimalPlaces = fraction.length - decimalPower;
+  let scaled: string;
+  if (remainingDecimalPlaces <= 0) {
+    scaled = `${digits}${'0'.repeat(-remainingDecimalPlaces)}`;
+  } else {
+    const padded = digits.padStart(remainingDecimalPlaces + 1, '0');
+    const split = padded.length - remainingDecimalPlaces;
+    const scaledWhole = padded.slice(0, split).replace(/^0+(?=\d)/u, '');
+    const scaledFraction = padded.slice(split).replace(/0+$/u, '');
+    scaled = scaledFraction ? `${scaledWhole}.${scaledFraction}` : scaledWhole;
+  }
+  return negative && !/^0(?:\.0*)?$/u.test(scaled) ? `-${scaled}` : scaled;
+}
+
 function contextualUnits(value: string, start: number, end: number): Set<string> {
   const before = value.slice(Math.max(0, start - 40), start).toLocaleLowerCase('es');
   const after = value.slice(end, end + 70).toLocaleLowerCase('es');
@@ -47,10 +67,14 @@ function numericOccurrences(value: string): NumericOccurrence[] {
   for (const match of value.matchAll(/(?<![\p{L}\p{N}])[+-]?\d+(?:[.,]\d+)*/gu)) {
     const raw = match[0];
     const start = match.index;
+    const units = contextualUnits(value, start, start + raw.length);
+    const decimalPower = units.has('MILLION') ? 6 : units.has('THOUSAND') ? 3 : 0;
+    units.delete('MILLION');
+    units.delete('THOUSAND');
     occurrences.push({
       raw,
-      comparable: comparableNumber(raw),
-      units: contextualUnits(value, start, start + raw.length),
+      comparable: scaleComparableNumber(comparableNumber(raw), decimalPower),
+      units,
     });
   }
   return occurrences;
