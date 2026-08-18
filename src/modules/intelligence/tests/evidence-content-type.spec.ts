@@ -1,4 +1,4 @@
-import { effectiveContentType } from '../evidence-content-type';
+import { assessEvidenceContentType, effectiveContentType } from '../evidence-content-type';
 
 describe('effectiveContentType', () => {
   it('recognizes HTML and PDF evidence despite misleading headers', () => {
@@ -25,5 +25,33 @@ describe('effectiveContentType', () => {
     expect(effectiveContentType(Buffer.from('Dato verificable'), ' Text/Plain ')).toBe(
       'text/plain',
     );
+  });
+});
+
+describe('assessEvidenceContentType', () => {
+  it('records matched normalized HTTP metadata', () => {
+    expect(
+      assessEvidenceContentType(Buffer.from('Dato verificable'), ' Text/Plain; Charset=UTF-8 '),
+    ).toEqual({
+      declaredMediaType: 'text/plain',
+      effectiveMediaType: 'text/plain',
+      status: 'MATCHED',
+    });
+  });
+
+  it('records a sniffed override instead of hiding a misleading declaration', () => {
+    expect(assessEvidenceContentType(Buffer.from('%PDF-1.7 binary'), 'text/plain')).toEqual({
+      declaredMediaType: 'text/plain',
+      effectiveMediaType: 'application/pdf',
+      status: 'SNIFFED_OVERRIDE',
+    });
+  });
+
+  it('distinguishes an absent declaration from an asserted text type', () => {
+    expect(assessEvidenceContentType(Buffer.from('<html><body>Dato</body></html>'))).toEqual({
+      declaredMediaType: null,
+      effectiveMediaType: 'text/html',
+      status: 'UNDECLARED',
+    });
   });
 });

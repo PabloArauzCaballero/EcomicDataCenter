@@ -10,7 +10,7 @@ import {
   resolveLinkedArticle,
   visibleText,
 } from '../src/modules/intelligence/evidence-quality';
-import { effectiveContentType } from '../src/modules/intelligence/evidence-content-type';
+import { assessEvidenceContentType } from '../src/modules/intelligence/evidence-content-type';
 import {
   calibrateConfidenceForGrounding,
   groundClaimToExcerpt,
@@ -375,18 +375,19 @@ async function downloadEvidenceSource(rawUrl: string | URL) {
     throw new Error(`Source returned ${sourceFetch.response.status}`);
   }
   const bytes = await readResponseBodyLimited(sourceFetch.response, maximumEvidenceBytes);
-  const declaredContentType = sourceFetch.response.headers.get('content-type') ?? 'text/plain';
-  const declaredMediaType = declaredContentType.split(';')[0]?.trim() ?? 'text/plain';
-  const contentType = effectiveContentType(bytes, declaredMediaType);
+  const declaredContentType = sourceFetch.response.headers.get('content-type') ?? undefined;
+  const contentTypeAssessment = assessEvidenceContentType(bytes, declaredContentType);
+  const contentType = contentTypeAssessment.effectiveMediaType;
   const textDecoding = contentType.includes('pdf')
     ? undefined
-    : decodeSourceText(bytes, declaredContentType, contentType);
+    : decodeSourceText(bytes, declaredContentType ?? contentType, contentType);
   return {
     bytes,
     contentType,
     sourceUrl: sourceFetch.finalUrl,
     redirectCount: sourceFetch.redirectCount,
     httpProvenance: sourceResponseProvenance(sourceFetch.response),
+    contentTypeAssessment,
     ...(textDecoding ? { decodedText: textDecoding.text, textDecoding } : {}),
   };
 }
@@ -532,6 +533,7 @@ async function persistEvidence(candidate: Candidate) {
         resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
         sourceRedirectCount,
         httpProvenance: downloaded.httpProvenance,
+        contentTypeVerification: downloaded.contentTypeAssessment,
         canonicalized,
         storageVerification: 'MATCHED_SHA256_AND_SIZE',
         claimGroundingScope: 'CITED_EXCERPT',
