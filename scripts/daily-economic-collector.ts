@@ -371,7 +371,7 @@ async function downloadEvidenceSource(rawUrl: string | URL) {
   const contentType = effectiveContentType(bytes, declaredMediaType);
   const textDecoding = contentType.includes('pdf')
     ? undefined
-    : decodeSourceText(bytes, declaredContentType);
+    : decodeSourceText(bytes, declaredContentType, contentType);
   return {
     bytes,
     contentType,
@@ -534,6 +534,8 @@ async function persistEvidence(candidate: Candidate) {
                 encoding: downloaded.textDecoding.encoding,
                 selectionSource: downloaded.textDecoding.selectionSource,
                 declaredEncoding: downloaded.textDecoding.declaredEncoding ?? null,
+                httpDeclaredEncoding: downloaded.textDecoding.httpDeclaredEncoding ?? null,
+                htmlMetaEncoding: downloaded.textDecoding.htmlMetaEncoding ?? null,
                 replacementCharacterCount: downloaded.textDecoding.replacementCharacterCount,
               },
             }
