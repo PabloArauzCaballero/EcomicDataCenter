@@ -5,13 +5,12 @@ import {
   comparable,
   effectiveContentType,
   evidenceCandidateKey,
-  groundedEntities,
   publicationWindowIssue,
   requireVerifiableText,
   resolveLinkedArticle,
   visibleText,
 } from '../src/modules/intelligence/evidence-quality';
-import { ungroundedNumbers } from '../src/modules/intelligence/quantitative-grounding';
+import { groundClaimToExcerpt } from '../src/modules/intelligence/claim-evidence-grounding';
 import {
   extractPdfEvidence,
   pdfMetadataPublicationDates,
@@ -429,13 +428,18 @@ async function persistEvidence(candidate: Candidate) {
   if (!comparable(text).includes(comparable(candidate.excerpt))) {
     throw new Error('The cited excerpt was not found in the downloaded source');
   }
-  const unsupportedNumbers = ungroundedNumbers(candidate.assertion, text);
+  const grounding = groundClaimToExcerpt(
+    candidate.assertion,
+    candidate.entityMentions,
+    candidate.excerpt,
+  );
+  const unsupportedNumbers = grounding.unsupportedNumbers;
   if (unsupportedNumbers.length) {
     throw new Error(
-      `The assertion contains figures absent from the downloaded source: ${unsupportedNumbers.join(', ')}`,
+      `The assertion contains figures absent from the cited excerpt: ${unsupportedNumbers.join(', ')}`,
     );
   }
-  const entityMentions = groundedEntities(candidate.entityMentions, text);
+  const entityMentions = grounding.entityMentions;
   const sha256 = createHash('sha256').update(bytes).digest('hex');
   const path = `evidence/${sha256.slice(0, 2)}/${sha256.slice(2, 4)}/${sha256}.${contentExtension(contentType)}`;
   const githubUrl = `https://api.github.com/repos/${env.ECONOMIC_STORAGE_REPOSITORY}/contents/${path}`;
@@ -507,6 +511,7 @@ async function persistEvidence(candidate: Candidate) {
         sourceRedirectCount,
         canonicalized,
         storageVerification: 'MATCHED_SHA256_AND_SIZE',
+        claimGroundingScope: 'CITED_EXCERPT',
       },
     }),
   });
