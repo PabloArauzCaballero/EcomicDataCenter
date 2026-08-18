@@ -3,7 +3,6 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { z } from 'zod';
 import {
   comparable,
-  effectiveContentType,
   evidenceCandidateKey,
   locateExcerpt,
   publicationWindowIssue,
@@ -11,6 +10,7 @@ import {
   resolveLinkedArticle,
   visibleText,
 } from '../src/modules/intelligence/evidence-quality';
+import { effectiveContentType } from '../src/modules/intelligence/evidence-content-type';
 import {
   calibrateConfidenceForGrounding,
   groundClaimToExcerpt,
