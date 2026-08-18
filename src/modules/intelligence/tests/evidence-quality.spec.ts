@@ -1,4 +1,5 @@
 import {
+  effectiveContentType,
   evidenceCandidateKey,
   groundedEntities,
   publicationWindowIssue,
@@ -7,6 +8,21 @@ import {
   ungroundedNumbers,
   visibleText,
 } from '../evidence-quality';
+
+describe('effectiveContentType', () => {
+  it('recognizes HTML and PDF evidence despite misleading headers', () => {
+    expect(effectiveContentType(Buffer.from('<!doctype html><html></html>'), 'text/plain')).toBe(
+      'text/html',
+    );
+    expect(effectiveContentType(Buffer.from('%PDF-1.7 binary'), 'text/plain')).toBe(
+      'application/pdf',
+    );
+  });
+
+  it('does not expose arbitrary binary content as visible text', () => {
+    expect(visibleText(Buffer.from([0, 1, 2, 3]), 'application/octet-stream')).toBe('');
+  });
+});
 import { htmlSourceMetadata, publicationMetadataMatches } from '../source-metadata';
 
 describe('htmlSourceMetadata', () => {
