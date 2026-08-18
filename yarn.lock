@@ -1200,6 +1200,78 @@
   resolved "https://registry.npmjs.org/@microsoft/tsdoc/-/tsdoc-0.16.0.tgz#2249090633e04063176863a050c8f0808d2b6d2b"
   integrity sha512-xgAyonlVVS+q7Vc7qLW0UrJU7rSFcETRWsqdXZtjzRU8dF+6CkozTK4V4y1LwOX7j8r/vHphjDeMeGI4tNGeGA==
 
+"@napi-rs/canvas-android-arm64@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-android-arm64/-/canvas-android-arm64-1.0.7.tgz#99ce17f71d6e03032c8140b229109c8557082753"
+  integrity sha512-d5p4hHTykc/9PjiBXkvCH/IC5hT5jH7BjQ1u8ITq+G8x4VmvveOHdy/4BWYcC3ebWRmrG9zEc/oCTy+Yf3iZ4A==
+
+"@napi-rs/canvas-darwin-arm64@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-darwin-arm64/-/canvas-darwin-arm64-1.0.7.tgz#f947d83e226451db61ed441e0fcffeb33f521371"
+  integrity sha512-jKfZl2QDqBr6/Ap/8NKkX0Po9SFfVjUPBJbQQmYGVtQQIazWWIAO60riH3Mz2sOyysa2oJO39sLEfXerypu0vg==
+
+"@napi-rs/canvas-darwin-x64@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-darwin-x64/-/canvas-darwin-x64-1.0.7.tgz#65cc89796e6d0cbaa03186cdc21a3fbacdb15d30"
+  integrity sha512-v1asrnKBu0tD+sdSD2qVIUfhoXSrr8LFTn7z76pN+8xsiOrmFcAVty57R/5DB8ZNqNLKsUBDXFSrzf4Wt9NaSg==
+
+"@napi-rs/canvas-linux-arm-gnueabihf@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-linux-arm-gnueabihf/-/canvas-linux-arm-gnueabihf-1.0.7.tgz#2955fe17e84029ba78258aacda578f2cdcb9c403"
+  integrity sha512-c4Hcu4L5bXCgLY8jrZ2hy/Avl65MsbfH9DqNWrrd9InbpBZZF/rmrh7XkgmTUmOFcUrt/PaFSBinW2C0moDgcA==
+
+"@napi-rs/canvas-linux-arm64-gnu@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-linux-arm64-gnu/-/canvas-linux-arm64-gnu-1.0.7.tgz#2eb9b10cb21ebd7aeaddbc1b3465b441c6b12536"
+  integrity sha512-OVW6T1x65BTVfWb//xylCoWxbdII+nzHu3L5T035aerBAnZ5e0nmeTMkMEO9qQrVJq4WcWW8hp+T0dF+JvJPUQ==
+
+"@napi-rs/canvas-linux-arm64-musl@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-linux-arm64-musl/-/canvas-linux-arm64-musl-1.0.7.tgz#f56792eab6add72ad437b8b68464c033ebe94930"
+  integrity sha512-KX/k1UO61XdKlXxhtIkq1ZUH8uP+NNK4vSrBcM2/4wWUUCZaG93BU5s0KuE9n+TFn0jEoqLSlXOuH1pYuV5dcQ==
+
+"@napi-rs/canvas-linux-riscv64-gnu@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-linux-riscv64-gnu/-/canvas-linux-riscv64-gnu-1.0.7.tgz#52bf3d82e3507d7b5c14144fdda0c3e3fdc851a3"
+  integrity sha512-r+0Bg+fK8r2AsrbeT7JwBUAERZSjlyhfAMQfZE/zxYGmbswS92hN0FPjynVWbeuz5fIrLfZ6JA5pH8V6drN6qw==
+
+"@napi-rs/canvas-linux-x64-gnu@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-linux-x64-gnu/-/canvas-linux-x64-gnu-1.0.7.tgz#e4ad908bf791621916df572e8977e388b08b7ea5"
+  integrity sha512-0tT9KzEcTfb6MWdUWIDfy6uq6UNF691r/9NfXxxl8s9+G5QrD7VP1UC+PAwzsCzJTClIKyidNau/grYTL+QmHw==
+
+"@napi-rs/canvas-linux-x64-musl@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-linux-x64-musl/-/canvas-linux-x64-musl-1.0.7.tgz#0ea39bb75cebe2c76acf107548a3d28a0432110b"
+  integrity sha512-rvT0xo1xA+C7e+U/2ngsxWsl9gC5knHU+z8KTT5VK0Zos4AQbWZvtjvegrmzxm4o2yHE32Lexj6CDEJNvuTczA==
+
+"@napi-rs/canvas-win32-arm64-msvc@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-win32-arm64-msvc/-/canvas-win32-arm64-msvc-1.0.7.tgz#f3906f273e0a455066899bed64afad7a260b9fbb"
+  integrity sha512-N6s3yoFFPUDkfRpjUiKERVYkli7ex5Sf0Bu/My6D6gOGYxYolC1KvL6x8U0aN+ScCWAzbkIWcMYR9g0OGsFuVw==
+
+"@napi-rs/canvas-win32-x64-msvc@1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas-win32-x64-msvc/-/canvas-win32-x64-msvc-1.0.7.tgz#f74e47d23fc460568bbf1d39b24dfd1971a4ab69"
+  integrity sha512-SKTNdBV/ljfhkPsLhXjm4x2PQ0ILpc0PhkBzRHuroJXidZUaF5yh0j3s3dIzB8PrRmW+nEASzyMTaWT3nH1ywQ==
+
+"@napi-rs/canvas@^1.0.0":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@napi-rs/canvas/-/canvas-1.0.7.tgz#3f17de293563fcb5cd8f860ad6113cad92c21486"
+  integrity sha512-26wVFEgs6gbe7wmzCrud1pK8q6oOgcUu7OOF24BuazB8ZUCskU9ZSLrCjoWIFVxx09rjAxsXxPleaWowHvdPCA==
+  optionalDependencies:
+    "@napi-rs/canvas-android-arm64" "1.0.7"
+    "@napi-rs/canvas-darwin-arm64" "1.0.7"
+    "@napi-rs/canvas-darwin-x64" "1.0.7"
+    "@napi-rs/canvas-linux-arm-gnueabihf" "1.0.7"
+    "@napi-rs/canvas-linux-arm64-gnu" "1.0.7"
+    "@napi-rs/canvas-linux-arm64-musl" "1.0.7"
+    "@napi-rs/canvas-linux-riscv64-gnu" "1.0.7"
+    "@napi-rs/canvas-linux-x64-gnu" "1.0.7"
+    "@napi-rs/canvas-linux-x64-musl" "1.0.7"
+    "@napi-rs/canvas-win32-arm64-msvc" "1.0.7"
+    "@napi-rs/canvas-win32-x64-msvc" "1.0.7"
+
 "@napi-rs/wasm-runtime@^1.1.4":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@napi-rs/wasm-runtime/-/wasm-runtime-1.2.3.tgz#97e3d45d7424dc5da1d4e32f3bf3b292f6c1b44c"
@@ -5028,6 +5100,13 @@ path-type@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
+
+pdfjs-dist@6.2.108:
+  version "6.2.108"
+  resolved "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-6.2.108.tgz#1e0ce0f4b3a034f953dbbe2334ab01fbddf0eb30"
+  integrity sha512-YxFb+SQcodN2rnX9Tn3dHYlqfb7NjlzzfONPpJd+AKoKtUjEdevTfbC07d5TcczzOK6261auRkP/M8OBHs9vFQ==
+  optionalDependencies:
+    "@napi-rs/canvas" "^1.0.0"
 
 pg-cloudflare@^1.2.7:
   version "1.4.0"

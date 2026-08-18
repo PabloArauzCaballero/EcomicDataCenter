@@ -12,6 +12,7 @@ import {
   visibleText,
 } from '../src/modules/intelligence/evidence-quality';
 import { ungroundedNumbers } from '../src/modules/intelligence/quantitative-grounding';
+import { extractPdfText } from '../src/modules/intelligence/pdf-text-extraction';
 import {
   canonicalSourceUrl,
   htmlSourceMetadata,
@@ -401,7 +402,9 @@ async function persistEvidence(candidate: Candidate) {
     }
   }
   if (!bytes.length) throw new Error(`Unsupported source size: ${bytes.length}`);
-  const text = visibleText(bytes, contentType);
+  const text = contentType.includes('pdf')
+    ? await extractPdfText(bytes)
+    : visibleText(bytes, contentType);
   requireVerifiableText(text, contentType);
   const sourceMetadata = contentType.includes('html')
     ? htmlSourceMetadata(bytes.toString('utf8'))
