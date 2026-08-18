@@ -32,6 +32,18 @@ describe('groundedEntities', () => {
       'Ipsos CIESMORI',
     ]);
   });
+
+  it('does not ground an acronym found only inside another word', () => {
+    const source = 'El reporte define la metodología y presenta sus resultados.';
+
+    expect(groundedEntities(['INE'], source)).toEqual([]);
+  });
+
+  it('recognizes an entity surrounded by punctuation', () => {
+    const source = 'La publicación fue presentada por el INE.';
+
+    expect(groundedEntities(['INE'], source)).toEqual(['INE']);
+  });
 });
 
 describe('visibleText', () => {

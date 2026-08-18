@@ -78,7 +78,19 @@ export function resolveLinkedArticle(html: string, baseUrl: URL, title: string):
 
 export function groundedEntities(entityMentions: readonly string[], sourceText: string): string[] {
   const haystack = comparable(sourceText);
-  return entityMentions.filter((entity) => haystack.includes(comparable(entity)));
+  return entityMentions.filter((entity) => {
+    const needle = comparable(entity);
+    let cursor = haystack.indexOf(needle);
+    while (cursor >= 0) {
+      const before = haystack[cursor - 1];
+      const after = haystack[cursor + needle.length];
+      const beginsAtBoundary = before === undefined || !/[\p{L}\p{N}]/u.test(before);
+      const endsAtBoundary = after === undefined || !/[\p{L}\p{N}]/u.test(after);
+      if (beginsAtBoundary && endsAtBoundary) return true;
+      cursor = haystack.indexOf(needle, cursor + 1);
+    }
+    return false;
+  });
 }
 
 function numericTokens(value: string): string[] {
