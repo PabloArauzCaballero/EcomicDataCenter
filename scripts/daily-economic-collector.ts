@@ -13,6 +13,7 @@ import {
 } from '../src/modules/intelligence/evidence-quality';
 import { ungroundedNumbers } from '../src/modules/intelligence/quantitative-grounding';
 import {
+  canonicalSourceUrl,
   htmlSourceMetadata,
   publicationMetadataMatches,
 } from '../src/modules/intelligence/source-metadata';
@@ -347,41 +348,54 @@ function contentExtension(contentType: string): string {
   return 'txt';
 }
 
-async function persistEvidence(candidate: Candidate) {
-  const discoveredUrl = validatePublicSourceUrl(candidate.url);
-  let sourceUrl = discoveredUrl;
-  let sourceFetch = await fetchPublicSource(
-    sourceUrl.toString(),
+async function downloadEvidenceSource(rawUrl: string | URL) {
+  const sourceFetch = await fetchPublicSource(
+    rawUrl,
     { headers: { 'User-Agent': 'EconomicDataCenterCollector/1.0' } },
     45_000,
   );
-  let sourceResponse = sourceFetch.response;
-  let sourceRedirectCount = sourceFetch.redirectCount;
-  sourceUrl = sourceFetch.finalUrl;
-  if (sourceResponse.status !== 200) throw new Error(`Source returned ${sourceResponse.status}`);
-  let bytes = await readResponseBodyLimited(sourceResponse, maximumEvidenceBytes);
-  let contentType =
-    (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
+  if (sourceFetch.response.status !== 200) {
+    throw new Error(`Source returned ${sourceFetch.response.status}`);
+  }
+  const bytes = await readResponseBodyLimited(sourceFetch.response, maximumEvidenceBytes);
+  const declaredContentType =
+    (sourceFetch.response.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
     'text/plain';
-  contentType = effectiveContentType(bytes, contentType);
+  return {
+    bytes,
+    contentType: effectiveContentType(bytes, declaredContentType),
+    sourceUrl: sourceFetch.finalUrl,
+    redirectCount: sourceFetch.redirectCount,
+  };
+}
+
+async function persistEvidence(candidate: Candidate) {
+  const discoveredUrl = validatePublicSourceUrl(candidate.url);
+  let downloaded = await downloadEvidenceSource(discoveredUrl);
+  let { bytes, contentType, sourceUrl } = downloaded;
+  let sourceRedirectCount = downloaded.redirectCount;
   if (contentType.includes('html')) {
     const linkedArticle = resolveLinkedArticle(bytes.toString('utf8'), sourceUrl, candidate.title);
     if (linkedArticle) {
-      sourceFetch = await fetchPublicSource(
-        linkedArticle.toString(),
-        { headers: { 'User-Agent': 'EconomicDataCenterCollector/1.0' } },
-        45_000,
-      );
-      sourceResponse = sourceFetch.response;
-      sourceRedirectCount += sourceFetch.redirectCount;
-      sourceUrl = sourceFetch.finalUrl;
-      if (sourceResponse.status !== 200)
-        throw new Error(`Source returned ${sourceResponse.status}`);
-      bytes = await readResponseBodyLimited(sourceResponse, maximumEvidenceBytes);
-      contentType =
-        (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
-        'text/plain';
-      contentType = effectiveContentType(bytes, contentType);
+      downloaded = await downloadEvidenceSource(linkedArticle);
+      ({ bytes, contentType, sourceUrl } = downloaded);
+      sourceRedirectCount += downloaded.redirectCount;
+    }
+  }
+  let canonicalized = false;
+  if (contentType.includes('html')) {
+    const metadata = htmlSourceMetadata(bytes.toString('utf8'));
+    const canonicalUrl = canonicalSourceUrl(metadata, sourceUrl);
+    if (canonicalUrl) {
+      canonicalUrl.hash = '';
+      const currentUrl = new URL(sourceUrl);
+      currentUrl.hash = '';
+      if (canonicalUrl.toString() !== currentUrl.toString()) {
+        downloaded = await downloadEvidenceSource(canonicalUrl);
+        ({ bytes, contentType, sourceUrl } = downloaded);
+        sourceRedirectCount += downloaded.redirectCount;
+        canonicalized = true;
+      }
     }
   }
   if (!bytes.length) throw new Error(`Unsupported source size: ${bytes.length}`);
@@ -389,7 +403,7 @@ async function persistEvidence(candidate: Candidate) {
   requireVerifiableText(text, contentType);
   const sourceMetadata = contentType.includes('html')
     ? htmlSourceMetadata(bytes.toString('utf8'))
-    : { publishers: [], publicationDates: [] };
+    : { publishers: [], publicationDates: [], canonicalUrls: [] };
   const publicationDateVerified = publicationMetadataMatches(
     candidate.publishedAt ?? '',
     sourceMetadata.publicationDates,
@@ -468,6 +482,7 @@ async function persistEvidence(candidate: Candidate) {
         discoveredUri: discoveredUrl.toString(),
         resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
         sourceRedirectCount,
+        canonicalized,
       },
     }),
   });
@@ -486,6 +501,7 @@ async function persistEvidence(candidate: Candidate) {
     publisher: verifiedPublisher,
     publisherVerified: sourceMetadata.publishers.length > 0,
     publicationDateVerified: publicationDateVerified === true,
+    canonicalized,
   };
 }
 
@@ -595,6 +611,13 @@ async function main(): Promise<void> {
         seenEvidence.add(candidateKey);
         const evidence = await persistEvidence(candidate);
         report.artifactsRegistered = Number(report.artifactsRegistered) + 1;
+        if (evidence.canonicalized) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: evidence.sourceUrl,
+            action: 'RESOLVED_CANONICAL_SOURCE',
+            discoveredUrl: candidate.url,
+          });
+        }
         const droppedEntityMentions = candidate.entityMentions.filter(
           (entity) => !evidence.entityMentions.includes(entity),
         );

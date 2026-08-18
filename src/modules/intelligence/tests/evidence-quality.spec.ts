@@ -22,7 +22,11 @@ describe('effectiveContentType', () => {
     expect(visibleText(Buffer.from([0, 1, 2, 3]), 'application/octet-stream')).toBe('');
   });
 });
-import { htmlSourceMetadata, publicationMetadataMatches } from '../source-metadata';
+import {
+  canonicalSourceUrl,
+  htmlSourceMetadata,
+  publicationMetadataMatches,
+} from '../source-metadata';
 
 describe('htmlSourceMetadata', () => {
   it('extracts publisher and publication date from source-owned metadata', () => {
@@ -30,13 +34,23 @@ describe('htmlSourceMetadata', () => {
       <head>
         <meta content="Economy Bolivia" property="og:site_name">
         <meta property="article:published_time" content="2026-08-18T08:30:00-04:00">
+        <link href="/economia/informe" rel="alternate canonical">
         <script>{"property":"og:site_name","content":"Fake Publisher"}</script>
       </head>`;
 
     expect(htmlSourceMetadata(html)).toEqual({
       publishers: ['Economy Bolivia'],
       publicationDates: ['2026-08-18T08:30:00-04:00'],
+      canonicalUrls: ['/economia/informe'],
     });
+  });
+
+  it('resolves a relative canonical URL against the downloaded page', () => {
+    const metadata = htmlSourceMetadata('<link rel="canonical" href="../informe">');
+
+    expect(
+      canonicalSourceUrl(metadata, new URL('https://example.com/economia/amp/'))?.toString(),
+    ).toBe('https://example.com/economia/informe');
   });
 });
 
