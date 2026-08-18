@@ -29,7 +29,10 @@ import {
   canonicalSourceUrl,
   htmlSourceMetadata,
 } from '../src/modules/intelligence/source-metadata';
-import { assessPublicationMetadata } from '../src/modules/intelligence/publication-metadata';
+import {
+  assessPublicationMetadata,
+  calibrateConfidenceForPublicationDate,
+} from '../src/modules/intelligence/publication-metadata';
 import { verifyStoredEvidenceBlob } from '../src/modules/intelligence/storage-integrity';
 import type { GitHubBlobPayload } from '../src/modules/intelligence/storage-integrity';
 import {
@@ -729,11 +732,24 @@ async function main(): Promise<void> {
           });
         }
         const unsupportedLexicalGrounding = evidence.lexicalGrounding.status === 'UNSUPPORTED';
-        const calibratedConfidence = calibrateConfidenceForGrounding(
+        const groundingConfidence = calibrateConfidenceForGrounding(
           candidate.confidenceLevel,
           candidate.confidenceScore,
           evidence.lexicalGrounding,
         );
+        const calibratedConfidence = calibrateConfidenceForPublicationDate(
+          groundingConfidence.confidenceLevel,
+          groundingConfidence.confidenceScore,
+          evidence.publicationDateVerified,
+        );
+        if (!evidence.publicationDateVerified) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: evidence.sourceUrl,
+            action: 'ROUTED_TO_REVIEW_UNVERIFIED_PUBLICATION_DATE',
+            aiReportedConfidenceLevel: candidate.confidenceLevel,
+            calibratedConfidenceLevel: calibratedConfidence.confidenceLevel,
+          });
+        }
         if (unsupportedLexicalGrounding) {
           (report.qualityAdjustments as Json[]).push({
             sourceUrl: evidence.sourceUrl,
