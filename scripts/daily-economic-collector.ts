@@ -11,6 +11,10 @@ import {
   ungroundedNumbers,
   visibleText,
 } from '../src/modules/intelligence/evidence-quality';
+import {
+  htmlSourceMetadata,
+  publicationMetadataMatches,
+} from '../src/modules/intelligence/source-metadata';
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 
@@ -382,6 +386,17 @@ async function persistEvidence(candidate: Candidate) {
     throw new Error(`Unsupported source size: ${bytes.length}`);
   const text = visibleText(bytes, contentType);
   requireVerifiableText(text, contentType);
+  const sourceMetadata = contentType.includes('html')
+    ? htmlSourceMetadata(bytes.toString('utf8'))
+    : { publishers: [], publicationDates: [] };
+  const publicationDateVerified = publicationMetadataMatches(
+    candidate.publishedAt ?? '',
+    sourceMetadata.publicationDates,
+  );
+  if (publicationDateVerified === false) {
+    throw new Error('The publication date contradicts the downloaded source metadata');
+  }
+  const verifiedPublisher = sourceMetadata.publishers[0] ?? candidate.publisher;
   if (!comparable(text).includes(comparable(candidate.title))) {
     throw new Error('The candidate title was not found in the final downloaded source');
   }
@@ -442,7 +457,13 @@ async function persistEvidence(candidate: Candidate) {
       fileSizeBytes: String(bytes.length),
       metadataJson: {
         title: candidate.title,
-        publisher: candidate.publisher,
+        publisher: verifiedPublisher,
+        aiReportedPublisher: candidate.publisher,
+        sourcePublicationDates: sourceMetadata.publicationDates,
+        publicationDateVerification:
+          publicationDateVerified === true
+            ? 'MATCHED_SOURCE_METADATA'
+            : 'SOURCE_METADATA_UNAVAILABLE',
         discoveredUri: discoveredUrl.toString(),
         resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
       },
@@ -460,6 +481,9 @@ async function persistEvidence(candidate: Candidate) {
     sha256,
     sourceUrl: sourceUrl.toString(),
     entityMentions,
+    publisher: verifiedPublisher,
+    publisherVerified: sourceMetadata.publishers.length > 0,
+    publicationDateVerified: publicationDateVerified === true,
   };
 }
 
@@ -572,6 +596,22 @@ async function main(): Promise<void> {
         const droppedEntityMentions = candidate.entityMentions.filter(
           (entity) => !evidence.entityMentions.includes(entity),
         );
+        if (evidence.publisher !== candidate.publisher) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: evidence.sourceUrl,
+            action: 'CORRECTED_PUBLISHER_FROM_SOURCE_METADATA',
+            aiReportedPublisher: candidate.publisher,
+            verifiedPublisher: evidence.publisher,
+          });
+        }
+        if (!evidence.publisherVerified || !evidence.publicationDateVerified) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: evidence.sourceUrl,
+            action: 'SOURCE_METADATA_UNAVAILABLE',
+            publisherVerified: evidence.publisherVerified,
+            publicationDateVerified: evidence.publicationDateVerified,
+          });
+        }
         if (droppedEntityMentions.length) {
           (report.qualityAdjustments as Json[]).push({
             sourceUrl: evidence.sourceUrl,
@@ -601,7 +641,7 @@ async function main(): Promise<void> {
         items.push({
           rawPayload: {
             title: candidate.title,
-            publisher: candidate.publisher,
+            publisher: evidence.publisher,
             url: evidence.sourceUrl,
             discoveredUrl: candidate.url,
             sha256: evidence.sha256,
