@@ -76,11 +76,11 @@
     "@fastify/helmet": "13.0.1",
     "@fastify/otel": "0.20.1",
     "@fastify/rate-limit": "10.3.0",
-    "@fastify/static": "9.1.3",
-    "@nestjs/common": "11.1.28",
-    "@nestjs/core": "11.1.28",
-    "@nestjs/platform-fastify": "11.1.28",
-    "@nestjs/swagger": "11.4.6",
+    "@fastify/static": "10.1.3",
+    "@nestjs/common": "11.2.1",
+    "@nestjs/core": "11.2.1",
+    "@nestjs/platform-fastify": "11.2.1",
+    "@nestjs/swagger": "11.4.7",
     "@opentelemetry/api": "1.9.1",
     "@opentelemetry/exporter-trace-otlp-http": "0.221.0",
     "@opentelemetry/instrumentation-http": "0.221.0",
@@ -92,7 +92,7 @@
     "@opentelemetry/sdk-trace-base": "2.10.0",
     "@opentelemetry/semantic-conventions": "1.43.0",
     "dotenv": "^17.4.2",
-    "fastify": "5.10.0",
+    "fastify": "5.11.3",
     "jsonwebtoken": "9.0.2",
     "jwks-rsa": "3.2.0",
     "nestjs-pino": "4.6.1",
@@ -111,7 +111,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@nestjs/cli": "11.0.24",
-    "@nestjs/testing": "11.1.29",
+    "@nestjs/testing": "11.2.1",
     "@opentelemetry/instrumentation": "0.221.0",
     "@opentelemetry/sdk-trace-node": "2.10.0",
     "@types/jest": "30.0.0",
@@ -130,6 +130,7 @@
     "typescript-eslint": "8.67.0"
   },
   "resolutions": {
+    "sequelize-typescript/**/brace-expansion": "1.1.18",
     "umzug/**/ajv": "^8.18.0",
     "sequelize/uuid": "^11.1.1"
   }
