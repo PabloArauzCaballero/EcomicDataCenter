@@ -2,6 +2,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { z } from 'zod';
 import {
+  calibrateConfidenceForExcerptUniqueness,
   comparable,
   evidenceCandidateKey,
   locateExcerpt,
@@ -585,6 +586,7 @@ async function persistEvidence(candidate: Candidate) {
     publisher: verifiedPublisher,
     publisherVerified: sourceMetadata.publishers.length > 0,
     publicationDateVerified: publicationDateAssessment === 'MATCHED',
+    excerptOccurrenceCount: excerptLocator.occurrenceCount,
     lexicalGrounding: grounding.lexicalGrounding,
     canonicalized,
   };
@@ -735,7 +737,7 @@ async function main(): Promise<void> {
           candidate.confidenceScore,
           evidence.lexicalGrounding,
         );
-        const calibratedConfidence = calibrateConfidenceForSourceMetadata(
+        const metadataConfidence = calibrateConfidenceForSourceMetadata(
           groundingConfidence.confidenceLevel,
           groundingConfidence.confidenceScore,
           {
@@ -743,13 +745,27 @@ async function main(): Promise<void> {
             publisherVerified: evidence.publisherVerified,
           },
         );
-        for (const reason of calibratedConfidence.reasons) {
+        for (const reason of metadataConfidence.reasons) {
           (report.qualityAdjustments as Json[]).push({
             sourceUrl: evidence.sourceUrl,
             action:
               reason === 'UNVERIFIED_PUBLICATION_DATE'
                 ? 'ROUTED_TO_REVIEW_UNVERIFIED_PUBLICATION_DATE'
                 : 'ROUTED_TO_REVIEW_UNVERIFIED_PUBLISHER',
+            aiReportedConfidenceLevel: candidate.confidenceLevel,
+            calibratedConfidenceLevel: metadataConfidence.confidenceLevel,
+          });
+        }
+        const calibratedConfidence = calibrateConfidenceForExcerptUniqueness(
+          metadataConfidence.confidenceLevel,
+          metadataConfidence.confidenceScore,
+          evidence.excerptOccurrenceCount,
+        );
+        if (evidence.excerptOccurrenceCount > 1) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: evidence.sourceUrl,
+            action: 'ROUTED_TO_REVIEW_AMBIGUOUS_EXCERPT',
+            occurrenceCount: evidence.excerptOccurrenceCount,
             aiReportedConfidenceLevel: candidate.confidenceLevel,
             calibratedConfidenceLevel: calibratedConfidence.confidenceLevel,
           });
