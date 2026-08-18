@@ -82,6 +82,37 @@ describe('groundClaimToExcerpt', () => {
     });
   });
 
+  it.each([
+    ['La inflación aumentó durante julio.', 'La inflación no registró un aumento durante julio.'],
+    ['Inflation increased during July.', 'Inflation did not show a rise during July.'],
+  ])('detects bounded negation through short auxiliary phrases', (assertion, excerpt) => {
+    expect(assessLexicalGrounding(assertion, excerpt)).toMatchObject({
+      status: 'LIMITED',
+      polarityAligned: false,
+      assertionSignedDirections: ['UP'],
+      excerptSignedDirections: ['NOT_UP'],
+    });
+  });
+
+  it.each([
+    [
+      'La inflación aumentó durante julio.',
+      'No se publicaron cifras. La inflación aumentó durante julio.',
+    ],
+    [
+      'La inflación aumentó durante julio.',
+      'No obstante la revisión, la inflación aumentó durante julio.',
+    ],
+    ['La inflación aumentó durante julio.', 'Sin embargo la inflación aumentó durante julio.'],
+    ['Inflation increased during July.', 'Not only did inflation increase during July.'],
+  ])('does not carry negation across clauses or discourse markers', (assertion, excerpt) => {
+    expect(assessLexicalGrounding(assertion, excerpt)).toMatchObject({
+      status: 'SUPPORTED',
+      polarityAligned: true,
+      excerptSignedDirections: ['UP'],
+    });
+  });
+
   it('rejects reversed directions in a compound economic assertion', () => {
     expect(
       assessLexicalGrounding(
