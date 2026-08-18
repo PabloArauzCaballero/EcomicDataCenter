@@ -20,6 +20,20 @@ describe('ungroundedNumbers', () => {
     expect(ungroundedNumbers('El indicador disminuyó 7.4 puntos porcentuales.', source)).toEqual([
       '7.4',
     ]);
+    expect(
+      ungroundedNumbers(
+        'El indicador aumentó 7.4 por ciento.',
+        'El indicador aumentó 7,4 puntos porcentuales.',
+      ),
+    ).toEqual(['7.4']);
+  });
+
+  it('preserves the sign of increases and decreases', () => {
+    expect(ungroundedNumbers('La variación fue de -3%.', 'La variación fue de 3%.')).toEqual([
+      '-3',
+    ]);
+    expect(ungroundedNumbers('La variación fue de 3%.', 'La variación fue de -3%.')).toEqual(['3']);
+    expect(ungroundedNumbers('La variación fue de +3%.', 'La variación fue de 3%.')).toEqual([]);
   });
 
   it('requires compatible currency and physical units', () => {
