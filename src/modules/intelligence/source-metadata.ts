@@ -164,10 +164,23 @@ export function htmlSourceMetadata(html: string): HtmlSourceMetadata {
 }
 
 export function canonicalSourceUrl(metadata: HtmlSourceMetadata, baseUrl: URL): URL | undefined {
+  const trustedHost = baseUrl.hostname.toLocaleLowerCase('en').replace(/^www\./u, '');
   for (const value of metadata.canonicalUrls) {
     try {
       const url = new URL(value, baseUrl);
-      if (['http:', 'https:'].includes(url.protocol)) return url;
+      const canonicalHost = url.hostname.toLocaleLowerCase('en').replace(/^www\./u, '');
+      const downgradesTransport = baseUrl.protocol === 'https:' && url.protocol !== 'https:';
+      const changesExplicitPort = url.port !== baseUrl.port && Boolean(url.port || baseUrl.port);
+      if (
+        ['http:', 'https:'].includes(url.protocol) &&
+        !url.username &&
+        !url.password &&
+        canonicalHost === trustedHost &&
+        !downgradesTransport &&
+        !changesExplicitPort
+      ) {
+        return url;
+      }
     } catch {
       // Invalid canonical metadata is ignored and the downloaded URL is retained.
     }

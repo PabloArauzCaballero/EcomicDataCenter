@@ -30,6 +30,35 @@ describe('htmlSourceMetadata', () => {
     ).toBe('https://example.com/economia/informe');
   });
 
+  it('accepts a canonical URL across an equivalent www host', () => {
+    const metadata = htmlSourceMetadata(
+      '<link rel="canonical" href="https://www.example.com/informe">',
+    );
+
+    expect(canonicalSourceUrl(metadata, new URL('https://example.com/nota'))?.toString()).toBe(
+      'https://www.example.com/informe',
+    );
+  });
+
+  it('ignores external, credentialed, port-changing and HTTPS-downgrade canonicals', () => {
+    const baseUrl = new URL('https://example.com/nota');
+    const values = [
+      'https://attacker.example/informe',
+      'https://user:secret@example.com/informe',
+      'https://example.com:8443/informe',
+      'http://example.com/informe',
+    ];
+
+    for (const value of values) {
+      expect(
+        canonicalSourceUrl(
+          { publishers: [], publicationDates: [], canonicalUrls: [value] },
+          baseUrl,
+        ),
+      ).toBeUndefined();
+    }
+  });
+
   it('extracts bounded JSON-LD without making it visible evidence', () => {
     const html = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'NewsArticle',
