@@ -17,6 +17,8 @@ import {
   htmlSourceMetadata,
   publicationMetadataMatches,
 } from '../src/modules/intelligence/source-metadata';
+import { verifyStoredEvidenceBlob } from '../src/modules/intelligence/storage-integrity';
+import type { GitHubBlobPayload } from '../src/modules/intelligence/storage-integrity';
 import {
   fetchPublicSource,
   readResponseBodyLimited,
@@ -455,7 +457,18 @@ async function persistEvidence(candidate: Candidate) {
   } else if (existing.status !== 200) {
     throw new Error(`Evidence lookup returned ${existing.status}`);
   }
-  await request(githubUrl, { headers: storageHeaders }, [200], 30_000);
+  const storedObjectResponse = await request(githubUrl, { headers: storageHeaders }, [200], 30_000);
+  const storedObject = (await storedObjectResponse.json()) as { sha?: string };
+  if (!storedObject.sha || !/^[0-9a-f]{40,64}$/u.test(storedObject.sha)) {
+    throw new Error('Stored evidence did not return a valid Git object identifier');
+  }
+  const blobResponse = await request(
+    `https://api.github.com/repos/${env.ECONOMIC_STORAGE_REPOSITORY}/git/blobs/${storedObject.sha}`,
+    { headers: storageHeaders },
+    [200],
+    30_000,
+  );
+  verifyStoredEvidenceBlob((await blobResponse.json()) as GitHubBlobPayload, sha256, bytes.length);
   const storageUri = `${env.ECONOMIC_STORAGE_BASE_URL}/${path}`;
   const retrievedAt = new Date().toISOString();
   const artifactResponse = await backend('/api/v1/provenance/artifacts', {
@@ -483,6 +496,7 @@ async function persistEvidence(candidate: Candidate) {
         resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
         sourceRedirectCount,
         canonicalized,
+        storageVerification: 'MATCHED_SHA256_AND_SIZE',
       },
     }),
   });
