@@ -10,6 +10,35 @@ export interface SourceFetchResult {
   redirectCount: number;
 }
 
+export async function readResponseBodyLimited(
+  response: Response,
+  maximumBytes: number,
+): Promise<Buffer> {
+  const declaredLength = Number(response.headers.get('content-length'));
+  if (Number.isFinite(declaredLength) && declaredLength > maximumBytes) {
+    throw new Error(`Source exceeds the ${maximumBytes}-byte limit`);
+  }
+  if (!response.body) return Buffer.alloc(0);
+  const reader = response.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let totalBytes = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      totalBytes += value.byteLength;
+      if (totalBytes > maximumBytes) {
+        await reader.cancel('Source size limit exceeded');
+        throw new Error(`Source exceeds the ${maximumBytes}-byte limit`);
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  return Buffer.concat(chunks, totalBytes);
+}
+
 function ipv4Parts(address: string): number[] | undefined {
   if (isIP(address) !== 4) return undefined;
   return address.split('.').map(Number);

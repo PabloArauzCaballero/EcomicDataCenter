@@ -1,4 +1,39 @@
-import { fetchPublicSource, isPrivateAddress, validatePublicSourceUrl } from '../safe-source-fetch';
+import {
+  fetchPublicSource,
+  isPrivateAddress,
+  readResponseBodyLimited,
+  validatePublicSourceUrl,
+} from '../safe-source-fetch';
+
+describe('readResponseBodyLimited', () => {
+  it('rejects an oversized declared content length without reading the body', async () => {
+    const response = new Response('small', { headers: { 'content-length': '6000000' } });
+
+    await expect(readResponseBodyLimited(response, 5_000_000)).rejects.toThrow(
+      'Source exceeds the 5000000-byte limit',
+    );
+    expect(response.bodyUsed).toBe(false);
+  });
+
+  it('stops a chunked response as soon as its actual bytes exceed the limit', async () => {
+    const body = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(new Uint8Array([1, 2, 3]));
+        controller.enqueue(new Uint8Array([4, 5, 6]));
+      },
+    });
+
+    await expect(readResponseBodyLimited(new Response(body), 5)).rejects.toThrow(
+      'Source exceeds the 5-byte limit',
+    );
+  });
+
+  it('returns a complete body within the configured limit', async () => {
+    await expect(readResponseBodyLimited(new Response('verified'), 20)).resolves.toEqual(
+      Buffer.from('verified'),
+    );
+  });
+});
 
 describe('isPrivateAddress', () => {
   it.each([

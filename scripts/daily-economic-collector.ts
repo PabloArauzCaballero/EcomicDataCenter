@@ -17,6 +17,7 @@ import {
 } from '../src/modules/intelligence/source-metadata';
 import {
   fetchPublicSource,
+  readResponseBodyLimited,
   validatePublicSourceUrl,
 } from '../src/modules/intelligence/safe-source-fetch';
 
@@ -87,6 +88,7 @@ const report: Record<string, Json> = {
 };
 
 const researchWindowMilliseconds = 72 * 60 * 60 * 1000;
+const maximumEvidenceBytes = 5_000_000;
 
 async function request(
   url: string,
@@ -352,7 +354,7 @@ async function persistEvidence(candidate: Candidate) {
   let sourceRedirectCount = sourceFetch.redirectCount;
   sourceUrl = sourceFetch.finalUrl;
   if (sourceResponse.status !== 200) throw new Error(`Source returned ${sourceResponse.status}`);
-  let bytes = Buffer.from(await sourceResponse.arrayBuffer());
+  let bytes = await readResponseBodyLimited(sourceResponse, maximumEvidenceBytes);
   let contentType =
     (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
     'text/plain';
@@ -369,14 +371,13 @@ async function persistEvidence(candidate: Candidate) {
       sourceUrl = sourceFetch.finalUrl;
       if (sourceResponse.status !== 200)
         throw new Error(`Source returned ${sourceResponse.status}`);
-      bytes = Buffer.from(await sourceResponse.arrayBuffer());
+      bytes = await readResponseBodyLimited(sourceResponse, maximumEvidenceBytes);
       contentType =
         (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
         'text/plain';
     }
   }
-  if (!bytes.length || bytes.length > 5_000_000)
-    throw new Error(`Unsupported source size: ${bytes.length}`);
+  if (!bytes.length) throw new Error(`Unsupported source size: ${bytes.length}`);
   const text = visibleText(bytes, contentType);
   requireVerifiableText(text, contentType);
   const sourceMetadata = contentType.includes('html')
