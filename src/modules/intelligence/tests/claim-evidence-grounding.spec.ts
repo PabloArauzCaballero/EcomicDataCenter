@@ -42,11 +42,31 @@ describe('groundClaimToExcerpt', () => {
     ).toEqual({
       status: 'UNSUPPORTED',
       polarityAligned: true,
+      directionAligned: true,
       assertionTermCount: 5,
       matchedTermCount: 0,
       matchedTerms: [],
       coverage: 0,
     });
+  });
+
+  it.each([
+    ['La inflación aumentó durante julio.', 'La inflación disminuyó durante julio.'],
+    ['Exports increased in July.', 'Exports fell in July.'],
+    ['La producción se mantuvo estable.', 'La producción creció durante el periodo.'],
+  ])('limits explicitly contradictory economic directions', (assertion, excerpt) => {
+    expect(assessLexicalGrounding(assertion, excerpt)).toMatchObject({
+      status: 'LIMITED',
+      directionAligned: false,
+    });
+  });
+
+  it.each([
+    ['La inflación aumentó durante julio.', 'La inflación subió durante julio.'],
+    ['Exports decreased in July.', 'Exports fell sharply in July.'],
+    ['La actividad cambió durante julio.', 'La actividad cambió durante julio.'],
+  ])('preserves aligned or neutral economic direction', (assertion, excerpt) => {
+    expect(assessLexicalGrounding(assertion, excerpt).directionAligned).toBe(true);
   });
 
   it.each([

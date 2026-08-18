@@ -779,6 +779,7 @@ async function main(): Promise<void> {
             matchedTermCount: evidence.lexicalGrounding.matchedTermCount,
             coverage: evidence.lexicalGrounding.coverage,
             polarityAligned: evidence.lexicalGrounding.polarityAligned,
+            directionAligned: evidence.lexicalGrounding.directionAligned,
           });
         }
         const claim: CorroboratedClaim = {
