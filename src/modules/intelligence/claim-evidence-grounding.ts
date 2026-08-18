@@ -55,6 +55,7 @@ const stopWords = new Set([
   'han',
   'sus',
 ]);
+const minimumSupportedLexicalCoverage = 0.5;
 
 function lexicalTerms(value: string): string[] {
   const normalized = value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('es');
@@ -68,20 +69,21 @@ export function assessLexicalGrounding(assertion: string, excerpt: string): Lexi
   const matchedTerms = assertionTerms.filter((term) => excerptTerms.has(term));
   const assertionTermCount = assertionTerms.length;
   const matchedTermCount = matchedTerms.length;
+  const coverage =
+    assertionTermCount === 0 ? null : Number((matchedTermCount / assertionTermCount).toFixed(4));
   return {
     status:
       assertionTermCount === 0
         ? 'UNAVAILABLE'
         : matchedTermCount === 0
           ? 'UNSUPPORTED'
-          : matchedTermCount === 1
+          : matchedTermCount < 2 || (coverage ?? 0) < minimumSupportedLexicalCoverage
             ? 'LIMITED'
             : 'SUPPORTED',
     assertionTermCount,
     matchedTermCount,
     matchedTerms: matchedTerms.slice(0, 20),
-    coverage:
-      assertionTermCount === 0 ? null : Number((matchedTermCount / assertionTermCount).toFixed(4)),
+    coverage,
   };
 }
 
@@ -90,7 +92,7 @@ export function calibrateConfidenceForGrounding(
   confidenceScore: number | null,
   lexicalGrounding: LexicalGrounding,
 ): { confidenceLevel: string; confidenceScore: number | null; adjusted: boolean } {
-  if (lexicalGrounding.status !== 'UNSUPPORTED') {
+  if (lexicalGrounding.status === 'SUPPORTED') {
     return { confidenceLevel, confidenceScore, adjusted: false };
   }
   return {
