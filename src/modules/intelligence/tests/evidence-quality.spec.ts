@@ -99,6 +99,23 @@ describe('visibleText', () => {
   it('decodes entities only once', () => {
     expect(visibleText(Buffer.from('&amp;quot;'), 'text/html')).toBe('&quot;');
   });
+
+  it('excludes scripts, styles, templates, noscript blocks and comments', () => {
+    const html = Buffer.from(`
+      <style>.rate::after { content: "99%"; }</style>
+      <script type="application/ld+json">{"claim":"Dato oculto 99%"}</script>
+      <template>Dato oculto en plantilla</template>
+      <noscript>Dato alternativo oculto</noscript>
+      <!-- Dato oculto en comentario -->
+      <main>Dato visible 31,3%</main>
+    `);
+
+    expect(visibleText(html, 'text/html')).toBe('Dato visible 31,3%');
+  });
+
+  it('preserves angle brackets in non-HTML evidence', () => {
+    expect(visibleText(Buffer.from('Inflación < 2%'), 'text/plain')).toBe('Inflación < 2%');
+  });
 });
 
 describe('requireVerifiableText', () => {

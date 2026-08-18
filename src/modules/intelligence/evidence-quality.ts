@@ -36,17 +36,39 @@ export function publicationWindowIssue(
 
 export function visibleText(bytes: Buffer, contentType: string): string {
   if (contentType.includes('pdf')) return '';
+  const source = bytes.toString('utf8');
   let outsideMarkup = '';
-  let insideTag = false;
-  for (const character of bytes.toString('utf8')) {
-    if (character === '<') {
-      insideTag = true;
+  if (!contentType.includes('html') && !contentType.includes('xml')) {
+    outsideMarkup = source;
+  } else {
+    const suppressedElements = new Set(['script', 'style', 'template', 'noscript']);
+    let suppressedElement: string | undefined;
+    let cursor = 0;
+    while (cursor < source.length) {
+      if (source.startsWith('<!--', cursor)) {
+        const commentEnd = source.indexOf('-->', cursor + 4);
+        cursor = commentEnd < 0 ? source.length : commentEnd + 3;
+        outsideMarkup += ' ';
+        continue;
+      }
+      if (source[cursor] !== '<') {
+        if (!suppressedElement) outsideMarkup += source[cursor];
+        cursor += 1;
+        continue;
+      }
+      const tagEnd = source.indexOf('>', cursor + 1);
+      if (tagEnd < 0) break;
+      const tag = source.slice(cursor + 1, tagEnd);
+      const tagMatch = /^\s*(\/?)\s*([a-z][a-z0-9-]*)/iu.exec(tag);
+      const tagName = tagMatch?.[2]?.toLocaleLowerCase('en');
+      const selfClosing = /\/\s*$/u.test(tag);
+      if (tagMatch?.[1] && tagName === suppressedElement) {
+        suppressedElement = undefined;
+      } else if (!suppressedElement && !selfClosing && tagName && suppressedElements.has(tagName)) {
+        suppressedElement = tagName;
+      }
       outsideMarkup += ' ';
-    } else if (character === '>') {
-      insideTag = false;
-      outsideMarkup += ' ';
-    } else if (!insideTag) {
-      outsideMarkup += character;
+      cursor = tagEnd + 1;
     }
   }
   return outsideMarkup
