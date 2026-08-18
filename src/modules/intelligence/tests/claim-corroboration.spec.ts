@@ -1,4 +1,8 @@
-import { consolidateCorroboratingClaims, type CorroboratedClaimItem } from '../claim-corroboration';
+import {
+  consolidateCorroboratingClaims,
+  summarizeCorroboration,
+  type CorroboratedClaimItem,
+} from '../claim-corroboration';
 
 function item(overrides: Partial<CorroboratedClaimItem['claim']> = {}): CorroboratedClaimItem {
   const index = overrides.confidenceLevel === 'LOW' ? '2' : '1';
@@ -12,7 +16,11 @@ function item(overrides: Partial<CorroboratedClaimItem['claim']> = {}): Corrobor
     publishedAt: index === '1' ? '2026-08-18T10:00:00Z' : '2026-08-18T11:00:00Z',
   };
   return {
-    rawPayload: { ...source, sources: [source] },
+    rawPayload: {
+      ...source,
+      sources: [source],
+      corroboration: summarizeCorroboration([source]),
+    },
     claim: {
       claimType: 'FACT',
       assertion: 'La inflación anual llegó a 3,2 por ciento.',
@@ -59,6 +67,32 @@ describe('consolidateCorroboratingClaims', () => {
     expect(consolidated[0]?.claim.publishedAt).toBeUndefined();
     expect(consolidated[0]?.claim.evidence).toHaveLength(2);
     expect(consolidated[0]?.rawPayload.sources).toHaveLength(2);
+    expect(consolidated[0]?.rawPayload.corroboration).toEqual({
+      sourceCount: 2,
+      publisherCount: 2,
+      independentContentCount: 2,
+      independentlyCorroborated: true,
+    });
+  });
+
+  it('preserves mirrored URLs without counting identical bytes as independent corroboration', () => {
+    const first = item();
+    const mirror = item({ confidenceLevel: 'LOW' });
+    mirror.rawPayload.sha256 = first.rawPayload.sha256;
+    mirror.rawPayload.sources[0] = {
+      ...mirror.rawPayload.sources[0]!,
+      sha256: first.rawPayload.sha256,
+    };
+
+    const [consolidated] = consolidateCorroboratingClaims([first, mirror]);
+
+    expect(consolidated?.rawPayload.sources).toHaveLength(2);
+    expect(consolidated?.rawPayload.corroboration).toEqual({
+      sourceCount: 2,
+      publisherCount: 2,
+      independentContentCount: 1,
+      independentlyCorroborated: false,
+    });
   });
 
   it('keeps claims separate when their event date changes', () => {
