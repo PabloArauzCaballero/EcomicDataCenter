@@ -21,6 +21,8 @@ export interface CorroborationSummary {
   sourceCount: number;
   publisherCount: number;
   independentContentCount: number;
+  publisherDiverse: boolean;
+  contentDiverse: boolean;
   independentlyCorroborated: boolean;
 }
 
@@ -50,11 +52,15 @@ export function summarizeCorroboration(
 ): CorroborationSummary {
   const publishers = new Set(sources.map(({ publisher }) => comparable(publisher)));
   const contentHashes = new Set(sources.map(({ sha256 }) => sha256.toLocaleLowerCase('en')));
+  const publisherDiverse = publishers.size > 1;
+  const contentDiverse = contentHashes.size > 1;
   return {
     sourceCount: sources.length,
     publisherCount: publishers.size,
     independentContentCount: contentHashes.size,
-    independentlyCorroborated: contentHashes.size > 1,
+    publisherDiverse,
+    contentDiverse,
+    independentlyCorroborated: publisherDiverse && contentDiverse,
   };
 }
 

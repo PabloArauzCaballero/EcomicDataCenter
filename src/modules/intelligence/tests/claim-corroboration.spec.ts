@@ -71,6 +71,8 @@ describe('consolidateCorroboratingClaims', () => {
       sourceCount: 2,
       publisherCount: 2,
       independentContentCount: 2,
+      publisherDiverse: true,
+      contentDiverse: true,
       independentlyCorroborated: true,
     });
   });
@@ -91,6 +93,29 @@ describe('consolidateCorroboratingClaims', () => {
       sourceCount: 2,
       publisherCount: 2,
       independentContentCount: 1,
+      publisherDiverse: true,
+      contentDiverse: false,
+      independentlyCorroborated: false,
+    });
+  });
+
+  it('does not claim institutional independence for distinct content from one publisher', () => {
+    const first = item();
+    const second = item({ confidenceLevel: 'LOW' });
+    second.rawPayload.publisher = first.rawPayload.publisher;
+    second.rawPayload.sources[0] = {
+      ...second.rawPayload.sources[0]!,
+      publisher: first.rawPayload.publisher,
+    };
+
+    const [consolidated] = consolidateCorroboratingClaims([first, second]);
+
+    expect(consolidated?.rawPayload.corroboration).toEqual({
+      sourceCount: 2,
+      publisherCount: 1,
+      independentContentCount: 2,
+      publisherDiverse: false,
+      contentDiverse: true,
       independentlyCorroborated: false,
     });
   });
