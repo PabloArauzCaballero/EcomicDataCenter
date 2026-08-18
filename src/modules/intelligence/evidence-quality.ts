@@ -44,6 +44,22 @@ export function locateExcerpt(sourceText: string, excerpt: string): ExcerptTextL
   };
 }
 
+/** Prevents a non-unique quotation locator from satisfying automatic-publication confidence. */
+export function calibrateConfidenceForExcerptUniqueness(
+  confidenceLevel: string,
+  confidenceScore: number | null,
+  occurrenceCount: number,
+): { confidenceLevel: string; confidenceScore: number | null; adjusted: boolean } {
+  if (occurrenceCount === 1) {
+    return { confidenceLevel, confidenceScore, adjusted: false };
+  }
+  return {
+    confidenceLevel: 'LOW',
+    confidenceScore: confidenceScore === null ? null : Math.min(confidenceScore, 0.49),
+    adjusted: confidenceLevel !== 'LOW' || (confidenceScore !== null && confidenceScore > 0.49),
+  };
+}
+
 /** Stable identity for the same quoted evidence despite tracking parameters or fragments. */
 export function evidenceCandidateKey(rawUrl: string, excerpt: string): string {
   const url = new URL(rawUrl);

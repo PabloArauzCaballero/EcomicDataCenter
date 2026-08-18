@@ -1,4 +1,5 @@
 import {
+  calibrateConfidenceForExcerptUniqueness,
   evidenceCandidateKey,
   groundedEntities,
   locateExcerpt,
@@ -11,6 +12,29 @@ import {
 describe('visibleText', () => {
   it('does not expose arbitrary binary content as visible text', () => {
     expect(visibleText(Buffer.from([0, 1, 2, 3]), 'application/octet-stream')).toBe('');
+  });
+});
+
+describe('calibrateConfidenceForExcerptUniqueness', () => {
+  it('preserves confidence for a uniquely located quotation', () => {
+    expect(calibrateConfidenceForExcerptUniqueness('HIGH', 0.92, 1)).toEqual({
+      confidenceLevel: 'HIGH',
+      confidenceScore: 0.92,
+      adjusted: false,
+    });
+  });
+
+  it('routes a repeated quotation to low-confidence review', () => {
+    expect(calibrateConfidenceForExcerptUniqueness('VERY_HIGH', 0.96, 2)).toEqual({
+      confidenceLevel: 'LOW',
+      confidenceScore: 0.49,
+      adjusted: true,
+    });
+    expect(calibrateConfidenceForExcerptUniqueness('LOW', null, 25)).toEqual({
+      confidenceLevel: 'LOW',
+      confidenceScore: null,
+      adjusted: false,
+    });
   });
 });
 
