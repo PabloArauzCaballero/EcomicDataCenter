@@ -13,6 +13,8 @@ export interface LexicalGrounding {
   directionAligned: boolean;
   assertionDirections: EconomicDirection[];
   excerptDirections: EconomicDirection[];
+  assertionSignedDirections: SignedEconomicDirection[];
+  excerptSignedDirections: SignedEconomicDirection[];
   assertionTermCount: number;
   matchedTermCount: number;
   matchedTerms: string[];
@@ -78,40 +80,60 @@ function hasSemanticNegation(value: string): boolean {
 }
 
 export type EconomicDirection = 'UP' | 'DOWN' | 'STABLE';
+export type SignedEconomicDirection = EconomicDirection | `NOT_${EconomicDirection}`;
 
-function economicDirectionSequence(value: string): EconomicDirection[] {
-  const normalized = value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('es');
-  const terms = normalized.match(/\p{L}[\p{L}\p{N}]*/gu) ?? [];
-  const directions = terms.flatMap((term): EconomicDirection[] => {
-    if (
-      /^(?:aument\w*|increment\w*|subi\w*|crec\w*|alza|ascend\w*|increas\w*|rise|rose|risen|grow|grew|grown|higher)$/u.test(
-        term,
-      )
-    ) {
-      return ['UP'];
-    }
-    if (
-      /^(?:dismin\w*|reduc\w*|baj\w*|cai\w*|cay\w*|descend\w*|contraj\w*|decreas\w*|declin\w*|fall|fell|fallen|drop\w*|lower)$/u.test(
-        term,
-      )
-    ) {
-      return ['DOWN'];
-    }
-    if (/^(?:estable|estables|mantuvo|mantuvieron|unchanged|steady|flat)$/u.test(term)) {
-      return ['STABLE'];
-    }
-    return [];
-  });
-  return directions.filter((direction, index) => direction !== directions[index - 1]);
+function directionForTerm(term: string): EconomicDirection | null {
+  if (
+    /^(?:aument\w*|increment\w*|subi\w*|crec\w*|alza|ascend\w*|increas\w*|rise|rose|risen|grow|grew|grown|higher)$/u.test(
+      term,
+    )
+  ) {
+    return 'UP';
+  }
+  if (
+    /^(?:dismin\w*|reduc\w*|baj\w*|cai\w*|cay\w*|descend\w*|contraj\w*|decreas\w*|declin\w*|fall|fell|fallen|drop\w*|lower)$/u.test(
+      term,
+    )
+  ) {
+    return 'DOWN';
+  }
+  return /^(?:estable|estables|mantuvo|mantuvieron|unchanged|steady|flat)$/u.test(term)
+    ? 'STABLE'
+    : null;
 }
 
-function containsDirectionSequence(
-  evidence: readonly EconomicDirection[],
-  assertion: readonly EconomicDirection[],
-): boolean {
+function economicDirectionSequences(value: string): {
+  directions: EconomicDirection[];
+  signedDirections: SignedEconomicDirection[];
+} {
+  const normalized = value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('es');
+  const terms = normalized.match(/\p{L}[\p{L}\p{N}]*/gu) ?? [];
+  const pairs = terms.flatMap((term, index) => {
+    const direction = directionForTerm(term);
+    if (!direction) return [];
+    const previousTerm = terms[index - 1];
+    const negated = /^(?:no|nunca|jamas|sin|not|never|without)$/u.test(previousTerm ?? '');
+    return [{ direction, signedDirection: negated ? (`NOT_${direction}` as const) : direction }];
+  });
+  const distinctPairs = pairs.filter(
+    (pair, index) => pair.signedDirection !== pairs[index - 1]?.signedDirection,
+  );
+  return {
+    directions: distinctPairs.map(({ direction }) => direction),
+    signedDirections: distinctPairs.map(({ signedDirection }) => signedDirection),
+  };
+}
+
+function containsOrderedSequence<T>(evidence: readonly T[], assertion: readonly T[]): boolean {
   return evidence.some((_, start) =>
     assertion.every((direction, offset) => evidence[start + offset] === direction),
   );
+}
+
+function oppositeSignedDirection(direction: SignedEconomicDirection): SignedEconomicDirection {
+  return direction.startsWith('NOT_')
+    ? (direction.slice(4) as EconomicDirection)
+    : (`NOT_${direction}` as SignedEconomicDirection);
 }
 
 export function assessLexicalGrounding(assertion: string, excerpt: string): LexicalGrounding {
@@ -122,13 +144,23 @@ export function assessLexicalGrounding(assertion: string, excerpt: string): Lexi
   const matchedTermCount = matchedTerms.length;
   const coverage =
     assertionTermCount === 0 ? null : Number((matchedTermCount / assertionTermCount).toFixed(4));
-  const polarityAligned = hasSemanticNegation(assertion) === hasSemanticNegation(excerpt);
-  const assertionDirections = economicDirectionSequence(assertion);
-  const excerptDirections = economicDirectionSequence(excerpt);
+  const assertionDirectionData = economicDirectionSequences(assertion);
+  const excerptDirectionData = economicDirectionSequences(excerpt);
+  const assertionDirections = assertionDirectionData.directions;
+  const excerptDirections = excerptDirectionData.directions;
+  const assertionSignedDirections = assertionDirectionData.signedDirections;
+  const excerptSignedDirections = excerptDirectionData.signedDirections;
+  const polarityAligned =
+    assertionDirections.length > 0 && excerptDirections.length > 0
+      ? containsOrderedSequence(excerptSignedDirections, assertionSignedDirections) &&
+        assertionSignedDirections.every(
+          (direction) => !excerptSignedDirections.includes(oppositeSignedDirection(direction)),
+        )
+      : hasSemanticNegation(assertion) === hasSemanticNegation(excerpt);
   const directionAligned =
     assertionDirections.length === 0 ||
     excerptDirections.length === 0 ||
-    containsDirectionSequence(excerptDirections, assertionDirections);
+    containsOrderedSequence(excerptDirections, assertionDirections);
   return {
     status:
       assertionTermCount === 0
@@ -145,6 +177,8 @@ export function assessLexicalGrounding(assertion: string, excerpt: string): Lexi
     directionAligned,
     assertionDirections: assertionDirections.slice(0, 20),
     excerptDirections: excerptDirections.slice(0, 20),
+    assertionSignedDirections: assertionSignedDirections.slice(0, 20),
+    excerptSignedDirections: excerptSignedDirections.slice(0, 20),
     assertionTermCount,
     matchedTermCount,
     matchedTerms: matchedTerms.slice(0, 20),
