@@ -3,6 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { z } from 'zod';
 import {
   comparable,
+  effectiveContentType,
   evidenceCandidateKey,
   groundedEntities,
   publicationWindowIssue,
@@ -358,6 +359,7 @@ async function persistEvidence(candidate: Candidate) {
   let contentType =
     (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
     'text/plain';
+  contentType = effectiveContentType(bytes, contentType);
   if (contentType.includes('html')) {
     const linkedArticle = resolveLinkedArticle(bytes.toString('utf8'), sourceUrl, candidate.title);
     if (linkedArticle) {
@@ -375,6 +377,7 @@ async function persistEvidence(candidate: Candidate) {
       contentType =
         (sourceResponse.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
         'text/plain';
+      contentType = effectiveContentType(bytes, contentType);
     }
   }
   if (!bytes.length) throw new Error(`Unsupported source size: ${bytes.length}`);
