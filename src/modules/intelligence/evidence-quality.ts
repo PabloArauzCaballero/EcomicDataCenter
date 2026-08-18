@@ -165,19 +165,3 @@ export function groundedEntities(entityMentions: readonly string[], sourceText: 
     return false;
   });
 }
-
-function numericTokens(value: string): string[] {
-  return value.match(/\d+(?:[.,]\d+)*/gu) ?? [];
-}
-
-function comparableNumber(value: string): string {
-  return value.replace(/,/gu, '.').replace(/^0+(?=\d)/u, '');
-}
-
-/** Returns figures asserted by the AI that do not occur in the downloaded evidence. */
-export function ungroundedNumbers(assertion: string, sourceText: string): string[] {
-  const evidenceNumbers = new Set(numericTokens(sourceText).map(comparableNumber));
-  return [...new Set(numericTokens(assertion))].filter(
-    (number) => !evidenceNumbers.has(comparableNumber(number)),
-  );
-}

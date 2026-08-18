@@ -5,7 +5,6 @@ import {
   publicationWindowIssue,
   requireVerifiableText,
   resolveLinkedArticle,
-  ungroundedNumbers,
   visibleText,
 } from '../evidence-quality';
 
@@ -177,14 +176,5 @@ describe('requireVerifiableText', () => {
 
   it('accepts extracted textual evidence', () => {
     expect(() => requireVerifiableText('Dato oficial verificable', 'text/html')).not.toThrow();
-  });
-});
-
-describe('ungroundedNumbers', () => {
-  it('accepts decimal comma/dot variants and reports invented figures', () => {
-    const source = 'El índice bajó de 38,7 a 31,3 puntos durante 2026.';
-
-    expect(ungroundedNumbers('El índice bajó de 38.7 a 31.3 puntos en 2026.', source)).toEqual([]);
-    expect(ungroundedNumbers('El índice bajó a 29.5 puntos.', source)).toEqual(['29.5']);
   });
 });
