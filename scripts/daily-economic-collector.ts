@@ -18,7 +18,7 @@ import {
 import {
   canonicalSourceUrl,
   htmlSourceMetadata,
-  publicationMetadataMatches,
+  assessPublicationMetadata,
 } from '../src/modules/intelligence/source-metadata';
 import { verifyStoredEvidenceBlob } from '../src/modules/intelligence/storage-integrity';
 import type { GitHubBlobPayload } from '../src/modules/intelligence/storage-integrity';
@@ -416,12 +416,15 @@ async function persistEvidence(candidate: Candidate) {
         publicationDates: pdfEvidence ? pdfMetadataPublicationDates(pdfEvidence.metadata) : [],
         canonicalUrls: [],
       };
-  const publicationDateVerified = publicationMetadataMatches(
+  const publicationDateAssessment = assessPublicationMetadata(
     candidate.publishedAt ?? '',
     sourceMetadata.publicationDates,
   );
-  if (publicationDateVerified === false) {
+  if (publicationDateAssessment === 'CONTRADICTED') {
     throw new Error('The publication date contradicts the downloaded source metadata');
+  }
+  if (publicationDateAssessment === 'AMBIGUOUS') {
+    throw new Error('The downloaded source declares conflicting publication dates');
   }
   const verifiedPublisher = sourceMetadata.publishers[0] ?? candidate.publisher;
   if (!comparable(text).includes(comparable(candidate.title))) {
@@ -504,10 +507,7 @@ async function persistEvidence(candidate: Candidate) {
         aiReportedPublisher: candidate.publisher,
         sourcePublicationDates: sourceMetadata.publicationDates,
         ...(pdfEvidence ? { pdfMetadata: pdfEvidence.metadata } : {}),
-        publicationDateVerification:
-          publicationDateVerified === true
-            ? 'MATCHED_SOURCE_METADATA'
-            : 'SOURCE_METADATA_UNAVAILABLE',
+        publicationDateVerification: publicationDateAssessment,
         discoveredUri: discoveredUrl.toString(),
         resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
         sourceRedirectCount,
@@ -532,7 +532,7 @@ async function persistEvidence(candidate: Candidate) {
     entityMentions,
     publisher: verifiedPublisher,
     publisherVerified: sourceMetadata.publishers.length > 0,
-    publicationDateVerified: publicationDateVerified === true,
+    publicationDateVerified: publicationDateAssessment === 'MATCHED',
     canonicalized,
   };
 }

@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { extractPdfEvidence, pdfMetadataPublicationDates } from '../pdf-text-extraction';
-import { publicationMetadataMatches } from '../source-metadata';
+import { assessPublicationMetadata } from '../source-metadata';
 
 describe('PDF evidence extraction', () => {
   it('extracts verifiable text and bounded metadata from a real tracked PDF', async () => {
@@ -33,8 +33,8 @@ describe('PDF evidence extraction', () => {
     });
 
     expect(dates).toEqual(['2026-08-18']);
-    expect(publicationMetadataMatches('2026-08-18T18:00:00Z', dates)).toBe(true);
-    expect(publicationMetadataMatches('2026-08-17T18:00:00Z', dates)).toBe(false);
+    expect(assessPublicationMetadata('2026-08-18T18:00:00Z', dates)).toBe('MATCHED');
+    expect(assessPublicationMetadata('2026-08-17T18:00:00Z', dates)).toBe('CONTRADICTED');
   });
 
   it('ignores malformed and impossible PDF dates', () => {
