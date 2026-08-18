@@ -28,8 +28,8 @@ import {
 import {
   canonicalSourceUrl,
   htmlSourceMetadata,
-  assessPublicationMetadata,
 } from '../src/modules/intelligence/source-metadata';
+import { assessPublicationMetadata } from '../src/modules/intelligence/publication-metadata';
 import { verifyStoredEvidenceBlob } from '../src/modules/intelligence/storage-integrity';
 import type { GitHubBlobPayload } from '../src/modules/intelligence/storage-integrity';
 import {
