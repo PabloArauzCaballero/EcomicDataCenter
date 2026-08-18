@@ -1,6 +1,7 @@
 export interface HtmlSourceMetadata {
   publishers: string[];
   publicationDates: string[];
+  canonicalUrls: string[];
 }
 
 function tagAttributes(tag: string): Map<string, string> {
@@ -17,6 +18,7 @@ function tagAttributes(tag: string): Map<string, string> {
 export function htmlSourceMetadata(html: string): HtmlSourceMetadata {
   const publishersByKey = new Map<string, Set<string>>();
   const publicationDates = new Set<string>();
+  const canonicalUrls = new Set<string>();
   const publisherKeys = ['og:site_name', 'publisher', 'article:publisher'];
   const dateKeys = new Set([
     'article:published_time',
@@ -40,8 +42,18 @@ export function htmlSourceMetadata(html: string): HtmlSourceMetadata {
       suppressedElement = undefined;
     } else if (!suppressedElement && ['script', 'style', 'template'].includes(tagName ?? '')) {
       suppressedElement = tagName;
-    } else if (!suppressedElement && (tagName === 'meta' || tagName === 'time')) {
+    } else if (
+      !suppressedElement &&
+      (tagName === 'meta' || tagName === 'time' || tagName === 'link')
+    ) {
       const attributes = tagAttributes(tag);
+      if (
+        tagName === 'link' &&
+        attributes.get('rel')?.toLocaleLowerCase('en').split(/\s+/u).includes('canonical')
+      ) {
+        const canonicalUrl = attributes.get('href');
+        if (canonicalUrl) canonicalUrls.add(canonicalUrl);
+      }
       const key = (
         attributes.get('property') ??
         attributes.get('name') ??
@@ -61,7 +73,20 @@ export function htmlSourceMetadata(html: string): HtmlSourceMetadata {
   return {
     publishers: publisherKeys.flatMap((key) => [...(publishersByKey.get(key) ?? [])]),
     publicationDates: [...publicationDates],
+    canonicalUrls: [...canonicalUrls],
   };
+}
+
+export function canonicalSourceUrl(metadata: HtmlSourceMetadata, baseUrl: URL): URL | undefined {
+  for (const value of metadata.canonicalUrls) {
+    try {
+      const url = new URL(value, baseUrl);
+      if (['http:', 'https:'].includes(url.protocol)) return url;
+    } catch {
+      // Invalid canonical metadata is ignored and the downloaded URL is retained.
+    }
+  }
+  return undefined;
 }
 
 export function publicationMetadataMatches(
