@@ -21,6 +21,10 @@ import {
   readResponseBodyLimited,
   validatePublicSourceUrl,
 } from '../src/modules/intelligence/safe-source-fetch';
+import {
+  economicResearchInstructions,
+  economicResearchSystemInstruction,
+} from '../src/modules/intelligence/research-policy';
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 
@@ -244,7 +248,7 @@ function researchPrompt(since: Date, now: Date): string {
     properties: { candidates: { type: 'array', maxItems: 8, items: candidateSchema } },
     required: ['candidates'],
   };
-  return `Investiga novedades económicas verificables publicadas entre ${since.toISOString()} y ${now.toISOString()} que afecten a Bolivia. Prioriza fuentes primarias: BCB, INE, ASFI, MEFP, ministerios, organismos multilaterales y documentos corporativos oficiales. Usa búsqueda web y devuelve como máximo 8 resultados. La URL debe apuntar al artículo o documento específico: nunca uses una portada, página de categoría, buscador ni página de resultados. Cada excerpt debe ser una cita textual corta que aparezca literalmente en esa URL; el colector descargará la fuente y rechazará la cita si no coincide. La assertion solo puede contener cifras presentes en la fuente. entityMentions solo puede incluir nombres que aparezcan literalmente en la fuente. Si una nota secundaria cita un estudio, atribuye el dato a la organización que realmente lo elaboró. No inventes fechas, cifras, entidades ni URLs. Si no hay novedades suficientemente sustentadas, devuelve {"candidates":[]}. Responde únicamente con JSON válido según este esquema: ${JSON.stringify(schema)}`;
+  return `${economicResearchInstructions(since, now)} El colector descargará cada fuente y rechazará cualquier dato que no coincida. Responde únicamente con JSON válido según este esquema: ${JSON.stringify(schema)}`;
 }
 
 async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput> {
@@ -262,8 +266,7 @@ async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput>
         messages: [
           {
             role: 'system',
-            content:
-              'Eres un investigador económico riguroso. Busca y prioriza fuentes primarias verificables. La respuesta completa debe ser JSON válido.',
+            content: economicResearchSystemInstruction,
           },
           { role: 'user', content: researchPrompt(since, now) },
         ],
@@ -311,7 +314,8 @@ async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutpu
             },
           },
         },
-        input: `Investiga novedades económicas verificables publicadas entre ${since.toISOString()} y ${now.toISOString()} que afecten a Bolivia. Prioriza BCB, INE, ASFI, MEFP, ministerios, organismos multilaterales y documentos corporativos oficiales. Abre las fuentes; no uses snippets. Devuelve como máximo 12 hallazgos. Cada excerpt debe ser una cita textual corta que aparezca en la URL indicada. No inventes fechas, cifras ni URLs. Si no hay novedades suficientemente sustentadas, devuelve candidates vacío.`,
+        instructions: economicResearchSystemInstruction,
+        input: economicResearchInstructions(since, now),
       }),
     },
     [200],
