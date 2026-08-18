@@ -204,7 +204,11 @@ def render_schema_migration(schema: str, entities: list[dict]) -> str:
             columns.append(f'  CONSTRAINT {constraint_name("uq", table, cols)} UNIQUE ({", ".join(cols)})')
         for name, expression in checks_for(table, field_names):
             columns.append(f'  CONSTRAINT {name} CHECK ({expression})')
-        statements.append(f'CREATE TABLE {schema}.{table} (\n' + ',\n'.join(columns) + '\n);')
+        # IF NOT EXISTS keeps a regenerated baseline replayable over the legacy
+        # database, whose core tables predate the migration history.
+        statements.append(
+            f'CREATE TABLE IF NOT EXISTS {schema}.{table} (\n' + ',\n'.join(columns) + '\n);'
+        )
     sql = '\n\n'.join(statements)
     return f"""import type {{ MigrationContext }} from '../migration.types';
 
