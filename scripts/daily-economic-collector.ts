@@ -778,6 +778,7 @@ async function main(): Promise<void> {
             assertionTermCount: evidence.lexicalGrounding.assertionTermCount,
             matchedTermCount: evidence.lexicalGrounding.matchedTermCount,
             coverage: evidence.lexicalGrounding.coverage,
+            polarityAligned: evidence.lexicalGrounding.polarityAligned,
           });
         }
         const claim: CorroboratedClaim = {

@@ -9,6 +9,7 @@ export interface ClaimEvidenceGrounding {
 
 export interface LexicalGrounding {
   status: 'SUPPORTED' | 'LIMITED' | 'UNSUPPORTED' | 'UNAVAILABLE';
+  polarityAligned: boolean;
   assertionTermCount: number;
   matchedTermCount: number;
   matchedTerms: string[];
@@ -63,6 +64,16 @@ function lexicalTerms(value: string): string[] {
   return [...new Set(terms.filter((term) => term.length >= 3 && !stopWords.has(term)))];
 }
 
+function hasSemanticNegation(value: string): boolean {
+  const normalized = value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('es');
+  return (
+    /\b(?:nunca|jamas|never|without)\b/u.test(normalized) ||
+    /\bno\b(?!\s+(?:obstante|solo|solamente)\b)/u.test(normalized) ||
+    /\bsin\b(?!\s+embargo\b)/u.test(normalized) ||
+    /\bnot\b(?!\s+only\b)/u.test(normalized)
+  );
+}
+
 export function assessLexicalGrounding(assertion: string, excerpt: string): LexicalGrounding {
   const assertionTerms = lexicalTerms(assertion);
   const excerptTerms = new Set(lexicalTerms(excerpt));
@@ -71,15 +82,19 @@ export function assessLexicalGrounding(assertion: string, excerpt: string): Lexi
   const matchedTermCount = matchedTerms.length;
   const coverage =
     assertionTermCount === 0 ? null : Number((matchedTermCount / assertionTermCount).toFixed(4));
+  const polarityAligned = hasSemanticNegation(assertion) === hasSemanticNegation(excerpt);
   return {
     status:
       assertionTermCount === 0
         ? 'UNAVAILABLE'
         : matchedTermCount === 0
           ? 'UNSUPPORTED'
-          : matchedTermCount < 2 || (coverage ?? 0) < minimumSupportedLexicalCoverage
+          : !polarityAligned ||
+              matchedTermCount < 2 ||
+              (coverage ?? 0) < minimumSupportedLexicalCoverage
             ? 'LIMITED'
             : 'SUPPORTED',
+    polarityAligned,
     assertionTermCount,
     matchedTermCount,
     matchedTerms: matchedTerms.slice(0, 20),
