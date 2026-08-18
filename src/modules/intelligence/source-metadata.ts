@@ -187,32 +187,3 @@ export function canonicalSourceUrl(metadata: HtmlSourceMetadata, baseUrl: URL): 
   }
   return undefined;
 }
-
-export type PublicationMetadataAssessment =
-  'MATCHED' | 'CONTRADICTED' | 'AMBIGUOUS' | 'UNAVAILABLE';
-
-function validCalendarDate(value: string): string | undefined {
-  const date = /^\d{4}-\d{2}-\d{2}/u.exec(value)?.[0];
-  if (!date) return undefined;
-  const parsed = new Date(`${date}T00:00:00Z`);
-  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === date
-    ? date
-    : undefined;
-}
-
-export function assessPublicationMetadata(
-  publishedAt: string,
-  sourcePublicationDates: readonly string[],
-): PublicationMetadataAssessment {
-  const expectedDate = validCalendarDate(publishedAt);
-  const declaredDates = [
-    ...new Set(
-      sourcePublicationDates
-        .map(validCalendarDate)
-        .filter((value): value is string => value !== undefined),
-    ),
-  ];
-  if (!declaredDates.length) return 'UNAVAILABLE';
-  if (declaredDates.length > 1) return 'AMBIGUOUS';
-  return expectedDate === declaredDates[0] ? 'MATCHED' : 'CONTRADICTED';
-}

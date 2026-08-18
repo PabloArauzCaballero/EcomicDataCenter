@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { extractPdfEvidence, pdfMetadataPublicationDates } from '../pdf-text-extraction';
-import { assessPublicationMetadata } from '../source-metadata';
+import { assessPublicationMetadata } from '../publication-metadata';
 
 describe('PDF evidence extraction', () => {
   it('extracts verifiable text and bounded metadata from a real tracked PDF', async () => {

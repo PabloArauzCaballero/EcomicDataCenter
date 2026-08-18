@@ -1,9 +1,5 @@
 import { visibleText } from '../evidence-quality';
-import {
-  assessPublicationMetadata,
-  canonicalSourceUrl,
-  htmlSourceMetadata,
-} from '../source-metadata';
+import { canonicalSourceUrl, htmlSourceMetadata } from '../source-metadata';
 
 describe('htmlSourceMetadata', () => {
   it('extracts publisher and publication date from source-owned metadata', () => {
@@ -124,31 +120,5 @@ describe('htmlSourceMetadata', () => {
 
     expect(htmlSourceMetadata(malformed).publicationDates).toEqual([]);
     expect(htmlSourceMetadata(oversized).publicationDates).toEqual([]);
-  });
-});
-
-describe('assessPublicationMetadata', () => {
-  it('matches calendar dates and detects a source contradiction', () => {
-    expect(assessPublicationMetadata('2026-08-18T12:30:00Z', ['2026-08-18T08:30:00-04:00'])).toBe(
-      'MATCHED',
-    );
-    expect(assessPublicationMetadata('2026-08-17T12:30:00Z', ['2026-08-18T08:30:00Z'])).toBe(
-      'CONTRADICTED',
-    );
-  });
-
-  it('reports unavailable metadata without claiming a match', () => {
-    expect(assessPublicationMetadata('2026-08-18T12:30:00Z', [])).toBe('UNAVAILABLE');
-    expect(assessPublicationMetadata('2026-08-18T12:30:00Z', ['not-a-date'])).toBe('UNAVAILABLE');
-  });
-
-  it('rejects conflicting valid publication dates even if one matches', () => {
-    expect(
-      assessPublicationMetadata('2026-08-18T12:30:00Z', [
-        '2026-08-18T08:30:00Z',
-        '2026-08-17T08:30:00Z',
-        '2026-08-18T09:00:00Z',
-      ]),
-    ).toBe('AMBIGUOUS');
   });
 });
