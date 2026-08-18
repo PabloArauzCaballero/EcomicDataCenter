@@ -4,6 +4,81 @@ export interface HtmlSourceMetadata {
   canonicalUrls: string[];
 }
 
+const maximumJsonLdCharacters = 100_000;
+const maximumJsonLdNodes = 500;
+const maximumJsonLdDepth = 10;
+
+function jsonLdValues(html: string): {
+  publishers: string[];
+  publicationDates: string[];
+  canonicalUrls: string[];
+} {
+  const publishers = new Set<string>();
+  const publicationDates = new Set<string>();
+  const canonicalUrls = new Set<string>();
+  let cursor = 0;
+  let visitedNodes = 0;
+  const normalizedHtml = html.toLocaleLowerCase('en');
+  const boundedString = (value: unknown): string | undefined =>
+    typeof value === 'string' && value.trim().length > 0 && value.length <= 500
+      ? value.trim()
+      : undefined;
+  const visit = (value: unknown, depth: number): void => {
+    if (depth > maximumJsonLdDepth || visitedNodes >= maximumJsonLdNodes) return;
+    visitedNodes += 1;
+    if (Array.isArray(value)) {
+      for (const item of value) visit(item, depth + 1);
+      return;
+    }
+    if (!value || typeof value !== 'object') return;
+    const node = value as Record<string, unknown>;
+    const publishedAt = boundedString(node.datePublished);
+    if (publishedAt) publicationDates.add(publishedAt);
+    const publisher = node.publisher;
+    const publisherName = boundedString(publisher);
+    if (publisherName) publishers.add(publisherName);
+    else if (publisher && typeof publisher === 'object') {
+      const name = boundedString((publisher as Record<string, unknown>).name);
+      if (name) publishers.add(name);
+    }
+    const mainEntity = node.mainEntityOfPage;
+    const mainEntityUrl = boundedString(mainEntity);
+    if (mainEntityUrl) canonicalUrls.add(mainEntityUrl);
+    else if (mainEntity && typeof mainEntity === 'object') {
+      const entity = mainEntity as Record<string, unknown>;
+      const url = boundedString(entity['@id'] ?? entity.url);
+      if (url) canonicalUrls.add(url);
+    }
+    for (const nested of Object.values(node)) visit(nested, depth + 1);
+  };
+  while (cursor < html.length) {
+    const opening = normalizedHtml.indexOf('<script', cursor);
+    if (opening < 0) break;
+    const openingEnd = html.indexOf('>', opening + 7);
+    if (openingEnd < 0) break;
+    const attributes = tagAttributes(html.slice(opening + 1, openingEnd));
+    const closing = normalizedHtml.indexOf('</script', openingEnd + 1);
+    if (closing < 0) break;
+    if (attributes.get('type')?.toLocaleLowerCase('en') === 'application/ld+json') {
+      const source = html.slice(openingEnd + 1, closing).trim();
+      if (source.length <= maximumJsonLdCharacters) {
+        try {
+          visit(JSON.parse(source), 0);
+        } catch {
+          // Malformed structured metadata is ignored; visible evidence remains authoritative.
+        }
+      }
+    }
+    const closingEnd = html.indexOf('>', closing + 8);
+    cursor = closingEnd < 0 ? html.length : closingEnd + 1;
+  }
+  return {
+    publishers: [...publishers],
+    publicationDates: [...publicationDates],
+    canonicalUrls: [...canonicalUrls],
+  };
+}
+
 function tagAttributes(tag: string): Map<string, string> {
   const attributes = new Map<string, string>();
   const pattern = /([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gu;
@@ -29,6 +104,14 @@ export function htmlSourceMetadata(html: string): HtmlSourceMetadata {
     'dc.date.issued',
   ]);
   let suppressedElement: string | undefined;
+  const structured = jsonLdValues(html);
+  for (const publisher of structured.publishers) {
+    const values = publishersByKey.get('json-ld') ?? new Set<string>();
+    values.add(publisher);
+    publishersByKey.set('json-ld', values);
+  }
+  for (const date of structured.publicationDates) publicationDates.add(date);
+  for (const url of structured.canonicalUrls) canonicalUrls.add(url);
   let cursor = 0;
   while (cursor < html.length) {
     const opening = html.indexOf('<', cursor);
@@ -71,7 +154,9 @@ export function htmlSourceMetadata(html: string): HtmlSourceMetadata {
     cursor = end + 1;
   }
   return {
-    publishers: publisherKeys.flatMap((key) => [...(publishersByKey.get(key) ?? [])]),
+    publishers: [...publisherKeys, 'json-ld'].flatMap((key) => [
+      ...(publishersByKey.get(key) ?? []),
+    ]),
     publicationDates: [...publicationDates],
     canonicalUrls: [...canonicalUrls],
   };

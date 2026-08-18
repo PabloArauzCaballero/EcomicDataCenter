@@ -52,6 +52,31 @@ describe('htmlSourceMetadata', () => {
       canonicalSourceUrl(metadata, new URL('https://example.com/economia/amp/'))?.toString(),
     ).toBe('https://example.com/economia/informe');
   });
+
+  it('extracts article metadata from bounded JSON-LD without making it visible evidence', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'NewsArticle',
+      datePublished: '2026-08-18T09:15:00-04:00',
+      publisher: { '@type': 'Organization', name: 'Agencia Económica' },
+      mainEntityOfPage: { '@id': '/economia/reporte' },
+      description: 'Texto que no debe validar una cita',
+    })}</script><main>Texto visible</main>`;
+
+    expect(htmlSourceMetadata(html)).toEqual({
+      publishers: ['Agencia Económica'],
+      publicationDates: ['2026-08-18T09:15:00-04:00'],
+      canonicalUrls: ['/economia/reporte'],
+    });
+    expect(visibleText(Buffer.from(html), 'text/html')).toBe('Texto visible');
+  });
+
+  it('ignores malformed and oversized JSON-LD', () => {
+    const malformed = '<script type="application/ld+json">{not-json}</script>';
+    const oversized = `<script type="application/ld+json">${' '.repeat(100_001)}</script>`;
+
+    expect(htmlSourceMetadata(malformed).publicationDates).toEqual([]);
+    expect(htmlSourceMetadata(oversized).publicationDates).toEqual([]);
+  });
 });
 
 describe('publicationMetadataMatches', () => {
