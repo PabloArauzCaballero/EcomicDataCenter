@@ -11,6 +11,8 @@ export interface LexicalGrounding {
   status: 'SUPPORTED' | 'LIMITED' | 'UNSUPPORTED' | 'UNAVAILABLE';
   polarityAligned: boolean;
   directionAligned: boolean;
+  assertionDirections: EconomicDirection[];
+  excerptDirections: EconomicDirection[];
   assertionTermCount: number;
   matchedTermCount: number;
   matchedTerms: string[];
@@ -75,38 +77,40 @@ function hasSemanticNegation(value: string): boolean {
   );
 }
 
-type EconomicDirection = 'UP' | 'DOWN' | 'STABLE';
+export type EconomicDirection = 'UP' | 'DOWN' | 'STABLE';
 
-function economicDirections(value: string): Set<EconomicDirection> {
+function economicDirectionSequence(value: string): EconomicDirection[] {
   const normalized = value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('es');
-  const directions = new Set<EconomicDirection>();
-  if (
-    /\b(?:aument\w*|increment\w*|subi\w*|crec\w*|alza|ascend\w*|increas\w*|rise|rose|risen|grow|grew|grown|higher)\b/u.test(
-      normalized,
-    )
-  ) {
-    directions.add('UP');
-  }
-  if (
-    /\b(?:dismin\w*|reduc\w*|baj\w*|cai\w*|cay\w*|descend\w*|contraj\w*|decreas\w*|declin\w*|fall|fell|fallen|drop\w*|lower)\b/u.test(
-      normalized,
-    )
-  ) {
-    directions.add('DOWN');
-  }
-  if (/\b(?:estable|estables|mantuvo|mantuvieron|unchanged|steady|flat)\b/u.test(normalized)) {
-    directions.add('STABLE');
-  }
-  return directions;
+  const terms = normalized.match(/\p{L}[\p{L}\p{N}]*/gu) ?? [];
+  const directions = terms.flatMap((term): EconomicDirection[] => {
+    if (
+      /^(?:aument\w*|increment\w*|subi\w*|crec\w*|alza|ascend\w*|increas\w*|rise|rose|risen|grow|grew|grown|higher)$/u.test(
+        term,
+      )
+    ) {
+      return ['UP'];
+    }
+    if (
+      /^(?:dismin\w*|reduc\w*|baj\w*|cai\w*|cay\w*|descend\w*|contraj\w*|decreas\w*|declin\w*|fall|fell|fallen|drop\w*|lower)$/u.test(
+        term,
+      )
+    ) {
+      return ['DOWN'];
+    }
+    if (/^(?:estable|estables|mantuvo|mantuvieron|unchanged|steady|flat)$/u.test(term)) {
+      return ['STABLE'];
+    }
+    return [];
+  });
+  return directions.filter((direction, index) => direction !== directions[index - 1]);
 }
 
-function hasAlignedDirection(assertion: string, excerpt: string): boolean {
-  const assertionDirections = economicDirections(assertion);
-  const excerptDirections = economicDirections(excerpt);
-  return (
-    assertionDirections.size === 0 ||
-    excerptDirections.size === 0 ||
-    [...assertionDirections].some((direction) => excerptDirections.has(direction))
+function containsDirectionSequence(
+  evidence: readonly EconomicDirection[],
+  assertion: readonly EconomicDirection[],
+): boolean {
+  return evidence.some((_, start) =>
+    assertion.every((direction, offset) => evidence[start + offset] === direction),
   );
 }
 
@@ -119,7 +123,12 @@ export function assessLexicalGrounding(assertion: string, excerpt: string): Lexi
   const coverage =
     assertionTermCount === 0 ? null : Number((matchedTermCount / assertionTermCount).toFixed(4));
   const polarityAligned = hasSemanticNegation(assertion) === hasSemanticNegation(excerpt);
-  const directionAligned = hasAlignedDirection(assertion, excerpt);
+  const assertionDirections = economicDirectionSequence(assertion);
+  const excerptDirections = economicDirectionSequence(excerpt);
+  const directionAligned =
+    assertionDirections.length === 0 ||
+    excerptDirections.length === 0 ||
+    containsDirectionSequence(excerptDirections, assertionDirections);
   return {
     status:
       assertionTermCount === 0
@@ -134,6 +143,8 @@ export function assessLexicalGrounding(assertion: string, excerpt: string): Lexi
             : 'SUPPORTED',
     polarityAligned,
     directionAligned,
+    assertionDirections: assertionDirections.slice(0, 20),
+    excerptDirections: excerptDirections.slice(0, 20),
     assertionTermCount,
     matchedTermCount,
     matchedTerms: matchedTerms.slice(0, 20),
