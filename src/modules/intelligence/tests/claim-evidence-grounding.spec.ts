@@ -41,10 +41,44 @@ describe('groundClaimToExcerpt', () => {
       ),
     ).toEqual({
       status: 'UNSUPPORTED',
+      polarityAligned: true,
       assertionTermCount: 5,
       matchedTermCount: 0,
       matchedTerms: [],
       coverage: 0,
+    });
+  });
+
+  it.each([
+    ['La inflación aumentó durante julio.', 'La inflación no aumentó durante julio.'],
+    ['La inflación no aumentó durante julio.', 'La inflación aumentó durante julio.'],
+  ])('limits contradictory lexical polarity', (assertion, excerpt) => {
+    const grounding = assessLexicalGrounding(assertion, excerpt);
+
+    expect(grounding).toMatchObject({
+      status: 'LIMITED',
+      polarityAligned: false,
+      coverage: 1,
+    });
+    expect(calibrateConfidenceForGrounding('HIGH', 0.9, grounding)).toEqual({
+      confidenceLevel: 'LOW',
+      confidenceScore: 0.49,
+      adjusted: true,
+    });
+  });
+
+  it.each([
+    [
+      'La inflación no aumentó durante julio.',
+      'El informe confirma que la inflación no aumentó durante julio.',
+    ],
+    ['La inflación aumentó durante julio.', 'Sin embargo, la inflación aumentó durante julio.'],
+    ['La inflación aumentó durante julio.', 'No obstante, la inflación aumentó durante julio.'],
+    ['Inflation increased in July.', 'Not only did inflation increase in July.'],
+  ])('preserves aligned polarity and discourse markers', (assertion, excerpt) => {
+    expect(assessLexicalGrounding(assertion, excerpt)).toMatchObject({
+      status: 'SUPPORTED',
+      polarityAligned: true,
     });
   });
 
