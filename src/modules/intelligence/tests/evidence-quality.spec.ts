@@ -7,6 +7,38 @@ import {
   ungroundedNumbers,
   visibleText,
 } from '../evidence-quality';
+import { htmlSourceMetadata, publicationMetadataMatches } from '../source-metadata';
+
+describe('htmlSourceMetadata', () => {
+  it('extracts publisher and publication date from source-owned metadata', () => {
+    const html = `
+      <head>
+        <meta content="Economy Bolivia" property="og:site_name">
+        <meta property="article:published_time" content="2026-08-18T08:30:00-04:00">
+        <script>{"property":"og:site_name","content":"Fake Publisher"}</script>
+      </head>`;
+
+    expect(htmlSourceMetadata(html)).toEqual({
+      publishers: ['Economy Bolivia'],
+      publicationDates: ['2026-08-18T08:30:00-04:00'],
+    });
+  });
+});
+
+describe('publicationMetadataMatches', () => {
+  it('matches calendar dates and detects a source contradiction', () => {
+    expect(publicationMetadataMatches('2026-08-18T12:30:00Z', ['2026-08-18T08:30:00-04:00'])).toBe(
+      true,
+    );
+    expect(publicationMetadataMatches('2026-08-17T12:30:00Z', ['2026-08-18T08:30:00Z'])).toBe(
+      false,
+    );
+  });
+
+  it('reports unavailable metadata without claiming a match', () => {
+    expect(publicationMetadataMatches('2026-08-18T12:30:00Z', [])).toBeUndefined();
+  });
+});
 
 describe('publicationWindowIssue', () => {
   const start = new Date('2026-08-15T12:00:00.000Z');
