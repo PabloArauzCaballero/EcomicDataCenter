@@ -29,6 +29,7 @@ import {
   validatePublicSourceUrl,
 } from '../src/modules/intelligence/safe-source-fetch';
 import { sourceResponseProvenance } from '../src/modules/intelligence/source-response-provenance';
+import { decodeSourceText } from '../src/modules/intelligence/source-text-decoding';
 import {
   economicResearchInstructions,
   economicResearchSystemInstruction,
@@ -365,15 +366,19 @@ async function downloadEvidenceSource(rawUrl: string | URL) {
     throw new Error(`Source returned ${sourceFetch.response.status}`);
   }
   const bytes = await readResponseBodyLimited(sourceFetch.response, maximumEvidenceBytes);
-  const declaredContentType =
-    (sourceFetch.response.headers.get('content-type') ?? 'text/plain').split(';')[0]?.trim() ??
-    'text/plain';
+  const declaredContentType = sourceFetch.response.headers.get('content-type') ?? 'text/plain';
+  const declaredMediaType = declaredContentType.split(';')[0]?.trim() ?? 'text/plain';
+  const contentType = effectiveContentType(bytes, declaredMediaType);
+  const textDecoding = contentType.includes('pdf')
+    ? undefined
+    : decodeSourceText(bytes, declaredContentType);
   return {
     bytes,
-    contentType: effectiveContentType(bytes, declaredContentType),
+    contentType,
     sourceUrl: sourceFetch.finalUrl,
     redirectCount: sourceFetch.redirectCount,
     httpProvenance: sourceResponseProvenance(sourceFetch.response),
+    ...(textDecoding ? { decodedText: textDecoding.text, textDecoding } : {}),
   };
 }
 
@@ -383,7 +388,11 @@ async function persistEvidence(candidate: Candidate) {
   let { bytes, contentType, sourceUrl } = downloaded;
   let sourceRedirectCount = downloaded.redirectCount;
   if (contentType.includes('html')) {
-    const linkedArticle = resolveLinkedArticle(bytes.toString('utf8'), sourceUrl, candidate.title);
+    const linkedArticle = resolveLinkedArticle(
+      downloaded.decodedText ?? '',
+      sourceUrl,
+      candidate.title,
+    );
     if (linkedArticle) {
       downloaded = await downloadEvidenceSource(linkedArticle);
       ({ bytes, contentType, sourceUrl } = downloaded);
@@ -392,7 +401,7 @@ async function persistEvidence(candidate: Candidate) {
   }
   let canonicalized = false;
   if (contentType.includes('html')) {
-    const metadata = htmlSourceMetadata(bytes.toString('utf8'));
+    const metadata = htmlSourceMetadata(downloaded.decodedText ?? '');
     const canonicalUrl = canonicalSourceUrl(metadata, sourceUrl);
     if (canonicalUrl) {
       canonicalUrl.hash = '';
@@ -408,10 +417,10 @@ async function persistEvidence(candidate: Candidate) {
   }
   if (!bytes.length) throw new Error(`Unsupported source size: ${bytes.length}`);
   const pdfEvidence = contentType.includes('pdf') ? await extractPdfEvidence(bytes) : undefined;
-  const text = pdfEvidence?.text ?? visibleText(bytes, contentType);
+  const text = pdfEvidence?.text ?? visibleText(downloaded.decodedText ?? '', contentType);
   requireVerifiableText(text, contentType);
   const sourceMetadata = contentType.includes('html')
-    ? htmlSourceMetadata(bytes.toString('utf8'))
+    ? htmlSourceMetadata(downloaded.decodedText ?? '')
     : {
         publishers: [],
         publicationDates: pdfEvidence ? pdfMetadataPublicationDates(pdfEvidence.metadata) : [],
@@ -519,6 +528,16 @@ async function persistEvidence(candidate: Candidate) {
         claimGroundingScope: 'CITED_EXCERPT',
         excerptTextLocator: excerptLocator,
         textExtractionStrategy: pdfEvidence ? 'PDFJS_TEXT_V1' : 'VISIBLE_TEXT_V1',
+        ...(downloaded.textDecoding
+          ? {
+              textDecoding: {
+                encoding: downloaded.textDecoding.encoding,
+                selectionSource: downloaded.textDecoding.selectionSource,
+                declaredEncoding: downloaded.textDecoding.declaredEncoding ?? null,
+                replacementCharacterCount: downloaded.textDecoding.replacementCharacterCount,
+              },
+            }
+          : {}),
       },
     }),
   });
