@@ -5,6 +5,7 @@ import {
   comparable,
   evidenceCandidateKey,
   groundedEntities,
+  publicationWindowIssue,
   requireVerifiableText,
   resolveLinkedArticle,
   ungroundedNumbers,
@@ -76,6 +77,8 @@ const report: Record<string, Json> = {
   findingsSent: 0,
   qualityAdjustments: [],
 };
+
+const researchWindowMilliseconds = 72 * 60 * 60 * 1000;
 
 function safeUrl(raw: string): URL {
   const url = new URL(raw);
@@ -333,7 +336,7 @@ async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutpu
 
 async function research(): Promise<ResearchOutput> {
   const now = new Date();
-  const since = new Date(now.getTime() - 72 * 60 * 60 * 1000);
+  const since = new Date(now.getTime() - researchWindowMilliseconds);
   report.aiProvider = aiProvider;
   report.aiModel = aiModel;
   return aiProvider === 'groq' ? researchWithGroq(since, now) : researchWithOpenAi(since, now);
@@ -536,8 +539,25 @@ async function main(): Promise<void> {
     report.agentRunId = agentRunId;
     const items = [];
     const seenEvidence = new Set<string>();
+    const publicationWindowEnd = new Date(Date.now() + 15 * 60 * 1000);
+    const publicationWindowStart = new Date(
+      publicationWindowEnd.getTime() - researchWindowMilliseconds - 15 * 60 * 1000,
+    );
     for (const candidate of output.candidates) {
       try {
+        const publicationIssue = publicationWindowIssue(
+          candidate.publishedAt,
+          publicationWindowStart,
+          publicationWindowEnd,
+        );
+        if (publicationIssue) {
+          (report.qualityAdjustments as Json[]).push({
+            sourceUrl: candidate.url,
+            action: `SKIPPED_${publicationIssue}`,
+            publishedAt: candidate.publishedAt,
+          });
+          continue;
+        }
         const candidateKey = evidenceCandidateKey(candidate.url, candidate.excerpt);
         if (seenEvidence.has(candidateKey)) {
           (report.qualityAdjustments as Json[]).push({
