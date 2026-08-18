@@ -41,6 +41,7 @@ import {
   assessSourceBodyLength,
   sourceResponseProvenance,
 } from '../src/modules/intelligence/source-response-provenance';
+import { assessSourceContentDigest } from '../src/modules/intelligence/source-content-digest';
 import { decodeSourceText } from '../src/modules/intelligence/source-text-decoding';
 import {
   economicResearchInstructions,
@@ -378,6 +379,12 @@ async function downloadEvidenceSource(rawUrl: string | URL) {
     throw new Error(`Source returned ${sourceFetch.response.status}`);
   }
   const bytes = await readResponseBodyLimited(sourceFetch.response, maximumEvidenceBytes);
+  const contentDigestAssessment = assessSourceContentDigest(sourceFetch.response, bytes);
+  if (['INVALID', 'MISMATCHED'].includes(contentDigestAssessment.status)) {
+    throw new Error(
+      `Source Content-Digest verification failed (${contentDigestAssessment.status})`,
+    );
+  }
   const declaredContentType = sourceFetch.response.headers.get('content-type') ?? undefined;
   const contentTypeAssessment = assessEvidenceContentType(bytes, declaredContentType);
   const contentType = contentTypeAssessment.effectiveMediaType;
@@ -391,6 +398,7 @@ async function downloadEvidenceSource(rawUrl: string | URL) {
     redirectCount: sourceFetch.redirectCount,
     httpProvenance: sourceResponseProvenance(sourceFetch.response),
     bodyLengthAssessment: assessSourceBodyLength(sourceFetch.response, bytes.length),
+    contentDigestAssessment,
     contentTypeAssessment,
     ...(textDecoding ? { decodedText: textDecoding.text, textDecoding } : {}),
   };
@@ -538,6 +546,7 @@ async function persistEvidence(candidate: Candidate) {
         sourceRedirectCount,
         httpProvenance: downloaded.httpProvenance,
         bodyLengthVerification: downloaded.bodyLengthAssessment,
+        contentDigestVerification: downloaded.contentDigestAssessment,
         contentTypeVerification: downloaded.contentTypeAssessment,
         canonicalized,
         storageVerification: 'MATCHED_SHA256_AND_SIZE',

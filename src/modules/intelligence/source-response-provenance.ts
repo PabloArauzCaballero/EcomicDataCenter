@@ -3,6 +3,7 @@ export interface SourceResponseProvenance {
   declaredContentType?: string;
   declaredContentLength?: string;
   contentEncoding?: string;
+  contentDigest?: string;
   etag?: string;
   lastModified?: string;
   responseDate?: string;
@@ -36,6 +37,7 @@ export function sourceResponseProvenance(response: Response): SourceResponseProv
   const declaredContentType = boundedHeader(response.headers, 'content-type');
   const declaredContentLength = boundedHeader(response.headers, 'content-length');
   const contentEncoding = boundedHeader(response.headers, 'content-encoding');
+  const contentDigest = boundedHeader(response.headers, 'content-digest');
   const etag = boundedHeader(response.headers, 'etag');
   const lastModified = boundedHeader(response.headers, 'last-modified');
   const responseDate = boundedHeader(response.headers, 'date');
@@ -45,6 +47,7 @@ export function sourceResponseProvenance(response: Response): SourceResponseProv
     result.declaredContentLength = declaredContentLength;
   }
   if (contentEncoding) result.contentEncoding = contentEncoding;
+  if (contentDigest) result.contentDigest = contentDigest;
   if (etag) result.etag = etag;
   if (lastModified) result.lastModified = lastModified;
   if (responseDate) result.responseDate = responseDate;

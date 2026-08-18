@@ -12,6 +12,7 @@ describe('sourceResponseProvenance', () => {
         date: 'Tue, 18 Aug 2026 12:05:00 GMT',
         'content-language': 'es-BO',
         'content-encoding': 'gzip',
+        'content-digest': 'sha-256=:YWJjZA==:',
         'set-cookie': 'session=must-not-be-recorded',
         authorization: 'must-not-be-recorded',
       },
@@ -26,6 +27,7 @@ describe('sourceResponseProvenance', () => {
       responseDate: 'Tue, 18 Aug 2026 12:05:00 GMT',
       contentLanguage: 'es-BO',
       contentEncoding: 'gzip',
+      contentDigest: 'sha-256=:YWJjZA==:',
     });
   });
 
