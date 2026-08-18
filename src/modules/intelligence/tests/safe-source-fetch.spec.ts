@@ -97,4 +97,23 @@ describe('fetchPublicSource', () => {
     expect(result.finalUrl.toString()).toBe('https://example.com/article');
     expect(result.redirectCount).toBe(1);
   });
+
+  it('rejects an HTTPS redirect that downgrades transport to HTTP', async () => {
+    const fetcher = jest.fn(async () =>
+      Promise.resolve(
+        new Response(null, {
+          status: 302,
+          headers: { location: 'http://example.com/unprotected' },
+        }),
+      ),
+    );
+
+    await expect(
+      fetchPublicSource('https://example.com/start', {}, 5_000, {
+        fetcher,
+        resolver: async () => ['93.184.216.34'],
+      }),
+    ).rejects.toThrow('Source redirect cannot downgrade HTTPS');
+    expect(fetcher).toHaveBeenCalledTimes(1);
+  });
 });
