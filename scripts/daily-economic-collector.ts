@@ -5,6 +5,7 @@ import {
   comparable,
   effectiveContentType,
   evidenceCandidateKey,
+  locateExcerpt,
   publicationWindowIssue,
   requireVerifiableText,
   resolveLinkedArticle,
@@ -430,7 +431,8 @@ async function persistEvidence(candidate: Candidate) {
   if (!comparable(text).includes(comparable(candidate.title))) {
     throw new Error('The candidate title was not found in the final downloaded source');
   }
-  if (!comparable(text).includes(comparable(candidate.excerpt))) {
+  const excerptLocator = locateExcerpt(text, candidate.excerpt);
+  if (!excerptLocator) {
     throw new Error('The cited excerpt was not found in the downloaded source');
   }
   const grounding = groundClaimToExcerpt(
@@ -515,6 +517,8 @@ async function persistEvidence(candidate: Candidate) {
         canonicalized,
         storageVerification: 'MATCHED_SHA256_AND_SIZE',
         claimGroundingScope: 'CITED_EXCERPT',
+        excerptTextLocator: excerptLocator,
+        textExtractionStrategy: pdfEvidence ? 'PDFJS_TEXT_V1' : 'VISIBLE_TEXT_V1',
       },
     }),
   });

@@ -4,6 +4,46 @@ export function comparable(value: string): string {
   return value.normalize('NFKC').replace(/\s+/gu, ' ').trim().toLocaleLowerCase('es');
 }
 
+export interface ExcerptTextLocator {
+  normalization: 'NFKC_WHITESPACE_LOWERCASE_ES';
+  offsetUnit: 'UTF16_CODE_UNIT';
+  normalizedStart: number;
+  normalizedEnd: number;
+  normalizedTextLength: number;
+  occurrenceCount: number;
+  occurrenceStarts: number[];
+  positionsTruncated: boolean;
+}
+
+const maximumRecordedExcerptPositions = 20;
+
+/** Locates a quotation reproducibly in the same normalized text used for validation. */
+export function locateExcerpt(sourceText: string, excerpt: string): ExcerptTextLocator | undefined {
+  const haystack = comparable(sourceText);
+  const needle = comparable(excerpt);
+  if (!needle) return undefined;
+  const occurrenceStarts: number[] = [];
+  let occurrenceCount = 0;
+  let cursor = haystack.indexOf(needle);
+  while (cursor >= 0) {
+    occurrenceCount += 1;
+    if (occurrenceStarts.length < maximumRecordedExcerptPositions) occurrenceStarts.push(cursor);
+    cursor = haystack.indexOf(needle, cursor + needle.length);
+  }
+  const normalizedStart = occurrenceStarts[0];
+  if (normalizedStart === undefined) return undefined;
+  return {
+    normalization: 'NFKC_WHITESPACE_LOWERCASE_ES',
+    offsetUnit: 'UTF16_CODE_UNIT',
+    normalizedStart,
+    normalizedEnd: normalizedStart + needle.length,
+    normalizedTextLength: haystack.length,
+    occurrenceCount,
+    occurrenceStarts,
+    positionsTruncated: occurrenceCount > occurrenceStarts.length,
+  };
+}
+
 /** Stable identity for the same quoted evidence despite tracking parameters or fragments. */
 export function evidenceCandidateKey(rawUrl: string, excerpt: string): string {
   const url = new URL(rawUrl);

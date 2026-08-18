@@ -2,6 +2,7 @@ import {
   effectiveContentType,
   evidenceCandidateKey,
   groundedEntities,
+  locateExcerpt,
   publicationWindowIssue,
   requireVerifiableText,
   resolveLinkedArticle,
@@ -20,6 +21,46 @@ describe('effectiveContentType', () => {
 
   it('does not expose arbitrary binary content as visible text', () => {
     expect(visibleText(Buffer.from([0, 1, 2, 3]), 'application/octet-stream')).toBe('');
+  });
+});
+
+describe('locateExcerpt', () => {
+  it('records reproducible normalized character offsets', () => {
+    const locator = locateExcerpt(
+      'El índice   mensual subió 3,2 %. Cierre.',
+      'ÍNDICE mensual subió 3,2 %.',
+    );
+
+    expect(locator).toEqual({
+      normalization: 'NFKC_WHITESPACE_LOWERCASE_ES',
+      offsetUnit: 'UTF16_CODE_UNIT',
+      normalizedStart: 3,
+      normalizedEnd: 30,
+      normalizedTextLength: 38,
+      occurrenceCount: 1,
+      occurrenceStarts: [3],
+      positionsTruncated: false,
+    });
+  });
+
+  it('reports every repeated occurrence instead of presenting it as unique', () => {
+    expect(locateExcerpt('Dato verificado. Dato verificado.', 'dato verificado')).toMatchObject({
+      occurrenceCount: 2,
+      occurrenceStarts: [0, 17],
+      positionsTruncated: false,
+    });
+  });
+
+  it('bounds stored positions while retaining the true occurrence count', () => {
+    const locator = locateExcerpt(Array.from({ length: 25 }, () => 'dato').join(' '), 'dato');
+
+    expect(locator).toMatchObject({ occurrenceCount: 25, positionsTruncated: true });
+    expect(locator?.occurrenceStarts).toHaveLength(20);
+  });
+
+  it('does not produce a locator for an absent or empty excerpt', () => {
+    expect(locateExcerpt('Texto verificable', 'dato ausente')).toBeUndefined();
+    expect(locateExcerpt('Texto verificable', '   ')).toBeUndefined();
   });
 });
 describe('publicationWindowIssue', () => {
