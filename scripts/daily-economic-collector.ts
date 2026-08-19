@@ -880,15 +880,16 @@ async function main(): Promise<void> {
           storageUri: evidence.storageUri,
           publishedAt: candidate.publishedAt,
         };
+        const rawPayload = {
+          recordType: candidate.recordType,
+          dataCategory: candidate.dataCategory,
+          eventDate: candidate.eventDate,
+          ...rawSource,
+          sources: [rawSource],
+          corroboration: summarizeCorroboration([rawSource]),
+        };
         items.push({
-          rawPayload: {
-            recordType: candidate.recordType,
-            dataCategory: candidate.dataCategory,
-            eventDate: candidate.eventDate,
-            ...rawSource,
-            sources: [rawSource],
-            corroboration: summarizeCorroboration([rawSource]),
-          },
+          rawPayload,
           claim,
         });
         collectedCategories.add(candidate.dataCategory);
