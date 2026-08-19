@@ -54,6 +54,8 @@ import {
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 
 interface Candidate {
+  recordType: 'DAILY_INDICATOR' | 'NEWS';
+  dataCategory: 'FX_OFFICIAL' | 'UFV' | 'SOVEREIGN_BONDS' | 'MACRO_DAILY' | 'COMPANY_NEWS';
   title: string;
   url: string;
   publisher: string;
@@ -119,6 +121,7 @@ const report: Record<string, Json> = {
 
 const researchWindowMilliseconds = 72 * 60 * 60 * 1000;
 const maximumEvidenceBytes = 5_000_000;
+const requiredDailyCategories = ['FX_OFFICIAL', 'UFV', 'SOVEREIGN_BONDS'] as const;
 
 async function request(
   url: string,
@@ -166,6 +169,11 @@ const candidateSchema = {
   type: 'object',
   additionalProperties: false,
   properties: {
+    recordType: { type: 'string', enum: ['DAILY_INDICATOR', 'NEWS'] },
+    dataCategory: {
+      type: 'string',
+      enum: ['FX_OFFICIAL', 'UFV', 'SOVEREIGN_BONDS', 'MACRO_DAILY', 'COMPANY_NEWS'],
+    },
     title: { type: 'string', minLength: 3, maxLength: 300 },
     url: { type: 'string' },
     publisher: { type: 'string', minLength: 2, maxLength: 200 },
@@ -206,6 +214,8 @@ const candidateSchema = {
     },
   },
   required: [
+    'recordType',
+    'dataCategory',
     'title',
     'url',
     'publisher',
@@ -236,6 +246,14 @@ const researchOutputSchema = z.object({
   candidates: z
     .array(
       z.object({
+        recordType: z.enum(['DAILY_INDICATOR', 'NEWS']),
+        dataCategory: z.enum([
+          'FX_OFFICIAL',
+          'UFV',
+          'SOVEREIGN_BONDS',
+          'MACRO_DAILY',
+          'COMPANY_NEWS',
+        ]),
         title: z.string().min(3).max(300),
         url: z.url(),
         publisher: z.string().min(2).max(200),
@@ -253,7 +271,7 @@ const researchOutputSchema = z.object({
         entityMentions: z.array(z.string().min(2).max(250)).max(25),
       }),
     )
-    .max(8),
+    .max(20),
 });
 
 function parseResearchOutput(raw: string): ResearchOutput {
@@ -270,7 +288,7 @@ function researchPrompt(since: Date, now: Date): string {
   const schema = {
     type: 'object',
     additionalProperties: false,
-    properties: { candidates: { type: 'array', maxItems: 8, items: candidateSchema } },
+    properties: { candidates: { type: 'array', maxItems: 20, items: candidateSchema } },
     required: ['candidates'],
   };
   return `${economicResearchInstructions(since, now)} El colector descargará cada fuente y rechazará cualquier dato que no coincida. Responde únicamente con JSON válido según este esquema: ${JSON.stringify(schema)}`;
@@ -333,7 +351,7 @@ async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutpu
               type: 'object',
               additionalProperties: false,
               properties: {
-                candidates: { type: 'array', maxItems: 8, items: candidateSchema },
+                candidates: { type: 'array', maxItems: 20, items: candidateSchema },
               },
               required: ['candidates'],
             },
@@ -668,39 +686,69 @@ async function main(): Promise<void> {
     agentRunId = await openRun();
     report.agentRunId = agentRunId;
     const items: CorroboratedClaimItem[] = [];
+    const collectedCategories = new Set<Candidate['dataCategory']>();
     const seenEvidence = new Set<string>();
+    const localEventDate = new Intl.DateTimeFormat('en-CA', {
+      timeZone: env.ECONOMIC_TIMEZONE,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(new Date());
     const publicationWindowEnd = new Date(Date.now() + 15 * 60 * 1000);
     const publicationWindowStart = new Date(
       publicationWindowEnd.getTime() - researchWindowMilliseconds - 15 * 60 * 1000,
     );
     for (const candidate of output.candidates) {
       try {
-        const localDateIssue = publicationLocalDateIssue(
-          candidate.publishedAt,
-          new Date(),
-          env.ECONOMIC_TIMEZONE,
-        );
-        if (localDateIssue) {
+        const categoryTypeMismatch =
+          (candidate.dataCategory === 'COMPANY_NEWS' && candidate.recordType !== 'NEWS') ||
+          (candidate.dataCategory !== 'COMPANY_NEWS' && candidate.recordType !== 'DAILY_INDICATOR');
+        if (categoryTypeMismatch) {
           (report.qualityAdjustments as Json[]).push({
             sourceUrl: candidate.url,
-            action: `SKIPPED_${localDateIssue}`,
-            publishedAt: candidate.publishedAt,
-            timeZone: env.ECONOMIC_TIMEZONE,
+            action: 'SKIPPED_CATEGORY_TYPE_MISMATCH',
+            dataCategory: candidate.dataCategory,
+            recordType: candidate.recordType,
           });
           continue;
         }
-        const publicationIssue = publicationWindowIssue(
-          candidate.publishedAt,
-          publicationWindowStart,
-          publicationWindowEnd,
-        );
-        if (publicationIssue) {
+        if (candidate.recordType === 'DAILY_INDICATOR' && candidate.eventDate !== localEventDate) {
           (report.qualityAdjustments as Json[]).push({
             sourceUrl: candidate.url,
-            action: `SKIPPED_${publicationIssue}`,
-            publishedAt: candidate.publishedAt,
+            action: 'SKIPPED_NON_CURRENT_DAILY_INDICATOR',
+            eventDate: candidate.eventDate,
+            expectedEventDate: localEventDate,
           });
           continue;
+        }
+        if (candidate.recordType === 'NEWS') {
+          const localDateIssue = publicationLocalDateIssue(
+            candidate.publishedAt,
+            new Date(),
+            env.ECONOMIC_TIMEZONE,
+          );
+          if (localDateIssue) {
+            (report.qualityAdjustments as Json[]).push({
+              sourceUrl: candidate.url,
+              action: `SKIPPED_${localDateIssue}`,
+              publishedAt: candidate.publishedAt,
+              timeZone: env.ECONOMIC_TIMEZONE,
+            });
+            continue;
+          }
+          const publicationIssue = publicationWindowIssue(
+            candidate.publishedAt,
+            publicationWindowStart,
+            publicationWindowEnd,
+          );
+          if (publicationIssue) {
+            (report.qualityAdjustments as Json[]).push({
+              sourceUrl: candidate.url,
+              action: `SKIPPED_${publicationIssue}`,
+              publishedAt: candidate.publishedAt,
+            });
+            continue;
+          }
         }
         const candidateKey = evidenceCandidateKey(candidate.url, candidate.excerpt);
         if (seenEvidence.has(candidateKey)) {
@@ -834,18 +882,34 @@ async function main(): Promise<void> {
         };
         items.push({
           rawPayload: {
+            recordType: candidate.recordType,
+            dataCategory: candidate.dataCategory,
+            eventDate: candidate.eventDate,
             ...rawSource,
             sources: [rawSource],
             corroboration: summarizeCorroboration([rawSource]),
           },
           claim,
         });
+        collectedCategories.add(candidate.dataCategory);
       } catch (error) {
         warnings.push(
           `${candidate.url}: ${error instanceof Error ? error.message : String(error)}`,
         );
       }
     }
+    const missingDailyCategories = requiredDailyCategories.filter(
+      (category) => !collectedCategories.has(category),
+    );
+    for (const category of missingDailyCategories) {
+      warnings.push(`Cobertura diaria incompleta: no se guardó ${category} para ${localEventDate}`);
+    }
+    report.coverage = {
+      eventDate: localEventDate,
+      collectedCategories: [...collectedCategories].sort(),
+      missingRequiredCategories: missingDailyCategories,
+      companyNewsCollected: collectedCategories.has('COMPANY_NEWS'),
+    };
     const consolidatedItems = consolidateCorroboratingClaims(items);
     if (consolidatedItems.length < items.length) {
       (report.qualityAdjustments as Json[]).push({
