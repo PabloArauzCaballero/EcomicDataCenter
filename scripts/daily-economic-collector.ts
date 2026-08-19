@@ -681,10 +681,10 @@ async function main(): Promise<void> {
   const warnings: string[] = [];
   try {
     await waitForBackend();
-    const output = await research();
-    report.sourcesConsulted = output.candidates.length;
     agentRunId = await openRun();
     report.agentRunId = agentRunId;
+    const output = await research();
+    report.sourcesConsulted = output.candidates.length;
     const items: CorroboratedClaimItem[] = [];
     const collectedCategories = new Set<Candidate['dataCategory']>();
     const seenEvidence = new Set<string>();
@@ -953,6 +953,12 @@ async function main(): Promise<void> {
     );
     report.status = warnings.length ? 'PARTIAL' : 'SUCCEEDED';
     report.warnings = warnings;
+    if (warnings.length) {
+      // A partial collection must be visible as a failed scheduler run. The
+      // report and agent run retain PARTIAL so operators can distinguish a
+      // coverage gap from a collector crash.
+      process.exitCode = 1;
+    }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     report.error = message;

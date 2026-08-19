@@ -15,7 +15,9 @@ describe('economic research policy', () => {
     expect(instructions).toContain('FX_OFFICIAL');
     expect(instructions).toContain('UFV');
     expect(instructions).toContain('SOVEREIGN_BONDS');
+    expect(instructions).toContain('títulos del Tesoro');
     expect(instructions).toContain('MACRO_DAILY');
+    expect(instructions).toContain('finanzas públicas');
     expect(instructions).toContain('COMPANY_NEWS');
     expect(instructions).toContain('artículo, documento o tabla oficial específica');
     expect(instructions).toContain('cita textual corta');
