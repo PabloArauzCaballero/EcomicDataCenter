@@ -3,8 +3,8 @@ name: daily-economic-research
 on:
   workflow_dispatch:
   schedule:
-    # America/La_Paz is UTC-4 year-round: 06:30 local = 10:30 UTC.
-    - cron: '30 10 * * *'
+    # America/La_Paz is UTC-4 year-round: 06:30, 12:30 and 18:30 local.
+    - cron: '30 10,16,22 * * *'
 
 permissions:
   contents: read

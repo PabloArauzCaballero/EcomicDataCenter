@@ -6,7 +6,7 @@ a los endpoints de inteligencia ya implementados por el proyecto.
 
 ## Programación recomendada
 
-- Frecuencia: todos los días a las 06:30.
+- Frecuencia: tres veces al día, a las 06:30, 12:30 y 18:30.
 - Zona horaria: `America/La_Paz`.
 - Tipo: tarea programada independiente, con una ejecución nueva cada día.
 - Proyecto local: `EcomicDataCenter`.
@@ -55,7 +55,7 @@ Requisitos de infraestructura:
 
 ```text
 Actúa como recolector autónomo de inteligencia económica para el Observatorio Económico de
-Bolivia. Ejecuta el siguiente procedimiento completo una vez por día. Usa la fecha y hora de
+Bolivia. Ejecuta el siguiente procedimiento completo tres veces por día. Usa la fecha y hora de
 America/La_Paz. No modifiques el repositorio. No inventes datos, fuentes, identificadores,
 credenciales ni resultados del API.
 
@@ -69,9 +69,11 @@ ya forme parte de la tarea.
 
 ÁMBITOS DE INVESTIGACIÓN
 
-1. Tipo de cambio, reservas, inflación, tasas, liquidez y sistema financiero.
+1. Tipo de cambio USD/BOB —con prioridad absoluta para compra y venta oficial del BCB—, reservas,
+   inflación, tasas, liquidez y sistema financiero.
 2. Actividad económica, empleo, ingresos, pobreza y otros indicadores socioeconómicos.
-3. Deuda soberana, riesgo país, política fiscal y decisiones regulatorias relevantes.
+3. Bonos soberanos bolivianos y títulos del Tesoro, deuda soberana, riesgo país, finanzas públicas,
+   política fiscal y decisiones regulatorias relevantes.
 4. Comercio exterior, balanza de pagos, remesas y precios internacionales que afecten a Bolivia.
 5. Hidrocarburos, minería, agroindustria y otros sectores estratégicos.
 6. Mercados de valores, empresas relevantes, inversiones y financiamiento.
@@ -296,11 +298,10 @@ registrar una vez el agente mediante `POST /api/v1/intelligence/agents`:
   "organizationId": "REEMPLAZAR_POR_UUID_REAL",
   "configuration": {
     "timezone": "America/La_Paz",
-    "schedule": "daily 06:30"
+    "schedule": "daily 06:30, 12:30 and 18:30 America/La_Paz"
   }
 }
 ```
 
 El operador debe reemplazar el UUID y registrar el identificador real del modelo configurado. No se
 debe ejecutar este ejemplo con marcadores literales.
-
