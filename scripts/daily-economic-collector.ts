@@ -139,6 +139,38 @@ async function request(
   return response;
 }
 
+function retryDelayMilliseconds(response: Response, attempt: number): number {
+  const retryAfter = response.headers.get('retry-after')?.trim();
+  if (retryAfter) {
+    const seconds = Number(retryAfter);
+    if (Number.isFinite(seconds) && seconds >= 0) {
+      return Math.min(Math.max(seconds * 1_000, 1_000), 30_000);
+    }
+    const retryDate = Date.parse(retryAfter);
+    if (Number.isFinite(retryDate)) {
+      return Math.min(Math.max(retryDate - Date.now(), 1_000), 30_000);
+    }
+  }
+  return [1_000, 5_000][attempt] ?? 10_000;
+}
+
+async function requestAi(url: string, init: RequestInit): Promise<Response> {
+  const maximumAttempts = 3;
+  for (let attempt = 0; attempt < maximumAttempts; attempt += 1) {
+    const response = await fetch(url, { ...init, signal: AbortSignal.timeout(300_000) });
+    if (response.status === 200) return response;
+    const body = (await response.text()).slice(0, 1_000);
+    const retryable = response.status === 408 || response.status === 429 || response.status >= 500;
+    if (!retryable || attempt === maximumAttempts - 1) {
+      throw new Error(
+        `${init.method ?? 'GET'} ${new URL(url).pathname} returned ${response.status}: ${body}`,
+      );
+    }
+    await new Promise((resolve) => setTimeout(resolve, retryDelayMilliseconds(response, attempt)));
+  }
+  throw new Error('AI provider retry loop exhausted unexpectedly');
+}
+
 async function waitForBackend(): Promise<void> {
   const delays = [0, 10_000, 20_000, 40_000, 60_000];
   let lastError: unknown;
@@ -295,32 +327,27 @@ function researchPrompt(since: Date, now: Date): string {
 }
 
 async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput> {
-  const response = await request(
-    'https://api.groq.com/openai/v1/chat/completions',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${aiApiKey}`,
-        'Content-Type': 'application/json',
-        'Groq-Model-Version': 'latest',
-      },
-      body: JSON.stringify({
-        model: aiModel,
-        messages: [
-          {
-            role: 'system',
-            content: economicResearchSystemInstruction,
-          },
-          { role: 'user', content: researchPrompt(since, now) },
-        ],
-        response_format: { type: 'json_object' },
-        search_settings: { country: 'bolivia' },
-        compound_custom: { tools: { enabled_tools: ['web_search'] } },
-      }),
+  const response = await requestAi('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${aiApiKey}`,
+      'Content-Type': 'application/json',
+      'Groq-Model-Version': 'latest',
     },
-    [200],
-    300_000,
-  );
+    body: JSON.stringify({
+      model: aiModel,
+      messages: [
+        {
+          role: 'system',
+          content: economicResearchSystemInstruction,
+        },
+        { role: 'user', content: researchPrompt(since, now) },
+      ],
+      response_format: { type: 'json_object' },
+      search_settings: { country: 'bolivia' },
+      compound_custom: { tools: { enabled_tools: ['web_search'] } },
+    }),
+  });
   const payload = (await response.json()) as {
     choices?: Array<{ message?: { content?: string } }>;
   };
@@ -330,40 +357,35 @@ async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput>
 }
 
 async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutput> {
-  const response = await request(
-    'https://api.openai.com/v1/responses',
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${aiApiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: aiModel,
-        tools: [{ type: 'web_search' }],
-        reasoning: { effort: 'medium' },
-        text: {
-          format: {
-            type: 'json_schema',
-            name: 'daily_economic_research',
-            strict: true,
-            schema: {
-              type: 'object',
-              additionalProperties: false,
-              properties: {
-                candidates: { type: 'array', maxItems: 20, items: candidateSchema },
-              },
-              required: ['candidates'],
+  const response = await requestAi('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${aiApiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: aiModel,
+      tools: [{ type: 'web_search' }],
+      reasoning: { effort: 'medium' },
+      text: {
+        format: {
+          type: 'json_schema',
+          name: 'daily_economic_research',
+          strict: true,
+          schema: {
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+              candidates: { type: 'array', maxItems: 20, items: candidateSchema },
             },
+            required: ['candidates'],
           },
         },
-        instructions: economicResearchSystemInstruction,
-        input: economicResearchInstructions(since, now),
-      }),
-    },
-    [200],
-    300_000,
-  );
+      },
+      instructions: economicResearchSystemInstruction,
+      input: economicResearchInstructions(since, now),
+    }),
+  });
   const payload = (await response.json()) as {
     status?: string;
     output?: Array<{ content?: Array<{ type?: string; text?: string }> }>;
