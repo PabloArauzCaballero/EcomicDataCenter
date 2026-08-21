@@ -174,6 +174,90 @@ async function requestAi(url: string, init: RequestInit): Promise<Response> {
   throw new Error('AI provider retry loop exhausted unexpectedly');
 }
 
+const spanishMonths = new Map([
+  ['enero', 1],
+  ['febrero', 2],
+  ['marzo', 3],
+  ['abril', 4],
+  ['mayo', 5],
+  ['junio', 6],
+  ['julio', 7],
+  ['agosto', 8],
+  ['septiembre', 9],
+  ['octubre', 10],
+  ['noviembre', 11],
+  ['diciembre', 12],
+]);
+
+async function researchOfficialBcb(): Promise<Candidate[]> {
+  const url = 'https://www.bcb.gob.bo/librerias/indicadores/otras/ultimo.php';
+  const response = await request(url, {
+    headers: { 'User-Agent': 'EconomicDataCenterCollector/1.0' },
+  });
+  const html = decodeSourceText(
+    Buffer.from(await response.arrayBuffer()),
+    response.headers.get('content-type') ?? 'text/html',
+    'text/html',
+  ).text;
+  const dateMatch = /<strong>\s*(\d{1,2})\s+de\s+([\p{L}]+)\s+(\d{4})\s*<\/strong>/iu.exec(html);
+  const month = dateMatch?.[2]
+    ? spanishMonths.get(dateMatch[2].toLocaleLowerCase('es'))
+    : undefined;
+  if (!dateMatch?.[1] || !dateMatch[3] || !month) {
+    throw new Error('BCB quotation page did not expose a recognizable effective date');
+  }
+  const eventDate = `${dateMatch[3]}-${String(month).padStart(2, '0')}-${dateMatch[1].padStart(2, '0')}`;
+  const officialRate =
+    /ESTADOS UNIDOS<\/td>\s*<td>D&Oacute;LAR<\/td>\s*<td[^>]*>USD<\/td>\s*<td[^>]*>([0-9.]+)<\/td>/iu.exec(
+      html,
+    )?.[1];
+  const ufv =
+    /BOLIVIA \(UFV\)<\/td>\s*<td[^>]*>UNIDAD DE FOMENTO DE VIVIENDA<\/td>\s*<td[^>]*>Bs\/UFV<\/td>\s*<td[^>]*>([0-9.]+)<\/td>/iu.exec(
+      html,
+    )?.[1];
+  const candidates: Candidate[] = [];
+  if (officialRate) {
+    candidates.push({
+      recordType: 'DAILY_INDICATOR',
+      dataCategory: 'FX_OFFICIAL',
+      title: 'Tabla de Cotizaciones del Banco Central de Bolivia',
+      url,
+      publisher: 'BANCO CENTRAL DE BOLIVIA',
+      publishedAt: null,
+      eventDate,
+      claimType: 'INDICATOR_READING',
+      assertion: `El tipo de cambio oficial de Bolivia para ${eventDate} es ${officialRate} Bs/USD.`,
+      excerpt: `Tipo de Cambio Oficial (TCO) (Bs/USD) ESTADOS UNIDOS D&Oacute;LAR USD ${officialRate}`,
+      confidenceLevel: 'VERY_HIGH',
+      confidenceScore: 0.99,
+      impactLevel: 'HIGH',
+      timeHorizon: 'CURRENT',
+      entityMentions: ['BANCO CENTRAL DE BOLIVIA'],
+    });
+  }
+  if (ufv) {
+    candidates.push({
+      recordType: 'DAILY_INDICATOR',
+      dataCategory: 'UFV',
+      title: 'Cotización de UFV del Banco Central de Bolivia',
+      url,
+      publisher: 'BANCO CENTRAL DE BOLIVIA',
+      publishedAt: null,
+      eventDate,
+      claimType: 'INDICATOR_READING',
+      assertion: `La Unidad de Fomento de Vivienda para ${eventDate} es ${ufv} Bs/UFV.`,
+      excerpt: `BOLIVIA (UFV) UNIDAD DE FOMENTO DE VIVIENDA Bs/UFV ${ufv}`,
+      confidenceLevel: 'VERY_HIGH',
+      confidenceScore: 0.99,
+      impactLevel: 'MEDIUM',
+      timeHorizon: 'CURRENT',
+      entityMentions: ['BANCO CENTRAL DE BOLIVIA'],
+    });
+  }
+  if (!candidates.length) throw new Error('BCB quotation page contained no USD or UFV readings');
+  return candidates;
+}
+
 async function waitForBackend(): Promise<void> {
   const delays = [0, 10_000, 20_000, 40_000, 60_000];
   let lastError: unknown;
@@ -406,7 +490,17 @@ async function research(): Promise<ResearchOutput> {
   const since = new Date(now.getTime() - researchWindowMilliseconds);
   report.aiProvider = aiProvider;
   report.aiModel = aiModel;
-  return aiProvider === 'groq' ? researchWithGroq(since, now) : researchWithOpenAi(since, now);
+  const officialCandidates = await researchOfficialBcb();
+  try {
+    const aiOutput =
+      aiProvider === 'groq'
+        ? await researchWithGroq(since, now)
+        : await researchWithOpenAi(since, now);
+    return { candidates: [...officialCandidates, ...aiOutput.candidates] };
+  } catch (error) {
+    report.aiError = error instanceof Error ? error.message : String(error);
+    return { candidates: officialCandidates };
+  }
 }
 
 function contentExtension(contentType: string): string {
@@ -711,6 +805,7 @@ async function main(): Promise<void> {
     report.agentRunId = agentRunId;
     const output = await research();
     report.sourcesConsulted = output.candidates.length;
+    if (typeof report.aiError === 'string') warnings.push(`AI_RESEARCH_FAILED: ${report.aiError}`);
     const items: CorroboratedClaimItem[] = [];
     const collectedCategories = new Set<Candidate['dataCategory']>();
     const seenEvidence = new Set<string>();
