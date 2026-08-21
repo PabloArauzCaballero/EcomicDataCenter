@@ -144,13 +144,16 @@ function retryDelayMilliseconds(response: Response, attempt: number): number {
   if (retryAfter) {
     const seconds = Number(retryAfter);
     if (Number.isFinite(seconds) && seconds >= 0) {
-      return Math.min(Math.max(seconds * 1_000, 1_000), 30_000);
+      const delay = Math.min(Math.max(seconds * 1_000, 1_000), 90_000);
+      return response.status === 429 ? Math.max(delay, 60_000) : delay;
     }
     const retryDate = Date.parse(retryAfter);
     if (Number.isFinite(retryDate)) {
-      return Math.min(Math.max(retryDate - Date.now(), 1_000), 30_000);
+      const delay = Math.min(Math.max(retryDate - Date.now(), 1_000), 90_000);
+      return response.status === 429 ? Math.max(delay, 60_000) : delay;
     }
   }
+  if (response.status === 429) return 60_000;
   return [1_000, 5_000][attempt] ?? 10_000;
 }
 
