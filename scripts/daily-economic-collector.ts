@@ -347,6 +347,7 @@ async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput>
         { role: 'user', content: researchPrompt(since, now) },
       ],
       response_format: { type: 'json_object' },
+      max_completion_tokens: 6_000,
       search_settings: { country: 'bolivia' },
       compound_custom: { tools: { enabled_tools: ['web_search'] } },
     }),
