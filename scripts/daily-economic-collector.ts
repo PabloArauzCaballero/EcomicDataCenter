@@ -220,7 +220,7 @@ async function researchOfficialBcb(): Promise<Candidate[]> {
     candidates.push({
       recordType: 'DAILY_INDICATOR',
       dataCategory: 'FX_OFFICIAL',
-      title: 'Tabla de Cotizaciones del Banco Central de Bolivia',
+      title: 'Tabla de Cotizaciones',
       url,
       publisher: 'BANCO CENTRAL DE BOLIVIA',
       publishedAt: null,
@@ -239,7 +239,7 @@ async function researchOfficialBcb(): Promise<Candidate[]> {
     candidates.push({
       recordType: 'DAILY_INDICATOR',
       dataCategory: 'UFV',
-      title: 'Cotización de UFV del Banco Central de Bolivia',
+      title: 'Tabla de Cotizaciones',
       url,
       publisher: 'BANCO CENTRAL DE BOLIVIA',
       publishedAt: null,
