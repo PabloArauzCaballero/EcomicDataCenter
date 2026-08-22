@@ -231,7 +231,7 @@ async function researchOfficialBcb(): Promise<Candidate[]> {
       confidenceLevel: 'VERY_HIGH',
       confidenceScore: 0.99,
       impactLevel: 'HIGH',
-      timeHorizon: 'CURRENT',
+      timeHorizon: 'IMMEDIATE',
       entityMentions: ['BANCO CENTRAL DE BOLIVIA'],
     });
   }
@@ -250,7 +250,7 @@ async function researchOfficialBcb(): Promise<Candidate[]> {
       confidenceLevel: 'VERY_HIGH',
       confidenceScore: 0.99,
       impactLevel: 'MEDIUM',
-      timeHorizon: 'CURRENT',
+      timeHorizon: 'IMMEDIATE',
       entityMentions: ['BANCO CENTRAL DE BOLIVIA'],
     });
   }
