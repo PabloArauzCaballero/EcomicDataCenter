@@ -31,6 +31,16 @@ import {
   canonicalSourceUrl,
   htmlSourceMetadata,
 } from '../src/modules/intelligence/source-metadata';
+import { jsonSourceMetadata } from '../src/modules/intelligence/json-source-metadata';
+import {
+  parallelQuotationAssertion,
+  parseBcbQuotationTable,
+  parseParallelQuotation,
+} from '../src/modules/intelligence/daily-indicator-parsers';
+import {
+  undatedOfficialIndicator,
+  verifiedSource,
+} from '../src/modules/intelligence/verified-source-registry';
 import { assessPublicationMetadata } from '../src/modules/intelligence/publication-metadata';
 import { calibrateConfidenceForSourceMetadata } from '../src/modules/intelligence/source-metadata-confidence';
 import { verifyStoredEvidenceBlob } from '../src/modules/intelligence/storage-integrity';
@@ -53,9 +63,34 @@ import {
 
 type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 
+type DownloadedSource = Awaited<ReturnType<typeof downloadEvidenceSource>>;
+
+/**
+ * How the candidate's source was reached.
+ *
+ * A deterministic collector parses a known endpoint, so its publisher is
+ * established by the domain the collector downloaded. Research output is
+ * untrusted: everything about it, the publisher included, has to be verified
+ * against the downloaded page.
+ */
+type SourceTrust = 'DIRECT' | 'AI_REPORTED';
+
 interface Candidate {
+  sourceTrust: SourceTrust;
+  /**
+   * Bytes the reading was parsed from, when a deterministic collector already
+   * downloaded them.
+   *
+   * A market endpoint refreshes its quotation about once a minute, so
+   * downloading the source a second time to build the evidence raced the value:
+   * the quotation cited no longer appeared in the bytes that were stored, and
+   * the reading was discarded as unverifiable. Retaining the exact response
+   * makes the evidence the very thing the value was read from.
+   */
+  prefetched?: DownloadedSource;
   recordType: 'DAILY_INDICATOR' | 'NEWS';
-  dataCategory: 'FX_OFFICIAL' | 'UFV' | 'SOVEREIGN_BONDS' | 'MACRO_DAILY' | 'COMPANY_NEWS';
+  dataCategory:
+    'FX_OFFICIAL' | 'FX_PARALLEL' | 'UFV' | 'SOVEREIGN_BONDS' | 'MACRO_DAILY' | 'COMPANY_NEWS';
   title: string;
   url: string;
   publisher: string;
@@ -71,8 +106,14 @@ interface Candidate {
   entityMentions: string[];
 }
 
+/**
+ * Research output declares neither its own trust level nor its evidence: the
+ * collector assigns the first and downloads the second.
+ */
+type AiCandidate = Omit<Candidate, 'sourceTrust' | 'prefetched'>;
+
 interface ResearchOutput {
-  candidates: Candidate[];
+  candidates: AiCandidate[];
 }
 
 const requiredNames = [
@@ -117,11 +158,38 @@ const report: Record<string, Json> = {
   artifactsRegistered: 0,
   findingsSent: 0,
   qualityAdjustments: [],
+  directCollectorErrors: [],
 };
 
 const researchWindowMilliseconds = 72 * 60 * 60 * 1000;
 const maximumEvidenceBytes = 5_000_000;
-const requiredDailyCategories = ['FX_OFFICIAL', 'UFV', 'SOVEREIGN_BONDS'] as const;
+const collectorUserAgent = 'EconomicDataCenterCollector/1.0';
+
+/**
+ * Categories a deterministic collector produces on any calendar day, so their
+ * absence is a real coverage failure the scheduler must surface.
+ */
+const requiredDailyCategories = ['FX_OFFICIAL', 'FX_PARALLEL', 'UFV'] as const;
+
+/**
+ * Categories that depend on a publication the country does not make daily.
+ *
+ * Bond quotations and macro releases do not exist on a weekend or a holiday,
+ * so demanding them every run marked every single execution as failed and hid
+ * the failures that were real.
+ */
+const desiredDailyCategories = ['SOVEREIGN_BONDS', 'MACRO_DAILY', 'COMPANY_NEWS'] as const;
+
+/**
+ * Research budget.
+ *
+ * The provider counts the prompt, the search loop and the reserved completion
+ * against one tokens-per-minute window, so a generous result cap made every
+ * attempt exceed the window and return nothing at all. A smaller cap that
+ * succeeds collects more than a larger one that is always rejected.
+ */
+const maximumResearchResults = 12;
+const maximumResearchCompletionTokens = 3_000;
 
 async function request(
   url: string,
@@ -158,7 +226,7 @@ function retryDelayMilliseconds(response: Response, attempt: number): number {
 }
 
 async function requestAi(url: string, init: RequestInit): Promise<Response> {
-  const maximumAttempts = 3;
+  const maximumAttempts = 4;
   for (let attempt = 0; attempt < maximumAttempts; attempt += 1) {
     const response = await fetch(url, { ...init, signal: AbortSignal.timeout(300_000) });
     if (response.status === 200) return response;
@@ -174,50 +242,29 @@ async function requestAi(url: string, init: RequestInit): Promise<Response> {
   throw new Error('AI provider retry loop exhausted unexpectedly');
 }
 
-const spanishMonths = new Map([
-  ['enero', 1],
-  ['febrero', 2],
-  ['marzo', 3],
-  ['abril', 4],
-  ['mayo', 5],
-  ['junio', 6],
-  ['julio', 7],
-  ['agosto', 8],
-  ['septiembre', 9],
-  ['octubre', 10],
-  ['noviembre', 11],
-  ['diciembre', 12],
-]);
+/** Calendar date of an instant in the deployment's reporting time zone. */
+function localDate(instant: Date): string {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: env.ECONOMIC_TIMEZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(instant);
+}
 
 async function researchOfficialBcb(): Promise<Candidate[]> {
   const url = 'https://www.bcb.gob.bo/librerias/indicadores/otras/ultimo.php';
-  const response = await request(url, {
-    headers: { 'User-Agent': 'EconomicDataCenterCollector/1.0' },
-  });
-  const html = decodeSourceText(
-    Buffer.from(await response.arrayBuffer()),
-    response.headers.get('content-type') ?? 'text/html',
-    'text/html',
-  ).text;
-  const dateMatch = /<strong>\s*(\d{1,2})\s+de\s+([\p{L}]+)\s+(\d{4})\s*<\/strong>/iu.exec(html);
-  const month = dateMatch?.[2]
-    ? spanishMonths.get(dateMatch[2].toLocaleLowerCase('es'))
-    : undefined;
-  if (!dateMatch?.[1] || !dateMatch[3] || !month) {
-    throw new Error('BCB quotation page did not expose a recognizable effective date');
-  }
-  const eventDate = `${dateMatch[3]}-${String(month).padStart(2, '0')}-${dateMatch[1].padStart(2, '0')}`;
-  const officialRate =
-    /ESTADOS UNIDOS<\/td>\s*<td>D&Oacute;LAR<\/td>\s*<td[^>]*>USD<\/td>\s*<td[^>]*>([0-9.]+)<\/td>/iu.exec(
-      html,
-    )?.[1];
-  const ufv =
-    /BOLIVIA \(UFV\)<\/td>\s*<td[^>]*>UNIDAD DE FOMENTO DE VIVIENDA<\/td>\s*<td[^>]*>Bs\/UFV<\/td>\s*<td[^>]*>([0-9.]+)<\/td>/iu.exec(
-      html,
-    )?.[1];
+  const prefetched = await downloadEvidenceSource(url);
+  const {
+    effectiveDate: eventDate,
+    officialRate,
+    ufv,
+  } = parseBcbQuotationTable(prefetched.decodedText ?? '');
   const candidates: Candidate[] = [];
   if (officialRate) {
     candidates.push({
+      sourceTrust: 'DIRECT',
+      prefetched,
       recordType: 'DAILY_INDICATOR',
       dataCategory: 'FX_OFFICIAL',
       title: 'Tabla de Cotizaciones',
@@ -232,11 +279,13 @@ async function researchOfficialBcb(): Promise<Candidate[]> {
       confidenceScore: 0.99,
       impactLevel: 'HIGH',
       timeHorizon: 'IMMEDIATE',
-      entityMentions: ['BANCO CENTRAL DE BOLIVIA'],
+      entityMentions: [],
     });
   }
   if (ufv) {
     candidates.push({
+      sourceTrust: 'DIRECT',
+      prefetched,
       recordType: 'DAILY_INDICATOR',
       dataCategory: 'UFV',
       title: 'Tabla de Cotizaciones',
@@ -251,10 +300,65 @@ async function researchOfficialBcb(): Promise<Candidate[]> {
       confidenceScore: 0.99,
       impactLevel: 'MEDIUM',
       timeHorizon: 'IMMEDIATE',
-      entityMentions: ['BANCO CENTRAL DE BOLIVIA'],
+      entityMentions: [],
     });
   }
   if (!candidates.length) throw new Error('BCB quotation page contained no USD or UFV readings');
+  return candidates;
+}
+
+/**
+ * Venues quoted for the parallel USD rate.
+ *
+ * Bolivia has no official parallel quotation, so the rate is observed where it
+ * actually trades. Each venue is read independently and kept as its own claim
+ * with its own evidence: three venues that agree corroborate each other, and a
+ * venue that drifts stays visible instead of being averaged away.
+ */
+const parallelExchangeVenues = ['/v1/eldorado', '/v1/saldoar', '/v1/takenos'] as const;
+const parallelExchangeBaseUrl = 'https://api.dolarbluebolivia.click';
+
+/**
+ * Reads one venue and turns its literal payload into a candidate reading.
+ */
+async function researchParallelVenue(path: string): Promise<Candidate> {
+  const url = `${parallelExchangeBaseUrl}${path}`;
+  const prefetched = await downloadEvidenceSource(url);
+  const quotation = parseParallelQuotation(prefetched.decodedText ?? '');
+  return {
+    sourceTrust: 'DIRECT',
+    prefetched,
+    recordType: 'DAILY_INDICATOR',
+    dataCategory: 'FX_PARALLEL',
+    title: quotation.instrument,
+    url,
+    publisher: 'DOLAR BLUE BOLIVIA',
+    publishedAt: quotation.capturedAt,
+    eventDate: localDate(new Date(quotation.capturedAt)),
+    claimType: 'INDICATOR_READING',
+    assertion: parallelQuotationAssertion(quotation),
+    excerpt: quotation.excerpt,
+    confidenceLevel: 'HIGH',
+    confidenceScore: 0.85,
+    impactLevel: 'HIGH',
+    timeHorizon: 'IMMEDIATE',
+    entityMentions: [quotation.venue],
+  };
+}
+
+async function researchParallelExchange(): Promise<Candidate[]> {
+  const candidates: Candidate[] = [];
+  for (const path of parallelExchangeVenues) {
+    try {
+      candidates.push(await researchParallelVenue(path));
+    } catch (error) {
+      (report.directCollectorErrors as Json[]).push({
+        collector: `parallel-exchange${path}`,
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+  }
+  if (!candidates.length) throw new Error('No parallel exchange venue returned a quotation');
   return candidates;
 }
 
@@ -291,7 +395,7 @@ const candidateSchema = {
     recordType: { type: 'string', enum: ['DAILY_INDICATOR', 'NEWS'] },
     dataCategory: {
       type: 'string',
-      enum: ['FX_OFFICIAL', 'UFV', 'SOVEREIGN_BONDS', 'MACRO_DAILY', 'COMPANY_NEWS'],
+      enum: ['FX_OFFICIAL', 'FX_PARALLEL', 'UFV', 'SOVEREIGN_BONDS', 'MACRO_DAILY', 'COMPANY_NEWS'],
     },
     title: { type: 'string', minLength: 3, maxLength: 300 },
     url: { type: 'string' },
@@ -368,6 +472,7 @@ const researchOutputSchema = z.object({
         recordType: z.enum(['DAILY_INDICATOR', 'NEWS']),
         dataCategory: z.enum([
           'FX_OFFICIAL',
+          'FX_PARALLEL',
           'UFV',
           'SOVEREIGN_BONDS',
           'MACRO_DAILY',
@@ -390,7 +495,7 @@ const researchOutputSchema = z.object({
         entityMentions: z.array(z.string().min(2).max(250)).max(25),
       }),
     )
-    .max(20),
+    .max(maximumResearchResults),
 });
 
 function parseResearchOutput(raw: string): ResearchOutput {
@@ -403,14 +508,35 @@ function parseResearchOutput(raw: string): ResearchOutput {
   return researchOutputSchema.parse(parsed);
 }
 
+/**
+ * Field list sent instead of the full JSON Schema.
+ *
+ * Serializing `candidateSchema` into the request body cost more tokens than the
+ * instructions themselves, and the provider bills the prompt against the same
+ * per-minute budget as the agentic search loop, so every attempt was rejected
+ * before any research happened. The collector validates the response against
+ * the real schema on arrival, so the model only needs the field names.
+ */
+const researchResponseShape = [
+  'recordType (DAILY_INDICATOR|NEWS)',
+  `dataCategory (${candidateSchema.properties.dataCategory.enum.join('|')})`,
+  'title',
+  'url',
+  'publisher',
+  'publishedAt (ISO-8601 con zona, o null)',
+  'eventDate (YYYY-MM-DD, o null)',
+  `claimType (${candidateSchema.properties.claimType.enum.join('|')})`,
+  'assertion',
+  'excerpt',
+  'confidenceLevel (VERY_LOW|LOW|MEDIUM|HIGH|VERY_HIGH)',
+  'confidenceScore (0..1, o null)',
+  'impactLevel (CRITICAL|HIGH|MEDIUM|LOW|NEGLIGIBLE, o null)',
+  'timeHorizon (IMMEDIATE|SHORT_TERM|MEDIUM_TERM|LONG_TERM|STRUCTURAL, o null)',
+  'entityMentions (array de strings)',
+].join(', ');
+
 function researchPrompt(since: Date, now: Date): string {
-  const schema = {
-    type: 'object',
-    additionalProperties: false,
-    properties: { candidates: { type: 'array', maxItems: 20, items: candidateSchema } },
-    required: ['candidates'],
-  };
-  return `${economicResearchInstructions(since, now)} El colector descargará cada fuente y rechazará cualquier dato que no coincida. Responde únicamente con JSON válido según este esquema: ${JSON.stringify(schema)}`;
+  return `${economicResearchInstructions(since, now)} El colector descargara cada fuente y rechazara cualquier dato que no coincida. Responde solo con JSON: {"candidates":[...]} donde cada elemento tiene exactamente estos campos: ${researchResponseShape}.`;
 }
 
 async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput> {
@@ -431,7 +557,7 @@ async function researchWithGroq(since: Date, now: Date): Promise<ResearchOutput>
         { role: 'user', content: researchPrompt(since, now) },
       ],
       response_format: { type: 'json_object' },
-      max_completion_tokens: 6_000,
+      max_completion_tokens: maximumResearchCompletionTokens,
       search_settings: { country: 'bolivia' },
       compound_custom: { tools: { enabled_tools: ['web_search'] } },
     }),
@@ -464,7 +590,11 @@ async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutpu
             type: 'object',
             additionalProperties: false,
             properties: {
-              candidates: { type: 'array', maxItems: 20, items: candidateSchema },
+              candidates: {
+                type: 'array',
+                maxItems: maximumResearchResults,
+                items: candidateSchema,
+              },
             },
             required: ['candidates'],
           },
@@ -485,21 +615,42 @@ async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutpu
   return parseResearchOutput(outputText);
 }
 
-async function research(): Promise<ResearchOutput> {
+/** Deterministic collectors, each isolated so one broken source cannot hide the rest. */
+const directCollectors = [
+  { name: 'official-bcb', collect: researchOfficialBcb },
+  { name: 'parallel-exchange', collect: researchParallelExchange },
+] as const;
+
+async function research(): Promise<{ candidates: Candidate[] }> {
   const now = new Date();
   const since = new Date(now.getTime() - researchWindowMilliseconds);
   report.aiProvider = aiProvider;
   report.aiModel = aiModel;
-  const officialCandidates = await researchOfficialBcb();
+  const direct: Candidate[] = [];
+  for (const collector of directCollectors) {
+    try {
+      direct.push(...(await collector.collect()));
+    } catch (error) {
+      (report.directCollectorErrors as Json[]).push({
+        collector: collector.name,
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+  }
   try {
     const aiOutput =
       aiProvider === 'groq'
         ? await researchWithGroq(since, now)
         : await researchWithOpenAi(since, now);
-    return { candidates: [...officialCandidates, ...aiOutput.candidates] };
+    // Research output is untrusted no matter which provider produced it.
+    const researched = aiOutput.candidates.map<Candidate>((candidate) => ({
+      ...candidate,
+      sourceTrust: 'AI_REPORTED',
+    }));
+    return { candidates: [...direct, ...researched] };
   } catch (error) {
     report.aiError = error instanceof Error ? error.message : String(error);
-    return { candidates: officialCandidates };
+    return { candidates: direct };
   }
 }
 
@@ -513,7 +664,7 @@ function contentExtension(contentType: string): string {
 async function downloadEvidenceSource(rawUrl: string | URL) {
   const sourceFetch = await fetchPublicSource(
     rawUrl,
-    { headers: { 'User-Agent': 'EconomicDataCenterCollector/1.0' } },
+    { headers: { 'User-Agent': collectorUserAgent } },
     45_000,
   );
   if (sourceFetch.response.status !== 200) {
@@ -547,10 +698,15 @@ async function downloadEvidenceSource(rawUrl: string | URL) {
 
 async function persistEvidence(candidate: Candidate) {
   const discoveredUrl = validatePublicSourceUrl(candidate.url);
-  let downloaded = await downloadEvidenceSource(discoveredUrl);
+  let downloaded = candidate.prefetched ?? (await downloadEvidenceSource(discoveredUrl));
   let { bytes, contentType, sourceUrl } = downloaded;
   let sourceRedirectCount = downloaded.redirectCount;
-  if (contentType.includes('html')) {
+  // Article and canonical resolution exists to upgrade a section or homepage
+  // URL supplied by the research model. A deterministic collector already
+  // points at the exact document, and re-downloading it would only reopen the
+  // race the retained response closes.
+  const resolvesSource = candidate.sourceTrust === 'AI_REPORTED';
+  if (resolvesSource && contentType.includes('html')) {
     const linkedArticle = resolveLinkedArticle(
       downloaded.decodedText ?? '',
       sourceUrl,
@@ -563,7 +719,7 @@ async function persistEvidence(candidate: Candidate) {
     }
   }
   let canonicalized = false;
-  if (contentType.includes('html')) {
+  if (resolvesSource && contentType.includes('html')) {
     const metadata = htmlSourceMetadata(downloaded.decodedText ?? '');
     const canonicalUrl = canonicalSourceUrl(metadata, sourceUrl);
     if (canonicalUrl) {
@@ -584,11 +740,13 @@ async function persistEvidence(candidate: Candidate) {
   requireVerifiableText(text, contentType);
   const sourceMetadata = contentType.includes('html')
     ? htmlSourceMetadata(downloaded.decodedText ?? '')
-    : {
-        publishers: [],
-        publicationDates: pdfEvidence ? pdfMetadataPublicationDates(pdfEvidence.metadata) : [],
-        canonicalUrls: [],
-      };
+    : contentType.includes('json')
+      ? jsonSourceMetadata(downloaded.decodedText ?? '')
+      : {
+          publishers: [],
+          publicationDates: pdfEvidence ? pdfMetadataPublicationDates(pdfEvidence.metadata) : [],
+          canonicalUrls: [],
+        };
   const publicationDateAssessment = assessPublicationMetadata(
     candidate.publishedAt ?? '',
     sourceMetadata.publicationDates,
@@ -599,7 +757,26 @@ async function persistEvidence(candidate: Candidate) {
   if (publicationDateAssessment === 'AMBIGUOUS') {
     throw new Error('The downloaded source declares conflicting publication dates');
   }
-  const verifiedPublisher = sourceMetadata.publishers[0] ?? candidate.publisher;
+  // The host is not self-reported: the SSRF guard resolved it and the bytes
+  // above were downloaded from it, so a registered domain establishes the
+  // publisher for pages that carry no metadata of their own.
+  const registeredSource = verifiedSource(sourceUrl);
+  const verifiedPublisher =
+    sourceMetadata.publishers[0] ?? registeredSource?.publisher ?? candidate.publisher;
+  const publisherVerification =
+    sourceMetadata.publishers.length > 0
+      ? 'SOURCE_METADATA'
+      : registeredSource
+        ? `REGISTERED_DOMAIN_${registeredSource.tier}`
+        : 'UNVERIFIED';
+  const publicationDateVerified =
+    publicationDateAssessment === 'MATCHED' ||
+    undatedOfficialIndicator({
+      recordType: candidate.recordType,
+      publishedAt: candidate.publishedAt,
+      publicationDateAssessment,
+      source: registeredSource,
+    });
   if (!comparable(text).includes(comparable(candidate.title))) {
     throw new Error('The candidate title was not found in the final downloaded source');
   }
@@ -682,6 +859,8 @@ async function persistEvidence(candidate: Candidate) {
         sourcePublicationDates: sourceMetadata.publicationDates,
         ...(pdfEvidence ? { pdfMetadata: pdfEvidence.metadata } : {}),
         publicationDateVerification: publicationDateAssessment,
+        publicationDateVerified,
+        publisherVerification,
         discoveredUri: discoveredUrl.toString(),
         resolvedArticle: sourceUrl.toString() !== discoveredUrl.toString(),
         sourceRedirectCount,
@@ -723,8 +902,8 @@ async function persistEvidence(candidate: Candidate) {
     sourceUrl: sourceUrl.toString(),
     entityMentions,
     publisher: verifiedPublisher,
-    publisherVerified: sourceMetadata.publishers.length > 0,
-    publicationDateVerified: publicationDateAssessment === 'MATCHED',
+    publisherVerified: publisherVerification !== 'UNVERIFIED',
+    publicationDateVerified,
     excerptOccurrenceCount: excerptLocator.occurrenceCount,
     lexicalGrounding: grounding.lexicalGrounding,
     canonicalized,
@@ -799,6 +978,15 @@ async function saveReport(): Promise<void> {
 async function main(): Promise<void> {
   let agentRunId: string | undefined;
   const warnings: string[] = [];
+  /**
+   * Only a missing guaranteed category fails the run.
+   *
+   * A source that 404s, a venue that is briefly down or a research provider
+   * having a bad minute are ordinary and were already recorded as warnings.
+   * Letting any of them fail the scheduler made every run red, which is the
+   * same as having no alert at all.
+   */
+  const coverageFailures: string[] = [];
   try {
     await waitForBackend();
     agentRunId = await openRun();
@@ -806,15 +994,13 @@ async function main(): Promise<void> {
     const output = await research();
     report.sourcesConsulted = output.candidates.length;
     if (typeof report.aiError === 'string') warnings.push(`AI_RESEARCH_FAILED: ${report.aiError}`);
+    for (const failure of report.directCollectorErrors as Json[]) {
+      warnings.push(`DIRECT_COLLECTOR_FAILED: ${JSON.stringify(failure)}`);
+    }
     const items: CorroboratedClaimItem[] = [];
     const collectedCategories = new Set<Candidate['dataCategory']>();
     const seenEvidence = new Set<string>();
-    const localEventDate = new Intl.DateTimeFormat('en-CA', {
-      timeZone: env.ECONOMIC_TIMEZONE,
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).format(new Date());
+    const localEventDate = localDate(new Date());
     const publicationWindowEnd = new Date(Date.now() + 15 * 60 * 1000);
     const publicationWindowStart = new Date(
       publicationWindowEnd.getTime() - researchWindowMilliseconds - 15 * 60 * 1000,
@@ -1024,12 +1210,20 @@ async function main(): Promise<void> {
       (category) => !collectedCategories.has(category),
     );
     for (const category of missingDailyCategories) {
-      warnings.push(`Cobertura diaria incompleta: no se guardó ${category} para ${localEventDate}`);
+      const failure = `Cobertura diaria incompleta: no se guardó ${category} para ${localEventDate}`;
+      warnings.push(failure);
+      coverageFailures.push(failure);
     }
+    const missingDesiredCategories = desiredDailyCategories.filter(
+      (category) => !collectedCategories.has(category),
+    );
     report.coverage = {
       eventDate: localEventDate,
       collectedCategories: [...collectedCategories].sort(),
       missingRequiredCategories: missingDailyCategories,
+      // Recorded, never fatal: these depend on a publication that does not
+      // exist on a weekend or a holiday.
+      missingDesiredCategories,
       companyNewsCollected: collectedCategories.has('COMPANY_NEWS'),
     };
     const consolidatedItems = consolidateCorroboratingClaims(items);
@@ -1067,17 +1261,13 @@ async function main(): Promise<void> {
       report.submission = submission;
       report.findingsSent = consolidatedItems.length;
     }
-    await completeRun(
-      agentRunId,
-      warnings.length ? 'PARTIAL' : 'SUCCEEDED',
-      warnings.length,
-      output.candidates.length,
-    );
-    report.status = warnings.length ? 'PARTIAL' : 'SUCCEEDED';
+    const status = coverageFailures.length ? 'PARTIAL' : 'SUCCEEDED';
+    await completeRun(agentRunId, status, warnings.length, output.candidates.length);
+    report.status = status;
     report.warnings = warnings;
-    if (warnings.length) {
-      // A partial collection must be visible as a failed scheduler run. The
-      // report and agent run retain PARTIAL so operators can distinguish a
+    if (coverageFailures.length) {
+      // A missing guaranteed reading must be visible as a failed scheduler run.
+      // The report and agent run retain PARTIAL so operators can distinguish a
       // coverage gap from a collector crash.
       process.exitCode = 1;
     }
