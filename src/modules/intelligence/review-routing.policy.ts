@@ -41,6 +41,20 @@ const LOW_CONFIDENCE = new Set(['VERY_LOW', 'LOW']);
 const CRITICAL_IMPACT = new Set(['CRITICAL', 'HIGH']);
 
 /**
+ * Claim type exempt from the impact gate.
+ *
+ * Impact states how economically significant a number is, not how well it is
+ * evidenced. Gating publication on significance meant the readings the
+ * observatory exists to publish — the official and parallel exchange rates —
+ * were the ones that could never publish, while their confidence, quotation
+ * grounding, injection and conflict checks had all passed. Impact does not
+ * change whether a figure was copied correctly from its source, so a reading
+ * is gated on evidence alone. Interpretation and narrative facts keep the gate:
+ * for those, impact is what decides how much a mistake costs.
+ */
+const IMPACT_GATE_EXEMPT = new Set(['INDICATOR_READING']);
+
+/**
  * Decides whether a claim may be published without a person.
  *
  * The rule that matters institutionally: an inference produced by a model is
@@ -78,7 +92,11 @@ export function routeClaim(claim: RoutableClaim): RoutingDecision {
       injectionMarkers: [],
     };
   }
-  if (claim.impactLevel && CRITICAL_IMPACT.has(claim.impactLevel)) {
+  if (
+    claim.impactLevel &&
+    CRITICAL_IMPACT.has(claim.impactLevel) &&
+    !IMPACT_GATE_EXEMPT.has(claim.claimType)
+  ) {
     return {
       disposition: 'REVIEW',
       reason: 'CRITICAL_CLAIM',
@@ -97,7 +115,7 @@ export function routeClaim(claim: RoutableClaim): RoutingDecision {
   return {
     disposition: 'PUBLISH',
     reason: 'MANUAL_REQUEST',
-    explanation: 'Verifiable claim with sufficient confidence and ordinary impact',
+    explanation: 'Verifiable claim with sufficient confidence and evidence',
     injectionMarkers: [],
   };
 }
