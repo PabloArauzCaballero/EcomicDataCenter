@@ -1,12 +1,12 @@
-import { ungroundedNumbers } from './quantitative-grounding';
 import {
   INDICATOR_CODES,
   INDICATOR_UNITS,
+  ungroundedMeasures,
   type IndicatorMeasure,
   type PriceSide,
 } from '../../common/economic-indicators/indicator-codes';
 
-export { INDICATOR_CODES, INDICATOR_UNITS };
+export { INDICATOR_CODES, INDICATOR_UNITS, ungroundedMeasures };
 export type { IndicatorMeasure, PriceSide };
 
 /**
@@ -19,20 +19,3 @@ export type { IndicatorMeasure, PriceSide };
  * assertion, derived from the same bytes and held to the same rule: every value
  * must appear in the excerpt retained as evidence.
  */
-
-/**
- * Values that do not appear in the excerpt retained as evidence.
- *
- * Each value is checked on its own rather than as one sequence, because the
- * ordered check exists to stop a claim from reusing a single occurrence for
- * several figures, and measurements are independent readings.
- */
-export function ungroundedMeasures(
-  measures: readonly IndicatorMeasure[],
-  excerpt: string,
-): string[] {
-  const ungrounded = measures
-    .filter((measure) => ungroundedNumbers(measure.value, excerpt).length > 0)
-    .map((measure) => measure.value);
-  return [...new Set(ungrounded)];
-}

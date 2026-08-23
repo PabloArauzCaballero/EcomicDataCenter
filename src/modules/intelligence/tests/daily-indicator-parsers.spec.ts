@@ -4,7 +4,7 @@ import {
   parseParallelQuotation,
 } from '../daily-indicator-parsers';
 import { assessLexicalGrounding } from '../claim-evidence-grounding';
-import { ungroundedNumbers } from '../quantitative-grounding';
+import { ungroundedNumbers } from '../../../common/intelligence/quantitative-grounding';
 
 // Captured verbatim from https://www.bcb.gob.bo/librerias/indicadores/otras/ultimo.php
 const bcbTable = `

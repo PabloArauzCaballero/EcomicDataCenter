@@ -43,10 +43,16 @@ describeIntegration('economic indicator read models', () => {
       artifacts: await count('provenance.source_artifact'),
     };
 
-    expect(afterFirst.observations).toBeGreaterThan(200);
+    expect(afterFirst.observations).toBeGreaterThan(400);
     expect(afterFirst.claims).toBe(afterFirst.observations);
-    expect(afterFirst.runs).toBe(1);
     expect(afterFirst.artifacts).toBeGreaterThanOrEqual(1);
+
+    // Each backfilled series opens exactly one run, however many series exist.
+    const duplicated = await count(
+      `(SELECT ai_agent_id FROM intelligence.agent_run WHERE trigger_type = 'BACKFILL'
+        GROUP BY ai_agent_id HAVING count(*) > 1) AS repeated`,
+    );
+    expect(duplicated).toBe(0);
 
     await runBootSeeds();
 

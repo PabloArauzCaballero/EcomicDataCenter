@@ -151,7 +151,7 @@ export const agentBootstrapSeedSchema = z
       })
       .strict(),
     agent: agentSeedSchema,
-    backfillAgent: agentSeedSchema,
+    backfillAgents: z.array(agentSeedSchema).min(1).max(10),
   })
   .strict();
 

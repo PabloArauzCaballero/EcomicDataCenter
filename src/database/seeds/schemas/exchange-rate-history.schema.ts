@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { date } from './seed.primitives';
 
 /**
- * Historical parallel exchange rate captured from its publisher.
+ * Historical exchange rate series captured from its publisher.
  *
  * This is not demonstration data: it is a real series, retrieved once from a
  * citable export and versioned here so a deployment loads it without depending
@@ -15,10 +15,19 @@ const quotedValue = z
   .string()
   .regex(/^-?\d+(?:\.\d+)?$/u, 'a quoted value must be a plain decimal');
 
-export const fxParallelHistorySchema = z.object({
+export const exchangeRateHistorySchema = z.object({
   provenance: z
     .object({
+      /** Who published the artifact the series was read from. */
       publisher: z.string().trim().min(2).max(200),
+      /**
+       * Who produced the figure, when that is not the publisher.
+       *
+       * The official rate is set by the central bank and republished by the
+       * aggregator; attributing it to whoever happened to serve the file would
+       * misstate its authority.
+       */
+      originator: z.string().trim().min(2).max(200).optional(),
       sourceUrl: z.url(),
       retrievedAt: z.iso.datetime({ offset: false }),
       upstreamSha256: z.string().regex(/^[a-f0-9]{64}$/u),
@@ -42,6 +51,14 @@ export const fxParallelHistorySchema = z.object({
           date,
           buy: quotedValue,
           sell: quotedValue,
+          /**
+           * The literal fragment of the payload this point was read from.
+           *
+           * Present where the snapshot was captured with it, so the quotation
+           * retained as evidence can be found in the bytes the digest covers
+           * instead of being a restatement of the parsed values.
+           */
+          excerpt: z.string().min(10).max(4_000).optional(),
         })
         .strict(),
     )
@@ -49,4 +66,5 @@ export const fxParallelHistorySchema = z.object({
     .max(2_000),
 });
 
-export type FxParallelHistory = z.infer<typeof fxParallelHistorySchema>;
+export type ExchangeRateHistory = z.infer<typeof exchangeRateHistorySchema>;
+export type ExchangeRatePoint = ExchangeRateHistory['points'][number];
