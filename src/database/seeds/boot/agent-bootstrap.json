@@ -28,5 +28,16 @@
     "specialty": "Coyuntura macroeconómica y sectorial de Bolivia",
     "promptVersion": "2026-08-04.1",
     "schemaVersion": "1.0.0"
+  },
+  "backfillAgent": {
+    "aiAgentId": "92000000-0000-4000-8000-000000000004",
+    "code": "FX_PARALLEL_HISTORY_BACKFILL",
+    "name": "Carga histórica del tipo de cambio paralelo",
+    "agentType": "EXCHANGE_RATE",
+    "provider": "Dolar Blue Bolivia",
+    "modelIdentifier": "chart-export-1d",
+    "specialty": "Serie histórica diaria del dólar paralelo en Bolivia",
+    "promptVersion": "n/a",
+    "schemaVersion": "1.0.0"
   }
 }

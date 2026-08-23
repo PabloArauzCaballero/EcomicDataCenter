@@ -36,6 +36,16 @@ const environmentSchema = z
     DATABASE_READER_URL: z.string().min(1),
     DATABASE_MIGRATOR_URL: z.string().min(1).optional(),
     DATABASE_SSL: booleanFromString,
+    /**
+     * Whether starting the process brings the database up to date.
+     *
+     * On by default because the platform offers no release step to run
+     * migrations from, so a deployment would otherwise need a manual one.
+     */
+    DATABASE_PROVISION_ON_BOOT: z
+      .enum(['true', 'false'])
+      .default('true')
+      .transform((value) => value === 'true'),
     DATABASE_CONNECT_TIMEOUT_MS: z.coerce.number().int().min(1000).max(60_000).default(5000),
     DATABASE_POOL_MAX_WRITER: z.coerce.number().int().min(1).max(100).default(15),
     DATABASE_POOL_MAX_READER: z.coerce.number().int().min(1).max(100).default(30),

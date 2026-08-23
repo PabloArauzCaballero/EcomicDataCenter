@@ -4,7 +4,8 @@ Tres vistas en el esquema `read_models` sostienen el análisis de los indicadore
 consumen conectando directamente a la base con un rol de solo lectura; no requieren pasar por la
 API.
 
-Las crea la migración `0031-create-economic-indicator-read-models.ts`. La creación es idempotente:
+Las crea la migración `0031-create-economic-indicator-read-models.ts` y las redefine
+`0032-expose-indicator-aggregation.ts`. La creación es idempotente:
 cada vista se elimina antes de recrearse y los `GRANT` están guardados por existencia del rol, de
 modo que relanzar el conjunto de migraciones sobre una base nueva —o sobre una que ya tenga parte
 de esto— converge al mismo estado.
@@ -26,6 +27,32 @@ redondeo de coma flotante; las vistas lo convierten a `numeric`. Toda medición 
 misma regla que la afirmación: **si la cifra no aparece en el excerpt conservado como evidencia, la
 lectura se rechaza entera**. Una afirmación de investigación sin parser detrás no lleva mediciones,
 así que nunca aparece en estas vistas.
+
+## De dónde sale la historia
+
+La serie del dólar paralelo **desde el 1 de enero de 2026** no la recogió el colector: se cargó del
+export histórico de su editor, conservado en `src/database/seeds/boot/fx-parallel-history.json` con
+su procedencia (URL con el rango exacto, instante de obtención y sha256 del payload). Se reconcilia
+en cada arranque de la aplicación de forma idempotente, bajo la identidad
+`FX_PARALLEL_HISTORY_BACKFILL` y con `trigger_type = 'BACKFILL'`, de modo que una lectura recogida
+siempre se distingue de una cargada de archivo. Detalle en `docs/decisions/0018`.
+
+## Promedio diario frente a lectura puntual
+
+El histórico se publica como **promedio diario** de las cotizaciones intradía; el colector registra
+el precio **en el momento** en que miró. Son estadísticos distintos y la columna `aggregation` los
+separa:
+
+| `aggregation` | Qué es | Origen |
+| --- | --- | --- |
+| `DAILY_AVERAGE` | El día reducido a un número | Carga histórica |
+| `POINT_IN_TIME` | El precio en el instante de la lectura | Colector diario |
+
+`economic_indicator_daily` agrupa por ese campo, así que un día cubierto por ambos produce **dos
+filas**, una por estadístico, en vez de un número que no es ninguno. `exchange_rate_gap` prefiere la
+lectura observada cuando existe e informa en `official_aggregation` y `parallel_aggregation` cuál
+usó. Un gráfico que quiera una sola línea debe elegir: filtrar por `aggregation`, o mostrar la
+costura explícitamente.
 
 ## Códigos de indicador
 
@@ -107,9 +134,10 @@ WHERE indicator_code = 'FX_PARALLEL_USD_BOB' AND event_date = current_date;
 
 ## Limitaciones
 
-- Solo cubren lo que recoge un colector determinista: tipo de cambio oficial, UFV y dólar paralelo.
-  Bonos soberanos, macro y noticias empresariales dependen de la investigación con IA y hoy no
-  producen mediciones estructuradas.
+- Solo cubren tipo de cambio oficial, UFV y dólar paralelo. Bonos soberanos, macro y noticias
+  empresariales dependen de la investigación con IA y hoy no producen mediciones estructuradas.
+- El tipo de cambio oficial y la UFV **no** tienen carga histórica: su serie empieza cuando empezó
+  a funcionar el colector. Solo el paralelo se remonta a enero.
 - Son vistas, no tablas materializadas. Con el volumen actual —unas pocas lecturas al día— se
   resuelven de inmediato; si la historia crece hasta hacerlas lentas, la decisión de materializar
   debe medirse antes, no anticiparse.

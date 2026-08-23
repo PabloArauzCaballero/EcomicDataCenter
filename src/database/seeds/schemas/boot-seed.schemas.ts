@@ -95,6 +95,36 @@ export const countrySeedSchema = geographicUnitSeedSchema;
  * by the runner rather than repeated in the catalog, so the file cannot describe
  * a source owned by one institution and an agent owned by another.
  */
+const agentSeedSchema = z
+  .object({
+    aiAgentId: uuid,
+    code: z
+      .string()
+      .regex(/^[A-Z0-9][A-Z0-9_-]*$/u)
+      .min(2)
+      .max(80),
+    name: code(250),
+    agentType: z.enum([
+      'EXCHANGE_RATE',
+      'SOVEREIGN_DEBT',
+      'SECTOR',
+      'SOCIOECONOMIC',
+      'SENTIMENT',
+      'UNCERTAINTY',
+      'CORPORATE',
+      'POLITICAL',
+      'SECURITIES_MARKET',
+      'FINANCIAL_SYSTEM',
+      'EXTERNAL_SECTOR',
+    ]),
+    provider: code(80),
+    modelIdentifier: code(120),
+    specialty: code(120),
+    promptVersion: code(40),
+    schemaVersion: code(40),
+  })
+  .strict();
+
 export const agentBootstrapSeedSchema = z
   .object({
     organization: z
@@ -120,35 +150,8 @@ export const agentBootstrapSeedSchema = z
         isActive: z.literal(true),
       })
       .strict(),
-    agent: z
-      .object({
-        aiAgentId: uuid,
-        code: z
-          .string()
-          .regex(/^[A-Z0-9][A-Z0-9_-]*$/u)
-          .min(2)
-          .max(80),
-        name: code(250),
-        agentType: z.enum([
-          'EXCHANGE_RATE',
-          'SOVEREIGN_DEBT',
-          'SECTOR',
-          'SOCIOECONOMIC',
-          'SENTIMENT',
-          'UNCERTAINTY',
-          'CORPORATE',
-          'POLITICAL',
-          'SECURITIES_MARKET',
-          'FINANCIAL_SYSTEM',
-          'EXTERNAL_SECTOR',
-        ]),
-        provider: code(80),
-        modelIdentifier: code(120),
-        specialty: code(120),
-        promptVersion: code(40),
-        schemaVersion: code(40),
-      })
-      .strict(),
+    agent: agentSeedSchema,
+    backfillAgent: agentSeedSchema,
   })
   .strict();
 
