@@ -1,4 +1,4 @@
-import { canonicalHash, textHash } from '../../common/hashing/canonical-hash';
+import { canonicalHash, textHash } from '../hashing/canonical-hash';
 
 /** The semantic identity of a claim, excluding who reported it and when. */
 export interface ClaimContent {

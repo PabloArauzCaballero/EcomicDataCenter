@@ -1240,7 +1240,13 @@ async function main(): Promise<void> {
           recordType: candidate.recordType,
           dataCategory: candidate.dataCategory,
           eventDate: candidate.eventDate,
-          ...(measures.length ? { measures } : {}),
+          ...(measures.length
+            ? // A reading taken at a moment, not a day reduced to one number.
+              // The historical backfill states DAILY_AVERAGE, and a chart that
+              // could not tell them apart would splice two different statistics
+              // into one line.
+              { measures, aggregation: 'POINT_IN_TIME' }
+            : {}),
           ...(candidate.instrument ? { instrument: candidate.instrument } : {}),
           ...(candidate.venue ? { venue: candidate.venue } : {}),
           ...rawSource,

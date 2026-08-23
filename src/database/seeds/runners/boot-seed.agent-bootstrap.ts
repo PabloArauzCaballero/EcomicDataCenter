@@ -12,13 +12,24 @@ import { readSeed } from './seed.utils';
  * an operator can reach with the base URL alone instead of a manual bootstrap
  * that has to be repeated on every fresh database.
  */
-export async function reconcileAgentBootstrap(transaction: Transaction): Promise<void> {
+export interface AgentBootstrapIdentities {
+  readonly organizationId: string;
+  readonly sourceId: string;
+}
+
+export async function reconcileAgentBootstrap(
+  transaction: Transaction,
+): Promise<AgentBootstrapIdentities> {
   const seed = await readSeed('boot/agent-bootstrap.json', agentBootstrapSeedSchema);
   const { organizationId } = seed.organization;
 
   await OrganizationModel.upsert({ ...seed.organization, validTo: null }, { transaction });
   await SourceModel.upsert({ ...seed.source, organizationId }, { transaction });
   await reconcileAgent(seed.agent, organizationId, transaction);
+  // The historical backfill writes under its own identity, so a chart can tell
+  // a reading that was collected from one that was loaded from an archive.
+  await reconcileAgent(seed.backfillAgent, organizationId, transaction);
+  return { organizationId, sourceId: seed.source.sourceId };
 }
 
 type AgentSeed = ReturnType<typeof agentBootstrapSeedSchema.parse>['agent'];

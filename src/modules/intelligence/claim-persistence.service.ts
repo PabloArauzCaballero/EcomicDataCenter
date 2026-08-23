@@ -7,7 +7,7 @@ import {
   claimSubject,
   evidenceHash,
   isComparableSubject,
-} from './claim-normalizer';
+} from '../../common/intelligence/claim-normalizer';
 import { ClaimTriageService } from './claim-triage.service';
 import { IntelligenceWriteRepository } from './intelligence-write.repository';
 import type { SubmissionItemResult } from './intelligence-results';
