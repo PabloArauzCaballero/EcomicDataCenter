@@ -34,10 +34,17 @@ import {
 import { jsonSourceMetadata } from '../src/modules/intelligence/json-source-metadata';
 import { indicatorEventDateIssue } from '../src/modules/intelligence/indicator-event-date';
 import {
+  housingDevelopmentUnitMeasure,
+  officialExchangeRateMeasure,
+  parallelExchangeMeasures,
   parallelQuotationAssertion,
   parseBcbQuotationTable,
   parseParallelQuotation,
 } from '../src/modules/intelligence/daily-indicator-parsers';
+import {
+  ungroundedMeasures,
+  type IndicatorMeasure,
+} from '../src/modules/intelligence/indicator-measures';
 import {
   undatedOfficialIndicator,
   verifiedSource,
@@ -89,6 +96,18 @@ interface Candidate {
    * makes the evidence the very thing the value was read from.
    */
   prefetched?: DownloadedSource;
+  /**
+   * Structured readings the claim states in prose.
+   *
+   * Present only for a deterministic collector: research output asserts figures
+   * in text and has no parser behind it, so promoting its numbers to
+   * measurements would give an unverified reading the shape of a measured one.
+   */
+  measures?: IndicatorMeasure[];
+  /** Instrument the venue quotes, retained verbatim where it is not USD. */
+  instrument?: string;
+  /** Trading venue behind a market quotation. */
+  venue?: string;
   recordType: 'DAILY_INDICATOR' | 'NEWS';
   dataCategory:
     'FX_OFFICIAL' | 'FX_PARALLEL' | 'UFV' | 'SOVEREIGN_BONDS' | 'MACRO_DAILY' | 'COMPANY_NEWS';
@@ -111,7 +130,10 @@ interface Candidate {
  * Research output declares neither its own trust level nor its evidence: the
  * collector assigns the first and downloads the second.
  */
-type AiCandidate = Omit<Candidate, 'sourceTrust' | 'prefetched'>;
+type AiCandidate = Omit<
+  Candidate,
+  'sourceTrust' | 'prefetched' | 'measures' | 'instrument' | 'venue'
+>;
 
 interface ResearchOutput {
   candidates: AiCandidate[];
@@ -291,6 +313,7 @@ async function researchOfficialBcb(): Promise<Candidate[]> {
       impactLevel: 'HIGH',
       timeHorizon: 'IMMEDIATE',
       entityMentions: [],
+      measures: [officialExchangeRateMeasure(officialRate)],
     });
   }
   if (ufv) {
@@ -312,6 +335,7 @@ async function researchOfficialBcb(): Promise<Candidate[]> {
       impactLevel: 'MEDIUM',
       timeHorizon: 'IMMEDIATE',
       entityMentions: [],
+      measures: [housingDevelopmentUnitMeasure(ufv)],
     });
   }
   if (!candidates.length) throw new Error('BCB quotation page contained no USD or UFV readings');
@@ -354,6 +378,9 @@ async function researchParallelVenue(path: string): Promise<Candidate> {
     impactLevel: 'HIGH',
     timeHorizon: 'IMMEDIATE',
     entityMentions: [quotation.venue],
+    measures: parallelExchangeMeasures(quotation),
+    instrument: quotation.instrument,
+    venue: quotation.venue,
   };
 }
 
@@ -1192,6 +1219,13 @@ async function main(): Promise<void> {
         }
         if (candidate.impactLevel) claim.impactLevel = candidate.impactLevel;
         if (candidate.timeHorizon) claim.timeHorizon = candidate.timeHorizon;
+        const measures = candidate.measures ?? [];
+        const ungroundedMeasureValues = ungroundedMeasures(measures, candidate.excerpt);
+        if (ungroundedMeasureValues.length) {
+          throw new Error(
+            `The measurement contains figures absent from the cited excerpt: ${ungroundedMeasureValues.join(', ')}`,
+          );
+        }
         const rawSource = {
           title: candidate.title,
           publisher: evidence.publisher,
@@ -1206,6 +1240,9 @@ async function main(): Promise<void> {
           recordType: candidate.recordType,
           dataCategory: candidate.dataCategory,
           eventDate: candidate.eventDate,
+          ...(measures.length ? { measures } : {}),
+          ...(candidate.instrument ? { instrument: candidate.instrument } : {}),
+          ...(candidate.venue ? { venue: candidate.venue } : {}),
           ...rawSource,
           sources: [rawSource],
           corroboration: summarizeCorroboration([rawSource]),

@@ -1,3 +1,5 @@
+import { INDICATOR_CODES, INDICATOR_UNITS, type IndicatorMeasure } from './indicator-measures';
+
 /**
  * Parsers for the endpoints the collector reads deterministically.
  *
@@ -123,4 +125,47 @@ export function parallelQuotationAssertion(quotation: ParallelQuotation): string
     .map((side) => `${side.label} ${side.value}`)
     .join(' y ');
   return `Dolar paralelo ${quotation.instrument} en ${quotation.venue}: ${sides}.`;
+}
+
+/** Measurement for the official rate, quoted as the table writes it. */
+export function officialExchangeRateMeasure(rate: string): IndicatorMeasure {
+  return {
+    indicatorCode: INDICATOR_CODES.officialExchangeRate,
+    priceSide: 'OFFICIAL',
+    value: rate,
+    unit: INDICATOR_UNITS.bolivianosPerDollar,
+  };
+}
+
+/** Measurement for the UFV, which is a single value with no market side. */
+export function housingDevelopmentUnitMeasure(value: string): IndicatorMeasure {
+  return {
+    indicatorCode: INDICATOR_CODES.housingDevelopmentUnit,
+    priceSide: null,
+    value,
+    unit: INDICATOR_UNITS.bolivianosPerHousingUnit,
+  };
+}
+
+/**
+ * Both sides of a venue quotation, ordered as the payload writes them.
+ *
+ * The unit is bolivianos per dollar even where the venue quotes USDT: in this
+ * market the stablecoin is the dollar proxy, and splitting the series by
+ * instrument would leave every venue alone in its own group and make a
+ * cross-venue median impossible. The instrument itself is retained separately
+ * so the substitution stays visible rather than assumed.
+ */
+export function parallelExchangeMeasures(quotation: ParallelQuotation): IndicatorMeasure[] {
+  return [
+    { side: 'BUY' as const, value: quotation.buy, position: quotation.excerpt.indexOf('"buy"') },
+    { side: 'SELL' as const, value: quotation.sell, position: quotation.excerpt.indexOf('"sell"') },
+  ]
+    .sort((left, right) => left.position - right.position)
+    .map((side) => ({
+      indicatorCode: INDICATOR_CODES.parallelExchangeRate,
+      priceSide: side.side,
+      value: side.value,
+      unit: INDICATOR_UNITS.bolivianosPerDollar,
+    }));
 }
