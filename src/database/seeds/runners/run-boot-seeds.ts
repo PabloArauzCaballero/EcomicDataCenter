@@ -24,7 +24,7 @@ import {
   unitSeedSchema,
 } from '../schemas/seed.schemas';
 import { reconcileAgentBootstrap } from './boot-seed.agent-bootstrap';
-import { reconcileFxParallelHistory } from './boot-seed.fx-parallel-history';
+import { reconcileExchangeRateHistory } from './boot-seed.exchange-rate-history';
 import { readSeed } from './seed.utils';
 
 async function reconcileFrequencies(transaction: Transaction): Promise<void> {
@@ -107,7 +107,7 @@ export async function runBootSeeds(): Promise<void> {
       const identities = await reconcileAgentBootstrap(transaction);
       // Runs last: it needs the backfill identity and the source the block
       // above reconciles.
-      await reconcileFxParallelHistory(identities.sourceId, transaction);
+      await reconcileExchangeRateHistory(identities.sourceId, transaction);
     });
   } finally {
     await database.close();

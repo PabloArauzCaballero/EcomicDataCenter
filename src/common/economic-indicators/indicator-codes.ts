@@ -1,3 +1,5 @@
+import { ungroundedNumbers } from '../intelligence/quantitative-grounding';
+
 /**
  * Cross-cutting contract for a measured economic indicator.
  *
@@ -44,4 +46,21 @@ export interface IndicatorMeasure {
    */
   readonly value: string;
   readonly unit: string;
+}
+
+/**
+ * Values that do not appear in the excerpt retained as evidence.
+ *
+ * Each value is checked on its own rather than as one sequence, because the
+ * ordered check exists to stop a claim from reusing a single occurrence for
+ * several figures, and measurements are independent readings.
+ */
+export function ungroundedMeasures(
+  measures: readonly IndicatorMeasure[],
+  excerpt: string,
+): string[] {
+  const ungrounded = measures
+    .filter((measure) => ungroundedNumbers(measure.value, excerpt).length > 0)
+    .map((measure) => measure.value);
+  return [...new Set(ungrounded)];
 }

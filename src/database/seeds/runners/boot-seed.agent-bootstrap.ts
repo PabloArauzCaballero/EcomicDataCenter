@@ -26,9 +26,12 @@ export async function reconcileAgentBootstrap(
   await OrganizationModel.upsert({ ...seed.organization, validTo: null }, { transaction });
   await SourceModel.upsert({ ...seed.source, organizationId }, { transaction });
   await reconcileAgent(seed.agent, organizationId, transaction);
-  // The historical backfill writes under its own identity, so a chart can tell
-  // a reading that was collected from one that was loaded from an archive.
-  await reconcileAgent(seed.backfillAgent, organizationId, transaction);
+  // Each historical backfill writes under its own identity, so a chart can tell
+  // a reading that was collected from one that was loaded from an archive, and
+  // which archive it came from.
+  for (const agent of seed.backfillAgents) {
+    await reconcileAgent(agent, organizationId, transaction);
+  }
   return { organizationId, sourceId: seed.source.sourceId };
 }
 

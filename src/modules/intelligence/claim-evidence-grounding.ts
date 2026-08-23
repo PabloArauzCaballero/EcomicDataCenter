@@ -1,5 +1,5 @@
 import { groundedEntities } from './evidence-quality';
-import { ungroundedNumbers } from './quantitative-grounding';
+import { ungroundedNumbers } from '../../common/intelligence/quantitative-grounding';
 
 export interface ClaimEvidenceGrounding {
   entityMentions: string[];
