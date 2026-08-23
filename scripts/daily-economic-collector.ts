@@ -32,6 +32,7 @@ import {
   htmlSourceMetadata,
 } from '../src/modules/intelligence/source-metadata';
 import { jsonSourceMetadata } from '../src/modules/intelligence/json-source-metadata';
+import { indicatorEventDateIssue } from '../src/modules/intelligence/indicator-event-date';
 import {
   parallelQuotationAssertion,
   parseBcbQuotationTable,
@@ -141,8 +142,18 @@ const aiProvider = (process.env.AI_PROVIDER?.trim().toLowerCase() || 'groq') as 
 if (!['groq', 'openai'].includes(aiProvider)) {
   throw new Error(`Unsupported AI_PROVIDER: ${aiProvider}`);
 }
+/**
+ * Model for the selected provider.
+ *
+ * A provider-specific variable wins over the shared one, so switching provider
+ * is a single change. Reading only the shared `AI_MODEL` meant a switch would
+ * have sent one provider's model name to the other and failed on the first
+ * call, while the already-configured `OPENAI_MODEL` was never read at all.
+ */
 const aiModel =
-  process.env.AI_MODEL?.trim() || (aiProvider === 'groq' ? 'groq/compound' : 'gpt-5.6-terra');
+  process.env[aiProvider === 'groq' ? 'GROQ_MODEL' : 'OPENAI_MODEL']?.trim() ||
+  process.env.AI_MODEL?.trim() ||
+  (aiProvider === 'groq' ? 'groq/compound' : 'gpt-5.6-terra');
 const aiApiKey = process.env[aiProvider === 'groq' ? 'GROQ_API_KEY' : 'OPENAI_API_KEY']?.trim();
 if (!aiApiKey) {
   throw new Error(
@@ -1019,10 +1030,14 @@ async function main(): Promise<void> {
           });
           continue;
         }
-        if (candidate.recordType === 'DAILY_INDICATOR' && candidate.eventDate !== localEventDate) {
+        const eventDateIssue =
+          candidate.recordType === 'DAILY_INDICATOR'
+            ? indicatorEventDateIssue(candidate.eventDate, new Date(), env.ECONOMIC_TIMEZONE)
+            : undefined;
+        if (eventDateIssue) {
           (report.qualityAdjustments as Json[]).push({
             sourceUrl: candidate.url,
-            action: 'SKIPPED_NON_CURRENT_DAILY_INDICATOR',
+            action: `SKIPPED_${eventDateIssue}`,
             eventDate: candidate.eventDate,
             expectedEventDate: localEventDate,
           });
