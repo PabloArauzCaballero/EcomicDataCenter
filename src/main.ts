@@ -16,6 +16,7 @@ import { AppModule } from './app.module';
 import { createRequestId } from './common/http/request-id';
 import { fastifyTracingPlugin } from './common/observability/fastify-tracing.plugin';
 import { getEnvironment } from './config/environment';
+import { provisionDatabase } from './database/startup-provisioning';
 
 /**
  * Derives a stable per-caller key without verifying the token.
@@ -39,6 +40,9 @@ function hasAgentIdentity(authorization: string | undefined): boolean {
 
 async function bootstrap(): Promise<void> {
   const environment = getEnvironment();
+  // Before anything binds a port: a replica must not accept a request against a
+  // schema it was not built for.
+  if (environment.DATABASE_PROVISION_ON_BOOT) await provisionDatabase(environment);
   const adapter = new FastifyAdapter({
     bodyLimit: environment.BODY_LIMIT_BYTES,
     trustProxy: environment.TRUST_PROXY,

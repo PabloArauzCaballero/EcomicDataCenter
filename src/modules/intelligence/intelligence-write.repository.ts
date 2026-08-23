@@ -16,7 +16,7 @@ import {
   ReviewTaskModel,
   SourceArtifactModel,
 } from '../../database/models';
-import type { ClaimSubject } from './claim-normalizer';
+import type { ClaimSubject } from '../../common/intelligence/claim-normalizer';
 import type { AliasCandidate } from './entity-resolution';
 
 @Injectable()

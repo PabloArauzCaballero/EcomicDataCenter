@@ -11,7 +11,7 @@ import { TracingService } from '../../common/observability/tracing.service';
 import { withSerializableRetry } from '../../common/persistence.transaction';
 import { WRITER_DATABASE } from '../../database/database.tokens';
 import { ClaimPersistenceService } from './claim-persistence.service';
-import { rawPayloadHash } from './claim-normalizer';
+import { rawPayloadHash } from '../../common/intelligence/claim-normalizer';
 import { IntelligenceWriteRepository } from './intelligence-write.repository';
 import type { SubmissionItemResult, SubmissionResult } from './intelligence-results';
 import type { SubmissionItemInput, SubmitObservationsInput } from './intelligence.schemas';
