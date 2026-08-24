@@ -62,6 +62,17 @@
       "specialty": "Series anuales macroeconómicas de Bolivia",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000007",
+      "code": "BBV_FILINGS_BACKFILL",
+      "name": "Carga de hechos relevantes de la Bolsa Boliviana de Valores",
+      "agentType": "CORPORATE",
+      "provider": "Bolsa Boliviana de Valores",
+      "modelIdentifier": "bbv-hechos-relevantes",
+      "specialty": "Hechos relevantes comunicados por emisores en Bolivia",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
