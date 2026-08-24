@@ -49,6 +49,20 @@ interface HistorySeries {
 
 const SERIES: readonly HistorySeries[] = [
   {
+    file: 'boot/fx-parallel-history-2025.json',
+    agentCode: 'FX_PARALLEL_HISTORY_BACKFILL',
+    dataCategory: 'FX_PARALLEL',
+    indicatorCode: INDICATOR_CODES.parallelExchangeRate,
+    label: 'Dolar paralelo BOB/USD',
+  },
+  {
+    file: 'boot/fx-official-history-2025.json',
+    agentCode: 'FX_OFFICIAL_HISTORY_BACKFILL',
+    dataCategory: 'FX_OFFICIAL',
+    indicatorCode: INDICATOR_CODES.officialExchangeRate,
+    label: 'Tipo de cambio oficial BOB/USD',
+  },
+  {
     file: 'boot/fx-parallel-history.json',
     agentCode: 'FX_PARALLEL_HISTORY_BACKFILL',
     dataCategory: 'FX_PARALLEL',

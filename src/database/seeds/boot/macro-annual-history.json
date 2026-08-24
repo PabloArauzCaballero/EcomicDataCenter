@@ -1,0 +1,1584 @@
+{
+  "series": [
+    {
+      "indicatorCode": "CPI_INFLATION_ANNUAL_PCT",
+      "worldBankCode": "FP.CPI.TOTL.ZG",
+      "name": "Inflacion de precios al consumidor",
+      "unit": "PERCENT",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/FP.CPI.TOTL.ZG?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "cd5a44bc8c355334db3750c618006ab4537797f6fe797cd34aece7bd2de18b4c",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "4.60822998872598",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":4.60822998872598,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "1.58965377879568",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":1.58965377879568,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "0.92825885161107",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":0.92825885161107,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "3.33727499671534",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":3.33727499671534,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "4.43738080101725",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":4.43738080101725,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "5.39323106890663",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":5.39323106890663,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "4.28239604802561",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":4.28239604802561,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "8.70560923578869",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":8.70560923578869,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "14.0068107702519",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":14.0068107702519,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "3.34645420142014",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":3.34645420142014,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "2.50327605844241",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":2.50327605844241,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "9.88446419823883",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":9.88446419823883,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "4.51560291399376",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":4.51560291399376,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "5.73640023719607",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":5.73640023719607,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "5.76660074579144",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":5.76660074579144,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "4.05961041135645",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":4.05961041135645,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "3.62321431764138",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":3.62321431764138,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "2.8227580554717",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":2.8227580554717,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "2.27205987230155",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":2.27205987230155,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "1.83954504969026",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":1.83954504969026,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "0.940742153381849",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":0.940742153381849,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "0.737383721452275",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":0.737383721452275,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "1.74632872945969",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":1.74632872945969,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "2.57688800489192",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":2.57688800489192,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "5.09976568317427",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":5.09976568317427,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2025",
+          "value": "19.517120804733",
+          "excerpt": "{\"indicator\":{\"id\":\"FP.CPI.TOTL.ZG\",\"value\":\"Inflation, consumer prices (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":19.517120804733,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "GDP_GROWTH_ANNUAL_PCT",
+      "worldBankCode": "NY.GDP.MKTP.KD.ZG",
+      "name": "Crecimiento del PIB real",
+      "unit": "PERCENT",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/NY.GDP.MKTP.KD.ZG?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "d1e712c71c42c85bbebc63c8d27d17dd6921ef8555a4244bd00765e009edf0fe",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "2.50781081484664",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":2.50781081484664,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "1.68379914527159",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":1.68379914527159,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "2.48556576601922",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":2.48556576601922,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "2.7113398065361",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":2.7113398065361,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "4.1732955905708",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":4.1732955905708,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "4.42143313550196",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":4.42143313550196,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "4.79700881067477",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":4.79700881067477,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "4.56438425143126",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":4.56438425143126,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "6.14849787777658",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":6.14849787777658,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "3.35699958346049",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":3.35699958346049,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "4.12672258996274",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":4.12672258996274,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "5.20409245282328",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":5.20409245282328,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "5.12227560125973",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":5.12227560125973,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "6.79601141268498",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":6.79601141268498,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "5.46056949136766",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":5.46056949136766,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "4.85718718508603",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":4.85718718508603,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "4.26392086992173",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":4.26392086992173,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "4.19520633364647",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":4.19520633364647,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "2.86808404814794",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":2.86808404814794,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "1.50672102666863",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":1.50672102666863,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "-12.7194690092717",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":-12.7194690092717,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "10.0290488827886",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":10.0290488827886,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "3.74741781241461",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":3.74741781241461,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "2.51636590154891",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":2.51636590154891,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "-1.12335595517212",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":-1.12335595517212,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2025",
+          "value": "-1.58237567348246",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.KD.ZG\",\"value\":\"GDP growth (annual %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":-1.58237567348246,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "GDP_CURRENT_USD",
+      "worldBankCode": "NY.GDP.MKTP.CD",
+      "name": "PIB a precios corrientes",
+      "unit": "USD",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/NY.GDP.MKTP.CD?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "8977ad7463f2eeefccc25c16341976d465bf2ae9c38eb26c7adca44a9fac9066",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "8397855484.76908",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":8397855484.76908,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2001",
+          "value": "8141516928.39489",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":8141516928.39489,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2002",
+          "value": "7905485146.44351",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":7905485146.44351,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2003",
+          "value": "8082399639.54305",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":8082399639.54305,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2004",
+          "value": "8773451751.5121",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":8773451751.5121,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2005",
+          "value": "9549122905.32852",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":9549122905.32852,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2006",
+          "value": "11451844902.2214",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":11451844902.2214,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2007",
+          "value": "13120108008.3477",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":13120108008.3477,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2008",
+          "value": "16674276285.8956",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":16674276285.8956,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2009",
+          "value": "17339992193.7322",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":17339992193.7322,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2010",
+          "value": "19649723722.1034",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":19649723722.1034,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2011",
+          "value": "23963164696.592",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":23963164696.592,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2012",
+          "value": "27084497481.9103",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":27084497481.9103,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2013",
+          "value": "30659338885.6729",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":30659338885.6729,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2014",
+          "value": "32996188017.3661",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":32996188017.3661,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2015",
+          "value": "33000198248.9146",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":33000198248.9146,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2016",
+          "value": "33941126193.9219",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":33941126193.9219,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2017",
+          "value": "45927439594.7902",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":45927439594.7902,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2018",
+          "value": "48414038842.2576",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":48414038842.2576,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2019",
+          "value": "49056643589.0014",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":49056643589.0014,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2020",
+          "value": "42313784081.042",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":42313784081.042,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2021",
+          "value": "47877892402.3155",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":47877892402.3155,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2022",
+          "value": "50959081953.6903",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":50959081953.6903,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2023",
+          "value": "52340206946.4544",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":52340206946.4544,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2024",
+          "value": "54881327452.9667",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":54881327452.9667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2025",
+          "value": "64768947525.3256",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.MKTP.CD\",\"value\":\"GDP (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":64768947525.3256,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "GDP_PER_CAPITA_USD",
+      "worldBankCode": "NY.GDP.PCAP.CD",
+      "name": "PIB per capita",
+      "unit": "USD",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/NY.GDP.PCAP.CD?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "3a529ce7f0158c65c94f3c739cdc9d50f75047a94cc0533039e1edb3bec9e654",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "975.777060358751",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":975.777060358751,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "930.168227214313",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":930.168227214313,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "888.221328974352",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":888.221328974352,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "893.013760211149",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":893.013760211149,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "953.191893246277",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":953.191893246277,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "1020.12326200737",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":1020.12326200737,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "1202.71150446327",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":1202.71150446327,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "1354.54905949929",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":1354.54905949929,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "1692.67248455876",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":1692.67248455876,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "1731.18172112209",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":1731.18172112209,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "1929.78373077158",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":1929.78373077158,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "2315.52121930607",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":2315.52121930607,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "2575.59857098084",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":2575.59857098084,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "2870.02377000756",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":2870.02377000756,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "3041.43503162408",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":3041.43503162408,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "2996.01289811344",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":2996.01289811344,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "3035.87347732132",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":3035.87347732132,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "4048.40119739839",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":4048.40119739839,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "4206.8552936661",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":4206.8552936661,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "4203.15492855788",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":4203.15492855788,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "3580.96761778303",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":3580.96761778303,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "4010.76053686204",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":4010.76053686204,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "4219.46113742445",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":4219.46113742445,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "4274.70820547613",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":4274.70820547613,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "4421.16609889999",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":4421.16609889999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2025",
+          "value": "5147.81081955367",
+          "excerpt": "{\"indicator\":{\"id\":\"NY.GDP.PCAP.CD\",\"value\":\"GDP per capita (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":5147.81081955367,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "INTERNATIONAL_RESERVES_USD",
+      "worldBankCode": "FI.RES.TOTL.CD",
+      "name": "Reservas internacionales totales",
+      "unit": "USD",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/FI.RES.TOTL.CD?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "d2548f4dbe7d8e573128691f89f528e0b6925c954b96faea0bbdb15b5abcca05",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "1184108227.67537",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":1184108227.67537,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2001",
+          "value": "1146023735.30062",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":1146023735.30062,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2002",
+          "value": "892729137.789948",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":892729137.789948,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2003",
+          "value": "1096941369.79827",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":1096941369.79827,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2004",
+          "value": "1271422924.68151",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":1271422924.68151,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2005",
+          "value": "1794984952.8082",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":1794984952.8082,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2006",
+          "value": "3193982720.12098",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":3193982720.12098,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2007",
+          "value": "5313631986.14594",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":5313631986.14594,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2008",
+          "value": "7719766413.099",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":7719766413.099,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2009",
+          "value": "8574579206.49636",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":8574579206.49636,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2010",
+          "value": "9730683978.92495",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":9730683978.92495,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2011",
+          "value": "11994673114.8231",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":11994673114.8231,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2012",
+          "value": "13924289443.08",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":13924289443.08,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2013",
+          "value": "14429068711.3771",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":14429068711.3771,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2014",
+          "value": "15129277524.0077",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":15129277524.0077,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2015",
+          "value": "13049620686.0687",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":13049620686.0687,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2016",
+          "value": "10053627485.0797",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":10053627485.0797,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2017",
+          "value": "10245969449.6731",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":10245969449.6731,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2018",
+          "value": "8929614182.53614",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":8929614182.53614,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2019",
+          "value": "6455449941.6788",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":6455449941.6788,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2020",
+          "value": "5247234668.79635",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":5247234668.79635,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2021",
+          "value": "4730168839.86019",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":4730168839.86019,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2022",
+          "value": "3752070996.50724",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":3752070996.50724,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2023",
+          "value": "1799951502.87318",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":1799951502.87318,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2024",
+          "value": "1977025889.30984",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":1977025889.30984,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2025",
+          "value": "579906699.89203",
+          "excerpt": "{\"indicator\":{\"id\":\"FI.RES.TOTL.CD\",\"value\":\"Total reserves (includes gold, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":579906699.89203,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "CURRENT_ACCOUNT_PCT_GDP",
+      "worldBankCode": "BN.CAB.XOKA.GD.ZS",
+      "name": "Saldo en cuenta corriente",
+      "unit": "PERCENT_OF_GDP",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/BN.CAB.XOKA.GD.ZS?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "058fb0df743caab8642a54dbfdf7e90022717246f05b6e3a1c6d78026c1c710b",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "-5.31504626126909",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":-5.31504626126909,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "-3.36560781532762",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":-3.36560781532762,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "-4.45175564078361",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":-4.45175564078361,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "0.935302518905602",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":0.935302518905602,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "3.84682632206803",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":3.84682632206803,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "6.5182863397886",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":6.5182863397886,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "11.5044547652471",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":11.5044547652471,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "12.1283006687241",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":12.1283006687241,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "11.9507379319002",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":11.9507379319002,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "4.6916976138782",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":4.6916976138782,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "4.44660536937585",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":4.44660536937585,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "2.24179461328449",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":2.24179461328449,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "7.2736779094105",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":7.2736779094105,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "3.4377206274777",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":3.4377206274777,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "1.71604883648801",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":1.71604883648801,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "-5.86726594426454",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":-5.86726594426454,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "-5.61927215929093",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":-5.61927215929093,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "-4.13313217775547",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":-4.13313217775547,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "-3.56297103526121",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":-3.56297103526121,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "-2.7847295845975",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":-2.7847295845975,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "-0.0376136227262251",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":-0.0376136227262251,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "3.32421194395375",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":3.32421194395375,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "2.26510260577014",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":2.26510260577014,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "-2.23776284504888",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":-2.23776284504888,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "-2.37784777133425",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":-2.37784777133425,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2025",
+          "value": "-1.87992802763714",
+          "excerpt": "{\"indicator\":{\"id\":\"BN.CAB.XOKA.GD.ZS\",\"value\":\"Current account balance (% of GDP)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":-1.87992802763714,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXPORTS_GOODS_SERVICES_USD",
+      "worldBankCode": "NE.EXP.GNFS.CD",
+      "name": "Exportaciones de bienes y servicios",
+      "unit": "USD",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/NE.EXP.GNFS.CD?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "90f2ab27d23a41784275558f201499e002ad3ca0fea18b648b581f21f400c425",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "1534686673.10742",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":1534686673.10742,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2001",
+          "value": "1626035910.54648",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":1626035910.54648,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2002",
+          "value": "1710308633.19386",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":1710308633.19386,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2003",
+          "value": "2069153669.06088",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":2069153669.06088,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2004",
+          "value": "2731911668.34677",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":2731911668.34677,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2005",
+          "value": "3394535859.01026",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":3394535859.01026,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2006",
+          "value": "4783631930.98222",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":4783631930.98222,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2007",
+          "value": "5483635308.79498",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":5483635308.79498,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2008",
+          "value": "7487843216.67967",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":7487843216.67967,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2009",
+          "value": "6194300356.12536",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":6194300356.12536,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2010",
+          "value": "8093221339.98948",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":8093221339.98948,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2011",
+          "value": "10565767132.6439",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":10565767132.6439,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2012",
+          "value": "12774727337.1925",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":12774727337.1925,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2013",
+          "value": "13518462720.6946",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":13518462720.6946,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2014",
+          "value": "14285068712.0116",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":14285068712.0116,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2015",
+          "value": "10186598885.6729",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":10186598885.6729,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2016",
+          "value": "8311504862.51809",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":8311504862.51809,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2017",
+          "value": "8973701186.68596",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":8973701186.68596,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2018",
+          "value": "9854706136.03473",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":9854706136.03473,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2019",
+          "value": "9834601157.7424",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":9834601157.7424,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2020",
+          "value": "7139077206.94645",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":7139077206.94645,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2021",
+          "value": "11276448089.725",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":11276448089.725,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2022",
+          "value": "14163562908.8278",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":14163562908.8278,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2023",
+          "value": "11725676874.0955",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":11725676874.0955,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2024",
+          "value": "11763846801.7366",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.EXP.GNFS.CD\",\"value\":\"Exports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":11763846801.7366,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "IMPORTS_GOODS_SERVICES_USD",
+      "worldBankCode": "NE.IMP.GNFS.CD",
+      "name": "Importaciones de bienes y servicios",
+      "unit": "USD",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/NE.IMP.GNFS.CD?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "2d1f7fb11d4ccf9cc4ac3371bc13d119f665c71387092b6459fbd72b69163c98",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "2294548577.49814",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":2294548577.49814,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2001",
+          "value": "2056194909.06273",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":2056194909.06273,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2002",
+          "value": "2191068870.29289",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":2191068870.29289,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2003",
+          "value": "2131094556.36625",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":2131094556.36625,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2004",
+          "value": "2309687991.43145",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":2309687991.43145,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2005",
+          "value": "3064676257.13762",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":3064676257.13762,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2006",
+          "value": "3752326864.85138",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":3752326864.85138,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2007",
+          "value": "4495769626.34589",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":4495769626.34589,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2008",
+          "value": "6329632797.44018",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":6329632797.44018,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2009",
+          "value": "5705628903.1339",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":5705628903.1339,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2010",
+          "value": "6744604596.45584",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":6744604596.45584,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2011",
+          "value": "9199145865.29377",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":9199145865.29377,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2012",
+          "value": "10233217742.4023",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":10233217742.4023,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2013",
+          "value": "11386396497.8292",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":11386396497.8292,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2014",
+          "value": "13848955976.8452",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":13848955976.8452,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2015",
+          "value": "12231374703.3285",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":12231374703.3285,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2016",
+          "value": "10831641432.7062",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":10831641432.7062,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2017",
+          "value": "11958240289.4356",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":11958240289.4356,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2018",
+          "value": "12864160303.9074",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":12864160303.9074,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2019",
+          "value": "12643630390.7381",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":12643630390.7381,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2020",
+          "value": "8735545774.24023",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":8735545774.24023,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2021",
+          "value": "11545547250.3618",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":11545547250.3618,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2022",
+          "value": "15150615137.4819",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":15150615137.4819,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2023",
+          "value": "14239423386.3965",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":14239423386.3965,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2024",
+          "value": "14018232749.6382",
+          "excerpt": "{\"indicator\":{\"id\":\"NE.IMP.GNFS.CD\",\"value\":\"Imports of goods and services (current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":14018232749.6382,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXTERNAL_DEBT_USD",
+      "worldBankCode": "DT.DOD.DECT.CD",
+      "name": "Deuda externa total",
+      "unit": "USD",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/DT.DOD.DECT.CD?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "4b4ccd237af805ff735376dd29042f7e1216cece5295003ff44cb392c4cc1ffa",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "5892765188.4",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":5892765188.4,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2001",
+          "value": "4794042371.9",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":4794042371.9,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2002",
+          "value": "5107005795.5",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":5107005795.5,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2003",
+          "value": "5864138345.8",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":5864138345.8,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2004",
+          "value": "6284467791.5",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":6284467791.5,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2005",
+          "value": "6967641266.1",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":6967641266.1,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2006",
+          "value": "6255767963.5",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":6255767963.5,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2007",
+          "value": "5064781761.7",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":5064781761.7,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2008",
+          "value": "5701040187.5",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":5701040187.5,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2009",
+          "value": "5780325836.3",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":5780325836.3,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2010",
+          "value": "5776504655.7",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":5776504655.7,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2011",
+          "value": "6181999152.8",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":6181999152.8,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2012",
+          "value": "6617099947.7",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":6617099947.7,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2013",
+          "value": "8141786767.5",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":8141786767.5,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2014",
+          "value": "8884014490.4",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":8884014490.4,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2015",
+          "value": "9895204080.3",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":9895204080.3,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2016",
+          "value": "10994252972.4",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":10994252972.4,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2017",
+          "value": "12990057752.2",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":12990057752.2,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2018",
+          "value": "13248377783.1",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":13248377783.1,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2019",
+          "value": "14301151537.3",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":14301151537.3,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2020",
+          "value": "15420130053.6",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":15420130053.6,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2021",
+          "value": "16025613524",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":16025613524,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2022",
+          "value": "15930334885.1",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":15930334885.1,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2023",
+          "value": "16311190351.2",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":16311190351.2,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        },
+        {
+          "period": "2024",
+          "value": "15717587538.6",
+          "excerpt": "{\"indicator\":{\"id\":\"DT.DOD.DECT.CD\",\"value\":\"External debt stocks, total (DOD, current US$)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":15717587538.6,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":0}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "UNEMPLOYMENT_PCT",
+      "worldBankCode": "SL.UEM.TOTL.ZS",
+      "name": "Desempleo total",
+      "unit": "PERCENT",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/SL.UEM.TOTL.ZS?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "2fb718d61f70066383e436a32994c9c48bc338557d1ec34fb9776d49ec322a1a",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "2.439",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":2.439,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "2.623",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":2.623,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "2.603",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":2.603,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "2.654",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":2.654,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "2.615",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":2.615,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "2.598",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":2.598,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "2.575",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":2.575,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "2.614",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":2.614,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "2.603",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":2.603,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "2.973",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":2.973,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "2.609",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":2.609,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "2.255",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":2.255,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "2.066",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":2.066,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "2.437",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":2.437,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "2.021",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":2.021,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "3.111",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":3.111,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "3.498",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":3.498,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "3.655",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":3.655,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "3.519",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":3.519,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "3.682",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":3.682,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "7.903",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":7.903,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "5.089",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":5.089,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "3.552",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":3.552,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "3.024",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":3.024,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "3.274",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":3.274,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2025",
+          "value": "2.967",
+          "excerpt": "{\"indicator\":{\"id\":\"SL.UEM.TOTL.ZS\",\"value\":\"Unemployment, total (% of total labor force) (modeled ILO estimate)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":2.967,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "LENDING_RATE_PCT",
+      "worldBankCode": "FR.INR.LEND",
+      "name": "Tasa de interes activa",
+      "unit": "PERCENT",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/FR.INR.LEND?format=json&per_page=100&date=2000:2025",
+        "retrievedAt": "2026-08-24T03:25:00Z",
+        "upstreamSha256": "84f7ac3e1ea7dffa105581870eb2a855904d8e1c22c3737f62f7491c23d22f4d",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "34.5958333333334",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":34.5958333333334,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "20.0570612222166",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":20.0570612222166,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "20.6324567427484",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":20.6324567427484,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "17.6632890518186",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":17.6632890518186,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "14.4698833333333",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":14.4698833333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "16.6150416666667",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":16.6150416666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "11.8912833333333",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":11.8912833333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "12.8608083333333",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":12.8608083333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "13.8733333333333",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":13.8733333333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "12.359625",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":12.359625,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "9.90992714868377",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":9.90992714868377,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "10.915392341297",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":10.915392341297,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "11.1349478606743",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":11.1349478606743,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "11.0513992821176",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":11.0513992821176,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "9.69422821628935",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":9.69422821628935,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "8.07325379670779",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":8.07325379670779,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "7.95202606117997",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":7.95202606117997,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "8.10989203240817",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":8.10989203240817,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "8.03724252665112",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":8.03724252665112,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "8.39953170954601",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":8.39953170954601,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "7.5922237218448",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":7.5922237218448,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "8.01711817014333",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":8.01711817014333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "7.76498872156729",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":7.76498872156729,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "8.68601452432374",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":8.68601452432374,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "8.80431027070166",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":8.80431027070166,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2025",
+          "value": "10.1870210797778",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.LEND\",\"value\":\"Lending interest rate (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":10.1870210797778,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    }
+  ]
+}
