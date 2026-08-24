@@ -20,6 +20,30 @@ export const INDICATOR_CODES = {
   housingDevelopmentUnit: 'UFV_BOB',
 } as const;
 
+/**
+ * Annual macroeconomic series that give the daily rates their context.
+ *
+ * These are published once a year by a multilateral compiler, not quoted in a
+ * market, so they never share a chart axis with an exchange rate and are kept
+ * under their own frequency.
+ */
+export const MACRO_INDICATOR_CODES = {
+  consumerPriceInflation: 'CPI_INFLATION_ANNUAL_PCT',
+  realGdpGrowth: 'GDP_GROWTH_ANNUAL_PCT',
+  grossDomesticProduct: 'GDP_CURRENT_USD',
+  grossDomesticProductPerCapita: 'GDP_PER_CAPITA_USD',
+  internationalReserves: 'INTERNATIONAL_RESERVES_USD',
+  currentAccountBalance: 'CURRENT_ACCOUNT_PCT_GDP',
+  exportsOfGoodsAndServices: 'EXPORTS_GOODS_SERVICES_USD',
+  importsOfGoodsAndServices: 'IMPORTS_GOODS_SERVICES_USD',
+  externalDebt: 'EXTERNAL_DEBT_USD',
+  unemployment: 'UNEMPLOYMENT_PCT',
+  lendingInterestRate: 'LENDING_RATE_PCT',
+} as const;
+
+/** How often a series is published, which decides where it may be charted. */
+export type IndicatorFrequency = 'DAILY' | 'ANNUAL';
+
 /** Bolivianos per unit of the quoted instrument. */
 export const INDICATOR_UNITS = {
   bolivianosPerDollar: 'BOB/USD',

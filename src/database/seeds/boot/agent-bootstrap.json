@@ -51,6 +51,17 @@
       "specialty": "Serie histórica diaria del tipo de cambio oficial de Bolivia",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000006",
+      "code": "WORLD_BANK_MACRO_BACKFILL",
+      "name": "Carga histórica de indicadores macroeconómicos anuales",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Banco Mundial",
+      "modelIdentifier": "worldbank-api-v2",
+      "specialty": "Series anuales macroeconómicas de Bolivia",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

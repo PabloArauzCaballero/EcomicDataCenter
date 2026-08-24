@@ -25,6 +25,7 @@ import {
 } from '../schemas/seed.schemas';
 import { reconcileAgentBootstrap } from './boot-seed.agent-bootstrap';
 import { reconcileExchangeRateHistory } from './boot-seed.exchange-rate-history';
+import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
 import { readSeed } from './seed.utils';
 
 async function reconcileFrequencies(transaction: Transaction): Promise<void> {
@@ -108,6 +109,7 @@ export async function runBootSeeds(): Promise<void> {
       // Runs last: it needs the backfill identity and the source the block
       // above reconciles.
       await reconcileExchangeRateHistory(identities.sourceId, transaction);
+      await reconcileMacroAnnualHistory(identities.sourceId, transaction);
     });
   } finally {
     await database.close();

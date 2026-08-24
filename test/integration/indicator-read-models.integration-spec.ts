@@ -1,6 +1,24 @@
 import { QueryTypes, type Sequelize } from 'sequelize';
 import { createIntegrationDatabase, describeIntegration, truncateAll } from './database.harness';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { runBootSeeds } from '../../src/database/seeds/runners/run-boot-seeds';
+
+const SEEDS = join(__dirname, '..', '..', 'src', 'database', 'seeds', 'boot');
+
+/** Earliest day any committed snapshot claims to cover. */
+async function earliestSnapshotDay(): Promise<string> {
+  const files = ['fx-parallel-history-2025.json', 'fx-parallel-history.json'];
+  const starts = await Promise.all(
+    files.map(async (file) => {
+      const parsed = JSON.parse(await readFile(join(SEEDS, file), 'utf8')) as {
+        provenance: { rangeStart: string };
+      };
+      return parsed.provenance.rangeStart;
+    }),
+  );
+  return starts.sort()[0] ?? '';
+}
 
 /**
  * Exercises what only a real database can answer.
@@ -80,7 +98,29 @@ describeIntegration('economic indicator read models', () => {
 
     // Two sides per day, so the reading count is twice the number of days.
     expect(Number(row?.readings ?? 0)).toBeGreaterThan(400);
-    expect(row?.first_day).toBe('2026-01-01');
+    // Pinned to the snapshots rather than to a literal date, so extending the
+    // history does not break a test that was still telling the truth.
+    expect(row?.first_day).toBe(await earliestSnapshotDay());
+  });
+
+  it('keeps the annual macro series out of the daily models', async () => {
+    await runBootSeeds();
+
+    const [daily] = await database.query<{ total: string }>(
+      `SELECT count(*) AS total FROM read_models.economic_indicator_daily
+       WHERE indicator_code NOT LIKE 'FX_%'`,
+      { type: QueryTypes.SELECT },
+    );
+    // A yearly figure on a daily axis would be charted as if it were a day.
+    expect(Number(daily?.total ?? 0)).toBe(0);
+
+    const [annual] = await database.query<{ indicators: string; first_period: string }>(
+      `SELECT count(DISTINCT indicator_code) AS indicators, min(period) AS first_period
+       FROM read_models.macro_indicator_annual`,
+      { type: QueryTypes.SELECT },
+    );
+    expect(Number(annual?.indicators ?? 0)).toBeGreaterThanOrEqual(10);
+    expect(annual?.first_period).toBe('2000');
   });
 
   it('keeps a daily average and a point-in-time reading apart', async () => {
