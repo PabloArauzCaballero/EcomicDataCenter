@@ -31,6 +31,18 @@ import { readSeed } from './seed.utils';
 
 const AGENT_CODE = 'WORLD_BANK_MACRO_BACKFILL';
 
+/**
+ * Snapshots making up the series, each its own retrieval.
+ *
+ * The range is split rather than re-fetched as one: the digest of a retrieval
+ * travels inside every payload it produced, so widening a range already loaded
+ * would rewrite hashes and duplicate rows that are already correct.
+ */
+const SNAPSHOTS = [
+  'boot/macro-annual-history-1960.json',
+  'boot/macro-annual-history.json',
+] as const;
+
 /** Each indicator is its own retrieval, so each carries its own digest. */
 async function reconcileSeriesArtifact(
   series: MacroAnnualSeries,
@@ -196,9 +208,11 @@ export async function reconcileMacroAnnualHistory(
   sourceId: string,
   transaction: Transaction,
 ): Promise<void> {
-  const history = await readSeed('boot/macro-annual-history.json', macroAnnualHistorySchema);
   const agentRunId = await reconcileHistoryRun(AGENT_CODE, transaction);
-  for (const series of history.series) {
-    await reconcileSeries(series, sourceId, agentRunId, transaction);
+  for (const snapshot of SNAPSHOTS) {
+    const history = await readSeed(snapshot, macroAnnualHistorySchema);
+    for (const series of history.series) {
+      await reconcileSeries(series, sourceId, agentRunId, transaction);
+    }
   }
 }

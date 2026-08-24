@@ -1,14 +1,20 @@
 import { QueryTypes, type Sequelize } from 'sequelize';
 import { createIntegrationDatabase, describeIntegration, truncateAll } from './database.harness';
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { runBootSeeds } from '../../src/database/seeds/runners/run-boot-seeds';
 
 const SEEDS = join(__dirname, '..', '..', 'src', 'database', 'seeds', 'boot');
 
-/** Earliest day any committed snapshot claims to cover. */
+/**
+ * Earliest day any committed snapshot claims to cover.
+ *
+ * Read from the directory rather than from a list written here: a list has to
+ * be remembered every time the history is extended, and forgetting it breaks a
+ * test that was still telling the truth.
+ */
 async function earliestSnapshotDay(): Promise<string> {
-  const files = ['fx-parallel-history-2025.json', 'fx-parallel-history.json'];
+  const files = (await readdir(SEEDS)).filter((file) => file.startsWith('fx-parallel-history'));
   const starts = await Promise.all(
     files.map(async (file) => {
       const parsed = JSON.parse(await readFile(join(SEEDS, file), 'utf8')) as {
@@ -18,6 +24,20 @@ async function earliestSnapshotDay(): Promise<string> {
     }),
   );
   return starts.sort()[0] ?? '';
+}
+
+/** Earliest year any committed macro snapshot claims to cover. */
+async function earliestMacroPeriod(): Promise<string> {
+  const files = (await readdir(SEEDS)).filter((file) => file.startsWith('macro-annual-history'));
+  const periods = await Promise.all(
+    files.map(async (file) => {
+      const parsed = JSON.parse(await readFile(join(SEEDS, file), 'utf8')) as {
+        series: Array<{ points: Array<{ period: string }> }>;
+      };
+      return parsed.series.flatMap((series) => series.points.map((point) => point.period)).sort()[0] ?? '';
+    }),
+  );
+  return periods.filter(Boolean).sort()[0] ?? '';
 }
 
 /**
@@ -120,7 +140,7 @@ describeIntegration('economic indicator read models', () => {
       { type: QueryTypes.SELECT },
     );
     expect(Number(annual?.indicators ?? 0)).toBeGreaterThanOrEqual(10);
-    expect(annual?.first_period).toBe('2000');
+    expect(annual?.first_period).toBe(await earliestMacroPeriod());
   });
 
   it('keeps a daily average and a point-in-time reading apart', async () => {

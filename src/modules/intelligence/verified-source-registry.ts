@@ -75,6 +75,21 @@ export function verifiedSource(rawUrl: string | URL): VerifiedSource | undefined
  * there is nothing here that a model could have invented: the candidate asserts
  * no publication date at all.
  */
+/**
+ * True when the downloaded document states the publication instant itself.
+ *
+ * A page that repeats the stamp its publisher gave the record is making a
+ * stronger claim than a `<meta>` tag, which a site may generate for the page
+ * rather than for the thing it describes. Restricted to registered official
+ * publishers: on an unregistered domain, a date in the body is only a string.
+ */
+export function documentStatedPublication(input: {
+  readonly statedInDocument: boolean;
+  readonly source: VerifiedSource | undefined;
+}): boolean {
+  return input.statedInDocument && input.source?.tier === 'OFFICIAL';
+}
+
 export function undatedOfficialIndicator(input: {
   readonly recordType: string;
   readonly publishedAt: string | null;
