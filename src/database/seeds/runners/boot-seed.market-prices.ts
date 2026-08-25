@@ -62,7 +62,15 @@ async function reconcileArtifact(
   return sourceArtifactId;
 }
 
-/** Payload for one close, shaped exactly like the one the collector submits. */
+/**
+ * Payload for one close, shaped exactly like the one the collector submits.
+ *
+ * The upstream digest is deliberately absent, for the same reason it is absent
+ * from a press article: it identifies the response a close arrived in, not the
+ * close, and the exchange serves a new response every day. Including it made a
+ * re-collection of the same 2024 candle hash differently and land as a second
+ * record. The digest is on the artifact, which is where a reader checks it.
+ */
 function dailyPayload(series: MarketSeries, date: string, close: string): Record<string, unknown> {
   return {
     recordType: 'DAILY_INDICATOR',
@@ -82,7 +90,6 @@ function dailyPayload(series: MarketSeries, date: string, close: string): Record
     publisher: series.provenance.publisher,
     publisherVerified: true,
     url: series.provenance.sourceUrl,
-    sha256: series.provenance.upstreamSha256,
     storageUri: series.provenance.sourceUrl,
   };
 }

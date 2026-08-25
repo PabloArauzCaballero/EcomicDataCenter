@@ -8,8 +8,8 @@
       "provenance": {
         "publisher": "KRAKEN",
         "sourceUrl": "https://api.kraken.com/0/public/OHLC?pair=XBTUSD&interval=1440",
-        "retrievedAt": "2026-08-25T21:00:09Z",
-        "upstreamSha256": "181a29d44e79eb230b07609e8f69f6df6c7acf148cf73abc9fc8e5dd8197652c",
+        "retrievedAt": "2026-08-25T21:27:20Z",
+        "upstreamSha256": "a07a5570e0fbba00ccb2f8a55361ac184700b711f08c474d1e44954fc8e86358",
         "frequency": "DAILY"
       },
       "points": [
@@ -5055,10 +5055,10 @@
         },
         {
           "date": "2026-08-25",
-          "close": "78177.0",
-          "low": "78106.7",
+          "close": "78374.8",
+          "low": "77850.0",
           "high": "81200.0",
-          "excerpt": "[1787616000,\"78966.1\",\"81200.0\",\"78106.7\",\"78177.0\",\"79592.7\",\"3675.50892749\",92635]"
+          "excerpt": "[1787616000,\"78966.1\",\"81200.0\",\"77850.0\",\"78374.8\",\"79558.0\",\"3765.45277078\",95578]"
         }
       ]
     },
@@ -5070,8 +5070,8 @@
       "provenance": {
         "publisher": "KRAKEN",
         "sourceUrl": "https://api.kraken.com/0/public/OHLC?pair=USDTZUSD&interval=1440",
-        "retrievedAt": "2026-08-25T21:00:09Z",
-        "upstreamSha256": "80a63ed794108377989d1bde82049dce3973f850a7b3e2387b09fedaecbcedac",
+        "retrievedAt": "2026-08-25T21:27:20Z",
+        "upstreamSha256": "f345f357f4fc757284646dfb02a52c858c2b59395c76d47a05650bda4800bb0e",
         "frequency": "DAILY"
       },
       "points": [
@@ -10117,10 +10117,10 @@
         },
         {
           "date": "2026-08-25",
-          "close": "0.99990",
+          "close": "0.99971",
           "low": "0.99958",
           "high": "0.99999",
-          "excerpt": "[1787616000,\"0.99986\",\"0.99999\",\"0.99958\",\"0.99990\",\"0.99980\",\"177661699.07963235\",21963]"
+          "excerpt": "[1787616000,\"0.99986\",\"0.99999\",\"0.99958\",\"0.99971\",\"0.99980\",\"198441388.05103935\",23211]"
         }
       ]
     },
@@ -10132,8 +10132,8 @@
       "provenance": {
         "publisher": "KRAKEN",
         "sourceUrl": "https://api.kraken.com/0/public/OHLC?pair=PAXGUSD&interval=1440",
-        "retrievedAt": "2026-08-25T21:00:09Z",
-        "upstreamSha256": "76bcef759fef889dfb1bec7058229824cf8150c1fcead10f781e04f77c8bbfc1",
+        "retrievedAt": "2026-08-25T21:27:20Z",
+        "upstreamSha256": "ca7055c0d466727edf9823c4b0b0f7db54f6aa6227a958a606925335f09e19c9",
         "frequency": "DAILY"
       },
       "points": [
@@ -15179,10 +15179,10 @@
         },
         {
           "date": "2026-08-25",
-          "close": "4650.35",
+          "close": "4654.26",
           "low": "4597.46",
           "high": "4689.42",
-          "excerpt": "[1787616000,\"4673.43\",\"4689.42\",\"4597.46\",\"4650.35\",\"4636.06\",\"506.51428820\",2452]"
+          "excerpt": "[1787616000,\"4673.43\",\"4689.42\",\"4597.46\",\"4654.26\",\"4636.80\",\"531.54641317\",2570]"
         }
       ]
     }
