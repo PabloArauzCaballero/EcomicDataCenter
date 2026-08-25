@@ -65,8 +65,7 @@ async function reconcileListingArtifact(
       artifactType: article.retrievalMethod === 'SYNDICATED_FEED' ? 'XML' : 'HTML',
       originalUri: article.listingUrl,
       storageUri: article.listingUrl,
-      mimeType:
-        article.retrievalMethod === 'SYNDICATED_FEED' ? 'application/rss+xml' : 'text/html',
+      mimeType: article.retrievalMethod === 'SYNDICATED_FEED' ? 'application/rss+xml' : 'text/html',
       sha256: article.listingSha256,
       publicationDate: article.eventDate,
       retrievedAt: new Date(coverage.provenance.retrievedAt),

@@ -90,18 +90,14 @@ export async function reconcileCompanyFilingTexts(
     where: { rawObservationId: { [Op.in]: [...observationByFiling.values()] } },
     transaction,
   });
-  const claimByObservation = new Map(
-    claims.map((claim) => [claim.rawObservationId, claim]),
-  );
+  const claimByObservation = new Map(claims.map((claim) => [claim.rawObservationId, claim]));
   const byFiling = new Map<number, (typeof claims)[number]>();
   for (const [filingId, observationId] of observationByFiling) {
     const claim = claimByObservation.get(observationId);
     if (claim) byFiling.set(filingId, claim);
   }
 
-  const digests = texts.texts.map((entry) =>
-    createHash('sha256').update(entry.text).digest('hex'),
-  );
+  const digests = texts.texts.map((entry) => createHash('sha256').update(entry.text).digest('hex'));
   const present = new Set<string>();
   for (let start = 0; start < digests.length; start += 500) {
     const rows = await ClaimEvidenceModel.findAll({
