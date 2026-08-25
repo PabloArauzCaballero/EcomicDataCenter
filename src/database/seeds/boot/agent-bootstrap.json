@@ -73,6 +73,17 @@
       "specialty": "Hechos relevantes comunicados por emisores en Bolivia",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000008",
+      "code": "BBV_FILINGS_ARCHIVE",
+      "name": "Carga del registro de hechos relevantes por emisor",
+      "agentType": "CORPORATE",
+      "provider": "Bolsa Boliviana de Valores",
+      "modelIdentifier": "bbv-search-news-api",
+      "specialty": "Registro histórico de hechos relevantes por emisor y rubro",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

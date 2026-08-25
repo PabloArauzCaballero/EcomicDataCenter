@@ -26,6 +26,7 @@ import {
 import { reconcileAgentBootstrap } from './boot-seed.agent-bootstrap';
 import { reconcileExchangeRateHistory } from './boot-seed.exchange-rate-history';
 import { reconcileCompanyFilings } from './boot-seed.company-filings';
+import { reconcileCompanyFilingArchive } from './boot-seed.company-filings-archive';
 import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
 import { readSeed } from './seed.utils';
 
@@ -112,6 +113,7 @@ export async function runBootSeeds(): Promise<void> {
       await reconcileExchangeRateHistory(identities.sourceId, transaction);
       await reconcileMacroAnnualHistory(identities.sourceId, transaction);
       await reconcileCompanyFilings(identities.sourceId, transaction);
+      await reconcileCompanyFilingArchive(identities.sourceId, transaction);
     });
   } finally {
     await database.close();

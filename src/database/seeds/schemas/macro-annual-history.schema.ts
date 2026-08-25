@@ -30,7 +30,7 @@ export const macroAnnualHistorySchema = z.object({
            * Kept as a closed list so a new one is a deliberate addition rather
            * than a string that silently reaches a chart axis unformatted.
            */
-          unit: z.enum(['PERCENT', 'PERCENT_OF_GDP', 'USD', 'INDEX', 'MONTHS', 'PEOPLE']),
+          unit: z.enum(['PERCENT', 'PERCENT_OF_GDP', 'USD', 'INDEX', 'MONTHS', 'PEOPLE', 'YEARS']),
           provenance: z
             .object({
               publisher: z.string().trim().min(2).max(200),
@@ -58,7 +58,7 @@ export const macroAnnualHistorySchema = z.object({
         .strict(),
     )
     .min(1)
-    .max(40),
+    .max(60),
 });
 
 export type MacroAnnualHistory = z.infer<typeof macroAnnualHistorySchema>;
