@@ -83,7 +83,15 @@ async function reconcileListingArtifact(
   return sourceArtifactId;
 }
 
-/** Payload for one article, shaped like the one the collector submits. */
+/**
+ * Payload for one article, shaped like the one the collector submits.
+ *
+ * The listing's digest is deliberately absent. It identifies the document the
+ * article arrived in, not the article, and it changes every time the listing is
+ * fetched — so including it would make a re-collection of the same headline
+ * hash differently and land as a second record. The digest belongs to the
+ * artifact, which already carries it, and the read model reads it from there.
+ */
 function articlePayload(article: PressArticle): Record<string, unknown> {
   return {
     recordType: 'NEWS',
@@ -103,8 +111,7 @@ function articlePayload(article: PressArticle): Record<string, unknown> {
     publisherVerified: true,
     sourceTier: 'PRESS',
     url: article.url,
-    sha256: article.listingSha256,
-    storageUri: article.listingUrl,
+    listingUrl: article.listingUrl,
     retrievalMethod: article.retrievalMethod,
   };
 }
