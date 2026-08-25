@@ -41,6 +41,7 @@ const AGENT_CODE = 'WORLD_BANK_MACRO_BACKFILL';
 const SNAPSHOTS = [
   'boot/macro-annual-history-1960.json',
   'boot/macro-annual-history.json',
+  'boot/macro-annual-sectors.json',
 ] as const;
 
 /** Each indicator is its own retrieval, so each carries its own digest. */

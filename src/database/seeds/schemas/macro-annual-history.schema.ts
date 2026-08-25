@@ -24,7 +24,13 @@ export const macroAnnualHistorySchema = z.object({
           /** Identifier at the compiler, so the figure can be looked up there. */
           worldBankCode: z.string().min(3).max(40),
           name: z.string().trim().min(3).max(200),
-          unit: z.enum(['PERCENT', 'PERCENT_OF_GDP', 'USD']),
+          /**
+           * Unit the compiler publishes the figure in.
+           *
+           * Kept as a closed list so a new one is a deliberate addition rather
+           * than a string that silently reaches a chart axis unformatted.
+           */
+          unit: z.enum(['PERCENT', 'PERCENT_OF_GDP', 'USD', 'INDEX', 'MONTHS', 'PEOPLE']),
           provenance: z
             .object({
               publisher: z.string().trim().min(2).max(200),
