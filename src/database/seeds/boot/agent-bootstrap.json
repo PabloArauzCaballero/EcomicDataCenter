@@ -84,6 +84,17 @@
       "specialty": "Registro histórico de hechos relevantes por emisor y rubro",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000009",
+      "code": "PRESS_COVERAGE",
+      "name": "Cobertura de prensa economica boliviana",
+      "agentType": "SECTOR",
+      "provider": "Medios bolivianos",
+      "modelIdentifier": "feeds-sindicados",
+      "specialty": "Cobertura periodistica de la coyuntura economica de Bolivia",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
