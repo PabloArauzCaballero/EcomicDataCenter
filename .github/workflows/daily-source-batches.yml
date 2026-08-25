@@ -1,0 +1,112 @@
+name: daily-source-batches
+
+# The sources that need no model, collected in separate batches.
+#
+# The research collector calls a language model and lives under its rate limit,
+# which is what made every early run fail. None of these do: they read a feed, a
+# public exchange endpoint or a central-bank page and write a seed file. Putting
+# them in the same job as the model call would make a rate limit on the model
+# lose the day's markets too, so they run apart from it and apart from each
+# other — a batch that fails costs its own sources and nothing else.
+#
+# Staggered off the research collector's times (10:30, 16:30, 22:30 UTC) so the
+# two never contend, and spread across the day so a source that publishes in the
+# afternoon is not read only at dawn.
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch:
+        description: Which batch to run
+        required: false
+        default: todas
+        type: choice
+        options: [todas, mercados, bcb, prensa]
+  schedule:
+    # America/La_Paz is UTC-4 year-round: 07:10, 13:10 and 19:10 local.
+    - cron: '10 11,17,23 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-source-batches
+  cancel-in-progress: false
+
+jobs:
+  # Cheapest first, and the one whose data moves fastest.
+  mercados:
+    if: >-
+      github.event_name == 'schedule' ||
+      contains(fromJSON('["todas","mercados"]'), inputs.batch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Collect market closes
+        run: yarn markets:collect
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: market-prices-${{ github.run_id }}
+          path: src/database/seeds/boot/market-prices.json
+          retention-days: 14
+
+  bcb:
+    if: >-
+      github.event_name == 'schedule' ||
+      contains(fromJSON('["todas","bcb"]'), inputs.batch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Collect the central bank's quotations
+        run: yarn bcb:collect
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: bcb-quotes-${{ github.run_id }}
+          path: src/database/seeds/boot/bcb-quotes.json
+          retention-days: 14
+
+  # Last and longest: two of the seven outlets need a browser, which is why this
+  # batch alone installs one. See ADR-0019.
+  prensa:
+    if: >-
+      github.event_name == 'schedule' ||
+      contains(fromJSON('["todas","prensa"]'), inputs.batch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Install the browser the rendered sections need
+        run: npx playwright install --with-deps chromium
+      - name: Collect press coverage
+        run: yarn press:collect
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: press-coverage-${{ github.run_id }}
+          path: src/database/seeds/boot/press-coverage.json
+          retention-days: 14

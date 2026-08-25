@@ -34,6 +34,8 @@
     "daily:collect": "tsx scripts/daily-economic-collector.ts",
     "press:collect": "tsx scripts/press/collect-press-coverage.ts",
     "markets:collect": "tsx scripts/markets/collect-market-prices.ts",
+    "bcb:collect": "tsx scripts/bcb/collect-bcb-quotes.ts",
+    "quality:sources": "tsx scripts/quality/measure-collection-quality.ts",
     "soak": "node scripts/soak-test.mjs",
     "quality:syntax": "node --check eslint.config.mjs && node --check jest.config.cjs && node --check scripts/check_identifier_language.cjs && node --check scripts/check_typescript_syntax.cjs && node --check scripts/create-local-env.cjs && node --check scripts/verify-local-stack.cjs && node --check scripts/soak-test.mjs && node scripts/check_typescript_syntax.cjs",
     "quality:naming": "node scripts/check_identifier_language.cjs",

@@ -106,6 +106,17 @@
       "specialty": "Oro, bitcoin y estables anclados al dolar",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000b",
+      "code": "BCB_QUOTES",
+      "name": "Cotizaciones diarias del Banco Central",
+      "agentType": "EXCHANGE_RATE",
+      "provider": "Banco Central de Bolivia",
+      "modelIdentifier": "bcb-tabla-cotizaciones",
+      "specialty": "UFV y valoracion oficial del oro",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

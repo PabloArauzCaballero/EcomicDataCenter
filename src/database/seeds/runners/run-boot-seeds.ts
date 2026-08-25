@@ -31,6 +31,7 @@ import { reconcileCompanyFilingTexts } from './boot-seed.company-filing-texts';
 import { reconcilePressCoverage } from './boot-seed.press-coverage';
 import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
 import { reconcileMarketPrices } from './boot-seed.market-prices';
+import { reconcileBcbQuotes } from './boot-seed.bcb-quotes';
 import { readSeed } from './seed.utils';
 
 async function reconcileFrequencies(transaction: Transaction): Promise<void> {
@@ -116,6 +117,7 @@ export async function runBootSeeds(): Promise<void> {
       await reconcileExchangeRateHistory(identities.sourceId, transaction);
       await reconcileMacroAnnualHistory(identities.sourceId, transaction);
       await reconcileMarketPrices(identities.sourceId, transaction);
+      await reconcileBcbQuotes(identities.sourceId, transaction);
       await reconcileCompanyFilings(identities.sourceId, transaction);
       await reconcileCompanyFilingArchive(identities.sourceId, transaction);
       // Runs after the archive: it attaches evidence to the claims that made.
