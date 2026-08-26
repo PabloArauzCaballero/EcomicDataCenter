@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { readableHeadline } from './headline-spelling';
 
 /**
  * Recovers Bolivian economic coverage from the public web archive.
@@ -64,20 +65,20 @@ interface Article {
   excerpt: string;
 }
 
-/** A word a slug carries that is not part of the headline. */
-const NOISE = /^(nota|articulo|art|html?)\d*$/iu;
 const LONG_ID = /\/(20[12]\d)(\d{2})(\d{2})\d{6,}/u;
 
-/** The headline the address spells out, with its hyphens turned back to spaces. */
+/**
+ * The headline the address spells out, with the spelling this corpus knows.
+ *
+ * The speller lives in its own module because two callers need the same
+ * answer: this collector, when a page is first seen, and `press:respell`, when
+ * the vocabulary grows. Recovering the words here and the accents there would
+ * mean every fresh run wrote rows that read wrong until the second command ran.
+ */
 function headlineFrom(url: string): string | null {
   const path = url.split('?')[0]?.split('#')[0]?.replace(/\/+$/u, '') ?? '';
-  const last = (path.split('/').pop() ?? '').replace(/\.html?$/u, '').replace(/[_-]?\d{5,}$/u, '');
-  const words = last
-    .split(/[-_]/u)
-    .filter((word) => word && !/^\d+$/u.test(word) && !NOISE.test(word));
-  if (words.length < 4) return null;
-  const text = words.join(' ');
-  return text.charAt(0).toUpperCase() + text.slice(1);
+  const slug = (path.split('/').pop() ?? '').replace(/\.html?$/u, '').replace(/[_-]?\d{5,}$/u, '');
+  return readableHeadline(slug);
 }
 
 /** The day the outlet published, where the address states one; else the capture day. */
