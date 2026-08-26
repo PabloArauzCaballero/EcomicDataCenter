@@ -43,10 +43,11 @@ WITH claim AS (
     ro.source_artifact_id,
     ro.payload_json,
     ro.payload_json ->> 'url'                    AS source_url,
-    -- What makes a record unique: for a series, the day it describes; for an
-    -- article, its own address. A daily series shares one source URL across
-    -- every point by design, so the URL alone is not a key.
-    coalesce(ro.payload_json ->> 'headline', ro.payload_json ->> 'url', fc.assertion)
+    -- What makes a record unique. A daily series shares one source URL across
+    -- every point, so a reading is keyed by its day and its indicator; an
+    -- article is keyed by its own address, because an outlet does serve the
+    -- same headline under two paths and both are real records of it.
+    coalesce(ro.payload_json ->> 'url', fc.assertion)
       || '|' || coalesce(fc.event_date::text, '')
       || '|' || coalesce(ro.payload_json #>> '{measures,0,indicatorCode}', '')
                                                  AS natural_key,

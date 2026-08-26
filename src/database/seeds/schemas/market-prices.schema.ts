@@ -52,7 +52,7 @@ export const marketPricesSchema = z.object({
                 .strict(),
             )
             .min(30)
-            .max(2_000),
+            .max(4_000),
         })
         .strict(),
     )

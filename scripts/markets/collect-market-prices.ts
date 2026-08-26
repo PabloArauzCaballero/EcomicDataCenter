@@ -21,16 +21,21 @@ import { join } from 'node:path';
  * free nor citable, and no exchange quotes a diamond contract. Inventing a
  * proxy would be worse than the gap.
  *
+ * The venue is chosen for depth. An exchange that answers with its most recent
+ * seven hundred candles cannot show a reader the cycle they are living through,
+ * so this reads a venue that pages backwards and walks it to 2020.
+ *
  * Run with `yarn markets:collect`.
  */
 
 const SEED = join('src', 'database', 'seeds', 'boot', 'market-prices.json');
 const UA = 'ObservatorioEconomicoBO/1.0';
-const ENDPOINT = 'https://api.kraken.com/0/public/OHLC';
+const ENDPOINT = 'https://api.binance.com/api/v3/klines';
+const FROM = Date.UTC(2020, 0, 1);
 
 interface Market {
   readonly code: string;
-  readonly pair: string;
+  readonly symbol: string;
   readonly name: string;
   readonly unit: string;
   readonly note: string;
@@ -39,21 +44,21 @@ interface Market {
 const MARKETS: readonly Market[] = [
   {
     code: 'BTC_USD',
-    pair: 'XBTUSD',
+    symbol: 'BTCUSDT',
     name: 'Bitcoin',
     unit: 'USD',
-    note: 'Cierre diario en dólares',
+    note: 'Cierre diario contra el estable anclado al dólar',
   },
   {
     code: 'USDT_USD',
-    pair: 'USDTZUSD',
-    name: 'Tether (USDT)',
+    symbol: 'USDCUSDT',
+    name: 'Tether contra USD Coin',
     unit: 'USD',
-    note: 'Estable anclado al dólar; su desvío mide tensión en el canal cripto',
+    note: 'Dos estables anclados al dólar; su desvío mide tensión en el canal cripto',
   },
   {
     code: 'XAU_USD',
-    pair: 'PAXGUSD',
+    symbol: 'PAXGUSDT',
     name: 'Oro (PAX Gold)',
     unit: 'USD',
     note: 'Token redimible por una onza troy asignada; sigue al contado, no es el fixing de Londres',
@@ -83,58 +88,87 @@ interface Series {
   points: Candle[];
 }
 
-/** The exchange answers `{error, result:{<pair>:[[time,o,h,l,c,…]], last}}`. */
-function candlesFrom(payload: unknown): unknown[][] {
-  if (typeof payload !== 'object' || payload === null) return [];
-  const result = (payload as { result?: unknown }).result;
-  if (typeof result !== 'object' || result === null) return [];
-  for (const [key, value] of Object.entries(result)) {
-    if (key !== 'last' && Array.isArray(value)) return value as unknown[][];
-  }
-  return [];
-}
-
 const numeric = (value: unknown): string | null => {
   const text = String(value);
-  return /^-?\d+(\.\d+)?$/u.test(text) ? text : null;
+  if (!/^-?\d+(\.\d+)?$/u.test(text)) return null;
+  // The venue pads to eight decimals; a price of 1.00010000 is 1.0001.
+  return text.includes('.') ? text.replace(/0+$/u, '').replace(/\.$/u, '') : text;
 };
 
-async function collect(market: Market, retrievedAt: string): Promise<Series | null> {
-  const url = `${ENDPOINT}?pair=${market.pair}&interval=1440`;
+/** One window of daily candles, oldest first. */
+async function window(
+  symbol: string,
+  since: number,
+): Promise<{ rows: unknown[][]; digest: string }> {
+  const url = `${ENDPOINT}?symbol=${symbol}&interval=1d&startTime=${since}&limit=1000`;
   const response = await fetch(url, {
     headers: { 'User-Agent': UA },
     signal: AbortSignal.timeout(45_000),
   });
-  if (!response.ok) {
-    console.warn(`  ${market.code}: HTTP ${response.status}, omitido`);
-    return null;
-  }
+  if (!response.ok) throw new Error(`${symbol}: HTTP ${response.status}`);
   const bytes = Buffer.from(await response.arrayBuffer());
-  const digest = createHash('sha256').update(bytes).digest('hex');
-  const payload: unknown = JSON.parse(bytes.toString('utf-8'));
+  const parsed: unknown = JSON.parse(bytes.toString('utf-8'));
+  return {
+    rows: Array.isArray(parsed) ? (parsed as unknown[][]) : [],
+    digest: createHash('sha256').update(bytes).digest('hex'),
+  };
+}
 
+async function collect(market: Market, retrievedAt: string): Promise<Series | null> {
   const points: Candle[] = [];
-  for (const candle of candlesFrom(payload)) {
-    const stamp = Number(candle[0]);
-    const close = numeric(candle[4]);
-    const high = numeric(candle[2]);
-    const low = numeric(candle[3]);
-    if (!Number.isFinite(stamp) || !close || !high || !low) continue;
-    points.push({
-      date: new Date(stamp * 1000).toISOString().slice(0, 10),
-      close,
-      low,
-      high,
-      // The verbatim candle, so a figure can be checked against what was served.
-      excerpt: JSON.stringify(candle),
-    });
+  const seen = new Set<string>();
+  let cursor = FROM;
+  let digest = '';
+
+  // Walk forward a thousand days at a time until the venue stops answering with
+  // anything new, which is how it says "that is all there is".
+  for (let round = 0; round < 12; round += 1) {
+    let batch;
+    try {
+      batch = await window(market.symbol, cursor);
+    } catch (error) {
+      console.warn(`  ${market.code}: ${error instanceof Error ? error.message : 'fallo'}`);
+      break;
+    }
+    if (!batch.rows.length) break;
+    digest = batch.digest;
+
+    let advanced = false;
+    for (const candle of batch.rows) {
+      const stamp = Number(candle[0]);
+      const close = numeric(candle[4]);
+      const high = numeric(candle[2]);
+      const low = numeric(candle[3]);
+      if (!Number.isFinite(stamp) || !close || !high || !low) continue;
+      const date = new Date(stamp).toISOString().slice(0, 10);
+      if (seen.has(date)) continue;
+      seen.add(date);
+      advanced = true;
+      points.push({
+        date,
+        close,
+        low,
+        high,
+        // The verbatim candle, so a figure can be checked against what was served.
+        excerpt: JSON.stringify(candle),
+      });
+    }
+    if (!advanced) break;
+    const last = batch.rows.at(-1)?.[0];
+    if (typeof last !== 'number') break;
+    cursor = last + 86_400_000;
+    if (cursor > Date.now()) break;
+    await new Promise((resolve) => setTimeout(resolve, 400));
   }
+
   if (points.length < 30) {
     console.warn(`  ${market.code}: sólo ${points.length} velas, omitido`);
     return null;
   }
+  points.sort((left, right) => left.date.localeCompare(right.date));
   console.log(
-    `  ${market.code.padEnd(9)} ${points.length} días  ${points[0]?.date} → ${points.at(-1)?.date}`,
+    `  ${market.code.padEnd(9)} ${String(points.length).padStart(5)} días  ` +
+      `${points[0]?.date} → ${points.at(-1)?.date}`,
   );
   return {
     indicatorCode: market.code,
@@ -142,8 +176,8 @@ async function collect(market: Market, retrievedAt: string): Promise<Series | nu
     unit: market.unit,
     note: market.note,
     provenance: {
-      publisher: 'KRAKEN',
-      sourceUrl: url,
+      publisher: 'BINANCE',
+      sourceUrl: `${ENDPOINT}?symbol=${market.symbol}&interval=1d`,
       retrievedAt,
       upstreamSha256: digest,
       frequency: 'DAILY',
@@ -159,7 +193,6 @@ async function main(): Promise<void> {
   for (const market of MARKETS) {
     const collected = await collect(market, retrievedAt);
     if (collected) series.push(collected);
-    await new Promise((resolve) => setTimeout(resolve, 1_200));
   }
   if (!series.length) throw new Error('Ningún mercado respondió');
 

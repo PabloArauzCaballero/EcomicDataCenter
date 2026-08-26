@@ -43,6 +43,7 @@ const SNAPSHOTS = [
   'boot/macro-annual-history.json',
   'boot/macro-annual-sectors.json',
   'boot/macro-annual-debt.json',
+  'boot/macro-annual-fx.json',
 ] as const;
 
 /** Each indicator is its own retrieval, so each carries its own digest. */

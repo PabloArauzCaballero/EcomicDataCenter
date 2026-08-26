@@ -117,6 +117,17 @@
       "specialty": "UFV y valoracion oficial del oro",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000c",
+      "code": "PRESS_ARCHIVE",
+      "name": "Cobertura periodistica recuperada del archivo web",
+      "agentType": "SECTOR",
+      "provider": "Internet Archive",
+      "modelIdentifier": "cdx-wayback",
+      "specialty": "Titulares economicos bolivianos desde 2020",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

@@ -29,6 +29,7 @@ import { reconcileCompanyFilings } from './boot-seed.company-filings';
 import { reconcileCompanyFilingArchive } from './boot-seed.company-filings-archive';
 import { reconcileCompanyFilingTexts } from './boot-seed.company-filing-texts';
 import { reconcilePressCoverage } from './boot-seed.press-coverage';
+import { reconcilePressArchive } from './boot-seed.press-archive';
 import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
 import { reconcileMarketPrices } from './boot-seed.market-prices';
 import { reconcileBcbQuotes } from './boot-seed.bcb-quotes';
@@ -123,6 +124,7 @@ export async function runBootSeeds(): Promise<void> {
       // Runs after the archive: it attaches evidence to the claims that made.
       await reconcileCompanyFilingTexts(identities.sourceId, transaction);
       await reconcilePressCoverage(identities.sourceId, transaction);
+      await reconcilePressArchive(identities.sourceId, transaction);
     });
   } finally {
     await database.close();

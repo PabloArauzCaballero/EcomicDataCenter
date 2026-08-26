@@ -33,6 +33,7 @@
     "smoke": "tsx scripts/smoke.ts",
     "daily:collect": "tsx scripts/daily-economic-collector.ts",
     "press:collect": "tsx scripts/press/collect-press-coverage.ts",
+    "press:archive": "tsx scripts/press/collect-press-archive.ts",
     "markets:collect": "tsx scripts/markets/collect-market-prices.ts",
     "bcb:collect": "tsx scripts/bcb/collect-bcb-quotes.ts",
     "quality:sources": "tsx scripts/quality/measure-collection-quality.ts",
