@@ -1,5 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { SOURCES } from './archive-sources';
+import type { Source } from './archive-sources';
 import { readableHeadline } from './headline-spelling';
 
 /**
@@ -29,27 +31,6 @@ import { readableHeadline } from './headline-spelling';
 const SEEDS = join('src', 'database', 'seeds', 'boot');
 const UA = 'Mozilla/5.0 (compatible; ObservatorioEconomicoBO/1.0)';
 const INDEX = 'http://web.archive.org/cdx/search/cdx';
-
-interface Source {
-  readonly outlet: string;
-  readonly domain: string;
-  readonly pattern: string;
-}
-
-const SOURCES: readonly Source[] = [
-  { outlet: 'EL DEBER', domain: 'eldeber.com.bo', pattern: 'eldeber.com.bo/economia/*' },
-  { outlet: 'EL DEBER', domain: 'eldeber.com.bo', pattern: 'eldeber.com.bo/dinero/*' },
-  {
-    outlet: 'LOS TIEMPOS',
-    domain: 'lostiempos.com',
-    pattern: 'lostiempos.com/actualidad/economia/*',
-  },
-  { outlet: 'OPINIÓN', domain: 'opinion.com.bo', pattern: 'opinion.com.bo/articulo/economia/*' },
-  { outlet: 'PÁGINA SIETE', domain: 'paginasiete.bo', pattern: 'paginasiete.bo/economia/*' },
-  { outlet: 'EL PAÍS', domain: 'elpais.bo', pattern: 'elpais.bo/economia/*' },
-  { outlet: 'LA RAZÓN', domain: 'la-razon.com', pattern: 'la-razon.com/economia/*' },
-  { outlet: 'CORREO DEL SUR', domain: 'correodelsur.com', pattern: 'correodelsur.com/economia/*' },
-];
 
 const YEARS = [2020, 2021, 2022, 2023, 2024, 2025, 2026] as const;
 
@@ -96,11 +77,27 @@ function dateFor(url: string, stamp: string): { date: string; basis: 'URL' | 'AR
   };
 }
 
-async function query(source: Source, year: number): Promise<Article[]> {
+/**
+ * What one query to the index came back with, and whether it came back at all.
+ *
+ * "No captures" and "the index did not answer" are different facts and the
+ * collector used to print both as `+0`. That is the same defect as a failed
+ * request rendering as an empty result: it reports a successful run over a
+ * service that refused every question. The index does refuse — it is somebody's
+ * free service and it drops connections once a client has asked enough — so the
+ * difference has to survive all the way to the summary.
+ */
+interface Answer {
+  articles: Article[];
+  refused: boolean;
+}
+
+async function query(source: Source, year: number): Promise<Answer> {
   const url =
     `${INDEX}?url=${source.pattern}&from=${year}&to=${year}&output=json` +
     `&collapse=urlkey&filter=statuscode:200&limit=6000`;
   let records: unknown[][] = [];
+  let answered = false;
   for (let attempt = 0; attempt < 3; attempt += 1) {
     try {
       const response = await fetch(url, {
@@ -111,11 +108,13 @@ async function query(source: Source, year: number): Promise<Article[]> {
       const text = await response.text();
       const parsed: unknown = text.trim() ? JSON.parse(text) : [];
       records = Array.isArray(parsed) ? (parsed as unknown[][]).slice(1) : [];
+      answered = true;
       break;
     } catch {
       await new Promise((resolve) => setTimeout(resolve, 5_000 * (attempt + 1)));
     }
   }
+  if (!answered) return { articles: [], refused: true };
 
   const out: Article[] = [];
   for (const record of records) {
@@ -141,7 +140,7 @@ async function query(source: Source, year: number): Promise<Article[]> {
       excerpt: JSON.stringify(record).slice(0, 900),
     });
   }
-  return out;
+  return { articles: out, refused: false };
 }
 
 function load(year: number): { provenance: Record<string, unknown>; articles: Article[] } {
@@ -186,11 +185,28 @@ async function main(): Promise<void> {
   console.log(`ya guardadas: ${known.size}`);
 
   let added = 0;
+  let refusals = 0;
+  let asked = 0;
   for (const source of SOURCES) {
     for (const year of YEARS) {
-      const found = await query(source, year);
+      const answer = await query(source, year);
+      asked += 1;
+      if (answer.refused) {
+        refusals += 1;
+        console.log(`  ${source.outlet.padEnd(16)} ${year}  sin respuesta del índice`);
+        /*
+         * Once the index has stopped answering it stays stopped for a while,
+         * and a hundred further questions are neither useful nor polite. The
+         * run ends and says so; it accumulates, so the next one picks up.
+         */
+        if (refusals >= 6) {
+          console.log('\nEl índice dejó de responder. Se detiene la recolección.');
+          break;
+        }
+        continue;
+      }
       let fresh = 0;
-      for (const article of found) {
+      for (const article of answer.articles) {
         if (known.has(article.url)) continue;
         const bucket = files.get(Number(article.eventDate.slice(0, 4)) as (typeof YEARS)[number]);
         if (!bucket) continue;
@@ -199,13 +215,20 @@ async function main(): Promise<void> {
         fresh += 1;
       }
       added += fresh;
-      console.log(`  ${source.outlet.padEnd(15)} ${year}  +${fresh}`);
+      console.log(`  ${source.outlet.padEnd(16)} ${year}  +${fresh}`);
       await new Promise((resolve) => setTimeout(resolve, 2_500));
     }
+    if (refusals >= 6) break;
   }
 
   for (const [year, held] of files) if (held.articles.length) save(year, held);
   console.log(`\n${added} notas nuevas; ${known.size} en total`);
+  console.log(
+    refusals === 0
+      ? `${asked} consultas, todas respondidas`
+      : `${asked} consultas, ${refusals} sin respuesta: el resultado está incompleto`,
+  );
+  if (refusals > 0) process.exitCode = 2;
 }
 
 main().catch((error: unknown) => {
