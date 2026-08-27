@@ -1,0 +1,674 @@
+{
+  "series": [
+    {
+      "indicatorCode": "OFFICIAL_EXCHANGE_RATE_BOB_USD",
+      "worldBankCode": "PA.NUS.FCRF",
+      "name": "Tipo de cambio oficial, bolivianos por dolar",
+      "unit": "INDEX",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/PA.NUS.FCRF?format=json&per_page=100&date=1960:2025",
+        "retrievedAt": "2026-08-26T02:00:00Z",
+        "upstreamSha256": "8281537dec9d8dfce21c138e7254062b76d4f1f23de23a2049ee6f91c7c20bc3",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1983",
+          "value": "0.00023163",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1983\",\"value\":0.00023163,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1984",
+          "value": "0.00313590916666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1984\",\"value\":0.00313590916666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1985",
+          "value": "0.440029008333333",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1985\",\"value\":0.440029008333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1986",
+          "value": "1.92195833333333",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1986\",\"value\":1.92195833333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1987",
+          "value": "2.05485",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1987\",\"value\":2.05485,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1988",
+          "value": "2.35024166666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1988\",\"value\":2.35024166666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1989",
+          "value": "2.69168333333333",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1989\",\"value\":2.69168333333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1990",
+          "value": "3.17265",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1990\",\"value\":3.17265,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1991",
+          "value": "3.58060833333333",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1991\",\"value\":3.58060833333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1992",
+          "value": "3.90051666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1992\",\"value\":3.90051666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1993",
+          "value": "4.26508333333333",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1993\",\"value\":4.26508333333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1994",
+          "value": "4.62051666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1994\",\"value\":4.62051666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1995",
+          "value": "4.80034166666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1995\",\"value\":4.80034166666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1996",
+          "value": "5.0746125",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":5.0746125,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1997",
+          "value": "5.25425833333333",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1997\",\"value\":5.25425833333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1998",
+          "value": "5.51013333333333",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":5.51013333333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1999",
+          "value": "5.81240833333333",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1999\",\"value\":5.81240833333333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2000",
+          "value": "6.18354166666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":6.18354166666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2001",
+          "value": "6.60691666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":6.60691666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2002",
+          "value": "7.17",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":7.17,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2003",
+          "value": "7.65916666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":7.65916666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2004",
+          "value": "7.93626666666666",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":7.93626666666666,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2005",
+          "value": "8.0660625",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":8.0660625,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2006",
+          "value": "8.01161666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":8.01161666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2007",
+          "value": "7.85124516125",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":7.85124516125,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2008",
+          "value": "7.23832069891666",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":7.23832069891666,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2009",
+          "value": "7.02",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":7.02,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2010",
+          "value": "7.01666666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":7.01666666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2011",
+          "value": "6.9369625",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":6.9369625,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2012",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2013",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2014",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2015",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2016",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2017",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2018",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2019",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2020",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2021",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2022",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2023",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2024",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2025",
+          "value": "6.91",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.FCRF\",\"value\":\"Official exchange rate (LCU per US$, period average)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":6.91,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "REAL_EFFECTIVE_EXCHANGE_RATE",
+      "worldBankCode": "PX.REX.REER",
+      "name": "Tipo de cambio efectivo real",
+      "unit": "INDEX",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/PX.REX.REER?format=json&per_page=100&date=1960:2025",
+        "retrievedAt": "2026-08-26T02:00:00Z",
+        "upstreamSha256": "cb25aa4b1b20481ed8fd80a0435e379fb54fe477fe071bca6b518ca3781b6525",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1980",
+          "value": "174.570548368934",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1980\",\"value\":174.570548368934,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1981",
+          "value": "222.343397666978",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1981\",\"value\":222.343397666978,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1982",
+          "value": "240.735769438324",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1982\",\"value\":240.735769438324,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1983",
+          "value": "225.171949851457",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1983\",\"value\":225.171949851457,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1984",
+          "value": "297.760615900048",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1984\",\"value\":297.760615900048,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1985",
+          "value": "505.107995556336",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1985\",\"value\":505.107995556336,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1986",
+          "value": "147.615326033844",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1986\",\"value\":147.615326033844,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1987",
+          "value": "139.947086267837",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1987\",\"value\":139.947086267837,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1988",
+          "value": "134.198334216064",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1988\",\"value\":134.198334216064,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1989",
+          "value": "129.523703002803",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1989\",\"value\":129.523703002803,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1990",
+          "value": "106.585840046407",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1990\",\"value\":106.585840046407,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1991",
+          "value": "110.7819401864",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1991\",\"value\":110.7819401864,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1992",
+          "value": "108.769171740929",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1992\",\"value\":108.769171740929,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1993",
+          "value": "107.546738048314",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1993\",\"value\":107.546738048314,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1994",
+          "value": "102.671794469183",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1994\",\"value\":102.671794469183,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1995",
+          "value": "99.8644652732743",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1995\",\"value\":99.8644652732743,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1996",
+          "value": "104.472229437342",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":104.472229437342,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1997",
+          "value": "106.76589394865",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1997\",\"value\":106.76589394865,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "111.646650175057",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":111.646650175057,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1999",
+          "value": "114.965875922474",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1999\",\"value\":114.965875922474,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "113.115967073085",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":113.115967073085,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "111.148529965549",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":111.148529965549,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "109.533753153258",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":109.533753153258,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "98.5946403452232",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":98.5946403452232,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "92.1308448822651",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":92.1308448822651,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "87.0360257676346",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":87.0360257676346,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "85.4322310096773",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":85.4322310096773,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "86.6403209551517",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":86.6403209551517,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "97.119986295405",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":97.119986295405,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "105.791550157164",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":105.791550157164,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "99.9999999999999",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":99.9999999999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "102.408207403794",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":102.408207403794,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "106.815786893855",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":106.815786893855,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "112.363774554714",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":112.363774554714,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "120.174687073961",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":120.174687073961,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "137.545499864607",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":137.545499864607,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "143.385621373494",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":143.385621373494,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "140.694136086987",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":140.694136086987,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "144.05253309735",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":144.05253309735,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "150.635469990463",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":150.635469990463,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "158.937890346841",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":158.937890346841,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "152.526817703594",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":152.526817703594,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "151.123941273473",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":151.123941273473,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "148.730360698988",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":148.730360698988,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "156.570718991442",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":156.570718991442,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2025",
+          "value": "181.078158528042",
+          "excerpt": "{\"indicator\":{\"id\":\"PX.REX.REER\",\"value\":\"Real effective exchange rate index (2010 = 100)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":181.078158528042,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "PPP_CONVERSION_FACTOR",
+      "worldBankCode": "PA.NUS.PPP",
+      "name": "Factor de conversion de paridad de poder adquisitivo",
+      "unit": "INDEX",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/PA.NUS.PPP?format=json&per_page=100&date=1960:2025",
+        "retrievedAt": "2026-08-26T02:00:00Z",
+        "upstreamSha256": "80504e37cf28964bf107f5c7f83f2fd772a51866aa43af2ffc647ba392a8259e",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1990",
+          "value": "0.94828483131822",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1990\",\"value\":0.94828483131822,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1991",
+          "value": "1.07952365678955",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1991\",\"value\":1.07952365678955,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1992",
+          "value": "1.19478478533275",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1992\",\"value\":1.19478478533275,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1993",
+          "value": "1.24365016460759",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1993\",\"value\":1.24365016460759,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1994",
+          "value": "1.31448103121669",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1994\",\"value\":1.31448103121669,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1995",
+          "value": "1.43461115483113",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1995\",\"value\":1.43461115483113,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1996",
+          "value": "1.57196314987869",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":1.57196314987869,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1997",
+          "value": "1.63347588766446",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1997\",\"value\":1.63347588766446,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1998",
+          "value": "1.72922023156987",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":1.72922023156987,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "1999",
+          "value": "1.74621091967537",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1999\",\"value\":1.74621091967537,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2000",
+          "value": "1.79624519319061",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":1.79624519319061,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2001",
+          "value": "1.78954172947672",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":1.78954172947672,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2002",
+          "value": "1.81186408863611",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":1.81186408863611,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2003",
+          "value": "1.88925510498195",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":1.88925510498195,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2004",
+          "value": "1.98637022806314",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":1.98637022806314,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2005",
+          "value": "2.04040062881635",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":2.04040062881635,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2006",
+          "value": "2.24981384646937",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":2.24981384646937,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2007",
+          "value": "2.35197938211124",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":2.35197938211124,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2008",
+          "value": "2.54706802991956",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":2.54706802991956,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2009",
+          "value": "2.47019598239973",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":2.47019598239973,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2010",
+          "value": "2.65475475436301",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":2.65475475436301,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2011",
+          "value": "2.98091197013855",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":2.98091197013855,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2012",
+          "value": "3.03348120528034",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":3.03348120528034,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2013",
+          "value": "3.00953763550479",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":3.00953763550479,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2014",
+          "value": "2.98222152129765",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":2.98222152129765,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2015",
+          "value": "2.89461967008556",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":2.89461967008556,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2016",
+          "value": "2.77929957475478",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":2.77929957475478,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2017",
+          "value": "2.68458724021912",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":2.68458724021912,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2018",
+          "value": "2.70201420783997",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":2.70201420783997,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2019",
+          "value": "2.63906097412109",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":2.63906097412109,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2020",
+          "value": "2.58266496658325",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":2.58266496658325,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2021",
+          "value": "2.473956823349",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":2.473956823349,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2022",
+          "value": "2.36952460555989",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":2.36952460555989,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2023",
+          "value": "2.28929736096853",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":2.28929736096853,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2024",
+          "value": "2.3689096918025",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":2.3689096918025,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        },
+        {
+          "period": "2025",
+          "value": "2.76324583616839",
+          "excerpt": "{\"indicator\":{\"id\":\"PA.NUS.PPP\",\"value\":\"PPP conversion factor, GDP (LCU per international $)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2025\",\"value\":2.76324583616839,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":2}"
+        }
+      ]
+    }
+  ]
+}

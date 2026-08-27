@@ -1,0 +1,944 @@
+{
+  "series": [
+    {
+      "indicatorCode": "RULE_OF_LAW_SCORE",
+      "worldBankCode": "GOV_WGI_RL.EST",
+      "name": "Estado de derecho",
+      "unit": "SCORE",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/GOV_WGI_RL.EST?format=json&per_page=200&date=1960:2026&source=3",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "8fce42623733024f3bed5642da03dd0d80d2838a09190d9ad9e28f14ede404a6",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1996",
+          "value": "-0.304672",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":-0.304672,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "-0.2522387",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":-0.2522387,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "-0.4587099",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":-0.4587099,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "-0.3831379",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":-0.3831379,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "-0.3682174",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":-0.3682174,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "-0.555608",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":-0.555608,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "-0.6036732",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":-0.6036732,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "-0.8814385",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":-0.8814385,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "-0.8731148",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":-0.8731148,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "-1.0045966",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":-1.0045966,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "-1.1687051",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":-1.1687051,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "-1.0805326",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":-1.0805326,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "-1.0144825",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":-1.0144825,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "-1.0969326",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":-1.0969326,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "-1.1936901",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":-1.1936901,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "-1.139505",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":-1.139505,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "-1.2376147",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":-1.2376147,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "-1.2512006",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":-1.2512006,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "-1.2565518",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":-1.2565518,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "-1.2847988",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":-1.2847988,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "-1.24490489999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":-1.24490489999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "-1.2021414",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":-1.2021414,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "-1.1101906",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":-1.1101906,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "-1.1775683",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":-1.1775683,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "-1.2028195",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":-1.2028195,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "-1.267722",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RL.EST\",\"value\":\"Rule of Law - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":-1.267722,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "REGULATORY_QUALITY_SCORE",
+      "worldBankCode": "GOV_WGI_RQ.EST",
+      "name": "Calidad regulatoria",
+      "unit": "SCORE",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/GOV_WGI_RQ.EST?format=json&per_page=200&date=1960:2026&source=3",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "51c1cae1e6552130e953ad6e07255a2d255cc626097715bb451dcec6393e2faa",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1996",
+          "value": "0.0406637",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":0.0406637,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "0.2300837",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":0.2300837,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "0.1111419",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":0.1111419,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "-0.158954999999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":-0.158954999999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "-0.1149383",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":-0.1149383,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "-0.1589524",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":-0.1589524,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "-0.3222565",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":-0.3222565,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "-0.6627217",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":-0.6627217,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "-0.7718798",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":-0.7718798,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "-0.808172799999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":-0.808172799999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "-0.8805278",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":-0.8805278,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "-0.8393752",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":-0.8393752,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "-0.799982699999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":-0.799982699999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "-0.8690743",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":-0.8690743,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "-0.856648299999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":-0.856648299999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "-0.8423377",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":-0.8423377,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "-0.8213682",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":-0.8213682,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "-0.8393587",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":-0.8393587,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "-0.829255299999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":-0.829255299999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "-0.8485465",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":-0.8485465,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "-0.9755809",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":-0.9755809,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "-1.0510123",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":-1.0510123,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "-1.117001",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":-1.117001,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "-1.13735149999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":-1.13735149999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "-1.1594687",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":-1.1594687,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "-1.2544304",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_RQ.EST\",\"value\":\"Regulatory Quality - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":-1.2544304,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "CONTROL_OF_CORRUPTION_SCORE",
+      "worldBankCode": "GOV_WGI_CC.EST",
+      "name": "Control de la corrupcion",
+      "unit": "SCORE",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/GOV_WGI_CC.EST?format=json&per_page=200&date=1960:2026&source=3",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "755fc99946cf278c86ae70c1677aff67fbe96d88dd65654d666f53f838e3b585",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1996",
+          "value": "-0.575012899999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":-0.575012899999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "-0.3936453",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":-0.3936453,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "-0.4524023",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":-0.4524023,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "-0.836659199999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":-0.836659199999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "-0.8453814",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":-0.8453814,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "-0.6249148",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":-0.6249148,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "-0.7617554",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":-0.7617554,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "-0.452390299999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":-0.452390299999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "-0.480008799999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":-0.480008799999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "-0.5457949",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":-0.5457949,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "-0.5487867",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":-0.5487867,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "-0.4112377",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":-0.4112377,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "-0.5781748",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":-0.5781748,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "-0.698911",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":-0.698911,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "-0.5857827",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":-0.5857827,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "-0.6409494",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":-0.6409494,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "-0.754699",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":-0.754699,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "-0.7783732",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":-0.7783732,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "-0.8143488",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":-0.8143488,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "-0.8237458",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":-0.8237458,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "-0.8232153",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":-0.8232153,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "-0.8045643",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":-0.8045643,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "-0.9489015",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":-0.9489015,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "-0.9824356",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":-0.9824356,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "-0.9556498",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":-0.9556498,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "-0.997582699999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_CC.EST\",\"value\":\"Control of Corruption - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":-0.997582699999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "GOVERNMENT_EFFECTIVENESS_SCORE",
+      "worldBankCode": "GOV_WGI_GE.EST",
+      "name": "Efectividad gubernamental",
+      "unit": "SCORE",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/GOV_WGI_GE.EST?format=json&per_page=200&date=1960:2026&source=3",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "091780b60ef09e4969ecd5565b7fbeea2df329eb1fc1b88535363c5a3e2941fb",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1996",
+          "value": "-0.296272",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":-0.296272,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "-0.0324037",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":-0.0324037,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "-0.4884996",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":-0.4884996,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "-0.4897682",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":-0.4897682,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "-0.5017882",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":-0.5017882,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "-0.5545755",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":-0.5545755,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "-0.465225499999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":-0.465225499999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "-0.4843923",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":-0.4843923,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "-0.449504199999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":-0.449504199999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "-0.4878087",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":-0.4878087,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "-0.361823699999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":-0.361823699999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "-0.3055989",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":-0.3055989,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "-0.2672438",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":-0.2672438,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "-0.2476484",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":-0.2476484,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "-0.1627207",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":-0.1627207,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "-0.3868723",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":-0.3868723,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "-0.4320931",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":-0.4320931,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "-0.332731799999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":-0.332731799999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "-0.313079",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":-0.313079,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "-0.364265",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":-0.364265,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "-0.4578656",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":-0.4578656,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "-0.4718419",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":-0.4718419,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "-0.4784584",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":-0.4784584,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "-0.4335715",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":-0.4335715,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "-0.4093864",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":-0.4093864,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "-0.6104172",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_GE.EST\",\"value\":\"Government Effectiveness - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":-0.6104172,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "POLITICAL_STABILITY_SCORE",
+      "worldBankCode": "GOV_WGI_PV.EST",
+      "name": "Estabilidad politica y ausencia de violencia",
+      "unit": "SCORE",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/GOV_WGI_PV.EST?format=json&per_page=200&date=1960:2026&source=3",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "dd0fb6e44b73040031353ad28679c0992c594e39f0a50f786b210c46952c2e92",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1996",
+          "value": "-0.228361999999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":-0.228361999999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "-0.1789419",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":-0.1789419,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "-0.3559096",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":-0.3559096,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "-0.345507",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":-0.345507,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "-0.884627699999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":-0.884627699999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "-0.6014065",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":-0.6014065,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "-0.879439099999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":-0.879439099999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "-0.622095699999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":-0.622095699999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "-0.632049499999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":-0.632049499999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "-0.5339009",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":-0.5339009,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "-0.2490392",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":-0.2490392,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "-0.2159855",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":-0.2159855,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "-0.2956719",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":-0.2956719,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "-0.381218399999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":-0.381218399999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "-0.256508",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":-0.256508,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "-0.2978539",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":-0.2978539,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "-0.175327899999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":-0.175327899999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "-0.2594315",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":-0.2594315,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "-0.2207409",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":-0.2207409,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "-0.1913596",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":-0.1913596,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "-0.7539613",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":-0.7539613,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "-0.3855901",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":-0.3855901,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "-0.2859636",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":-0.2859636,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "-0.170608899999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":-0.170608899999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "-0.289823899999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":-0.289823899999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "-0.5460357",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_PV.EST\",\"value\":\"Political Stability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":-0.5460357,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "VOICE_AND_ACCOUNTABILITY_SCORE",
+      "worldBankCode": "GOV_WGI_VA.EST",
+      "name": "Voz y rendicion de cuentas",
+      "unit": "SCORE",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/GOV_WGI_VA.EST?format=json&per_page=200&date=1960:2026&source=3",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "ebb3ad3f8861fb00388dde085de60fd192cc94dfbd73815357f235a30dd8d1b2",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1996",
+          "value": "0.0639740999999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":0.0639740999999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "0.2254083",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":0.2254083,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "0.2098424",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":0.2098424,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "0.0252086",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":0.0252086,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "-0.0799714",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":-0.0799714,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "-0.0983289",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":-0.0983289,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "0.0909855",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":0.0909855,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "0.1494004",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":0.1494004,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "0.0758027999999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":0.0758027999999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "0.0220861",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":0.0220861,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "0.0738735",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":0.0738735,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "0.0367525",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":0.0367525,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "-0.0848776",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":-0.0848776,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "-0.162847699999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":-0.162847699999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "-0.1734942",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":-0.1734942,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "-0.0995359",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":-0.0995359,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "-0.1594334",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":-0.1594334,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "-0.1911694",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":-0.1911694,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "-0.227986599999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":-0.227986599999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "-0.322517799999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":-0.322517799999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "-0.4802862",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":-0.4802862,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "-0.3793012",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":-0.3793012,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "-0.3237121",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":-0.3237121,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "-0.395731899999999",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":-0.395731899999999,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2023",
+          "value": "-0.4295062",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2023\",\"value\":-0.4295062,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2024",
+          "value": "-0.4397641",
+          "excerpt": "{\"indicator\":{\"id\":\"GOV_WGI_VA.EST\",\"value\":\"Voice and Accountability - Governance estimate (approx. -2.5 to +2.5)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2024\",\"value\":-0.4397641,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "CPIA_PUBLIC_SECTOR_SCORE",
+      "worldBankCode": "IQ.CPA.PUBS.XQ",
+      "name": "Gestion del sector publico e instituciones",
+      "unit": "SCORE",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/IQ.CPA.PUBS.XQ?format=json&per_page=200&date=1960:2026",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "d67bfa740ded814b5cfb5e74e3140c5360fc4ff2e9011ff161de1633ca588a31",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2005",
+          "value": "3.3",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":3.3,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "3.3",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":3.3,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "3.3",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":3.3,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "3.3",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":3.3,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "3.3",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":3.3,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "3.3",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":3.3,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "3.2",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":3.2,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "3.2",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":3.2,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "3.2",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":3.2,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "3.2",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":3.2,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "3.1",
+          "excerpt": "{\"indicator\":{\"id\":\"IQ.CPA.PUBS.XQ\",\"value\":\"CPIA public sector management and institutions cluster average (1=low to 6=high)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":3.1,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    }
+  ]
+}

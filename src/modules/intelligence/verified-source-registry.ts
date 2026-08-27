@@ -14,12 +14,20 @@
  * parser or the research model — cannot forge the host.
  */
 
-export type VerifiedSourceTier = 'OFFICIAL' | 'MARKET';
+export type VerifiedSourceTier = 'OFFICIAL' | 'MARKET' | 'PRESS';
 
 export interface VerifiedSource {
   /** Registered name of the institution or venue that publishes the domain. */
   readonly publisher: string;
-  /** OFFICIAL is an institutional publisher; MARKET is a quoted trading venue. */
+  /**
+   * OFFICIAL is an institutional publisher; MARKET is a quoted trading venue;
+   * PRESS is a news outlet.
+   *
+   * The distinction is load-bearing rather than descriptive. An official table
+   * and a venue's endpoint state a measurement; an outlet reports one. So a
+   * PRESS domain establishes who published an article and never authorises a
+   * figure inside it to enter a series — the checks below admit only OFFICIAL.
+   */
   readonly tier: VerifiedSourceTier;
 }
 
@@ -40,6 +48,18 @@ const registry = new Map<string, VerifiedSource>([
     { publisher: 'UNIDAD DE ANALISIS DE POLITICAS SOCIALES Y ECONOMICAS', tier: 'OFFICIAL' },
   ],
   ['dolarbluebolivia.click', { publisher: 'DOLAR BLUE BOLIVIA', tier: 'MARKET' }],
+
+  // News outlets. Registered so an article carries the masthead that published
+  // it rather than a name scraped from the page, which is what makes coverage
+  // attributable — not so that anything they report is treated as measured.
+  ['eldeber.com.bo', { publisher: 'EL DEBER', tier: 'PRESS' }],
+  ['unitel.bo', { publisher: 'UNITEL', tier: 'PRESS' }],
+  ['reduno.com.bo', { publisher: 'RED UNO', tier: 'PRESS' }],
+  ['larazon.bo', { publisher: 'LA RAZON', tier: 'PRESS' }],
+  ['opinion.com.bo', { publisher: 'OPINION', tier: 'PRESS' }],
+  ['brujuladigital.net', { publisher: 'BRUJULA DIGITAL', tier: 'PRESS' }],
+  ['erbol.com.bo', { publisher: 'ERBOL', tier: 'PRESS' }],
+  ['boliviaverifica.bo', { publisher: 'BOLIVIA VERIFICA', tier: 'PRESS' }],
 ]);
 
 /** Matches a host against a registered domain or any of its subdomains. */

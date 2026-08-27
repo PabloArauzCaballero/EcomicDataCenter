@@ -26,7 +26,16 @@ import {
 import { reconcileAgentBootstrap } from './boot-seed.agent-bootstrap';
 import { reconcileExchangeRateHistory } from './boot-seed.exchange-rate-history';
 import { reconcileCompanyFilings } from './boot-seed.company-filings';
+import { reconcileCompanyFilingArchive } from './boot-seed.company-filings-archive';
+import { reconcileCompanyFilingTexts } from './boot-seed.company-filing-texts';
+import { reconcilePressCoverage } from './boot-seed.press-coverage';
+import { reconcilePressArchive } from './boot-seed.press-archive';
 import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
+import { reconcileMarketPrices } from './boot-seed.market-prices';
+import { reconcileBcbQuotes } from './boot-seed.bcb-quotes';
+import { reconcileUfvHistory } from './boot-seed.ufv-history';
+import { reconcileBbvYields } from './boot-seed.bbv-yields';
+import { reconcileCompositeIndices } from './boot-seed.composite-indices';
 import { readSeed } from './seed.utils';
 
 async function reconcileFrequencies(transaction: Transaction): Promise<void> {
@@ -111,8 +120,26 @@ export async function runBootSeeds(): Promise<void> {
       // above reconciles.
       await reconcileExchangeRateHistory(identities.sourceId, transaction);
       await reconcileMacroAnnualHistory(identities.sourceId, transaction);
+      await reconcileMarketPrices(identities.sourceId, transaction);
+      await reconcileBcbQuotes(identities.sourceId, transaction);
+      await reconcileUfvHistory(identities.sourceId, transaction);
+      await reconcileBbvYields(identities.sourceId, transaction);
+      await reconcileCompositeIndices(identities.sourceId, transaction);
       await reconcileCompanyFilings(identities.sourceId, transaction);
+      await reconcileCompanyFilingArchive(identities.sourceId, transaction);
+      // Runs after the archive: it attaches evidence to the claims that made.
+      await reconcileCompanyFilingTexts(identities.sourceId, transaction);
+      await reconcilePressCoverage(identities.sourceId, transaction);
+      await reconcilePressArchive(identities.sourceId, transaction);
     });
+    /*
+     * Outside the transaction, because a materialised view cannot be refreshed
+     * concurrently inside one — and because until it is refreshed the report
+     * serves the corpus as it stood before this load.
+     */
+    await database.query('SET statement_timeout = 0');
+    await database.query('REFRESH MATERIALIZED VIEW read_models.press_article_snapshot');
+    await database.query('REFRESH MATERIALIZED VIEW read_models.press_term_mention_snapshot');
   } finally {
     await database.close();
   }

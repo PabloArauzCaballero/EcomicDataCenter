@@ -73,6 +73,94 @@
       "specialty": "Hechos relevantes comunicados por emisores en Bolivia",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000008",
+      "code": "BBV_FILINGS_ARCHIVE",
+      "name": "Carga del registro de hechos relevantes por emisor",
+      "agentType": "CORPORATE",
+      "provider": "Bolsa Boliviana de Valores",
+      "modelIdentifier": "bbv-search-news-api",
+      "specialty": "Registro histórico de hechos relevantes por emisor y rubro",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000009",
+      "code": "PRESS_COVERAGE",
+      "name": "Cobertura de prensa economica boliviana",
+      "agentType": "SECTOR",
+      "provider": "Medios bolivianos",
+      "modelIdentifier": "feeds-sindicados",
+      "specialty": "Cobertura periodistica de la coyuntura economica de Bolivia",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000a",
+      "code": "MARKET_PRICES",
+      "name": "Cierres diarios de mercados ligados al dolar",
+      "agentType": "EXCHANGE_RATE",
+      "provider": "Kraken",
+      "modelIdentifier": "kraken-ohlc-1440",
+      "specialty": "Oro, bitcoin y estables anclados al dolar",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000b",
+      "code": "BCB_QUOTES",
+      "name": "Cotizaciones diarias del Banco Central",
+      "agentType": "EXCHANGE_RATE",
+      "provider": "Banco Central de Bolivia",
+      "modelIdentifier": "bcb-tabla-cotizaciones",
+      "specialty": "UFV y valoracion oficial del oro",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000c",
+      "code": "PRESS_ARCHIVE",
+      "name": "Cobertura periodistica recuperada del archivo web",
+      "agentType": "SECTOR",
+      "provider": "Internet Archive",
+      "modelIdentifier": "cdx-wayback",
+      "specialty": "Titulares economicos bolivianos desde 2020",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000d",
+      "code": "UFV_HISTORY_BACKFILL",
+      "name": "Carga histórica de la Unidad de Fomento de Vivienda",
+      "agentType": "EXCHANGE_RATE",
+      "provider": "Banco Central de Bolivia",
+      "modelIdentifier": "bcb-chart-ufv",
+      "specialty": "Serie diaria de la UFV desde su creación en 2001",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000e",
+      "code": "BBV_YIELD_CURVE",
+      "name": "Curva de rendimientos de la Bolsa Boliviana de Valores",
+      "agentType": "CORPORATE",
+      "provider": "Bolsa Boliviana de Valores",
+      "modelIdentifier": "bbv-tasas-rendimiento",
+      "specialty": "Tasas de rendimiento por instrumento, emisor, moneda y plazo",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000f",
+      "code": "COMPOSITE_INDEX_BACKFILL",
+      "name": "Carga de índices compuestos que califican al país",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Our World in Data",
+      "modelIdentifier": "owid-grapher-csv",
+      "specialty": "Desarrollo humano, corrupción percibida y calidad institucional",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
