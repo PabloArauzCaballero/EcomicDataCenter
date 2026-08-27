@@ -34,6 +34,8 @@
     "daily:collect": "tsx scripts/daily-economic-collector.ts",
     "press:collect": "tsx scripts/press/collect-press-coverage.ts",
     "press:archive": "tsx scripts/press/collect-press-archive.ts",
+    "press:sitemaps": "tsx scripts/press/collect-press-sitemaps.ts",
+    "press:refresh": "tsx scripts/press/refresh-press-snapshot.ts",
     "press:respell": "tsx scripts/press/respell-archive.ts",
     "markets:collect": "tsx scripts/markets/collect-market-prices.ts",
     "bcb:collect": "tsx scripts/bcb/collect-bcb-quotes.ts",

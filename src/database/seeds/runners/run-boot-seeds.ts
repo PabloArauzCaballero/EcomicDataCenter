@@ -126,6 +126,14 @@ export async function runBootSeeds(): Promise<void> {
       await reconcilePressCoverage(identities.sourceId, transaction);
       await reconcilePressArchive(identities.sourceId, transaction);
     });
+    /*
+     * Outside the transaction, because a materialised view cannot be refreshed
+     * concurrently inside one — and because until it is refreshed the report
+     * serves the corpus as it stood before this load.
+     */
+    await database.query('SET statement_timeout = 0');
+    await database.query('REFRESH MATERIALIZED VIEW read_models.press_article_snapshot');
+    await database.query('REFRESH MATERIALIZED VIEW read_models.press_term_mention_snapshot');
   } finally {
     await database.close();
   }
