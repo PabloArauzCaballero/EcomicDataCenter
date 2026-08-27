@@ -78,7 +78,11 @@
     "jaeger:verify": "sh scripts/verify-jaeger.sh",
     "local:db:up": "docker compose -f docker-compose.yml -f docker-compose.local.yml up -d postgres",
     "local:db:down": "docker compose -f docker-compose.yml -f docker-compose.local.yml down",
-    "release:verify": "sh scripts/run_release_verification.sh"
+    "release:verify": "sh scripts/run_release_verification.sh",
+    "macro:collect": "tsx scripts/macro/collect-worldbank-series.ts",
+    "bcb:ufv": "tsx scripts/bcb/collect-ufv-history.ts",
+    "bbv:yields": "tsx scripts/bbv/collect-bbv-yields.ts",
+    "indices:collect": "tsx scripts/macro/collect-owid-indices.ts"
   },
   "dependencies": {
     "@fastify/helmet": "13.0.1",

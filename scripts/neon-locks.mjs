@@ -8,5 +8,9 @@ const { rows } = await client.query(
    from pg_stat_activity where datname = current_database() and pid <> pg_backend_pid()
      and state <> 'idle' order by xact_start`,
 );
-console.log(rows.length ? rows.map((r) => `${r.pid} ${r.state} ${r.edad} ${r.consulta}`).join('\n') : 'ninguna');
+console.log(
+  rows.length
+    ? rows.map((r) => `${r.pid} ${r.state} ${r.edad} ${r.consulta}`).join('\n')
+    : 'ninguna',
+);
 await client.end();
