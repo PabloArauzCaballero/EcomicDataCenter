@@ -1,0 +1,639 @@
+{
+  "series": [
+    {
+      "indicatorCode": "RISK_PREMIUM_ON_LENDING_PCT",
+      "worldBankCode": "FR.INR.RISK",
+      "name": "Prima de riesgo sobre creditos",
+      "unit": "PERCENT",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/FR.INR.RISK?format=json&per_page=200&date=1960:2026",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "34b35b095377295d146ee29563bba2df890c69d9b5ccfbcffecfc5b7ce2c1a91",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1994",
+          "value": "37.6816666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1994\",\"value\":37.6816666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1995",
+          "value": "26.5041666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1995\",\"value\":26.5041666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1996",
+          "value": "36.0325",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":36.0325,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1997",
+          "value": "36.3991666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1997\",\"value\":36.3991666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "27.08",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":27.08,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1999",
+          "value": "21.3041666666667",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1999\",\"value\":21.3041666666667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "23.6025",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":23.6025,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "8.58154975950316",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":8.58154975950316,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "8.2268790172883",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":8.2268790172883,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "7.73863310306847",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":7.73863310306847,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "7.05850475052176",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":7.05850475052176,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "11.6512781183339",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":11.6512781183339,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "7.33302318405213",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":7.33302318405213,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "6.82461079511262",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":6.82461079511262,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "5.56412963796036",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":5.56412963796036,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "9.49632238910303",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":9.49632238910303,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "9.83998317512028",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":9.83998317512028,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "10.4539160478928",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":10.4539160478928,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "10.6119158531006",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":10.6119158531006,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "9.95908627592384",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":9.95908627592384,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "7.71656747672604",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":7.71656747672604,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "7.4991649078189",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":7.4991649078189,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "7.73482606117997",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":7.73482606117997,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "7.76099203240817",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":7.76099203240817,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2022",
+          "value": "7.63488872156729",
+          "excerpt": "{\"indicator\":{\"id\":\"FR.INR.RISK\",\"value\":\"Risk premium on lending (lending rate minus treasury bill rate, %)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2022\",\"value\":7.63488872156729,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "BANK_LENDING_DEPOSIT_SPREAD_PCT",
+      "worldBankCode": "GFDD.EI.02",
+      "name": "Diferencial bancario entre tasa activa y pasiva",
+      "unit": "PERCENT",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/GFDD.EI.02?format=json&per_page=200&date=1960:2026",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "ce1d17ca2c3ccd004b71a3d32e7f7cde342bd49758e9d1fb2ff60f7f5e030d79",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1987",
+          "value": "19.06417",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1987\",\"value\":19.06417,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1988",
+          "value": "12.05667",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1988\",\"value\":12.05667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1989",
+          "value": "13.60667",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1989\",\"value\":13.60667,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1990",
+          "value": "17.97917",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1990\",\"value\":17.97917,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1991",
+          "value": "17.3725",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1991\",\"value\":17.3725,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1992",
+          "value": "22.28834",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1992\",\"value\":22.28834,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1993",
+          "value": "31.69583",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1993\",\"value\":31.69583,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1994",
+          "value": "37.14167",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1994\",\"value\":37.14167,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1995",
+          "value": "32.1475",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1995\",\"value\":32.1475,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1996",
+          "value": "36.80833",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":36.80833,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1997",
+          "value": "35.32167",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1997\",\"value\":35.32167,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "26.5925",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":26.5925,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1999",
+          "value": "23.11",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1999\",\"value\":23.11,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "23.61333",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":23.61333,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "10.2383",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":10.2383,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "11.0525",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":11.0525,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "6.253386",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":6.253386,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "7.050117",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":7.050117,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "11.68096",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":11.68096,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "7.864775",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":7.864775,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "9.315267",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":9.315267,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "9.2175",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":9.2175,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "8.920341",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":8.920341,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "8.863258",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":8.863258,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "9.512356",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":9.512356,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "9.508795",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":9.508795,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "9.312216",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":9.312216,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "6.744092",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":6.744092,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "6.659356",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":6.659356,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "6.508238",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":6.508238,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "5.640868",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":5.640868,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "5.003437",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":5.003437,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "5.220638",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":5.220638,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "4.051003",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.02\",\"value\":\"Bank lending-deposit spread\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":4.051003,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "BANK_NET_INTEREST_MARGIN_PCT",
+      "worldBankCode": "GFDD.EI.01",
+      "name": "Margen financiero neto de la banca",
+      "unit": "PERCENT",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/GFDD.EI.01?format=json&per_page=200&date=1960:2026",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "8f28282ae79838d06a011d7e252017c9ca9cf8137587cad8f74e74b2e436d503",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "2000",
+          "value": "6.028842",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":6.028842,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "6.167878",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":6.167878,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "5.476336",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":5.476336,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "5.022738",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":5.022738,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "4.663627",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":4.663627,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "5.037974",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":5.037974,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "4.422541",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":4.422541,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "5.42356",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":5.42356,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "6.644986",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":6.644986,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "5.703512",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":5.703512,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "5.105424",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":5.105424,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "5.078476",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":5.078476,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "5.765359",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":5.765359,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "5.698298",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":5.698298,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "5.924414",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":5.924414,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "6.31429",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":6.31429,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "5.857188",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":5.857188,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "5.683985",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":5.683985,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "5.244762",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":5.244762,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "5.137136",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":5.137136,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "4.403943",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":4.403943,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2021",
+          "value": "3.80617",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.01\",\"value\":\"Bank net interest margin (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2021\",\"value\":3.80617,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "CREDIT_TO_GOVERNMENT_PCT_GDP",
+      "worldBankCode": "GFDD.EI.08",
+      "name": "Credito al gobierno y empresas publicas",
+      "unit": "PERCENT_OF_GDP",
+      "provenance": {
+        "publisher": "BANCO MUNDIAL",
+        "sourceUrl": "https://api.worldbank.org/v2/country/BOL/indicator/GFDD.EI.08?format=json&per_page=200&date=1960:2026",
+        "retrievedAt": "2026-08-27T15:07:09Z",
+        "upstreamSha256": "44afcf9f1a2077dd7afeb762d63530d0c271905b8050afd7b21118f2607ce4fb",
+        "frequency": "ANNUAL"
+      },
+      "points": [
+        {
+          "period": "1987",
+          "value": "0.0022511",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1987\",\"value\":0.0022511,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1988",
+          "value": "0.0009255",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1988\",\"value\":0.0009255,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1989",
+          "value": "0.0527812",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1989\",\"value\":0.0527812,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1990",
+          "value": "0.0310818",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1990\",\"value\":0.0310818,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1991",
+          "value": "0.0439052",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1991\",\"value\":0.0439052,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1992",
+          "value": "0.5269372",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1992\",\"value\":0.5269372,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1993",
+          "value": "0.129196",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1993\",\"value\":0.129196,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1994",
+          "value": "0.3853621",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1994\",\"value\":0.3853621,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1995",
+          "value": "1.784392",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1995\",\"value\":1.784392,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1996",
+          "value": "4.337477",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1996\",\"value\":4.337477,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1997",
+          "value": "4.050117",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1997\",\"value\":4.050117,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1998",
+          "value": "3.078673",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1998\",\"value\":3.078673,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "1999",
+          "value": "1.953338",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"1999\",\"value\":1.953338,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2000",
+          "value": "2.319597",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2000\",\"value\":2.319597,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2001",
+          "value": "3.898201",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2001\",\"value\":3.898201,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2002",
+          "value": "4.319273",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2002\",\"value\":4.319273,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2003",
+          "value": "4.203778",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2003\",\"value\":4.203778,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2004",
+          "value": "4.881903",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2004\",\"value\":4.881903,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2005",
+          "value": "3.716905",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2005\",\"value\":3.716905,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2006",
+          "value": "2.746825",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2006\",\"value\":2.746825,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2007",
+          "value": "1.985976",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2007\",\"value\":1.985976,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2008",
+          "value": "1.205466",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2008\",\"value\":1.205466,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2009",
+          "value": "2.171691",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2009\",\"value\":2.171691,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2010",
+          "value": "1.580801",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2010\",\"value\":1.580801,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2011",
+          "value": "0.5914633",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2011\",\"value\":0.5914633,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2012",
+          "value": "0.6446639",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2012\",\"value\":0.6446639,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2013",
+          "value": "0.820675",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2013\",\"value\":0.820675,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2014",
+          "value": "0.8491351",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2014\",\"value\":0.8491351,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2015",
+          "value": "0.8472638",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2015\",\"value\":0.8472638,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2016",
+          "value": "0.8897776",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2016\",\"value\":0.8897776,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2017",
+          "value": "0.7780208",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2017\",\"value\":0.7780208,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2018",
+          "value": "0.5934172",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2018\",\"value\":0.5934172,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2019",
+          "value": "1.355336",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2019\",\"value\":1.355336,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        },
+        {
+          "period": "2020",
+          "value": "1.809741",
+          "excerpt": "{\"indicator\":{\"id\":\"GFDD.EI.08\",\"value\":\"Credit to government and state-owned enterprises to GDP (%)\"},\"country\":{\"id\":\"BO\",\"value\":\"Bolivia\"},\"countryiso3code\":\"BOL\",\"date\":\"2020\",\"value\":1.809741,\"unit\":\"\",\"obs_status\":\"\",\"decimal\":1}"
+        }
+      ]
+    }
+  ]
+}

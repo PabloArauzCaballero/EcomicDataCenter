@@ -20,3 +20,8 @@ Los ADR son inmutables después de aceptarse. Una decisión nueva reemplaza a la
 | 0014 | Estrategia de reprocesamiento de cuarentena | Propuesto; bloqueado por modelo de datos |
 | 0015 | Trazabilidad distribuida con OpenTelemetry y Jaeger | Aceptado |
 | 0016 | Credencial compartida para el colector alojado | Aceptado |
+| 0017 | Recolección diaria determinista | Aceptado |
+| 0018 | Aprovisionar la base en el arranque | Aceptado |
+| 0019 | Cobertura de prensa y listados renderizados | Aceptado |
+| 0020 | Materializar los modelos de lectura de prensa | Aceptado |
+| 0021 | La curva de rendimientos vive fuera de las lecturas medidas | Aceptado |

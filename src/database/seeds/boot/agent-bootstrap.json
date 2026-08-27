@@ -128,6 +128,39 @@
       "specialty": "Titulares economicos bolivianos desde 2020",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000d",
+      "code": "UFV_HISTORY_BACKFILL",
+      "name": "Carga histórica de la Unidad de Fomento de Vivienda",
+      "agentType": "EXCHANGE_RATE",
+      "provider": "Banco Central de Bolivia",
+      "modelIdentifier": "bcb-chart-ufv",
+      "specialty": "Serie diaria de la UFV desde su creación en 2001",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000e",
+      "code": "BBV_YIELD_CURVE",
+      "name": "Curva de rendimientos de la Bolsa Boliviana de Valores",
+      "agentType": "CORPORATE",
+      "provider": "Bolsa Boliviana de Valores",
+      "modelIdentifier": "bbv-tasas-rendimiento",
+      "specialty": "Tasas de rendimiento por instrumento, emisor, moneda y plazo",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-00000000000f",
+      "code": "COMPOSITE_INDEX_BACKFILL",
+      "name": "Carga de índices compuestos que califican al país",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Our World in Data",
+      "modelIdentifier": "owid-grapher-csv",
+      "specialty": "Desarrollo humano, corrupción percibida y calidad institucional",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
