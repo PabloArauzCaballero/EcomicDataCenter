@@ -35,6 +35,10 @@ const { reconcileBbvYields } =
   await import('../src/database/seeds/runners/boot-seed.bbv-yields.ts');
 const { reconcileCompositeIndices } =
   await import('../src/database/seeds/runners/boot-seed.composite-indices.ts');
+const { reconcileCompanyFilingArchive } =
+  await import('../src/database/seeds/runners/boot-seed.company-filings-archive.ts');
+const { reconcileCompanyFilingTexts } =
+  await import('../src/database/seeds/runners/boot-seed.company-filing-texts.ts');
 
 const database = createWriterDatabase(getEnvironment());
 await database.authenticate();
@@ -51,6 +55,12 @@ const blocks = {
   indices: ['indices compuestos', reconcileCompositeIndices],
   bbv: ['curva de la BBV', reconcileBbvYields],
   ufv: ['UFV diaria desde 2001', reconcileUfvHistory],
+  // The register is nineteen thousand filings against the four hundred the
+  // rest of the blocks hold together, so it is named on its own and run alone.
+  hechos: ['registro de hechos relevantes de la BBV', reconcileCompanyFilingArchive],
+  // After `hechos`: it attaches each filing's own page to the claim that block
+  // created, and matches on the identifier the register's payload carries.
+  textos: ['textos propios de los hechos relevantes', reconcileCompanyFilingTexts],
 };
 
 /**
