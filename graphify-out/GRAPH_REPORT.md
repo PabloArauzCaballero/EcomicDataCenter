@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3835 nodes · 6522 edges · 344 communities (283 shown, 61 thin omitted)
+- 3928 nodes · 6655 edges · 373 communities (291 shown, 82 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 40 edges (avg confidence: 0.72)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5a97f223`
+- Built from commit: `1d431059`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -269,6 +269,7 @@
 - 0006-create-quality_lineage-tables.ts
 - 0007-add-foreign-keys.ts
 - boot-seed.market-prices.ts
+- 0010-add-domain-integrity-constraints.ts
 - 0041-create-press-article-read-model.ts
 - source-text-decoding.ts
 - Plan de corrección de hardening — 30 de julio de 2026
@@ -285,15 +286,29 @@
 - 8. Plan de cobertura — poblar el máximo de datos económicos
 - 7. Cómo decide el backend qué se publica — y qué implica para ti
 - verify-jaeger.sh
-- 0001-create-schemas.ts
+- observation-normalizer.ts
+- collect-owid-indices.ts
+- ADR 0021 — La curva de rendimientos vive fuera de las lecturas medidas
+- build_openapi.py
+- 8. Checklist de producción
+- validate_contract_routes.py
+- fastify
+- @fastify/helmet
+- @fastify/rate-limit
+- @fastify/static
+- jwks-rsa
+- @nestjs/core
+- @nestjs/platform-fastify
 - boot-seed.press-coverage.ts
 - boot-seed.company-filing-texts.ts
+- @nestjs/swagger
 - ProvenanceController
 - .resolve
 - ADR-0019: cobertura de prensa y listados que exigen renderizado
 - neon-inventario.mjs
 - .importBatch
 - ConceptModel
+- @opentelemetry/instrumentation-nestjs-core
 - verified-source-registry.ts
 - 0031-create-economic-indicator-read-models.ts
 - EntityMentionModel
@@ -303,9 +318,21 @@
 - 0034-separate-annual-macro-series.ts
 - neon-verificar.mjs
 - neon-comparar.mjs
+- @opentelemetry/instrumentation-pg
+- @opentelemetry/instrumentation-pino
+- @opentelemetry/resources
+- @opentelemetry/sdk-node
+- @opentelemetry/sdk-trace-base
 - neon-estado.mjs
 - neon-roles.mjs
 - neon-seed-directo.mjs
+- @opentelemetry/semantic-conventions
+- pino
+- pino-http
+- prom-client
+- rxjs
+- sequelize-typescript
+- zod
 
 ## God Nodes (most connected - your core abstractions)
 1. `scripts` - 76 edges
@@ -322,27 +349,27 @@
 ## Surprising Connections (you probably didn't know these)
 - `seedFixtures()` --references--> `sequelize`  [EXTRACTED]
   test/integration/database-guarantees.integration-spec.ts → package.json
-- `createContractApplication()` --indirect_call--> `AppModule`  [INFERRED]
-  scripts/export-openapi.ts → src/app.module.ts
 - `createContractApplication()` --references--> `test`  [EXTRACTED]
   scripts/export-openapi.ts → package.json
-- `ensureGroupRole()` --references--> `sequelize`  [EXTRACTED]
-  scripts/provision-remote-roles.ts → package.json
-- `ensureLoginRole()` --references--> `sequelize`  [EXTRACTED]
-  scripts/provision-remote-roles.ts → package.json
+- `withSerializableRetry()` --references--> `sequelize`  [EXTRACTED]
+  src/common/persistence/serializable-retry.ts → package.json
+- `createMigrationRunner()` --references--> `sequelize`  [EXTRACTED]
+  src/database/migration.runner.ts → package.json
+- `normalizeMigrationHistoryNames()` --references--> `sequelize`  [EXTRACTED]
+  src/database/migration.runner.ts → package.json
 
 ## Import Cycles
 - None detected.
 
-## Communities (344 total, 61 thin omitted)
+## Communities (373 total, 82 thin omitted)
 
 ### Community 0 - "environment.ts"
-Cohesion: 0.12
-Nodes (18): agentBootstrapSeedSchema, agentSeedSchema, economicActivitySeedSchema, frequencySeedSchema, geographicUnitSeedSchema, qualityDimensionSeedSchema, statisticalDomainSeedSchema, unitSeedSchema (+10 more)
+Cohesion: 0.18
+Nodes (10): agentBootstrapSeedSchema, agentSeedSchema, economicActivitySeedSchema, frequencySeedSchema, geographicUnitSeedSchema, qualityDimensionSeedSchema, statisticalDomainSeedSchema, unitSeedSchema (+2 more)
 
 ### Community 1 - "governance.controller.ts"
-Cohesion: 0.07
-Nodes (37): attributeSchema, createDatasetSchema, createDatasetVersionSchema, createDataStructureSchema, createIndicatorSchema, createMethodologySchema, createMethodologyVersionSchema, createStatisticalOperationSchema (+29 more)
+Cohesion: 0.09
+Nodes (36): attributeSchema, createDatasetSchema, createDatasetVersionSchema, createDataStructureSchema, createIndicatorSchema, createMethodologySchema, createMethodologyVersionSchema, createStatisticalOperationSchema (+28 more)
 
 ### Community 2 - "index.ts"
 Cohesion: 0.09
@@ -358,11 +385,11 @@ Nodes (75): scripts, bbv:filings, bbv:yields, bcb:collect, bcb:ufv, build, compo
 
 ### Community 5 - "data-query.controller.ts"
 Cohesion: 0.05
-Nodes (47): ACTOR_ROLES, CROSS_INSTITUTION_ROLES, DisclosureScope, PUBLIC_CONFIDENTIALITY, resolveDisclosureScope(), ReadQueryExecutor, Inject, Injectable (+39 more)
+Nodes (42): CROSS_INSTITUTION_ROLES, DisclosureScope, PUBLIC_CONFIDENTIALITY, resolveDisclosureScope(), DataQueryController, ApiBearerAuth, ApiOperation, ApiTags (+34 more)
 
 ### Community 6 - "quality.controller.ts"
 Cohesion: 0.08
-Nodes (34): QualityController, ApiBearerAuth, ApiOperation, ApiTags, Body, Controller, Get, Param (+26 more)
+Nodes (33): QualityController, ApiBearerAuth, ApiOperation, ApiTags, Body, Controller, Get, Param (+25 more)
 
 ### Community 8 - "Prompt final especializado para backend con NestJS, TypeScript, Zod, JWT y Sequelize"
 Cohesion: 0.05
@@ -373,8 +400,8 @@ Cohesion: 0.05
 Nodes (43): jest, node, scripts/**/*.ts, src/app.module.ts, src/common/**/*.ts, src/config/**/*.ts, src/database/seeders, src/database/**/*.ts (+35 more)
 
 ### Community 10 - "actor.ts"
-Cohesion: 0.09
-Nodes (31): ActorRole, Injectable, ZodValidationPipe, AGENT_TYPES, CLAIM_TYPES, claimQuerySchema, claimSchema, code (+23 more)
+Cohesion: 0.10
+Nodes (29): AGENT_TYPES, CLAIM_TYPES, claimQuerySchema, claimSchema, code, CompleteAgentRunInput, completeAgentRunSchema, CONFIDENCE_LEVELS (+21 more)
 
 ### Community 11 - "Lineamientos de programación profesional para código en producción"
 Cohesion: 0.06
@@ -385,8 +412,8 @@ Cohesion: 0.05
 Nodes (41): eslint, eslint-config-prettier, @eslint/js, jest, @nestjs/cli, @nestjs/testing, @opentelemetry/instrumentation, @opentelemetry/sdk-trace-node (+33 more)
 
 ### Community 13 - "observation-input.schemas.ts"
-Cohesion: 0.12
-Nodes (24): Candidate, researchOfficialBcb(), researchParallelExchange(), researchParallelVenue(), INDICATOR_CODES, INDICATOR_UNITS, IndicatorFrequency, IndicatorMeasure (+16 more)
+Cohesion: 0.16
+Nodes (19): Candidate, researchOfficialBcb(), researchParallelExchange(), researchParallelVenue(), INDICATOR_CODES, INDICATOR_UNITS, IndicatorFrequency, IndicatorMeasure (+11 more)
 
 ### Community 14 - "Casos de uso del core de datos"
 Cohesion: 0.07
@@ -397,24 +424,24 @@ Cohesion: 0.08
 Nodes (23): 1. Resultado de la revisión final, 2. Núcleo obligatorio y extensión institucional, 32 entidades obligatorias, 3. Catálogo de entidades, 4. Reglas de integridad indispensables, 5. Índices principales, 6. Ejemplo lógico, 7. Datos oficiales y resultados académicos (+15 more)
 
 ### Community 16 - "app.module.ts"
-Cohesion: 0.07
-Nodes (26): environment, LoggableRequest, LoggableResponse, AuditModule, Global, Module, RolesGuard, Inject (+18 more)
+Cohesion: 0.09
+Nodes (25): test, createContractApplication(), createDatabaseDouble(), exportOpenApi(), AppModule, environment, LoggableRequest, LoggableResponse (+17 more)
 
 ### Community 17 - "observation-registration.service.ts"
-Cohesion: 0.14
-Nodes (11): AgentRunModel, Column, Table, AgentRegistryService, Inject, Injectable, AgentRunQueryRepository, AgentRunStatusRow (+3 more)
+Cohesion: 0.18
+Nodes (8): Inject, AgentRunQueryRepository, AgentRunStatusRow, ScopedAgentRunStatus, Injectable, AgentRunStatus, DeadLetterItem, SubmissionOutcome
 
 ### Community 18 - "mock-seed.metadata.ts"
-Cohesion: 0.07
-Nodes (28): AttributeDefinitionModel, Column, Table, DataStructureModel, Column, Table, DatasetIndicatorModel, Column (+20 more)
+Cohesion: 0.06
+Nodes (33): AttributeDefinitionModel, Column, Table, DataStructureModel, Column, Table, DatasetIndicatorModel, Column (+25 more)
 
 ### Community 19 - "DatasetVersionModel"
 Cohesion: 0.22
 Nodes (12): Source, SOURCES, Answer, Article, dateFor(), headlineFrom(), load(), main() (+4 more)
 
 ### Community 20 - "MethodologyVersionModel"
-Cohesion: 0.17
-Nodes (12): OrganizationModel, Column, Table, SourceModel, Column, Table, AgentBootstrapIdentities, AgentSeed (+4 more)
+Cohesion: 0.12
+Nodes (15): AiAgentModel, Column, Table, OrganizationModel, Column, Table, SourceModel, Column (+7 more)
 
 ### Community 21 - "Instrucciones generales de generación del proyecto"
 Cohesion: 0.10
@@ -425,28 +452,28 @@ Cohesion: 0.15
 Nodes (16): main(), main(), iter_core_typescript_files(), iter_files(), iter_maintained_code_files(), Path, Yield unique files from explicit roots without traversing quarantined code., Yield TypeScript files that belong to the deployed application graph. (+8 more)
 
 ### Community 23 - "observation-write.repository.ts"
-Cohesion: 0.27
-Nodes (11): canonicalize(), captureBootSeedHash(), captureMockSeedHash(), hashSnapshot(), querySnapshot(), SnapshotRow, AGENT_BOOTSTRAP_IDS, BOOT_FREQUENCY_IDS (+3 more)
+Cohesion: 0.17
+Nodes (18): createReaderDatabase(), createWriterDatabase(), dialectOptions(), PostgresDialectOptions, DATABASE_MODELS, canonicalize(), captureBootSeedHash(), captureMockSeedHash() (+10 more)
 
 ### Community 24 - "metadata-catalog.service.ts"
-Cohesion: 0.13
-Nodes (18): ObservationRevisionModel, Column, Table, ObservationRecordInput, buildRevisionHash(), buildSeriesIdentity(), dimensionToken(), normalizedAttribute() (+10 more)
+Cohesion: 0.12
+Nodes (14): LineageRelationModel, Column, Table, ObservationAttributeValueModel, Column, Table, ObservationMeasureModel, Column (+6 more)
 
 ### Community 25 - "Opción A: stack completo con Docker"
 Cohesion: 0.11
 Nodes (18): 1. Crear configuración local coherente, 1. Crear configuración para runtime en host, 2. Iniciar únicamente PostgreSQL con puerto local, 2. Instalar dependencias con lockfile, 3. Construir e iniciar, 3. Preparar la base de datos, 4. Cargar catálogos y datos sintéticos, 4. Iniciar y verificar el API (+10 more)
 
 ### Community 26 - "dependencies"
-Cohesion: 0.03
-Nodes (65): dotenv, fastify, @fastify/helmet, @fastify/otel, @fastify/rate-limit, @fastify/static, ipaddr.js, jsonwebtoken (+57 more)
+Cohesion: 0.09
+Nodes (23): dotenv, @fastify/otel, ipaddr.js, jsonwebtoken, @nestjs/common, nestjs-pino, @opentelemetry/api, @opentelemetry/exporter-trace-otlp-http (+15 more)
 
 ### Community 27 - "application.error.ts"
-Cohesion: 0.17
-Nodes (12): Headers, Res, Public(), PoolSnapshot, ENVIRONMENT, DATABASE_CONNECTIONS, READER_DATABASE, WRITER_DATABASE (+4 more)
+Cohesion: 0.11
+Nodes (20): PoolSnapshot, ReadQueryContext, ENVIRONMENT, booleanFromString, Environment, environmentSchema, resetEnvironmentForTests(), DatabaseConnectionFactories (+12 more)
 
 ### Community 28 - "batch-idempotency.ts"
-Cohesion: 0.13
-Nodes (12): DimensionValueInput, DataEntryBatchModel, Column, Table, ObservationModel, Column, Table, OrderedDimension (+4 more)
+Cohesion: 0.20
+Nodes (9): DataEntryBatchModel, Column, Table, replayBatchImport(), BatchImportService, Injectable, BatchImportResult, BatchRecordResult (+1 more)
 
 ### Community 29 - "Informe de fase 3 — modelo físico y PostgreSQL"
 Cohesion: 0.12
@@ -465,19 +492,19 @@ Cohesion: 0.24
 Nodes (13): Article, articleFrom(), load(), locations(), main(), save(), SEEDS, slugOf() (+5 more)
 
 ### Community 33 - "health.controller.ts"
-Cohesion: 0.23
-Nodes (8): ClaimQueryRepository, ClaimRow, Injectable, ClaimQueryService, ClaimView, toClaimView(), Injectable, ClaimQueryInput
+Cohesion: 0.18
+Nodes (10): ClaimQueryRepository, ClaimRow, Injectable, ClaimQueryService, ClaimView, toClaimView(), Injectable, IntelligenceModule (+2 more)
 
 ### Community 34 - "DimensionDefinitionModel"
-Cohesion: 0.10
-Nodes (11): AiAgentModel, Column, Table, ClaimPersistenceService, Injectable, ClaimTriageService, Injectable, ResolveContradictionInput (+3 more)
+Cohesion: 0.07
+Nodes (20): AgentRunModel, Column, Table, DataContradictionModel, Column, Table, EntityMentionModel, Column (+12 more)
 
 ### Community 35 - "Secuencia ejecutada"
 Cohesion: 0.13
 Nodes (14): Criterios no negociables, Definición de terminado, Estado por fase, Fase 1 — Baseline e inventario, Fase 2 — Integridad del repositorio y build, Fase 3 — Memoria y eficiencia de recursos, Fase 4 — Seguridad de la información, Fase 5 — Clean Code y nomenclatura (+6 more)
 
 ### Community 36 - "Observatorio Económico Core Backend"
-Cohesion: 0.14
+Cohesion: 0.13
 Nodes (14): 1. Preparar herramientas y configuración, 2. Construir e iniciar, 3. Cargar catálogos y datos locales, 4. Ejecutar verificación local, 5. Logs y apagado, Autorización, Calidad, Capacidades implementadas (+6 more)
 
 ### Community 37 - "Arquitectura del backend"
@@ -501,8 +528,8 @@ Cohesion: 0.14
 Nodes (13): 1. Evidencia ejecutada, 2. Cambios críticos validados, 3. Gates bloqueados, 4. Intento de type-check, 5. Intento de bootstrap de Yarn, 6. Gate de release reproducible, 7. Calificación objetiva, Informe final de validación técnica (+5 more)
 
 ### Community 42 - "HttpExceptionFilter"
-Cohesion: 0.14
-Nodes (27): Req, Actor, CurrentActor, Roles(), ClaimReviewController, ApiBearerAuth, ApiOperation, ApiTags (+19 more)
+Cohesion: 0.19
+Nodes (18): Req, CurrentActor, Roles(), ApiOperation, Body, HttpCode, Post, IntelligenceController (+10 more)
 
 ### Community 44 - "ADR-NNNN: Título"
 Cohesion: 0.15
@@ -529,8 +556,8 @@ Cohesion: 0.18
 Nodes (10): 1. Resumen, 2. Avance verificable, 3. Decisiones clave, 4. Riesgos, 5. Desviaciones, 6. Pruebas ejecutadas, 7. Estado, Archivos creados (+2 more)
 
 ### Community 50 - "yaml"
-Cohesion: 0.12
-Nodes (14): yaml, operation(), ref(), response(), main(), make_request(), Writes UTF-8 with LF endings so generated files do not depend on the OS., schema_example() (+6 more)
+Cohesion: 0.19
+Nodes (7): yaml, main(), make_request(), Writes UTF-8 with LF endings so generated files do not depend on the OS., schema_example(), write_utf8(), yaml
 
 ### Community 51 - "verify-local-stack.cjs"
 Cohesion: 0.29
@@ -545,8 +572,8 @@ Cohesion: 0.20
 Nodes (9): 1. Resumen del ciclo de trabajo, 2. Avance realizado, 3. Riesgos detectados, 4. Decisiones clave tomadas, 5. Desviaciones de lo esperado, 6. Fase actual del proyecto, 7. Próxima acción recomendada, 8. Estado general del entregable (+1 more)
 
 ### Community 54 - "withSerializableRetry"
-Cohesion: 0.21
-Nodes (14): dailyPayload(), evidenceExcerpt(), HistorySeries, measuresFor(), reconcileExchangeRateHistory(), reconcileSeries(), SERIES, reconcileHistoryArtifact() (+6 more)
+Cohesion: 0.10
+Nodes (28): ungroundedMeasures(), ClaimEvidenceModel, Column, Table, SourceArtifactModel, Column, Table, filingPayload() (+20 more)
 
 ### Community 55 - "Flujos críticos"
 Cohesion: 0.22
@@ -725,8 +752,8 @@ Cohesion: 0.33
 Nodes (5): Antes del cambio, Aplicación, Rollback, Runbook de migraciones y rollback, Validación posterior
 
 ### Community 99 - "build_openapi.py"
-Cohesion: 0.11
-Nodes (11): Catch, SafeErrorLog, stringProperty(), toSafeErrorLog(), HttpExceptionFilter, readPluginStatus(), SentResponse, recordSpanFailure() (+3 more)
+Cohesion: 0.12
+Nodes (12): Catch, SafeErrorLog, stringProperty(), toSafeErrorLog(), HttpExceptionFilter, readPluginStatus(), ConsumedOperation, MessagingTraceService (+4 more)
 
 ### Community 100 - "generate_models.py"
 Cohesion: 0.46
@@ -749,7 +776,7 @@ Cohesion: 0.40
 Nodes (4): Criterio, Dependencias no activadas, Gate de actualización, Matriz de selección de librerías
 
 ### Community 105 - "Registro de hallazgos de hardening"
-Cohesion: 0.29
+Cohesion: 0.40
 Nodes (4): Conclusión técnica, Convenciones, Hallazgos, Registro de hallazgos de hardening
 
 ### Community 106 - ".prettierrc.json"
@@ -765,8 +792,8 @@ Cohesion: 0.70
 Nodes (4): check(), checkProtectedRoute(), CheckResult, main()
 
 ### Community 109 - "validate_contract_routes.py"
-Cohesion: 0.17
-Nodes (10): createHost(), handleInsideSpan(), logger, ConsumedOperation, MessagingTraceService, TraceCarrier, ADR-0003, Injectable (+2 more)
+Cohesion: 0.18
+Nodes (10): GovernanceModule, Module, MetadataCatalogService, Inject, Injectable, CreateDataStructureInput, CreateIndicatorInput, CreateStatisticalOperationInput (+2 more)
 
 ### Community 110 - "Documentación de arquitectura"
 Cohesion: 0.50
@@ -777,16 +804,16 @@ Cohesion: 0.83
 Nodes (3): collect_ids(), find_sensitive(), main()
 
 ### Community 113 - "ClassificationModel"
-Cohesion: 0.15
-Nodes (16): AttributeValueInput, attributeValueSchema, decimal, importObservationBatchSchema, isoDate, MeasureValueInput, measureValueSchema, observationRecordSchema (+8 more)
+Cohesion: 0.11
+Nodes (22): decimal, DimensionValueInput, dimensionValueSchema, isoDate, uuid, AttributeValueInput, attributeValueSchema, decimal (+14 more)
 
 ### Community 114 - "ClassificationVersionModel"
-Cohesion: 0.14
+Cohesion: 0.13
 Nodes (11): DatasetModel, Column, Table, DatasetVersionModel, Column, Table, DatasetService, Inject (+3 more)
 
 ### Community 115 - "DataIssueModel"
-Cohesion: 0.27
-Nodes (10): ALWAYS_REVIEWED, AUTO_PUBLISHABLE, ClaimDisposition, CRITICAL_IMPACT, IMPACT_GATE_EXEMPT, LOW_CONFIDENCE, RoutableClaim, routeClaim() (+2 more)
+Cohesion: 0.16
+Nodes (18): ALWAYS_REVIEWED, AUTO_PUBLISHABLE, ClaimDisposition, CRITICAL_IMPACT, IMPACT_GATE_EXEMPT, LOW_CONFIDENCE, RoutableClaim, routeClaim() (+10 more)
 
 ### Community 121 - "21. Estrategias permitidas para envío de JWT"
 Cohesion: 0.67
@@ -797,64 +824,64 @@ Cohesion: 0.67
 Nodes (3): 7. Versionado de API, Opción A: prefijo por controller, Opción B: prefijo global y rutas versionadas
 
 ### Community 136 - "dotenv"
-Cohesion: 0.14
-Nodes (17): ADR-0015, createSampler(), createSdk(), startTelemetry(), createTelemetryConfig(), TelemetryConfig, TelemetrySamplerName, createDiagnosticsLogger() (+9 more)
+Cohesion: 0.18
+Nodes (9): ReadQueryExecutor, Inject, Injectable, DataQueryModule, Module, DataQueryRepository, Injectable, TraceRepository (+1 more)
 
 ### Community 137 - "fastify"
-Cohesion: 0.16
-Nodes (12): QualityRuleModel, Column, Table, BatchRegistrationCache, EvaluationResult, nonNegativeConfig, numericRangeConfig, QualityEvaluatorService (+4 more)
+Cohesion: 0.13
+Nodes (14): DataIssueModel, Column, Table, QualityRuleModel, Column, Table, BatchRegistrationCache, EvaluationResult (+6 more)
 
 ### Community 138 - "@fastify/helmet"
-Cohesion: 0.07
-Nodes (26): BusinessRuleError, MethodologyModel, Column, Table, MethodologyVersionModel, Column, Table, StatisticalOperationModel (+18 more)
+Cohesion: 0.12
+Nodes (16): sequelize, ensureGroupRole(), ensureLoginRole(), GROUP_ROLES, LoginRole, main(), requireEnv(), sequelize (+8 more)
 
 ### Community 139 - "@fastify/static"
-Cohesion: 0.16
-Nodes (5): DomainMetricsCollector, Inject, Injectable, MetricsService, Injectable
+Cohesion: 0.13
+Nodes (3): DomainMetricsCollector, Inject, Injectable
 
 ### Community 144 - "jsonwebtoken"
 Cohesion: 0.10
 Nodes (20): 00 — Auditoría del estado actual (previa a la trazabilidad distribuida), 10. Plan de implementación adaptado a este repositorio, 11. Archivos que **serán** creados o modificados, 12. Riesgos identificados, 13. Criterio de aceptación de la Fase 0, 1.1 Tecnologías del enunciado que **no existen** en este repositorio, 1. Arquitectura detectada, 2.1 Orden de arranque actual (`src/main.ts`) (+12 more)
 
 ### Community 145 - "@nestjs/core"
-Cohesion: 0.14
-Nodes (20): AuditRequestState, createAuditState(), currentAuditState(), markAuditedTransactionally(), runWithAuditState(), storage, AuditEntry, describeActor() (+12 more)
+Cohesion: 0.15
+Nodes (17): AuditRequestState, createAuditState(), currentAuditState(), markAuditedTransactionally(), runWithAuditState(), storage, AuditEntry, describeActor() (+9 more)
 
 ### Community 147 - "@nestjs/swagger"
-Cohesion: 0.20
-Nodes (7): ApplicationError, ConflictError, ErrorCode, InfrastructureError, NotFoundError, RequestValidationError, schema
+Cohesion: 0.09
+Nodes (19): ApplicationError, BusinessRuleError, ConflictError, ErrorCode, InfrastructureError, NotFoundError, RequestValidationError, SentResponse (+11 more)
 
 ### Community 148 - "pg"
-Cohesion: 0.24
-Nodes (7): databaseErrorCode(), isRetryableTransactionError(), RETRYABLE_TRANSACTION_CODES, retryDelay(), TransactionRetryOptions, withSerializableRetry(), ReviewDecisionInput
+Cohesion: 0.22
+Nodes (9): databaseErrorCode(), isRetryableTransactionError(), RETRYABLE_TRANSACTION_CODES, retryDelay(), TransactionRetryOptions, withSerializableRetry(), ReprocessResult, ReprocessingService (+1 more)
 
 ### Community 149 - "pino"
-Cohesion: 0.36
-Nodes (7): createWriterDatabase(), reconcileMockSemantics(), runMockSeeds(), readSeed(), validateSeedFiles(), assertSame(), verifySeedIdempotency()
+Cohesion: 0.08
+Nodes (22): CodeItemModel, Column, Table, CodeListModel, Column, Table, ConceptModel, Column (+14 more)
 
 ### Community 150 - "reflect-metadata"
 Cohesion: 0.24
 Nodes (10): Candle, collect(), FROM, main(), Market, MARKETS, numeric(), SEED (+2 more)
 
 ### Community 151 - "rxjs"
-Cohesion: 0.24
-Nodes (7): test, createContractApplication(), createDatabaseDouble(), exportOpenApi(), DatabaseConnections, DatabaseLifecycle, Inject
+Cohesion: 0.20
+Nodes (12): collectSeries(), CompilerPoint, main(), plainValue(), SEED_DIR, SeriesPoint, MANIFEST, Requested (+4 more)
 
 ### Community 168 - "data-query.controller.ts"
 Cohesion: 0.10
-Nodes (13): RequestContextInterceptor, Injectable, CapturedHeaders, ActiveTraceContext, TraceContextService, Injectable, logger, ProbeModule (+5 more)
+Nodes (17): createHost(), handleInsideSpan(), logger, RequestContextInterceptor, Injectable, CapturedHeaders, startTracingHarness(), TracingHarness (+9 more)
 
 ### Community 169 - "environment.ts"
-Cohesion: 0.10
-Nodes (23): assertActorOrganization(), DomainCountsRow, APP_ATTRIBUTES, TracedOperation, TracingService, Injectable, DailyAnalysisService, Injectable (+15 more)
+Cohesion: 0.12
+Nodes (17): Actor, AgentRegistryService, Injectable, DailyAnalysisService, Injectable, DailyAnalysisResult, SubmissionResult, ReviewDecisionInput (+9 more)
 
 ### Community 170 - "OrganizationModel"
-Cohesion: 0.13
-Nodes (15): ClaimEvidenceModel, Column, Table, FactClaimModel, Column, Table, SourceArtifactModel, Column (+7 more)
+Cohesion: 0.28
+Nodes (10): ClaimReviewController, ApiBearerAuth, ApiOperation, ApiTags, Body, Controller, HttpCode, Param (+2 more)
 
 ### Community 172 - ".deadLetters"
-Cohesion: 0.21
-Nodes (13): canonicalHash(), canonicalize(), textHash(), ClaimContent, claimContentHash(), claimSubject, evidenceHash(), isComparableSubject() (+5 more)
+Cohesion: 0.17
+Nodes (15): canonicalHash(), canonicalize(), textHash(), ClaimContent, claimContentHash(), claimSubject, evidenceHash(), isComparableSubject() (+7 more)
 
 ### Community 173 - "export-openapi.ts"
 Cohesion: 0.24
@@ -865,8 +892,8 @@ Cohesion: 0.38
 Nodes (9): reconcileCountries(), reconcileCurrencies(), reconcileEconomicActivities(), reconcileFrequencies(), reconcileGeographicUnits(), reconcileQualityDimensions(), reconcileStatisticalDomains(), reconcileUnits() (+1 more)
 
 ### Community 175 - "seed-snapshot.ts"
-Cohesion: 0.43
-Nodes (6): ensureGroupRole(), ensureLoginRole(), GROUP_ROLES, LoginRole, main(), requireEnv()
+Cohesion: 0.27
+Nodes (11): attribute(), cells(), main(), MONTHS, operationBlock(), OPERATIONS, readBlock(), SEED (+3 more)
 
 ### Community 176 - "JwtAuthGuard"
 Cohesion: 0.39
@@ -877,16 +904,16 @@ Cohesion: 0.08
 Nodes (23): Alta inicial del agente (solo operador), Configuración previa obligatoria, Contrato de endpoints usado por la tarea, Programación recomendada, Prompt para la tarea programada, Tarea diaria de ChatGPT: investigación económica y entrega al Data Center, Adaptador de GitHub Pages, Almacén durable de evidencia: contrato genérico y adaptador de GitHub Pages (+15 more)
 
 ### Community 179 - "RolesGuard"
-Cohesion: 0.14
-Nodes (22): comparableNumber(), contextualUnits(), NumericOccurrence, numericOccurrences(), occurrencesMatch(), scaleComparableNumber(), ungroundedNumbers(), assessLexicalGrounding() (+14 more)
+Cohesion: 0.21
+Nodes (14): assessLexicalGrounding(), calibrateConfidenceForGrounding(), ClaimEvidenceGrounding, containsOrderedSequence(), directionForTerm(), EconomicDirection, economicDirectionSequences(), hasScopedNegation() (+6 more)
 
 ### Community 180 - "reapply-runtime-grants.ts"
-Cohesion: 0.25
-Nodes (8): IngestionController, ApiBearerAuth, ApiOperation, ApiTags, Body, Controller, HttpCode, Post
+Cohesion: 0.23
+Nodes (7): ObservationModel, Column, Table, ObservationRecordInput, RegisterWithinBatchInput, StructureRepository, Injectable
 
 ### Community 181 - "UnitMeasureModel"
-Cohesion: 0.10
-Nodes (15): matchesBearerToken(), createHostedCollectorActor(), JwtAuthGuard, TokenClaims, Injectable, BOOTSTRAP_CATALOG, GuardedRequest, reflector (+7 more)
+Cohesion: 0.08
+Nodes (21): ACTOR_ROLES, ActorRole, matchesBearerToken(), createHostedCollectorActor(), JwtAuthGuard, TokenClaims, Inject, Injectable (+13 more)
 
 ### Community 182 - "ConfigurationModule"
 Cohesion: 0.09
@@ -901,8 +928,8 @@ Cohesion: 0.23
 Nodes (8): byRule(), ENDINGS, readableHeadline(), NAMES, SPELLING, Article, SEEDS, YEARS
 
 ### Community 187 - "quality.controller.ts"
-Cohesion: 0.03
-Nodes (76): createReaderDatabase(), dialectOptions(), PostgresDialectOptions, AuditLogModel, Column, Table, ClaimClusterMemberModel, Column (+68 more)
+Cohesion: 0.04
+Nodes (46): AuditLogModel, Column, Table, ClaimClusterMemberModel, Column, Table, ClassificationItemModel, Column (+38 more)
 
 ### Community 188 - "Skill: clean-code-review"
 Cohesion: 0.11
@@ -937,8 +964,8 @@ Cohesion: 0.12
 Nodes (16): Comandos permitidos, Comandos prohibidos, Cuándo NO usarla, Cuándo usarla, Detente si, Entradas requeridas, Entregables, Evidencia requerida (+8 more)
 
 ### Community 196 - "Auditoría de preparación para producción"
-Cohesion: 0.13
-Nodes (15): 11. Nota sobre correcciones implementadas, 2. Calificación global, 4. Cobertura de requisitos institucionales, 5. Estado actual frente a estado objetivo, 6.1 Arquitectura general, 6.2 Flujo de ingesta objetivo, 6.3 Regla de publicación, 6. Modelo objetivo (+7 more)
+Cohesion: 0.18
+Nodes (10): 11. Nota sobre correcciones implementadas, 2. Calificación global, 4. Cobertura de requisitos institucionales, 5. Estado actual frente a estado objetivo, 6.1 Arquitectura general, 6.2 Flujo de ingesta objetivo, 6.3 Regla de publicación, 6. Modelo objetivo (+2 more)
 
 ### Community 197 - "Revisión por skill"
 Cohesion: 0.14
@@ -957,8 +984,8 @@ Cohesion: 0.21
 Nodes (11): BASE_URL, CONCURRENCY, counters, DURATION_SECONDS, GAUGES, main(), mean(), OUTPUT (+3 more)
 
 ### Community 201 - "database-guarantees.integration-spec.ts"
-Cohesion: 0.17
-Nodes (7): HASH_A, HASH_B, seedFixtures(), createIntegrationDatabase(), hasIntegrationDatabase, truncateAll(), SEEDS
+Cohesion: 0.27
+Nodes (9): annualPayload(), quotesItsOwnColumn(), reconcileCompositeIndices(), reconcileSeries(), reconcileSeriesArtifact(), CompositeIndexHistory, compositeIndexHistorySchema, CompositeIndexSeries (+1 more)
 
 ### Community 202 - "Auditoría de la configuración Claude Code existente"
 Cohesion: 0.18
@@ -997,8 +1024,8 @@ Cohesion: 0.17
 Nodes (20): RFC-822, datesFromArticles(), main(), readFeeds(), readRendered(), SEED, ADR-0019, clean() (+12 more)
 
 ### Community 211 - "structure-validator.ts"
-Cohesion: 0.18
-Nodes (23): backend(), completeRun(), contentExtension(), localDate(), main(), openRun(), persistEvidence(), request() (+15 more)
+Cohesion: 0.25
+Nodes (16): contentExtension(), persistEvidence(), groundClaimToExcerpt(), calibrateConfidenceForExcerptUniqueness(), comparable(), evidenceCandidateKey(), ExcerptTextLocator, groundedEntities() (+8 more)
 
 ### Community 212 - "Matriz de selección de plugins de Claude Code"
 Cohesion: 0.29
@@ -1025,8 +1052,8 @@ Cohesion: 0.29
 Nodes (7): 7.1 Decisión previa (bloquea todo lo demás), 7.2 Correcciones críticas antes de producción, 7.3 Primer mes, 7.4 Corto plazo, 7.5 Mediano plazo, 7.6 Evolución avanzada, 7. Roadmap
 
 ### Community 220 - "readSeed"
-Cohesion: 0.33
-Nodes (5): RFC-9530, assessSourceContentDigest(), SourceContentDigestAssessment, bytes, digest
+Cohesion: 0.21
+Nodes (10): RFC-9530, downloadEvidenceSource(), assessSourceContentDigest(), SourceContentDigestAssessment, assessSourceBodyLength(), boundedHeader(), SourceBodyLengthAssessment, sourceResponseProvenance (+2 more)
 
 ### Community 221 - "Configuración de Claude Code para este proyecto"
 Cohesion: 0.33
@@ -1057,15 +1084,15 @@ Cohesion: 0.40
 Nodes (4): Nota de atribución, Reglas, Skills, Trazabilidad de skills y reglas
 
 ### Community 229 - ".importBatch"
-Cohesion: 0.08
-Nodes (21): chunkItems(), ClassificationItemModel, Column, Table, ClassificationMappingModel, Column, Table, ClassificationModel (+13 more)
+Cohesion: 0.09
+Nodes (13): chunkItems(), ClassificationMappingModel, Column, Table, FrequencyModel, Column, Table, GeographicUnitModel (+5 more)
 
 ### Community 230 - "ConceptModel"
-Cohesion: 0.33
-Nodes (4): Inject, ObservationRegistrationService, Inject, Injectable
+Cohesion: 0.09
+Nodes (27): AuditAction, AuditService, Injectable, assertActorOrganization(), DomainCountsRow, MetricsService, Injectable, APP_ATTRIBUTES (+19 more)
 
 ### Community 231 - "tracing.e2e-spec.ts"
-Cohesion: 0.38
+Cohesion: 0.36
 Nodes (3): ProbeController, Controller, Get
 
 ### Community 232 - "claim-corroboration.ts"
@@ -1085,12 +1112,12 @@ Cohesion: 0.15
 Nodes (13): 0. Qué eres y qué NO eres, 10. Errores: sobre común y reacción esperada, 11. Verificación al cerrar el día, 12. Lo que NO debes intentar, 13. Ejemplo mínimo ejecutable, 14. Lista de verificación antes de cada envío, 1. Configuración, 2. Qué puedes tocar y qué no (+5 more)
 
 ### Community 237 - "disclosure.policy.ts"
-Cohesion: 0.40
-Nodes (9): ADR-0006, fastifyTracingInstrumentation(), UNTRACED_PATHS, createInstrumentations(), redactHttpTarget(), isUntracedTarget(), pathOf(), redactQueryString() (+1 more)
+Cohesion: 0.27
+Nodes (9): dailyPayload(), reconcileUfvHistory(), reconcileYear(), reconcileYearArtifact(), statedValue, UfvHistory, ufvHistorySchema, UfvPoint (+1 more)
 
 ### Community 238 - "export-openapi.ts"
-Cohesion: 0.36
-Nodes (7): AppModule, Module, createRequestId(), fastifyTracingPlugin(), bootstrap(), hasAgentIdentity(), rateLimitKey()
+Cohesion: 0.33
+Nodes (7): curvePayload(), describe(), reconcileArtifact(), reconcileBbvYields(), BbvYield, BbvYields, bbvYieldsSchema
 
 ### Community 240 - "0002-create-provenance-tables.ts"
 Cohesion: 0.15
@@ -1101,8 +1128,8 @@ Cohesion: 0.15
 Nodes (12): 04 — Política de datos en las trazas, 1. Datos permitidos, 2. Datos prohibidos, 3. Estrategia de redacción — tres barreras, 4. Verificación automatizada, 5. Retención y acceso, 6. Auditoría de la política, 7. Procedimiento ante filtración (+4 more)
 
 ### Community 242 - "export-openapi.ts"
-Cohesion: 0.18
-Nodes (16): ClusterOutcome, ResolvedMention, REVIEW_PRIORITY_BY_REASON, belongsToSameStory(), clusterFingerprint(), contentTokens(), shingles(), similarity() (+8 more)
+Cohesion: 0.15
+Nodes (18): ClaimTriageService, ClusterOutcome, ResolvedMention, REVIEW_PRIORITY_BY_REASON, Injectable, belongsToSameStory(), clusterFingerprint(), contentTokens() (+10 more)
 
 ### Community 243 - "0019-create-intelligence-claim-tables.ts"
 Cohesion: 0.15
@@ -1113,20 +1140,20 @@ Cohesion: 0.32
 Nodes (7): main(), MONTHS, Quote, SEED, tableDate(), TARGETS, toNumber()
 
 ### Community 246 - "0022-add-intelligence-foreign-keys.ts"
-Cohesion: 0.17
-Nodes (11): Acceso, Consultas de partida, Códigos de indicador, De dónde sale el valor, De dónde sale la historia, Limitaciones, Modelos de lectura para el tablero de indicadores, Promedio diario frente a lectura puntual (+3 more)
+Cohesion: 0.14
+Nodes (13): Acceso, Consultas de partida, Códigos de indicador, De dónde sale el valor, De dónde sale la historia, Limitaciones, Modelos de lectura para el tablero de indicadores, Promedio diario frente a lectura puntual (+5 more)
 
 ### Community 247 - "0023-add-intelligence-indexes.ts"
 Cohesion: 0.17
 Nodes (12): 02 — Catálogo de spans de negocio, `ingestion.import-batch`, `ingestion.register-observation`, `intelligence.daily-analysis`, `intelligence.reprocess-observation`, `intelligence.review-decision`, `intelligence.submit-claims`, `provenance.register-artifact` (+4 more)
 
 ### Community 248 - "currencySeedSchema"
-Cohesion: 0.19
-Nodes (13): downloadEvidenceSource(), assertPublicResolution(), Fetcher, fetchPublicSource(), HostResolver, isPrivateAddress(), readResponseBodyLimited(), SourceFetchResult (+5 more)
+Cohesion: 0.29
+Nodes (8): assertPublicResolution(), Fetcher, fetchPublicSource(), HostResolver, isPrivateAddress(), readResponseBodyLimited(), SourceFetchResult, validatePublicSourceUrl()
 
 ### Community 250 - ".importBatch"
-Cohesion: 0.70
-Nodes (3): indicatorEventDateIssue, localDateKey(), nextCalendarDate()
+Cohesion: 0.16
+Nodes (14): backend(), completeRun(), localDate(), main(), openRun(), request(), saveReport(), waitForBackend() (+6 more)
 
 ### Community 251 - "0027-create-intelligence-cluster-tables.ts"
 Cohesion: 0.18
@@ -1137,20 +1164,20 @@ Cohesion: 0.20
 Nodes (10): 03 — Topología de producción, 1. Topología, 2. Componentes y puertos, 3. Almacenamiento, 4. Retención, 5. Seguridad, 6. Escalabilidad y disponibilidad, 7. Recuperación (+2 more)
 
 ### Community 253 - "DatabasePoolMetricsCollector"
-Cohesion: 0.50
-Nodes (3): calibrateConfidenceForSourceMetadata(), SourceMetadataVerification, UnverifiedSourceMetadataReason
+Cohesion: 0.28
+Nodes (4): Headers, Res, Public(), Get
 
 ### Community 266 - "umzug"
-Cohesion: 0.15
-Nodes (19): sequelize, umzug, sequelize, getEnvironment(), main(), main(), main(), main() (+11 more)
+Cohesion: 0.05
+Nodes (52): ADR-0006, ADR-0015, umzug, createRequestId(), fastifyTracingInstrumentation(), fastifyTracingPlugin(), createSampler(), createSdk() (+44 more)
 
 ### Community 269 - "SeriesModel"
 Cohesion: 0.22
 Nodes (8): 1. El arranque deja la base como la espera el build, 2. La serie histórica se versiona, no se descarga al arrancar, 3. Promedio diario y lectura puntual no se mezclan en silencio, ADR-0018: aprovisionamiento de la base al arrancar y carga histórica versionada, Alternativas descartadas, Contexto, Decisiones, Evidencia
 
 ### Community 270 - "HttpExceptionFilter"
-Cohesion: 0.38
-Nodes (8): ALLOWED_PROTOCOLS, BLOCKED_HOSTNAMES, describeUnsafeUrl(), findInjectionMarkers(), INJECTION_MARKERS, isPrivateIpv4(), isPrivateIpv6(), isSafeSourceUrl()
+Cohesion: 0.31
+Nodes (8): collectYear(), EndpointRecord, main(), SEED, toIsoDate(), trimmedValue(), UfvPoint, UfvYear
 
 ### Community 272 - "measure-collection-quality.ts"
 Cohesion: 0.60
@@ -1193,8 +1220,8 @@ Cohesion: 0.25
 Nodes (8): 1. Generar la clave del colector, 2.1 Configuración del servicio en Render, 2. Variables de entorno del servicio, 3. Preparar la base de datos, 4. Verificación, 5. Rotar la clave, 6. Límites conocidos, Runbook: backend en Render para el colector de ChatGPT con clave compartida
 
 ### Community 294 - "http-exception.filter.spec.ts"
-Cohesion: 0.18
-Nodes (9): Inject, booleanFromString, Environment, environmentSchema, resetEnvironmentForTests(), DatabaseConnectionFactories, defaultFactories, initializeDatabaseConnections() (+1 more)
+Cohesion: 0.39
+Nodes (7): comparableNumber(), contextualUnits(), NumericOccurrence, numericOccurrences(), occurrencesMatch(), scaleComparableNumber(), ungroundedNumbers()
 
 ### Community 295 - "ADR-0016: credencial compartida para el colector alojado"
 Cohesion: 0.29
@@ -1224,6 +1251,30 @@ Nodes (4): 8.1 Catálogo de dominios estadísticos (`statisticalDomainId`), 8.2 
 Cohesion: 0.67
 Nodes (3): 7.1 Reglas de conducta que se derivan, 7.2 Resultados posibles por ítem, 7. Cómo decide el backend qué se publica — y qué implica para ti
 
+### Community 311 - "observation-normalizer.ts"
+Cohesion: 0.42
+Nodes (6): buildRevisionHash(), buildSeriesIdentity(), dimensionToken(), normalizedAttribute(), normalizedMeasure(), stableHash()
+
+### Community 312 - "collect-owid-indices.ts"
+Cohesion: 0.38
+Nodes (6): collectIndex(), IndexPoint, main(), plainValue(), Requested, SEED
+
+### Community 313 - "ADR 0021 — La curva de rendimientos vive fuera de las lecturas medidas"
+Cohesion: 0.33
+Nodes (5): ADR 0021 — La curva de rendimientos vive fuera de las lecturas medidas, Consecuencias, Contexto, Decisión, El conflicto
+
+### Community 314 - "build_openapi.py"
+Cohesion: 0.47
+Nodes (3): operation(), ref(), response()
+
+### Community 315 - "8. Checklist de producción"
+Cohesion: 0.40
+Nodes (5): 8. Checklist de producción, Código y contratos, Datos y trazabilidad, Operación, Seguridad
+
+### Community 316 - "validate_contract_routes.py"
+Cohesion: 0.80
+Nodes (4): controller_routes(), main(), normalize(), openapi_routes()
+
 ### Community 326 - "boot-seed.press-coverage.ts"
 Cohesion: 0.83
 Nodes (3): articlePayload(), reconcileListingArtifact(), reconcilePressCoverage()
@@ -1237,44 +1288,44 @@ Cohesion: 0.18
 Nodes (10): 1. La prensa es cobertura, no medición, y el modelo lo hace cumplir, 2. El renderizado vive en CI, no en el servicio, 3. Un feed congelado se descarta, no se disfraza, 4. La fecha sale de la ficha, nunca del slug, ADR-0019: cobertura de prensa y listados que exigen renderizado, Alternativas descartadas, Consecuencias, Contexto (+2 more)
 
 ### Community 336 - ".importBatch"
-Cohesion: 0.15
-Nodes (19): assertBatchFingerprint(), batchRequestFingerprint(), manualRequestFingerprint(), replayBatchImport(), replayRegistration(), BatchImportService, Injectable, BatchImportResult (+11 more)
+Cohesion: 0.19
+Nodes (13): assertBatchFingerprint(), batchRequestFingerprint(), manualRequestFingerprint(), replayRegistration(), batchImportResultSchema, batchRecordResultSchema, identifier, RegistrationResult (+5 more)
 
 ### Community 341 - "verified-source-registry.ts"
 Cohesion: 0.36
 Nodes (6): documentStatedPublication(), registeredDomain(), registry, undatedOfficialIndicator(), verifiedSource, VerifiedSourceTier
 
 ### Community 342 - "0031-create-economic-indicator-read-models.ts"
-Cohesion: 0.20
-Nodes (9): DeadLetterItem, ReprocessResult, ReprocessingService, Inject, Injectable, backoffSeconds(), decideRetry(), isRetryable() (+1 more)
+Cohesion: 0.60
+Nodes (4): backoffSeconds(), decideRetry(), isRetryable(), RetryDecision
 
 ### Community 343 - "EntityMentionModel"
 Cohesion: 0.29
 Nodes (6): ADR 0020 — Materialise the press read models, Consecuencias, Contexto, Decisión, Evidencia, Por qué una instantánea y no otra cosa
 
 ### Community 348 - "0034-separate-annual-macro-series.ts"
-Cohesion: 0.53
-Nodes (5): annualPayload(), reconcileMacroAnnualHistory(), reconcileSeries(), reconcileSeriesArtifact(), SNAPSHOTS
+Cohesion: 0.24
+Nodes (9): annualPayload(), reconcileMacroAnnualHistory(), reconcileSeries(), reconcileSeriesArtifact(), SNAPSHOTS, MacroAnnualHistory, macroAnnualHistorySchema, MacroAnnualSeries (+1 more)
 
 ## Knowledge Gaps
-- **1543 isolated node(s):** `name`, `version`, `private`, `description`, `license` (+1538 more)
+- **1570 isolated node(s):** `Datacenter Nacional de Inteligencia Económica de Bolivia`, `1.1 Qué es realmente este repositorio`, `1.2 El hallazgo dominante`, `1.3 Nivel de preparación`, `1.4 Bloqueos de producción` (+1565 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **61 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **82 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `sequelize` connect `umzug` to `data-query.controller.ts`, `.importBatch`, `quality.controller.ts`, `database-guarantees.integration-spec.ts`, `@fastify/helmet`, `.deadLetters`, `seed-snapshot.ts`, `.importBatch`, `ClassificationVersionModel`, `mock-seed.metadata.ts`, `pg`, `dependencies`, `application.error.ts`?**
-  _High betweenness centrality (0.059) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `umzug`, `package.json`, `yaml`?**
-  _High betweenness centrality (0.055) - this node is a cross-community bridge._
-- **Why does `withSerializableRetry()` connect `pg` to `DimensionDefinitionModel`, `environment.ts`, `umzug`, `actor.ts`, `HttpExceptionFilter`, `.importBatch`, `observation-registration.service.ts`, `0031-create-economic-indicator-read-models.ts`, `metadata-catalog.service.ts`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
-- **What connects `name`, `version`, `private` to the rest of the system?**
-  _1543 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `environment.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.12433862433862433 - nodes in this community are weakly interconnected._
+- **Why does `sequelize` connect `@fastify/helmet` to `.importBatch`, `quality.controller.ts`, `data-query.controller.ts`, `umzug`, `@fastify/static`, `.deadLetters`, `validate_contract_routes.py`, `ClassificationVersionModel`, `pg`, `dependencies`, `batch-idempotency.ts`, `DatabasePoolMetricsCollector`?**
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
+- **Why does `dependencies` connect `dependencies` to `@fastify/helmet`, `umzug`, `yaml`, `package.json`, `fastify`, `@fastify/helmet`, `@fastify/rate-limit`, `@fastify/static`, `jwks-rsa`, `@nestjs/core`, `@nestjs/platform-fastify`, `@nestjs/swagger`, `@opentelemetry/instrumentation-nestjs-core`, `@opentelemetry/instrumentation-pg`, `@opentelemetry/instrumentation-pino`, `@opentelemetry/resources`, `@opentelemetry/sdk-node`, `@opentelemetry/sdk-trace-base`, `@opentelemetry/semantic-conventions`, `pino`, `pino-http`, `prom-client`, `rxjs`, `sequelize-typescript`, `zod`?**
+  _High betweenness centrality (0.064) - this node is a cross-community bridge._
+- **Why does `withSerializableRetry()` connect `pg` to `ConceptModel`, `environment.ts`, `OrganizationModel`, `@fastify/helmet`, `.importBatch`, `observation-registration.service.ts`, `batch-idempotency.ts`?**
+  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **What connects `Datacenter Nacional de Inteligencia Económica de Bolivia`, `1.1 Qué es realmente este repositorio`, `1.2 El hallazgo dominante` to the rest of the system?**
+  _1570 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `governance.controller.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.06560283687943262 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09102564102564102 - nodes in this community are weakly interconnected._
 - **Should `index.ts` be split into smaller, more focused modules?**
   _Cohesion score 0.0873440285204991 - nodes in this community are weakly interconnected._
+- **Should `Roles` be split into smaller, more focused modules?**
+  _Cohesion score 0.08585858585858586 - nodes in this community are weakly interconnected._
