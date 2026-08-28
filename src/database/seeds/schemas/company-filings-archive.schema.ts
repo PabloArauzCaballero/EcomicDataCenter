@@ -57,7 +57,7 @@ export const companyFilingsArchiveSchema = z.object({
         .strict(),
     )
     .min(1)
-    .max(5_000),
+    .max(40_000),
 });
 
 export type CompanyFilingsArchive = z.infer<typeof companyFilingsArchiveSchema>;

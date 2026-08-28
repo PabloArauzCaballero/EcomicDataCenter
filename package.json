@@ -82,6 +82,7 @@
     "macro:collect": "tsx scripts/macro/collect-worldbank-series.ts",
     "bcb:ufv": "tsx scripts/bcb/collect-ufv-history.ts",
     "bbv:yields": "tsx scripts/bbv/collect-bbv-yields.ts",
+    "bbv:filings": "tsx scripts/bbv/collect-bbv-filings.ts",
     "indices:collect": "tsx scripts/macro/collect-owid-indices.ts"
   },
   "dependencies": {
