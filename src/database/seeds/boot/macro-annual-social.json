@@ -2,7 +2,7 @@
   "series": [
     {
       "indicatorCode": "INFANT_MORTALITY_PER_1000",
-      "worldBankCode": "SP.DYN.IMRT.IN",
+      "compilerCode": "SP.DYN.IMRT.IN",
       "name": "Mortalidad infantil por mil nacidos vivos",
       "unit": "RATE_PER_1000",
       "provenance": {
@@ -342,7 +342,7 @@
     },
     {
       "indicatorCode": "UNDER_FIVE_MORTALITY_PER_1000",
-      "worldBankCode": "SH.DYN.MORT",
+      "compilerCode": "SH.DYN.MORT",
       "name": "Mortalidad de menores de cinco anios por mil nacidos vivos",
       "unit": "RATE_PER_1000",
       "provenance": {
@@ -682,7 +682,7 @@
     },
     {
       "indicatorCode": "MATERNAL_MORTALITY_PER_100K",
-      "worldBankCode": "SH.STA.MMRT",
+      "compilerCode": "SH.STA.MMRT",
       "name": "Razon de mortalidad materna por cien mil nacidos vivos",
       "unit": "RATE_PER_100K",
       "provenance": {
@@ -892,7 +892,7 @@
     },
     {
       "indicatorCode": "ADULT_LITERACY_PCT",
-      "worldBankCode": "SE.ADT.LITR.ZS",
+      "compilerCode": "SE.ADT.LITR.ZS",
       "name": "Tasa de alfabetizacion adulta",
       "unit": "PERCENT",
       "provenance": {
@@ -967,7 +967,7 @@
     },
     {
       "indicatorCode": "PRIMARY_ENROLMENT_PCT",
-      "worldBankCode": "SE.PRM.ENRR",
+      "compilerCode": "SE.PRM.ENRR",
       "name": "Matriculacion primaria bruta",
       "unit": "PERCENT",
       "provenance": {
@@ -1242,7 +1242,7 @@
     },
     {
       "indicatorCode": "SECONDARY_ENROLMENT_PCT",
-      "worldBankCode": "SE.SEC.ENRR",
+      "compilerCode": "SE.SEC.ENRR",
       "name": "Matriculacion secundaria bruta",
       "unit": "PERCENT",
       "provenance": {
@@ -1417,7 +1417,7 @@
     },
     {
       "indicatorCode": "BASIC_WATER_ACCESS_PCT",
-      "worldBankCode": "SH.H2O.BASW.ZS",
+      "compilerCode": "SH.H2O.BASW.ZS",
       "name": "Acceso a agua potable basica",
       "unit": "PERCENT",
       "provenance": {
@@ -1557,7 +1557,7 @@
     },
     {
       "indicatorCode": "BASIC_SANITATION_ACCESS_PCT",
-      "worldBankCode": "SH.STA.BASS.ZS",
+      "compilerCode": "SH.STA.BASS.ZS",
       "name": "Acceso a saneamiento basico",
       "unit": "PERCENT",
       "provenance": {
@@ -1697,7 +1697,7 @@
     },
     {
       "indicatorCode": "ELECTRICITY_ACCESS_PCT",
-      "worldBankCode": "EG.ELC.ACCS.ZS",
+      "compilerCode": "EG.ELC.ACCS.ZS",
       "name": "Acceso a electricidad",
       "unit": "PERCENT",
       "provenance": {
@@ -1877,7 +1877,7 @@
     },
     {
       "indicatorCode": "POVERTY_GAP_PCT",
-      "worldBankCode": "SI.POV.GAPS",
+      "compilerCode": "SI.POV.GAPS",
       "name": "Brecha de pobreza",
       "unit": "PERCENT",
       "provenance": {
@@ -2027,7 +2027,7 @@
     },
     {
       "indicatorCode": "INCOME_SHARE_LOWEST_20_PCT",
-      "worldBankCode": "SI.DST.FRST.20",
+      "compilerCode": "SI.DST.FRST.20",
       "name": "Participacion en el ingreso del quintil mas pobre",
       "unit": "PERCENT",
       "provenance": {
@@ -2177,7 +2177,7 @@
     },
     {
       "indicatorCode": "INCOME_SHARE_HIGHEST_10_PCT",
-      "worldBankCode": "SI.DST.10TH.10",
+      "compilerCode": "SI.DST.10TH.10",
       "name": "Participacion en el ingreso del decil mas rico",
       "unit": "PERCENT",
       "provenance": {
@@ -2327,7 +2327,7 @@
     },
     {
       "indicatorCode": "INTENTIONAL_HOMICIDES_PER_100K",
-      "worldBankCode": "VC.IHR.PSRC.P5",
+      "compilerCode": "VC.IHR.PSRC.P5",
       "name": "Homicidios intencionales por cien mil habitantes",
       "unit": "RATE_PER_100K",
       "provenance": {
@@ -2387,7 +2387,7 @@
     },
     {
       "indicatorCode": "VULNERABLE_EMPLOYMENT_PCT",
-      "worldBankCode": "SL.EMP.VULN.ZS",
+      "compilerCode": "SL.EMP.VULN.ZS",
       "name": "Empleo vulnerable sobre el empleo total",
       "unit": "PERCENT",
       "provenance": {
@@ -2577,7 +2577,7 @@
     },
     {
       "indicatorCode": "YOUTH_NEET_PCT",
-      "worldBankCode": "SL.UEM.NEET.ZS",
+      "compilerCode": "SL.UEM.NEET.ZS",
       "name": "Jovenes que no estudian ni trabajan",
       "unit": "PERCENT",
       "provenance": {
@@ -2747,7 +2747,7 @@
     },
     {
       "indicatorCode": "INTERNET_USERS_PCT",
-      "worldBankCode": "IT.NET.USER.ZS",
+      "compilerCode": "IT.NET.USER.ZS",
       "name": "Personas que usan internet",
       "unit": "PERCENT",
       "provenance": {
@@ -2917,7 +2917,7 @@
     },
     {
       "indicatorCode": "FERTILITY_RATE_BIRTHS",
-      "worldBankCode": "SP.DYN.TFRT.IN",
+      "compilerCode": "SP.DYN.TFRT.IN",
       "name": "Tasa de fecundidad, nacimientos por mujer",
       "unit": "INDEX",
       "provenance": {
@@ -3257,7 +3257,7 @@
     },
     {
       "indicatorCode": "CHILD_STUNTING_PCT",
-      "worldBankCode": "SH.STA.STNT.ZS",
+      "compilerCode": "SH.STA.STNT.ZS",
       "name": "Desnutricion cronica en menores de cinco anios",
       "unit": "PERCENT",
       "provenance": {

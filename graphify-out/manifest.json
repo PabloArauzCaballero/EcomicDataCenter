@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1787845725.5591745,
-    "ast_hash": "12be313636adc2be1783a7eb1faeaec5",
+    "mtime": 1788009497.262635,
+    "ast_hash": "803647e932c62bce88526163dd2fd101",
     "semantic_hash": ""
   },
   "scripts/build_data_model_docs.py": {
@@ -705,8 +705,8 @@
     "semantic_hash": ""
   },
   "src/database/seeds/runners/run-boot-seeds.ts": {
-    "mtime": 1787843647.9887972,
-    "ast_hash": "f0a11964c62d276a8735dd1ab8d627b2",
+    "mtime": 1788123805.4944136,
+    "ast_hash": "5178c4d8b0bc22a6c982b7839d1f0eb4",
     "semantic_hash": ""
   },
   "src/database/seeds/runners/run-mock-seeds.ts": {
@@ -1205,8 +1205,8 @@
     "semantic_hash": ""
   },
   "docs/decisions/README.md": {
-    "mtime": 1787841480.3614297,
-    "ast_hash": "30415ba525c97e6ff217467b0282b896",
+    "mtime": 1788297606.9371672,
+    "ast_hash": "277cf901b2c764a9b2919ed5e7fca97f",
     "semantic_hash": ""
   },
   "docs/decisions/library-matrix.md": {
@@ -1880,8 +1880,8 @@
     "semantic_hash": ""
   },
   "src/database/seeds/boot/economic-activities.json": {
-    "mtime": 1785173454.6404727,
-    "ast_hash": "7d04d39e6be034cd0105738d621cbae5",
+    "mtime": 1787887669.131329,
+    "ast_hash": "4e7f1654606aa19eee286b848c221db6",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/geographic-units.json": {
@@ -2500,8 +2500,8 @@
     "semantic_hash": ""
   },
   "src/database/seeds/boot/agent-bootstrap.json": {
-    "mtime": 1787843645.5666265,
-    "ast_hash": "8f175a25202f932804d96c46249e1d9d",
+    "mtime": 1788009737.0242524,
+    "ast_hash": "5dde73dbce477421f6bc6bc45e43bc3d",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/company-filings.json": {
@@ -2540,18 +2540,18 @@
     "semantic_hash": ""
   },
   "src/database/seeds/boot/macro-annual-history-1960.json": {
-    "mtime": 1787546203.8287306,
-    "ast_hash": "11f1928fb65e983f54bbf261ecc1200b",
+    "mtime": 1787887669.141847,
+    "ast_hash": "91a00a9d6366639ba85e3da45e9d0b25",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/macro-annual-history.json": {
-    "mtime": 1787541347.1590898,
-    "ast_hash": "120f49d6f9e72d3b3823912031d011bf",
+    "mtime": 1787887669.143355,
+    "ast_hash": "0e1cb4a8b4d1e6b7765bcc9f21f8fccf",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/macro-annual-sectors.json": {
-    "mtime": 1787688313.7932477,
-    "ast_hash": "95dce466da4c1b83125111d5f393d51c",
+    "mtime": 1787887669.1479256,
+    "ast_hash": "4bd5d331727683fcb9dc63435b2af9c6",
     "semantic_hash": ""
   },
   "src/database/seeds/runners/boot-seed.agent-bootstrap.ts": {
@@ -2575,8 +2575,8 @@
     "semantic_hash": ""
   },
   "src/database/seeds/runners/boot-seed.macro-annual-history.ts": {
-    "mtime": 1787843647.8724132,
-    "ast_hash": "6d94fc162823adce7c882f7bf466a274",
+    "mtime": 1787887669.1525233,
+    "ast_hash": "8652d52d6ecb3af6711b89876e0517fb",
     "semantic_hash": ""
   },
   "src/database/seeds/schemas/company-filings.schema.ts": {
@@ -2590,8 +2590,8 @@
     "semantic_hash": ""
   },
   "src/database/seeds/schemas/macro-annual-history.schema.ts": {
-    "mtime": 1787843200.1692202,
-    "ast_hash": "7ea1cfc6c7ede13cfb3c19388295896e",
+    "mtime": 1787887669.1552083,
+    "ast_hash": "45422a384d8480f7e980aa64aaf7fb33",
     "semantic_hash": ""
   },
   "src/database/seeds/tests/exchange-rate-history.spec.ts": {
@@ -2600,8 +2600,8 @@
     "semantic_hash": ""
   },
   "src/database/seeds/tests/macro-annual-history.spec.ts": {
-    "mtime": 1787541487.787161,
-    "ast_hash": "16a9c0b36859a95ffd5cda7ab4e87d31",
+    "mtime": 1787887669.1579003,
+    "ast_hash": "c3b8578b4dda2b671dbf97b5d0a0f3ce",
     "semantic_hash": ""
   },
   "src/database/startup-provisioning.ts": {
@@ -2675,8 +2675,8 @@
     "semantic_hash": ""
   },
   "src/modules/intelligence/research-policy.ts": {
-    "mtime": 1787450387.0871563,
-    "ast_hash": "b97b0dcda06a3393b348d6bc00c58c31",
+    "mtime": 1787887669.1599631,
+    "ast_hash": "ed7f7be68f40f0cf023cafe17ee534ed",
     "semantic_hash": ""
   },
   "src/modules/intelligence/safe-source-fetch.ts": {
@@ -2775,8 +2775,8 @@
     "semantic_hash": ""
   },
   "src/modules/intelligence/tests/research-policy.spec.ts": {
-    "mtime": 1787450387.095709,
-    "ast_hash": "77029823cb8d9341dcc800b18bfe2acf",
+    "mtime": 1787887669.1615577,
+    "ast_hash": "946af1f86edd9d7f2ed01be0202cfd7e",
     "semantic_hash": ""
   },
   "src/modules/intelligence/tests/safe-source-fetch.spec.ts": {
@@ -2815,13 +2815,13 @@
     "semantic_hash": ""
   },
   "src/modules/intelligence/tests/verified-source-registry.spec.ts": {
-    "mtime": 1787450387.1007464,
-    "ast_hash": "a4a8345c182a44f30489a8f3a2dbc665",
+    "mtime": 1788297454.068528,
+    "ast_hash": "5d5aa8346d82cb248d28bcefa2fdef3c",
     "semantic_hash": ""
   },
   "src/modules/intelligence/verified-source-registry.ts": {
-    "mtime": 1787688319.4788165,
-    "ast_hash": "2a8cc370a46e28ed7172a5c51b21de81",
+    "mtime": 1788297240.818596,
+    "ast_hash": "559a9f5ea25655050fd2a6215c9fabb1",
     "semantic_hash": ""
   },
   "test/integration/indicator-read-models.integration-spec.ts": {
@@ -2985,13 +2985,13 @@
     "semantic_hash": ""
   },
   "src/database/seeds/boot/company-filings-archive.json": {
-    "mtime": 1787845670.4779613,
-    "ast_hash": "263cf8e4e07c34156cd7cf685a950b01",
+    "mtime": 1787878043.7828395,
+    "ast_hash": "de05dbc6701fc3521dc00bfee663cd27",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/macro-annual-debt.json": {
-    "mtime": 1787688314.9604955,
-    "ast_hash": "65034c787da4fd0e1640cdf3b13062ed",
+    "mtime": 1787887669.135328,
+    "ast_hash": "c1de3165271f98dc377857e788ce9924",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/press-coverage.json": {
@@ -3020,8 +3020,8 @@
     "semantic_hash": ""
   },
   "src/database/seeds/schemas/company-filings-archive.schema.ts": {
-    "mtime": 1787845433.0187244,
-    "ast_hash": "e2f159a20ff78dd01635b722dc784a5b",
+    "mtime": 1787878043.9155955,
+    "ast_hash": "96b99d97b9438b29f93bb1afd896de7c",
     "semantic_hash": ""
   },
   "src/database/seeds/schemas/press-coverage.schema.ts": {
@@ -3120,42 +3120,42 @@
     "semantic_hash": ""
   },
   "src/database/seeds/boot/macro-annual-fx.json": {
-    "mtime": 1787756172.4618099,
-    "ast_hash": "57a5bfb49828091bf2db7f34f414c167",
+    "mtime": 1787887669.1388464,
+    "ast_hash": "8aedea534fc990670a58cf4312de5292",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/press-archive-2020.json": {
-    "mtime": 1787803336.7904024,
+    "mtime": 1787981375.3999345,
     "ast_hash": "bf3d11299773a10099bd9a0b04f07ce3",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/press-archive-2021.json": {
-    "mtime": 1787803336.8388023,
+    "mtime": 1787981375.4883325,
     "ast_hash": "385ce1cba3239cd029643bb2ef2e0a4d",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/press-archive-2022.json": {
-    "mtime": 1787803336.8654141,
+    "mtime": 1787981375.5122328,
     "ast_hash": "899ce00dd1a2cfb1590f06dfb13c9b87",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/press-archive-2023.json": {
-    "mtime": 1787803336.8759305,
+    "mtime": 1787981375.5296903,
     "ast_hash": "13b4a1df8aa9b062a4a09aea1863f7ea",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/press-archive-2024.json": {
-    "mtime": 1787803336.9092178,
+    "mtime": 1787981375.575966,
     "ast_hash": "150116424cd5336e5151a0f3362ecf26",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/press-archive-2025.json": {
-    "mtime": 1787803336.9309397,
+    "mtime": 1787981375.6092825,
     "ast_hash": "de0455d8b9a455cef208b5e22a0b266a",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/press-archive-2026.json": {
-    "mtime": 1787803336.942947,
+    "mtime": 1787981375.6266446,
     "ast_hash": "f4eb1503852dcd64e0ca67fd57e63161",
     "semantic_hash": ""
   },
@@ -3235,8 +3235,8 @@
     "semantic_hash": ""
   },
   "scripts/press/refresh-press-snapshot.ts": {
-    "mtime": 1787805484.225611,
-    "ast_hash": "377c3a49c74514d643c65c16dffff023",
+    "mtime": 1788123805.516341,
+    "ast_hash": "5d6eb8c5cc006301fa31be6969e675ca",
     "semantic_hash": ""
   },
   "scripts/press/sitemap-sources.ts": {
@@ -3309,14 +3309,9 @@
     "ast_hash": "6e15c57ac9de12e05c1f417e68baa23b",
     "semantic_hash": ""
   },
-  "damp-cargar.tmp.ts": {
-    "mtime": 1787844228.5060015,
-    "ast_hash": "10da77a1672108a7f30d10571721f185",
-    "semantic_hash": ""
-  },
   "scripts/bbv/collect-bbv-filings.ts": {
-    "mtime": 1787845418.0466282,
-    "ast_hash": "a3aa74ce4f6fbd49898f19893ca35ced",
+    "mtime": 1787877835.5629492,
+    "ast_hash": "7712d1a67f39087226d481cc98d2aa53",
     "semantic_hash": ""
   },
   "scripts/bbv/collect-bbv-yields.ts": {
@@ -3335,8 +3330,8 @@
     "semantic_hash": ""
   },
   "scripts/macro/collect-worldbank-series.ts": {
-    "mtime": 1787843200.070293,
-    "ast_hash": "331dbe2571daddffceb7ebcf634a5d09",
+    "mtime": 1787887669.128332,
+    "ast_hash": "05f2c843bd243d37638f7a32be1cb70a",
     "semantic_hash": ""
   },
   "scripts/macro/worldbank-series.ts": {
@@ -3390,23 +3385,23 @@
     "semantic_hash": ""
   },
   "src/database/seeds/boot/macro-annual-financial.json": {
-    "mtime": 1787843232.4079463,
-    "ast_hash": "d82635981d42db94a0f3610f39ef06f4",
+    "mtime": 1787887669.1363304,
+    "ast_hash": "d41cfcd2b501600f73c49ab43fd1c6c8",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/macro-annual-governance.json": {
-    "mtime": 1787843242.334414,
-    "ast_hash": "0026422d2c764c348396e81e484ca558",
+    "mtime": 1787887669.139847,
+    "ast_hash": "4557f8d359ebe92c2c96303b26bcea5b",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/macro-annual-rates.json": {
-    "mtime": 1787843230.4722261,
-    "ast_hash": "2385ee2686577a0a1b14cf05172397e2",
+    "mtime": 1787887669.1443622,
+    "ast_hash": "5022e5df769d9adba1b051ced164ea19",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/macro-annual-social.json": {
-    "mtime": 1787843239.7669656,
-    "ast_hash": "94ace2f75b9d95a457e1a2a3b031aad7",
+    "mtime": 1787887669.1499352,
+    "ast_hash": "76b6ee878c8df611d4877919c309edc6",
     "semantic_hash": ""
   },
   "src/database/seeds/boot/ufv-history.json": {
@@ -3450,13 +3445,13 @@
     "semantic_hash": ""
   },
   "src/database/seeds/tests/financial-series.spec.ts": {
-    "mtime": 1787839902.5180254,
-    "ast_hash": "7b6336c7364a46d3c6bfe6043bb64a91",
+    "mtime": 1787887669.1567862,
+    "ast_hash": "5dfea710cdee3d7754200c711a0b0f5a",
     "semantic_hash": ""
   },
   "src/database/seeds/tests/social-and-institutional.spec.ts": {
-    "mtime": 1787843631.4514978,
-    "ast_hash": "127429216cefac120e36df4d3830d965",
+    "mtime": 1787887669.1589558,
+    "ast_hash": "f4f4c9fe981c3bb9dd02ddfc60b402b9",
     "semantic_hash": ""
   },
   "src/database/seeds/tests/ufv-history.spec.ts": {
@@ -3467,6 +3462,396 @@
   "docs/decisions/0021-sovereign-yield-curve-model.md": {
     "mtime": 1787841046.5853674,
     "ast_hash": "de5ed152ff59ec23cc8ed94537527b77",
+    "semantic_hash": ""
+  },
+  "scripts/neon-indicadores.mjs": {
+    "mtime": 1787877708.736751,
+    "ast_hash": "243907004a2c2ec90f8ff0a17707003d",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0058-widen-coverage-vocabulary.view.ts": {
+    "mtime": 1787852097.4264112,
+    "ast_hash": "225ecf2148deac6904efb55a289e580c",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0059-file-the-last-residual.view.ts": {
+    "mtime": 1787854592.359295,
+    "ast_hash": "c7797f5399a68db85680ac589ad364c5",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0060-widen-the-tone-lexicon.view.ts": {
+    "mtime": 1787878461.8562856,
+    "ast_hash": "3954dbebbf4dd8b9a79c0f6406cdeb20",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0058-widen-coverage-vocabulary.ts": {
+    "mtime": 1787851781.0024087,
+    "ast_hash": "1e3d0e1a445b30c69da3ec35694b504e",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0059-file-the-last-residual.ts": {
+    "mtime": 1787854580.7447457,
+    "ast_hash": "9abe81ee25a5ce2bc2f999b4015dc981",
+    "semantic_hash": ""
+  },
+  "scripts/neon-cargar-indicadores.mjs": {
+    "mtime": 1787887669.129328,
+    "ast_hash": "8508c20b2e7a9c2c823bd0067d640cb9",
+    "semantic_hash": ""
+  },
+  "scripts/neon-probar-endpoints.mjs": {
+    "mtime": 1787885453.209861,
+    "ast_hash": "42668caf1587190c96b79e6da095d7b9",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0060-widen-the-tone-lexicon.ts": {
+    "mtime": 1787878414.1715288,
+    "ast_hash": "18db903a10401028c4a13c135895fcd6",
+    "semantic_hash": ""
+  },
+  "scripts/macro/collect-comtrade-trade.ts": {
+    "mtime": 1787890347.0105336,
+    "ast_hash": "d45e4391c4d365377d07e87a069bc508",
+    "semantic_hash": ""
+  },
+  "scripts/macro/collect-imf-weo-series.ts": {
+    "mtime": 1787887669.3945084,
+    "ast_hash": "c8b609468ed62323114242d978faded4",
+    "semantic_hash": ""
+  },
+  "scripts/macro/imf-weo-series.ts": {
+    "mtime": 1787887669.395591,
+    "ast_hash": "8f06376751f351d981d48fa1b3024437",
+    "semantic_hash": ""
+  },
+  "scripts/social/refresh-social-snapshot.ts": {
+    "mtime": 1788297613.9574344,
+    "ast_hash": "3622e52aaa3104d8525c7b0dcba28727",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0061-file-filings-by-meaning.view.ts": {
+    "mtime": 1787887669.398412,
+    "ast_hash": "825ee8072797b48ec6329b8d02d69e15",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0064-file-the-fiscal-accounts.view.ts": {
+    "mtime": 1787890347.0270464,
+    "ast_hash": "4df3b2e02605fb3fa3b82594e8d3721f",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0061-file-filings-by-meaning.ts": {
+    "mtime": 1787887669.401989,
+    "ast_hash": "393a16d44123181ec6ac7f84c590b163",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0062-create-social-reading-read-model.ts": {
+    "mtime": 1787888903.2683325,
+    "ast_hash": "2b2e78397971777f9e14af5372b684ba",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0063-snapshot-social-read-model.ts": {
+    "mtime": 1787887669.4059572,
+    "ast_hash": "d9ef88e3ab6dc3526bb84a8ea73ebc6e",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0064-file-the-fiscal-accounts.ts": {
+    "mtime": 1787890347.0396037,
+    "ast_hash": "78ff63de006a535aaa82182f8ea263ce",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/foreign-trade.json": {
+    "mtime": 1787887890.8427522,
+    "ast_hash": "6b676c64af09fc52b18a5f7d5c9963e9",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/macro-annual-imf.json": {
+    "mtime": 1787887669.4087918,
+    "ast_hash": "0c3169fd00902d954f08f5e809324838",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/social-readings.json": {
+    "mtime": 1788297147.9798846,
+    "ast_hash": "3f4f6d9a648adcf85ebba454de8094c2",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/runners/boot-seed.foreign-trade.ts": {
+    "mtime": 1787887669.4098005,
+    "ast_hash": "36d23f158ce6a42fc581db08939b6879",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/runners/boot-seed.social-readings.ts": {
+    "mtime": 1788297259.74043,
+    "ast_hash": "6f83111bb3dec7e22e4ec0ddf6ae9476",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/schemas/foreign-trade-history.schema.ts": {
+    "mtime": 1787887669.412346,
+    "ast_hash": "26a49cf4f53db3564ac59679e22bc76d",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/schemas/social-readings.schema.ts": {
+    "mtime": 1788297189.2546074,
+    "ast_hash": "dd117597761263fee2f49d02e351b272",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/tests/diversified-sources.spec.ts": {
+    "mtime": 1787890347.078509,
+    "ast_hash": "ea1303879bdfd97e22ff81c06db28ea4",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/tests/social-readings.spec.ts": {
+    "mtime": 1788297395.2953405,
+    "ast_hash": "a847e76e53234d1d46143c85ae883566",
+    "semantic_hash": ""
+  },
+  "src/modules/intelligence/tests/social-reading-sources.spec.ts": {
+    "mtime": 1788297429.7651026,
+    "ast_hash": "2a749e8ccc0d2309b13a20aee6c0d5ff",
+    "semantic_hash": ""
+  },
+  "docs/decisions/0022-social-readings-never-measure.md": {
+    "mtime": 1787887669.2316146,
+    "ast_hash": "05a97ecc29ff4a06dd8091dd3c06e759",
+    "semantic_hash": ""
+  },
+  "scripts/macro/collect-worldbank-panel.ts": {
+    "mtime": 1788021550.8975005,
+    "ast_hash": "90551f0701945682b6a121268e813d70",
+    "semantic_hash": ""
+  },
+  "scripts/macro/worldbank-panel-sources.ts": {
+    "mtime": 1788009448.1367319,
+    "ast_hash": "865389f4b4f4c976f7ddf42d33e14ec2",
+    "semantic_hash": ""
+  },
+  "scripts/neon-comercio.mjs": {
+    "mtime": 1787972562.3039622,
+    "ast_hash": "e0dbc7e2ada7158dd7c8873e077feb88",
+    "semantic_hash": ""
+  },
+  "scripts/press/refresh-term-snapshot.ts": {
+    "mtime": 1788123805.5308156,
+    "ast_hash": "6c3cab5fa4bb350a88d4969a26f5948d",
+    "semantic_hash": ""
+  },
+  "scripts/social/report-informal-trade.ts": {
+    "mtime": 1787938517.4203756,
+    "ast_hash": "b4744b3516df1c3d5c6801c2ef38adca",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0065-read-trade-by-form.lexicon.ts": {
+    "mtime": 1787937069.0964828,
+    "ast_hash": "aeb20877df9d066128c7bb6934fad009",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0065-read-trade-by-form.panels.ts": {
+    "mtime": 1787938386.9649074,
+    "ast_hash": "1fbb8205117ec6b7616b1880d36c9bf4",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0065-read-trade-by-form.view.ts": {
+    "mtime": 1787938226.1598675,
+    "ast_hash": "3ea126e5ef73deca8aa3aff1b9121742",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0066-widen-the-watchlist.view.ts": {
+    "mtime": 1787979870.0455,
+    "ast_hash": "fb6e8d84f1d8fef798126d25010ee39b",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0066-widen-the-watchlist.vocabulary.ts": {
+    "mtime": 1787973595.185614,
+    "ast_hash": "b219064c259c1718f479221e18446d62",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0067-read-the-world-panel.view.ts": {
+    "mtime": 1788020126.3910048,
+    "ast_hash": "0d39508f032985d99936fc05cef2a1ea",
+    "semantic_hash": ""
+  },
+  "src/database/migration-sql/0069-retire-platform-analytics.view.ts": {
+    "mtime": 1788297677.612193,
+    "ast_hash": "a4d872c4c42d53b2c507c0d18ebbe9b7",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0065-read-trade-by-form.ts": {
+    "mtime": 1787938226.2174697,
+    "ast_hash": "b13eb459daf6e8a1d8ad585249c64f86",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0066-widen-the-watchlist.ts": {
+    "mtime": 1787979847.500937,
+    "ast_hash": "040ad205a739888e25bbedad2f7ee67d",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0067-read-the-world-panel.ts": {
+    "mtime": 1788020146.455655,
+    "ast_hash": "c3c2f9ce6ac58c8d14b2d3eb25b458ac",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0068-the-panel-catalogue-is-live.ts": {
+    "mtime": 1788120259.5714276,
+    "ast_hash": "9922d5cc6962332acf1d9e19ce130c0c",
+    "semantic_hash": ""
+  },
+  "src/database/migrations/0069-retire-platform-analytics.ts": {
+    "mtime": 1788297338.9021375,
+    "ast_hash": "44d5eb1cf417b8dcbc0b192f6a73fc73",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-000.json": {
+    "mtime": 1788009560.303037,
+    "ast_hash": "c05a3329a1fa0576ca059abbb90d1ba5",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-001.json": {
+    "mtime": 1788009600.541343,
+    "ast_hash": "db721175155b5508ace5dfca59e4859e",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-002.json": {
+    "mtime": 1788009645.2960477,
+    "ast_hash": "810da23ad84dc0db25a441d5bf04f151",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-003.json": {
+    "mtime": 1788009685.061469,
+    "ast_hash": "38f816d4f29d998dc998279910adafca",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-004.json": {
+    "mtime": 1788009724.6251907,
+    "ast_hash": "749239c131367debc7abb06b3eb4437d",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-005.json": {
+    "mtime": 1788009767.4637527,
+    "ast_hash": "dd1a06f5906e80a97caed6196530eba4",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-006.json": {
+    "mtime": 1788009808.5453424,
+    "ast_hash": "4bb2110c19504a15bf1b025dadb03727",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-007.json": {
+    "mtime": 1788009846.0885332,
+    "ast_hash": "6959ac8fb2dcff0f02b85499f50ae918",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-008.json": {
+    "mtime": 1788009884.7630224,
+    "ast_hash": "f40c3c671952bb5fb9e6d47869d7c7aa",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-009.json": {
+    "mtime": 1788009925.8352768,
+    "ast_hash": "6a658f81bbb45bb45a23f864885e2659",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-010.json": {
+    "mtime": 1788009971.2667184,
+    "ast_hash": "fd5a1a329d4998c671f4c8db5c3771d2",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-011.json": {
+    "mtime": 1788010015.1939845,
+    "ast_hash": "151dbb66f053ba2cfb2c05e7732203bc",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-012.json": {
+    "mtime": 1788010058.2827885,
+    "ast_hash": "743215a018ed82a2501b5b440886da25",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-013.json": {
+    "mtime": 1788010099.4906628,
+    "ast_hash": "830c72b9f3ad142e373efcf8eed9aa99",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-014.json": {
+    "mtime": 1788010140.7929544,
+    "ast_hash": "93d2f89a44726dde02e5ee8ca6de2f40",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-015.json": {
+    "mtime": 1788010180.838764,
+    "ast_hash": "5d3f8904984208fecdd2504b74b1ad9f",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-016.json": {
+    "mtime": 1788010220.7131503,
+    "ast_hash": "7512ce299ab92a95e6cabf08de95e94c",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-017.json": {
+    "mtime": 1788010261.334124,
+    "ast_hash": "6fbe935cb9f11cfd432eae2ddb49ebb8",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-018.json": {
+    "mtime": 1788010300.7844062,
+    "ast_hash": "579a7a09a3fc84fb90933a15563f2429",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-019.json": {
+    "mtime": 1788010340.5417538,
+    "ast_hash": "bfd8ca42251d17f097bf13816a9506f9",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-020.json": {
+    "mtime": 1788010381.1198087,
+    "ast_hash": "ba32e42c6c67242e86194b0886b5afef",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-021.json": {
+    "mtime": 1788010422.749612,
+    "ast_hash": "386127c3fdb405df7df0c1d60687ae72",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-022.json": {
+    "mtime": 1788010467.6830735,
+    "ast_hash": "dfc7b0a7f5480221cc9d1448849281ad",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-023.json": {
+    "mtime": 1788010508.8053465,
+    "ast_hash": "7cee9e34943a16370c304fd46f64f41d",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/boot/worldbank-panel/panel-024.json": {
+    "mtime": 1788010542.4401798,
+    "ast_hash": "5899b4105b310f16a88d18b11d1ee305",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/runners/boot-seed.worldbank-panel.ts": {
+    "mtime": 1788022438.518148,
+    "ast_hash": "13aa562d875f5deb947314b04dff3dc4",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/schemas/worldbank-panel.schema.ts": {
+    "mtime": 1788019327.0366082,
+    "ast_hash": "af6b41a885fbdb916d39813550836696",
+    "semantic_hash": ""
+  },
+  "src/database/seeds/tests/informal-trade-readings.spec.ts": {
+    "mtime": 1787937443.5994573,
+    "ast_hash": "c2d497cb9c29123b1f4c848889e2867b",
+    "semantic_hash": ""
+  },
+  "docs/decisions/0023-trade-is-read-by-its-form.md": {
+    "mtime": 1787938440.888595,
+    "ast_hash": "b2d77941138cb8ee929b2a2bfa15901c",
+    "semantic_hash": ""
+  },
+  "docs/decisions/0024-the-panel-is-a-corpus-not-a-reading-list.md": {
+    "mtime": 1788020274.6833532,
+    "ast_hash": "642ed3ef4845ba0bfb75f437187a1ec5",
+    "semantic_hash": ""
+  },
+  "docs/decisions/0025-the-register-reads-commerce-not-platforms.md": {
+    "mtime": 1788297602.4201558,
+    "ast_hash": "945eb2e5ee467f8435677acc803c87db",
     "semantic_hash": ""
   }
 }

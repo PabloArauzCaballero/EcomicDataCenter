@@ -327,7 +327,6 @@
   "325": "@nestjs/platform-fastify",
   "326": "boot-seed.press-coverage.ts",
   "327": "boot-seed.company-filing-texts.ts",
-  "328": "0023-add-intelligence-indexes.ts",
   "329": "messaging-trace.service.ts",
   "330": "@nestjs/swagger",
   "331": "ProvenanceController",
@@ -371,5 +370,19 @@
   "369": "prom-client",
   "370": "rxjs",
   "371": "sequelize-typescript",
-  "372": "zod"
+  "372": "zod",
+  "373": "ProvenanceController",
+  "375": ".createLineage",
+  "376": "entity-resolution.ts",
+  "379": "quality.service.ts",
+  "380": "QualityDimensionModel",
+  "382": ".transitionIssue",
+  "383": "RolesGuard",
+  "384": "0058-widen-coverage-vocabulary.ts",
+  "385": "0059-file-the-last-residual.ts",
+  "386": "company-filings-archive.schema.ts",
+  "387": "0026-add-observation-and-retry-columns.ts",
+  "388": "0032-expose-indicator-aggregation.ts",
+  "389": "provenance.module.ts",
+  "390": "0036-classify-macro-indicators-by-sector.ts"
 }

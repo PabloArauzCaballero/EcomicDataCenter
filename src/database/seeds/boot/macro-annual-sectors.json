@@ -2,7 +2,7 @@
   "series": [
     {
       "indicatorCode": "GDP_PER_CAPITA_GROWTH_PCT",
-      "worldBankCode": "NY.GDP.PCAP.KD.ZG",
+      "compilerCode": "NY.GDP.PCAP.KD.ZG",
       "name": "Crecimiento del PIB per capita",
       "unit": "PERCENT",
       "provenance": {
@@ -342,7 +342,7 @@
     },
     {
       "indicatorCode": "HOUSEHOLD_CONSUMPTION_PCT_GDP",
-      "worldBankCode": "NE.CON.PRVT.ZS",
+      "compilerCode": "NE.CON.PRVT.ZS",
       "name": "Consumo de los hogares",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -682,7 +682,7 @@
     },
     {
       "indicatorCode": "GROSS_CAPITAL_FORMATION_PCT_GDP",
-      "worldBankCode": "NE.GDI.TOTL.ZS",
+      "compilerCode": "NE.GDI.TOTL.ZS",
       "name": "Formacion bruta de capital",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -972,7 +972,7 @@
     },
     {
       "indicatorCode": "GOVERNMENT_CONSUMPTION_PCT_GDP",
-      "worldBankCode": "NE.CON.GOVT.ZS",
+      "compilerCode": "NE.CON.GOVT.ZS",
       "name": "Consumo del gobierno",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -1312,7 +1312,7 @@
     },
     {
       "indicatorCode": "AGRICULTURE_VALUE_ADDED_PCT_GDP",
-      "worldBankCode": "NV.AGR.TOTL.ZS",
+      "compilerCode": "NV.AGR.TOTL.ZS",
       "name": "Valor agregado agricultura",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -1602,7 +1602,7 @@
     },
     {
       "indicatorCode": "INDUSTRY_VALUE_ADDED_PCT_GDP",
-      "worldBankCode": "NV.IND.TOTL.ZS",
+      "compilerCode": "NV.IND.TOTL.ZS",
       "name": "Valor agregado industria",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -1892,7 +1892,7 @@
     },
     {
       "indicatorCode": "MANUFACTURING_VALUE_ADDED_PCT_GDP",
-      "worldBankCode": "NV.IND.MANF.ZS",
+      "compilerCode": "NV.IND.MANF.ZS",
       "name": "Valor agregado manufactura",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -2182,7 +2182,7 @@
     },
     {
       "indicatorCode": "SERVICES_VALUE_ADDED_PCT_GDP",
-      "worldBankCode": "NV.SRV.TOTL.ZS",
+      "compilerCode": "NV.SRV.TOTL.ZS",
       "name": "Valor agregado servicios",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -2472,7 +2472,7 @@
     },
     {
       "indicatorCode": "AGRICULTURE_GROWTH_PCT",
-      "worldBankCode": "NV.AGR.TOTL.KD.ZG",
+      "compilerCode": "NV.AGR.TOTL.KD.ZG",
       "name": "Crecimiento agricultura",
       "unit": "PERCENT",
       "provenance": {
@@ -2807,7 +2807,7 @@
     },
     {
       "indicatorCode": "INDUSTRY_GROWTH_PCT",
-      "worldBankCode": "NV.IND.TOTL.KD.ZG",
+      "compilerCode": "NV.IND.TOTL.KD.ZG",
       "name": "Crecimiento industria",
       "unit": "PERCENT",
       "provenance": {
@@ -3142,7 +3142,7 @@
     },
     {
       "indicatorCode": "SERVICES_GROWTH_PCT",
-      "worldBankCode": "NV.SRV.TOTL.KD.ZG",
+      "compilerCode": "NV.SRV.TOTL.KD.ZG",
       "name": "Crecimiento servicios",
       "unit": "PERCENT",
       "provenance": {
@@ -3477,7 +3477,7 @@
     },
     {
       "indicatorCode": "MINERAL_RENTS_PCT_GDP",
-      "worldBankCode": "NY.GDP.MINR.RT.ZS",
+      "compilerCode": "NY.GDP.MINR.RT.ZS",
       "name": "Rentas minerales",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -3752,7 +3752,7 @@
     },
     {
       "indicatorCode": "NATURAL_GAS_RENTS_PCT_GDP",
-      "worldBankCode": "NY.GDP.NGAS.RT.ZS",
+      "compilerCode": "NY.GDP.NGAS.RT.ZS",
       "name": "Rentas de gas natural",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -4027,7 +4027,7 @@
     },
     {
       "indicatorCode": "OIL_RENTS_PCT_GDP",
-      "worldBankCode": "NY.GDP.PETR.RT.ZS",
+      "compilerCode": "NY.GDP.PETR.RT.ZS",
       "name": "Rentas petroleras",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -4302,7 +4302,7 @@
     },
     {
       "indicatorCode": "TOTAL_NATURAL_RESOURCE_RENTS_PCT_GDP",
-      "worldBankCode": "NY.GDP.TOTL.RT.ZS",
+      "compilerCode": "NY.GDP.TOTL.RT.ZS",
       "name": "Rentas totales de recursos naturales",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -4577,7 +4577,7 @@
     },
     {
       "indicatorCode": "FOREST_RENTS_PCT_GDP",
-      "worldBankCode": "NY.GDP.FRST.RT.ZS",
+      "compilerCode": "NY.GDP.FRST.RT.ZS",
       "name": "Rentas forestales",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -4852,7 +4852,7 @@
     },
     {
       "indicatorCode": "EXPORTS_PCT_GDP",
-      "worldBankCode": "NE.EXP.GNFS.ZS",
+      "compilerCode": "NE.EXP.GNFS.ZS",
       "name": "Exportaciones sobre el PIB",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -5192,7 +5192,7 @@
     },
     {
       "indicatorCode": "IMPORTS_PCT_GDP",
-      "worldBankCode": "NE.IMP.GNFS.ZS",
+      "compilerCode": "NE.IMP.GNFS.ZS",
       "name": "Importaciones sobre el PIB",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -5532,7 +5532,7 @@
     },
     {
       "indicatorCode": "FDI_NET_INFLOWS_PCT_GDP",
-      "worldBankCode": "BX.KLT.DINV.WD.GD.ZS",
+      "compilerCode": "BX.KLT.DINV.WD.GD.ZS",
       "name": "Inversion extranjera directa neta",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -5827,7 +5827,7 @@
     },
     {
       "indicatorCode": "REMITTANCES_PCT_GDP",
-      "worldBankCode": "BX.TRF.PWKR.DT.GD.ZS",
+      "compilerCode": "BX.TRF.PWKR.DT.GD.ZS",
       "name": "Remesas recibidas",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -6092,7 +6092,7 @@
     },
     {
       "indicatorCode": "RESERVES_IN_IMPORT_MONTHS",
-      "worldBankCode": "FI.RES.TOTL.MO",
+      "compilerCode": "FI.RES.TOTL.MO",
       "name": "Reservas en meses de importacion",
       "unit": "MONTHS",
       "provenance": {
@@ -6357,7 +6357,7 @@
     },
     {
       "indicatorCode": "TERMS_OF_TRADE_INDEX",
-      "worldBankCode": "TT.PRI.MRCH.XD.WD",
+      "compilerCode": "TT.PRI.MRCH.XD.WD",
       "name": "Terminos de intercambio",
       "unit": "INDEX",
       "provenance": {
@@ -6472,7 +6472,7 @@
     },
     {
       "indicatorCode": "GDP_DEFLATOR_PCT",
-      "worldBankCode": "NY.GDP.DEFL.KD.ZG",
+      "compilerCode": "NY.GDP.DEFL.KD.ZG",
       "name": "Deflactor del PIB",
       "unit": "PERCENT",
       "provenance": {
@@ -6812,7 +6812,7 @@
     },
     {
       "indicatorCode": "CPI_INDEX",
-      "worldBankCode": "FP.CPI.TOTL",
+      "compilerCode": "FP.CPI.TOTL",
       "name": "Indice de precios al consumidor",
       "unit": "INDEX",
       "provenance": {
@@ -7077,7 +7077,7 @@
     },
     {
       "indicatorCode": "DEPOSIT_RATE_PCT",
-      "worldBankCode": "FR.INR.DPST",
+      "compilerCode": "FR.INR.DPST",
       "name": "Tasa de interes pasiva",
       "unit": "PERCENT",
       "provenance": {
@@ -7287,7 +7287,7 @@
     },
     {
       "indicatorCode": "INTEREST_RATE_SPREAD_PCT",
-      "worldBankCode": "FR.INR.LNDP",
+      "compilerCode": "FR.INR.LNDP",
       "name": "Diferencial de tasas",
       "unit": "PERCENT",
       "provenance": {
@@ -7497,7 +7497,7 @@
     },
     {
       "indicatorCode": "BROAD_MONEY_PCT_GDP",
-      "worldBankCode": "FM.LBL.BMNY.GD.ZS",
+      "compilerCode": "FM.LBL.BMNY.GD.ZS",
       "name": "Dinero en sentido amplio",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -7842,7 +7842,7 @@
     },
     {
       "indicatorCode": "PRIVATE_CREDIT_PCT_GDP",
-      "worldBankCode": "FS.AST.PRVT.GD.ZS",
+      "compilerCode": "FS.AST.PRVT.GD.ZS",
       "name": "Credito al sector privado",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -8187,7 +8187,7 @@
     },
     {
       "indicatorCode": "DEBT_SERVICE_PCT_EXPORTS",
-      "worldBankCode": "DT.TDS.DECT.EX.ZS",
+      "compilerCode": "DT.TDS.DECT.EX.ZS",
       "name": "Servicio de la deuda",
       "unit": "PERCENT",
       "provenance": {
@@ -8447,7 +8447,7 @@
     },
     {
       "indicatorCode": "YOUTH_UNEMPLOYMENT_PCT",
-      "worldBankCode": "SL.UEM.1524.ZS",
+      "compilerCode": "SL.UEM.1524.ZS",
       "name": "Desempleo juvenil",
       "unit": "PERCENT",
       "provenance": {
@@ -8637,7 +8637,7 @@
     },
     {
       "indicatorCode": "GINI_INDEX",
-      "worldBankCode": "SI.POV.GINI",
+      "compilerCode": "SI.POV.GINI",
       "name": "Indice de Gini",
       "unit": "INDEX",
       "provenance": {
@@ -8787,7 +8787,7 @@
     },
     {
       "indicatorCode": "POPULATION_TOTAL",
-      "worldBankCode": "SP.POP.TOTL",
+      "compilerCode": "SP.POP.TOTL",
       "name": "Poblacion total",
       "unit": "PEOPLE",
       "provenance": {
@@ -9132,7 +9132,7 @@
     },
     {
       "indicatorCode": "LABOUR_PARTICIPATION_PCT",
-      "worldBankCode": "SL.TLF.CACT.ZS",
+      "compilerCode": "SL.TLF.CACT.ZS",
       "name": "Tasa de participacion laboral",
       "unit": "PERCENT",
       "provenance": {

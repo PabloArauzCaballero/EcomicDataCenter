@@ -85,7 +85,7 @@ describe('social and institutional snapshots', () => {
     for (const file of ['macro-annual-social.json', 'macro-annual-governance.json']) {
       const snapshot = await loadCompiled(file);
       for (const series of snapshot.series) {
-        expect(series.provenance.sourceUrl).toContain(series.worldBankCode);
+        expect(series.provenance.sourceUrl).toContain(series.compilerCode);
         for (const point of series.points) {
           const measures = [
             {

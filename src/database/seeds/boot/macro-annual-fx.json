@@ -2,7 +2,7 @@
   "series": [
     {
       "indicatorCode": "OFFICIAL_EXCHANGE_RATE_BOB_USD",
-      "worldBankCode": "PA.NUS.FCRF",
+      "compilerCode": "PA.NUS.FCRF",
       "name": "Tipo de cambio oficial, bolivianos por dolar",
       "unit": "INDEX",
       "provenance": {
@@ -232,7 +232,7 @@
     },
     {
       "indicatorCode": "REAL_EFFECTIVE_EXCHANGE_RATE",
-      "worldBankCode": "PX.REX.REER",
+      "compilerCode": "PX.REX.REER",
       "name": "Tipo de cambio efectivo real",
       "unit": "INDEX",
       "provenance": {
@@ -477,7 +477,7 @@
     },
     {
       "indicatorCode": "PPP_CONVERSION_FACTOR",
-      "worldBankCode": "PA.NUS.PPP",
+      "compilerCode": "PA.NUS.PPP",
       "name": "Factor de conversion de paridad de poder adquisitivo",
       "unit": "INDEX",
       "provenance": {

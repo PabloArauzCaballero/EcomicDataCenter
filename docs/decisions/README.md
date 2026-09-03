@@ -25,3 +25,7 @@ Los ADR son inmutables después de aceptarse. Una decisión nueva reemplaza a la
 | 0019 | Cobertura de prensa y listados renderizados | Aceptado |
 | 0020 | Materializar los modelos de lectura de prensa | Aceptado |
 | 0021 | La curva de rendimientos vive fuera de las lecturas medidas | Aceptado |
+| 0022 | Las lecturas sociales entran como expectativa, nunca como medición | Aceptado |
+| 0023 | El comercio se lee por su forma de hacer negocio, no por la plataforma | Aceptado |
+| 0024 | El panel mundial entra completo, no como lista de lectura | Aceptado |
+| 0025 | El registro lee comercio, no plataformas | Aceptado |

@@ -27,9 +27,16 @@ import { readSeed } from './seed.utils';
  * These are a different frequency from everything else in the observatory and
  * are marked as such, so nothing can chart an annual figure on a daily axis or
  * average the two together.
+ *
+ * More than one compiler answers here now. Each series states whose figure it
+ * is, and where the bytes were fetched from an institution that is not the
+ * publisher, it states that separately — so a reader comparing two estimates of
+ * the same year is comparing two methods, and knows which door to knock on to
+ * argue with either.
  */
 
-const AGENT_CODE = 'WORLD_BANK_MACRO_BACKFILL';
+const WORLD_BANK = 'WORLD_BANK_MACRO_BACKFILL';
+const FUND = 'IMF_WEO_MACRO_BACKFILL';
 
 /**
  * Snapshots making up the series, each its own retrieval.
@@ -37,17 +44,24 @@ const AGENT_CODE = 'WORLD_BANK_MACRO_BACKFILL';
  * The range is split rather than re-fetched as one: the digest of a retrieval
  * travels inside every payload it produced, so widening a range already loaded
  * would rewrite hashes and duplicate rows that are already correct.
+ *
+ * Each snapshot also names the backfill that wrote it. That is not decoration:
+ * the run is the internal record of who put a row here, and filing the Fund's
+ * fiscal accounts under the run that fetched the World Bank's aggregates would
+ * make the two indistinguishable to anyone auditing where a figure entered.
  */
 const SNAPSHOTS = [
-  'boot/macro-annual-history-1960.json',
-  'boot/macro-annual-history.json',
-  'boot/macro-annual-sectors.json',
-  'boot/macro-annual-debt.json',
-  'boot/macro-annual-fx.json',
-  'boot/macro-annual-rates.json',
-  'boot/macro-annual-financial.json',
-  'boot/macro-annual-social.json',
-  'boot/macro-annual-governance.json',
+  { file: 'boot/macro-annual-history-1960.json', agentCode: WORLD_BANK },
+  { file: 'boot/macro-annual-history.json', agentCode: WORLD_BANK },
+  { file: 'boot/macro-annual-sectors.json', agentCode: WORLD_BANK },
+  { file: 'boot/macro-annual-debt.json', agentCode: WORLD_BANK },
+  { file: 'boot/macro-annual-fx.json', agentCode: WORLD_BANK },
+  { file: 'boot/macro-annual-rates.json', agentCode: WORLD_BANK },
+  { file: 'boot/macro-annual-financial.json', agentCode: WORLD_BANK },
+  { file: 'boot/macro-annual-social.json', agentCode: WORLD_BANK },
+  { file: 'boot/macro-annual-governance.json', agentCode: WORLD_BANK },
+  // A second compiler, reached through a platform that is not its publisher.
+  { file: 'boot/macro-annual-imf.json', agentCode: FUND },
 ] as const;
 
 /** Each indicator is its own retrieval, so each carries its own digest. */
@@ -75,8 +89,11 @@ async function reconcileSeriesArtifact(
       retrievedAt: new Date(series.provenance.retrievedAt),
       metadataJson: {
         publisher: series.provenance.publisher,
+        ...(series.provenance.distributor === undefined
+          ? {}
+          : { distributor: series.provenance.distributor }),
         indicatorCode: series.indicatorCode,
-        compilerCode: series.worldBankCode,
+        compilerCode: series.compilerCode,
         indicatorName: series.name,
         frequency: series.provenance.frequency,
         pointCount: series.points.length,
@@ -114,8 +131,16 @@ function annualPayload(
       },
     ],
     indicatorName: series.name,
-    compilerCode: series.worldBankCode,
+    compilerCode: series.compilerCode,
     publisher: series.provenance.publisher,
+    /*
+     * Spread rather than written as null when absent: a key that only appears
+     * for a redistributed series leaves every payload already loaded byte for
+     * byte as it was, and the digest that guards them unchanged.
+     */
+    ...(series.provenance.distributor === undefined
+      ? {}
+      : { distributor: series.provenance.distributor }),
     publisherVerified: true,
     url: series.provenance.sourceUrl,
     sha256: series.provenance.upstreamSha256,
@@ -215,9 +240,14 @@ export async function reconcileMacroAnnualHistory(
   sourceId: string,
   transaction: Transaction,
 ): Promise<void> {
-  const agentRunId = await reconcileHistoryRun(AGENT_CODE, transaction);
+  const runs = new Map<string, string>();
   for (const snapshot of SNAPSHOTS) {
-    const history = await readSeed(snapshot, macroAnnualHistorySchema);
+    let agentRunId = runs.get(snapshot.agentCode);
+    if (agentRunId === undefined) {
+      agentRunId = await reconcileHistoryRun(snapshot.agentCode, transaction);
+      runs.set(snapshot.agentCode, agentRunId);
+    }
+    const history = await readSeed(snapshot.file, macroAnnualHistorySchema);
     for (const series of history.series) {
       await reconcileSeries(series, sourceId, agentRunId, transaction);
     }
