@@ -111,7 +111,7 @@
     "@opentelemetry/sdk-trace-base": "2.10.0",
     "@opentelemetry/semantic-conventions": "1.43.0",
     "dotenv": "^17.4.2",
-    "fastify": "5.11.3",
+    "fastify": "5.12.1",
     "ipaddr.js": "2.4.0",
     "jsonwebtoken": "9.0.2",
     "jwks-rsa": "3.2.0",
@@ -153,6 +153,7 @@
   "resolutions": {
     "sequelize-typescript/**/brace-expansion": "1.1.18",
     "umzug/**/ajv": "^8.18.0",
-    "sequelize/uuid": "^11.1.1"
+    "sequelize/uuid": "^11.1.1",
+    "@nestjs/platform-fastify/fastify": "5.12.1"
   }
 }
