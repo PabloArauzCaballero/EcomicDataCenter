@@ -2,7 +2,7 @@
   "series": [
     {
       "indicatorCode": "RISK_PREMIUM_ON_LENDING_PCT",
-      "worldBankCode": "FR.INR.RISK",
+      "compilerCode": "FR.INR.RISK",
       "name": "Prima de riesgo sobre creditos",
       "unit": "PERCENT",
       "provenance": {
@@ -142,7 +142,7 @@
     },
     {
       "indicatorCode": "BANK_LENDING_DEPOSIT_SPREAD_PCT",
-      "worldBankCode": "GFDD.EI.02",
+      "compilerCode": "GFDD.EI.02",
       "name": "Diferencial bancario entre tasa activa y pasiva",
       "unit": "PERCENT",
       "provenance": {
@@ -327,7 +327,7 @@
     },
     {
       "indicatorCode": "BANK_NET_INTEREST_MARGIN_PCT",
-      "worldBankCode": "GFDD.EI.01",
+      "compilerCode": "GFDD.EI.01",
       "name": "Margen financiero neto de la banca",
       "unit": "PERCENT",
       "provenance": {
@@ -452,7 +452,7 @@
     },
     {
       "indicatorCode": "CREDIT_TO_GOVERNMENT_PCT_GDP",
-      "worldBankCode": "GFDD.EI.08",
+      "compilerCode": "GFDD.EI.08",
       "name": "Credito al gobierno y empresas publicas",
       "unit": "PERCENT_OF_GDP",
       "provenance": {

@@ -2,7 +2,7 @@
   "series": [
     {
       "indicatorCode": "BANK_REGULATORY_CAPITAL_PCT_RWA",
-      "worldBankCode": "GFDD.SI.05",
+      "compilerCode": "GFDD.SI.05",
       "name": "Capital regulatorio sobre activos ponderados por riesgo",
       "unit": "PERCENT",
       "provenance": {
@@ -107,7 +107,7 @@
     },
     {
       "indicatorCode": "PROVISIONS_TO_NONPERFORMING_LOANS_PCT",
-      "worldBankCode": "GFDD.SI.07",
+      "compilerCode": "GFDD.SI.07",
       "name": "Cobertura de previsiones sobre cartera en mora",
       "unit": "PERCENT",
       "provenance": {
@@ -212,7 +212,7 @@
     },
     {
       "indicatorCode": "BANK_NONPERFORMING_LOANS_GFDD_PCT",
-      "worldBankCode": "GFDD.SI.02",
+      "compilerCode": "GFDD.SI.02",
       "name": "Cartera en mora sobre cartera bruta",
       "unit": "PERCENT",
       "provenance": {
@@ -317,7 +317,7 @@
     },
     {
       "indicatorCode": "BANK_CAPITAL_TO_TOTAL_ASSETS_PCT",
-      "worldBankCode": "GFDD.SI.03",
+      "compilerCode": "GFDD.SI.03",
       "name": "Capital bancario sobre activos totales",
       "unit": "PERCENT",
       "provenance": {
@@ -422,7 +422,7 @@
     },
     {
       "indicatorCode": "BANK_Z_SCORE",
-      "worldBankCode": "GFDD.SI.01",
+      "compilerCode": "GFDD.SI.01",
       "name": "Z-score bancario",
       "unit": "INDEX",
       "provenance": {
@@ -547,7 +547,7 @@
     },
     {
       "indicatorCode": "BANK_CREDIT_TO_DEPOSITS_PCT",
-      "worldBankCode": "GFDD.SI.04",
+      "compilerCode": "GFDD.SI.04",
       "name": "Credito bancario sobre depositos",
       "unit": "PERCENT",
       "provenance": {
@@ -872,7 +872,7 @@
     },
     {
       "indicatorCode": "LIQUID_ASSETS_TO_DEPOSITS_PCT",
-      "worldBankCode": "GFDD.SI.06",
+      "compilerCode": "GFDD.SI.06",
       "name": "Activos liquidos sobre depositos y fondeo de corto plazo",
       "unit": "PERCENT",
       "provenance": {
@@ -997,7 +997,7 @@
     },
     {
       "indicatorCode": "BANK_RETURN_ON_ASSETS_PCT",
-      "worldBankCode": "GFDD.EI.05",
+      "compilerCode": "GFDD.EI.05",
       "name": "Rentabilidad bancaria sobre activos",
       "unit": "PERCENT",
       "provenance": {
@@ -1122,7 +1122,7 @@
     },
     {
       "indicatorCode": "BANK_RETURN_ON_EQUITY_PCT",
-      "worldBankCode": "GFDD.EI.10",
+      "compilerCode": "GFDD.EI.10",
       "name": "Rentabilidad bancaria sobre patrimonio",
       "unit": "PERCENT",
       "provenance": {
@@ -1247,7 +1247,7 @@
     },
     {
       "indicatorCode": "BANK_COST_TO_INCOME_PCT",
-      "worldBankCode": "GFDD.EI.07",
+      "compilerCode": "GFDD.EI.07",
       "name": "Costos sobre ingresos de la banca",
       "unit": "PERCENT",
       "provenance": {
@@ -1372,7 +1372,7 @@
     },
     {
       "indicatorCode": "BANK_CONCENTRATION_PCT",
-      "worldBankCode": "GFDD.OI.01",
+      "compilerCode": "GFDD.OI.01",
       "name": "Concentracion bancaria",
       "unit": "PERCENT",
       "provenance": {
@@ -1497,7 +1497,7 @@
     },
     {
       "indicatorCode": "BANK_DEPOSITS_PCT_GDP",
-      "worldBankCode": "GFDD.OI.02",
+      "compilerCode": "GFDD.OI.02",
       "name": "Depositos bancarios sobre el PIB",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -1822,7 +1822,7 @@
     },
     {
       "indicatorCode": "DEPOSIT_MONEY_BANK_ASSETS_PCT_GDP",
-      "worldBankCode": "GFDD.DI.02",
+      "compilerCode": "GFDD.DI.02",
       "name": "Activos de la banca de deposito sobre el PIB",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -2147,7 +2147,7 @@
     },
     {
       "indicatorCode": "LIQUID_LIABILITIES_PCT_GDP",
-      "worldBankCode": "GFDD.DI.05",
+      "compilerCode": "GFDD.DI.05",
       "name": "Pasivos liquidos sobre el PIB",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -2472,7 +2472,7 @@
     },
     {
       "indicatorCode": "CENTRAL_BANK_ASSETS_PCT_GDP",
-      "worldBankCode": "GFDD.DI.06",
+      "compilerCode": "GFDD.DI.06",
       "name": "Activos del banco central sobre el PIB",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -2797,7 +2797,7 @@
     },
     {
       "indicatorCode": "FINANCIAL_SYSTEM_DEPOSITS_PCT_GDP",
-      "worldBankCode": "GFDD.DI.08",
+      "compilerCode": "GFDD.DI.08",
       "name": "Depositos del sistema financiero sobre el PIB",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -3122,7 +3122,7 @@
     },
     {
       "indicatorCode": "PRIVATE_CREDIT_BANKS_AND_OFI_PCT_GDP",
-      "worldBankCode": "GFDD.DI.12",
+      "compilerCode": "GFDD.DI.12",
       "name": "Credito privado de bancos y otras entidades financieras",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -3447,7 +3447,7 @@
     },
     {
       "indicatorCode": "NONBANK_FINANCIAL_ASSETS_PCT_GDP",
-      "worldBankCode": "GFDD.DI.03",
+      "compilerCode": "GFDD.DI.03",
       "name": "Activos de entidades financieras no bancarias sobre el PIB",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -3537,7 +3537,7 @@
     },
     {
       "indicatorCode": "PRIVATE_CREDIT_BY_BANKS_PCT_GDP",
-      "worldBankCode": "FD.AST.PRVT.GD.ZS",
+      "compilerCode": "FD.AST.PRVT.GD.ZS",
       "name": "Credito bancario al sector privado",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -3882,7 +3882,7 @@
     },
     {
       "indicatorCode": "DOMESTIC_CREDIT_FINANCIAL_SECTOR_PCT_GDP",
-      "worldBankCode": "FS.AST.DOMS.GD.ZS",
+      "compilerCode": "FS.AST.DOMS.GD.ZS",
       "name": "Credito interno provisto por el sector financiero",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -3972,7 +3972,7 @@
     },
     {
       "indicatorCode": "COMMERCIAL_BANK_BRANCHES_PER_100K",
-      "worldBankCode": "FB.CBK.BRCH.P5",
+      "compilerCode": "FB.CBK.BRCH.P5",
       "name": "Sucursales de banca comercial por cada cien mil adultos",
       "unit": "INDEX",
       "provenance": {
@@ -4092,7 +4092,7 @@
     },
     {
       "indicatorCode": "ATMS_PER_100K_ADULTS",
-      "worldBankCode": "FB.ATM.TOTL.P5",
+      "compilerCode": "FB.ATM.TOTL.P5",
       "name": "Cajeros automaticos por cada cien mil adultos",
       "unit": "INDEX",
       "provenance": {

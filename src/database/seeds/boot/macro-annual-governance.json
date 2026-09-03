@@ -2,7 +2,7 @@
   "series": [
     {
       "indicatorCode": "RULE_OF_LAW_SCORE",
-      "worldBankCode": "GOV_WGI_RL.EST",
+      "compilerCode": "GOV_WGI_RL.EST",
       "name": "Estado de derecho",
       "unit": "SCORE",
       "provenance": {
@@ -147,7 +147,7 @@
     },
     {
       "indicatorCode": "REGULATORY_QUALITY_SCORE",
-      "worldBankCode": "GOV_WGI_RQ.EST",
+      "compilerCode": "GOV_WGI_RQ.EST",
       "name": "Calidad regulatoria",
       "unit": "SCORE",
       "provenance": {
@@ -292,7 +292,7 @@
     },
     {
       "indicatorCode": "CONTROL_OF_CORRUPTION_SCORE",
-      "worldBankCode": "GOV_WGI_CC.EST",
+      "compilerCode": "GOV_WGI_CC.EST",
       "name": "Control de la corrupcion",
       "unit": "SCORE",
       "provenance": {
@@ -437,7 +437,7 @@
     },
     {
       "indicatorCode": "GOVERNMENT_EFFECTIVENESS_SCORE",
-      "worldBankCode": "GOV_WGI_GE.EST",
+      "compilerCode": "GOV_WGI_GE.EST",
       "name": "Efectividad gubernamental",
       "unit": "SCORE",
       "provenance": {
@@ -582,7 +582,7 @@
     },
     {
       "indicatorCode": "POLITICAL_STABILITY_SCORE",
-      "worldBankCode": "GOV_WGI_PV.EST",
+      "compilerCode": "GOV_WGI_PV.EST",
       "name": "Estabilidad politica y ausencia de violencia",
       "unit": "SCORE",
       "provenance": {
@@ -727,7 +727,7 @@
     },
     {
       "indicatorCode": "VOICE_AND_ACCOUNTABILITY_SCORE",
-      "worldBankCode": "GOV_WGI_VA.EST",
+      "compilerCode": "GOV_WGI_VA.EST",
       "name": "Voz y rendicion de cuentas",
       "unit": "SCORE",
       "provenance": {
@@ -872,7 +872,7 @@
     },
     {
       "indicatorCode": "CPIA_PUBLIC_SECTOR_SCORE",
-      "worldBankCode": "IQ.CPA.PUBS.XQ",
+      "compilerCode": "IQ.CPA.PUBS.XQ",
       "name": "Gestion del sector publico e instituciones",
       "unit": "SCORE",
       "provenance": {

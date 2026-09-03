@@ -24,8 +24,12 @@ async function main(): Promise<void> {
      */
     await database.query('SET statement_timeout = 0');
     const started = Date.now();
-    await database.query('REFRESH MATERIALIZED VIEW read_models.press_article_snapshot');
-    await database.query('REFRESH MATERIALIZED VIEW read_models.press_term_mention_snapshot');
+    await database.query(
+      'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.press_article_snapshot',
+    );
+    await database.query(
+      'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.press_term_mention_snapshot',
+    );
     const [rows] = await database.query(
       'SELECT count(*)::text AS notas FROM read_models.press_article_snapshot',
     );

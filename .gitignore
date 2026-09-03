@@ -83,6 +83,20 @@ env/
 
 # ── Graphify (knowledge graph; caché regenerable) ────────────
 graphify-out/cache/
+# Instantáneas fechadas por corrida: 44 MB que el backend no lee y que cada
+# clon arrastraría para siempre. El grafo vigente (graph.json, GRAPH_REPORT.md)
+# sí se versiona, en la raíz de graphify-out/.
+graphify-out/20*/
+
+# ── Automatización de navegador (volcados de sesión) ─────────
+# Instantáneas que Playwright/MCP escribe por sesión. Son diagnóstico
+# irrepetible, no entrada del sistema.
+.playwright-mcp/
+
+# ── Capturas de pantalla sueltas en la raíz ──────────────────
+# Depuración visual del tablero. Las imágenes que sí documentan algo viven
+# junto a lo que documentan, en docs/.
+/*.png
 
 # ── Herramientas / caché de linters ──────────────────────────
 .eslintcache

@@ -161,6 +161,50 @@
       "specialty": "Desarrollo humano, corrupción percibida y calidad institucional",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000010",
+      "code": "IMF_WEO_MACRO_BACKFILL",
+      "name": "Carga de las series anuales del Fondo Monetario Internacional",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Fondo Monetario Internacional",
+      "modelIdentifier": "imf-weo-data360",
+      "specialty": "Cuentas fiscales, deuda pública, ahorro, inversión y precios",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000011",
+      "code": "FOREIGN_TRADE_BACKFILL",
+      "name": "Carga del comercio exterior declarado ante Naciones Unidas",
+      "agentType": "EXTERNAL_SECTOR",
+      "provider": "Naciones Unidas",
+      "modelIdentifier": "un-comtrade-preview",
+      "specialty": "Exportaciones e importaciones de bienes declaradas en aduana",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000012",
+      "code": "SOCIAL_READINGS",
+      "name": "Lecturas publicadas sobre las redes sociales bolivianas",
+      "agentType": "SECTOR",
+      "provider": "Compiladores de investigacion y medios",
+      "modelIdentifier": "registro-manual",
+      "specialty": "Audiencia, temas, emociones y comportamiento de compra en redes sociales",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000013",
+      "code": "WORLDBANK_PANEL",
+      "name": "Panel de indicadores del desarrollo mundial",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Banco Mundial",
+      "modelIdentifier": "worldbank-api-v2",
+      "specialty": "Serie completa de los World Development Indicators para Bolivia y las economias con las que se compara",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

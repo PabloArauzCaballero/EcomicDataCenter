@@ -91,7 +91,7 @@ async function collectSeries(requested: Requested, retrievedAt: string): Promise
 
   return {
     indicatorCode: requested.indicatorCode,
-    worldBankCode: requested.worldBankCode,
+    compilerCode: requested.worldBankCode,
     name: requested.name,
     unit: requested.unit,
     provenance: {

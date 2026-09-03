@@ -67,7 +67,7 @@ describe('rate and financial soundness snapshots', () => {
     for (const file of ['macro-annual-rates.json', 'macro-annual-financial.json']) {
       const snapshot = await load(file);
       for (const series of snapshot.series) {
-        expect(series.provenance.sourceUrl).toContain(series.worldBankCode);
+        expect(series.provenance.sourceUrl).toContain(series.compilerCode);
         expect(series.provenance.upstreamSha256).toMatch(/^[a-f0-9]{64}$/u);
       }
       const digests = snapshot.series.map((series) => series.provenance.upstreamSha256);

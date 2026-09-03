@@ -6,6 +6,15 @@ import { z } from 'zod';
  * One retrieval per indicator, each with its own citable URL and digest, so a
  * reader can re-request exactly the series a figure came from rather than a
  * bundle it was part of.
+ *
+ * The shape is deliberately not tied to one compiler. Every annual figure the
+ * observatory held came from a single institution, which reads as consensus
+ * when it is really one method: an output series and a debt series compiled by
+ * the same house share its revisions, its country coverage and its blind
+ * spots. So the identifier is the compiler's own code whoever the compiler is,
+ * and the provenance names the publisher on every series rather than assuming
+ * it — which is what lets a second compiler's reading of the same year sit
+ * beside the first and be compared instead of silently replacing it.
  */
 
 const measuredValue = z
@@ -22,7 +31,7 @@ export const macroAnnualHistorySchema = z.object({
             .regex(/^[A-Z][A-Z0-9_]*$/u)
             .max(60),
           /** Identifier at the compiler, so the figure can be looked up there. */
-          worldBankCode: z.string().min(3).max(40),
+          compilerCode: z.string().min(3).max(40),
           name: z.string().trim().min(3).max(200),
           /**
            * Unit the compiler publishes the figure in.
@@ -45,6 +54,17 @@ export const macroAnnualHistorySchema = z.object({
           provenance: z
             .object({
               publisher: z.string().trim().min(2).max(200),
+              /**
+               * The archive the bytes were fetched from, when it is not the
+               * publisher.
+               *
+               * Omitted for a compiler that serves its own series. Present when
+               * one institution's figures are reachable only through another's
+               * endpoint, because crediting the host would attribute the method
+               * to whoever happens to host it — and a reader who wants to argue
+               * with the figure has to be sent to the institution that made it.
+               */
+              distributor: z.string().trim().min(2).max(200).optional(),
               sourceUrl: z.url(),
               retrievedAt: z.iso.datetime({ offset: false }),
               upstreamSha256: z.string().regex(/^[a-f0-9]{64}$/u),

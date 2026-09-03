@@ -30,12 +30,15 @@ import { reconcileCompanyFilingArchive } from './boot-seed.company-filings-archi
 import { reconcileCompanyFilingTexts } from './boot-seed.company-filing-texts';
 import { reconcilePressCoverage } from './boot-seed.press-coverage';
 import { reconcilePressArchive } from './boot-seed.press-archive';
+import { reconcileSocialReadings } from './boot-seed.social-readings';
 import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
 import { reconcileMarketPrices } from './boot-seed.market-prices';
 import { reconcileBcbQuotes } from './boot-seed.bcb-quotes';
 import { reconcileUfvHistory } from './boot-seed.ufv-history';
 import { reconcileBbvYields } from './boot-seed.bbv-yields';
 import { reconcileCompositeIndices } from './boot-seed.composite-indices';
+import { reconcileForeignTrade } from './boot-seed.foreign-trade';
+import { reconcileWorldBankPanel } from './boot-seed.worldbank-panel';
 import { readSeed } from './seed.utils';
 
 async function reconcileFrequencies(transaction: Transaction): Promise<void> {
@@ -101,8 +104,60 @@ async function reconcileEconomicActivities(transaction: Transaction): Promise<vo
   }
 }
 
+/**
+ * The heavy catalogues, by the name they can be asked for on their own.
+ *
+ * Every one of them is idempotent, so loading all of them is always correct and
+ * is what happens by default. What it is not is quick: against a remote
+ * database the full replay runs for well over ten minutes inside a single
+ * transaction, and a load interrupted at minute nine rolls back the catalogue
+ * somebody actually came to load. Naming them lets one be reloaded on its own
+ * without replaying the other fourteen.
+ *
+ * The small catalogues above them — frequencies, units, territory, activities,
+ * agent identities — always run: they are the rows every other catalogue points
+ * at, and they cost nothing.
+ */
+const SELECTABLE = [
+  'exchange-rate-history',
+  'macro-annual-history',
+  'market-prices',
+  'bcb-quotes',
+  'ufv-history',
+  'bbv-yields',
+  'composite-indices',
+  'foreign-trade',
+  'company-filings',
+  'company-filings-archive',
+  'company-filing-texts',
+  'press-coverage',
+  'press-archive',
+  'social-readings',
+  'worldbank-panel',
+] as const;
+
+type Catalogue = (typeof SELECTABLE)[number];
+
+/**
+ * Which catalogue was asked for, if any. `--only=<nombre>`.
+ *
+ * An unknown name stops the run instead of quietly loading nothing but the base
+ * catalogues, which would look like a successful load of the thing that was
+ * misspelled.
+ */
+function requestedCatalogue(argv: readonly string[]): Catalogue | undefined {
+  const flag = argv.find((argument) => argument.startsWith('--only='));
+  if (!flag) return undefined;
+  const name = flag.slice('--only='.length);
+  if (!SELECTABLE.includes(name as Catalogue)) {
+    throw new Error(`Catálogo desconocido: ${name}. Opciones: ${SELECTABLE.join(', ')}`);
+  }
+  return name as Catalogue;
+}
+
 /** Reconciles the minimum non-secret catalog required by every environment. */
-export async function runBootSeeds(): Promise<void> {
+export async function runBootSeeds(only?: Catalogue): Promise<void> {
+  const wanted = (name: Catalogue): boolean => only === undefined || only === name;
   const database = createWriterDatabase(getEnvironment());
   try {
     await database.authenticate();
@@ -118,19 +173,30 @@ export async function runBootSeeds(): Promise<void> {
       const identities = await reconcileAgentBootstrap(transaction);
       // Runs last: it needs the backfill identity and the source the block
       // above reconciles.
-      await reconcileExchangeRateHistory(identities.sourceId, transaction);
-      await reconcileMacroAnnualHistory(identities.sourceId, transaction);
-      await reconcileMarketPrices(identities.sourceId, transaction);
-      await reconcileBcbQuotes(identities.sourceId, transaction);
-      await reconcileUfvHistory(identities.sourceId, transaction);
-      await reconcileBbvYields(identities.sourceId, transaction);
-      await reconcileCompositeIndices(identities.sourceId, transaction);
-      await reconcileCompanyFilings(identities.sourceId, transaction);
-      await reconcileCompanyFilingArchive(identities.sourceId, transaction);
+      if (wanted('exchange-rate-history'))
+        await reconcileExchangeRateHistory(identities.sourceId, transaction);
+      if (wanted('macro-annual-history'))
+        await reconcileMacroAnnualHistory(identities.sourceId, transaction);
+      if (wanted('market-prices')) await reconcileMarketPrices(identities.sourceId, transaction);
+      if (wanted('bcb-quotes')) await reconcileBcbQuotes(identities.sourceId, transaction);
+      if (wanted('ufv-history')) await reconcileUfvHistory(identities.sourceId, transaction);
+      if (wanted('bbv-yields')) await reconcileBbvYields(identities.sourceId, transaction);
+      if (wanted('composite-indices'))
+        await reconcileCompositeIndices(identities.sourceId, transaction);
+      if (wanted('foreign-trade')) await reconcileForeignTrade(identities.sourceId, transaction);
+      if (wanted('company-filings'))
+        await reconcileCompanyFilings(identities.sourceId, transaction);
+      if (wanted('company-filings-archive'))
+        await reconcileCompanyFilingArchive(identities.sourceId, transaction);
       // Runs after the archive: it attaches evidence to the claims that made.
-      await reconcileCompanyFilingTexts(identities.sourceId, transaction);
-      await reconcilePressCoverage(identities.sourceId, transaction);
-      await reconcilePressArchive(identities.sourceId, transaction);
+      if (wanted('company-filing-texts'))
+        await reconcileCompanyFilingTexts(identities.sourceId, transaction);
+      if (wanted('press-coverage')) await reconcilePressCoverage(identities.sourceId, transaction);
+      if (wanted('press-archive')) await reconcilePressArchive(identities.sourceId, transaction);
+      if (wanted('social-readings'))
+        await reconcileSocialReadings(identities.sourceId, transaction);
+      if (wanted('worldbank-panel'))
+        await reconcileWorldBankPanel(identities.sourceId, transaction);
     });
     /*
      * Outside the transaction, because a materialised view cannot be refreshed
@@ -138,15 +204,26 @@ export async function runBootSeeds(): Promise<void> {
      * serves the corpus as it stood before this load.
      */
     await database.query('SET statement_timeout = 0');
-    await database.query('REFRESH MATERIALIZED VIEW read_models.press_article_snapshot');
-    await database.query('REFRESH MATERIALIZED VIEW read_models.press_term_mention_snapshot');
+    if (wanted('press-coverage') || wanted('press-archive')) {
+      await database.query(
+        'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.press_article_snapshot',
+      );
+      await database.query(
+        'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.press_term_mention_snapshot',
+      );
+    }
+    if (wanted('social-readings')) {
+      await database.query(
+        'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.social_reading_snapshot',
+      );
+    }
   } finally {
     await database.close();
   }
 }
 
 if (require.main === module) {
-  runBootSeeds().catch((error: unknown) => {
+  runBootSeeds(requestedCatalogue(process.argv.slice(2))).catch((error: unknown) => {
     process.stderr.write(`${error instanceof Error ? error.message : 'Boot seed failure'}\n`);
     process.exitCode = 1;
   });

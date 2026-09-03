@@ -34,7 +34,7 @@ describe('macro annual history snapshot', () => {
     for (const series of history.series) {
       // Each indicator has its own address and its own digest, so a figure can
       // be re-requested on its own rather than as part of a bundle.
-      expect(series.provenance.sourceUrl).toContain(series.worldBankCode);
+      expect(series.provenance.sourceUrl).toContain(series.compilerCode);
       expect(series.provenance.upstreamSha256).toMatch(/^[a-f0-9]{64}$/u);
     }
     const digests = history.series.map((series) => series.provenance.upstreamSha256);

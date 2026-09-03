@@ -38,3 +38,7 @@ src/modules/users/
 # edits. Pretty-printing them triples their size and turns every diff into
 # hundreds of thousands of lines, which hides the change rather than showing it.
 src/database/seeds/boot/press-archive-*.json
+
+# The world panel, on the same terms and for the same reason: 33 MB of
+# collector output across twenty-five files, each a single line. See ADR 0024.
+src/database/seeds/boot/worldbank-panel/*.json

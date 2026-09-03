@@ -2,7 +2,7 @@
   "series": [
     {
       "indicatorCode": "SOVEREIGN_BOND_NET_FLOWS_USD",
-      "worldBankCode": "DT.NFL.PBND.CD",
+      "compilerCode": "DT.NFL.PBND.CD",
       "name": "Flujo neto de bonos soberanos",
       "unit": "USD",
       "provenance": {
@@ -197,7 +197,7 @@
     },
     {
       "indicatorCode": "PUBLIC_GUARANTEED_DEBT_USD",
-      "worldBankCode": "DT.DOD.DPPG.CD",
+      "compilerCode": "DT.DOD.DPPG.CD",
       "name": "Deuda externa publica y garantizada",
       "unit": "USD",
       "provenance": {
@@ -487,7 +487,7 @@
     },
     {
       "indicatorCode": "PRIVATE_NONGUARANTEED_DEBT_USD",
-      "worldBankCode": "DT.DOD.DPNG.CD",
+      "compilerCode": "DT.DOD.DPNG.CD",
       "name": "Deuda externa privada no garantizada",
       "unit": "USD",
       "provenance": {
@@ -777,7 +777,7 @@
     },
     {
       "indicatorCode": "SHORT_TERM_EXTERNAL_DEBT_USD",
-      "worldBankCode": "DT.DOD.DSTC.CD",
+      "compilerCode": "DT.DOD.DSTC.CD",
       "name": "Deuda externa de corto plazo",
       "unit": "USD",
       "provenance": {
@@ -1067,7 +1067,7 @@
     },
     {
       "indicatorCode": "LONG_TERM_EXTERNAL_DEBT_USD",
-      "worldBankCode": "DT.DOD.DLXF.CD",
+      "compilerCode": "DT.DOD.DLXF.CD",
       "name": "Deuda externa de largo plazo",
       "unit": "USD",
       "provenance": {
@@ -1357,7 +1357,7 @@
     },
     {
       "indicatorCode": "EXTERNAL_DEBT_PCT_GNI",
-      "worldBankCode": "DT.DOD.DECT.GN.ZS",
+      "compilerCode": "DT.DOD.DECT.GN.ZS",
       "name": "Deuda externa sobre el ingreso nacional",
       "unit": "PERCENT",
       "provenance": {
@@ -1617,7 +1617,7 @@
     },
     {
       "indicatorCode": "PUBLIC_DEBT_SERVICE_PCT_EXPORTS",
-      "worldBankCode": "DT.TDS.DPPG.XP.ZS",
+      "compilerCode": "DT.TDS.DPPG.XP.ZS",
       "name": "Servicio de deuda publica sobre exportaciones",
       "unit": "PERCENT",
       "provenance": {
@@ -1877,7 +1877,7 @@
     },
     {
       "indicatorCode": "TOTAL_DEBT_SERVICE_USD",
-      "worldBankCode": "DT.TDS.DECT.CD",
+      "compilerCode": "DT.TDS.DECT.CD",
       "name": "Servicio total de la deuda",
       "unit": "USD",
       "provenance": {
@@ -2167,7 +2167,7 @@
     },
     {
       "indicatorCode": "RESERVES_TO_EXTERNAL_DEBT_PCT",
-      "worldBankCode": "FI.RES.TOTL.DT.ZS",
+      "compilerCode": "FI.RES.TOTL.DT.ZS",
       "name": "Reservas sobre deuda externa total",
       "unit": "PERCENT",
       "provenance": {
@@ -2452,7 +2452,7 @@
     },
     {
       "indicatorCode": "DEBT_TO_WORLD_BANK_USD",
-      "worldBankCode": "DT.DOD.MWBG.CD",
+      "compilerCode": "DT.DOD.MWBG.CD",
       "name": "Deuda con el Banco Mundial",
       "unit": "USD",
       "provenance": {
@@ -2742,7 +2742,7 @@
     },
     {
       "indicatorCode": "DEBT_TO_IBRD_USD",
-      "worldBankCode": "DT.DOD.MIBR.CD",
+      "compilerCode": "DT.DOD.MIBR.CD",
       "name": "Deuda con el BIRF",
       "unit": "USD",
       "provenance": {
@@ -3022,7 +3022,7 @@
     },
     {
       "indicatorCode": "DEBT_TO_IDA_USD",
-      "worldBankCode": "DT.DOD.MIDA.CD",
+      "compilerCode": "DT.DOD.MIDA.CD",
       "name": "Deuda con la AIF",
       "unit": "USD",
       "provenance": {
@@ -3312,7 +3312,7 @@
     },
     {
       "indicatorCode": "GROSS_NATIONAL_INCOME_USD",
-      "worldBankCode": "NY.GNP.MKTP.CD",
+      "compilerCode": "NY.GNP.MKTP.CD",
       "name": "Ingreso nacional bruto",
       "unit": "USD",
       "provenance": {
@@ -3577,7 +3577,7 @@
     },
     {
       "indicatorCode": "GROSS_NATIONAL_SAVINGS_PCT_GDP",
-      "worldBankCode": "NY.GNS.ICTR.ZS",
+      "compilerCode": "NY.GNS.ICTR.ZS",
       "name": "Ahorro nacional bruto",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -3837,7 +3837,7 @@
     },
     {
       "indicatorCode": "HIGH_TECH_EXPORTS_PCT",
-      "worldBankCode": "NV.MNF.TECH.ZS.UN",
+      "compilerCode": "NV.MNF.TECH.ZS.UN",
       "name": "Exportaciones de alta tecnologia",
       "unit": "PERCENT",
       "provenance": {
@@ -4017,7 +4017,7 @@
     },
     {
       "indicatorCode": "TRADE_BALANCE_PCT_GDP",
-      "worldBankCode": "NE.RSB.GNFS.ZS",
+      "compilerCode": "NE.RSB.GNFS.ZS",
       "name": "Balanza de bienes y servicios",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -4357,7 +4357,7 @@
     },
     {
       "indicatorCode": "BOP_EXPORTS_USD",
-      "worldBankCode": "BX.GSR.GNFS.CD",
+      "compilerCode": "BX.GSR.GNFS.CD",
       "name": "Exportaciones de bienes y servicios (BdP)",
       "unit": "USD",
       "provenance": {
@@ -4622,7 +4622,7 @@
     },
     {
       "indicatorCode": "BOP_IMPORTS_USD",
-      "worldBankCode": "BM.GSR.GNFS.CD",
+      "compilerCode": "BM.GSR.GNFS.CD",
       "name": "Importaciones de bienes y servicios (BdP)",
       "unit": "USD",
       "provenance": {
@@ -4887,7 +4887,7 @@
     },
     {
       "indicatorCode": "CURRENT_ACCOUNT_USD",
-      "worldBankCode": "BN.CAB.XOKA.CD",
+      "compilerCode": "BN.CAB.XOKA.CD",
       "name": "Saldo en cuenta corriente",
       "unit": "USD",
       "provenance": {
@@ -5152,7 +5152,7 @@
     },
     {
       "indicatorCode": "FDI_NET_INFLOWS_USD",
-      "worldBankCode": "BX.KLT.DINV.CD.WD",
+      "compilerCode": "BX.KLT.DINV.CD.WD",
       "name": "Inversion extranjera directa neta",
       "unit": "USD",
       "provenance": {
@@ -5447,7 +5447,7 @@
     },
     {
       "indicatorCode": "REMITTANCES_USD",
-      "worldBankCode": "BX.TRF.PWKR.CD.DT",
+      "compilerCode": "BX.TRF.PWKR.CD.DT",
       "name": "Remesas recibidas",
       "unit": "USD",
       "provenance": {
@@ -5712,7 +5712,7 @@
     },
     {
       "indicatorCode": "MERCHANDISE_EXPORTS_USD",
-      "worldBankCode": "TX.VAL.MRCH.CD.WT",
+      "compilerCode": "TX.VAL.MRCH.CD.WT",
       "name": "Exportaciones de mercancias",
       "unit": "USD",
       "provenance": {
@@ -6057,7 +6057,7 @@
     },
     {
       "indicatorCode": "MERCHANDISE_IMPORTS_USD",
-      "worldBankCode": "TM.VAL.MRCH.CD.WT",
+      "compilerCode": "TM.VAL.MRCH.CD.WT",
       "name": "Importaciones de mercancias",
       "unit": "USD",
       "provenance": {
@@ -6402,7 +6402,7 @@
     },
     {
       "indicatorCode": "FUEL_EXPORTS_PCT",
-      "worldBankCode": "TX.VAL.FUEL.ZS.UN",
+      "compilerCode": "TX.VAL.FUEL.ZS.UN",
       "name": "Exportaciones de combustibles",
       "unit": "PERCENT",
       "provenance": {
@@ -6712,7 +6712,7 @@
     },
     {
       "indicatorCode": "ORES_METALS_EXPORTS_PCT",
-      "worldBankCode": "TX.VAL.MMTL.ZS.UN",
+      "compilerCode": "TX.VAL.MMTL.ZS.UN",
       "name": "Exportaciones de minerales y metales",
       "unit": "PERCENT",
       "provenance": {
@@ -7022,7 +7022,7 @@
     },
     {
       "indicatorCode": "AGRICULTURAL_EXPORTS_PCT",
-      "worldBankCode": "TX.VAL.AGRI.ZS.UN",
+      "compilerCode": "TX.VAL.AGRI.ZS.UN",
       "name": "Exportaciones agricolas",
       "unit": "PERCENT",
       "provenance": {
@@ -7332,7 +7332,7 @@
     },
     {
       "indicatorCode": "BROAD_MONEY_GROWTH_PCT",
-      "worldBankCode": "FM.LBL.BMNY.ZG",
+      "compilerCode": "FM.LBL.BMNY.ZG",
       "name": "Crecimiento del dinero en sentido amplio",
       "unit": "PERCENT",
       "provenance": {
@@ -7672,7 +7672,7 @@
     },
     {
       "indicatorCode": "BANK_LIQUID_RESERVES_PCT",
-      "worldBankCode": "FD.RES.LIQU.AS.ZS",
+      "compilerCode": "FD.RES.LIQU.AS.ZS",
       "name": "Liquidez bancaria sobre activos",
       "unit": "PERCENT",
       "provenance": {
@@ -7812,7 +7812,7 @@
     },
     {
       "indicatorCode": "BANK_CAPITAL_TO_ASSETS_PCT",
-      "worldBankCode": "FB.BNK.CAPA.ZS",
+      "compilerCode": "FB.BNK.CAPA.ZS",
       "name": "Capital bancario sobre activos",
       "unit": "PERCENT",
       "provenance": {
@@ -7902,7 +7902,7 @@
     },
     {
       "indicatorCode": "NONPERFORMING_LOANS_PCT",
-      "worldBankCode": "FB.AST.NPER.ZS",
+      "compilerCode": "FB.AST.NPER.ZS",
       "name": "Cartera en mora",
       "unit": "PERCENT",
       "provenance": {
@@ -7992,7 +7992,7 @@
     },
     {
       "indicatorCode": "REAL_INTEREST_RATE_PCT",
-      "worldBankCode": "FR.INR.RINR",
+      "compilerCode": "FR.INR.RINR",
       "name": "Tasa de interes real",
       "unit": "PERCENT",
       "provenance": {
@@ -8202,7 +8202,7 @@
     },
     {
       "indicatorCode": "LIFE_EXPECTANCY_YEARS",
-      "worldBankCode": "SP.DYN.LE00.IN",
+      "compilerCode": "SP.DYN.LE00.IN",
       "name": "Esperanza de vida",
       "unit": "YEARS",
       "provenance": {
@@ -8542,7 +8542,7 @@
     },
     {
       "indicatorCode": "URBAN_POPULATION_PCT",
-      "worldBankCode": "SP.URB.TOTL.IN.ZS",
+      "compilerCode": "SP.URB.TOTL.IN.ZS",
       "name": "Poblacion urbana",
       "unit": "PERCENT",
       "provenance": {
@@ -8887,7 +8887,7 @@
     },
     {
       "indicatorCode": "EDUCATION_SPENDING_PCT_GDP",
-      "worldBankCode": "SE.XPD.TOTL.GD.ZS",
+      "compilerCode": "SE.XPD.TOTL.GD.ZS",
       "name": "Gasto publico en educacion",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -8997,7 +8997,7 @@
     },
     {
       "indicatorCode": "HEALTH_SPENDING_PCT_GDP",
-      "worldBankCode": "SH.XPD.CHEX.GD.ZS",
+      "compilerCode": "SH.XPD.CHEX.GD.ZS",
       "name": "Gasto en salud",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -9132,7 +9132,7 @@
     },
     {
       "indicatorCode": "EXTREME_POVERTY_PCT",
-      "worldBankCode": "SI.POV.DDAY",
+      "compilerCode": "SI.POV.DDAY",
       "name": "Pobreza extrema",
       "unit": "PERCENT",
       "provenance": {
@@ -9282,7 +9282,7 @@
     },
     {
       "indicatorCode": "EMPLOYMENT_AGRICULTURE_PCT",
-      "worldBankCode": "SL.AGR.EMPL.ZS",
+      "compilerCode": "SL.AGR.EMPL.ZS",
       "name": "Empleo en agricultura",
       "unit": "PERCENT",
       "provenance": {
@@ -9472,7 +9472,7 @@
     },
     {
       "indicatorCode": "EMPLOYMENT_INDUSTRY_PCT",
-      "worldBankCode": "SL.IND.EMPL.ZS",
+      "compilerCode": "SL.IND.EMPL.ZS",
       "name": "Empleo en industria",
       "unit": "PERCENT",
       "provenance": {
@@ -9662,7 +9662,7 @@
     },
     {
       "indicatorCode": "EMPLOYMENT_SERVICES_PCT",
-      "worldBankCode": "SL.SRV.EMPL.ZS",
+      "compilerCode": "SL.SRV.EMPL.ZS",
       "name": "Empleo en servicios",
       "unit": "PERCENT",
       "provenance": {
@@ -9852,7 +9852,7 @@
     },
     {
       "indicatorCode": "ENERGY_USE_PER_CAPITA",
-      "worldBankCode": "EG.USE.PCAP.KG.OE",
+      "compilerCode": "EG.USE.PCAP.KG.OE",
       "name": "Consumo de energia per capita",
       "unit": "INDEX",
       "provenance": {
@@ -10037,7 +10037,7 @@
     },
     {
       "indicatorCode": "FOOD_PRODUCTION_INDEX",
-      "worldBankCode": "AG.PRD.FOOD.XD",
+      "compilerCode": "AG.PRD.FOOD.XD",
       "name": "Indice de produccion de alimentos",
       "unit": "INDEX",
       "provenance": {
@@ -10362,7 +10362,7 @@
     },
     {
       "indicatorCode": "MOBILE_SUBSCRIPTIONS",
-      "worldBankCode": "IT.CEL.SETS.P2",
+      "compilerCode": "IT.CEL.SETS.P2",
       "name": "Suscripciones moviles",
       "unit": "INDEX",
       "provenance": {
