@@ -81,12 +81,10 @@ __pycache__/
 venv/
 env/
 
-# ── Graphify (knowledge graph; caché regenerable) ────────────
-graphify-out/cache/
-# Instantáneas fechadas por corrida: 44 MB que el backend no lee y que cada
-# clon arrastraría para siempre. El grafo vigente (graph.json, GRAPH_REPORT.md)
-# sí se versiona, en la raíz de graphify-out/.
-graphify-out/20*/
+# ── Graphify (knowledge graph; salida regenerable) ───────────
+# La skill lo reconstruye entero en cada sesión: 11 MB de JSON y HTML que el
+# backend no lee y que reescriben ~46 000 líneas en cada diff.
+graphify-out/
 
 # ── Automatización de navegador (volcados de sesión) ─────────
 # Instantáneas que Playwright/MCP escribe por sesión. Son diagnóstico
@@ -131,3 +129,7 @@ temp/
 *.tmp
 *.bak
 *.orig
+
+# ── Herramienta independiente de extracción de POI ───────────
+# Job de Python autónomo; no forma parte del backend ni de su build.
+bolivia_poi_3cities_READY_TO_RUN/
