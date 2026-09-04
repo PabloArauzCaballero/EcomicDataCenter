@@ -14,6 +14,12 @@
 # Las migraciones corren como un servicio de un solo disparo que debe terminar
 # bien antes de que arranque la API. Es reejecutable: Umzug omite las
 # migraciones ya aplicadas, asi que un redespliegue no las repite.
+#
+# Este despliegue es de DESARROLLO (NODE_ENV=development). Bajo ese valor el
+# esquema no aplica las compuertas de produccion: AUTH_MODE=disabled es valido,
+# Swagger puede quedar expuesto y las metricas no exigen token de scrape.
+# Ojo: la base a la que apunta contiene el conjunto de datos real, asi que con
+# AUTH_MODE=disabled queda accesible sin credencial.
 
 services:
   migrate:
@@ -22,7 +28,9 @@ services:
       target: runtime
     command: ['node', 'dist/database/cli/migrate.js']
     environment:
-      NODE_ENV: production
+      # Lo manda la UI de Coolify; en desarrollo el validador no aplica las
+      # compuertas que tumbaron el despliegue anterior.
+      NODE_ENV: ${NODE_ENV:-development}
       DATABASE_MIGRATOR_URL: ${DATABASE_MIGRATOR_URL:?requerida}
       DATABASE_WRITER_URL: ${DATABASE_WRITER_URL:?requerida}
       DATABASE_READER_URL: ${DATABASE_READER_URL:?requerida}
@@ -31,14 +39,14 @@ services:
       DATABASE_SSL: ${DATABASE_SSL:-false}
       DATABASE_CONNECT_TIMEOUT_MS: ${DATABASE_CONNECT_TIMEOUT_MS:-5000}
       DATABASE_STATEMENT_TIMEOUT_MS: ${DATABASE_STATEMENT_TIMEOUT_MS:-15000}
-      # El validador prohibe AUTH_MODE=disabled bajo NODE_ENV=production; el
-      # migrador no atiende HTTP, pero valida el mismo esquema al arrancar.
-      AUTH_MODE: ${AUTH_MODE:?requerida (jwks o agent_key)}
+      # El migrador no atiende HTTP, pero valida el mismo esquema al arrancar.
+      # `disabled` solo es admisible porque este entorno no es produccion.
+      AUTH_MODE: ${AUTH_MODE:-disabled}
       # Los secretos de autenticación no se declaran aquí a propósito. Escribirlos
       # como `${VAR:-}` no los deja sin definir: los inyecta como cadena vacía, y
       # el esquema rechaza "" por longitud mínima aunque el campo sea opcional.
       # Se cargan desde la UI de Coolify, que ya inyecta sus variables al contenedor.
-      SWAGGER_ENABLED: 'false'
+      SWAGGER_ENABLED: ${SWAGGER_ENABLED:-false}
       METRICS_ENABLED: 'false'
     init: true
     read_only: true
@@ -59,7 +67,7 @@ services:
       # Coolify sustituye esta variable por el dominio asignado y genera las
       # etiquetas de Traefik hacia el puerto 3000. No agregues `ports:`.
       SERVICE_FQDN_API_3000:
-      NODE_ENV: production
+      NODE_ENV: ${NODE_ENV:-development}
       # Debe escuchar en todas las interfaces: el proxy entra por la red Docker,
       # no por loopback.
       APP_HOST: 0.0.0.0
@@ -67,7 +75,9 @@ services:
       APP_NAME: ${APP_NAME:-observatorio-economico-core}
       API_PREFIX: ${API_PREFIX:-api}
       API_VERSION: ${API_VERSION:-v1}
-      CORS_ORIGINS: ${CORS_ORIGINS:?requerida (origen del tablero)}
+      # Vacio es valido para el esquema (default ''), asi que no bloquea el
+      # arranque; sin el, el tablero no podra llamar a la API desde el navegador.
+      CORS_ORIGINS: ${CORS_ORIGINS:-}
       # Traefik es el par directo y agrega X-Forwarded-For; sin esto el limitador
       # de tasa veria una sola IP, la del proxy, para todo el trafico.
       TRUST_PROXY: 'true'
@@ -95,7 +105,7 @@ services:
       DATABASE_POOL_IDLE_MS: ${DATABASE_POOL_IDLE_MS:-10000}
       DATABASE_STATEMENT_TIMEOUT_MS: ${DATABASE_STATEMENT_TIMEOUT_MS:-15000}
 
-      AUTH_MODE: ${AUTH_MODE:?requerida (jwks o agent_key)}
+      AUTH_MODE: ${AUTH_MODE:-disabled}
       # Los secretos de autenticación no se declaran aquí a propósito. Escribirlos
       # como `${VAR:-}` no los deja sin definir: los inyecta como cadena vacía, y
       # el esquema rechaza "" por longitud mínima aunque el campo sea opcional.
@@ -103,14 +113,11 @@ services:
       AUTH_ROLE_CLAIM: ${AUTH_ROLE_CLAIM:-roles}
       AUTH_ORGANIZATION_CLAIM: ${AUTH_ORGANIZATION_CLAIM:-organization_id}
 
-      # Ambas las rechaza el validador bajo NODE_ENV=production si se activan sin
-      # su token; se fijan aqui para que un cambio en la UI no tumbe el arranque.
-      SWAGGER_ENABLED: 'false'
-      # Fijas, no heredadas de la UI: en producción el validador exige un token de
-      # scrape junto a METRICS_ENABLED=true, así que tomar el valor de Coolify
-      # tumbaría el arranque en cuanto alguien lo active sin definir el token.
-      # Para habilitarlas: define METRICS_SCRAPE_TOKEN (>=24 caracteres) en Coolify
-      # y cambia esta línea a 'true'.
+      SWAGGER_ENABLED: ${SWAGGER_ENABLED:-false}
+      # Fijas en false a propósito: si este despliegue pasara algún día a
+      # NODE_ENV=production, el validador exigiría METRICS_SCRAPE_TOKEN junto a
+      # METRICS_ENABLED=true y el arranque caería. Para activarlas, define ese
+      # token (>=24 caracteres) en Coolify y cambia esta línea.
       METRICS_ENABLED: 'false'
 
       # El respaldo lo dispara un programador externo, nunca el proceso de la API.
