@@ -5,6 +5,19 @@ const booleanFromString = z
   .default('false')
   .transform((value) => value === 'true');
 
+/**
+ * Declares a variable optional while reading an empty value as absent.
+ *
+ * Hosting platforms inject variables that exist in their dashboard but were
+ * left blank as an empty string instead of omitting them, and `""` still runs
+ * the field's own checks: a blank ingestion key failed its minimum length and
+ * aborted boot before any code ran. Absent and blank now mean the same thing.
+ * A blank secret never becomes a usable one -- it reads as "not configured",
+ * which the rules below still reject wherever a value is actually required.
+ */
+const optional = <Schema extends z.ZodTypeAny>(schema: Schema) =>
+  z.preprocess((value) => (value === '' ? undefined : value), schema.optional());
+
 const environmentSchema = z
   .object({
     NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
@@ -13,7 +26,7 @@ const environmentSchema = z
     // Injected by the platform on Render, Heroku, Fly and Cloud Run. It wins
     // over APP_PORT because the host routes traffic to the port it assigned:
     // binding anywhere else makes the deploy loop until it times out.
-    PORT: z.coerce.number().int().min(1).max(65_535).optional(),
+    PORT: optional(z.coerce.number().int().min(1).max(65_535)),
     APP_NAME: z.string().default('observatorio-economico-core'),
     API_PREFIX: z
       .string()
@@ -34,7 +47,7 @@ const environmentSchema = z
     TRUST_PROXY: booleanFromString,
     DATABASE_WRITER_URL: z.string().min(1),
     DATABASE_READER_URL: z.string().min(1),
-    DATABASE_MIGRATOR_URL: z.string().min(1).optional(),
+    DATABASE_MIGRATOR_URL: optional(z.string().min(1)),
     DATABASE_SSL: booleanFromString,
     /**
      * Whether starting the process brings the database up to date.
@@ -59,15 +72,15 @@ const environmentSchema = z
     AUTH_MODE: z.enum(['disabled', 'jwks', 'agent_key']).default('disabled'),
     // Long enough that guessing is not a threat model. Never logged: Pino
     // redacts `req.headers.authorization`, which is where it travels.
-    AGENT_INGESTION_KEY: z.string().min(32).optional(),
-    AUTH_JWKS_URI: z.string().url().optional(),
-    AUTH_ISSUER: z.string().min(1).optional(),
-    AUTH_AUDIENCE: z.string().min(1).optional(),
+    AGENT_INGESTION_KEY: optional(z.string().min(32)),
+    AUTH_JWKS_URI: optional(z.string().url()),
+    AUTH_ISSUER: optional(z.string().min(1)),
+    AUTH_AUDIENCE: optional(z.string().min(1)),
     AUTH_ROLE_CLAIM: z.string().min(1).default('roles'),
     AUTH_ORGANIZATION_CLAIM: z.string().min(1).default('organization_id'),
     SWAGGER_ENABLED: booleanFromString,
     METRICS_ENABLED: booleanFromString,
-    METRICS_SCRAPE_TOKEN: z.string().min(24).optional(),
+    METRICS_SCRAPE_TOKEN: optional(z.string().min(24)),
     RATE_LIMIT_AGENT_MAX: z.coerce.number().int().min(1).max(100_000).default(1200),
     BACKUP_ENABLED: booleanFromString,
     BACKUP_STRATEGY: z.enum(['pg_dump', 'managed_pitr']).default('pg_dump'),
@@ -81,7 +94,7 @@ const environmentSchema = z
     OTEL_SERVICE_NAME: z.string().min(1).max(120).default('observatorio-economico-api'),
     OTEL_SERVICE_NAMESPACE: z.string().min(1).max(120).default('observatorio-economico'),
     OTEL_SERVICE_VERSION: z.string().min(1).max(40).default('1.0.0'),
-    OTEL_DEPLOYMENT_ENVIRONMENT: z.string().min(1).max(40).optional(),
+    OTEL_DEPLOYMENT_ENVIRONMENT: optional(z.string().min(1).max(40)),
     OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: z.string().url().default('http://localhost:4318/v1/traces'),
     OTEL_EXPORT_TIMEOUT_MS: z.coerce.number().int().min(1000).max(60_000).default(10_000),
     OTEL_TRACES_SAMPLER: z
