@@ -1,0 +1,1646 @@
+{
+  "version": "2.0",
+  "source_release": "2026-08-19.0",
+  "scope": [
+    "Santa Cruz de la Sierra",
+    "La Paz",
+    "Cochabamba"
+  ],
+  "top_level_overture": [
+    "services_and_business",
+    "shopping",
+    "food_and_drink",
+    "lifestyle_services",
+    "travel_and_transportation",
+    "health_care",
+    "education",
+    "cultural_and_historic",
+    "sports_and_recreation",
+    "community_and_government",
+    "lodging",
+    "arts_and_entertainment",
+    "geographic_entities"
+  ],
+  "families": [
+    {
+      "code": "VETERINARIA",
+      "group": "SALUD_ANIMAL",
+      "match_regex": "veterinar|animal_hospital|animal_clinic",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG"
+    },
+    {
+      "code": "ODONTOLOGIA",
+      "group": "SALUD",
+      "match_regex": "dentist|dental|orthodont|odont",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "DIAGNOSTICO_IMAGEN",
+      "group": "SALUD",
+      "match_regex": "radiology|imaging|x_ray|ultrasound|mri|diagnostic_imaging",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "CENTRO_DIALISIS",
+      "group": "SALUD",
+      "match_regex": "dialysis|hemodialysis",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "PSICOLOGIA_SALUD_MENTAL",
+      "group": "SALUD",
+      "match_regex": "psycholog|mental_health|psychiatr",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "FISIOTERAPIA_REHABILITACION",
+      "group": "SALUD",
+      "match_regex": "physiotherapy|physical_therapy|rehabilitation",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "OFTALMOLOGIA",
+      "group": "SALUD",
+      "match_regex": "ophthalm|eye_clinic|optomet",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "LABORATORIO_CLINICO",
+      "group": "SALUD",
+      "match_regex": "medical_lab|clinical_lab|laboratory|diagnostic_lab",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "LABORATORIO_FARMACEUTICO",
+      "group": "SALUD_INDUSTRIA",
+      "match_regex": "pharmaceutical_lab|pharmaceutical_company|drug_manufacturer",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "AGEMED"
+    },
+    {
+      "code": "BANCO_SANGRE",
+      "group": "SALUD",
+      "match_regex": "blood_bank",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "FARMACIA",
+      "group": "SALUD_COMERCIO",
+      "match_regex": "pharmacy|drugstore",
+      "commercial_role": "SELLER",
+      "is_regulated": true,
+      "official_validation_source": "AGEMED"
+    },
+    {
+      "code": "OPTICA",
+      "group": "SALUD_COMERCIO",
+      "match_regex": "optician|eyewear|optical_store",
+      "commercial_role": "SELLER_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "INSUMOS_MEDICOS",
+      "group": "SALUD_COMERCIO",
+      "match_regex": "medical_supply|medical_equipment|orthopedic_supply",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CENTRO_ADULTO_MAYOR",
+      "group": "SALUD_SOCIAL",
+      "match_regex": "nursing_home|assisted_living|elder_care|senior_care",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "CENTRO_DISCAPACIDAD",
+      "group": "SALUD_SOCIAL",
+      "match_regex": "disability_service|disability_center|special_needs",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "HOSPITAL",
+      "group": "SALUD",
+      "match_regex": "hospital",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "CLINICA",
+      "group": "SALUD",
+      "match_regex": "clinic|medical_clinic|health_clinic",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "CENTRO_SALUD",
+      "group": "SALUD",
+      "match_regex": "health_center|health_centre|community_health",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "CONSULTORIO_MEDICO",
+      "group": "SALUD",
+      "match_regex": "doctor|physician|medical_practice|medical_office|consultorio",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SNIS"
+    },
+    {
+      "code": "GUARDERIA",
+      "group": "EDUCACION",
+      "match_regex": "daycare|child_care|nursery_school",
+      "commercial_role": "EDUCATION",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Educación / SEIE"
+    },
+    {
+      "code": "PREESCOLAR",
+      "group": "EDUCACION",
+      "match_regex": "preschool|kindergarten",
+      "commercial_role": "EDUCATION",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Educación / SEIE"
+    },
+    {
+      "code": "UNIVERSIDAD",
+      "group": "EDUCACION",
+      "match_regex": "university",
+      "commercial_role": "EDUCATION",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Educación"
+    },
+    {
+      "code": "INSTITUTO_TECNICO",
+      "group": "EDUCACION",
+      "match_regex": "technical_school|vocational_school|trade_school|institute",
+      "commercial_role": "EDUCATION",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Educación"
+    },
+    {
+      "code": "ACADEMIA_IDIOMAS",
+      "group": "EDUCACION",
+      "match_regex": "language_school|language_center",
+      "commercial_role": "EDUCATION",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ACADEMIA_ARTE_MUSICA",
+      "group": "EDUCACION",
+      "match_regex": "music_school|art_school|dance_school",
+      "commercial_role": "EDUCATION",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ACADEMIA_DEPORTIVA",
+      "group": "EDUCACION_DEPORTE",
+      "match_regex": "sports_school|football_academy|martial_arts_school",
+      "commercial_role": "EDUCATION",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "AUTOESCUELA",
+      "group": "EDUCACION",
+      "match_regex": "driving_school",
+      "commercial_role": "EDUCATION",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "PREUNIVERSITARIO",
+      "group": "EDUCACION",
+      "match_regex": "prep_school|test_preparation|preuniversit",
+      "commercial_role": "EDUCATION",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CENTRO_CAPACITACION",
+      "group": "EDUCACION",
+      "match_regex": "training_center|training_centre|learning_center|academy|tutoring",
+      "commercial_role": "EDUCATION",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CENTRO_INVESTIGACION",
+      "group": "EDUCACION_CIENCIA",
+      "match_regex": "research_center|research_centre|research_institute",
+      "commercial_role": "EDUCATION",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "COLEGIO_ESCUELA",
+      "group": "EDUCACION",
+      "match_regex": "school|primary_school|secondary_school|high_school",
+      "commercial_role": "EDUCATION",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Educación / SEIE"
+    },
+    {
+      "code": "CAJERO_ATM",
+      "group": "FINANZAS",
+      "match_regex": "atm|cash_machine",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ASFI"
+    },
+    {
+      "code": "COOPERATIVA_FINANCIERA",
+      "group": "FINANZAS",
+      "match_regex": "credit_union|financial_cooperative|cooperativa",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ASFI"
+    },
+    {
+      "code": "MICROFINANZAS",
+      "group": "FINANZAS",
+      "match_regex": "microfinance|microcredit",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ASFI"
+    },
+    {
+      "code": "CASA_CAMBIO",
+      "group": "FINANZAS",
+      "match_regex": "currency_exchange|bureau_de_change|money_exchange",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ASFI"
+    },
+    {
+      "code": "REMESAS_PAGOS",
+      "group": "FINANZAS",
+      "match_regex": "money_transfer|remittance|payment_center|payment_service",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ASFI"
+    },
+    {
+      "code": "CASA_EMPENO",
+      "group": "FINANZAS_COMERCIO",
+      "match_regex": "pawn_shop|pawnbroker",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ASEGURADORA",
+      "group": "SEGUROS",
+      "match_regex": "insurance_company|insurance_agency|insurance",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "APS"
+    },
+    {
+      "code": "CORREDOR_SEGUROS",
+      "group": "SEGUROS",
+      "match_regex": "insurance_broker|insurance_agent",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "APS"
+    },
+    {
+      "code": "AFP_PENSIONES",
+      "group": "FINANZAS",
+      "match_regex": "pension_fund|pension_office",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "APS"
+    },
+    {
+      "code": "BANCO",
+      "group": "FINANZAS",
+      "match_regex": "bank",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ASFI"
+    },
+    {
+      "code": "TIENDA_OPERADOR_TELECOM",
+      "group": "TELECOMUNICACIONES",
+      "match_regex": "telecom_store|mobile_operator_store|internet_provider_office",
+      "commercial_role": "SELLER_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "TELECOM_OPERADOR",
+      "group": "TELECOMUNICACIONES",
+      "match_regex": "telecommunications|telecom_operator|mobile_network|internet_service_provider",
+      "commercial_role": "UTILITY_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "EMPRESA_TRANSPORTE_PASAJEROS",
+      "group": "TRANSPORTE",
+      "match_regex": "bus_company|coach_company|passenger_transport",
+      "commercial_role": "TRANSPORT_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "TERMINAL_BUS",
+      "group": "TRANSPORTE",
+      "match_regex": "bus_station|bus_terminal|coach_station",
+      "commercial_role": "TRANSPORT_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "PARADA_BUS",
+      "group": "TRANSPORTE",
+      "match_regex": "bus_stop",
+      "commercial_role": "TRANSPORT_INFRASTRUCTURE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "EMPRESA_TAXI",
+      "group": "TRANSPORTE",
+      "match_regex": "taxi_company|cab_company",
+      "commercial_role": "TRANSPORT_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "TAXI",
+      "group": "TRANSPORTE",
+      "match_regex": "taxi|taxi_stand",
+      "commercial_role": "TRANSPORT_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "AEROLINEA_OFICINA",
+      "group": "TRANSPORTE",
+      "match_regex": "airline|airline_office",
+      "commercial_role": "TRANSPORT_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "AEROPUERTO",
+      "group": "TRANSPORTE",
+      "match_regex": "airport",
+      "commercial_role": "TRANSPORT_INFRASTRUCTURE",
+      "is_regulated": true,
+      "official_validation_source": "DGAC / ATT"
+    },
+    {
+      "code": "TELEFERICO_ESTACION",
+      "group": "TRANSPORTE",
+      "match_regex": "cable_car_station|aerial_lift_station",
+      "commercial_role": "TRANSPORT_INFRASTRUCTURE",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "ESTACION_TREN",
+      "group": "TRANSPORTE",
+      "match_regex": "train_station|railway_station",
+      "commercial_role": "TRANSPORT_INFRASTRUCTURE",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "PELUQUERIA",
+      "group": "BELLEZA",
+      "match_regex": "hair_salon|hairdresser|peluquer",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "BARBERIA",
+      "group": "BELLEZA",
+      "match_regex": "barber|barbershop|barberia",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "SALON_BELLEZA",
+      "group": "BELLEZA",
+      "match_regex": "beauty_salon|beauty_parlor|beauty_service",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "UNAS_ESTETICA",
+      "group": "BELLEZA",
+      "match_regex": "nail_salon|manicure|pedicure",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "SPA_MASAJE",
+      "group": "BELLEZA_BIENESTAR",
+      "match_regex": "spa|massage|wellness_center",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "TATUAJE_PIERCING",
+      "group": "BELLEZA",
+      "match_regex": "tattoo|piercing",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "COMIDA_RAPIDA",
+      "group": "GASTRONOMIA",
+      "match_regex": "fast_food|quick_service",
+      "commercial_role": "SELLER_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CAFE",
+      "group": "GASTRONOMIA",
+      "match_regex": "cafe|coffee_shop",
+      "commercial_role": "SELLER_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "HELADERIA",
+      "group": "GASTRONOMIA",
+      "match_regex": "ice_cream|gelato",
+      "commercial_role": "SELLER_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "PANADERIA_PASTELERIA",
+      "group": "COMERCIO_ALIMENTOS",
+      "match_regex": "bakery|pastry|cake_shop",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CARNICERIA",
+      "group": "COMERCIO_ALIMENTOS",
+      "match_regex": "butcher|meat_store",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "FRUTAS_VERDURAS",
+      "group": "COMERCIO_ALIMENTOS",
+      "match_regex": "fruit_and_vegetable|produce_market|greengrocer",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "FOOD_COURT",
+      "group": "GASTRONOMIA",
+      "match_regex": "food_court",
+      "commercial_role": "SELLER_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CATERING",
+      "group": "GASTRONOMIA",
+      "match_regex": "catering",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "RESTAURANTE",
+      "group": "GASTRONOMIA",
+      "match_regex": "restaurant",
+      "commercial_role": "SELLER_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "BAR_PUB",
+      "group": "GASTRONOMIA_ENTRETENIMIENTO",
+      "match_regex": "bar|pub|tavern",
+      "commercial_role": "SELLER_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "TIENDA_MASCOTAS",
+      "group": "COMERCIO_MASCOTAS",
+      "match_regex": "pet_store|pet_supply",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "BIBLIOTECA",
+      "group": "EDUCACION_CULTURA",
+      "match_regex": "library",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "SUPERMERCADO",
+      "group": "COMERCIO_ALIMENTOS",
+      "match_regex": "supermarket|hypermarket",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "MINIMARKET",
+      "group": "COMERCIO_ALIMENTOS",
+      "match_regex": "convenience_store|minimarket",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ABARROTES",
+      "group": "COMERCIO_ALIMENTOS",
+      "match_regex": "grocery_store|grocery",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "MERCADO",
+      "group": "COMERCIO_ALIMENTOS",
+      "match_regex": "marketplace|public_market|food_market",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "MAYORISTA",
+      "group": "COMERCIO",
+      "match_regex": "wholesale|wholesaler|cash_and_carry",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "BEBIDAS",
+      "group": "COMERCIO_ALIMENTOS",
+      "match_regex": "beverage_store|bottle_shop",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CENTRO_COMERCIAL",
+      "group": "COMERCIO",
+      "match_regex": "shopping_mall|shopping_center",
+      "commercial_role": "SELLER_PLATFORM",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "TIENDA_DEPARTAMENTOS",
+      "group": "COMERCIO",
+      "match_regex": "department_store",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ROPA_MODA",
+      "group": "COMERCIO",
+      "match_regex": "clothing|fashion_store|apparel",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CALZADOS",
+      "group": "COMERCIO",
+      "match_regex": "shoe_store|footwear",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "JOYERIA_RELOJERIA",
+      "group": "COMERCIO",
+      "match_regex": "jewelry|jewellery|watch_store",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "COSMETICOS_PERFUMERIA",
+      "group": "COMERCIO",
+      "match_regex": "cosmetic|perfume|beauty_supply",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ELECTRONICA",
+      "group": "COMERCIO_TECNOLOGIA",
+      "match_regex": "electronics_store|consumer_electronics",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "COMPUTACION",
+      "group": "COMERCIO_TECNOLOGIA",
+      "match_regex": "computer_store|computer_shop",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CELULARES_TELEFONIA",
+      "group": "COMERCIO_TECNOLOGIA",
+      "match_regex": "mobile_phone_store|cell_phone_store|phone_store",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ELECTRODOMESTICOS",
+      "group": "COMERCIO_HOGAR",
+      "match_regex": "appliance_store|home_appliance",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "FERRETERIA",
+      "group": "COMERCIO_CONSTRUCCION",
+      "match_regex": "hardware_store|hardware",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "MATERIALES_CONSTRUCCION",
+      "group": "COMERCIO_CONSTRUCCION",
+      "match_regex": "building_material|construction_supply|lumber|tile_store",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "MUEBLES_HOGAR",
+      "group": "COMERCIO_HOGAR",
+      "match_regex": "furniture_store|home_furnishing|home_goods",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "LIBRERIA",
+      "group": "COMERCIO_EDUCACION",
+      "match_regex": "bookstore|book_shop",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "PAPELERIA",
+      "group": "COMERCIO_EDUCACION",
+      "match_regex": "stationery|office_supply",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "JUGUETERIA",
+      "group": "COMERCIO",
+      "match_regex": "toy_store|toy_shop",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "REGALOS",
+      "group": "COMERCIO",
+      "match_regex": "gift_shop|souvenir_store",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "FLORERIA",
+      "group": "COMERCIO",
+      "match_regex": "florist|flower_shop",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "DEPORTES_ARTICULOS",
+      "group": "COMERCIO_DEPORTE",
+      "match_regex": "sporting_goods|sports_store",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "BICICLETAS_TIENDA",
+      "group": "COMERCIO_TRANSPORTE",
+      "match_regex": "bicycle_store|bike_shop",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "AGROPECUARIA_INSUMOS",
+      "group": "COMERCIO_AGRO",
+      "match_regex": "agricultural_supply|farm_supply|agrochemical|seed_store",
+      "commercial_role": "SELLER",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG"
+    },
+    {
+      "code": "INDUSTRIAL_SUMINISTROS",
+      "group": "COMERCIO_INDUSTRIAL",
+      "match_regex": "industrial_supply|industrial_equipment",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CONCESIONARIO_AUTOS",
+      "group": "AUTOMOTOR",
+      "match_regex": "car_dealer|auto_dealer",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CONCESIONARIO_MOTOS",
+      "group": "AUTOMOTOR",
+      "match_regex": "motorcycle_dealer|motorbike_dealer",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "REPUESTOS_AUTOS",
+      "group": "AUTOMOTOR",
+      "match_regex": "auto_parts|car_parts|automotive_parts",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "REPUESTOS_MOTOS",
+      "group": "AUTOMOTOR",
+      "match_regex": "motorcycle_parts|motorbike_parts",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "LLANTERIA",
+      "group": "AUTOMOTOR",
+      "match_regex": "tire_shop|tyre_shop",
+      "commercial_role": "SELLER_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "TALLER_MECANICO",
+      "group": "AUTOMOTOR",
+      "match_regex": "auto_repair|car_repair|mechanic|garage",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CHAPERIA_PINTURA",
+      "group": "AUTOMOTOR",
+      "match_regex": "body_shop|auto_body|collision_repair",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "LAVADERO_AUTOS",
+      "group": "AUTOMOTOR",
+      "match_regex": "car_wash",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "GRUA_AUXILIO",
+      "group": "AUTOMOTOR",
+      "match_regex": "towing|roadside_assistance",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ALQUILER_AUTOS",
+      "group": "AUTOMOTOR",
+      "match_regex": "car_rental|vehicle_rental",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "SURTIDOR",
+      "group": "ENERGIA_TRANSPORTE",
+      "match_regex": "gas_station|fuel_station|petrol_station",
+      "commercial_role": "SELLER_REGULATED",
+      "is_regulated": true,
+      "official_validation_source": "ANH"
+    },
+    {
+      "code": "GLP_COMBUSTIBLES",
+      "group": "ENERGIA_TRANSPORTE",
+      "match_regex": "lpg|propane|gas_depot|fuel_depot",
+      "commercial_role": "SELLER_REGULATED",
+      "is_regulated": true,
+      "official_validation_source": "ANH"
+    },
+    {
+      "code": "INMOBILIARIA",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "real_estate|realtor|property_management",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CONSTRUCTORA",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "construction_company|general_contractor",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ARQUITECTURA_INGENIERIA",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "architect|engineering_firm|engineer",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ABOGADOS_NOTARIA",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "lawyer|law_firm|notary|legal_service",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "CONTABILIDAD_AUDITORIA",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "accountant|accounting|audit_firm|bookkeeping",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CONSULTORIA",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "consulting|business_consultant",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "PUBLICIDAD_MARKETING",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "advertising|marketing_agency",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "SOFTWARE_TI",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "software_company|it_service|computer_service|web_design",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "RECURSOS_HUMANOS",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "employment_agency|recruitment|staffing",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "SEGURIDAD_PRIVADA",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "security_service|security_company",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "LIMPIEZA",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "cleaning_service|janitorial",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "COWORKING",
+      "group": "SERVICIOS_PROFESIONALES",
+      "match_regex": "coworking|shared_office",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "LAVANDERIA_TINTORERIA",
+      "group": "SERVICIOS_PERSONALES",
+      "match_regex": "laundry|dry_clean",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "SASTRERIA_COSTURA",
+      "group": "SERVICIOS_PERSONALES",
+      "match_regex": "tailor|seamstress|alteration",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ZAPATERO",
+      "group": "SERVICIOS_PERSONALES",
+      "match_regex": "shoe_repair|cobbler",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CERRAJERIA",
+      "group": "SERVICIOS_PERSONALES",
+      "match_regex": "locksmith",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "REPARACION_CELULARES",
+      "group": "SERVICIOS_TECNICOS",
+      "match_regex": "phone_repair|mobile_repair",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "REPARACION_COMPUTADORAS",
+      "group": "SERVICIOS_TECNICOS",
+      "match_regex": "computer_repair|electronics_repair",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "REPARACION_ELECTRODOMESTICOS",
+      "group": "SERVICIOS_TECNICOS",
+      "match_regex": "appliance_repair",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "IMPRENTA_FOTOCOPIAS",
+      "group": "SERVICIOS",
+      "match_regex": "print_shop|printing|copy_shop|photocopy",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "FOTOGRAFIA",
+      "group": "SERVICIOS",
+      "match_regex": "photographer|photo_studio|photography",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "EVENTOS",
+      "group": "SERVICIOS",
+      "match_regex": "event_planner|event_service|party_service",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "FUNERARIA",
+      "group": "SERVICIOS",
+      "match_regex": "funeral_home|mortuary",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "COURIER_MENSAJERIA",
+      "group": "LOGISTICA",
+      "match_regex": "courier|parcel_service|messenger_service",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "CORREOS",
+      "group": "LOGISTICA",
+      "match_regex": "post_office|postal_service",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "LOGISTICA_TRANSPORTE_CARGA",
+      "group": "LOGISTICA",
+      "match_regex": "logistics|freight|trucking|cargo_service",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "ALMACEN_DEPOSITO",
+      "group": "LOGISTICA",
+      "match_regex": "warehouse|storage_facility|distribution_center",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "AGENCIA_ADUANERA",
+      "group": "LOGISTICA_COMERCIO_EXTERIOR",
+      "match_regex": "customs_broker|customs_agent|freight_forwarder",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": "Aduana Nacional"
+    },
+    {
+      "code": "ELECTRICIDAD_OFICINA",
+      "group": "SERVICIOS_BASICOS",
+      "match_regex": "electric_utility|electric_company",
+      "commercial_role": "UTILITY_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "AETN"
+    },
+    {
+      "code": "AGUA_SANEAMIENTO",
+      "group": "SERVICIOS_BASICOS",
+      "match_regex": "water_utility|water_company|sanitation_service",
+      "commercial_role": "UTILITY_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "AAPS"
+    },
+    {
+      "code": "RESIDUOS_RECICLAJE",
+      "group": "SERVICIOS_BASICOS",
+      "match_regex": "waste_management|recycling_center|recycling_centre",
+      "commercial_role": "UTILITY_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ESTACIONAMIENTO",
+      "group": "TRANSPORTE",
+      "match_regex": "parking|parking_garage|parking_lot",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ALQUILER_BICICLETAS",
+      "group": "TRANSPORTE",
+      "match_regex": "bicycle_rental|bike_rental",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "HOTEL",
+      "group": "HOSPEDAJE",
+      "match_regex": "hotel",
+      "commercial_role": "HOSPITALITY",
+      "is_regulated": true,
+      "official_validation_source": "Autoridad Competente en Turismo"
+    },
+    {
+      "code": "HOSTAL_HOSTEL",
+      "group": "HOSPEDAJE",
+      "match_regex": "hostel|guest_house|guesthouse",
+      "commercial_role": "HOSPITALITY",
+      "is_regulated": true,
+      "official_validation_source": "Autoridad Competente en Turismo"
+    },
+    {
+      "code": "MOTEL",
+      "group": "HOSPEDAJE",
+      "match_regex": "motel",
+      "commercial_role": "HOSPITALITY",
+      "is_regulated": true,
+      "official_validation_source": "Autoridad Competente en Turismo"
+    },
+    {
+      "code": "APART_HOTEL_ALOJAMIENTO",
+      "group": "HOSPEDAJE",
+      "match_regex": "aparthotel|serviced_apartment|lodging",
+      "commercial_role": "HOSPITALITY",
+      "is_regulated": true,
+      "official_validation_source": "Autoridad Competente en Turismo"
+    },
+    {
+      "code": "AGENCIA_VIAJES",
+      "group": "TURISMO",
+      "match_regex": "travel_agency|tour_agency",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": "Autoridad Competente en Turismo"
+    },
+    {
+      "code": "OPERADOR_TURISMO",
+      "group": "TURISMO",
+      "match_regex": "tour_operator|tour_service|tour_guide",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": "Autoridad Competente en Turismo"
+    },
+    {
+      "code": "INFORMACION_TURISTICA",
+      "group": "TURISMO",
+      "match_regex": "tourist_information|visitor_center",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "GIMNASIO",
+      "group": "DEPORTE",
+      "match_regex": "gym|fitness_center|fitness_centre",
+      "commercial_role": "RECREATION_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CENTRO_DEPORTIVO",
+      "group": "DEPORTE",
+      "match_regex": "sports_center|sports_centre|sports_complex",
+      "commercial_role": "RECREATION_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ESTADIO",
+      "group": "DEPORTE",
+      "match_regex": "stadium",
+      "commercial_role": "RECREATION_INFRASTRUCTURE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CANCHA",
+      "group": "DEPORTE",
+      "match_regex": "sports_field|sports_court|football_field|soccer_field|basketball_court|tennis_court",
+      "commercial_role": "RECREATION_INFRASTRUCTURE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "PISCINA",
+      "group": "DEPORTE",
+      "match_regex": "swimming_pool|aquatic_center",
+      "commercial_role": "RECREATION_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CINE",
+      "group": "ENTRETENIMIENTO",
+      "match_regex": "cinema|movie_theater|movie_theatre",
+      "commercial_role": "ENTERTAINMENT",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "TEATRO",
+      "group": "CULTURA_ENTRETENIMIENTO",
+      "match_regex": "theater|theatre",
+      "commercial_role": "ENTERTAINMENT",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "MUSEO",
+      "group": "CULTURA",
+      "match_regex": "museum",
+      "commercial_role": "CULTURAL",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "GALERIA_ARTE",
+      "group": "CULTURA",
+      "match_regex": "art_gallery|gallery",
+      "commercial_role": "CULTURAL",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CENTRO_CULTURAL",
+      "group": "CULTURA",
+      "match_regex": "cultural_center|cultural_centre",
+      "commercial_role": "CULTURAL",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CENTRO_EVENTOS",
+      "group": "ENTRETENIMIENTO",
+      "match_regex": "event_venue|convention_center|conference_center",
+      "commercial_role": "ENTERTAINMENT",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "DISCOTECA_NIGHTCLUB",
+      "group": "ENTRETENIMIENTO",
+      "match_regex": "nightclub|dance_club",
+      "commercial_role": "ENTERTAINMENT",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CASINO_APUESTAS",
+      "group": "ENTRETENIMIENTO",
+      "match_regex": "casino|betting|gambling",
+      "commercial_role": "ENTERTAINMENT",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "ARCADE_JUEGOS",
+      "group": "ENTRETENIMIENTO",
+      "match_regex": "arcade|game_center|gaming_center",
+      "commercial_role": "ENTERTAINMENT",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ZOO_ACUARIO",
+      "group": "ENTRETENIMIENTO",
+      "match_regex": "zoo|aquarium",
+      "commercial_role": "RECREATION_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "PARQUE_TEMATICO",
+      "group": "ENTRETENIMIENTO",
+      "match_regex": "amusement_park|theme_park",
+      "commercial_role": "RECREATION_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "PLAZA",
+      "group": "ESPACIO_PUBLICO",
+      "match_regex": "plaza|public_square|town_square",
+      "commercial_role": "PUBLIC_SPACE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "PARQUE",
+      "group": "ESPACIO_PUBLICO",
+      "match_regex": "park|city_park|urban_park",
+      "commercial_role": "PUBLIC_SPACE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CEMENTERIO",
+      "group": "COMUNIDAD",
+      "match_regex": "cemetery|graveyard",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "IGLESIA_TEMPLO",
+      "group": "RELIGION",
+      "match_regex": "church|cathedral|chapel|temple|mosque|synagogue|religious_center",
+      "commercial_role": "COMMUNITY",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ALCALDIA_SUBALCALDIA",
+      "group": "GOBIERNO",
+      "match_regex": "city_hall|town_hall|municipal_office|mayor_office",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "Gobierno Autónomo Municipal"
+    },
+    {
+      "code": "GOBERNACION",
+      "group": "GOBIERNO",
+      "match_regex": "regional_government|governor_office",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "Gobierno Autónomo Departamental"
+    },
+    {
+      "code": "OFICINA_GOBIERNO",
+      "group": "GOBIERNO",
+      "match_regex": "government_office|public_office",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "POLICIA",
+      "group": "SEGURIDAD_PUBLICA",
+      "match_regex": "police_station|police",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "Policía Boliviana"
+    },
+    {
+      "code": "BOMBEROS",
+      "group": "SEGURIDAD_PUBLICA",
+      "match_regex": "fire_station|fire_department",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "EMERGENCIAS",
+      "group": "SEGURIDAD_PUBLICA",
+      "match_regex": "emergency_service|emergency_center",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "JUZGADO_TRIBUNAL",
+      "group": "JUSTICIA",
+      "match_regex": "courthouse|court|tribunal",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "Órgano Judicial"
+    },
+    {
+      "code": "FISCALIA",
+      "group": "JUSTICIA",
+      "match_regex": "prosecutor|prosecutor_office|district_attorney",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "Fiscalía General del Estado"
+    },
+    {
+      "code": "REGISTRO_CIVIL",
+      "group": "GOBIERNO",
+      "match_regex": "civil_registry|registry_office",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "SERECI"
+    },
+    {
+      "code": "IMPUESTOS",
+      "group": "GOBIERNO",
+      "match_regex": "tax_office|revenue_office",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "Servicio de Impuestos Nacionales"
+    },
+    {
+      "code": "ADUANA",
+      "group": "GOBIERNO_COMERCIO_EXTERIOR",
+      "match_regex": "customs_office|customs",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "Aduana Nacional"
+    },
+    {
+      "code": "MIGRACION",
+      "group": "GOBIERNO",
+      "match_regex": "immigration_office|migration_office",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "Dirección General de Migración"
+    },
+    {
+      "code": "FABRICA_PLANTA",
+      "group": "INDUSTRIA",
+      "match_regex": "factory|manufacturing|industrial_plant",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "PARQUE_INDUSTRIAL",
+      "group": "INDUSTRIA",
+      "match_regex": "industrial_park",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "DISTRIBUIDORA",
+      "group": "INDUSTRIA_COMERCIO",
+      "match_regex": "distributor|distribution_company",
+      "commercial_role": "SELLER_B2B",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CYBER_INTERNET",
+      "group": "SERVICIOS_TECNOLOGIA",
+      "match_regex": "internet_cafe|cyber_cafe|computer_access",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "SERVICIO_ELECTRICISTA",
+      "group": "SERVICIOS_TECNICOS",
+      "match_regex": "electrician|electrical_service",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "SERVICIO_PLOMERIA",
+      "group": "SERVICIOS_TECNICOS",
+      "match_regex": "plumber|plumbing_service",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CLIMATIZACION_REFRIGERACION",
+      "group": "SERVICIOS_TECNICOS",
+      "match_regex": "hvac|air_conditioning|refrigeration_service",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "INSPECCION_VEHICULAR",
+      "group": "AUTOMOTOR",
+      "match_regex": "vehicle_inspection|inspection_station",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": null
+    },
+    {
+      "code": "CLUB_DEPORTIVO",
+      "group": "DEPORTE",
+      "match_regex": "sports_club|athletic_club|football_club|soccer_club",
+      "commercial_role": "RECREATION_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "CENTRO_COMUNITARIO",
+      "group": "COMUNIDAD",
+      "match_regex": "community_center|community_centre|neighborhood_center",
+      "commercial_role": "COMMUNITY",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ONG_FUNDACION",
+      "group": "ORGANIZACIONES",
+      "match_regex": "nonprofit|non_profit|ngo|foundation|charity",
+      "commercial_role": "COMMUNITY",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "ASOCIACION_CAMARA",
+      "group": "ORGANIZACIONES",
+      "match_regex": "business_association|chamber_of_commerce|professional_association|trade_association",
+      "commercial_role": "COMMUNITY",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "EMBAJADA_CONSULADO",
+      "group": "GOBIERNO_DIPLOMACIA",
+      "match_regex": "embassy|consulate|diplomatic_mission",
+      "commercial_role": "PUBLIC_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Relaciones Exteriores"
+    },
+    {
+      "code": "MEDIOS_COMUNICACION",
+      "group": "MEDIOS",
+      "match_regex": "radio_station|television_station|newspaper|media_company|newsroom",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": true,
+      "official_validation_source": "ATT"
+    },
+    {
+      "code": "ESTUDIO_GRABACION",
+      "group": "MEDIOS_ENTRETENIMIENTO",
+      "match_regex": "recording_studio|music_studio|production_studio",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "VIVERO_JARDINERIA",
+      "group": "COMERCIO_HOGAR",
+      "match_regex": "garden_center|garden_centre|plant_nursery|nursery_garden",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "TIENDA_SEGUNDA_MANO",
+      "group": "COMERCIO",
+      "match_regex": "second_hand|thrift_store|used_goods|consignment_store",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null
+    },
+    {
+      "code": "DISTRIBUIDOR_ALIMENTOS",
+      "group": "COMERCIO_ALIMENTOS",
+      "match_regex": "food_distributor|food_wholesaler",
+      "commercial_role": "SELLER_B2B",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG"
+    },
+    {
+      "code": "CENTRO_RECREATIVO_INFANTIL",
+      "group": "ENTRETENIMIENTO",
+      "match_regex": "indoor_playground|children_play_center|kids_entertainment",
+      "commercial_role": "RECREATION_SERVICE",
+      "is_regulated": false,
+      "official_validation_source": null
+    }
+  ],
+  "fallback_policy": {
+    "preserve_overture_primary": true,
+    "preserve_basic_category": true,
+    "unmatched_family": "OTRA_ENTIDAD",
+    "never_drop_unmatched_place": true
+  },
+  "quality_notes": [
+    "Specific classification rules are evaluated before broad rules.",
+    "Native Overture taxonomy is always preserved even when custom entity_family is assigned.",
+    "Regulatory source indicates where a later verification should be performed; it does not mean the record is already verified.",
+    "No POI is fabricated to satisfy a target count."
+  ]
+}

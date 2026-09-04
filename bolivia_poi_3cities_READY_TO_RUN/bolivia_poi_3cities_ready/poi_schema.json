@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bolivia 3 Cities POI v2",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "city",
+    "department",
+    "latitude",
+    "longitude",
+    "entity_group",
+    "entity_family",
+    "commercial_role",
+    "source_dataset",
+    "source_release"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "city": {
+      "enum": [
+        "Santa Cruz de la Sierra",
+        "La Paz",
+        "Cochabamba"
+      ]
+    },
+    "department": {
+      "enum": [
+        "Santa Cruz",
+        "La Paz",
+        "Cochabamba"
+      ]
+    },
+    "zone": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "entity_group": {
+      "type": "string"
+    },
+    "entity_family": {
+      "type": "string"
+    },
+    "commercial_role": {
+      "type": "string"
+    },
+    "is_regulated": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "basic_category": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "taxonomy_hierarchy": {},
+    "taxonomy_alternates": {},
+    "operating_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "quality_grade": {
+      "enum": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "address": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phones": {},
+    "emails": {},
+    "websites": {},
+    "socials": {},
+    "brand": {},
+    "sources": {},
+    "official_validation_source": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "validation_priority": {
+      "enum": [
+        "HIGH",
+        "NORMAL"
+      ]
+    },
+    "duplicate_candidate_key": {
+      "type": "string"
+    },
+    "source_dataset": {
+      "const": "Overture Maps Foundation"
+    },
+    "source_release": {
+      "const": "2026-08-19.0"
+    }
+  }
+}
