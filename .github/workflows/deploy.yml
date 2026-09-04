@@ -1,0 +1,65 @@
+name: deploy-to-coolify
+
+# Coolify corre en un servidor casero que no esta publicado en internet, asi que
+# GitHub no puede alcanzarlo con un webhook normal. En vez de exponer su panel de
+# administracion, el runner entra a la tailnet y llama a la API por la direccion
+# privada del servidor. La red es la frontera: la API de Coolify nunca escucha
+# fuera de ella.
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Un despliegue a la vez, y sin cancelar el que ya empezo: interrumpir a medias
+# dejaria contenedores a medio recrear en el servidor.
+concurrency:
+  group: deploy-coolify
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Join the tailnet
+        uses: tailscale/github-action@v3
+        with:
+          authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
+          # El nodo se borra solo al terminar el trabajo, en lugar de dejar una
+          # maquina muerta en la tailnet por cada ejecucion.
+          args: --ssh=false
+
+      - name: Wait for the server to answer
+        run: |
+          for attempt in $(seq 1 10); do
+            if tailscale ping --c 1 --timeout 5s 100.101.207.88 >/dev/null 2>&1; then
+              echo "servidor alcanzable"
+              exit 0
+            fi
+            echo "intento $attempt: aun sin ruta, reintentando"
+            sleep 3
+          done
+          echo "no hay ruta al servidor por la tailnet" >&2
+          exit 1
+
+      - name: Trigger the deployment
+        env:
+          WEBHOOK: ${{ secrets.PABLO_H310_COOLIFY_WEBHOOK }}
+          TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
+        run: |
+          if [ -z "$WEBHOOK" ] || [ -z "$TOKEN" ]; then
+            echo "faltan PABLO_H310_COOLIFY_WEBHOOK o PABLO_H310_COOLIFY_TOKEN" >&2
+            exit 1
+          fi
+          # --fail-with-body para que un rechazo de Coolify se vea en el log en
+          # vez de morir con un codigo de salida mudo.
+          curl --fail-with-body --silent --show-error --max-time 60 \
+               --header "Authorization: Bearer $TOKEN" \
+               --header "Accept: application/json" \
+               "$WEBHOOK"
+          echo
+          echo "despliegue solicitado a Coolify"
