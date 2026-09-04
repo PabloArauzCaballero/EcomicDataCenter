@@ -34,10 +34,10 @@ services:
       # El validador prohibe AUTH_MODE=disabled bajo NODE_ENV=production; el
       # migrador no atiende HTTP, pero valida el mismo esquema al arrancar.
       AUTH_MODE: ${AUTH_MODE:?requerida (jwks o agent_key)}
-      AGENT_INGESTION_KEY: ${AGENT_INGESTION_KEY:-}
-      AUTH_JWKS_URI: ${AUTH_JWKS_URI:-}
-      AUTH_ISSUER: ${AUTH_ISSUER:-}
-      AUTH_AUDIENCE: ${AUTH_AUDIENCE:-}
+      # Los secretos de autenticación no se declaran aquí a propósito. Escribirlos
+      # como `${VAR:-}` no los deja sin definir: los inyecta como cadena vacía, y
+      # el esquema rechaza "" por longitud mínima aunque el campo sea opcional.
+      # Se cargan desde la UI de Coolify, que ya inyecta sus variables al contenedor.
       SWAGGER_ENABLED: 'false'
       METRICS_ENABLED: 'false'
     init: true
@@ -96,18 +96,22 @@ services:
       DATABASE_STATEMENT_TIMEOUT_MS: ${DATABASE_STATEMENT_TIMEOUT_MS:-15000}
 
       AUTH_MODE: ${AUTH_MODE:?requerida (jwks o agent_key)}
-      AGENT_INGESTION_KEY: ${AGENT_INGESTION_KEY:-}
-      AUTH_JWKS_URI: ${AUTH_JWKS_URI:-}
-      AUTH_ISSUER: ${AUTH_ISSUER:-}
-      AUTH_AUDIENCE: ${AUTH_AUDIENCE:-}
+      # Los secretos de autenticación no se declaran aquí a propósito. Escribirlos
+      # como `${VAR:-}` no los deja sin definir: los inyecta como cadena vacía, y
+      # el esquema rechaza "" por longitud mínima aunque el campo sea opcional.
+      # Se cargan desde la UI de Coolify, que ya inyecta sus variables al contenedor.
       AUTH_ROLE_CLAIM: ${AUTH_ROLE_CLAIM:-roles}
       AUTH_ORGANIZATION_CLAIM: ${AUTH_ORGANIZATION_CLAIM:-organization_id}
 
       # Ambas las rechaza el validador bajo NODE_ENV=production si se activan sin
       # su token; se fijan aqui para que un cambio en la UI no tumbe el arranque.
       SWAGGER_ENABLED: 'false'
-      METRICS_ENABLED: ${METRICS_ENABLED:-false}
-      METRICS_SCRAPE_TOKEN: ${METRICS_SCRAPE_TOKEN:-}
+      # Fijas, no heredadas de la UI: en producción el validador exige un token de
+      # scrape junto a METRICS_ENABLED=true, así que tomar el valor de Coolify
+      # tumbaría el arranque en cuanto alguien lo active sin definir el token.
+      # Para habilitarlas: define METRICS_SCRAPE_TOKEN (>=24 caracteres) en Coolify
+      # y cambia esta línea a 'true'.
+      METRICS_ENABLED: 'false'
 
       # El respaldo lo dispara un programador externo, nunca el proceso de la API.
       BACKUP_ENABLED: 'false'
