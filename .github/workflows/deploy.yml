@@ -55,11 +55,14 @@ jobs:
             echo "faltan PABLO_H310_COOLIFY_WEBHOOK o PABLO_H310_COOLIFY_TOKEN" >&2
             exit 1
           fi
-          # --fail-with-body para que un rechazo de Coolify se vea en el log en
-          # vez de morir con un codigo de salida mudo.
+          # POST, no GET: Coolify movio este endpoint y responde 405 a un GET.
+          # --fail-with-body para que un rechazo suyo se vea en el log en vez de
+          # morir con un codigo de salida mudo.
           curl --fail-with-body --silent --show-error --max-time 60 \
+               --request POST \
                --header "Authorization: Bearer $TOKEN" \
                --header "Accept: application/json" \
+               --header "Content-Length: 0" \
                "$WEBHOOK"
           echo
           echo "despliegue solicitado a Coolify"
