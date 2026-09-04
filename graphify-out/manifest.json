@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1788397489.625985,
-    "ast_hash": "803647e932c62bce88526163dd2fd101",
+    "mtime": 1788400578.9325097,
+    "ast_hash": "e249f3dd517a1d6a0a951a240a3e5c83",
     "semantic_hash": ""
   },
   "scripts/build_data_model_docs.py": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "scripts/check_file_limits.py": {
-    "mtime": 1787056275.4753215,
-    "ast_hash": "eb9f2dd3cad57265b8fdd3b240749f0e",
+    "mtime": 1788401745.2836094,
+    "ast_hash": "6882d6cdd0d20e5e2b2ecc46c28c78c8",
     "semantic_hash": ""
   },
   "scripts/check_identifier_language.cjs": {
@@ -3852,6 +3852,56 @@
   "docs/decisions/0025-the-register-reads-commerce-not-platforms.md": {
     "mtime": 1788397489.5907075,
     "ast_hash": "945eb2e5ee467f8435677acc803c87db",
+    "semantic_hash": ""
+  },
+  "bolivia_poi_3cities_READY_TO_RUN/bolivia_poi_3cities_ready/entity_catalog.json": {
+    "mtime": 1788442289.054274,
+    "ast_hash": "379bec67955f53668e1d187c21d2e188",
+    "semantic_hash": ""
+  },
+  "bolivia_poi_3cities_READY_TO_RUN/bolivia_poi_3cities_ready/extract_bolivia_3cities_poi.py": {
+    "mtime": 1788442289.0762334,
+    "ast_hash": "cc50a0dde8b532258bc69d19a3de96a3",
+    "semantic_hash": ""
+  },
+  "bolivia_poi_3cities_READY_TO_RUN/bolivia_poi_3cities_ready/poi_schema.json": {
+    "mtime": 1788442289.1045656,
+    "ast_hash": "610fecf9e371ed2a225d96bfe6587a6c",
+    "semantic_hash": ""
+  },
+  "bolivia_poi_3cities_READY_TO_RUN/bolivia_poi_3cities_ready/run-docker.sh": {
+    "mtime": 1788442289.094217,
+    "ast_hash": "bd5aefa34773d89598598a382cba75a0",
+    "semantic_hash": ""
+  },
+  "bolivia_poi_3cities_READY_TO_RUN/bolivia_poi_3cities_ready/run.ps1": {
+    "mtime": 1788442289.0997517,
+    "ast_hash": "ce8f485490b67c1ef5c7e857d2bbc7db",
+    "semantic_hash": ""
+  },
+  "bolivia_poi_3cities_READY_TO_RUN/bolivia_poi_3cities_ready/run.sh": {
+    "mtime": 1788442289.0638735,
+    "ast_hash": "43d8c739bb2c9e8269606bd24842587f",
+    "semantic_hash": ""
+  },
+  "scripts/migrate_to_new_primary.sh": {
+    "mtime": 1788479814.728415,
+    "ast_hash": "91c392ad92adbb8cf63a1e0597a8c4ed",
+    "semantic_hash": ""
+  },
+  "bolivia_poi_3cities_READY_TO_RUN/bolivia_poi_3cities_ready/README.md": {
+    "mtime": 1788442289.1095169,
+    "ast_hash": "9f54ad4edbc875db7345935fce8b06c5",
+    "semantic_hash": ""
+  },
+  "bolivia_poi_3cities_READY_TO_RUN/bolivia_poi_3cities_ready/requirements.txt": {
+    "mtime": 1788442289.0862184,
+    "ast_hash": "c89d947e2ef531c7b3b7af6930bbaf92",
+    "semantic_hash": ""
+  },
+  "docker-compose.coolify.yml": {
+    "mtime": 1788479896.9549043,
+    "ast_hash": "592132837d8c4740124322967422e176",
     "semantic_hash": ""
   }
 }

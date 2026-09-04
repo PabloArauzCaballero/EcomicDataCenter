@@ -12,7 +12,7 @@
 #
 # Uso:
 #   SOURCE_DATABASE_URL='postgresql://...neon.tech/neondb?sslmode=require' \
-#   TARGET_DATABASE_URL='postgres://postgres:PASS@ldoldmry9wloazymtyiwqymh:5432/postgres' \
+#   TARGET_DATABASE_URL='postgres://postgres:PASS@<servicio-postgres-interno>:5432/postgres' \
 #   sh scripts/migrate_to_new_primary.sh
 #
 # Variables opcionales:
