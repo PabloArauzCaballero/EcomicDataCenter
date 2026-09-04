@@ -1,0 +1,145 @@
+# Despliegue en Coolify (servidor pablo-h310).
+#
+# Difiere de docker-compose.yml en tres puntos, y por eso es un archivo aparte:
+#   - No levanta PostgreSQL: la base es un recurso propio de Coolify y se alcanza
+#     por su hostname interno de Docker.
+#   - No levanta NGINX: el proxy de borde de Coolify (Traefik) termina TLS y rutea.
+#   - No usa `env_file`: en Coolify las variables se cargan desde la UI del
+#     proyecto, que es tambien donde viven los secretos.
+#
+# Requisito previo en la UI de Coolify, en ESTE recurso y en el de PostgreSQL:
+#   activar "Connect To Predefined Network". Sin eso cada recurso queda en su
+#   propia red y el hostname interno de la base no resuelve desde la API.
+#
+# Las migraciones corren como un servicio de un solo disparo que debe terminar
+# bien antes de que arranque la API. Es reejecutable: Umzug omite las
+# migraciones ya aplicadas, asi que un redespliegue no las repite.
+
+services:
+  migrate:
+    build:
+      context: .
+      target: runtime
+    command: ['node', 'dist/database/cli/migrate.js']
+    environment:
+      NODE_ENV: production
+      DATABASE_MIGRATOR_URL: ${DATABASE_MIGRATOR_URL:?requerida}
+      DATABASE_WRITER_URL: ${DATABASE_WRITER_URL:?requerida}
+      DATABASE_READER_URL: ${DATABASE_READER_URL:?requerida}
+      # La base vive en la red interna de Docker, sin TLS. Ponerlo en true haria
+      # fallar el handshake, porque el codigo exige rejectUnauthorized.
+      DATABASE_SSL: ${DATABASE_SSL:-false}
+      DATABASE_CONNECT_TIMEOUT_MS: ${DATABASE_CONNECT_TIMEOUT_MS:-5000}
+      DATABASE_STATEMENT_TIMEOUT_MS: ${DATABASE_STATEMENT_TIMEOUT_MS:-15000}
+      # El validador prohibe AUTH_MODE=disabled bajo NODE_ENV=production; el
+      # migrador no atiende HTTP, pero valida el mismo esquema al arrancar.
+      AUTH_MODE: ${AUTH_MODE:?requerida (jwks o agent_key)}
+      AGENT_INGESTION_KEY: ${AGENT_INGESTION_KEY:-}
+      AUTH_JWKS_URI: ${AUTH_JWKS_URI:-}
+      AUTH_ISSUER: ${AUTH_ISSUER:-}
+      AUTH_AUDIENCE: ${AUTH_AUDIENCE:-}
+      SWAGGER_ENABLED: 'false'
+      METRICS_ENABLED: 'false'
+    init: true
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    networks: [coolify]
+    restart: 'no'
+
+  api:
+    build:
+      context: .
+      target: runtime
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    environment:
+      # Coolify sustituye esta variable por el dominio asignado y genera las
+      # etiquetas de Traefik hacia el puerto 3000. No agregues `ports:`.
+      SERVICE_FQDN_API_3000:
+      NODE_ENV: production
+      # Debe escuchar en todas las interfaces: el proxy entra por la red Docker,
+      # no por loopback.
+      APP_HOST: 0.0.0.0
+      APP_PORT: 3000
+      APP_NAME: ${APP_NAME:-observatorio-economico-core}
+      API_PREFIX: ${API_PREFIX:-api}
+      API_VERSION: ${API_VERSION:-v1}
+      CORS_ORIGINS: ${CORS_ORIGINS:?requerida (origen del tablero)}
+      # Traefik es el par directo y agrega X-Forwarded-For; sin esto el limitador
+      # de tasa veria una sola IP, la del proxy, para todo el trafico.
+      TRUST_PROXY: 'true'
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      BODY_LIMIT_BYTES: ${BODY_LIMIT_BYTES:-1048576}
+      RATE_LIMIT_MAX: ${RATE_LIMIT_MAX:-300}
+      RATE_LIMIT_WINDOW_MS: ${RATE_LIMIT_WINDOW_MS:-60000}
+      RATE_LIMIT_AGENT_MAX: ${RATE_LIMIT_AGENT_MAX:-1200}
+      HTTP_REQUEST_TIMEOUT_MS: ${HTTP_REQUEST_TIMEOUT_MS:-30000}
+      HTTP_CONNECTION_TIMEOUT_MS: ${HTTP_CONNECTION_TIMEOUT_MS:-10000}
+      HTTP_KEEP_ALIVE_TIMEOUT_MS: ${HTTP_KEEP_ALIVE_TIMEOUT_MS:-72000}
+
+      DATABASE_WRITER_URL: ${DATABASE_WRITER_URL:?requerida}
+      DATABASE_READER_URL: ${DATABASE_READER_URL:?requerida}
+      DATABASE_MIGRATOR_URL: ${DATABASE_MIGRATOR_URL:?requerida}
+      DATABASE_SSL: ${DATABASE_SSL:-false}
+      # Las migraciones ya corrieron en el servicio anterior; repetirlas aqui
+      # haria que dos replicas compitieran por el mismo bloqueo al arrancar.
+      DATABASE_PROVISION_ON_BOOT: 'false'
+      DATABASE_CONNECT_TIMEOUT_MS: ${DATABASE_CONNECT_TIMEOUT_MS:-5000}
+      DATABASE_POOL_MAX_WRITER: ${DATABASE_POOL_MAX_WRITER:-15}
+      DATABASE_POOL_MAX_READER: ${DATABASE_POOL_MAX_READER:-30}
+      DATABASE_POOL_MIN: ${DATABASE_POOL_MIN:-0}
+      DATABASE_POOL_ACQUIRE_MS: ${DATABASE_POOL_ACQUIRE_MS:-15000}
+      DATABASE_POOL_IDLE_MS: ${DATABASE_POOL_IDLE_MS:-10000}
+      DATABASE_STATEMENT_TIMEOUT_MS: ${DATABASE_STATEMENT_TIMEOUT_MS:-15000}
+
+      AUTH_MODE: ${AUTH_MODE:?requerida (jwks o agent_key)}
+      AGENT_INGESTION_KEY: ${AGENT_INGESTION_KEY:-}
+      AUTH_JWKS_URI: ${AUTH_JWKS_URI:-}
+      AUTH_ISSUER: ${AUTH_ISSUER:-}
+      AUTH_AUDIENCE: ${AUTH_AUDIENCE:-}
+      AUTH_ROLE_CLAIM: ${AUTH_ROLE_CLAIM:-roles}
+      AUTH_ORGANIZATION_CLAIM: ${AUTH_ORGANIZATION_CLAIM:-organization_id}
+
+      # Ambas las rechaza el validador bajo NODE_ENV=production si se activan sin
+      # su token; se fijan aqui para que un cambio en la UI no tumbe el arranque.
+      SWAGGER_ENABLED: 'false'
+      METRICS_ENABLED: ${METRICS_ENABLED:-false}
+      METRICS_SCRAPE_TOKEN: ${METRICS_SCRAPE_TOKEN:-}
+
+      # El respaldo lo dispara un programador externo, nunca el proceso de la API.
+      BACKUP_ENABLED: 'false'
+
+      OTEL_ENABLED: ${OTEL_ENABLED:-false}
+      OTEL_SERVICE_NAME: ${OTEL_SERVICE_NAME:-observatorio-economico-api}
+      OTEL_DEPLOYMENT_ENVIRONMENT: ${OTEL_DEPLOYMENT_ENVIRONMENT:-production}
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: ${OTEL_EXPORTER_OTLP_TRACES_ENDPOINT:-http://localhost:4318/v1/traces}
+    expose: ['3000']
+    init: true
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))",
+        ]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    stop_grace_period: 30s
+    networks: [coolify]
+    restart: unless-stopped
+
+# Red compartida que crea Coolify. Es la que permite que la API resuelva el
+# hostname interno de la base; debe existir antes del despliegue.
+networks:
+  coolify:
+    external: true
