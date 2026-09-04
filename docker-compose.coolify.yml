@@ -66,7 +66,9 @@ services:
         condition: service_completed_successfully
     environment:
       # Coolify sustituye esta variable por el dominio asignado y genera las
-      # etiquetas de Traefik hacia el puerto 3000. No agregues `ports:`.
+      # etiquetas de Traefik hacia el puerto 3000. Hoy asigna un
+      # `*.localhost.sslip.io` que no resuelve, asi que el acceso real va por el
+      # puerto publicado mas abajo; queda declarada para cuando haya dominio.
       SERVICE_FQDN_API_3000:
       NODE_ENV: ${NODE_ENV:-development}
       # Debe escuchar en todas las interfaces: el proxy entra por la red Docker,
@@ -130,6 +132,12 @@ services:
       OTEL_DEPLOYMENT_ENVIRONMENT: ${OTEL_DEPLOYMENT_ENVIRONMENT:-production}
       OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: ${OTEL_EXPORTER_OTLP_TRACES_ENDPOINT:-http://localhost:4318/v1/traces}
     expose: ['3000']
+    # Publicado unicamente sobre la interfaz de Tailscale. Con AUTH_MODE=disabled
+    # y el conjunto de datos real detras, abrirlo en 0.0.0.0 lo dejaria accesible
+    # a cualquiera que alcance el host. El 3000 del servidor ya esta tomado por
+    # otro proceso, de ahi el 3002.
+    ports:
+      - '${API_PUBLISH_ADDRESS:-100.101.207.88}:${API_PUBLISH_PORT:-3002}:3000'
     init: true
     read_only: true
     tmpfs: [/tmp]
