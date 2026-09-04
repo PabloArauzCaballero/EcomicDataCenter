@@ -34,9 +34,10 @@ services:
       DATABASE_MIGRATOR_URL: ${DATABASE_MIGRATOR_URL:?requerida}
       DATABASE_WRITER_URL: ${DATABASE_WRITER_URL:?requerida}
       DATABASE_READER_URL: ${DATABASE_READER_URL:?requerida}
-      # La base vive en la red interna de Docker, sin TLS. Ponerlo en true haria
-      # fallar el handshake, porque el codigo exige rejectUnauthorized.
-      DATABASE_SSL: ${DATABASE_SSL:-false}
+      # Fijo, no heredado de la UI: el Postgres destino corre con `ssl = off` y
+      # rechaza el handshake ("server does not support SSL, but SSL was
+      # required"). Es trafico interno de Docker, que no sale del host.
+      DATABASE_SSL: 'false'
       DATABASE_CONNECT_TIMEOUT_MS: ${DATABASE_CONNECT_TIMEOUT_MS:-5000}
       DATABASE_STATEMENT_TIMEOUT_MS: ${DATABASE_STATEMENT_TIMEOUT_MS:-15000}
       # El migrador no atiende HTTP, pero valida el mismo esquema al arrancar.
@@ -93,7 +94,8 @@ services:
       DATABASE_WRITER_URL: ${DATABASE_WRITER_URL:?requerida}
       DATABASE_READER_URL: ${DATABASE_READER_URL:?requerida}
       DATABASE_MIGRATOR_URL: ${DATABASE_MIGRATOR_URL:?requerida}
-      DATABASE_SSL: ${DATABASE_SSL:-false}
+      # Ver la nota del servicio migrate: el destino no soporta TLS.
+      DATABASE_SSL: 'false'
       # Las migraciones ya corrieron en el servicio anterior; repetirlas aqui
       # haria que dos replicas compitieran por el mismo bloqueo al arrancar.
       DATABASE_PROVISION_ON_BOOT: 'false'
