@@ -1,0 +1,69 @@
+name: provision-dashboard
+
+# Crea el recurso del tablero en Coolify, una sola vez y a mano.
+#
+# Vive en este repositorio y no en el del tablero porque el token de Coolify ya
+# esta guardado aqui: asi nadie tiene que copiar la credencial a un segundo sitio
+# para dar de alta un recurso que se crea una vez en la vida.
+#
+# Es reejecutable: si el recurso ya existe, Coolify responde con un error de
+# nombre duplicado y el trabajo lo informa sin romper nada.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  provision:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Join the tailnet
+        uses: tailscale/github-action@v3
+        with:
+          authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
+          args: --ssh=false
+
+      - name: Create the dashboard application
+        env:
+          TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
+        run: |
+          set -u
+          # El proyecto, el entorno y el servidor son los que ya hospedan la API,
+          # para que el tablero aparezca junto a ella en la interfaz.
+          payload=$(cat <<'JSON'
+          {
+            "project_uuid": "2ta9gzpqrfksqfjuecv1gcqo",
+            "environment_name": "dev",
+            "server_uuid": "rwnzelqrqnzkw4efgdjrolx3",
+            "git_repository": "https://github.com/PabloArauzCaballero/observatorio-dashboard",
+            "git_branch": "dev",
+            "build_pack": "dockercompose",
+            "docker_compose_location": "/docker-compose.coolify.yml",
+            "name": "economic-observatory-dashboard",
+            "description": "Tablero Next.js del Observatorio; lee PostgreSQL directamente.",
+            "instant_deploy": false
+          }
+          JSON
+          )
+
+          response=$(curl --silent --show-error --max-time 60 \
+            --write-out '\n%{http_code}' \
+            --request POST \
+            --header "Authorization: Bearer $TOKEN" \
+            --header "Content-Type: application/json" \
+            --data "$payload" \
+            "http://100.101.207.88/api/v1/applications/public")
+
+          code=$(printf '%s' "$response" | tail -n 1)
+          body=$(printf '%s' "$response" | sed '$d')
+          echo "HTTP $code"
+          echo "$body"
+
+          case "$code" in
+            2*) echo "recurso creado" ;;
+            409|422) echo "el recurso ya existia; nada que hacer" ;;
+            *) echo "Coolify rechazo la creacion" >&2; exit 1 ;;
+          esac
