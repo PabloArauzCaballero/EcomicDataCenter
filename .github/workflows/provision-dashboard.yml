@@ -10,6 +10,11 @@ name: provision-dashboard
 # nombre duplicado y el trabajo lo informa sin romper nada.
 
 on:
+  # Se ejecuta al tocar este archivo. `workflow_dispatch` exigiria tenerlo en la
+  # rama por defecto, y este trabajo pertenece a `dev` junto al recurso que crea.
+  push:
+    branches: [dev]
+    paths: ['.github/workflows/provision-dashboard.yml']
   workflow_dispatch:
 
 permissions:
