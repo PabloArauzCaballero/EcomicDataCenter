@@ -28,7 +28,10 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    # Mas que los quince minutos que espera el ultimo paso: si el trabajo muere
+    # antes que su propia espera, un despliegue lento se informa como si nunca
+    # hubiera llegado.
+    timeout-minutes: 25
     steps:
       - name: Join the tailnet
         uses: tailscale/github-action@v3

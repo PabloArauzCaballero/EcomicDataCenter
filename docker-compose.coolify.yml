@@ -26,23 +26,7 @@ services:
     build:
       context: .
       target: runtime
-    # Migrar y despues sembrar, en ese orden y en el mismo disparo.
-    #
-    # Los recolectores diarios escriben sus lecturas en los archivos de semilla y
-    # los comitean, pero el despliegue solo migraba: los datos quedaban en el
-    # repositorio y no llegaban nunca a la base que el tablero lee. Sembrar aqui
-    # es lo que cierra ese circuito.
-    #
-    # Es reejecutable. Los sembradores concilian por adicion —buscan y crean, sin
-    # un solo `destroy`, `truncate` ni `delete` entre todos ellos—, que es la
-    # misma regla que gobierna el resto del nucleo: los datos crudos y la
-    # auditoria son inmutables, y una correccion crea una revision.
-    command:
-      [
-        'sh',
-        '-c',
-        'node dist/database/cli/migrate.js && node dist/database/seeds/runners/run-boot-seeds.js',
-      ]
+    command: ['node', 'dist/database/cli/migrate.js']
     environment:
       # Lo manda la UI de Coolify; en desarrollo el validador no aplica las
       # compuertas que tumbaron el despliegue anterior.
@@ -64,6 +48,49 @@ services:
       # el esquema rechaza "" por longitud mínima aunque el campo sea opcional.
       # Se cargan desde la UI de Coolify, que ya inyecta sus variables al contenedor.
       SWAGGER_ENABLED: ${SWAGGER_ENABLED:-false}
+      METRICS_ENABLED: 'false'
+    init: true
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    networks: [coolify]
+    restart: 'no'
+
+  # La siembra corre aparte del arranque, y esa separacion es el punto.
+  #
+  # Los recolectores diarios escriben sus lecturas en los archivos de semilla y
+  # los comitean; sin este servicio los datos llegan al repositorio y nunca a la
+  # base que el tablero lee. Pero encadenarla al migrador dejo la API caida:
+  # conciliar cuarenta y tres archivos —incluido el panel del Banco Mundial, que
+  # son mas de un millon de puntos— tarda mucho mas que una migracion, y la API
+  # esperaba a que terminara para siquiera escuchar. Disponibilidad y carga de
+  # datos son dos trabajos distintos y no deben compartir un `depends_on`.
+  #
+  # Asi que arranca cuando el esquema esta listo, y nadie la espera. Es
+  # reejecutable: los sembradores concilian por adicion —sin un solo `destroy`,
+  # `truncate` ni `delete` entre todos ellos—, que es la misma regla que gobierna
+  # el resto del nucleo.
+  seed:
+    build:
+      context: .
+      target: runtime
+    command: ['node', 'dist/database/seeds/runners/run-boot-seeds.js']
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      DATABASE_WRITER_URL: ${DATABASE_WRITER_URL:?requerida}
+      DATABASE_READER_URL: ${DATABASE_READER_URL:?requerida}
+      DATABASE_MIGRATOR_URL: ${DATABASE_MIGRATOR_URL:?requerida}
+      DATABASE_SSL: 'false'
+      DATABASE_CONNECT_TIMEOUT_MS: ${DATABASE_CONNECT_TIMEOUT_MS:-5000}
+      # Mas holgado que el resto: una conciliacion recorre tablas enteras, y el
+      # limite pensado para una consulta de la API la cortaria a media faena.
+      DATABASE_STATEMENT_TIMEOUT_MS: ${SEED_STATEMENT_TIMEOUT_MS:-120000}
+      AUTH_MODE: ${AUTH_MODE:-disabled}
+      SWAGGER_ENABLED: 'false'
       METRICS_ENABLED: 'false'
     init: true
     read_only: true
