@@ -26,7 +26,23 @@ services:
     build:
       context: .
       target: runtime
-    command: ['node', 'dist/database/cli/migrate.js']
+    # Migrar y despues sembrar, en ese orden y en el mismo disparo.
+    #
+    # Los recolectores diarios escriben sus lecturas en los archivos de semilla y
+    # los comitean, pero el despliegue solo migraba: los datos quedaban en el
+    # repositorio y no llegaban nunca a la base que el tablero lee. Sembrar aqui
+    # es lo que cierra ese circuito.
+    #
+    # Es reejecutable. Los sembradores concilian por adicion —buscan y crean, sin
+    # un solo `destroy`, `truncate` ni `delete` entre todos ellos—, que es la
+    # misma regla que gobierna el resto del nucleo: los datos crudos y la
+    # auditoria son inmutables, y una correccion crea una revision.
+    command:
+      [
+        'sh',
+        '-c',
+        'node dist/database/cli/migrate.js && node dist/database/seeds/runners/run-boot-seeds.js',
+      ]
     environment:
       # Lo manda la UI de Coolify; en desarrollo el validador no aplica las
       # compuertas que tumbaron el despliegue anterior.

@@ -30,7 +30,22 @@ import { join } from 'node:path';
 
 const SEED = join('src', 'database', 'seeds', 'boot', 'market-prices.json');
 const UA = 'ObservatorioEconomicoBO/1.0';
-const ENDPOINT = 'https://api.binance.com/api/v3/klines';
+/*
+ * Dos hosts para el mismo camino, en este orden.
+ *
+ * `api.binance.com` responde 451 —«no disponible por razones legales»— a las IPs
+ * de los runners de GitHub, y devolverlo para los tres mercados es como el
+ * recolector se quedaba a cero cada dia. `data-api.binance.vision` es el host
+ * que Binance publica para datos de mercado sin cuenta, sirve el mismo
+ * `/api/v3/klines` con la misma forma y no aplica ese bloqueo.
+ *
+ * El de siempre queda como reserva: si el host de datos cayera, el recolector
+ * sigue teniendo a donde ir desde una red que si lo alcance.
+ */
+const ENDPOINTS: readonly string[] = [
+  'https://data-api.binance.vision/api/v3/klines',
+  'https://api.binance.com/api/v3/klines',
+];
 const FROM = Date.UTC(2020, 0, 1);
 
 interface Market {
@@ -100,12 +115,26 @@ async function window(
   symbol: string,
   since: number,
 ): Promise<{ rows: unknown[][]; digest: string }> {
-  const url = `${ENDPOINT}?symbol=${symbol}&interval=1d&startTime=${since}&limit=1000`;
-  const response = await fetch(url, {
-    headers: { 'User-Agent': UA },
-    signal: AbortSignal.timeout(45_000),
-  });
-  if (!response.ok) throw new Error(`${symbol}: HTTP ${response.status}`);
+  const query = `?symbol=${symbol}&interval=1d&startTime=${since}&limit=1000`;
+  let response: Response | undefined;
+  let lastFailure = '';
+  for (const endpoint of ENDPOINTS) {
+    try {
+      const attempt = await fetch(`${endpoint}${query}`, {
+        headers: { 'User-Agent': UA },
+        signal: AbortSignal.timeout(45_000),
+      });
+      if (attempt.ok) {
+        response = attempt;
+        break;
+      }
+      lastFailure = `HTTP ${attempt.status}`;
+    } catch (error) {
+      lastFailure = error instanceof Error ? error.message : 'fallo de red';
+    }
+    console.warn(`  ${symbol}: ${endpoint} respondio ${lastFailure}`);
+  }
+  if (!response) throw new Error(`${symbol}: ningun host respondio (${lastFailure})`);
   const bytes = Buffer.from(await response.arrayBuffer());
   const parsed: unknown = JSON.parse(bytes.toString('utf-8'));
   return {
@@ -177,7 +206,9 @@ async function collect(market: Market, retrievedAt: string): Promise<Series | nu
     note: market.note,
     provenance: {
       publisher: 'BINANCE',
-      sourceUrl: `${ENDPOINT}?symbol=${market.symbol}&interval=1d`,
+      // El primero de la lista: es el que sirve estas lecturas salvo caida, y la
+      // procedencia debe nombrar de donde salen, no un host de reserva.
+      sourceUrl: `${ENDPOINTS[0]}?symbol=${market.symbol}&interval=1d`,
       retrievedAt,
       upstreamSha256: digest,
       frequency: 'DAILY',

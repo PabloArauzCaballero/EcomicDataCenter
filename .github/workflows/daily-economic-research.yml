@@ -33,6 +33,16 @@ jobs:
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
+      # El nucleo ya no vive en Render: corre en un servidor casero que no esta
+      # publicado en internet. El recolector escribe por su direccion privada, y
+      # para eso el runner tiene que estar en la tailnet. Asi la API sigue sin
+      # escuchar fuera de ella, que importa mas aqui que en otros sitios: este
+      # despliegue corre con la autenticacion desactivada sobre los datos reales.
+      - name: Join the tailnet
+        uses: tailscale/github-action@v3
+        with:
+          authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
+          args: --ssh=false
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false

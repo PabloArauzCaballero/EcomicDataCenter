@@ -33,10 +33,25 @@ const SEED = join('src', 'database', 'seeds', 'boot', 'press-coverage.json');
 async function readFeeds(): Promise<Collected[]> {
   const rows: Collected[] = [];
   for (const [outlet, domain, section, url] of FEEDS) {
-    const response = await fetch(url, {
-      headers: { 'User-Agent': UA },
-      signal: AbortSignal.timeout(45_000),
-    });
+    /*
+     * A feed that answers badly is already tolerated below; a feed that does not
+     * answer at all was not, and `fetch` throws on a refused connection, a name
+     * that will not resolve or a reset. One newsroom's outage therefore took the
+     * whole day's coverage with it, including the feeds already read — which is
+     * how six mastheads collected fine and the run still ended with nothing.
+     * A source that cannot be reached costs its own coverage and no more.
+     */
+    let response: Response;
+    try {
+      response = await fetch(url, {
+        headers: { 'User-Agent': UA },
+        signal: AbortSignal.timeout(45_000),
+      });
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : 'fallo de red';
+      console.warn(`  ${outlet} ${section}: inalcanzable (${reason}), omitido`);
+      continue;
+    }
     if (!response.ok) {
       console.warn(`  ${outlet} ${section}: HTTP ${response.status}, omitido`);
       continue;
