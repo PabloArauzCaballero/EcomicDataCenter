@@ -234,15 +234,16 @@ const desiredDailyCategories = ['SOVEREIGN_BONDS', 'MACRO_DAILY', 'COMPANY_NEWS'
  * attempt exceed the window and return nothing at all. A smaller cap that
  * succeeds collects more than a larger one that is always rejected.
  *
- * Rebajado de 3000 a 1500 el 2026-09-06: el proveedor volvio a devolver 413
- * «request too large» en cada intento, y con el las tres categorias deseadas
- * —bonos soberanos, macro diaria y noticias de empresas— quedaban vacias todos
- * los dias. Las instrucciones ocupan unos 520 tokens, asi que lo que desborda la
- * ventana no es el prompt sino el bucle de busqueda mas esta reserva; es lo
- * unico de los tres que este archivo controla.
+ * Medido el 2026-09-06, cuando el proveedor volvio a rechazar cada llamada con
+ * 413 «request too large» y las tres categorias deseadas —bonos soberanos, macro
+ * diaria y noticias de empresas— llevaban dias vacias: las instrucciones ocupan
+ * unos 520 tokens, asi que el prompt no es lo que desborda la ventana. Se probo
+ * a la mitad de esta reserva y el rechazo fue identico, de modo que el techo es
+ * el presupuesto por minuto de la cuenta y ningun valor de aqui lo mueve. Se
+ * deja el que aprovecha mejor una llamada que si pase.
  */
 const maximumResearchResults = 12;
-const maximumResearchCompletionTokens = 1_500;
+const maximumResearchCompletionTokens = 3_000;
 
 async function request(
   url: string,
