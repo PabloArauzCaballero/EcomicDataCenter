@@ -14,6 +14,11 @@ on:
 permissions:
   contents: read
 
+env:
+  # La API publica aqui, sobre la interfaz de Tailscale. Es tambien la unica via
+  # por la que este trabajo puede comprobar lo que desplego.
+  API_URL: http://100.101.207.88:3002
+
 # Un despliegue a la vez, y sin cancelar el que ya empezo: interrumpir a medias
 # dejaria contenedores a medio recrear en el servidor.
 concurrency:
@@ -46,6 +51,18 @@ jobs:
           echo "no hay ruta al servidor por la tailnet" >&2
           exit 1
 
+      - name: Note the moment before deploying
+        id: before
+        run: |
+          # Un despliegue que no cambia ninguna respuesta produce un cuerpo
+          # identico, asi que nada en la respuesta distingue el contenedor nuevo
+          # del que reemplazo. Lo que si los distingue es que el proceso
+          # rearranca: una hora de arranque posterior a este instante solo puede
+          # pertenecer al contenedor que este despliegue creo. Preguntarle a
+          # Coolify seria mas directo, pero exige un token con permiso de lectura
+          # y el que hay aqui solo puede disparar webhooks.
+          echo "t0=$(date -u +%s)" >> "$GITHUB_OUTPUT"
+
       - name: Trigger the deployment
         env:
           WEBHOOK: ${{ secrets.PABLO_H310_COOLIFY_WEBHOOK }}
@@ -66,3 +83,51 @@ jobs:
                "$WEBHOOK"
           echo
           echo "despliegue solicitado a Coolify"
+
+      - name: Wait for the new container to serve, and to reach the database
+        env:
+          T0: ${{ steps.before.outputs.t0 }}
+        run: |
+          # Disparar el webhook solo prueba que Coolify acepto la peticion. Lo
+          # que hace falta saber es que el contenedor que quedo en pie es el que
+          # este despliegue construyo, y que llego a abrir sus dos pools.
+          deadline=$(( $(date +%s) + 900 ))
+          arrived=""
+
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            reported=$(curl --silent --max-time 20 "${API_URL}/version" || true)
+            started=$(printf '%s' "$reported" | jq -r '.startedAt // empty' 2>/dev/null || true)
+
+            if [ -z "$started" ]; then
+              # Hasta que este despliegue llegue, `/version` puede no existir: el
+              # contenedor en pie fue construido antes de que la ruta existiera.
+              echo "la API no reporta su arranque todavia"
+            else
+              startedEpoch=$(date -u -d "$started" +%s 2>/dev/null || echo 0)
+              if [ "$startedEpoch" -gt "$T0" ]; then
+                arrived="si"
+                echo "contenedor nuevo en servicio (arranco $started)"
+                break
+              fi
+              echo "sigue en pie el contenedor anterior (arranco $started)"
+            fi
+            sleep 15
+          done
+
+          if [ -z "$arrived" ]; then
+            echo "el contenedor nuevo no llego a servir en quince minutos." >&2
+            echo "Revisa el log del despliegue en Coolify." >&2
+            exit 1
+          fi
+
+          # Un proceso que arranca no es una API que sirve: `/ready` es lo unico
+          # que dice que el escritor y el lector abrieron contra PostgreSQL.
+          ready=$(curl --silent --max-time 30 "${API_URL}/ready" || true)
+          echo "$ready"
+          if ! printf '%s' "$ready" | grep -q '"status":"ready"'; then
+            echo "la API desplegada responde pero no alcanza la base." >&2
+            echo "Revisa DATABASE_*_URL en el recurso de Coolify." >&2
+            exit 1
+          fi
+
+          echo "la API desplegada responde y alcanza la base"

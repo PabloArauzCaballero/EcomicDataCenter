@@ -8,13 +8,20 @@ name: provision-dashboard
 #
 # Es reejecutable: si el recurso ya existe, Coolify responde con un error de
 # nombre duplicado y el trabajo lo informa sin romper nada.
+#
+# El recurso YA EXISTE y sirve en http://100.101.207.88:3003/ desde el
+# 2026-09-04, asi que este trabajo no tiene nada que hacer. Se queda como
+# registro de como se dio de alta, y solo a mano.
+#
+# Ademas no puede funcionar con la credencial que hay: PABLO_H310_COOLIFY_TOKEN
+# solo sirve para disparar webhooks, y la API de Coolify le responde
+# «Missing required permissions: write» a la creacion de recursos. Antes se
+# ejecutaba tambien al tocar este archivo, y eso marcaba en rojo cada push que
+# lo rozaba, como si el despliegue estuviera roto cuando no lo estaba. Para
+# volver a usarlo hay que generar en Coolify -> Keys & Tokens un token con
+# permiso de escritura y guardarlo aparte.
 
 on:
-  # Se ejecuta al tocar este archivo. `workflow_dispatch` exigiria tenerlo en la
-  # rama por defecto, y este trabajo pertenece a `dev` junto al recurso que crea.
-  push:
-    branches: [dev]
-    paths: ['.github/workflows/provision-dashboard.yml']
   workflow_dispatch:
 
 permissions:
