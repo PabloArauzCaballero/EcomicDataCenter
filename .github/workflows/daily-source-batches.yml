@@ -44,6 +44,12 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # `dev` es la rama que se despliega, y por tanto la unica cuyas
+          # semillas importan. El cron arranca siempre desde la rama por
+          # defecto y eso no se puede cambiar, pero lo que se lee si: el lote
+          # del BCB fusiona con la semilla que encuentra, y fusionar contra la
+          # de otra rama perderia lo que solo estuviera en esta.
+          ref: dev
           persist-credentials: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -68,6 +74,12 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # `dev` es la rama que se despliega, y por tanto la unica cuyas
+          # semillas importan. El cron arranca siempre desde la rama por
+          # defecto y eso no se puede cambiar, pero lo que se lee si: el lote
+          # del BCB fusiona con la semilla que encuentra, y fusionar contra la
+          # de otra rama perderia lo que solo estuviera en esta.
+          ref: dev
           persist-credentials: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -94,6 +106,12 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # `dev` es la rama que se despliega, y por tanto la unica cuyas
+          # semillas importan. El cron arranca siempre desde la rama por
+          # defecto y eso no se puede cambiar, pero lo que se lee si: el lote
+          # del BCB fusiona con la semilla que encuentra, y fusionar contra la
+          # de otra rama perderia lo que solo estuviera en esta.
+          ref: dev
           persist-credentials: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -110,3 +128,84 @@ jobs:
           name: press-coverage-${{ github.run_id }}
           path: src/database/seeds/boot/press-coverage.json
           retention-days: 14
+
+  # El paso que faltaba para que un dato recogido llegue a leerse.
+  #
+  # Los tres lotes de arriba escriben su fichero semilla y hasta hoy lo subian
+  # como artefacto del run y nada mas: el dato quedaba dentro de un zip de
+  # GitHub, no entraba en el repositorio y no llegaba nunca a la base que lee el
+  # tablero. Dos dias enteros de mercados, cotizaciones y prensa se perdieron
+  # asi, con los tres lotes en verde y sin una sola linea roja que lo dijera.
+  #
+  # El circuito es semilla -> repositorio -> despliegue -> siembra -> base. Este
+  # trabajo cierra el primer salto: recoge las semillas de los lotes que hayan
+  # salido bien y las comitea juntas, un commit y un push por ejecucion en vez
+  # de tres carreras por la misma rama.
+  #
+  # Y luego pide el despliegue a mano, que no es un adorno: un push hecho con
+  # GITHUB_TOKEN no dispara otros workflows —GitHub lo impide para que uno no se
+  # llame a si mismo sin fin— asi que sin esta llamada el commit se quedaria en
+  # el repositorio sin llegar jamas al servidor, que es la misma clase de final
+  # silencioso que este trabajo viene a corregir.
+  publicar:
+    needs: [mercados, bcb, prensa]
+    # Un lote caido cuesta sus fuentes y no las de los otros dos, igual que
+    # arriba. `always()` publicaria tambien lo cancelado a mano.
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: dev
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        if: needs.mercados.result == 'success'
+        with:
+          name: market-prices-${{ github.run_id }}
+          path: src/database/seeds/boot
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        if: needs.bcb.result == 'success'
+        with:
+          name: bcb-quotes-${{ github.run_id }}
+          path: src/database/seeds/boot
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        if: needs.prensa.result == 'success'
+        with:
+          name: press-coverage-${{ github.run_id }}
+          path: src/database/seeds/boot
+      - name: Commit the readings that came back
+        run: |
+          set -euo pipefail
+          git config user.name 'observatorio-recolector'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/press-coverage.json
+          # Una fuente que no publico nada hoy deja su semilla igual que ayer, y
+          # eso no es un fallo: es un dia sin novedades. Un commit vacio si lo
+          # seria, porque desplegaria por nada.
+          if git diff --cached --quiet; then
+            echo 'ninguna semilla cambio: no hay nada que publicar'
+            echo 'publicado=no' >> "$GITHUB_ENV"
+            exit 0
+          fi
+          git commit -m 'Publicar las lecturas del dia'                      -m "Recogidas por la ejecucion ${{ github.run_id }} de daily-source-batches."                      -m 'Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>'
+          # El lote de prensa tarda veinte minutos mas que los otros, asi que
+          # otro push puede haber entrado en `dev` mientras tanto. Reintegrar y
+          # reintentar, en vez de forzar sobre lo que llego antes.
+          for intento in 1 2 3; do
+            if git push origin HEAD:dev; then
+              echo 'publicado=si' >> "$GITHUB_ENV"
+              exit 0
+            fi
+            echo "push rechazado (intento $intento): reintegrando sobre dev"
+            git pull --rebase origin dev
+          done
+          echo 'no se pudo publicar tras tres intentos' >&2
+          exit 1
+      - name: Ask for the deploy this push cannot trigger
+        if: env.publicado == 'si'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref dev
