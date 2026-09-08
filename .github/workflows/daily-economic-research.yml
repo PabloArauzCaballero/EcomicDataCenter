@@ -45,6 +45,13 @@ jobs:
           args: --ssh=false
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # `dev` es la rama que se despliega, y por tanto la unica cuyo codigo
+          # corresponde con la base que este recolector escribe. Un `schedule`
+          # arranca siempre desde la rama por defecto y eso no se puede cambiar,
+          # pero lo que se saca del repositorio si: sin esta linea el recolector
+          # diario corre el codigo de `main`, que puede ir commits por detras.
+          # Los lotes de `daily-source-batches` ya lo hacen asi.
+          ref: dev
           persist-credentials: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
