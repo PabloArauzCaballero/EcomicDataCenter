@@ -157,13 +157,46 @@ function requestedCatalogue(argv: readonly string[]): Catalogue | undefined {
   return name as Catalogue;
 }
 
+/**
+ * Cada catalogo con su nombre y su cargador, en el orden en que deben correr.
+ *
+ * El archivo de hechos relevantes va antes que sus textos, que se cuelgan de las
+ * afirmaciones que aquel crea; el resto es independiente entre si.
+ */
+type Loader = (sourceId: string, transaction: Transaction) => Promise<unknown>;
+
+const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
+  ['exchange-rate-history', reconcileExchangeRateHistory],
+  ['macro-annual-history', reconcileMacroAnnualHistory],
+  ['market-prices', reconcileMarketPrices],
+  ['bcb-quotes', reconcileBcbQuotes],
+  ['ufv-history', reconcileUfvHistory],
+  ['bbv-yields', reconcileBbvYields],
+  ['composite-indices', reconcileCompositeIndices],
+  ['foreign-trade', reconcileForeignTrade],
+  ['company-filings', reconcileCompanyFilings],
+  ['company-filings-archive', reconcileCompanyFilingArchive],
+  ['company-filing-texts', reconcileCompanyFilingTexts],
+  ['press-coverage', reconcilePressCoverage],
+  ['press-archive', reconcilePressArchive],
+  ['social-readings', reconcileSocialReadings],
+  ['worldbank-panel', reconcileWorldBankPanel],
+  ['bolivia-poi', reconcileBoliviaPoi],
+];
+
 /** Reconciles the minimum non-secret catalog required by every environment. */
 export async function runBootSeeds(only?: Catalogue): Promise<void> {
   const wanted = (name: Catalogue): boolean => only === undefined || only === name;
   const database = createWriterDatabase(getEnvironment());
   try {
     await database.authenticate();
-    await database.transaction(async (transaction) => {
+
+    /*
+     * Las filas a las que apuntan todas las demas, y la identidad con la que se
+     * firman. Van juntas y primero porque ningun catalogo puede cargarse sin
+     * ellas; cuestan poco y son las mismas en todos los entornos.
+     */
+    const identities = await database.transaction(async (transaction) => {
       await reconcileFrequencies(transaction);
       await reconcileQualityDimensions(transaction);
       await reconcileUnits(transaction);
@@ -172,35 +205,41 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
       await reconcileCurrencies(transaction);
       await reconcileCountries(transaction);
       await reconcileEconomicActivities(transaction);
-      const identities = await reconcileAgentBootstrap(transaction);
-      // Runs last: it needs the backfill identity and the source the block
-      // above reconciles.
-      if (wanted('exchange-rate-history'))
-        await reconcileExchangeRateHistory(identities.sourceId, transaction);
-      if (wanted('macro-annual-history'))
-        await reconcileMacroAnnualHistory(identities.sourceId, transaction);
-      if (wanted('market-prices')) await reconcileMarketPrices(identities.sourceId, transaction);
-      if (wanted('bcb-quotes')) await reconcileBcbQuotes(identities.sourceId, transaction);
-      if (wanted('ufv-history')) await reconcileUfvHistory(identities.sourceId, transaction);
-      if (wanted('bbv-yields')) await reconcileBbvYields(identities.sourceId, transaction);
-      if (wanted('composite-indices'))
-        await reconcileCompositeIndices(identities.sourceId, transaction);
-      if (wanted('foreign-trade')) await reconcileForeignTrade(identities.sourceId, transaction);
-      if (wanted('company-filings'))
-        await reconcileCompanyFilings(identities.sourceId, transaction);
-      if (wanted('company-filings-archive'))
-        await reconcileCompanyFilingArchive(identities.sourceId, transaction);
-      // Runs after the archive: it attaches evidence to the claims that made.
-      if (wanted('company-filing-texts'))
-        await reconcileCompanyFilingTexts(identities.sourceId, transaction);
-      if (wanted('press-coverage')) await reconcilePressCoverage(identities.sourceId, transaction);
-      if (wanted('press-archive')) await reconcilePressArchive(identities.sourceId, transaction);
-      if (wanted('social-readings'))
-        await reconcileSocialReadings(identities.sourceId, transaction);
-      if (wanted('worldbank-panel'))
-        await reconcileWorldBankPanel(identities.sourceId, transaction);
-      if (wanted('bolivia-poi')) await reconcileBoliviaPoi(identities.sourceId, transaction);
+      return reconcileAgentBootstrap(transaction);
     });
+
+    /*
+     * Un catalogo por transaccion, y no los dieciseis en una.
+     *
+     * Es la regla que los lotes de recoleccion ya siguen —«un lote que falla
+     * cuesta sus fuentes y ninguna mas»— y que esta carga no seguia. En una sola
+     * transaccion, un catalogo que revienta al minuto nueve deshace los quince
+     * que ya habian entrado, incluido el que alguien venia a cargar; y como este
+     * servicio corre desacoplado y nadie espera su resultado, el dia entero se
+     * pierde sin una linea roja que lo diga.
+     *
+     * Separarlos es seguro porque cada sembrador ya es idempotente por si mismo:
+     * concilian por adicion, comparando la huella de cada registro, sin un solo
+     * `destroy`, `truncate` ni `delete` entre todos ellos.
+     *
+     * Un fallo no detiene a los siguientes, pero si se acumula: al final se
+     * lanza con todos los nombres juntos, porque una carga a medias que termina
+     * en verde es como llevabamos dos semanas.
+     */
+    const failed: string[] = [];
+    for (const [name, load] of LOADERS) {
+      if (!wanted(name)) continue;
+      try {
+        await database.transaction((transaction) => load(identities.sourceId, transaction));
+      } catch (error) {
+        failed.push(name);
+        process.stderr.write(
+          `catalogo ${name}: ${error instanceof Error ? error.message : 'fallo desconocido'}
+`,
+        );
+      }
+    }
+
     /*
      * Outside the transaction, because a materialised view cannot be refreshed
      * concurrently inside one — and because until it is refreshed the report
@@ -219,6 +258,10 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
       await database.query(
         'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.social_reading_snapshot',
       );
+    }
+
+    if (failed.length > 0) {
+      throw new Error(`catalogos que no cargaron: ${failed.join(', ')}`);
     }
   } finally {
     await database.close();
