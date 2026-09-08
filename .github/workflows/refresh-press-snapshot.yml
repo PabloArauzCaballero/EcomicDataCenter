@@ -1,0 +1,95 @@
+name: refresh-press-snapshot
+
+# Reconstruye la instantanea de prensa sobre la base que la API escribe.
+#
+# Por que existe. `read_models.press_article` es la definicion de como se lee la
+# cobertura; `read_models.press_article_snapshot` es su salida guardada, y es lo
+# que consulta el tablero. Una migracion que ensancha el lexico cambia la vista
+# y no toca la instantanea: hasta que esta se reconstruya, el informe sigue
+# sirviendo el corpus tal como estaba, que desde afuera es igual a que la
+# migracion nunca hubiera corrido.
+#
+# Que hace. Entra a la tailnet y pide a Coolify que ejecute, dentro del
+# contenedor de la API, el CLI compilado que refresca las dos vistas
+# materializadas de prensa. Ninguna credencial entra ni sale de este archivo.
+#
+# Corre despues de `repair-migrations`, no antes: refrescar la instantanea sobre
+# una vista vieja la deja igual de vieja.
+#
+# Se dispara a mano. Correrla de mas no hace dano: rehacer la instantanea es
+# idempotente, solo cuesta los minutos que tarda.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-press-snapshot
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Join the tailnet
+        uses: tailscale/github-action@v3
+        with:
+          authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
+          args: --ssh=false
+
+      - name: Rebuild the stored copy of the press read models
+        env:
+          TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
+        run: |
+          set -u
+
+          api() {
+            curl --silent --show-error --max-time 1500 \
+                 --header "Authorization: Bearer $TOKEN" \
+                 --header "Accept: application/json" \
+                 "$@"
+          }
+
+          unwrap='if type == "array" then . elif type == "object" and (.data | type) == "array" then .data else empty end'
+
+          list=$(api "http://100.101.207.88/api/v1/applications" | jq "$unwrap")
+          if [ -z "$list" ]; then
+            echo "Coolify no devolvio la lista de aplicaciones" >&2
+            exit 1
+          fi
+
+          # El recurso de la API es el que no es el tablero: el contenedor que
+          # lleva los CLI compilados en `dist`.
+          uuid=$(printf '%s' "$list" \
+            | jq -r '.[] | select((.name // "") | test("dashboard") | not) | .uuid' \
+            | head -n 1)
+          if [ -z "$uuid" ]; then
+            echo "no hay ninguna aplicacion que no sea el tablero" >&2
+            exit 1
+          fi
+          echo "recurso de la API: $uuid"
+
+          command='node dist/database/cli/refresh-press-snapshot.js'
+
+          response=$(api --request POST \
+            --header 'Content-Type: application/json' \
+            --data "$(jq -n --arg command "$command" '{command: $command}')" \
+            "http://100.101.207.88/api/v1/applications/$uuid/execute")
+
+          printf '%s\n' "$response" | jq . 2>/dev/null || printf '%s\n' "$response"
+
+          if printf '%s' "$response" | jq -e '.message // .error // empty' >/dev/null 2>&1; then
+            echo
+            echo "Coolify rechazo la ejecucion. Corre el CLI desde el servidor:" >&2
+            echo "  docker exec <contenedor-api> node dist/database/cli/refresh-press-snapshot.js" >&2
+            exit 1
+          fi
+
+      - name: Say how the register reads now
+        run: |
+          # La prueba no es que el comando volviera, sino que el reparto de
+          # temas y tonos que sirve el tablero ya es el del lexico nuevo.
+          curl --silent --max-time 180 "http://100.101.207.88:3003/api/readers" | jq '{base, fallidos}'
