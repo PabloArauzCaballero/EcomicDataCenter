@@ -34,6 +34,7 @@ import { reconcileSocialReadings } from './boot-seed.social-readings';
 import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
 import { reconcileMarketPrices } from './boot-seed.market-prices';
 import { reconcileBcbQuotes } from './boot-seed.bcb-quotes';
+import { reconcileBoliviaPoi } from './boot-seed.bolivia-poi';
 import { reconcileUfvHistory } from './boot-seed.ufv-history';
 import { reconcileBbvYields } from './boot-seed.bbv-yields';
 import { reconcileCompositeIndices } from './boot-seed.composite-indices';
@@ -133,6 +134,7 @@ const SELECTABLE = [
   'press-coverage',
   'press-archive',
   'social-readings',
+  'bolivia-poi',
   'worldbank-panel',
 ] as const;
 
@@ -197,6 +199,7 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
         await reconcileSocialReadings(identities.sourceId, transaction);
       if (wanted('worldbank-panel'))
         await reconcileWorldBankPanel(identities.sourceId, transaction);
+      if (wanted('bolivia-poi')) await reconcileBoliviaPoi(identities.sourceId, transaction);
     });
     /*
      * Outside the transaction, because a materialised view cannot be refreshed

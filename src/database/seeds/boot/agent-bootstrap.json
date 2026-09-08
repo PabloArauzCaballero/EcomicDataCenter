@@ -205,6 +205,17 @@
       "specialty": "Serie completa de los World Development Indicators para Bolivia y las economias con las que se compara",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000014",
+      "code": "CITY_POI",
+      "name": "Registro de lugares de tres ciudades",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Overture Maps Foundation",
+      "modelIdentifier": "overture-places-2026-08-19.0",
+      "specialty": "Lugares de Santa Cruz de la Sierra, La Paz y Cochabamba clasificados en 201 familias de entidad",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
