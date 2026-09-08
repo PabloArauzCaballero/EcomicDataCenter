@@ -1,4 +1,6 @@
 import { randomUUID } from 'node:crypto';
+import { readdir } from 'node:fs/promises';
+import { join } from 'node:path';
 import { Op, type Transaction } from 'sequelize';
 import {
   ClaimEvidenceModel,
@@ -32,6 +34,14 @@ import { readSeed } from './seed.utils';
 
 const AGENT_CODE = 'CITY_POI';
 const CHUNK = 500;
+/*
+ * El corpus viaja partido, como el panel mundial y por la misma razon medida:
+ * en un solo archivo son 28,6 MB que `JSON.parse` y Zod sostienen enteros en
+ * memoria a la vez —190 MB de pico, medidos— dentro de la misma carga que ya
+ * lleva los archivos de prensa. En piezas de mil doscientos lugares el pico es
+ * el de una pieza, y la carga sigue siendo una sola transaccion.
+ */
+const POI_DIR = 'boot/bolivia-poi';
 
 /**
  * One place, shaped like the record an ingestion path would submit.
@@ -64,7 +74,6 @@ function placePayload(seed: BoliviaPoi, place: PoiPlace): Record<string, unknown
     confidence: place.confidence ?? null,
     qualityGrade: place.qualityGrade ?? null,
     address: place.address ?? null,
-    postcode: place.postcode ?? null,
     phones: place.phones ?? [],
     emails: place.emails ?? [],
     websites: place.websites ?? [],
@@ -159,8 +168,30 @@ export async function reconcileBoliviaPoi(
   sourceId: string,
   transaction: Transaction,
 ): Promise<void> {
-  const seed = await readSeed('boot/bolivia-poi.json', boliviaPoiSchema);
+  const directory = join(__dirname, '..', POI_DIR);
+  let files: string[];
+  try {
+    files = (await readdir(directory)).filter((name) => name.endsWith('.json')).sort();
+  } catch {
+    // Un corpus que nadie ha recogido todavia no es una carga rota.
+    return;
+  }
+  if (files.length === 0) return;
+
   const agentRunId = await reconcileHistoryRun(AGENT_CODE, transaction);
+  for (const file of files) {
+    await loadPiece(`${POI_DIR}/${file}`, sourceId, agentRunId, transaction);
+  }
+}
+
+/** One piece of the corpus, read and loaded before the next one is opened. */
+async function loadPiece(
+  path: string,
+  sourceId: string,
+  agentRunId: string,
+  transaction: Transaction,
+): Promise<void> {
+  const seed = await readSeed(path, boliviaPoiSchema);
 
   const payloads = seed.places.map((place) => placePayload(seed, place));
   const hashes = payloads.map((payload) => rawPayloadHash(payload));
