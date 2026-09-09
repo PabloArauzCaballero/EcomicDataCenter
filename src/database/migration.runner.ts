@@ -1,6 +1,7 @@
 import { QueryTypes, Sequelize } from 'sequelize';
 import { SequelizeStorage, Umzug } from 'umzug';
 import type { Environment } from '../config/environment';
+import { resolveMigrationTarget } from './migration-target';
 
 const MIGRATION_LOCK_SQL = `
 SELECT pg_advisory_lock(
@@ -37,8 +38,24 @@ export async function createMigrationRunner(environment: Environment): Promise<{
   database: Sequelize;
   migrator: Umzug<{ sequelize: Sequelize }>;
 }> {
-  const connectionUrl = environment.DATABASE_MIGRATOR_URL ?? environment.DATABASE_WRITER_URL;
-  const database = new Sequelize(connectionUrl, {
+  /*
+   * El migrador aporta el rol; la base la manda el writer. Una migracion
+   * aplicada donde la API no escribe termina en verde y no cambia nada de lo
+   * que se lee, que es la peor forma de fallar: el despliegue dice que si.
+   */
+  const target = resolveMigrationTarget(
+    environment.DATABASE_MIGRATOR_URL ?? environment.DATABASE_WRITER_URL,
+    environment.DATABASE_WRITER_URL,
+  );
+  if (target.redirectedFrom !== undefined) {
+    process.stdout.write(
+      `[migraciones] DATABASE_MIGRATOR_URL nombraba «${target.redirectedFrom}»; ` +
+        `se aplican sobre «${target.database}», que es donde escribe la API. ` +
+        `Corrige esa variable en el despliegue para que las dos coincidan.
+`,
+    );
+  }
+  const database = new Sequelize(target.url, {
     dialect: 'postgres',
     logging: false,
     dialectOptions: environment.DATABASE_SSL
