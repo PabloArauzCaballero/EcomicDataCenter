@@ -2,15 +2,17 @@ name: diagnose-deploy
 
 # Dice por que Coolify no consigue levantar un contenedor nuevo.
 #
-# Por que existe. El 2026-09-09 seis despliegues seguidos —de este repositorio y
-# del tablero— terminaron con «el contenedor nuevo no llego a servir». El
-# webhook se acepta, el contenedor viejo sigue en pie, y Coolify declara las dos
-# aplicaciones `running:healthy`. Desde fuera eso no distingue una construccion
-# que muere a medias de una que nunca se encola, y son fallos opuestos.
+# Por que existe. El 2026-09-09, seis despliegues seguidos —de este repositorio
+# y del tablero— terminaron con «el contenedor nuevo no llego a servir». Coolify
+# declara las dos aplicaciones `running:healthy` mientras sirven contenedores
+# anteriores a todos esos intentos, asi que desde fuera no se distingue una
+# construccion que muere de una que nunca se encola. Preguntando por la cola
+# aparecio lo que importa: los despliegues que antes tardaban dos minutos
+# empezaron a tardar dos horas y a fallar, y los dos ultimos fallaron en el
+# mismo minuto. Falta el log, que es lo unico que nombra la causa.
 #
-# Que hace. Entra a la tailnet y le pregunta a Coolify por su cola de
-# despliegues, por el commit que cree tener desplegado en cada aplicacion, y por
-# el log del ultimo intento. No despliega, no migra y no escribe nada: solo lee.
+# Que hace. Entra a la tailnet y pide a Coolify el log del ultimo despliegue de
+# cada aplicacion del observatorio. No despliega, no migra y no escribe nada.
 #
 # Que NO imprime. Un log de construccion puede llevar variables de entorno, y
 # esto va a un registro que ve cualquiera con acceso al repositorio. Todo lo que
@@ -44,7 +46,7 @@ jobs:
           authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
           args: --ssh=false
 
-      - name: Ask Coolify what it did with the deployment requests
+      - name: Read the log of the last deployment of each application
         env:
           TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
         run: |
@@ -65,29 +67,38 @@ jobs:
 
           unwrap='if type == "array" then . elif type == "object" and (.data | type) == "array" then .data else empty end'
 
-          echo "=== cola de despliegues de Coolify ==="
-          api "http://100.101.207.88/api/v1/deployments" | jq . 2>/dev/null | head -c 5000 | redact
-          echo
-
           api "http://100.101.207.88/api/v1/applications" \
             | jq -r "$unwrap"' | .[] | select((.name // "") | test("economic-observatory")) | .uuid' \
             > /tmp/uuids
 
           while read -r uuid; do
             [ -n "$uuid" ] || continue
+
+            api "http://100.101.207.88/api/v1/deployments/applications/$uuid" > /tmp/deployments.json || true
+
+            name=$(jq -r '.deployments[0].application_name // "?"' /tmp/deployments.json)
             echo
             echo "=========================================================="
-            echo "aplicacion $uuid"
+            echo "$name"
             echo "=========================================================="
+            echo "--- los cinco ultimos intentos ---"
+            jq -r '.deployments[0:5][] | "  \(.created_at)  \(.status)  \(.deployment_uuid)"' /tmp/deployments.json
 
-            echo "--- lo que Coolify cree tener desplegado ---"
-            api "http://100.101.207.88/api/v1/applications/$uuid" \
-              | jq '{name, status, git_branch, git_commit_sha, build_pack, ports_exposes, last_online_at, updated_at}' 2>/dev/null \
-              | redact
+            # El primero que no sea el que esta en cola ahora: el que fallo es
+            # el que tiene algo que contar.
+            jq -r '[.deployments[] | select(.status != "queued")][0].deployment_uuid // empty' /tmp/deployments.json \
+              > /tmp/last
+            last=$(cat /tmp/last)
+            [ -n "$last" ] || continue
 
-            for path in "applications/$uuid/deployments" "deployments/applications/$uuid"; do
-              echo "--- GET /api/v1/$path ---"
-              api "http://100.101.207.88/api/v1/$path" | head -c 3000 | redact
-              echo
-            done
+            echo
+            echo "--- final del log de $last ---"
+            api "http://100.101.207.88/api/v1/deployments/$last" > /tmp/one.json || true
+            # Coolify guarda el log como una cadena JSON con una entrada por
+            # linea; si no se deja leer asi, se imprime crudo antes que nada.
+            jq -r '.logs // empty' /tmp/one.json \
+              | jq -r '.[]? | "\(.output)"' 2>/dev/null \
+              | tail -n 60 \
+              | redact \
+              || jq -r '.logs // .' /tmp/one.json | tail -c 4000 | redact
           done < /tmp/uuids
