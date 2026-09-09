@@ -57,6 +57,7 @@
     "quality:physical-model": "python scripts/validate_physical_model.py",
     "db:verify:privileges": "sh scripts/verify_database_privileges.sh",
     "db:verify:migrations": "tsx src/database/cli/verify-migration-cycle.ts",
+    "snapshots:refresh": "tsx src/database/cli/refresh-read-model-snapshots.ts",
     "db:seed:validate": "tsx src/database/seeds/runners/validate-seed-files.ts",
     "quality:seeds": "python scripts/validate_seed_catalogs.py",
     "quality:persistence": "python scripts/validate_persistence.py",
