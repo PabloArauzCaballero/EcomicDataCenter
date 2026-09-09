@@ -1,0 +1,138 @@
+name: diagnose-deploy
+
+# Dice por que Coolify no consigue levantar un contenedor nuevo.
+#
+# Por que existe. El 2026-09-09 seis despliegues seguidos —de este repositorio y
+# del tablero— terminaron con «el contenedor nuevo no llego a servir». El
+# webhook se acepta, el contenedor viejo sigue en pie, y desde fuera las dos
+# causas posibles se ven igual: una construccion que muere a medias y una que
+# nunca empieza. La respuesta esta en el log de despliegue de Coolify, que vive
+# en un servidor sin publicar y al que nadie ha podido asomarse.
+#
+# Que hace. Entra a la tailnet, pregunta a Coolify por sus ultimos despliegues y
+# por el espacio que le queda al disco dentro del contenedor de la API. No
+# despliega, no migra y no escribe nada: solo lee.
+#
+# Que NO imprime. El log de construccion de Coolify puede llevar variables de
+# entorno, y este trabajo va a un registro que ve cualquiera con acceso al
+# repositorio. Por eso todo lo que sale pasa por un filtro que tacha cualquier
+# cosa con forma de credencial antes de escribirla.
+#
+# Se dispara al empujarlo, porque un `workflow_dispatch` solo se puede invocar
+# por nombre si el fichero existe tambien en la rama por defecto, y esto es un
+# diagnostico de una tarde, no una pieza del repositorio.
+
+on:
+  push:
+    paths:
+      - '.github/workflows/diagnose-deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: diagnose-deploy
+  cancel-in-progress: true
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Join the tailnet
+        uses: tailscale/github-action@v3
+        with:
+          authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
+          args: --ssh=false
+
+      - name: Ask Coolify why the container never served
+        env:
+          TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
+        run: |
+          set -u
+
+          api() {
+            curl --silent --show-error --max-time 120 \
+                 --header "Authorization: Bearer $TOKEN" \
+                 --header "Accept: application/json" \
+                 "$@"
+          }
+
+          # Tacha lo que tenga forma de credencial antes de que llegue al log:
+          # una URL con usuario y contraseña, y cualquier asignacion de una
+          # variable cuyo nombre huela a secreto.
+          redact() {
+            sed -E \
+              -e 's#([a-zA-Z+]+://[^:/@[:space:]]+):[^@[:space:]]+@#\1:***@#g' \
+              -e 's/((PASSWORD|SECRET|TOKEN|KEY|AUTHKEY|DSN|URL)[A-Z_]*[=:][[:space:]]*)[^[:space:]]+/\1***/gI'
+          }
+
+          unwrap='if type == "array" then . elif type == "object" and (.data | type) == "array" then .data else empty end'
+
+          list=$(api "http://100.101.207.88/api/v1/applications" | jq "$unwrap")
+          if [ -z "$list" ]; then
+            echo "Coolify no devolvio la lista de aplicaciones" >&2
+            exit 1
+          fi
+
+          printf '%s' "$list" | jq -r '.[] | "\(.uuid)\t\(.name // "sin nombre")\t\(.status // "?")"' \
+            | while IFS=$(printf '\t') read -r uuid name status; do
+                echo
+                echo "==================================================================="
+                echo "aplicacion: $name"
+                echo "estado:     $status"
+                echo "==================================================================="
+
+                deployments=$(api "http://100.101.207.88/api/v1/deployments/applications/$uuid?take=3" | jq "$unwrap" || true)
+                if [ -z "$deployments" ] || [ "$deployments" = "null" ]; then
+                  echo "(Coolify no devolvio despliegues para esta aplicacion)"
+                  continue
+                fi
+
+                printf '%s' "$deployments" \
+                  | jq -r '.[] | "  \(.created_at // "?")  \(.status // "?")  \(.deployment_uuid // .uuid // "?")"'
+
+                # El ultimo, con su log: es el que explica el fallo.
+                last=$(printf '%s' "$deployments" | jq -r '.[0].deployment_uuid // .[0].uuid // empty')
+                if [ -z "$last" ]; then continue; fi
+
+                echo
+                echo "--- ultimas lineas del despliegue $last ---"
+                api "http://100.101.207.88/api/v1/deployments/$last" \
+                  | jq -r '.logs // .deployment.logs // empty' \
+                  | tail -c 6000 \
+                  | redact
+              done
+
+      - name: Ask the running container how much disk is left
+        env:
+          TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
+        run: |
+          set -u
+
+          api() {
+            curl --silent --show-error --max-time 120 \
+                 --header "Authorization: Bearer $TOKEN" \
+                 --header "Accept: application/json" \
+                 "$@"
+          }
+
+          unwrap='if type == "array" then . elif type == "object" and (.data | type) == "array" then .data else empty end'
+
+          # El recurso de la API es el que no es el tablero: el que trae `dist`.
+          uuid=$(api "http://100.101.207.88/api/v1/applications" | jq -r "$unwrap"' | .[] | select((.name // "") | test("dashboard") | not) | .uuid' | head -n 1)
+          if [ -z "$uuid" ]; then
+            echo "no hay ninguna aplicacion que no sea el tablero" >&2
+            exit 0
+          fi
+
+          # `df` dentro del contenedor mira el mismo sistema de ficheros que usa
+          # Docker para construir: si ahi no queda sitio, ninguna imagen nueva
+          # llega a terminar y el despliegue muere sin decir por que.
+          response=$(api --request POST \
+            --header 'Content-Type: application/json' \
+            --data "$(jq -n '{command: "df -h / /tmp 2>&1; echo; echo NODE:; node -v"}')" \
+            "http://100.101.207.88/api/v1/applications/$uuid/execute")
+
+          printf '%s\n' "$response" | jq -r '.message // .output // .' 2>/dev/null || printf '%s\n' "$response"
