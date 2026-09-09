@@ -4,19 +4,17 @@ name: diagnose-deploy
 #
 # Por que existe. El 2026-09-09 seis despliegues seguidos —de este repositorio y
 # del tablero— terminaron con «el contenedor nuevo no llego a servir». El
-# webhook se acepta, el contenedor viejo sigue en pie, y desde fuera las dos
-# causas posibles se ven igual: una construccion que muere a medias y una que
-# nunca empieza. La respuesta esta en el log de despliegue de Coolify, que vive
-# en un servidor sin publicar y al que nadie ha podido asomarse.
+# webhook se acepta, el contenedor viejo sigue en pie, y Coolify declara las dos
+# aplicaciones `running:healthy`. Desde fuera eso no distingue una construccion
+# que muere a medias de una que nunca se encola, y son fallos opuestos.
 #
-# Que hace. Entra a la tailnet, pregunta a Coolify por sus ultimos despliegues y
-# por el espacio que le queda al disco dentro del contenedor de la API. No
-# despliega, no migra y no escribe nada: solo lee.
+# Que hace. Entra a la tailnet y le pregunta a Coolify por su cola de
+# despliegues, por el commit que cree tener desplegado en cada aplicacion, y por
+# el log del ultimo intento. No despliega, no migra y no escribe nada: solo lee.
 #
-# Que NO imprime. El log de construccion de Coolify puede llevar variables de
-# entorno, y este trabajo va a un registro que ve cualquiera con acceso al
-# repositorio. Por eso todo lo que sale pasa por un filtro que tacha cualquier
-# cosa con forma de credencial antes de escribirla.
+# Que NO imprime. Un log de construccion puede llevar variables de entorno, y
+# esto va a un registro que ve cualquiera con acceso al repositorio. Todo lo que
+# sale pasa antes por un filtro que tacha lo que tenga forma de credencial.
 #
 # Se dispara al empujarlo, porque un `workflow_dispatch` solo se puede invocar
 # por nombre si el fichero existe tambien en la rama por defecto, y esto es un
@@ -46,7 +44,7 @@ jobs:
           authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
           args: --ssh=false
 
-      - name: Ask Coolify why the container never served
+      - name: Ask Coolify what it did with the deployment requests
         env:
           TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
         run: |
@@ -59,9 +57,6 @@ jobs:
                  "$@"
           }
 
-          # Tacha lo que tenga forma de credencial antes de que llegue al log:
-          # una URL con usuario y contraseña, y cualquier asignacion de una
-          # variable cuyo nombre huela a secreto.
           redact() {
             sed -E \
               -e 's#([a-zA-Z+]+://[^:/@[:space:]]+):[^@[:space:]]+@#\1:***@#g' \
@@ -70,69 +65,29 @@ jobs:
 
           unwrap='if type == "array" then . elif type == "object" and (.data | type) == "array" then .data else empty end'
 
-          list=$(api "http://100.101.207.88/api/v1/applications" | jq "$unwrap")
-          if [ -z "$list" ]; then
-            echo "Coolify no devolvio la lista de aplicaciones" >&2
-            exit 1
-          fi
+          echo "=== cola de despliegues de Coolify ==="
+          api "http://100.101.207.88/api/v1/deployments" | jq . 2>/dev/null | head -c 5000 | redact
+          echo
 
-          printf '%s' "$list" | jq -r '.[] | "\(.uuid)\t\(.name // "sin nombre")\t\(.status // "?")"' \
-            | while IFS=$(printf '\t') read -r uuid name status; do
-                echo
-                echo "==================================================================="
-                echo "aplicacion: $name"
-                echo "estado:     $status"
-                echo "==================================================================="
+          api "http://100.101.207.88/api/v1/applications" \
+            | jq -r "$unwrap"' | .[] | select((.name // "") | test("economic-observatory")) | .uuid' \
+            > /tmp/uuids
 
-                deployments=$(api "http://100.101.207.88/api/v1/deployments/applications/$uuid?take=3" | jq "$unwrap" || true)
-                if [ -z "$deployments" ] || [ "$deployments" = "null" ]; then
-                  echo "(Coolify no devolvio despliegues para esta aplicacion)"
-                  continue
-                fi
+          while read -r uuid; do
+            [ -n "$uuid" ] || continue
+            echo
+            echo "=========================================================="
+            echo "aplicacion $uuid"
+            echo "=========================================================="
 
-                printf '%s' "$deployments" \
-                  | jq -r '.[] | "  \(.created_at // "?")  \(.status // "?")  \(.deployment_uuid // .uuid // "?")"'
+            echo "--- lo que Coolify cree tener desplegado ---"
+            api "http://100.101.207.88/api/v1/applications/$uuid" \
+              | jq '{name, status, git_branch, git_commit_sha, build_pack, ports_exposes, last_online_at, updated_at}' 2>/dev/null \
+              | redact
 
-                # El ultimo, con su log: es el que explica el fallo.
-                last=$(printf '%s' "$deployments" | jq -r '.[0].deployment_uuid // .[0].uuid // empty')
-                if [ -z "$last" ]; then continue; fi
-
-                echo
-                echo "--- ultimas lineas del despliegue $last ---"
-                api "http://100.101.207.88/api/v1/deployments/$last" \
-                  | jq -r '.logs // .deployment.logs // empty' \
-                  | tail -c 6000 \
-                  | redact
-              done
-
-      - name: Ask the running container how much disk is left
-        env:
-          TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
-        run: |
-          set -u
-
-          api() {
-            curl --silent --show-error --max-time 120 \
-                 --header "Authorization: Bearer $TOKEN" \
-                 --header "Accept: application/json" \
-                 "$@"
-          }
-
-          unwrap='if type == "array" then . elif type == "object" and (.data | type) == "array" then .data else empty end'
-
-          # El recurso de la API es el que no es el tablero: el que trae `dist`.
-          uuid=$(api "http://100.101.207.88/api/v1/applications" | jq -r "$unwrap"' | .[] | select((.name // "") | test("dashboard") | not) | .uuid' | head -n 1)
-          if [ -z "$uuid" ]; then
-            echo "no hay ninguna aplicacion que no sea el tablero" >&2
-            exit 0
-          fi
-
-          # `df` dentro del contenedor mira el mismo sistema de ficheros que usa
-          # Docker para construir: si ahi no queda sitio, ninguna imagen nueva
-          # llega a terminar y el despliegue muere sin decir por que.
-          response=$(api --request POST \
-            --header 'Content-Type: application/json' \
-            --data "$(jq -n '{command: "df -h / /tmp 2>&1; echo; echo NODE:; node -v"}')" \
-            "http://100.101.207.88/api/v1/applications/$uuid/execute")
-
-          printf '%s\n' "$response" | jq -r '.message // .output // .' 2>/dev/null || printf '%s\n' "$response"
+            for path in "applications/$uuid/deployments" "deployments/applications/$uuid"; do
+              echo "--- GET /api/v1/$path ---"
+              api "http://100.101.207.88/api/v1/$path" | head -c 3000 | redact
+              echo
+            done
+          done < /tmp/uuids
