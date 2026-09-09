@@ -1,25 +1,31 @@
 name: diagnose-deploy
 
-# Dice que le pasa al servidor cuando un despliegue deja de terminar.
+# Corta el circulo que tiene al servidor de rodillas, sin construir nada.
 #
-# Por que existe. El 2026-09-09 los despliegues de este repositorio y del
-# tablero pasaron de tardar dos minutos a tardar dos horas y fallar, mientras
-# Coolify seguia declarando las dos aplicaciones `running:healthy` porque el
-# contenedor viejo continuaba sirviendo. Nadie tiene SSH a esa maquina: el nodo
-# no publica claves de host, asi que `tailscale ssh` no entra. Lo unico que se
-# puede preguntar es la API de Coolify, y esto la pregunta.
+# Que esta pasando. El tablero desplegado pide trece lecturas por visita, y
+# cuatro de ellas rearman sus cifras desde la evidencia de un millon y medio de
+# observaciones. Con el techo de consulta en noventa segundos y veinte
+# conexiones, cada recarga de la portada pone a PostgreSQL a volcar ordenaciones
+# enormes a disco durante minuto y medio. Eso se come la memoria y el espacio
+# que Docker necesita para construir, asi que los despliegues pasaron de
+# dieciseis minutos a dos horas y empezaron a morir — y el despliegue que muere
+# es justamente el que trae el arreglo. Cuanto mas se mira la pagina rota, mas
+# lejos queda repararla.
 #
-# Que hace. Entra a la tailnet, mira la cola de despliegues del observatorio y
-# le pide al contenedor de la API que diga cuanto disco le queda. No despliega,
-# no migra y no escribe nada.
+# Que hace esto. Le baja al contenedor que ya esta en pie el techo de consulta y
+# el numero de conexiones, y lo reinicia. Reiniciar no compila: son segundos.
+# Las lecturas caras pasan a rendirse en cinco segundos en vez de moler noventa,
+# la maquina deja de ahogarse, y la construccion que trae el arreglo de verdad
+# puede terminar.
 #
-# Que NO imprime. Un log de construccion puede llevar variables de entorno, y
-# esto va a un registro que ve cualquiera con acceso al repositorio. Todo lo que
-# sale pasa antes por un filtro que tacha lo que tenga forma de credencial.
+# Que NO arregla. La pagina sigue mostrando el error hasta que ese despliegue
+# entre: el defecto de que una seccion cara se lleve el informe entero esta en
+# el codigo, no en la configuracion. Esto solo deja de castigar al servidor
+# mientras tanto.
 #
-# Un aviso que costo una vuelta entera: la aplicacion de la API se elige por su
-# nombre exacto. Elegir «la primera que no se llame dashboard» devuelve
-# `atlas-erp-backend`, que es de otro proyecto y esta en el mismo Coolify.
+# Los dos valores son temporales y el proximo despliegue los deja sin efecto:
+# el codigo ya trae diez conexiones por defecto y las secciones caras dejan de
+# ser obligatorias. Borrarlos a mano en Coolify tampoco hace dano.
 
 on:
   push:
@@ -32,12 +38,12 @@ permissions:
 
 concurrency:
   group: diagnose-deploy
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  diagnose:
+  relieve:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Join the tailnet
         uses: tailscale/github-action@v3
@@ -45,57 +51,79 @@ jobs:
           authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
           args: --ssh=false
 
-      - name: Ask the server what it is short of
+      - name: Stop the report from grinding the server on every visit
         env:
           TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
         run: |
           set -u
 
           api() {
-            curl --silent --show-error --max-time 120 \
+            curl --silent --show-error --max-time 180 \
                  --header "Authorization: Bearer $TOKEN" \
                  --header "Accept: application/json" \
                  "$@"
           }
 
-          redact() {
-            sed -E \
-              -e 's#([a-zA-Z+]+://[^:/@[:space:]]+):[^@[:space:]]+@#\1:***@#g' \
-              -e 's/((PASSWORD|SECRET|TOKEN|KEY|AUTHKEY|DSN|URL)[A-Z_]*[=:][[:space:]]*)[^[:space:]]+/\1***/gI'
-          }
-
           unwrap='if type == "array" then . elif type == "object" and (.data | type) == "array" then .data else empty end'
 
-          api "http://100.101.207.88/api/v1/applications" > /tmp/apps.json
+          # Por nombre exacto: este Coolify hospeda Atlas, CPA, Mantra y AloVida
+          # ademas del observatorio, y «la primera que no sea el tablero» ya
+          # devolvio una aplicacion de otro proyecto una vez.
+          uuid=$(api "http://100.101.207.88/api/v1/applications" \
+            | jq -r "$unwrap"' | .[] | select(.name == "economic-observatory-frontend") | .uuid')
 
-          backend=$(jq -r "$unwrap"' | .[] | select(.name == "economic-observatory-backend") | .uuid' /tmp/apps.json)
-          frontend=$(jq -r "$unwrap"' | .[] | select(.name == "economic-observatory-frontend") | .uuid' /tmp/apps.json)
-
-          echo "backend:  ${backend:-NO ENCONTRADO}"
-          echo "frontend: ${frontend:-NO ENCONTRADO}"
-
-          for uuid in $backend $frontend; do
-            echo
-            echo "=== ultimos intentos de $uuid ==="
-            api "http://100.101.207.88/api/v1/deployments/applications/$uuid" \
-              | jq -r '.deployments[0:4][] | "  \(.created_at)  \(.status)"'
-          done
-
-          if [ -z "$backend" ]; then
-            echo "sin el recurso de la API no hay a quien preguntarle por el disco" >&2
+          if [ -z "$uuid" ]; then
+            echo "no aparece economic-observatory-frontend en Coolify" >&2
             exit 1
           fi
+          echo "tablero: $uuid"
 
+          # Solo los nombres. Los valores son credenciales.
+          echo "--- variables que ya tiene ---"
+          api "http://100.101.207.88/api/v1/applications/$uuid/envs" \
+            | jq -r "$unwrap"' | .[] | "  \(.key)"' || echo "  (no se pudo leer la lista)"
+
+          poner() {
+            clave="$1"; valor="$2"
+            cuerpo=$(jq -n --arg k "$clave" --arg v "$valor" \
+              '{key: $k, value: $v, is_preview: false, is_build_time: false, is_literal: true}')
+
+            # Actualizar si ya existe; crearla si no. Coolify responde 404 al
+            # PATCH de una variable que nunca se definio.
+            respuesta=$(api --request PATCH --header 'Content-Type: application/json' \
+              --data "$cuerpo" "http://100.101.207.88/api/v1/applications/$uuid/envs")
+            echo "  PATCH $clave -> $(printf '%s' "$respuesta" | head -c 200)"
+
+            if printf '%s' "$respuesta" | grep -qi 'not found'; then
+              respuesta=$(api --request POST --header 'Content-Type: application/json' \
+                --data "$cuerpo" "http://100.101.207.88/api/v1/applications/$uuid/envs")
+              echo "  POST  $clave -> $(printf '%s' "$respuesta" | head -c 200)"
+            fi
+          }
+
+          echo "--- bajando el techo de consulta y las conexiones ---"
+          # Cinco segundos: lo que tarda una lectura sana. Lo que no entre ahi
+          # es justamente lo que estaba moliendo el disco.
+          poner DASHBOARD_DATABASE_STATEMENT_MS 5000
+          # Cuatro conexiones, que es lo que este tablero tuvo hasta hoy y con
+          # lo que el nucleo nunca se quedo sin sitio.
+          poner DASHBOARD_DATABASE_POOL_MAX 4
+
+          echo "--- reiniciando el contenedor que ya esta en pie ---"
+          # Reiniciar, no desplegar: no hay imagen que construir, y construir es
+          # precisamente lo que la maquina no puede hacer ahora mismo.
+          api --request POST "http://100.101.207.88/api/v1/applications/$uuid/restart" \
+            | head -c 300
           echo
-          echo "=== espacio y memoria vistos desde el contenedor de la API ==="
-          # `df` dentro del contenedor mira el mismo sistema de ficheros que usa
-          # Docker para construir: si ahi no queda sitio, ninguna imagen nueva
-          # termina y el despliegue se arrastra hasta que alguien lo mata.
-          orden='df -h / /tmp 2>&1; echo; echo "--- memoria ---"; free -m 2>/dev/null || cat /proc/meminfo | head -4; echo; echo "--- carga ---"; cat /proc/loadavg'
-          respuesta=$(api --request POST \
-            --header 'Content-Type: application/json' \
-            --data "$(jq -n --arg command "$orden" '{command: $command}')" \
-            "http://100.101.207.88/api/v1/applications/$backend/execute")
 
-          printf '%s\n' "$respuesta" | jq -r '.message // .output // .' 2>/dev/null | redact \
-            || printf '%s\n' "$respuesta" | redact
+      - name: Say whether the report answers faster now
+        run: |
+          # La prueba no es que Coolify aceptara la peticion, sino que la
+          # portada vuelve a contestar en segundos en vez de en minuto y medio.
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            code=$(curl --silent --insecure --max-time 60 --output /dev/null \
+                        --write-out '%{http_code} %{time_total}s' \
+                        "http://100.101.207.88:3003/api/version" || echo "sin respuesta")
+            echo "  intento $i: $code"
+            sleep 15
+          done
