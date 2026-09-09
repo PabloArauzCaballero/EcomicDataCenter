@@ -97,4 +97,4 @@ jobs:
           # La prueba no es que el comando volviera, sino que las lecturas que
           # no terminaban ya terminan. `fallidos` es el numero a mirar: cuatro
           # antes de esto, y lo que quede despues es lo que sigue sin arreglarse.
-          curl --silent --max-time 300 "http://100.101.207.88:3003/api/readers"             | jq '{base: .base.nombre, fallidos, sinLeer: [.lectores[] | select(.ok | not) | .name]}'
+          curl --silent --max-time 300 "http://100.101.207.88:3003/api/readers" | jq '{base: .base.nombre, fallidos, sinLeer: [.lectores[] | select(.ok | not) | .name]}'
