@@ -85,6 +85,7 @@
     "release:verify": "sh scripts/run_release_verification.sh",
     "macro:collect": "tsx scripts/macro/collect-worldbank-series.ts",
     "macro:panel": "tsx scripts/macro/collect-worldbank-panel.ts",
+    "macro:world": "tsx scripts/macro/collect-worldbank-world.ts",
     "bcb:ufv": "tsx scripts/bcb/collect-ufv-history.ts",
     "bbv:yields": "tsx scripts/bbv/collect-bbv-yields.ts",
     "bbv:filings": "tsx scripts/bbv/collect-bbv-filings.ts",
