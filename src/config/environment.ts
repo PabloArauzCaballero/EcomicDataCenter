@@ -59,6 +59,20 @@ const environmentSchema = z
       .enum(['true', 'false'])
       .default('true')
       .transform((value) => value === 'true'),
+    /**
+     * Whether a replica fills, after it is listening, the stored copies of the
+     * read models a migration created empty.
+     *
+     * On by default for the same reason provisioning is: the platform offers
+     * no step to hang the rebuild on, and a hand-run one was killed halfway on
+     * 2026-09-09 by the deploy that replaced its container. Off is for a
+     * server that cannot afford the rebuild right now and an operator who
+     * will run it by hand.
+     */
+    SNAPSHOT_REFRESH_ON_BOOT: z
+      .enum(['true', 'false'])
+      .default('true')
+      .transform((value) => value === 'true'),
     DATABASE_CONNECT_TIMEOUT_MS: z.coerce.number().int().min(1000).max(60_000).default(5000),
     DATABASE_POOL_MAX_WRITER: z.coerce.number().int().min(1).max(100).default(15),
     DATABASE_POOL_MAX_READER: z.coerce.number().int().min(1).max(100).default(30),

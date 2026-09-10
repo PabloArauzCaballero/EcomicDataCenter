@@ -73,6 +73,20 @@ describe('environment validation', () => {
     expect(getEnvironment().AUTH_MODE).toBe('agent_key');
   });
 
+  it('fills the empty stored copies after boot unless told not to', () => {
+    process.env.NODE_ENV = 'production';
+    process.env.AUTH_MODE = 'agent_key';
+    process.env.AGENT_INGESTION_KEY = 'BiHDBaxsivqe4nT1UmWmL4qJgTArzPZAr6iN7WWs';
+    process.env.DATABASE_MIGRATOR_URL = 'postgresql://migrator:test@localhost/db';
+    delete process.env.SNAPSHOT_REFRESH_ON_BOOT;
+    resetEnvironmentForTests();
+    expect(getEnvironment().SNAPSHOT_REFRESH_ON_BOOT).toBe(true);
+
+    process.env.SNAPSHOT_REFRESH_ON_BOOT = 'false';
+    resetEnvironmentForTests();
+    expect(getEnvironment().SNAPSHOT_REFRESH_ON_BOOT).toBe(false);
+  });
+
   it('rejects the collector mode without a key', () => {
     process.env.AUTH_MODE = 'agent_key';
     resetEnvironmentForTests();
