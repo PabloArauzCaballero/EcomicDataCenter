@@ -216,6 +216,17 @@
       "specialty": "Lugares de Santa Cruz de la Sierra, La Paz y Cochabamba clasificados en 201 familias de entidad",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000015",
+      "code": "NATIONAL_POI",
+      "name": "Registro nacional de lugares de Bolivia",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Overture Maps Foundation y OpenStreetMap",
+      "modelIdentifier": "bolivia-national-places-2026-09-11",
+      "specialty": "Lugares de todo el territorio boliviano leidos de Overture y de OpenStreetMap, clasificados en familias de entidad",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

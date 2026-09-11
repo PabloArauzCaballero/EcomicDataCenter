@@ -35,6 +35,7 @@ import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
 import { reconcileMarketPrices } from './boot-seed.market-prices';
 import { reconcileBcbQuotes } from './boot-seed.bcb-quotes';
 import { reconcileBoliviaPoi } from './boot-seed.bolivia-poi';
+import { reconcileBoliviaNationalPoi } from './boot-seed.bolivia-national-poi';
 import { reconcileUfvHistory } from './boot-seed.ufv-history';
 import { reconcileBbvYields } from './boot-seed.bbv-yields';
 import { reconcileCompositeIndices } from './boot-seed.composite-indices';
@@ -135,6 +136,7 @@ const SELECTABLE = [
   'press-archive',
   'social-readings',
   'bolivia-poi',
+  'bolivia-national-poi',
   'worldbank-panel',
 ] as const;
 
@@ -182,6 +184,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['social-readings', reconcileSocialReadings],
   ['worldbank-panel', reconcileWorldBankPanel],
   ['bolivia-poi', reconcileBoliviaPoi],
+  ['bolivia-national-poi', reconcileBoliviaNationalPoi],
 ];
 
 /** Reconciles the minimum non-secret catalog required by every environment. */

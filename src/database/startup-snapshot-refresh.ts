@@ -33,10 +33,7 @@ export interface BootLog {
  * Nothing here can take the process down. A rebuild that fails is a section
  * the report will show as unread, which is exactly what it showed before.
  */
-export async function refreshSnapshotsAfterBoot(
-  database: Sequelize,
-  log: BootLog,
-): Promise<void> {
+export async function refreshSnapshotsAfterBoot(database: Sequelize, log: BootLog): Promise<void> {
   const report = {
     line: (text: string) => log.log(`[copias] ${text}`),
     problem: (text: string) => log.warn(`[copias] ${text}`),
