@@ -53,6 +53,12 @@ const cartographicPlace = {
   socials: [],
   warnings: ['familia_generica_no_refinada'],
   sourceDatasetUrl: 'https://download.geofabrik.de/south-america/bolivia-260909-free.shp.zip',
+  sourceRecordUrl: 'https://www.openstreetmap.org/node/270749762',
+  snapshotTakenAt: null,
+  sourceTags: null,
+  openingHours: null,
+  department: null,
+  resemblesHeldPlace: null,
   licence: 'ODbL-1.0',
   observationId: 'bo20260911:05:45743',
 };
@@ -119,10 +125,72 @@ describe('bolivia national place seed', () => {
     expect(seed.places[0]?.positionMethod).toBe('centroid_main_ring_inside_area');
   });
 
-  it('refuses a field the corpus does not define', () => {
+  /*
+   * `city` es justo lo que este corpus no tiene. La entrega nacional no publica
+   * ciudad en ninguna fila, y la ampliacion publica municipio, que no es lo
+   * mismo. Aceptar el campo dejaria entrar una ciudad inventada por quien
+   * construya la siembra.
+   */
+  it('refuses a city, which is the field this corpus does not have', () => {
     expect(() =>
-      boliviaNationalPoiSchema.parse(seedWith(placeWith({ department: 'Santa Cruz' }))),
+      boliviaNationalPoiSchema.parse(seedWith(placeWith({ city: 'Santa Cruz de la Sierra' }))),
     ).toThrow();
+  });
+
+  /*
+   * La ampliacion de Cochabamba y La Paz llega despues, con otra forma: lee
+   * OpenStreetMap en vivo, no nombra archivo de origen, y si resuelve el
+   * municipio y el departamento que la entrega nacional no resuelve.
+   */
+  it('accepts the expansion, which names no source file but does name a department', () => {
+    const expansion = placeWith({
+      placeId: 'osm:way:294119664',
+      locality: 'Cochabamba',
+      department: 'Cochabamba',
+      classificationMethod: 'puente_explicito_tags_osm_a_codigos_existentes',
+      positionMethod: 'centro_bbox_objeto_osm_no_es_entrada',
+      dataLevel: 'NOMBRE_ACTIVIDAD_Y_COORDENADAS',
+      sourceDatasetUrl: null,
+      sourceRecordUrl: 'https://www.openstreetmap.org/way/294119664',
+      snapshotTakenAt: '2026-09-12T01:23:17Z',
+      sourceTags: { name: 'Planta de Tratamiento', man_made: 'wastewater_plant' },
+      openingHours: 'Mo-Fr 08:00-16:00',
+    });
+    const seed = boliviaNationalPoiSchema.parse(seedWith(expansion));
+    expect(seed.places[0]?.department).toBe('Cochabamba');
+    expect(seed.places[0]?.sourceDatasetUrl).toBeNull();
+  });
+
+  /*
+   * Los dos corpus no pueden chocar por identificador —uno es Overture y el
+   * otro OpenStreetMap— asi que el unico aviso de que son la misma heladeria
+   * es este campo. Se guarda como sospecha: fundirlos borraria una segunda
+   * sucursal real en la misma manzana.
+   */
+  it('carries a resemblance to a held place without merging it', () => {
+    const suspected = placeWith({
+      name: 'Heladería Dumbo',
+      resemblesHeldPlace: {
+        placeId: '8d90062c-c1d6-4ee5-be43-4d48d909184f',
+        name: 'Dumbo',
+        metres: 5,
+      },
+    });
+    const seed = boliviaNationalPoiSchema.parse(seedWith(suspected));
+    expect(seed.places[0]?.resemblesHeldPlace?.metres).toBe(5);
+    expect(seed.places[0]?.placeId).not.toBe(seed.places[0]?.resemblesHeldPlace?.placeId);
+  });
+
+  /*
+   * Un telefono de la ampliacion trae tres numeros pegados sin separador, tal
+   * como un mapeador los escribio. Cuarenta y dos caracteres.
+   */
+  it('accepts a telephone the mapper wrote as three numbers run together', () => {
+    const run = '+591 4 4254563+591 4 4254577+591 4 4257773';
+    expect(run.length).toBe(42);
+    expect(() =>
+      boliviaNationalPoiSchema.parse(seedWith(placeWith({ phones: [run] }))),
+    ).not.toThrow();
   });
 
   it('refuses a coordinate outside the country', () => {

@@ -80,6 +80,41 @@ Migración 0073, en `read_models`:
 - `national_place_family` — cuántos lugares por familia, cuántos regulados, cuántos
   con familia refinada, cuántos situados en una localidad y cuántos de cada publicador.
 
+## Segunda entrega: ampliación de Cochabamba y La Paz
+
+Recibida el 2026-09-12 como `altas.json` (5.721 filas, SHA-256
+`156aadc7…dc15d0d`, verificado). Lee OpenStreetMap en vivo, no un extracto
+distribuido, así que no nombra archivo de origen: trae el enlace permanente de
+cada objeto y la hora del snapshot. A cambio resuelve **municipio y
+departamento**, que la entrega nacional no resuelve.
+
+| Hecho medido | Cifra |
+| --- | --- |
+| Altas entregadas | 5.721 |
+| Identidades repetidas contra el paquete de 76.412 | 0 (verificado) |
+| Identidades repetidas contra las 35.101 observaciones auxiliares | 0 (verificado) |
+| Familias en el catálogo de 201, todas ya refinadas | 3.404 |
+| Familias `OV_*` sin definir | 2.317 en 11 familias |
+| **Se parecen a un lugar ya guardado** | **95** |
+
+```sh
+node scripts/places/build-expansion-poi-seed.mjs   --altas <altas.json>   --catalogue <catálogo de familias>   --expected-sha256 156aadc76da871b02c8d2a9d3cb95dc137ea676fe3bcc5683d2f90622dc15d0d   --partial
+```
+
+La huella se comprueba antes de leer nada: si el archivo no es el que la entrega
+declara, el script para. `--partial` escribe sólo lo que el catálogo cubre, y
+aquí es defendible porque **ninguna de esas 3.404 filas es de familia genérica**:
+un catálogo posterior no tiene qué reclasificar, así que no habrá que superarlas.
+No vale como permiso general — en la entrega nacional dos tercios sí son
+genéricas y por eso allí no se escribe nada a medias.
+
+**Los 95 parecidos no se funden.** Los dos corpus no pueden chocar por
+identificador —uno es Overture, el otro OpenStreetMap— así que nada aguas arriba
+podía ver que «Heladería Dumbo» y «Dumbo», a cinco metros, son la misma
+heladería. Se marcan con `resembles_held_place_id` y su distancia, y quien cuenta
+decide si los descuenta. Fundirlos borraría una segunda sucursal real en la misma
+manzana.
+
 ## Lo que el corpus no dice
 
 - **No hay ciudad ni departamento.** La entrega no los publica: `region` viene vacío
@@ -93,5 +128,8 @@ Migración 0073, en `read_models`:
   Lo dice `position_method`.
 - **Nada está verificado en campo.** La entrega lo declara: `operacion_actual_verificada`
   y `existencia_actual_verificada_en_campo` son falsos en los 76.412 registros.
+- **La ampliación sitúa por pertenencia a un área de OpenStreetMap**, no por
+  frontera oficial: la propia entrega lo llama `no_limite_certificado`. El
+  departamento de `national_place` se lee con esa reserva.
 - **Dos licencias.** Overture llega bajo CDLA-Permissive-2.0 y OpenStreetMap bajo
   ODbL-1.0. La segunda obliga a atribuir; cada fila lleva la suya en `licence`.

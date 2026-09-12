@@ -101,6 +101,8 @@ function toPlace(record, family) {
     publisher: PUBLISHERS[record.fuente],
     name: record.nombre,
     locality,
+    // La entrega nacional no resuelve el departamento; la ampliacion si.
+    department: null,
     address,
     latitude: record.latitud,
     longitude: record.longitud,
@@ -124,6 +126,11 @@ function toPlace(record, family) {
     socials: contactList(record.socials),
     warnings: record.advertencias ?? [],
     sourceDatasetUrl: record.source_dataset_url,
+    sourceRecordUrl: record.source_url ?? null,
+    snapshotTakenAt: null,
+    sourceTags: null,
+    openingHours: null,
+    resemblesHeldPlace: null,
     licence: record.license_dataset,
     observationId: record.observacion_id,
   };

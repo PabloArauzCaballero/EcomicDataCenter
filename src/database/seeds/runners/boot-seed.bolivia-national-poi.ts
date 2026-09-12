@@ -38,7 +38,15 @@ const CHUNK = 500;
  * En piezas de mil doscientos el pico es el de una pieza y la carga sigue
  * siendo una sola transaccion.
  */
-const NATIONAL_POI_DIR = 'boot/bolivia-national-poi';
+/*
+ * Dos entregas, un solo corpus. La nacional lee todo el pais desde Overture y
+ * OpenStreetMap; la ampliacion lee Cochabamba y La Paz de OpenStreetMap en
+ * vivo. Comparten esquema, categoria de dato y modelo de lectura, y cada una
+ * trae su propia procedencia, asi que cada una registra su propio artefacto.
+ * Se listan por separado para que anadir una tercera no obligue a tocar nada
+ * mas que esta constante.
+ */
+const PLACE_DIRECTORIES = ['boot/bolivia-national-poi', 'boot/bolivia-expansion-poi'] as const;
 
 /**
  * One place, shaped like the record an ingestion path would submit.
@@ -58,6 +66,7 @@ function placePayload(seed: BoliviaNationalPoi, place: NationalPoiPlace): Record
     publisher: place.publisher,
     name: place.name,
     locality: place.locality,
+    department: place.department,
     address: place.address,
     latitude: place.latitude,
     longitude: place.longitude,
@@ -81,6 +90,11 @@ function placePayload(seed: BoliviaNationalPoi, place: NationalPoiPlace): Record
     socials: place.socials,
     warnings: place.warnings,
     sourceDatasetUrl: place.sourceDatasetUrl,
+    sourceRecordUrl: place.sourceRecordUrl,
+    snapshotTakenAt: place.snapshotTakenAt,
+    sourceTags: place.sourceTags,
+    openingHours: place.openingHours,
+    resemblesHeldPlace: place.resemblesHeldPlace,
     licence: place.licence,
     observationId: place.observationId,
     countryCode: seed.provenance.countryCode,
@@ -153,23 +167,31 @@ async function alreadyHeld(
   return held;
 }
 
+/** Las piezas de una entrega, o ninguna si esa entrega aun no se ha construido. */
+async function piecesOf(relativeDirectory: string): Promise<string[]> {
+  try {
+    const names = await readdir(join(__dirname, '..', relativeDirectory));
+    return names
+      .filter((name) => name.endsWith('.json'))
+      .sort()
+      .map((name) => `${relativeDirectory}/${name}`);
+  } catch {
+    // Un corpus que nadie ha construido todavia no es una carga rota.
+    return [];
+  }
+}
+
 export async function reconcileBoliviaNationalPoi(
   sourceId: string,
   transaction: Transaction,
 ): Promise<void> {
-  const directory = join(__dirname, '..', NATIONAL_POI_DIR);
-  let files: string[];
-  try {
-    files = (await readdir(directory)).filter((name) => name.endsWith('.json')).sort();
-  } catch {
-    // Un corpus que nadie ha construido todavia no es una carga rota.
-    return;
-  }
-  if (files.length === 0) return;
+  const pieces: string[] = [];
+  for (const directory of PLACE_DIRECTORIES) pieces.push(...(await piecesOf(directory)));
+  if (pieces.length === 0) return;
 
   const agentRunId = await reconcileHistoryRun(AGENT_CODE, transaction);
-  for (const file of files) {
-    await loadPiece(`${NATIONAL_POI_DIR}/${file}`, sourceId, agentRunId, transaction);
+  for (const piece of pieces) {
+    await loadPiece(piece, sourceId, agentRunId, transaction);
   }
 }
 

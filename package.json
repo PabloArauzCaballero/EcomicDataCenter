@@ -44,7 +44,7 @@
     "bcb:collect": "tsx scripts/bcb/collect-bcb-quotes.ts",
     "quality:sources": "tsx scripts/quality/measure-collection-quality.ts",
     "soak": "node scripts/soak-test.mjs",
-    "quality:syntax": "node --check eslint.config.mjs && node --check jest.config.cjs && node --check scripts/check_identifier_language.cjs && node --check scripts/check_typescript_syntax.cjs && node --check scripts/create-local-env.cjs && node --check scripts/verify-local-stack.cjs && node --check scripts/soak-test.mjs && node --check scripts/places/read-national-delivery.mjs && node --check scripts/places/read-family-catalogue.mjs && node --check scripts/places/build-national-poi-seed.mjs && node scripts/check_typescript_syntax.cjs",
+    "quality:syntax": "node --check eslint.config.mjs && node --check jest.config.cjs && node --check scripts/check_identifier_language.cjs && node --check scripts/check_typescript_syntax.cjs && node --check scripts/create-local-env.cjs && node --check scripts/verify-local-stack.cjs && node --check scripts/soak-test.mjs && node --check scripts/places/read-national-delivery.mjs && node --check scripts/places/read-family-catalogue.mjs && node --check scripts/places/build-national-poi-seed.mjs && node --check scripts/places/read-expansion-delivery.mjs && node --check scripts/places/build-expansion-poi-seed.mjs && node scripts/check_typescript_syntax.cjs",
     "quality:naming": "node scripts/check_identifier_language.cjs",
     "quality:project": "python scripts/validate_project.py",
     "quality:openapi": "python scripts/validate_openapi.py",
