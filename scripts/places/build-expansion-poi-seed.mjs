@@ -34,6 +34,8 @@ import {
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const PLACES_PER_PIECE = 1200;
 const SOURCE = 'https://files.catbox.moe/tgyjlv.json';
+/** El informe que acompano a la primera ampliacion, hasheado una vez. */
+const REPORT_SHA256 = '902aff872ce65ec7ec10efd4a2dbe3ba9a2c08529fa7a41f59a50248612b23fb';
 
 function readArguments(argv) {
   const options = new Map();
@@ -41,8 +43,8 @@ function readArguments(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
     if (!argument.startsWith('--')) throw new Error(`unexpected argument ${argument}`);
-    if (argument === '--partial') {
-      flags.add('partial');
+    if (argument === '--partial' || argument === '--stable-only') {
+      flags.add(argument.slice(2));
       continue;
     }
     options.set(argument.slice(2), argv[index + 1]);
@@ -59,6 +61,10 @@ function readArguments(argv) {
     out: options.get('out') ?? join(ROOT, 'src/database/seeds/boot/bolivia-expansion-poi'),
     gaps: options.get('gaps') ?? join(ROOT, 'artifacts/expansion-poi-missing-families.json'),
     partial: flags.has('partial'),
+    stableOnly: flags.has('stable-only'),
+    source: options.get('source') ?? SOURCE,
+    release: options.get('release') ?? '2026-09-12',
+    report: options.get('report'),
   };
 }
 
@@ -79,16 +85,16 @@ async function fingerprint(path, expected) {
 }
 
 /** Everything about the delivery that is true of every place in it. */
-function provenanceOf(sha256, catalogue) {
+function provenanceOf(sha256, catalogue, options, reportSha256) {
   return {
     publishers: ['OpenStreetMap contributors'],
     // OpenStreetMap publica sin version; lo que identifica esta lectura es el
     // dia del snapshot, que es lo que cada fila trae en `timestamp_osm_base`.
-    release: '2026-09-12',
-    extractionDate: '2026-09-12',
+    release: options.release,
+    extractionDate: options.release,
     deliverySha256: sha256,
-    deliveryReportSha256: '902aff872ce65ec7ec10efd4a2dbe3ba9a2c08529fa7a41f59a50248612b23fb',
-    deliveryUri: SOURCE,
+    deliveryReportSha256: reportSha256,
+    deliveryUri: options.source,
     upstreamDatasets: ['https://www.openstreetmap.org/'],
     licences: ['ODbL-1.0'],
     geofenceMethod: 'osm_administrative_area',
@@ -147,7 +153,15 @@ async function main() {
   const heldPlaces = await readHeldPlacesForComparison(options.held, readdir, join);
   const grid = indexHeldPlaces(heldPlaces);
 
-  const delivery = await readExpansionDelivery(options.altas, catalogue, grid);
+  const reportSha256 = options.report
+    ? createHash('sha256')
+        .update(await readFile(options.report))
+        .digest('hex')
+    : REPORT_SHA256;
+
+  const delivery = await readExpansionDelivery(options.altas, catalogue, grid, {
+    stableOnly: options.stableOnly,
+  });
   const missing = [...delivery.missingFamilies.values()];
   const affected = missing.reduce((total, family) => total + family.records, 0);
 
@@ -158,6 +172,8 @@ async function main() {
   process.stdout.write(
     `sin familia:          ${affected} en ${delivery.missingFamilies.size} familias\n`,
   );
+  process.stdout.write(`esperan al catalogo:  ${delivery.awaitingRefinement}\n`);
+  process.stdout.write(`sin licencia abierta: ${delivery.withoutOpenLicence}\n`);
   process.stdout.write(`parecidos a uno ya guardado: ${delivery.resembling}\n`);
 
   if (delivery.missingFamilies.size > 0) {
@@ -177,7 +193,11 @@ async function main() {
     return;
   }
 
-  const pieces = await writePieces(options.out, provenanceOf(sha256, catalogue), delivery.places);
+  const pieces = await writePieces(
+    options.out,
+    provenanceOf(sha256, catalogue, options, reportSha256),
+    delivery.places,
+  );
   process.stdout.write(`\nsiembra escrita: ${pieces} piezas en ${options.out}\n`);
 }
 

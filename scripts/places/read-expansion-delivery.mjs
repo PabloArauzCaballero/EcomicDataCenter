@@ -170,7 +170,9 @@ export function toExpansionPlace(record, family, resemblance) {
     emails: contactList(record.emails),
     websites: contactList(record.websites),
     socials: contactList(record.socials),
-    warnings: record.advertencias ?? [],
+    // Las dos ampliaciones nombran igual la misma lista: la primera
+    // `advertencias`, la de las otras capitales `alertas_control`.
+    warnings: record.advertencias ?? record.alertas_control ?? [],
     sourceDatasetUrl: null,
     sourceRecordUrl: record.source_url ?? null,
     snapshotTakenAt: record.timestamp_osm_base ?? null,
@@ -190,13 +192,35 @@ export function toExpansionPlace(record, family, resemblance) {
  * Here the second rule cannot work by identifier, so it works by resemblance —
  * and it flags rather than drops, because a resemblance is not proof.
  */
-export async function readExpansionDelivery(path, catalogue, heldGrid) {
+export async function readExpansionDelivery(path, catalogue, heldGrid, options = {}) {
+  const { stableOnly = false } = options;
   const parsed = JSON.parse(await readFile(path, 'utf8'));
   const places = [];
   const missingFamilies = new Map();
   let resembling = 0;
+  let awaitingRefinement = 0;
+  let withoutOpenLicence = 0;
 
   for (const record of parsed.registros) {
+    /*
+     * Solo entra lo que llega bajo una licencia abierta comprobada. La entrega
+     * de las otras capitales trae 113 fichas de SEPREC cuya propia nota dice
+     * `sin_licencia_abierta_expresa_verificada`, y el informe que lee este
+     * corpus es publico. Republicar un registro mercantil ajeno sin saber bajo
+     * que condiciones se puede es una decision que no toma un cargador.
+     */
+    if (record.fuente !== 'osm') {
+      withoutOpenLicence += 1;
+      continue;
+    }
+    /*
+     * Una familia generica es una que el catalogo de 2.330 va a refinar. Aqui
+     * los datos son inmutables, asi que cargarla hoy obliga a superarla manana.
+     */
+    if (stableOnly && record.familia_generica) {
+      awaitingRefinement += 1;
+      continue;
+    }
     const family = catalogue.get(record.familia_codigo);
     if (!family) {
       const seen = missingFamilies.get(record.familia_codigo) ?? {
@@ -213,5 +237,12 @@ export async function readExpansionDelivery(path, catalogue, heldGrid) {
     places.push(toExpansionPlace(record, family, resemblance));
   }
 
-  return { places, missingFamilies, read: parsed.registros.length, resembling };
+  return {
+    places,
+    missingFamilies,
+    read: parsed.registros.length,
+    resembling,
+    awaitingRefinement,
+    withoutOpenLicence,
+  };
 }

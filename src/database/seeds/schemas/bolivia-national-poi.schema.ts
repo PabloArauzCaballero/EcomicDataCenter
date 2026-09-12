@@ -147,6 +147,7 @@ const place = z
       'clave_exacta_catalogo_v3',
       'puente_semantico_osm_catalogo_v3',
       'puente_explicito_tags_osm_a_codigos_existentes',
+      'puente_explicito_tags_osm_a_catalogo_2330',
     ]),
     /** The publisher's own category that the family was matched from. */
     categoryKey: z.string().trim().min(1).max(120),
@@ -184,6 +185,7 @@ const place = z
       'B_REGISTRO_CARTOGRAFICO',
       'CONTACTO_Y_DIRECCION_PUBLICADOS',
       'NOMBRE_ACTIVIDAD_Y_COORDENADAS',
+      'NOMBRE_CATEGORIA_Y_COORDENADAS',
     ]),
     /*
      * Sesenta, y no cuarenta: en la ampliacion hay un telefono de 42

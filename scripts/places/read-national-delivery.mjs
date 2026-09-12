@@ -23,6 +23,7 @@
 
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { resemblanceTo } from './read-expansion-delivery.mjs';
 
 /** Overture ships a bare UUID; the delivery prefixes it with the publisher. */
 const OVERTURE = 'overture';
@@ -93,7 +94,7 @@ function addressOf(record) {
  * `locality` so that nobody reads it as an administrative boundary it never
  * claimed to be.
  */
-function toPlace(record, family) {
+function toPlace(record, family, resemblance) {
   const { address, locality } = addressOf(record);
   return {
     placeId: record.id,
@@ -130,7 +131,7 @@ function toPlace(record, family) {
     snapshotTakenAt: null,
     sourceTags: null,
     openingHours: null,
-    resemblesHeldPlace: null,
+    resemblesHeldPlace: resemblance,
     licence: record.license_dataset,
     observationId: record.observacion_id,
   };
@@ -159,11 +160,19 @@ async function listBatches(deliveryDirectory) {
  * caller decides what to do with the third list; this function does not choose
  * to continue without it.
  */
-export async function readNationalDelivery(deliveryDirectory, catalogue, heldPlaceIds) {
+export async function readNationalDelivery(
+  deliveryDirectory,
+  catalogue,
+  heldPlaceIds,
+  options = {},
+) {
+  const { heldGrid = null, stableOnly = false } = options;
   const places = [];
   const missingFamilies = new Map();
   let read = 0;
   let alreadyHeld = 0;
+  let awaitingRefinement = 0;
+  let resembling = 0;
 
   for (const batch of await listBatches(deliveryDirectory)) {
     const parsed = JSON.parse(await readFile(batch, 'utf8'));
@@ -184,9 +193,26 @@ export async function readNationalDelivery(deliveryDirectory, catalogue, heldPla
         missingFamilies.set(record.familia_codigo, seen);
         continue;
       }
-      places.push(toPlace(record, family));
+      /*
+       * Una familia generica es una que el catalogo siguiente va a refinar: la
+       * entrega la marca con `familia_generica_no_refinada`. Cargarla ahora
+       * obliga a superar la fila despues, y aqui los datos son inmutables. Con
+       * `stableOnly` solo pasan las que nadie va a reclasificar.
+       */
+      if (stableOnly && record.familia_generica) {
+        awaitingRefinement += 1;
+        continue;
+      }
+      const resemblance = heldGrid ? resemblanceTo(heldGrid, toComparable(record)) : null;
+      if (resemblance) resembling += 1;
+      places.push(toPlace(record, family, resemblance));
     }
   }
 
-  return { places, missingFamilies, read, alreadyHeld };
+  return { places, missingFamilies, read, alreadyHeld, awaitingRefinement, resembling };
+}
+
+/** El detector de parecidos lee los nombres de campo de la ampliacion. */
+function toComparable(record) {
+  return { nombre: record.nombre, latitud: record.latitud, longitud: record.longitud };
 }

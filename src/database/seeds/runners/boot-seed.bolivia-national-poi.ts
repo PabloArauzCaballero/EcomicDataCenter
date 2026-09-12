@@ -46,7 +46,11 @@ const CHUNK = 500;
  * Se listan por separado para que anadir una tercera no obligue a tocar nada
  * mas que esta constante.
  */
-const PLACE_DIRECTORIES = ['boot/bolivia-national-poi', 'boot/bolivia-expansion-poi'] as const;
+const PLACE_DIRECTORIES = [
+  'boot/bolivia-national-poi',
+  'boot/bolivia-expansion-poi',
+  'boot/bolivia-capitals-poi',
+] as const;
 
 /**
  * One place, shaped like the record an ingestion path would submit.

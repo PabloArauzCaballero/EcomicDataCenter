@@ -26,15 +26,23 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFamilyCatalogue } from './read-family-catalogue.mjs';
 import { readHeldPlaceIds, readNationalDelivery } from './read-national-delivery.mjs';
+import { indexHeldPlaces, readHeldPlacesForComparison } from './read-expansion-delivery.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const PLACES_PER_PIECE = 1200;
 
 function readArguments(argv) {
   const options = new Map();
-  for (let index = 0; index < argv.length; index += 2) {
-    if (!argv[index].startsWith('--')) throw new Error(`unexpected argument ${argv[index]}`);
-    options.set(argv[index].slice(2), argv[index + 1]);
+  const flags = new Set();
+  for (let index = 0; index < argv.length; index += 1) {
+    const argument = argv[index];
+    if (!argument.startsWith('--')) throw new Error(`unexpected argument ${argument}`);
+    if (argument === '--stable-only') {
+      flags.add('stableOnly');
+      continue;
+    }
+    options.set(argument.slice(2), argv[index + 1]);
+    index += 1;
   }
   for (const required of ['delivery', 'metadata', 'catalogue']) {
     if (!options.get(required)) throw new Error(`--${required} is required`);
@@ -46,6 +54,7 @@ function readArguments(argv) {
     held: options.get('held') ?? join(ROOT, 'src/database/seeds/boot/bolivia-poi'),
     out: options.get('out') ?? join(ROOT, 'src/database/seeds/boot/bolivia-national-poi'),
     gaps: options.get('gaps') ?? join(ROOT, 'artifacts/national-poi-missing-families.json'),
+    stableOnly: flags.has('stableOnly'),
   };
 }
 
@@ -156,18 +165,40 @@ async function main() {
   const { report, sha256: reportSha256 } = await readDeliveryReport(options.metadata);
   const fingerprint = await deliveryFingerprint(options.metadata);
 
-  const delivery = await readNationalDelivery(options.delivery, catalogue, held);
+  const comparable = await readHeldPlacesForComparison(options.held, readdir, join);
+  const delivery = await readNationalDelivery(options.delivery, catalogue, held, {
+    heldGrid: indexHeldPlaces(comparable),
+    stableOnly: options.stableOnly,
+  });
   reportCounts(delivery.read, delivery.alreadyHeld, catalogue, delivery.places);
+  process.stdout.write(`esperan al catalogo v3: ${delivery.awaitingRefinement}\n`);
+  process.stdout.write(`parecidos a uno guardado: ${delivery.resembling}\n`);
 
   if (delivery.missingFamilies.size > 0) {
     await writeGapReport(options.gaps, delivery.missingFamilies, report);
     const seen = [...delivery.missingFamilies.values()];
     const affected = seen.reduce((total, family) => total + family.records, 0);
-    process.stdout.write('\nNO SE ESCRIBE LA SIEMBRA.\n');
     process.stdout.write(
-      `${delivery.missingFamilies.size} familias sin definir, ${affected} registros.\n`,
+      `
+${delivery.missingFamilies.size} familias sin definir, ${affected} registros.
+`,
     );
-    process.stdout.write(`Lo que falta esta en ${options.gaps}\n`);
+    process.stdout.write(`Lo que falta esta en ${options.gaps}
+`);
+    /*
+     * Sin `--stable-only` no se escribe nada: una siembra a medias de este
+     * corpus son dos tercios de filas que el catalogo v3 va a refinar y que
+     * habria que superar despues, y aqui los datos son inmutables. Con la
+     * bandera puesta solo quedan las que nadie va a reclasificar.
+     */
+    if (!options.stableOnly) {
+      process.stdout.write('NO SE ESCRIBE. Anade --stable-only para cargar lo estable.\n');
+      process.exitCode = 1;
+      return;
+    }
+  }
+  if (delivery.places.length === 0) {
+    process.stdout.write('No hay nada estable que escribir.\n');
     process.exitCode = 1;
     return;
   }
