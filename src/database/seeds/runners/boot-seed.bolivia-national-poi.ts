@@ -56,6 +56,7 @@ const PLACE_DIRECTORIES = [
    * directorio hace que retirarla sea borrar una carpeta y volver a desplegar.
    */
   'boot/bolivia-registry-poi',
+  'boot/bolivia-registry-additional-poi',
 ] as const;
 
 /**

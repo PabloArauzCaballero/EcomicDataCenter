@@ -67,7 +67,12 @@ const provenance = z.object({
   upstreamDatasets: z.array(z.string().trim().min(12).max(400)).min(1),
   /** Every licence the upstream records arrive under, named for the reader. */
   licences: z.array(z.string().trim().min(2).max(80)).min(1),
-  geofenceMethod: z.enum(['country_polygon', 'osm_administrative_area']),
+  /*
+   * `declared_municipality` es el del registro mercantil: nadie acoto nada, la
+   * sociedad declaro en que municipio esta. Es el mas debil de los tres y por
+   * eso tiene nombre propio en vez de pasar por uno de los otros dos.
+   */
+  geofenceMethod: z.enum(['country_polygon', 'osm_administrative_area', 'declared_municipality']),
   countryCode: z.literal('BO'),
   catalogueFamilies: z.number().int().positive(),
 });
