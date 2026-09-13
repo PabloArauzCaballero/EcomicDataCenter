@@ -50,6 +50,12 @@ const PLACE_DIRECTORIES = [
   'boot/bolivia-national-poi',
   'boot/bolivia-expansion-poi',
   'boot/bolivia-capitals-poi',
+  /*
+   * El registro mercantil va aparte del resto y no por orden: es la unica
+   * entrega que no llega bajo licencia abierta, y tenerla en su propio
+   * directorio hace que retirarla sea borrar una carpeta y volver a desplegar.
+   */
+  'boot/bolivia-registry-poi',
 ] as const;
 
 /**

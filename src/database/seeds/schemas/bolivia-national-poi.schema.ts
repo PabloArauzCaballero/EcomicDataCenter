@@ -89,11 +89,20 @@ const place = z
       .string()
       .trim()
       .regex(
-        /^(?:overture:[0-9a-f-]{36}|osm:(?:node|way|relation):\d{1,20}|geofabrik:[a-z_]{3,40}:\d{1,20})$/u,
+        /^(?:overture:[0-9a-f-]{36}|osm:(?:node|way|relation):\d{1,20}|geofabrik:[a-z_]{3,40}:\d{1,20}|seprec:establecimiento:\d{1,20})$/u,
       ),
     /** The same identifier as the publisher mints it, without the prefix. */
     publisherRecordId: z.string().trim().min(1).max(200),
-    publisher: z.enum(['Overture Maps Foundation', 'OpenStreetMap contributors']),
+    /**
+     * Quien publica el registro.
+     *
+     * Los dos primeros son cartografia. SEPREC no lo es: es el registro
+     * mercantil boliviano, y una fila suya dice que una sociedad declaro ese
+     * domicilio, no que alguien viera un local abierto ahi. La entrega lo
+     * subraya — `ACTIVO` y `MATRICULA RENOVADA` son estados registrales — y su
+     * licencia viaja en cada fila porque no es abierta como las otras dos.
+     */
+    publisher: z.enum(['Overture Maps Foundation', 'OpenStreetMap contributors', 'SEPREC']),
     name: z.string().trim().min(1).max(300),
     /**
      * The locality Overture printed, when it printed one.
@@ -148,9 +157,17 @@ const place = z
       'puente_semantico_osm_catalogo_v3',
       'puente_explicito_tags_osm_a_codigos_existentes',
       'puente_explicito_tags_osm_a_catalogo_2330',
+      'respaldo_generico_objeto_social_no_confirma_actividad_del_local',
     ]),
-    /** The publisher's own category that the family was matched from. */
-    categoryKey: z.string().trim().min(1).max(120),
+    /**
+     * The publisher's own category that the family was matched from.
+     *
+     * Null for a registry record, which has no category: SEPREC publishes a
+     * stated company purpose in prose, not a taxonomy key, and the delivery
+     * says in the same field that the purpose does not confirm what the
+     * premises actually does.
+     */
+    categoryKey: z.string().trim().min(1).max(120).nullable(),
     taxonomyHierarchy: z.array(z.string().trim().min(1).max(120)),
     basicCategory: z.string().trim().min(1).max(120).nullable(),
     /**
@@ -178,6 +195,7 @@ const place = z
         'original_outer_boundary_vertex',
         'nodo_osm_original',
         'centro_bbox_objeto_osm_no_es_entrada',
+        'coordenada_declarada_en_registro_no_entrada_verificada',
       ])
       .nullable(),
     dataLevel: z.enum([
@@ -186,6 +204,7 @@ const place = z
       'CONTACTO_Y_DIRECCION_PUBLICADOS',
       'NOMBRE_ACTIVIDAD_Y_COORDENADAS',
       'NOMBRE_CATEGORIA_Y_COORDENADAS',
+      'REGISTRO_PUBLICO_UBICACION_DECLARADA',
     ]),
     /*
      * Sesenta, y no cuarenta: en la ampliacion hay un telefono de 42

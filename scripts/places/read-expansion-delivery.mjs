@@ -139,17 +139,36 @@ function addressFrom(tagged) {
   return line.length > 0 ? line.slice(0, 300) : null;
 }
 
+/**
+ * El domicilio que una sociedad declaro al registro, escrito en una linea.
+ *
+ * SEPREC lo publica en campos —via, numero, edificio, piso— y nunca como
+ * linea. Se arma con las piezas que publico y con ninguna otra: es el
+ * domicilio declarado, no una direccion que alguien haya comprobado.
+ */
+function registryAddressFrom(declared) {
+  const parts = [];
+  const street = declared.nombreVia;
+  if (street)
+    parts.push(declared.numeroDomicilio ? `${street} ${declared.numeroDomicilio}` : street);
+  if (declared.edificio) parts.push(declared.edificio);
+  if (declared.piso) parts.push(`piso ${declared.piso}`);
+  const line = parts.join(', ').trim();
+  return line.length > 0 ? line.slice(0, 300) : null;
+}
+
 /** One place of the expansion, in the shape the national seed already uses. */
 export function toExpansionPlace(record, family, resemblance) {
   const tagged = record.direccion_fuente ?? {};
+  const fromRegistry = record.fuente === 'seprec';
   return {
     placeId: record.id,
-    publisherRecordId: record.id_original,
-    publisher: 'OpenStreetMap contributors',
+    publisherRecordId: record.id_original ?? record.id_establecimiento_fuente ?? record.id,
+    publisher: fromRegistry ? 'SEPREC' : 'OpenStreetMap contributors',
     name: record.nombre,
     locality: record.municipio_fuente,
     department: record.departamento,
-    address: addressFrom(tagged),
+    address: fromRegistry ? registryAddressFrom(tagged) : addressFrom(tagged),
     latitude: record.latitud,
     longitude: record.longitud,
     entityGroup: family.group,
@@ -160,16 +179,27 @@ export function toExpansionPlace(record, family, resemblance) {
     validationPriority: family.isRegulated ? 'HIGH' : 'NORMAL',
     genericFamily: record.familia_generica,
     classificationMethod: record.metodo_clasificacion,
-    categoryKey: record.clasificacion_tag,
+    categoryKey: record.clasificacion_tag ?? null,
     taxonomyHierarchy: [],
     basicCategory: null,
     confidence: null,
     positionMethod: record.metodo_posicion,
     dataLevel: record.nivel_datos,
-    phones: contactList(record.phones),
-    emails: contactList(record.emails),
-    websites: contactList(record.websites),
-    socials: contactList(record.socials),
+    /*
+     * De un registro mercantil no se guarda el contacto, y esto es lo unico
+     * que esta siembra descarta a proposito de lo que recibio.
+     *
+     * Las fichas traen correos y telefonos de particulares —buzones personales,
+     * no centralitas— y llegan bajo una licencia que la propia entrega marca
+     * `sin_licencia_abierta_expresa_verificada`. El corpus cartografico guarda
+     * sus contactos porque son de negocios y su licencia es abierta; estos no
+     * cumplen ninguna de las dos cosas. La razon social, el domicilio declarado
+     * y el objeto social entran enteros: es el registro, que es publico.
+     */
+    phones: fromRegistry ? [] : contactList(record.phones),
+    emails: fromRegistry ? [] : contactList(record.emails),
+    websites: fromRegistry ? [] : contactList(record.websites),
+    socials: fromRegistry ? [] : contactList(record.socials),
     // Las dos ampliaciones nombran igual la misma lista: la primera
     // `advertencias`, la de las otras capitales `alertas_control`.
     warnings: record.advertencias ?? record.alertas_control ?? [],
@@ -192,8 +222,25 @@ export function toExpansionPlace(record, family, resemblance) {
  * Here the second rule cannot work by identifier, so it works by resemblance —
  * and it flags rather than drops, because a resemblance is not proof.
  */
+/**
+ * Como se archiva un registro cuya familia el catalogo no define.
+ *
+ * `OTRA_ENTIDAD` no es un invento de aqui: es lo que la migracion 0070 decidio
+ * para el corpus de tres ciudades — un lugar que no casa con ninguna familia se
+ * queda asi, con su codigo nativo intacto, «en vez de descartarlo para que las
+ * familias parezcan completas». `isRegulated` queda en falso, que es la unica
+ * direccion segura: dice que nada aqui afirma que un regulador licencie esta
+ * actividad, y no lo contrario.
+ */
+const UNCLASSIFIED = {
+  group: 'OTRA_ENTIDAD',
+  commercialRole: 'OTHER',
+  isRegulated: false,
+  officialValidationSource: null,
+};
+
 export async function readExpansionDelivery(path, catalogue, heldGrid, options = {}) {
-  const { stableOnly = false } = options;
+  const { stableOnly = false, onlyRegistry = false } = options;
   const parsed = JSON.parse(await readFile(path, 'utf8'));
   const places = [];
   const missingFamilies = new Map();
@@ -209,8 +256,9 @@ export async function readExpansionDelivery(path, catalogue, heldGrid, options =
      * corpus es publico. Republicar un registro mercantil ajeno sin saber bajo
      * que condiciones se puede es una decision que no toma un cargador.
      */
-    if (record.fuente !== 'osm') {
-      withoutOpenLicence += 1;
+    const isRegistry = record.fuente !== 'osm';
+    if (isRegistry !== onlyRegistry) {
+      if (isRegistry) withoutOpenLicence += 1;
       continue;
     }
     /*
@@ -221,7 +269,9 @@ export async function readExpansionDelivery(path, catalogue, heldGrid, options =
       awaitingRefinement += 1;
       continue;
     }
-    const family = catalogue.get(record.familia_codigo);
+    const family = onlyRegistry
+      ? (catalogue.get(record.familia_codigo) ?? UNCLASSIFIED)
+      : catalogue.get(record.familia_codigo);
     if (!family) {
       const seen = missingFamilies.get(record.familia_codigo) ?? {
         records: 0,

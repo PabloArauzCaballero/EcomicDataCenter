@@ -43,7 +43,11 @@ function readArguments(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
     if (!argument.startsWith('--')) throw new Error(`unexpected argument ${argument}`);
-    if (argument === '--partial' || argument === '--stable-only') {
+    if (
+      argument === '--partial' ||
+      argument === '--stable-only' ||
+      argument === '--only-registry'
+    ) {
       flags.add(argument.slice(2));
       continue;
     }
@@ -62,6 +66,7 @@ function readArguments(argv) {
     gaps: options.get('gaps') ?? join(ROOT, 'artifacts/expansion-poi-missing-families.json'),
     partial: flags.has('partial'),
     stableOnly: flags.has('stable-only'),
+    onlyRegistry: flags.has('only-registry'),
     source: options.get('source') ?? SOURCE,
     release: options.get('release') ?? '2026-09-12',
     report: options.get('report'),
@@ -87,7 +92,7 @@ async function fingerprint(path, expected) {
 /** Everything about the delivery that is true of every place in it. */
 function provenanceOf(sha256, catalogue, options, reportSha256) {
   return {
-    publishers: ['OpenStreetMap contributors'],
+    publishers: options.onlyRegistry ? ['SEPREC'] : ['OpenStreetMap contributors'],
     // OpenStreetMap publica sin version; lo que identifica esta lectura es el
     // dia del snapshot, que es lo que cada fila trae en `timestamp_osm_base`.
     release: options.release,
@@ -95,8 +100,17 @@ function provenanceOf(sha256, catalogue, options, reportSha256) {
     deliverySha256: sha256,
     deliveryReportSha256: reportSha256,
     deliveryUri: options.source,
-    upstreamDatasets: ['https://www.openstreetmap.org/'],
-    licences: ['ODbL-1.0'],
+    upstreamDatasets: options.onlyRegistry
+      ? ['https://servicios.seprec.gob.bo/']
+      : ['https://www.openstreetmap.org/'],
+    /*
+     * La del registro no es una licencia abierta y no se la disfraza de una:
+     * se guarda la frase que la entrega escribio, para que quien republique
+     * esto lea la advertencia antes que el dato.
+     */
+    licences: options.onlyRegistry
+      ? ['informacion publica del directorio SEPREC; redistribucion no verificada']
+      : ['ODbL-1.0'],
     geofenceMethod: 'osm_administrative_area',
     countryCode: 'BO',
     catalogueFamilies: catalogue.size,
@@ -128,7 +142,7 @@ async function writeGapReport(path, missingFamilies) {
 }
 
 /** Replaces the seed directory, so a rebuild never leaves a stale piece behind. */
-async function writePieces(directory, provenance, places) {
+async function writePieces(directory, provenance, places, prefix = 'expansion-poi') {
   await mkdir(directory, { recursive: true });
   for (const stale of await readdir(directory)) {
     if (stale.endsWith('.json')) await unlink(join(directory, stale));
@@ -138,7 +152,7 @@ async function writePieces(directory, provenance, places) {
     const slice = places.slice(piece * PLACES_PER_PIECE, (piece + 1) * PLACES_PER_PIECE);
     const body = { dataset: 'bolivia-national-poi-v3', provenance, places: slice };
     await writeFile(
-      join(directory, `expansion-poi-${String(piece).padStart(3, '0')}.json`),
+      join(directory, `${prefix}-${String(piece).padStart(3, '0')}.json`),
       `${JSON.stringify(body)}\n`,
       'utf8',
     );
@@ -161,6 +175,7 @@ async function main() {
 
   const delivery = await readExpansionDelivery(options.altas, catalogue, grid, {
     stableOnly: options.stableOnly,
+    onlyRegistry: options.onlyRegistry,
   });
   const missing = [...delivery.missingFamilies.values()];
   const affected = missing.reduce((total, family) => total + family.records, 0);
@@ -197,6 +212,7 @@ async function main() {
     options.out,
     provenanceOf(sha256, catalogue, options, reportSha256),
     delivery.places,
+    options.onlyRegistry ? 'registry-poi' : 'expansion-poi',
   );
   process.stdout.write(`\nsiembra escrita: ${pieces} piezas en ${options.out}\n`);
 }
