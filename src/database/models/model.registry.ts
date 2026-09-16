@@ -52,6 +52,16 @@ import {
   RawObservationModel,
   ReviewTaskModel,
   AuditLogModel,
+  AlertDeliveryModel,
+  ExportRequestModel,
+  HealthIncidentModel,
+  HealthProbeModel,
+  IngestionEventModel,
+  ReadModelPublicationModel,
+  SeedApplicationModel,
+  SeedRunModel,
+  SourceExpectationModel,
+  TrafficEventModel,
 } from './index';
 
 export const DATABASE_MODELS = [
@@ -108,4 +118,14 @@ export const DATABASE_MODELS = [
   RawObservationModel,
   ReviewTaskModel,
   AuditLogModel,
+  AlertDeliveryModel,
+  ExportRequestModel,
+  HealthIncidentModel,
+  HealthProbeModel,
+  IngestionEventModel,
+  ReadModelPublicationModel,
+  SeedApplicationModel,
+  SeedRunModel,
+  SourceExpectationModel,
+  TrafficEventModel,
 ] as const;

@@ -112,12 +112,62 @@ async function listSnapshots(
   return rows.sort((a, b) => (rank.get(a.name) ?? 99) - (rank.get(b.name) ?? 99));
 }
 
+/** PostgreSQL's code for a function the server does not have. */
+
+const UNDEFINED_FUNCTION = '42883';
+
 /**
- * Rebuilds one copy the only way its state allows.
+ * Refreshes one stored copy by name, from anywhere that holds a connection.
  *
- * A copy that has never been populated cannot be refreshed CONCURRENTLY —
- * there is no old content to compare against. Once it holds rows, CONCURRENTLY
- * is the only acceptable form: a plain refresh takes an exclusive lock, and the
+ * The boot seeds need this as much as the rebuild loop does, and for the same
+ * reason: `REFRESH MATERIALIZED VIEW` requires ownership of the view, so
+ * running it straight from the writer works only where the writer happens to
+ * own the schema. That mismatch is what has kept continuous integration red
+ * while every catalogue loaded correctly — the load succeeded and the refresh
+ * that followed it did not.
+ *
+ * `read_models.refresh_snapshot` is the routine migration 0075 adds for this,
+ * and the direct statement stays as the fallback for a database that has not
+ * reached that migration.
+ */
+export async function refreshOneSnapshot(
+  database: { query(sql: string, options?: unknown): Promise<unknown> },
+  name: string,
+  concurrently: boolean,
+): Promise<void> {
+  try {
+    await database.query(
+      `SELECT read_models.refresh_snapshot('${name}', ${concurrently ? 'true' : 'false'})`,
+    );
+  } catch (error) {
+    const code = error as { parent?: { code?: unknown }; code?: unknown } | null;
+    const sqlState = code?.parent?.code ?? code?.code;
+    if (typeof sqlState !== 'string' || sqlState !== UNDEFINED_FUNCTION) throw error;
+    await database.query(
+      `REFRESH MATERIALIZED VIEW ${concurrently ? 'CONCURRENTLY ' : ''}read_models.${name}`,
+    );
+  }
+}
+
+/**
+ * Rebuilds one copy through the routine that is allowed to, or the old way.
+ *
+ * `REFRESH MATERIALIZED VIEW` requires ownership of the view, and no GRANT
+ * substitutes for it. Running it directly on the writer therefore works only
+ * where the writer happens to own the schema — production does, a database
+ * whose privileges match the design does not, and that mismatch is what has
+ * kept continuous integration red while every catalogue loaded correctly.
+ * Migration 0075 adds a routine that refreshes a named copy under the owner's
+ * authority and returns its row count, so the writer needs neither ownership
+ * nor SELECT on what it rebuilt.
+ *
+ * The direct statement stays as a fallback for a database that has not reached
+ * that migration yet — a boot path is the wrong place to discover that a
+ * routine is missing.
+ *
+ * A copy that has never been populated cannot be refreshed CONCURRENTLY: there
+ * is no old content to compare against. Once it holds rows, CONCURRENTLY is the
+ * only acceptable form, because a plain refresh takes an exclusive lock and the
  * report stops answering for as long as the rebuild lasts.
  */
 async function refreshOne(
@@ -130,14 +180,31 @@ async function refreshOne(
   // is watching cannot tell «working» from «stuck» without this line.
   report.line(`${snapshot.name.padEnd(34)} reconstruyendo (${how})...`);
   const started = Date.now();
-  const concurrently = snapshot.built ? 'CONCURRENTLY ' : '';
-  await session.query(`REFRESH MATERIALIZED VIEW ${concurrently}read_models.${snapshot.name}`);
-  const { rows } = await session.query<{ filas: string }>(
-    `SELECT count(*)::text AS filas FROM read_models.${snapshot.name}`,
-  );
-  const filas = rows[0]?.filas ?? '0';
+  const filas = await refreshThrough(session, snapshot);
   const seconds = Math.round((Date.now() - started) / 1000);
   report.line(`${snapshot.name.padEnd(34)} ${filas.padStart(9)} filas  ${seconds}s`);
+}
+
+async function refreshThrough(
+  session: RefreshSession,
+  snapshot: { name: string; built: boolean },
+): Promise<string> {
+  try {
+    const { rows } = await session.query<{ filas: string }>(
+      'SELECT read_models.refresh_snapshot($1, $2)::text AS filas',
+      [snapshot.name, snapshot.built],
+    );
+    return rows[0]?.filas ?? '0';
+  } catch (error) {
+    const code = (error as { code?: unknown } | null)?.code;
+    if (typeof code !== 'string' || code !== UNDEFINED_FUNCTION) throw error;
+    const concurrently = snapshot.built ? 'CONCURRENTLY ' : '';
+    await session.query(`REFRESH MATERIALIZED VIEW ${concurrently}read_models.${snapshot.name}`);
+    const { rows } = await session.query<{ filas: string }>(
+      `SELECT count(*)::text AS filas FROM read_models.${snapshot.name}`,
+    );
+    return rows[0]?.filas ?? '0';
+  }
 }
 
 /**
@@ -163,15 +230,26 @@ async function refreshOne(
 export async function refreshSnapshots(
   session: RefreshSession,
   report: RefreshReport,
-  options: { onlyUnbuilt: boolean },
+  options: { onlyUnbuilt: boolean; only?: readonly string[] },
 ): Promise<RefreshOutcome | null> {
   const { rows } = await session.query<{ held: boolean }>(LOCK_SQL);
   if (rows[0]?.held !== true) return null;
 
   await prepare(session, report);
-  const snapshots = (await listSnapshots(session)).filter(
-    (snapshot) => !options.onlyUnbuilt || !snapshot.built,
-  );
+  /*
+   * Which copies this run rebuilds, and why not all of them.
+   *
+   * Rebuilding the four expensive copies costs minutes over the whole corpus,
+   * and on 2026-09-09 several of those at once put the server at load 95. A
+   * caller that knows which copies its load can have changed passes them in
+   * `only`; a copy that has never been built is always included, because an
+   * unbuilt copy raises on any read and no amount of waiting fixes it.
+   */
+  const snapshots = (await listSnapshots(session)).filter((snapshot) => {
+    if (!snapshot.built) return true;
+    if (options.onlyUnbuilt) return false;
+    return options.only === undefined || options.only.includes(snapshot.name);
+  });
   const outcome: RefreshOutcome = { built: [], failed: [] };
   for (const snapshot of snapshots) {
     try {

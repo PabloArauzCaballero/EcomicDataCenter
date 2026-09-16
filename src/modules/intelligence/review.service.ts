@@ -4,6 +4,7 @@ import { AuditService } from '../../common/audit/audit.service';
 import type { Actor } from '../../common/auth/actor';
 import { assertActorOrganization } from '../../common/auth/organization-scope';
 import { BusinessRuleError } from '../../common/errors/application.error';
+import { IngestionEventRecorder } from '../../common/observability/ingestion-event.recorder';
 import { MetricsService } from '../../common/observability/metrics.service';
 import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
 import { TracingService } from '../../common/observability/tracing.service';
@@ -29,6 +30,7 @@ export class ReviewService {
     private readonly metrics: MetricsService,
     private readonly audit: AuditService,
     private readonly tracing: TracingService,
+    private readonly events: IngestionEventRecorder,
   ) {}
 
   /**
@@ -151,12 +153,12 @@ export class ReviewService {
   }
 
   /** Closes an agent run and stores the checkpoint needed to resume it. */
-  completeRun(
+  async completeRun(
     agentRunId: string,
     input: CompleteAgentRunInput,
     actor: Actor,
   ): Promise<{ agentRunId: string; status: string }> {
-    return withSerializableRetry(this.writer, async (transaction) => {
+    const closed = await withSerializableRetry(this.writer, async (transaction) => {
       const run = await this.repository.requireOpenRun(agentRunId, transaction);
       // A run identifier is not a capability: without this check any agent that
       // learns another organization's run id could close it and overwrite its
@@ -191,5 +193,33 @@ export class ReviewService {
       );
       return { agentRunId, status: input.status };
     });
+    /*
+     * The collection stage, written down after the run has closed.
+     *
+     * A run that consulted its sources and found nothing new is not a failure
+     * and must not be filed as one: `NO_CHANGES` is its own outcome, and the
+     * reason travels with it so an operator reading «sin novedades» can tell it
+     * from «nobody looked».
+     */
+    await this.events.record({
+      correlationId: agentRunId,
+      agentRunId,
+      stage: 'COLLECTION',
+      outcome: collectionOutcome(input),
+      recordsReceived: 0,
+      reason: input.errorSummary?.slice(0, 200) ?? null,
+      details: { sourcesConsulted: input.sourcesConsulted, warningCount: input.warningCount },
+    });
+    return closed;
   }
+}
+
+/** How a closed run reads as a collection outcome, without inventing success. */
+function collectionOutcome(
+  input: CompleteAgentRunInput,
+): 'SUCCEEDED' | 'PARTIAL' | 'FAILED' | 'NO_CHANGES' | 'SKIPPED' {
+  if (input.status === 'FAILED') return 'FAILED';
+  if (input.status === 'CANCELLED') return 'SKIPPED';
+  if (input.status === 'PARTIAL') return 'PARTIAL';
+  return (input.sourcesConsulted ?? 0) === 0 ? 'NO_CHANGES' : 'SUCCEEDED';
 }

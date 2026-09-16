@@ -120,6 +120,12 @@ FK_TARGETS = {
     'intelligence.claim_cluster_member.document_cluster_id': ('intelligence', 'document_cluster', 'document_cluster_id'),
     'intelligence.claim_cluster_member.fact_claim_id': ('intelligence', 'fact_claim', 'fact_claim_id'),
     'audit.audit_log.actor_organization_id': ('provenance', 'organization', 'organization_id'),
+    'operations.source_expectation.source_id': ('provenance', 'source', 'source_id'),
+    'operations.ingestion_event.agent_run_id': ('intelligence', 'agent_run', 'agent_run_id'),
+    'operations.ingestion_event.source_id': ('provenance', 'source', 'source_id'),
+    'operations.alert_delivery.health_incident_id': (
+        'operations', 'health_incident', 'health_incident_id',
+    ),
 }
 
 

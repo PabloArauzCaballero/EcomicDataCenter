@@ -43,6 +43,769 @@
   ],
   "item": [
     {
+      "name": "Administration",
+      "item": [
+        {
+          "name": "Operational summary with coverage and freshness",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/overview",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "overview"
+              ]
+            },
+            "description": "Operational summary with coverage and freshness",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Availability evidence kept apart by kind",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/health/summary",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "health",
+                "summary"
+              ]
+            },
+            "description": "Availability evidence kept apart by kind",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Audited actions within the scope of the caller",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/audit/events",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "audit",
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "since",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "until",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "cursor",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "entityType",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "outcome",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "actorSubject",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Audited actions within the scope of the caller",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Read one allowlisted metadata catalogue",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/metadata/{{catalog}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "metadata",
+                "{{catalog}}"
+              ]
+            },
+            "description": "Read one allowlisted metadata catalogue",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sources, calendars and freshness verdicts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/ingestion/sources",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "ingestion",
+                "sources"
+              ]
+            },
+            "description": "Sources, calendars and freshness verdicts",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Collection executions, filtered and paged",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/ingestion/runs",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "ingestion",
+                "runs"
+              ],
+              "query": [
+                {
+                  "key": "since",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "until",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "cursor",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "sourceCode",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "stage",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Collection executions, filtered and paged",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "One execution with its stages and counters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/ingestion/runs/{{agentRunId}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "ingestion",
+                "runs",
+                "{{agentRunId}}"
+              ]
+            },
+            "description": "One execution with its stages and counters",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Rule evaluations with numerator and denominator",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/quality/evaluations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "quality",
+                "evaluations"
+              ],
+              "query": [
+                {
+                  "key": "since",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "until",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "cursor",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "ruleCode",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "result",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "severity",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Rule evaluations with numerator and denominator",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "One quality issue, its evidence and its history",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/quality/issues/{{dataIssueId}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "quality",
+                "issues",
+                "{{dataIssueId}}"
+              ]
+            },
+            "description": "One quality issue, its evidence and its history",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Rule coverage, blocking failures and open issues",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/quality/summary",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "quality",
+                "summary"
+              ]
+            },
+            "description": "Rule coverage, blocking failures and open issues",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Traffic aggregates with declared coverage",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/analytics/traffic",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "analytics",
+                "traffic"
+              ],
+              "query": [
+                {
+                  "key": "since",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "until",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "granularity",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Traffic aggregates with declared coverage",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Report page views from the public site",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/analytics/traffic",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "analytics",
+                "traffic"
+              ]
+            },
+            "description": "Report page views from the public site",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"events\": [\n    {\n      \"eventId\": \"string\",\n      \"occurredAt\": \"2026-01-31T12:00:00Z\",\n      \"route\": \"string\",\n      \"kind\": \"PAGE_VIEW\",\n      \"device\": \"DESKTOP\",\n      \"referrer\": \"DIRECT\",\n      \"visitorBucket\": \"string\",\n      \"isRobot\": true\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Export requests, generations and failures",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/analytics/exports",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "analytics",
+                "exports"
+              ],
+              "query": [
+                {
+                  "key": "since",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "until",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "cursor",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "datasetCode",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Export requests, generations and failures",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Report one export stage",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/analytics/exports",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "analytics",
+                "exports"
+              ]
+            },
+            "description": "Report one export stage",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestId\": \"string\",\n  \"datasetCode\": \"string\",\n  \"format\": \"csv\",\n  \"status\": \"REQUESTED\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Seed manifest next to the ledger of what was applied",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/seeds/packages",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "seeds",
+                "packages"
+              ]
+            },
+            "description": "Seed manifest next to the ledger of what was applied",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Durable state of one seed run",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/seeds/runs/{{seedRunId}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "seeds",
+                "runs",
+                "{{seedRunId}}"
+              ]
+            },
+            "description": "Durable state of one seed run",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate a package without mutating domain data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/seeds/validations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "seeds",
+                "validations"
+              ]
+            },
+            "description": "Validate a package without mutating domain data",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"packageCode\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Request a reconciliation; answers 202 with a run id",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/seeds/reconciliations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "seeds",
+                "reconciliations"
+              ]
+            },
+            "description": "Request a reconciliation; answers 202 with a run id",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"packageCode\": \"string\",\n  \"expectedVersion\": \"string\",\n  \"expectedChecksum\": \"string\",\n  \"reason\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Agent intelligence",
       "item": [
         {
@@ -1508,6 +2271,27 @@
           "response": []
         },
         {
+          "name": "Build name and process start time",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{rootUrl}}/version",
+              "host": [
+                "{{rootUrl}}"
+              ],
+              "path": [
+                "version"
+              ]
+            },
+            "description": "Build name and process start time",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "response": []
+        },
+        {
           "name": "Prometheus metrics when enabled",
           "request": {
             "method": "GET",
@@ -2096,6 +2880,35 @@
                   "language": "json"
                 }
               }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Run the declared collection rules at one cutoff",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/quality/evaluations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "quality",
+                "evaluations"
+              ]
+            },
+            "description": "Run the declared collection rules at one cutoff",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
             }
           },
           "response": []

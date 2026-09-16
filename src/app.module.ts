@@ -11,6 +11,7 @@ import { ObservabilityModule } from './common/observability/observability.module
 import { ConfigurationModule } from './config/configuration.module';
 import { getEnvironment } from './config/environment';
 import { DatabaseModule } from './database/database.module';
+import { AdminModule } from './modules/admin/admin.module';
 import { GovernanceModule } from './modules/governance/governance.module';
 import { HealthModule } from './modules/health/health.module';
 import { IngestionModule } from './modules/ingestion/ingestion.module';
@@ -72,6 +73,7 @@ const environment = getEnvironment();
     IntelligenceModule,
     DataQueryModule,
     QualityModule,
+    AdminModule,
   ],
   providers: [
     { provide: APP_GUARD, useClass: JwtAuthGuard },

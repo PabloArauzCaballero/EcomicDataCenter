@@ -92,6 +92,59 @@ const environmentSchema = z
     AUTH_AUDIENCE: optional(z.string().min(1)),
     AUTH_ROLE_CLAIM: z.string().min(1).default('roles'),
     AUTH_ORGANIZATION_CLAIM: z.string().min(1).default('organization_id'),
+    /**
+     * The deployment an administrative answer describes.
+     *
+     * It is read here, from the server's own configuration, and never from a
+     * request: a console that let the browser name its target would let anyone
+     * aim a reconciliation at production by editing a form field.
+     */
+    ADMIN_ENVIRONMENT_ID: z
+      .string()
+      .regex(/^[a-z0-9][a-z0-9_-]{0,59}$/)
+      .default('local'),
+    /**
+     * Which classes of seed package this deployment is expected to carry.
+     *
+     * `metadata` is the floor every environment must reach before it admits the
+     * operations that depend on those catalogues. `baseline` adds the technical
+     * identities the product needs. `historical` adds the large corpora the
+     * public report serves. Demo data is never in a profile; it needs its own
+     * switch and is refused outright in production.
+     */
+    SEED_PROFILE: z.enum(['metadata', 'baseline', 'historical']).default('historical'),
+    SEED_DEMO_ENABLED: booleanFromString,
+    /**
+     * A deliberate failure injected into a reconciliation, for tests only.
+     *
+     * Recovery is the part of this system that cannot be verified by reading
+     * it: whether a crash before the commit leaves nothing behind, and whether
+     * one after the commit leaves the data applied and its publication pending,
+     * are claims that need the crash to actually happen. Production refuses the
+     * variable outright, so the mechanism cannot be turned on where it would
+     * matter.
+     */
+    SEED_FAULT_INJECTION: optional(z.enum(['before-commit', 'after-commit', 'before-publish'])),
+    /** Seconds without a heartbeat after which a run is declared abandoned. */
+    SEED_RUN_LEASE_SECONDS: z.coerce.number().int().min(30).max(86_400).default(900),
+    /** Days of raw traffic events kept before the receiver prunes them. */
+    ANALYTICS_RETENTION_DAYS: z.coerce.number().int().min(1).max(400).default(90),
+    /** The commit this image was built from, injected by the build pipeline. */
+    BUILD_COMMIT: optional(z.string().min(7).max(60)),
+    /**
+     * Whether this process checks the public site from outside itself.
+     *
+     * Off by default: only one replica should probe, and a deployment that has
+     * an external monitor already does not need a second opinion from inside.
+     */
+    HEALTH_MONITOR_ENABLED: booleanFromString,
+    HEALTH_MONITOR_TARGET_URL: optional(z.string().url()),
+    HEALTH_MONITOR_INTERVAL_MS: z.coerce.number().int().min(5_000).max(3_600_000).default(60_000),
+    HEALTH_MONITOR_TIMEOUT_MS: z.coerce.number().int().min(1_000).max(60_000).default(10_000),
+    HEALTH_MONITOR_FAILURE_THRESHOLD: z.coerce.number().int().min(1).max(20).default(3),
+    HEALTH_MONITOR_RECOVERY_THRESHOLD: z.coerce.number().int().min(1).max(20).default(2),
+    /** Where an opened or closed incident is announced, when anywhere. */
+    ALERT_WEBHOOK_URL: optional(z.string().url()),
     SWAGGER_ENABLED: booleanFromString,
     METRICS_ENABLED: booleanFromString,
     METRICS_SCRAPE_TOKEN: optional(z.string().min(24)),
@@ -147,6 +200,27 @@ const environmentSchema = z
         code: 'custom',
         path: ['SWAGGER_ENABLED'],
         message: 'Swagger must be disabled in production',
+      });
+    }
+    if (environment.NODE_ENV === 'production' && environment.SEED_DEMO_ENABLED) {
+      context.addIssue({
+        code: 'custom',
+        path: ['SEED_DEMO_ENABLED'],
+        message: 'Demo data is forbidden in production',
+      });
+    }
+    if (environment.NODE_ENV === 'production' && environment.SEED_FAULT_INJECTION) {
+      context.addIssue({
+        code: 'custom',
+        path: ['SEED_FAULT_INJECTION'],
+        message: 'Fault injection is forbidden in production',
+      });
+    }
+    if (environment.HEALTH_MONITOR_ENABLED && !environment.HEALTH_MONITOR_TARGET_URL) {
+      context.addIssue({
+        code: 'custom',
+        path: ['HEALTH_MONITOR_TARGET_URL'],
+        message: 'An external monitor needs the address it is supposed to check',
       });
     }
     if (environment.AUTH_MODE === 'agent_key' && !environment.AGENT_INGESTION_KEY) {

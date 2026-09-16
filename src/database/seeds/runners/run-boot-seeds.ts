@@ -2,28 +2,11 @@ import 'dotenv/config';
 import type { Transaction } from 'sequelize';
 import { getEnvironment } from '../../../config/environment';
 import { createWriterDatabase } from '../../database.factory';
-import {
-  ClassificationItemModel,
-  ClassificationModel,
-  ClassificationVersionModel,
-  FrequencyModel,
-  GeographicUnitModel,
-  OrganizationModel,
-  QualityDimensionModel,
-  StatisticalDomainModel,
-  UnitMeasureModel,
-} from '../../models';
-import {
-  countrySeedSchema,
-  currencySeedSchema,
-  economicActivitySeedSchema,
-  frequencySeedSchema,
-  geographicUnitSeedSchema,
-  qualityDimensionSeedSchema,
-  statisticalDomainSeedSchema,
-  unitSeedSchema,
-} from '../schemas/seed.schemas';
+import { refreshOneSnapshot } from '../../snapshot-refresh';
 import { reconcileAgentBootstrap } from './boot-seed.agent-bootstrap';
+import { reconcileSourceSchedules } from './boot-seed.source-schedules';
+import { CORE_CATALOGUE_UNITS } from './boot-seed.core-catalogues';
+import { describeSeedTarget, recordBootApplication } from './boot-seed.ledger';
 import { reconcileExchangeRateHistory } from './boot-seed.exchange-rate-history';
 import { reconcileCompanyFilings } from './boot-seed.company-filings';
 import { reconcileCompanyFilingArchive } from './boot-seed.company-filings-archive';
@@ -41,70 +24,6 @@ import { reconcileBbvYields } from './boot-seed.bbv-yields';
 import { reconcileCompositeIndices } from './boot-seed.composite-indices';
 import { reconcileForeignTrade } from './boot-seed.foreign-trade';
 import { reconcileWorldBankPanel } from './boot-seed.worldbank-panel';
-import { readSeed } from './seed.utils';
-
-async function reconcileFrequencies(transaction: Transaction): Promise<void> {
-  const rows = await readSeed('boot/frequencies.json', frequencySeedSchema);
-  for (const row of rows) await FrequencyModel.upsert(row, { transaction });
-}
-
-async function reconcileQualityDimensions(transaction: Transaction): Promise<void> {
-  const rows = await readSeed('boot/quality-dimensions.json', qualityDimensionSeedSchema);
-  for (const row of rows) await QualityDimensionModel.upsert(row, { transaction });
-}
-
-async function reconcileUnits(transaction: Transaction): Promise<void> {
-  const rows = await readSeed('boot/units.json', unitSeedSchema);
-  for (const row of rows) await UnitMeasureModel.upsert(row, { transaction });
-}
-
-/**
- * Loads the Bolivian territorial hierarchy.
- *
- * Rows are applied in file order because a department references the country;
- * the catalog is authored parent-first for that reason.
- */
-async function reconcileGeographicUnits(transaction: Transaction): Promise<void> {
-  const rows = await readSeed('boot/geographic-units.json', geographicUnitSeedSchema);
-  for (const row of rows) await GeographicUnitModel.upsert(row, { transaction });
-}
-
-/** Loads the hierarchical economic domains the agents classify findings into. */
-async function reconcileStatisticalDomains(transaction: Transaction): Promise<void> {
-  const rows = await readSeed('boot/statistical-domains.json', statisticalDomainSeedSchema);
-  for (const row of rows) await StatisticalDomainModel.upsert(row, { transaction });
-}
-
-/** Loads ISO-4217 currencies used by exchange-rate and financial series. */
-async function reconcileCurrencies(transaction: Transaction): Promise<void> {
-  const rows = await readSeed('boot/currencies.json', currencySeedSchema);
-  for (const row of rows) await UnitMeasureModel.upsert(row, { transaction });
-}
-
-/** Loads the ISO-3166 trading partners referenced by external-sector data. */
-async function reconcileCountries(transaction: Transaction): Promise<void> {
-  const rows = await readSeed('boot/countries.json', countrySeedSchema);
-  for (const row of rows) await GeographicUnitModel.upsert(row, { transaction });
-}
-
-/**
- * Loads the official institutions and the CAEB activity classification.
- *
- * Institutions come first because the classification declares a custodian, and
- * the sections are stored as a versioned classification rather than an enum so
- * a future CAEB revision becomes a new version instead of a code change.
- */
-async function reconcileEconomicActivities(transaction: Transaction): Promise<void> {
-  const seed = await readSeed('boot/economic-activities.json', economicActivitySeedSchema);
-  for (const organization of seed.organizations) {
-    await OrganizationModel.upsert({ ...organization, validTo: null }, { transaction });
-  }
-  await ClassificationModel.upsert(seed.classification, { transaction });
-  await ClassificationVersionModel.upsert(seed.version, { transaction });
-  for (const item of seed.items) {
-    await ClassificationItemModel.upsert(item, { transaction });
-  }
-}
 
 /**
  * The heavy catalogues, by the name they can be asked for on their own.
@@ -187,10 +106,34 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bolivia-national-poi', reconcileBoliviaNationalPoi],
 ];
 
+/**
+ * One hour: long enough for the largest corpus, short enough to end.
+ *
+ * It is a ceiling and not an absence of one, so a reconciliation that has
+ * genuinely hung still stops instead of holding a connection for a day.
+ */
+const SEEDING_STATEMENT_CEILING_MS = 3_600_000;
+
 /** Reconciles the minimum non-secret catalog required by every environment. */
 export async function runBootSeeds(only?: Catalogue): Promise<void> {
   const wanted = (name: Catalogue): boolean => only === undefined || only === name;
-  const database = createWriterDatabase(getEnvironment());
+  const environment = getEnvironment();
+  /*
+   * Provisioning runs under its own statement ceiling, not the request one.
+   *
+   * The runtime ceiling exists to stop one slow query from holding a request
+   * open; a catalogue reconciliation is neither a request nor slow by accident.
+   * On a database that already holds the corpus, an upsert over the territory
+   * or the CAEB sections can exceed fifteen seconds and be cancelled — and a
+   * provisioning run cancelled halfway is exactly the state this loader was
+   * rewritten to avoid. The ceiling is raised on the pool rather than with a
+   * `SET` statement, because a `SET` reaches one pooled connection and the next
+   * query may land on another.
+   */
+  const database = createWriterDatabase({
+    ...environment,
+    DATABASE_STATEMENT_TIMEOUT_MS: SEEDING_STATEMENT_CEILING_MS,
+  });
   try {
     await database.authenticate();
 
@@ -199,17 +142,29 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
      * firman. Van juntas y primero porque ningun catalogo puede cargarse sin
      * ellas; cuestan poco y son las mismas en todos los entornos.
      */
+    /*
+     * Where this load is landing, for the register the portal reads.
+     *
+     * Host, port and database name identify the target without carrying the
+     * credential that reached it, and they are what the seed ledger is keyed by.
+     */
+    const target = describeSeedTarget(environment.DATABASE_WRITER_URL);
+    const environmentId = environment.ADMIN_ENVIRONMENT_ID;
+
     const identities = await database.transaction(async (transaction) => {
-      await reconcileFrequencies(transaction);
-      await reconcileQualityDimensions(transaction);
-      await reconcileUnits(transaction);
-      await reconcileGeographicUnits(transaction);
-      await reconcileStatisticalDomains(transaction);
-      await reconcileCurrencies(transaction);
-      await reconcileCountries(transaction);
-      await reconcileEconomicActivities(transaction);
-      return reconcileAgentBootstrap(transaction);
+      for (const [, reconcile] of CORE_CATALOGUE_UNITS) await reconcile(transaction);
+      const bootstrapped = await reconcileAgentBootstrap(transaction);
+      // The calendars go in with the sources they name, in the same
+      // transaction: a deployment that carries a source and not its declared
+      // cadence reports «sin evidencia» for it, which is true but useless.
+      await reconcileSourceSchedules(transaction);
+      return bootstrapped;
     });
+    // Recorded after the transaction that applied them, so a rollback cannot
+    // leave the ledger claiming a catalogue the database does not hold.
+    for (const code of ['core-catalogues', 'collector-identities', 'source-schedules']) {
+      await recordBootApplication(database, environmentId, target, code);
+    }
 
     /*
      * Un catalogo por transaccion, y no los dieciseis en una.
@@ -234,6 +189,7 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
       if (!wanted(name)) continue;
       try {
         await database.transaction((transaction) => load(identities.sourceId, transaction));
+        await recordBootApplication(database, environmentId, target, name);
       } catch (error) {
         failed.push(name);
         process.stderr.write(
@@ -248,19 +204,22 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
      * concurrently inside one — and because until it is refreshed the report
      * serves the corpus as it stood before this load.
      */
-    await database.query('SET statement_timeout = 0');
+    /*
+     * Through the routine that is allowed to refresh, not the raw statement.
+     *
+     * `REFRESH MATERIALIZED VIEW` requires ownership of the view; no grant
+     * substitutes for it. The raw statement here worked in production only
+     * because that writer owns more than the design supposes, and failed on
+     * every database whose privileges match it — which is why continuous
+     * integration reported `permission denied for schema read_models` after
+     * loading all sixteen catalogues correctly.
+     */
     if (wanted('press-coverage') || wanted('press-archive')) {
-      await database.query(
-        'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.press_article_snapshot',
-      );
-      await database.query(
-        'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.press_term_mention_snapshot',
-      );
+      await refreshOneSnapshot(database, 'press_article_snapshot', true);
+      await refreshOneSnapshot(database, 'press_term_mention_snapshot', true);
     }
     if (wanted('social-readings')) {
-      await database.query(
-        'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.social_reading_snapshot',
-      );
+      await refreshOneSnapshot(database, 'social_reading_snapshot', true);
     }
 
     if (failed.length > 0) {

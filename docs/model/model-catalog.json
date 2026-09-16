@@ -1,8 +1,8 @@
 {
   "model": "Observatorio Económico y de Mercados de Bolivia",
   "version": "1.0-final-logical",
-  "entity_count": 53,
-  "field_count": 518,
+  "entity_count": 63,
+  "field_count": 624,
   "packages": {
     "provenance": 4,
     "semantic": 11,
@@ -10,7 +10,8 @@
     "statistics": 9,
     "quality_lineage": 7,
     "intelligence": 12,
-    "audit": 1
+    "audit": 1,
+    "operations": 10
   },
   "entities": [
     {
@@ -4079,6 +4080,72 @@
           "unique": false,
           "nullable": false,
           "tags": ""
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "rule_version",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "evaluation_scope",
+          "type": "varchar(120)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "numerator",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "denominator",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "not_evaluated",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "quality_lineage",
+          "table": "quality_assessment",
+          "field": "cutoff_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
         }
       ],
       "unique_constraints": []
@@ -6191,6 +6258,1192 @@
           "table": "audit_log",
           "field": "occurred_at",
           "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "alert_delivery",
+      "alias": "alert_delivery",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "alert_delivery",
+          "field": "alert_delivery_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "alert_delivery",
+          "field": "health_incident_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "operations",
+          "table": "alert_delivery",
+          "field": "rule_code",
+          "type": "varchar(60)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "alert_delivery",
+          "field": "dedup_key",
+          "type": "varchar(160)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "alert_delivery",
+          "field": "channel",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "alert_delivery",
+          "field": "attempt_no",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "alert_delivery",
+          "field": "status",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "alert_delivery",
+          "field": "dispatched_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "alert_delivery",
+          "field": "error_summary",
+          "type": "varchar(300)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": [
+        "UQ(dedup_key, channel, attempt_no)"
+      ]
+    },
+    {
+      "package": "operations",
+      "table": "export_request",
+      "alias": "export_request",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "export_request_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "request_id",
+          "type": "varchar(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "dataset_code",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "export_format",
+          "type": "varchar(10)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "status",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "filters_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "row_count",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "byte_count",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "duration_ms",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "truncated",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "occurred_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "export_request",
+          "field": "error_code",
+          "type": "varchar(60)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": [
+        "UQ(request_id, status)"
+      ]
+    },
+    {
+      "package": "operations",
+      "table": "health_incident",
+      "alias": "health_incident",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "health_incident",
+          "field": "health_incident_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "health_incident",
+          "field": "target",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "health_incident",
+          "field": "status",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "health_incident",
+          "field": "cause",
+          "type": "varchar(200)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "health_incident",
+          "field": "consecutive_failures",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "health_incident",
+          "field": "opened_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "health_incident",
+          "field": "closed_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "health_probe",
+      "alias": "health_probe",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "health_probe",
+          "field": "health_probe_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "health_probe",
+          "field": "target",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "health_probe",
+          "field": "probe_type",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "health_probe",
+          "field": "observed_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "health_probe",
+          "field": "duration_ms",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "health_probe",
+          "field": "outcome",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "health_probe",
+          "field": "evidence_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "health_probe",
+          "field": "error_summary",
+          "type": "varchar(300)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "ingestion_event",
+      "alias": "ingestion_event",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "ingestion_event_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "correlation_id",
+          "type": "varchar(128)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "agent_run_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "source_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": false,
+          "nullable": true,
+          "tags": "FK, nullable"
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "stage",
+          "type": "varchar(30)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "outcome",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "occurred_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "duration_ms",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "artifact_reference",
+          "type": "varchar(500)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "artifact_sha256",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "records_received",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "records_accepted",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "records_rejected",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "records_skipped",
+          "type": "bigint",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "reason",
+          "type": "varchar(200)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "ingestion_event",
+          "field": "details_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "read_model_publication",
+      "alias": "read_model_publication",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "read_model_publication",
+          "field": "read_model_publication_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "read_model_publication",
+          "field": "dataset_code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "operations",
+          "table": "read_model_publication",
+          "field": "status",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "read_model_publication",
+          "field": "source_cutoff_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "read_model_publication",
+          "field": "last_attempt_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "read_model_publication",
+          "field": "last_success_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "read_model_publication",
+          "field": "last_error",
+          "type": "varchar(500)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "seed_application",
+      "alias": "seed_application",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "seed_application",
+          "field": "seed_application_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "seed_application",
+          "field": "database_identity",
+          "type": "varchar(200)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_application",
+          "field": "environment_id",
+          "type": "varchar(60)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_application",
+          "field": "package_code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_application",
+          "field": "package_version",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_application",
+          "field": "checksum",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_application",
+          "field": "applied_commit",
+          "type": "varchar(60)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "seed_application",
+          "field": "applied_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_application",
+          "field": "summary_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": [
+        "UQ(database_identity, package_code, package_version)"
+      ]
+    },
+    {
+      "package": "operations",
+      "table": "seed_run",
+      "alias": "seed_run",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "seed_run_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "package_code",
+          "type": "varchar(80)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "package_version",
+          "type": "varchar(40)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "operation",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "attempt_no",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "actor_subject",
+          "type": "varchar(200)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "environment_id",
+          "type": "varchar(60)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "database_identity",
+          "type": "varchar(200)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "status",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "request_fingerprint",
+          "type": "char(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "started_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "heartbeat_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "completed_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "error_summary",
+          "type": "varchar(500)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "checkpoint_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "seed_run",
+          "field": "counters_json",
+          "type": "jsonb",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "source_expectation",
+      "alias": "source_expectation",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "source_expectation",
+          "field": "source_expectation_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "source_expectation",
+          "field": "source_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": true,
+          "unique": true,
+          "nullable": false,
+          "tags": "FK, UQ"
+        },
+        {
+          "package": "operations",
+          "table": "source_expectation",
+          "field": "cadence",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "source_expectation",
+          "field": "expected_interval_hours",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "source_expectation",
+          "field": "tolerance_hours",
+          "type": "integer",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "source_expectation",
+          "field": "time_zone",
+          "type": "varchar(60)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "source_expectation",
+          "field": "is_active",
+          "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "traffic_event",
+      "alias": "traffic_event",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "traffic_event",
+          "field": "traffic_event_id",
+          "type": "bigint",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "traffic_event",
+          "field": "event_key",
+          "type": "varchar(64)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "operations",
+          "table": "traffic_event",
+          "field": "occurred_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "traffic_event",
+          "field": "route",
+          "type": "varchar(200)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "traffic_event",
+          "field": "event_kind",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "traffic_event",
+          "field": "device_category",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "traffic_event",
+          "field": "referrer_category",
+          "type": "varchar(20)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "traffic_event",
+          "field": "visitor_bucket",
+          "type": "char(16)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "traffic_event",
+          "field": "is_robot",
+          "type": "boolean",
           "primary_key": false,
           "foreign_key": false,
           "unique": false,

@@ -390,6 +390,147 @@ paths[f"{API}/intelligence/contradictions/{{id}}/resolutions"] = {"post": operat
     "resolveContradiction", "Close a contradiction with a justification", "Claim review",
     ["DATA_REVIEWER", "METHODOLOGY_STEWARD"], "ContradictionResolutionInput", [id_param()])}
 
+
+# --- Administrative portal ------------------------------------------------
+#
+# Every route here is default-deny and carries the same nine responses as the
+# rest of the contract. The reading routes are the console; the two analytics
+# intake routes are the public site reporting on itself, and they carry
+# SITE_TELEMETRY so a compromised web tier cannot submit observations.
+
+WINDOW_PARAMS = [
+    {"name": "since", "in": "query", "schema": DATETIME},
+    {"name": "until", "in": "query", "schema": DATETIME},
+]
+CURSOR_PARAMS = WINDOW_PARAMS + [
+    {"name": "pageSize", "in": "query", "schema": {"type": "integer", "minimum": 1, "maximum": 200, "default": 50}},
+    {"name": "cursor", "in": "query", "schema": {"type": "string", "maxLength": 512}},
+]
+ADMIN_READERS = ["ANALYST", "METHODOLOGY_STEWARD"]
+SEED_READERS = ["ANALYST", "METHODOLOGY_STEWARD", "SEED_OPERATOR"]
+
+schemas["SeedValidationInput"] = obj({
+    "packageCode": {"type": "string", "pattern": "^[a-z][a-z0-9-]{1,79}$"},
+}, ("packageCode",))
+schemas["SeedReconciliationInput"] = obj({
+    "packageCode": {"type": "string", "pattern": "^[a-z][a-z0-9-]{1,79}$"},
+    "expectedVersion": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "expectedChecksum": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "reason": {"type": "string", "minLength": 4, "maxLength": 500},
+}, ("packageCode", "expectedVersion", "expectedChecksum", "reason"))
+schemas["SiteTrafficInput"] = obj({
+    "events": array(obj({
+        "eventId": {"type": "string", "pattern": "^[A-Za-z0-9_-]{8,64}$"},
+        "occurredAt": DATETIME,
+        "route": {"type": "string", "pattern": "^/[A-Za-z0-9\\-_/{}]{0,120}$"},
+        "kind": {"type": "string", "enum": ["PAGE_VIEW", "DOWNLOAD_INTENT"]},
+        "device": {"type": "string", "enum": ["DESKTOP", "MOBILE", "TABLET", "UNKNOWN"]},
+        "referrer": {"type": "string", "enum": ["DIRECT", "SEARCH", "SOCIAL", "EXTERNAL", "INTERNAL"]},
+        "visitorBucket": {"type": "string", "pattern": "^[a-f0-9]{16}$"},
+        "isRobot": {"type": "boolean"},
+    }, ("eventId", "occurredAt", "route", "kind", "device", "referrer", "visitorBucket", "isRobot")), 50),
+}, ("events",))
+schemas["ExportEventInput"] = obj({
+    "requestId": {"type": "string", "pattern": "^[A-Za-z0-9._:-]{8,64}$"},
+    "datasetCode": {"type": "string", "pattern": "^[a-z]{1,40}$"},
+    "format": {"type": "string", "enum": ["csv", "json"]},
+    "status": {"type": "string", "enum": ["REQUESTED", "GENERATED", "FAILED"]},
+    "filters": {"type": "object", "additionalProperties": {"type": "string", "maxLength": 120}},
+    "rowCount": {"type": "integer", "minimum": 0},
+    "byteCount": {"type": "integer", "minimum": 0},
+    "durationMs": {"type": "integer", "minimum": 0},
+    "truncated": {"type": "boolean"},
+    "errorCode": {"type": "string", "pattern": "^[A-Z_]{1,60}$"},
+}, ("requestId", "datasetCode", "format", "status"))
+
+paths[f"{API}/admin/overview"] = {"get": operation(
+    "getAdminOverview", "Operational summary with coverage and freshness", "Administration",
+    ADMIN_READERS)}
+paths[f"{API}/admin/health/summary"] = {"get": operation(
+    "getAdminHealthSummary", "Availability evidence kept apart by kind", "Administration",
+    ADMIN_READERS)}
+paths[f"{API}/admin/audit/events"] = {"get": operation(
+    "listAdminAuditEvents", "Audited actions within the scope of the caller", "Administration",
+    ADMIN_READERS, parameters=CURSOR_PARAMS + [
+        {"name": "entityType", "in": "query", "schema": {"type": "string", "maxLength": 60}},
+        {"name": "outcome", "in": "query", "schema": {"type": "string", "enum": ["SUCCESS", "FAILURE"]}},
+        {"name": "actorSubject", "in": "query", "schema": {"type": "string", "maxLength": 200}},
+    ])}
+paths[f"{API}/admin/metadata/{{catalog}}"] = {"get": operation(
+    "getAdminMetadataCatalog", "Read one allowlisted metadata catalogue", "Administration",
+    ADMIN_READERS, parameters=[{
+        "name": "catalog", "in": "path", "required": True,
+        "schema": {"type": "string", "enum": [
+            "frequencies", "units", "geographic-units", "statistical-domains",
+            "quality-dimensions", "organizations", "sources", "datasets",
+            "indicators", "methodologies",
+        ]},
+    }])}
+paths[f"{API}/admin/ingestion/sources"] = {"get": operation(
+    "listAdminSources", "Sources, calendars and freshness verdicts", "Administration",
+    ADMIN_READERS)}
+paths[f"{API}/admin/ingestion/runs"] = {"get": operation(
+    "listAdminIngestionRuns", "Collection executions, filtered and paged", "Administration",
+    ADMIN_READERS, parameters=CURSOR_PARAMS + [
+        {"name": "sourceCode", "in": "query", "schema": {"type": "string", "maxLength": 80}},
+        {"name": "status", "in": "query", "schema": {"type": "string", "enum": [
+            "RUNNING", "SUCCEEDED", "PARTIAL", "FAILED", "CANCELLED"]}},
+        {"name": "stage", "in": "query", "schema": {"type": "string", "enum": [
+            "COLLECTION", "VALIDATION", "DELIVERY", "PERSISTENCE", "REVIEW", "PUBLICATION"]}},
+    ])}
+paths[f"{API}/admin/ingestion/runs/{{agentRunId}}"] = {"get": operation(
+    "getAdminIngestionRun", "One execution with its stages and counters", "Administration",
+    ADMIN_READERS, parameters=[id_param("agentRunId")])}
+paths[f"{API}/admin/quality/evaluations"] = {"get": operation(
+    "listAdminQualityEvaluations", "Rule evaluations with numerator and denominator",
+    "Administration", ADMIN_READERS, parameters=CURSOR_PARAMS + [
+        {"name": "ruleCode", "in": "query", "schema": {"type": "string", "maxLength": 80}},
+        {"name": "result", "in": "query", "schema": {"type": "string", "enum": [
+            "PASS", "WARNING", "FAIL", "ERROR", "NOT_EVALUATED", "NOT_APPLICABLE"]}},
+        {"name": "severity", "in": "query", "schema": {"type": "string", "enum": [
+            "INFO", "WARNING", "ERROR", "CRITICAL"]}},
+    ])}
+paths[f"{API}/admin/quality/issues/{{dataIssueId}}"] = {"get": operation(
+    "getAdminQualityIssue", "One quality issue, its evidence and its history",
+    "Administration", ADMIN_READERS, parameters=[id_param("dataIssueId")])}
+paths[f"{API}/admin/quality/summary"] = {"get": operation(
+    "getAdminQualitySummary", "Rule coverage, blocking failures and open issues",
+    "Administration", ADMIN_READERS)}
+paths[f"{API}/admin/analytics/traffic"] = {
+    "get": operation("getAdminTraffic", "Traffic aggregates with declared coverage",
+                     "Administration", ADMIN_READERS, parameters=WINDOW_PARAMS + [
+                         {"name": "granularity", "in": "query",
+                          "schema": {"type": "string", "enum": ["hour", "day"], "default": "day"}},
+                     ]),
+    "post": operation("recordSiteTraffic", "Report page views from the public site",
+                      "Administration", ["SITE_TELEMETRY"], "SiteTrafficInput"),
+}
+paths[f"{API}/admin/analytics/exports"] = {
+    "get": operation("listAdminExports", "Export requests, generations and failures",
+                     "Administration", ADMIN_READERS, parameters=CURSOR_PARAMS + [
+                         {"name": "datasetCode", "in": "query", "schema": {"type": "string", "maxLength": 40}},
+                         {"name": "status", "in": "query", "schema": {"type": "string", "enum": [
+                             "REQUESTED", "GENERATED", "FAILED"]}},
+                     ]),
+    "post": operation("recordExportEvent", "Report one export stage", "Administration",
+                      ["SITE_TELEMETRY"], "ExportEventInput"),
+}
+paths[f"{API}/admin/seeds/packages"] = {"get": operation(
+    "listSeedPackages", "Seed manifest next to the ledger of what was applied",
+    "Administration", SEED_READERS)}
+paths[f"{API}/admin/seeds/runs/{{seedRunId}}"] = {"get": operation(
+    "getSeedRun", "Durable state of one seed run", "Administration", SEED_READERS,
+    parameters=[id_param("seedRunId")])}
+paths[f"{API}/admin/seeds/validations"] = {"post": operation(
+    "validateSeedPackage", "Validate a package without mutating domain data",
+    "Administration", ["METHODOLOGY_STEWARD", "SEED_OPERATOR"], "SeedValidationInput")}
+paths[f"{API}/admin/seeds/reconciliations"] = {"post": operation(
+    "reconcileSeedPackage", "Request a reconciliation; answers 202 with a run id",
+    "Administration", ["SEED_OPERATOR"], "SeedReconciliationInput")}
+paths[f"{API}/quality/evaluations"] = {"post": operation(
+    "evaluateCollectionQuality", "Run the declared collection rules at one cutoff",
+    "Quality and lineage", ["METHODOLOGY_STEWARD"])}
+
 spec = {
     "openapi": "3.0.3",
     "info": {
@@ -398,7 +539,7 @@ spec = {
         "description": "Core estadístico para procedencia, metadatos, ingestión, revisión, consulta histórica, calidad y linaje.",
     },
     "servers": [{"url": "http://localhost:8080", "description": "Local via NGINX"}],
-    "tags": [{"name": name} for name in ["Operations", "Provenance", "Metadata governance", "Data ingestion", "Data query", "Quality and lineage", "Agent intelligence", "Claim review"]],
+    "tags": [{"name": name} for name in ["Operations", "Provenance", "Metadata governance", "Data ingestion", "Data query", "Quality and lineage", "Agent intelligence", "Claim review", "Administration"]],
     "paths": paths,
     "components": {
         "securitySchemes": {"bearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT"}},

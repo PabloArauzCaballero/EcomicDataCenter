@@ -24,7 +24,7 @@ def write_utf8(path, content):
 ROOT = Path(__file__).resolve().parents[1]
 MIGRATIONS = ROOT / 'src/database/migrations'
 CATALOG = ROOT / 'docs/model/model-catalog.json'
-DERIVED_SCHEMAS = ('intelligence', 'audit')
+DERIVED_SCHEMAS = ('intelligence', 'audit', 'operations')
 
 
 def build_tags(properties: dict[str, object], foreign_key: bool) -> str:

@@ -4,6 +4,7 @@ import { AuditService } from '../../common/audit/audit.service';
 import type { Actor } from '../../common/auth/actor';
 import { assertActorOrganization } from '../../common/auth/organization-scope';
 import { ApplicationError } from '../../common/errors/application.error';
+import { IngestionEventRecorder } from '../../common/observability/ingestion-event.recorder';
 import { MetricsService } from '../../common/observability/metrics.service';
 import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
 import { TracingService } from '../../common/observability/tracing.service';
@@ -37,6 +38,7 @@ export class BatchImportService {
     private readonly metrics: MetricsService,
     private readonly audit: AuditService,
     private readonly tracing: TracingService,
+    private readonly events: IngestionEventRecorder,
   ) {}
 
   /**
@@ -204,6 +206,30 @@ export class BatchImportService {
     for (const record of committed.records) {
       this.metrics.observeIngestion('batch', record.status);
     }
+    /*
+     * The persistence stage, with the counters kept apart.
+     *
+     * `UNCHANGED` is not an acceptance of a new figure and not a rejection: it
+     * is a record the batch already held, and counting it as either is how a
+     * replayed batch used to look like a day of fresh data.
+     */
+    const unchanged = committed.records.filter((record) => record.status === 'UNCHANGED').length;
+    await this.events.record({
+      correlationId: batchId,
+      stage: 'PERSISTENCE',
+      outcome:
+        committed.status === 'COMMITTED'
+          ? 'SUCCEEDED'
+          : committed.status === 'PARTIAL'
+            ? 'PARTIAL'
+            : 'FAILED',
+      artifactReference: input.sourceArtifactId,
+      recordsReceived: committed.receivedCount,
+      recordsAccepted: committed.acceptedCount - unchanged,
+      recordsRejected: committed.rejectedCount,
+      recordsSkipped: unchanged,
+      details: { batchCode: input.batchCode },
+    });
     return committed;
   }
 
