@@ -6,7 +6,7 @@ cumplido por muy claro que esté el código.
 
 Convenciones de la columna «Evidencia»:
 
-- `core/unit` → `yarn test` (607 pruebas).
+- `core/unit` → `yarn test` (613 pruebas).
 - `core/int` → `yarn test:integration` contra PostgreSQL 17.5 real.
 - `e2e` → Playwright contra núcleo, tablero y PostgreSQL reales.
 
@@ -40,7 +40,7 @@ Convenciones de la columna «Evidencia»:
 
 | ID | Escenario | Prueba | Estado |
 | --- | --- | --- | --- |
-| ING-01 | Envío válido por API | `core/unit` de ingesta ya existentes + el registro de etapas que este trabajo añade | ⚠️ **Parcial.** La instrumentación está cableada en `SubmissionService`, `ReviewService` y `BatchImportService` y sus pruebas unitarias pasan, pero **no** hay una prueba de extremo a extremo que envíe una observación por la API y la siga hasta la consulta pública. Declarado como no comprobado en runtime. |
+| ING-01 | Envío válido por API | `core/int submission-round-trip` (dos casos, por HTTP real) | ✅ Un ciclo completo —abrir, enviar, cerrar— por `POST /intelligence/daily-analysis`: la observación queda registrada y **no** como publicada, las etapas `DELIVERY` y `COLLECTION` dejan cada una su fila con sus contadores, ninguna etapa reclama la persistencia que este camino no hizo, y el lector de la consola informa lo mismo para esa ejecución. Un envío cuya afirmación no cita evidencia se rechaza y no escribe nada. |
 | ING-02 | Recolección exitosa sin entrega | `core/int ingestion-stages` «reports a collection that never reached delivery» | ✅ `COLLECTION` correcta y `DELIVERY` fallida sobre la misma ejecución: ninguna etapa afirma persistencia, la razón del fallo queda escrita y el listado la cuenta como una etapa abierta. |
 | ING-03 | Reintento del mismo lote | `core/unit` de idempotencia de lotes (preexistente) | ✅ Cubierto por la suite existente; este trabajo no cambió esa lógica. |
 | ING-04 | Fuente activa y fuente atrasada | `core/unit source-schedule.policy` + `e2e admin-screens` | ✅ Con calendarios reales: la diaria aparece atrasada y la anual al día. |
