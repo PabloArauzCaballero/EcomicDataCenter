@@ -4,7 +4,13 @@ import { Observable, tap } from 'rxjs';
 import type { Actor } from '../auth/actor';
 import { createAuditState, runWithAuditState } from './audit-context';
 import { AuditService } from './audit.service';
-import { describeActor, extractReference, summarizeBody, type AuditEntry } from './audit-entry';
+import {
+  describeActor,
+  extractReference,
+  referenceFromPath,
+  summarizeBody,
+  type AuditEntry,
+} from './audit-entry';
 
 const READ_ONLY_METHODS = new Set(['GET', 'HEAD', 'OPTIONS']);
 const UUID_SEGMENT = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/iu;
@@ -29,6 +35,8 @@ export class AuditInterceptor implements NestInterceptor {
     const request = context.switchToHttp().getRequest<FastifyRequest & { actor?: Actor }>();
     if (READ_ONLY_METHODS.has(request.method)) return next.handle();
 
+    // What the request itself named, which is all a refusal ever has.
+    const named = referenceFromPath(request.url);
     const base = {
       ...describeActor(request.actor),
       action: `${request.method} ${normalizeRoute(request.url)}`,
@@ -56,14 +64,14 @@ export class AuditInterceptor implements NestInterceptor {
             void this.audit.recordBestEffort({
               ...base,
               outcome: 'SUCCESS',
-              entityReference: extractReference(result),
+              entityReference: extractReference(result) ?? named,
             } satisfies AuditEntry);
           },
           error: (error: unknown) => {
             void this.audit.recordBestEffort({
               ...base,
               outcome: 'FAILURE',
-              entityReference: null,
+              entityReference: named,
               details: { ...base.details, rejection: describeRejection(error) },
             } satisfies AuditEntry);
           },
