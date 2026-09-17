@@ -235,17 +235,52 @@ cero.
   migración 0075 se adaptó a la herramienta en vez de arreglar la herramienta.
   Queda anotado como deuda, no como hecho.
 
+## Estado del despliegue (2026-09-16, 23:00)
+
+| | Estado |
+| --- | --- |
+| Núcleo `EcomicDataCenter` | **Desplegado.** Contenedor nuevo en pie y la base de producción quedó en `0075-observe-the-operation`, aplicada al arrancar. |
+| Tablero `observatorio-dashboard` | **No desplegado.** El commit está en GitHub (`0aafef7`); el contenedor nuevo no llegó a servir. `/admin` responde 404 y el contenedor anterior (2026-09-14) sigue sirviendo el sitio público con normalidad. |
+
+El workflow `deploy-to-coolify` del tablero falló dos veces, de dos formas
+distintas: la primera a los 59 s porque el runner no tuvo ruta por la tailnet
+—intermitente, el núcleo falló igual y pasó al siguiente intento—, y la segunda
+a los veinte minutos con «el contenedor nuevo no llego a servir». Esa segunda
+requiere el log de despliegue de Coolify, al que esta máquina no llega: no hay
+SSH ni credenciales. Reintentar otra vez solo gasta otros veinte minutos en un
+servidor cuya carga ya ha matado despliegues antes.
+
+Se descartó la sospecha más obvia: las dependencias de prueba añadidas
+(`@playwright/test`) **no** engordan la imagen con navegadores; desde la 1.56 ese
+paquete no tiene script de instalación. El `next build` se ejecutó aquí, sin
+ninguna variable del área privada, y termina correctamente.
+
+**Consecuencia práctica:** el sitio público está intacto y el área privada no
+está en línea todavía. Nada que dependa del portal funciona en producción hasta
+que ese contenedor arranque.
+
 ## Riesgos y siguientes pasos
 
-1. **Configurar el entorno antes de usar el área privada.** Sin
+1. **Mirar el log de despliegue del tablero en Coolify.** Es el único paso que
+   no se pudo dar desde aquí y es el que bloquea el área privada.
+
+2. **Configurar el entorno antes de usar el área privada.** Sin
    `ADMIN_OPERATORS`, `ADMIN_SESSION_SECRET` y `ADMIN_JWT_PRIVATE_KEY`, `/admin`
    responde con un error y el resto del tablero sigue funcionando. Es el
    comportamiento correcto y es también lo que se verá hasta que se configuren.
-2. **Rotar las credenciales del entorno de pruebas.** Las claves usadas en la
+3. **Rotar las credenciales del entorno de pruebas.** Las claves usadas en la
    suite son desechables y viven fuera del repositorio; no deben viajar a
    ningún despliegue.
-3. **Configurar `ADMIN_OPERATORS`, `ADMIN_SESSION_SECRET` y
+4. **Configurar `ADMIN_OPERATORS`, `ADMIN_SESSION_SECRET` y
    `ADMIN_JWT_PRIVATE_KEY`** en cada entorno antes de abrir el área privada. Sin
    ellas el portal no arranca, que es lo correcto.
-4. **Decidir sobre `AUTH-04`.** Mientras haya una sola organización, el
+5. **Poner `AUTH_MODE=jwks` en el núcleo desplegado.** Hoy responde 200 a
+   `/api/v1/admin/*` **sin ninguna cabecera `Authorization`**: corre con
+   `AUTH_MODE=disabled` y el guardia inyecta un actor con todos los roles. Solo
+   se alcanza por la tailnet —el funnel público `:8443` sirve otra aplicación y
+   devuelve su propio HTML con 200 para cualquier ruta, así que un 200 ahí no
+   significa nada—, pero desde la 0075 eso incluye endpoints que reescriben
+   catálogos.
+
+6. **Decidir sobre `AUTH-04`.** Mientras haya una sola organización, el
    aislamiento es una promesa del código sin ejercicio en runtime.
