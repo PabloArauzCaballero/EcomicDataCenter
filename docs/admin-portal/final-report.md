@@ -18,8 +18,12 @@ tablero no se tocó.
 | `EcomicDataCenter` | `dev` | `ae30a43` | `3b7511f` |
 | `observatorio-dashboard` | `dev` | `e04909c` | `0aafef7` |
 
-**No se hizo `git push`.** `dev` despliega automáticamente y el plan exige
-autorización explícita antes de tocar un entorno desplegable.
+**Publicado con autorización expresa.** `dev` despliega automáticamente, así que
+no se empujó nada hasta pedirlo y obtenerlo. Antes de empujar se comprobó que el
+tablero compila **sin ninguna variable del área privada** —todas sus rutas son
+dinámicas, de modo que un despliegue sin configurar rechaza `/admin` y deja el
+sitio público intacto— y que ningún secreto aparece en los paquetes que
+descarga el navegador.
 
 ## Evidencia ejecutada
 
@@ -233,8 +237,10 @@ cero.
 
 ## Riesgos y siguientes pasos
 
-1. **Autorizar el `push`.** El trabajo está confirmado en local en ambos
-   repositorios. `dev` despliega solo.
+1. **Configurar el entorno antes de usar el área privada.** Sin
+   `ADMIN_OPERATORS`, `ADMIN_SESSION_SECRET` y `ADMIN_JWT_PRIVATE_KEY`, `/admin`
+   responde con un error y el resto del tablero sigue funcionando. Es el
+   comportamiento correcto y es también lo que se verá hasta que se configuren.
 2. **Rotar las credenciales del entorno de pruebas.** Las claves usadas en la
    suite son desechables y viven fuera del repositorio; no deben viajar a
    ningún despliegue.

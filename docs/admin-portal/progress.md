@@ -136,8 +136,8 @@ abiertas y revisadas una por una.
 
 ## Lo que no se hizo
 
-- **No se hizo `git push`.** `dev` despliega automáticamente y el plan exige
-  autorización explícita. El trabajo queda confirmado en local.
+- **El `push` se pidió y se autorizó.** `dev` despliega automáticamente, así que
+  no se empujó nada antes de tenerlo por escrito.
 - **No se tocó producción** ni se aplicó ninguna migración fuera de las bases
   efímeras de Docker.
 - **AUTH-04** (aislamiento entre organizaciones) queda declarado como no
