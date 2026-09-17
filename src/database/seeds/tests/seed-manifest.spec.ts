@@ -2,6 +2,7 @@ import { SEED_PACKAGES, PROFILE_KINDS, findDeclaration } from '../manifest';
 import {
   computeChecksum,
   planOrder,
+  forgetResolvedPackagesForTests,
   resolvePackage,
   resolveAllPackages,
 } from '../manifest-resolution';
@@ -73,9 +74,35 @@ describe('seed manifest', () => {
 describe('checksum', () => {
   it('is stable across two resolutions of the same package', async () => {
     const first = await resolvePackage('core-catalogues');
+    // The cache is dropped between the two, or this would compare a value with
+    // itself and pass against a digest that was not reproducible at all.
+    forgetResolvedPackagesForTests();
     const second = await resolvePackage('core-catalogues');
+    expect(first).not.toBe(second);
     expect(first.checksum).toBe(second.checksum);
     expect(first.checksum).toMatch(/^[a-f0-9]{64}$/u);
+  });
+
+  /**
+   * The digest covers files that ship inside the build, so computing it twice
+   * in one process is answering the same question at the same cost — and that
+   * cost dominated the administrative console's seeds and overview screens.
+   */
+  it('resolves a package once per process and shares the result', async () => {
+    forgetResolvedPackagesForTests();
+    const [first, second] = await Promise.all([
+      resolvePackage('core-catalogues'),
+      resolvePackage('core-catalogues'),
+    ]);
+    expect(first).toBe(second);
+    expect(await resolvePackage('core-catalogues')).toBe(first);
+  });
+
+  it('does not remember a resolution that failed', async () => {
+    await expect(resolvePackage('does-not-exist')).rejects.toThrow(/desconocido/u);
+    // A second attempt has to reach the filesystem again rather than replay a
+    // rejection nobody can clear without restarting the process.
+    await expect(resolvePackage('does-not-exist')).rejects.toThrow(/desconocido/u);
   });
 
   /**

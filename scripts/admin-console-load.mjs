@@ -13,6 +13,10 @@
  * and the slow tail is the operator waiting. Every screen is reported
  * separately, because one fast screen must not be allowed to carry a slow one.
  *
+ * The batch size matches the intake contract: fifty events per call. A larger
+ * batch is refused outright rather than accepted and trimmed, which is the
+ * right behaviour and the reason this number is not a guess.
+ *
  * Usage:
  *   node scripts/admin-console-load.mjs --base-url http://127.0.0.1:3210 \
  *     --events 100000 --readers 20 --duration-seconds 300 \
@@ -33,10 +37,17 @@ const BASE_URL = readOption('base-url', 'http://127.0.0.1:3210').replace(/\/+$/u
 const EVENTS = Number(readOption('events', '100000'));
 const READERS = Number(readOption('readers', '20'));
 const DURATION_SECONDS = Number(readOption('duration-seconds', '300'));
-const BATCH_SIZE = Number(readOption('batch-size', '500'));
+const BATCH_SIZE = Number(readOption('batch-size', '50'));
 const WRITERS = Number(readOption('writers', '8'));
 const OUT = readOption('out', 'artifacts/admin-console-load.json');
-const TOKEN = readOption('token', '');
+/*
+ * The credential is taken from the environment, not from an argument.
+ *
+ * A token on the command line is visible to every other process on the machine
+ * through the process list, and ends up in shell history. `--token` is kept for
+ * a throwaway local run, but the environment is the way to pass a real one.
+ */
+const TOKEN = process.env['ADMIN_LOAD_TOKEN'] ?? readOption('token', '');
 
 /** The screens an operator opens, each one an aggregation over the registers. */
 const SCREENS = [
@@ -46,8 +57,9 @@ const SCREENS = [
   '/api/v1/admin/ingestion/sources',
   '/api/v1/admin/ingestion/runs?pageSize=50',
   '/api/v1/admin/quality/summary',
-  '/api/v1/admin/health/site',
-  '/api/v1/admin/seeds',
+  '/api/v1/admin/health/summary',
+  '/api/v1/admin/seeds/packages',
+  '/api/v1/admin/audit/events?pageSize=50',
 ];
 
 const ROUTES = ['/', '/prensa', '/lugares', '/mundo', '/temas', '/empresas'];
@@ -89,6 +101,8 @@ async function fillRegister() {
   let sent = 0;
   let accepted = 0;
   let failures = 0;
+  let firstRefusal = null;
+  const refusals = new Map();
   const batches = Math.ceil(EVENTS / BATCH_SIZE);
   let nextBatch = 0;
 
@@ -107,7 +121,11 @@ async function fillRegister() {
       sent += size;
       if (!response || !response.ok) {
         failures += 1;
-        if (response) await response.text().catch(() => '');
+        const status = response ? response.status : 0;
+        refusals.set(status, (refusals.get(status) ?? 0) + 1);
+        if (response && firstRefusal === null) firstRefusal = (await response.text()).slice(0, 300);
+        else if (response) await response.text().catch(() => '');
+        await delay(status === 429 ? 1_000 : 100);
         continue;
       }
       const body = await response.json().catch(() => null);
@@ -120,6 +138,10 @@ async function fillRegister() {
     sent,
     accepted,
     failedBatches: failures,
+    refusalsByStatus: Object.fromEntries(refusals),
+    // Kept verbatim: a batch that was refused for a reason nobody recorded is
+    // how a load test ends up reporting an empty register as a fast one.
+    firstRefusal,
     seconds: Number(((Date.now() - startedAt) / 1000).toFixed(1)),
   };
 }
@@ -133,6 +155,8 @@ function percentile(sorted, fraction) {
 async function readConsole() {
   const samples = new Map(SCREENS.map((screen) => [screen, []]));
   const failures = new Map(SCREENS.map((screen) => [screen, 0]));
+  /** Why requests were refused, so «failures» is never an unexplained number. */
+  const refusals = new Map();
   const deadline = Date.now() + DURATION_SECONDS * 1_000;
 
   async function reader(index) {
@@ -146,8 +170,14 @@ async function readConsole() {
       );
       const elapsed = performance.now() - startedAt;
       if (!response || !response.ok) {
+        const status = response ? response.status : 0;
+        refusals.set(status, (refusals.get(status) ?? 0) + 1);
         failures.set(screen, (failures.get(screen) ?? 0) + 1);
         if (response) await response.text().catch(() => '');
+        // Backing off on a refusal is not politeness: without it a rejected
+        // request returns instantly and the loop measures how fast the process
+        // can say no, which is not the question.
+        await delay(response && response.status === 429 ? 1_000 : 200);
         continue;
       }
       await response.text();
@@ -177,6 +207,7 @@ async function readConsole() {
   );
   return {
     screens,
+    refusalsByStatus: Object.fromEntries(refusals),
     overall: {
       requests: everySample.length,
       failures: screens.reduce((total, screen) => total + screen.failures, 0),

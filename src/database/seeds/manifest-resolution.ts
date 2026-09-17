@@ -56,8 +56,35 @@ export async function computeChecksum(
   return digest.digest('hex');
 }
 
+/**
+ * Resolved manifests, held for the life of the process.
+ *
+ * The digest covers 155 MB of files that ship inside the build and cannot
+ * change while it runs, so recomputing it is answering the same question again
+ * at the same cost. Measured on the administrative console, that cost was 3,5 s
+ * of the 3,8 s a seeds page took, and the overview inherited it because it
+ * lists packages too.
+ *
+ * The promise is cached rather than its value, so twenty readers arriving at
+ * once share one traversal instead of starting twenty. A new build is a new
+ * process and therefore a new cache; nothing here has to be invalidated by hand.
+ */
+const resolved = new Map<string, Promise<SeedPackageManifest>>();
+
 /** Resolves one declaration into the manifest the ledger is compared against. */
 export async function resolvePackage(code: string): Promise<SeedPackageManifest> {
+  const cached = resolved.get(code);
+  if (cached) return cached;
+  const pending = readPackage(code);
+  resolved.set(code, pending);
+  // A failed resolution is not cached: a missing file is a condition somebody
+  // fixes, and a process that remembers the failure forever would need a
+  // restart to notice that they did.
+  pending.catch(() => resolved.delete(code));
+  return pending;
+}
+
+async function readPackage(code: string): Promise<SeedPackageManifest> {
   const declaration = findDeclaration(code);
   if (!declaration) throw new Error(`Paquete de siembra desconocido: ${code}`);
   const parsed = seedPackageDeclarationSchema.parse(declaration);
@@ -67,6 +94,11 @@ export async function resolvePackage(code: string): Promise<SeedPackageManifest>
     if (!entry.isFile()) throw new Error(`La ruta declarada no es un archivo: ${file}`);
   }
   return { ...parsed, files, checksum: await computeChecksum(parsed, files) };
+}
+
+/** Drops the cache so a test can observe a resolution it has just changed. */
+export function forgetResolvedPackagesForTests(): void {
+  resolved.clear();
 }
 
 export async function resolveAllPackages(): Promise<SeedPackageManifest[]> {
