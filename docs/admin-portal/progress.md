@@ -72,10 +72,18 @@ Sesión con cookie HttpOnly firmada por HMAC, contraseñas con scrypt y comparac
 en tiempo constante, JWT RS256 acuñado por petición en el servidor, JWKS servido
 por el tablero y consumido por el núcleo. Once pantallas.
 
-- `admin-auth.spec` → 9 casos por navegador, verdes: anónimo rechazado, cookie
-  manipulada rechazada, cierre de sesión efectivo, mutación sin token rechazada,
-  mutación desde otro origen rechazada.
+- `admin-auth.spec` → 10 casos, verdes: anónimo rechazado, cookie manipulada
+  rechazada, cierre de sesión efectivo, mutación sin token rechazada, mutación
+  desde otro origen rechazada.
 - La conexión pública de lectura **no** se tocó.
+
+**Defecto propio encontrado al final, y grave:** el formulario de acceso no
+declaraba método, así que entre la llegada del HTML y el arranque del script era
+un formulario corriente —y el método por omisión es `GET`—. Un envío en esa
+ventana ponía la contraseña en la cadena de consulta. Lo delató una prueba que,
+al fallar, escribió `?subject=…&password=…` en su propio mensaje de error.
+Corregido con `method="post"`; `AUTH-06` lo comprueba sobre el HTML servido. El
+botón, además, dice «Cargando…» y está deshabilitado hasta ser interactivo.
 
 ## Fase 5 — Exportaciones y telemetría
 
@@ -114,12 +122,17 @@ abiertas y revisadas una por una.
 
 ## Fase 8 — Cierre
 
-- `yarn test` → 78 suites, 613 pruebas, verde.
+- `yarn test` → 78 suites, 615 pruebas, verde.
 - `yarn quality:all` → 18 puertas, sin FAIL.
 - `yarn lint`, `yarn format:check`, `yarn typecheck` → limpios.
 - Migraciones sobre base virgen → 75 en 4,6 s.
-- Sembradores de arranque desde cero sobre `observatory_clean` → ejecutado; ver
-  [`final-report.md`](final-report.md) para el tiempo y el recuento.
+- Sembradores de arranque desde cero sobre `observatory_clean` → 20 paquetes en
+  3.183 s, salida 0; la aplicación construyó las cuatro copias restantes en 75 s.
+- Playwright → 59 casos en chromium y firefox, verde.
+- Carga de la consola → 100.000 eventos aceptados en 7 s y 36.111 lecturas en 5
+  minutos sin un solo fallo; p95 por debajo de 2 s en las nueve pantallas
+  **después** de corregir el recálculo de sumas de comprobación en cada
+  petición. Todo el detalle en [`final-report.md`](final-report.md).
 
 ## Lo que no se hizo
 

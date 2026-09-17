@@ -19,6 +19,7 @@ Convenciones de la columna «Evidencia»:
 | AUTH-03 | Sesión cerrada y cookie manipulada | `e2e admin-auth` (dos casos) | ✅ Cerrar sesión devuelve al login sin bucles; una cookie con la firma alterada no abre el portal. |
 | AUTH-04 | Organización A consulta entidad B | `core/unit admin-authorization`, `AuditViewRepository` filtra en la consulta | ⚠️ **Parcial.** El filtro por organización se aplica en SQL y hay prueba unitaria de la política, pero **no** hay un caso de extremo a extremo con dos organizaciones: este despliegue de pruebas tiene una sola. Declarado como no comprobado en runtime. |
 | AUTH-05 | Mutación con CSRF u origen inválido | `e2e admin-auth` (dos casos) | ✅ 403 `CSRF_REJECTED` sin token; 403 con `Origin` ajeno. |
+| AUTH-06 | La contraseña nunca viaja por la URL | `e2e admin-auth` «el formulario de acceso no puede enviar la contraseña por la URL» | ✅ El HTML servido declara `method="post"`, de modo que un envío anterior a la hidratación no puede poner la contraseña en la cadena de consulta. Fila añadida tras encontrar el defecto. |
 
 ## Sembradores
 
