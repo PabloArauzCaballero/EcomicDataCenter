@@ -53,6 +53,7 @@ import {
   parseStablecoinBook,
   stablecoinBookAssertion,
   stablecoinBookMeasure,
+  stablecoinBookTitle,
   type BookSide,
   type StablecoinAsset,
 } from '../src/modules/intelligence/stablecoin-book-parsers';
@@ -506,7 +507,7 @@ async function researchStablecoinBook(asset: StablecoinAsset, side: BookSide): P
     prefetched,
     recordType: 'DAILY_INDICATOR',
     dataCategory: 'FX_STABLECOIN',
-    title: `${quote.asset}/${quote.fiat}`,
+    title: stablecoinBookTitle(quote),
     url: stablecoinBookUrl,
     publisher: stablecoinBookVenue,
     publishedAt: capturedAt.toISOString(),

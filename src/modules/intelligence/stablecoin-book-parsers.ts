@@ -283,6 +283,25 @@ export function parseStablecoinBook(
 }
 
 /**
+ * Título de una lectura del libro, que tiene que poder citarse de la respuesta.
+ *
+ * La validación previa a la ingesta exige que el título aparezca literal en el
+ * documento descargado, y con razón: un título que no está en la fuente es un
+ * título inventado. El libro escribe la ficha y el fiat en campos separados
+ * —`"asset":"USDT"`, `"fiatUnit":"BOB"`— y no junta los dos en ninguna cadena,
+ * así que el par «USDT/BOB» no es citable por mucho que describa mejor la
+ * lectura. Se titula con la ficha tal como la deletrea el libro; el par viaja
+ * en `instrument`, que no se cita, y el lado y el precio van en la afirmación.
+ *
+ * Vive aquí, junto al parser, porque así se puede comprobar contra el mismo
+ * payload capturado que el resto del módulo: cuando el título era el par, las
+ * lecturas se rechazaban en cada corrida sin que ninguna prueba lo notara.
+ */
+export function stablecoinBookTitle(quote: StablecoinBookQuote): string {
+  return quote.asset;
+}
+
+/**
  * Wording for a book quotation.
  *
  * Built out of the payload's own field names for the reason the venue wording
