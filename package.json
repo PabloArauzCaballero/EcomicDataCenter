@@ -90,6 +90,7 @@
     "bbv:yields": "tsx scripts/bbv/collect-bbv-yields.ts",
     "bbv:filings": "tsx scripts/bbv/collect-bbv-filings.ts",
     "indices:collect": "tsx scripts/macro/collect-owid-indices.ts",
+    "freedom:collect": "tsx scripts/macro/collect-freedom-indices.ts",
     "imf:collect": "tsx scripts/macro/collect-imf-weo-series.ts",
     "trade:collect": "tsx scripts/macro/collect-comtrade-trade.ts"
   },

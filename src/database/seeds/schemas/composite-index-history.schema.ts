@@ -39,11 +39,20 @@ export const compositeIndexHistorySchema = z.object({
               /** The archive the bytes came from, which is not the publisher. */
               distributor: z.string().trim().min(2).max(200),
               sourceUrl: z.url(),
-              /** Heading of the column the value was read from. */
-              valueColumn: z.string().trim().min(2).max(120),
+              /**
+               * Heading of the column the value was read from. One character is
+               * a real heading: Freedom House letters its subcategories A to G.
+               */
+              valueColumn: z.string().trim().min(1).max(120),
               retrievedAt: z.iso.datetime({ offset: false }),
               upstreamSha256: z.string().regex(/^[a-f0-9]{64}$/u),
               frequency: z.literal('ANNUAL'),
+              /**
+               * What kind of file the bytes were, so the artifact record
+               * does not call a workbook a CSV. Absent means CSV, which is
+               * what every series written before the workbooks arrived was.
+               */
+              format: z.enum(['CSV', 'XLSX']).optional(),
             })
             .strict(),
           points: z

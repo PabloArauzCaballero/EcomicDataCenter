@@ -50,10 +50,13 @@ async function reconcileSeriesArtifact(
     {
       sourceArtifactId,
       sourceId,
-      artifactType: 'CSV',
+      artifactType: series.provenance.format ?? 'CSV',
       originalUri: series.provenance.sourceUrl,
       storageUri: series.provenance.sourceUrl,
-      mimeType: 'text/csv',
+      mimeType:
+        series.provenance.format === 'XLSX'
+          ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+          : 'text/csv',
       sha256: series.provenance.upstreamSha256,
       retrievedAt: new Date(series.provenance.retrievedAt),
       metadataJson: {
