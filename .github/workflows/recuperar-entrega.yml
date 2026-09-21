@@ -1,0 +1,68 @@
+name: recuperar-entrega-lugares
+'on':
+  push:
+    branches:
+      - chatgpt/recuperar-entrega-lugares-20260921
+permissions: {}
+concurrency:
+  group: recuperar-entrega-lugares-20260921
+  cancel-in-progress: false
+jobs:
+  recuperar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Recuperar ZIP y comprobar SHA-256 sin ejecutar su contenido
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib, json, ssl, time, urllib.error, urllib.request, zipfile
+          sources = [
+              ('01_granularidad_1738.zip', 'https://zip5.tempfilestorage.link/public/2026-09-18/3809867c-9717-4d6e-9da3-c6b90f3d51ed/granularidad_bolivia_resultados_validables.zip', '8162710c1ce656fd9d9563b6cce42657d2304e26fef0430bef0830c8fbf0a060', 3362932),
+              ('02_agemed_5011.zip', 'https://zip3.tempfilestorage.link/public/2026-09-18/fe238b80-cee3-4bef-9d81-f097f61207a9/profundizacion_bolivia_5011_altas_398_enriquecimientos.zip', '1f276c75827ac0f329adec71e1dcbd653f31ecdc432655522c6934f362fc433b', 1217878),
+              ('03_rondas_34_establecimientos.zip', 'https://zip1.tempfilestorage.link/public/2026-09-21/db0e266c-b45f-4663-9058-216555f038a5/ampliacion_bolivia_50_rondas_3507.zip', 'bac532a732c2741162345dad835f0a207e505f2439714b0d8fb8fc22e8511e1e', 1033809),
+          ]
+          out = Path('/tmp/entrega_lugares_recuperada')
+          out.mkdir(parents=True, exist_ok=True)
+          report = []
+          for name, url, expected_sha, expected_size in sources:
+              path = out / name
+              for attempt in range(3):
+                  try:
+                      request = urllib.request.Request(url, headers={'User-Agent': 'DataDeliveryRecovery/1.0'})
+                      with urllib.request.urlopen(request, timeout=40, context=ssl.create_default_context()) as response:
+                          data = response.read(12_000_001)
+                      actual_sha = hashlib.sha256(data).hexdigest()
+                      if len(data) != expected_size or actual_sha != expected_sha:
+                          raise ValueError(f'Integridad incorrecta: {name}; bytes={len(data)}; sha256={actual_sha}')
+                      path.write_bytes(data)
+                      with zipfile.ZipFile(path) as archive:
+                          if archive.testzip() is not None:
+                              raise ValueError(f'Error CRC: {name}')
+                          for member in archive.infolist():
+                              member_path = Path(member.filename)
+                              if member_path.is_absolute() or '..' in member_path.parts:
+                                  raise ValueError('Ruta insegura dentro del ZIP')
+                      item = {'archivo': name, 'bytes': len(data), 'sha256': actual_sha, 'verificado': True, 'url_origen': url}
+                      report.append(item)
+                      print(json.dumps(item, ensure_ascii=False), flush=True)
+                      break
+                  except urllib.error.HTTPError as exc:
+                      if exc.code in {401, 403, 404, 410, 429} or attempt == 2:
+                          raise
+                      time.sleep(3 * (attempt + 1))
+                  except (OSError, urllib.error.URLError):
+                      if attempt == 2:
+                          raise
+                      time.sleep(3 * (attempt + 1))
+          (out / 'recuperacion_verificada.json').write_text(json.dumps({'archivos': report, 'investigacion_nueva': False, 'modificacion_base_datos': False}, ensure_ascii=False, indent=2), encoding='utf-8')
+          PY
+      - name: Adjuntar los archivos recuperados
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: entrega-lugares-recuperada
+          path: /tmp/entrega_lugares_recuperada/
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
