@@ -215,6 +215,7 @@ export const PACKAGE_SNAPSHOTS: Readonly<Record<string, readonly string[]>> = {
   'company-filings-archive': ['company_filing_snapshot'],
   'company-filing-texts': ['company_filing_snapshot'],
   'macro-annual-history': ['macro_indicator_annual_snapshot', 'indicator_source_note_snapshot'],
+  'composite-indices': ['macro_indicator_annual_snapshot', 'indicator_source_note_snapshot'],
   'worldbank-panel': ['world_panel_catalogue_snapshot'],
 };
 
