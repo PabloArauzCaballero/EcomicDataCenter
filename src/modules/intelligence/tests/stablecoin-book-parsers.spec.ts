@@ -4,8 +4,10 @@ import {
   parseStablecoinBook,
   stablecoinBookAssertion,
   stablecoinBookMeasure,
+  stablecoinBookTitle,
 } from '../stablecoin-book-parsers';
 import { assessLexicalGrounding } from '../claim-evidence-grounding';
+import { comparable } from '../evidence-quality';
 import { ungroundedNumbers } from '../../../common/intelligence/quantitative-grounding';
 import { ungroundedMeasures } from '../indicator-measures';
 
@@ -177,6 +179,32 @@ describe('parseStablecoinBook', () => {
     expect(quote.price).toBe('12.00');
     expect(withBrace).toContain(quote.excerpt);
     expect(quote.excerpt).toContain('{banco}');
+  });
+});
+
+describe('stablecoinBookTitle', () => {
+  it('se puede citar del propio libro, que es lo que exige la ingesta', () => {
+    // La validación previa a la ingesta comprueba que el título aparezca
+    // literal en el documento descargado. Esta prueba existe porque esa
+    // comprobación se incumplía en producción sin que nada lo dijera: el
+    // título era el par «USDT/BOB», el libro nunca escribe ese par —deletrea
+    // la ficha y el fiat en campos separados— y las cuatro lecturas de las dos
+    // fichas que cotizan se rechazaban en cada corrida, con la categoría
+    // entera figurando como no recogida. El par describe mejor la lectura y no
+    // sirve de título: no está en la fuente.
+    for (const [text, side] of [
+      [askBook, 'SELL'],
+      [bidBook, 'BUY'],
+    ] as const) {
+      const quote = parseStablecoinBook(text, side, 'USDT');
+      expect(comparable(text)).toContain(comparable(stablecoinBookTitle(quote)));
+      expect(comparable(text)).not.toContain(comparable(`${quote.asset}/${quote.fiat}`));
+    }
+  });
+
+  it('deletrea la ficha como la deletrea el libro, no como la pidió el colector', () => {
+    const quote = parseStablecoinBook(book(['12.50'], 'SELL', 'USDC'), 'SELL', 'usdc');
+    expect(stablecoinBookTitle(quote)).toBe('USDC');
   });
 });
 
