@@ -1,11 +1,9 @@
+import { BOOK_SIDE_REQUEST, EmptyBookError, parseStablecoinBook } from '../stablecoin-book-parsers';
 import {
-  BOOK_SIDE_REQUEST,
-  EmptyBookError,
-  parseStablecoinBook,
   stablecoinBookAssertion,
   stablecoinBookMeasure,
   stablecoinBookTitle,
-} from '../stablecoin-book-parsers';
+} from '../stablecoin-book-readings';
 import { assessLexicalGrounding } from '../claim-evidence-grounding';
 import { comparable } from '../evidence-quality';
 import { ungroundedNumbers } from '../../../common/intelligence/quantitative-grounding';

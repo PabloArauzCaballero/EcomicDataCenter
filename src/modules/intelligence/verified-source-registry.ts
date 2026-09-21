@@ -108,7 +108,20 @@ const registry = new Map<string, VerifiedSource>([
     { publisher: 'PROGRAMA DE LAS NACIONES UNIDAS PARA EL DESARROLLO', tier: 'OFFICIAL' },
   ],
 
+  // Plazas cotizadas. Publican el precio al que se negocia, no un informe sobre
+  // él, que es lo que las separa de un medio: la lectura se toma del libro o de
+  // la tabla que la propia plaza sirve.
   ['dolarbluebolivia.click', { publisher: 'DOLAR BLUE BOLIVIA', tier: 'MARKET' }],
+  /*
+   * El libro entre particulares de la bolsa, en bolivianos.
+   *
+   * Es la única plaza con libro en bolivianos para más de una ficha estable
+   * —Bybit, OKX y Bitget devuelven cero para USDC—, así que sin registrarla la
+   * pregunta «cuánto cuesta el dólar por cada riel» no tiene fuente. Registrar
+   * el dominio no admite nada por sí solo: establece quién sirvió los bytes,
+   * que es justo lo que un endpoint JSON no puede declarar por sí mismo.
+   */
+  ['binance.com', { publisher: 'BINANCE P2P', tier: 'MARKET' }],
 
   // Trade bodies. These are the only publishers that break out foreign trade by
   // product and department, construction activity, or private-bank aggregates
@@ -191,14 +204,33 @@ export function verifiedSource(rawUrl: string | URL): VerifiedSource | undefined
 }
 
 /**
- * True when an official indicator table declares no publication date and the
- * candidate does not claim one either.
+ * True when a quoted indicator declares no publication date and the candidate
+ * does not claim one either.
  *
- * A daily quotation table states the date the value is in force inside its own
- * body and never declares a separate publication instant. Demanding one would
- * permanently demote the most authoritative reading the collector has, while
+ * A daily quotation states the value in force at the moment it is read and
+ * never declares a separate publication instant. Demanding one would
+ * permanently demote the most authoritative readings the collector has, while
  * there is nothing here that a model could have invented: the candidate asserts
  * no publication date at all.
+ *
+ * **Widened from OFFICIAL to MARKET on 2026-09-21, deliberately.** The rule was
+ * written for a central bank's daily table and excluded trading venues, which
+ * cost nothing while the only registered venue stamped its own payloads. An
+ * exchange's order book does not: it carries no timestamp field at all, so
+ * under the narrow rule every stablecoin reading was demoted to LOW and routed
+ * to human review, three times a day, for a series meant to run unattended. The
+ * rationale in the paragraph above applies to an order book word for word — it
+ * is a measurement in force when read, published without a stamp — so the tier
+ * was the wrong axis to have keyed it on.
+ *
+ * What did **not** widen is the part that carries the risk. PRESS and SECTOR
+ * stay out: an outlet reporting a figure and a trade body publishing its own
+ * members' numbers are claims about a measurement, not the measurement, and no
+ * absent date should admit either into a series. The guards also stay: the
+ * record must be a daily indicator, the candidate must claim no date at all, the
+ * source must declare none either — so there is nothing to contradict — and the
+ * domain must be registered, which means the bytes came from it through the
+ * SSRF guard rather than from something that named itself after it.
  */
 /**
  * True when the downloaded document states the publication instant itself.
@@ -215,7 +247,7 @@ export function documentStatedPublication(input: {
   return input.statedInDocument && input.source?.tier === 'OFFICIAL';
 }
 
-export function undatedOfficialIndicator(input: {
+export function undatedQuotedIndicator(input: {
   readonly recordType: string;
   readonly publishedAt: string | null;
   readonly publicationDateAssessment: string;
@@ -225,6 +257,6 @@ export function undatedOfficialIndicator(input: {
     input.recordType === 'DAILY_INDICATOR' &&
     input.publishedAt === null &&
     input.publicationDateAssessment === 'UNAVAILABLE' &&
-    input.source?.tier === 'OFFICIAL'
+    (input.source?.tier === 'OFFICIAL' || input.source?.tier === 'MARKET')
   );
 }

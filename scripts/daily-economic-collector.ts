@@ -51,15 +51,17 @@ import {
   EmptyBookError,
   STABLECOIN_SERIES,
   parseStablecoinBook,
-  stablecoinBookAssertion,
-  stablecoinBookMeasure,
-  stablecoinBookTitle,
   type BookSide,
   type StablecoinAsset,
 } from '../src/modules/intelligence/stablecoin-book-parsers';
 import {
+  stablecoinBookAssertion,
+  stablecoinBookMeasure,
+  stablecoinBookTitle,
+} from '../src/modules/intelligence/stablecoin-book-readings';
+import {
   documentStatedPublication,
-  undatedOfficialIndicator,
+  undatedQuotedIndicator,
   verifiedSource,
 } from '../src/modules/intelligence/verified-source-registry';
 import {
@@ -497,9 +499,15 @@ async function researchStablecoinBook(asset: StablecoinAsset, side: BookSide): P
   });
   const quote = parseStablecoinBook(prefetched.decodedText ?? '', side, asset);
   /*
-   * The book is read now and carries no instant of its own, so the reading is
-   * dated by the moment it was taken. Inventing a publication stamp the
-   * exchange never stated would be a stronger claim than the source supports.
+   * El libro se lee ahora y no trae instante propio: ni un campo de fecha, ni
+   * uno solo, en toda la respuesta. Así que la lectura se fecha por el momento
+   * en que se tomó y **no declara fecha de publicación**.
+   *
+   * `publishedAt: null` no es un hueco que rellenar más adelante: es la
+   * afirmación correcta. Antes se ponía aquí el instante de la captura, que
+   * dice «la bolsa publicó esto a las 23:15» cuando la bolsa no dijo tal cosa,
+   * y eso es exactamente la clase de dato inventado que la validación existe
+   * para atrapar. Sin fecha declarada, no hay nada que contradecir.
    */
   const capturedAt = new Date();
   return {
@@ -510,7 +518,7 @@ async function researchStablecoinBook(asset: StablecoinAsset, side: BookSide): P
     title: stablecoinBookTitle(quote),
     url: stablecoinBookUrl,
     publisher: stablecoinBookVenue,
-    publishedAt: capturedAt.toISOString(),
+    publishedAt: null,
     eventDate: localDate(capturedAt),
     claimType: 'INDICATOR_READING',
     assertion: stablecoinBookAssertion(quote),
@@ -1064,7 +1072,7 @@ async function persistEvidence(candidate: Candidate) {
       statedInDocument: candidate.publicationInDocument === true,
       source: registeredSource,
     }) ||
-    undatedOfficialIndicator({
+    undatedQuotedIndicator({
       recordType: candidate.recordType,
       publishedAt: candidate.publishedAt,
       publicationDateAssessment,
