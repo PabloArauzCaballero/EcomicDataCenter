@@ -1,6 +1,6 @@
 import {
   documentStatedPublication,
-  undatedOfficialIndicator,
+  undatedQuotedIndicator,
   verifiedSource,
 } from '../verified-source-registry';
 
@@ -65,7 +65,7 @@ describe('verified source registry', () => {
 
   it('accepts an official indicator table that declares no publication date', () => {
     expect(
-      undatedOfficialIndicator({
+      undatedQuotedIndicator({
         recordType: 'DAILY_INDICATOR',
         publishedAt: null,
         publicationDateAssessment: 'UNAVAILABLE',
@@ -74,11 +74,28 @@ describe('verified source registry', () => {
     ).toBe(true);
   });
 
-  it('never waives the publication date for news, market data or a claimed date', () => {
+  it('accepts a quoted venue whose order book carries no timestamp at all', () => {
+    // Ampliado a propósito el 2026-09-21. El libro entre particulares de la
+    // bolsa no trae ni un campo de fecha, así que bajo la regla estrecha cada
+    // lectura por ficha quedaba en LOW y se enrutaba a revisión humana tres
+    // veces al día, en una serie pensada para correr sola. Es la misma clase de
+    // prueba que la tabla diaria de un banco central: una medición en vigor
+    // cuando se lee, publicada sin sello.
+    expect(
+      undatedQuotedIndicator({
+        recordType: 'DAILY_INDICATOR',
+        publishedAt: null,
+        publicationDateAssessment: 'UNAVAILABLE',
+        source: { publisher: 'BINANCE P2P', tier: 'MARKET' },
+      }),
+    ).toBe(true);
+  });
+
+  it('never waives the publication date for news, a trade body or a claimed date', () => {
     const official = { publisher: 'BANCO CENTRAL DE BOLIVIA', tier: 'OFFICIAL' } as const;
 
     expect(
-      undatedOfficialIndicator({
+      undatedQuotedIndicator({
         recordType: 'NEWS',
         publishedAt: null,
         publicationDateAssessment: 'UNAVAILABLE',
@@ -86,23 +103,26 @@ describe('verified source registry', () => {
       }),
     ).toBe(false);
     expect(
-      undatedOfficialIndicator({
+      undatedQuotedIndicator({
         recordType: 'DAILY_INDICATOR',
         publishedAt: '2026-08-22T10:00:00Z',
         publicationDateAssessment: 'UNAVAILABLE',
         source: official,
       }),
     ).toBe(false);
+    // Lo que NO se amplió, que es donde estaba el riesgo: un medio informa sobre
+    // una medición, no la toma, y una fecha ausente nunca debe meter eso en una
+    // serie.
     expect(
-      undatedOfficialIndicator({
+      undatedQuotedIndicator({
         recordType: 'DAILY_INDICATOR',
         publishedAt: null,
         publicationDateAssessment: 'UNAVAILABLE',
-        source: { publisher: 'DOLAR BLUE BOLIVIA', tier: 'MARKET' },
+        source: { publisher: 'RED UNO', tier: 'PRESS' },
       }),
     ).toBe(false);
     expect(
-      undatedOfficialIndicator({
+      undatedQuotedIndicator({
         recordType: 'DAILY_INDICATOR',
         publishedAt: null,
         publicationDateAssessment: 'UNAVAILABLE',
@@ -113,7 +133,7 @@ describe('verified source registry', () => {
 
   it('never waives the publication date for a trade body either', () => {
     expect(
-      undatedOfficialIndicator({
+      undatedQuotedIndicator({
         recordType: 'DAILY_INDICATOR',
         publishedAt: null,
         publicationDateAssessment: 'UNAVAILABLE',
@@ -150,7 +170,7 @@ describe('verified source registry', () => {
   it('never admits an unregistered domain to the checks that feed a series', () => {
     expect(documentStatedPublication({ statedInDocument: true, source: undefined })).toBe(false);
     expect(
-      undatedOfficialIndicator({
+      undatedQuotedIndicator({
         recordType: 'DAILY_INDICATOR',
         publishedAt: null,
         publicationDateAssessment: 'UNAVAILABLE',
