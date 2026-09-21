@@ -46,6 +46,16 @@ import {
   type IndicatorMeasure,
 } from '../src/modules/intelligence/indicator-measures';
 import {
+  BOOK_DEPTH,
+  BOOK_SIDE_REQUEST,
+  STABLECOIN_SERIES,
+  parseStablecoinBook,
+  stablecoinBookAssertion,
+  stablecoinBookMeasure,
+  type BookSide,
+  type StablecoinAsset,
+} from '../src/modules/intelligence/stablecoin-book-parsers';
+import {
   documentStatedPublication,
   undatedOfficialIndicator,
   verifiedSource,
@@ -122,8 +132,24 @@ interface Candidate {
    */
   publicationInDocument?: boolean;
   recordType: 'DAILY_INDICATOR' | 'NEWS';
+  /**
+   * What the reading is about.
+   *
+   * `FX_STABLECOIN` is absent from the schemas the research model answers
+   * against, and deliberately so: it is the only category with no prose form.
+   * A stablecoin quotation exists as a position in an order book, is read by a
+   * parser against the retained bytes, and means nothing if asserted in a
+   * sentence instead. Leaving it out of the model's vocabulary is what keeps an
+   * unverified price out of a series whose whole claim is that it was measured.
+   */
   dataCategory:
-    'FX_OFFICIAL' | 'FX_PARALLEL' | 'UFV' | 'SOVEREIGN_BONDS' | 'MACRO_DAILY' | 'COMPANY_NEWS';
+    | 'FX_OFFICIAL'
+    | 'FX_PARALLEL'
+    | 'FX_STABLECOIN'
+    | 'UFV'
+    | 'SOVEREIGN_BONDS'
+    | 'MACRO_DAILY'
+    | 'COMPANY_NEWS';
   title: string;
   url: string;
   publisher: string;
@@ -224,7 +250,21 @@ const requiredDailyCategories = ['FX_OFFICIAL', 'FX_PARALLEL', 'UFV'] as const;
  * so demanding them every run marked every single execution as failed and hid
  * the failures that were real.
  */
-const desiredDailyCategories = ['SOVEREIGN_BONDS', 'MACRO_DAILY', 'COMPANY_NEWS'] as const;
+const desiredDailyCategories = [
+  'SOVEREIGN_BONDS',
+  'MACRO_DAILY',
+  'COMPANY_NEWS',
+  /*
+   * Desired rather than required, for two reasons that are both about the book
+   * and not about the collector. The USDC side of it runs on a couple of dozen
+   * advertisements, so a day with none on one side is a real state of that
+   * market and not a fault. And the exchange serves the book to a browser
+   * rather than to a data client, so it may refuse a datacentre address on a
+   * given day; that would otherwise mark every single run as failed and bury
+   * the failures that matter.
+   */
+  'FX_STABLECOIN',
+] as const;
 
 /**
  * Research budget.
@@ -418,6 +458,87 @@ async function researchParallelExchange(): Promise<Candidate[]> {
     }
   }
   if (!candidates.length) throw new Error('No parallel exchange venue returned a quotation');
+  return candidates;
+}
+
+/**
+ * Stablecoin order books quoted in bolivianos.
+ *
+ * The venue behind the aggregate parallel rate reports one pair per venue and
+ * nothing about the book, and it lists no USDC at all. Read on 2026-09-21,
+ * Bybit, OKX and Bitget each returned an empty USDC book in bolivianos, so this
+ * exchange is not one source among several for that token — it is the only one
+ * there is. That is a limitation of the market and not of the collector, and it
+ * travels with the reading rather than being smoothed over: a USDC series built
+ * on a single venue says so, and the `venue_count` the read model publishes is
+ * one.
+ *
+ * Each token and side is a claim of its own with its own evidence, for the same
+ * reason the venues are: a book that thins out stays visible instead of being
+ * averaged into one that did not.
+ */
+const stablecoinBookUrl = 'https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search';
+const stablecoinBookVenue = 'BINANCE P2P';
+
+async function researchStablecoinBook(asset: StablecoinAsset, side: BookSide): Promise<Candidate> {
+  const body = JSON.stringify({
+    asset,
+    fiat: 'BOB',
+    tradeType: BOOK_SIDE_REQUEST[side],
+    page: 1,
+    rows: BOOK_DEPTH,
+  });
+  const prefetched = await downloadEvidenceSource(stablecoinBookUrl, {
+    method: 'POST',
+    body,
+    contentType: 'application/json',
+  });
+  const quote = parseStablecoinBook(prefetched.decodedText ?? '', side);
+  /*
+   * The book is read now and carries no instant of its own, so the reading is
+   * dated by the moment it was taken. Inventing a publication stamp the
+   * exchange never stated would be a stronger claim than the source supports.
+   */
+  const capturedAt = new Date();
+  return {
+    sourceTrust: 'DIRECT',
+    prefetched,
+    recordType: 'DAILY_INDICATOR',
+    dataCategory: 'FX_STABLECOIN',
+    title: `${quote.asset}/${quote.fiat}`,
+    url: stablecoinBookUrl,
+    publisher: stablecoinBookVenue,
+    publishedAt: capturedAt.toISOString(),
+    eventDate: localDate(capturedAt),
+    claimType: 'INDICATOR_READING',
+    assertion: stablecoinBookAssertion(quote),
+    excerpt: quote.excerpt,
+    confidenceLevel: 'HIGH',
+    confidenceScore: 0.85,
+    impactLevel: 'HIGH',
+    timeHorizon: 'IMMEDIATE',
+    entityMentions: [stablecoinBookVenue],
+    measures: [stablecoinBookMeasure(quote)],
+    instrument: `${quote.fiat}/${quote.asset}`,
+    venue: stablecoinBookVenue,
+  };
+}
+
+async function researchStablecoinBooks(): Promise<Candidate[]> {
+  const candidates: Candidate[] = [];
+  for (const asset of Object.keys(STABLECOIN_SERIES) as StablecoinAsset[]) {
+    for (const side of ['SELL', 'BUY'] as const) {
+      try {
+        candidates.push(await researchStablecoinBook(asset, side));
+      } catch (error) {
+        (report.directCollectorErrors as Json[]).push({
+          collector: `stablecoin-book/${asset}/${side}`,
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    }
+  }
+  if (!candidates.length) throw new Error('No stablecoin book returned a quotation');
   return candidates;
 }
 
@@ -736,6 +857,7 @@ async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutpu
 const directCollectors = [
   { name: 'official-bcb', collect: researchOfficialBcb },
   { name: 'parallel-exchange', collect: researchParallelExchange },
+  { name: 'stablecoin-books', collect: researchStablecoinBooks },
   { name: 'material-events', collect: researchMaterialEvents },
 ] as const;
 
@@ -779,10 +901,30 @@ function contentExtension(contentType: string): string {
   return 'txt';
 }
 
-async function downloadEvidenceSource(rawUrl: string | URL) {
+/**
+ * Downloads the bytes a reading will be verified against.
+ *
+ * `request` exists for the one class of source that cannot be reached with a
+ * plain GET: an order book is queried, not served at an address, so the
+ * exchange takes the instrument and the side in a posted body. The retained
+ * response is still the exact bytes the value was read from, which is the
+ * property the whole evidence chain rests on — only the way they were asked for
+ * changes. Everything else about the download is unchanged, the public-address
+ * and size checks included.
+ */
+async function downloadEvidenceSource(
+  rawUrl: string | URL,
+  request: { method: string; body: string; contentType: string } | undefined = undefined,
+) {
   const sourceFetch = await fetchPublicSource(
     rawUrl,
-    { headers: { 'User-Agent': collectorUserAgent } },
+    {
+      headers: {
+        'User-Agent': collectorUserAgent,
+        ...(request ? { 'Content-Type': request.contentType } : {}),
+      },
+      ...(request ? { method: request.method, body: request.body } : {}),
+    },
     45_000,
   );
   if (sourceFetch.response.status !== 200) {

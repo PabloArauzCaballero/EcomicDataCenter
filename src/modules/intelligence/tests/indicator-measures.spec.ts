@@ -18,10 +18,15 @@ const venuePayload =
 describe('indicator codes', () => {
   it('pins the identifiers every saved query and panel is built on', () => {
     // Renaming one of these silently breaks every dashboard already charting it,
-    // so a change here has to be a deliberate one, not a refactor.
+    // so a change here has to be a deliberate one, not a refactor. The two token
+    // series were added in 2026-09 beside the aggregate rather than in place of
+    // it, for that same reason: the aggregate holds the only history that
+    // reaches back before the collector started naming the instrument.
     expect(INDICATOR_CODES).toEqual({
       officialExchangeRate: 'FX_OFFICIAL_USD_BOB',
       parallelExchangeRate: 'FX_PARALLEL_USD_BOB',
+      parallelExchangeRateUsdt: 'FX_PARALLEL_USDT_BOB',
+      parallelExchangeRateUsdc: 'FX_PARALLEL_USDC_BOB',
       housingDevelopmentUnit: 'UFV_BOB',
     });
     expect(INDICATOR_UNITS).toEqual({

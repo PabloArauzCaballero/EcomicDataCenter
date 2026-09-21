@@ -1,0 +1,268 @@
+import { INDICATOR_CODES, INDICATOR_UNITS, type IndicatorMeasure } from './indicator-measures';
+
+/**
+ * Parser for a peer-to-peer order book quoted in bolivianos.
+ *
+ * The venue that served the parallel rate until now publishes one buy and one
+ * sell figure per venue and nothing about the book behind them, and two of its
+ * three venues quote USDT while the third quotes USD without saying which
+ * dollar. That is enough for one aggregate series and not enough to answer
+ * which stablecoin the country is actually paying for, so the book is read
+ * directly from the exchange that lists both.
+ *
+ * Kept out of the collector for the same reason as the daily parsers: the
+ * expressions that turn a downloaded book into a reading can then be exercised
+ * against a captured payload with no network, no backend and no provider key.
+ */
+
+/** Stablecoins whose boliviano book is read, with the series each one feeds. */
+export const STABLECOIN_SERIES = {
+  USDT: INDICATOR_CODES.parallelExchangeRateUsdt,
+  USDC: INDICATOR_CODES.parallelExchangeRateUsdc,
+} as const;
+
+export type StablecoinAsset = keyof typeof STABLECOIN_SERIES;
+
+/**
+ * Side of the book, named as a Bolivian reader names it.
+ *
+ * `SELL` is the price at which the market sells a dollar to the reader — the
+ * "venta" of a casa de cambio, the higher number, what they pay. `BUY` is the
+ * price at which the market buys one from them.
+ *
+ * Two labels are in play and they do not agree, which is exactly the confusion
+ * the previous source never resolved. The **query** is phrased from the
+ * reader's position, so asking for the reader's `SELL` side means asking the
+ * exchange for `tradeType: BUY` — "I want to buy". The **advertisement** that
+ * comes back is labelled from its publisher's position, and a publisher who is
+ * selling is selling *to the reader*: `adv.tradeType` is `SELL`, which is the
+ * reader's side again. So the request inverts and the advertisement does not,
+ * and the side is resolved against the advertisement's own field rather than
+ * against the question that was asked.
+ */
+export type BookSide = 'BUY' | 'SELL';
+
+/**
+ * What the exchange must be asked for to obtain each side of the book.
+ *
+ * Inverted with respect to the side, because the query speaks for the reader:
+ * to see what the reader would pay, ask for the advertisements they could buy
+ * from.
+ */
+export const BOOK_SIDE_REQUEST: Readonly<Record<BookSide, 'BUY' | 'SELL'>> = {
+  BUY: 'SELL',
+  SELL: 'BUY',
+};
+
+/**
+ * How many advertisements of a side are read.
+ *
+ * The figure is part of the method rather than a tuning knob: the quotation is
+ * the median of the advertisements read, so changing it changes the series.
+ */
+export const BOOK_DEPTH = 20;
+
+export interface StablecoinBookQuote {
+  /** Literal slice of the response body, quoted verbatim as evidence. */
+  excerpt: string;
+  /** Stablecoin leg, as the payload spells it. */
+  asset: string;
+  /** Fiat leg, as the payload spells it. */
+  fiat: string;
+  /** Side in the reader's terms, resolved from the advertisement's own label. */
+  side: BookSide;
+  /** Label the advertisement carries, retained so the inversion stays checkable. */
+  advertisedTradeType: string;
+  /** Price exactly as written in the payload, never re-formatted. */
+  price: string;
+  /** Best price the side showed, for the run report rather than for publication. */
+  bestPrice: string;
+  /** How many advertisements this side of the book was read from. */
+  advertisementsRead: number;
+  /** How many the exchange said exist, which is the side's breadth. */
+  advertisementsTotal: number | null;
+}
+
+interface RawAdvertisement {
+  price: string;
+  tradeType: string;
+  asset: string;
+  fiatUnit: string;
+  /** Where the advertisement's object begins and ends in the response text. */
+  start: number;
+  end: number;
+}
+
+/**
+ * Locates each advertisement object in the response text.
+ *
+ * The objects are found by scanning braces rather than by re-serialising the
+ * parsed value, because the excerpt retained as evidence has to be a slice of
+ * the bytes that were hashed: a re-serialised object would differ from the
+ * response in key order and spacing and would fail its own grounding check.
+ */
+function locateAdvertisements(text: string): RawAdvertisement[] {
+  const parsed = JSON.parse(text) as {
+    data?: unknown;
+  };
+  if (!Array.isArray(parsed.data))
+    throw new Error('Exchange payload exposed no advertisement list');
+
+  const found: RawAdvertisement[] = [];
+  let cursor = 0;
+  for (const entry of parsed.data) {
+    const advertisement = (entry as { adv?: Record<string, unknown> }).adv;
+    if (!advertisement) continue;
+    const { price, tradeType, asset, fiatUnit } = advertisement;
+    if (
+      typeof price !== 'string' ||
+      typeof tradeType !== 'string' ||
+      typeof asset !== 'string' ||
+      typeof fiatUnit !== 'string'
+    ) {
+      continue;
+    }
+    const marker = text.indexOf('"adv"', cursor);
+    if (marker < 0) break;
+    const open = text.indexOf('{', marker);
+    if (open < 0) break;
+    let depth = 0;
+    let close = -1;
+    for (let index = open; index < text.length; index += 1) {
+      const character = text[index];
+      if (character === '"') {
+        // Skip the string so a brace inside a remark cannot close the object.
+        index += 1;
+        while (index < text.length && text[index] !== '"') {
+          index += text[index] === '\\' ? 2 : 1;
+        }
+        continue;
+      }
+      if (character === '{') depth += 1;
+      else if (character === '}') {
+        depth -= 1;
+        if (depth === 0) {
+          close = index + 1;
+          break;
+        }
+      }
+    }
+    if (close < 0) break;
+    found.push({ price, tradeType, asset, fiatUnit, start: open, end: close });
+    cursor = close;
+  }
+  if (!found.length) throw new Error('Exchange payload exposed no readable advertisement');
+  return found;
+}
+
+/**
+ * Reads one side of one stablecoin's boliviano book.
+ *
+ * The published figure is the **discrete median** of the advertisements read,
+ * for the same two reasons the cross-venue figure is: it resists a single
+ * advertiser posting far away from the rest, and it returns a price somebody
+ * actually offered rather than an average nobody quoted. Top of book would be
+ * neither — in this market the best bid regularly sits above the best ask,
+ * because the two are reachable through different payment rails and at
+ * different fees, so the headline pair of a peer-to-peer book is not a spread
+ * and cannot be read as one.
+ */
+export function parseStablecoinBook(text: string, side: BookSide): StablecoinBookQuote {
+  const advertisements = locateAdvertisements(text);
+  /*
+   * The advertisement's own label, which coincides with the reader's side. A
+   * response whose advertisements carry the other label is the wrong half of
+   * the book, and that is worth failing on rather than quoting: it would put
+   * the price the reader receives in the column that says what they pay.
+   */
+  const ofSide = advertisements.filter(
+    (advertisement) => advertisement.tradeType.toLocaleUpperCase('en') === side,
+  );
+  if (!ofSide.length) {
+    throw new Error(`Exchange returned no ${side} advertisement for the ${side} side`);
+  }
+
+  const assets = new Set(ofSide.map((advertisement) => advertisement.asset));
+  const fiats = new Set(ofSide.map((advertisement) => advertisement.fiatUnit));
+  if (assets.size !== 1 || fiats.size !== 1) {
+    throw new Error('Exchange book mixed more than one instrument');
+  }
+
+  const priced = [...ofSide].sort(
+    (left, right) => Number(left.price) - Number(right.price) || left.start - right.start,
+  );
+  if (priced.some((advertisement) => !Number.isFinite(Number(advertisement.price)))) {
+    throw new Error('Exchange advertisement carried a price that is not a number');
+  }
+
+  /*
+   * Discrete median, defined as `percentile_disc(0.5)` defines it: the first
+   * advertisement whose position in the ordering reaches half the book, which
+   * is the ⌈n/2⌉-th and therefore the *lower* of the two middle ones on an even
+   * count. Stated as the index rather than as "the middle" because the two
+   * differ, and matching the database's definition exactly is the point: the
+   * same figure is recomputed there by the read model, and a median that drifted
+   * by one position between the two would publish a price that disagrees with
+   * itself.
+   */
+  const median = priced[Math.ceil(priced.length / 2) - 1];
+  if (!median) throw new Error('Exchange book collapsed while being read');
+
+  /*
+   * The best price is the lowest of the asks and the highest of the bids: the
+   * most favourable advertisement for whoever is on the reader's side.
+   */
+  const best = side === 'SELL' ? priced[0] : priced.at(-1);
+
+  const total = (JSON.parse(text) as { total?: unknown }).total;
+
+  return {
+    excerpt: text.slice(median.start, median.end),
+    asset: median.asset,
+    fiat: median.fiatUnit,
+    side,
+    advertisedTradeType: median.tradeType,
+    price: median.price,
+    bestPrice: best?.price ?? median.price,
+    advertisementsRead: ofSide.length,
+    advertisementsTotal: typeof total === 'number' ? total : null,
+  };
+}
+
+/**
+ * Wording for a book quotation.
+ *
+ * Built out of the payload's own field names for the reason the venue wording
+ * already is: a fully prose rendering of a JSON body shares too few terms with
+ * it to clear the lexical grounding threshold, and every reading would be
+ * routed to human review instead of publishing. The only figure stated is the
+ * price, because it is the only one the cited advertisement contains.
+ */
+export function stablecoinBookAssertion(quote: StablecoinBookQuote): string {
+  const reading = quote.side === 'SELL' ? 'venta al lector' : 'compra al lector';
+  return (
+    `Dolar paralelo asset ${quote.asset} fiatUnit ${quote.fiat} ` +
+    `tradeType ${quote.advertisedTradeType} (${reading}): price ${quote.price}.`
+  );
+}
+
+/**
+ * Measurement for one side of one stablecoin's book.
+ *
+ * The unit stays bolivianos per dollar rather than bolivianos per token. The
+ * series exists precisely to show whether that equivalence holds — a USDC that
+ * costs more bolivianos than a USDT is the price of the rail, not of a
+ * different dollar — and quoting the two in different units would put them on
+ * separate axes and hide the comparison the series was added to make.
+ */
+export function stablecoinBookMeasure(quote: StablecoinBookQuote): IndicatorMeasure {
+  const asset = quote.asset.toLocaleUpperCase('en') as StablecoinAsset;
+  const indicatorCode = STABLECOIN_SERIES[asset];
+  if (!indicatorCode) throw new Error(`No series is defined for ${quote.asset}`);
+  return {
+    indicatorCode,
+    priceSide: quote.side,
+    value: quote.price,
+    unit: INDICATOR_UNITS.bolivianosPerDollar,
+  };
+}
