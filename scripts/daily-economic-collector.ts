@@ -48,6 +48,7 @@ import {
 import {
   BOOK_DEPTH,
   BOOK_SIDE_REQUEST,
+  EmptyBookError,
   STABLECOIN_SERIES,
   parseStablecoinBook,
   stablecoinBookAssertion,
@@ -493,7 +494,7 @@ async function researchStablecoinBook(asset: StablecoinAsset, side: BookSide): P
     body,
     contentType: 'application/json',
   });
-  const quote = parseStablecoinBook(prefetched.decodedText ?? '', side);
+  const quote = parseStablecoinBook(prefetched.decodedText ?? '', side, asset);
   /*
    * The book is read now and carries no instant of its own, so the reading is
    * dated by the moment it was taken. Inventing a publication stamp the
@@ -524,13 +525,39 @@ async function researchStablecoinBook(asset: StablecoinAsset, side: BookSide): P
   };
 }
 
+/**
+ * Reads every token's book and records what each one held.
+ *
+ * Three of the five tokens asked for have no boliviano market at all, so an
+ * empty book is the expected answer rather than an exception, and treating it
+ * as a failure would bury the failures that matter under a permanent list of
+ * three. Each token's outcome is written to the run report instead — quoted, or
+ * empty on a named side — which turns the run into a standing census of which
+ * rails exist. That census is what tells anybody reading the report that a new
+ * market opened, on the day it opens rather than whenever somebody checks.
+ *
+ * The run still fails when **every** token is unreadable, because that is the
+ * shape of the exchange refusing the request: an empty book parses, a refusal
+ * does not.
+ */
 async function researchStablecoinBooks(): Promise<Candidate[]> {
   const candidates: Candidate[] = [];
+  const census: Record<string, string> = {};
+  let unreadable = 0;
+  let asked = 0;
   for (const asset of Object.keys(STABLECOIN_SERIES) as StablecoinAsset[]) {
     for (const side of ['SELL', 'BUY'] as const) {
+      asked += 1;
       try {
         candidates.push(await researchStablecoinBook(asset, side));
+        census[`${asset}/${side}`] = 'QUOTED';
       } catch (error) {
+        if (error instanceof EmptyBookError) {
+          census[`${asset}/${side}`] = 'EMPTY_BOOK';
+          continue;
+        }
+        unreadable += 1;
+        census[`${asset}/${side}`] = 'UNREADABLE';
         (report.directCollectorErrors as Json[]).push({
           collector: `stablecoin-book/${asset}/${side}`,
           error: error instanceof Error ? error.message : String(error),
@@ -538,7 +565,8 @@ async function researchStablecoinBooks(): Promise<Candidate[]> {
       }
     }
   }
-  if (!candidates.length) throw new Error('No stablecoin book returned a quotation');
+  report.stablecoinMarketCensus = census;
+  if (unreadable === asked) throw new Error('No stablecoin book could be read at all');
   return candidates;
 }
 

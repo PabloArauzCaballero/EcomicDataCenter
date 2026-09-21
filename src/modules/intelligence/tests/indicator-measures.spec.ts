@@ -27,6 +27,12 @@ describe('indicator codes', () => {
       parallelExchangeRate: 'FX_PARALLEL_USD_BOB',
       parallelExchangeRateUsdt: 'FX_PARALLEL_USDT_BOB',
       parallelExchangeRateUsdc: 'FX_PARALLEL_USDC_BOB',
+      // Pedidos en cada corrida aunque su libro en bolivianos siga vacío: el
+      // código existe antes que el mercado para que la serie no pierda sus
+      // primeras jornadas el día que ese mercado abra.
+      parallelExchangeRateUsds: 'FX_PARALLEL_USDS_BOB',
+      parallelExchangeRateUsde: 'FX_PARALLEL_USDE_BOB',
+      parallelExchangeRatePyusd: 'FX_PARALLEL_PYUSD_BOB',
       housingDevelopmentUnit: 'UFV_BOB',
     });
     expect(INDICATOR_UNITS).toEqual({

@@ -1,5 +1,6 @@
 import {
   BOOK_SIDE_REQUEST,
+  EmptyBookError,
   parseStablecoinBook,
   stablecoinBookAssertion,
   stablecoinBookMeasure,
@@ -138,11 +139,31 @@ describe('parseStablecoinBook', () => {
     expect(() => parseStablecoinBook(mixed, 'SELL')).toThrow(/more than one instrument/u);
   });
 
-  it('refuses an empty or shapeless payload instead of inventing a price', () => {
-    expect(() => parseStablecoinBook('{"data":[],"total":0}', 'SELL')).toThrow(
-      /no readable advertisement/u,
-    );
+  it('refuses a shapeless payload instead of inventing a price', () => {
     expect(() => parseStablecoinBook('{"code":"error"}', 'SELL')).toThrow(/no advertisement list/u);
+  });
+
+  it('tells an empty book apart from a broken one', () => {
+    // La diferencia no es de estilo. Tres de las cinco fichas que el recolector
+    // pide no tienen mercado en bolivianos, así que su libro vacío es el estado
+    // real de ese mercado y llega cada corrida; tratarlo como fallo llenaría la
+    // lista de errores de seis entradas permanentes y enterraría los fallos de
+    // verdad. Por eso el libro vacío tiene su propio tipo de error, y el
+    // recolector lo cuenta como ausencia observada en vez de como avería.
+    expect(() => parseStablecoinBook('{"data":[],"total":0}', 'SELL', 'PYUSD')).toThrow(
+      EmptyBookError,
+    );
+    expect(() => parseStablecoinBook('{"data":[],"total":0}', 'SELL', 'PYUSD')).toThrow(/PYUSD/u);
+
+    // Un libro con avisos de un solo lado es la misma clase de ausencia: medio
+    // libro no tiene punto medio, y eso es mercado, no avería.
+    const oneSided = `{"data":[${advertisement('12.00', 'SELL', 'USDT')}],"total":1}`;
+    expect(() => parseStablecoinBook(oneSided, 'BUY', 'USDT')).toThrow(EmptyBookError);
+
+    // Y una respuesta ilegible NO es una ausencia: eso es la petición fallando.
+    expect(() => parseStablecoinBook('{"code":"error"}', 'SELL', 'USDT')).not.toThrow(
+      EmptyBookError,
+    );
   });
 
   it('survives a brace inside an advertiser remark', () => {
