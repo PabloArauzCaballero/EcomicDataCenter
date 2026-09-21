@@ -56,11 +56,35 @@ describe('social and institutional snapshots', () => {
 
     for (const series of indices.series) {
       expect(series.provenance.publisher.length).toBeGreaterThan(2);
+      if (series.provenance.format === 'XLSX') {
+        // A workbook fetched from the publisher's own site has no middleman:
+        // the distributor is the publisher, and the file says so.
+        expect(series.provenance.distributor).toBe(series.provenance.publisher);
+        expect(series.provenance.sourceUrl).toContain('.xlsx');
+        continue;
+      }
       // The archive the bytes came from is not the institution whose judgement
       // the figure is, and the seed must never let the two collapse.
       expect(series.provenance.distributor).not.toBe(series.provenance.publisher);
       expect(series.provenance.sourceUrl).toContain('.csv');
     }
+  });
+
+  it('rates freedom by its parts, not only by its total', async () => {
+    const indices = await loadIndices();
+    const codes = new Set(indices.series.map((series) => series.indicatorCode));
+
+    // Political: the composite and the two halves it is the sum of.
+    expect(codes).toContain('FH_TOTAL_SCORE');
+    expect(codes).toContain('FH_POLITICAL_RIGHTS_SCORE');
+    expect(codes).toContain('FH_CIVIL_LIBERTIES_SCORE');
+    // Economic: the summary and the five areas it averages.
+    expect(codes).toContain('EFW_SUMMARY_INDEX');
+    expect(codes).toContain('EFW_LEGAL_SYSTEM_PROPERTY_RIGHTS');
+    expect(codes).toContain('EFW_SOUND_MONEY');
+    // Democracy: the liberal index and the constraints it is built from.
+    expect(codes).toContain('VDEM_LIBERAL_DEMOCRACY_INDEX');
+    expect(codes).toContain('VDEM_JUDICIAL_CONSTRAINTS_INDEX');
   });
 
   it('quotes every index value from the column its provenance names', async () => {
