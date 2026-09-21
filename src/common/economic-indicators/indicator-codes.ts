@@ -17,7 +17,46 @@ import { ungroundedNumbers } from '../intelligence/quantitative-grounding';
 export const INDICATOR_CODES = {
   officialExchangeRate: 'FX_OFFICIAL_USD_BOB',
   parallelExchangeRate: 'FX_PARALLEL_USD_BOB',
+  /**
+   * The parallel rate split by the token actually being traded.
+   *
+   * The aggregate series above is a median across venues that do not all quote
+   * the same instrument: two of the three report BOB/USDT and the third reports
+   * BOB/USD without saying which dollar it means. Folding them together was the
+   * right call while there was nothing better, because a country with one
+   * parallel rate needs one number for it — but it answers "what does a dollar
+   * cost" with a figure whose denominator changes between venues.
+   *
+   * These two answer the question the aggregate cannot: what a dollar costs
+   * *through each rail*. They are additions, not replacements. The aggregate
+   * keeps its history and stays the headline; renaming or retiring it would
+   * break every saved query built on it.
+   */
+  parallelExchangeRateUsdt: 'FX_PARALLEL_USDT_BOB',
+  parallelExchangeRateUsdc: 'FX_PARALLEL_USDC_BOB',
   housingDevelopmentUnit: 'UFV_BOB',
+} as const;
+
+/**
+ * Dollar-pegged tokens whose boliviano market was checked, and what was found.
+ *
+ * Recorded in code rather than in a note because the absence is a finding: a
+ * reader who sees two stablecoin series is entitled to know that the others
+ * were looked for and are not missing by omission. Checked on 2026-09-21
+ * against Binance, Bybit, OKX and Bitget peer-to-peer books quoted in
+ * bolivianos.
+ */
+export const STABLECOIN_MARKET_SURVEY = {
+  /** Deep and two-sided: hundreds of advertisements on each side. */
+  USDT: 'QUOTED',
+  /** Real but thin, and on one venue only — Bybit, OKX and Bitget show none. */
+  USDC: 'QUOTED_THIN',
+  /** One-sided: sell advertisements only, single digits, no bid at all. */
+  FDUSD: 'ONE_SIDED',
+  /** No boliviano market of any size. */
+  DAI: 'NO_MARKET',
+  TUSD: 'NO_MARKET',
+  PYUSD: 'NO_MARKET',
 } as const;
 
 /**
