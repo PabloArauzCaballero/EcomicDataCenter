@@ -137,6 +137,8 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/bolivia-expansion-poi/',
     'boot/bolivia-registry-poi/',
     'boot/bolivia-registry-additional-poi/',
+    'boot/bolivia-establishments-poi/',
+    'boot/bolivia-establishments-registry-poi/',
   ]),
   {
     code: 'observatory-demo',

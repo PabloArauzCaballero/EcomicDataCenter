@@ -89,12 +89,19 @@ const place = z
      * distribution does not say whether the feature was a way or a relation:
      * naming them `osm:way:` would decide that question on the publisher's
      * behalf, so they keep the distribution that could not answer it.
+     *
+     * The last two shapes are identifiers nobody published. The medicines
+     * agency numbers no pharmacy and a bank numbers no branch, so the delivery
+     * derives one from the content of the row — which is why they carry the
+     * publisher in front and never look like a register's own key. Banco
+     * Economico is the exception that proves it: it does number its branches,
+     * and its identifier keeps that number where it can be traced back.
      */
     placeId: z
       .string()
       .trim()
       .regex(
-        /^(?:overture:[0-9a-f-]{36}|osm:(?:node|way|relation):\d{1,20}|geofabrik:[a-z_]{3,40}:\d{1,20}|seprec:establecimiento:\d{1,20})$/u,
+        /^(?:overture:[0-9a-f-]{36}|osm:(?:node|way|relation):\d{1,20}|geofabrik:[a-z_]{3,40}:\d{1,20}|seprec:establecimiento:\d{1,20}|agemed:farmacia:[0-9a-f]{24}|(?:bcp|pollos_copacabana):[0-9a-f]{24,40}|banco_economico:[A-Z_]{3,20}:\d{1,10})$/u,
       ),
     /** The same identifier as the publisher mints it, without the prefix. */
     publisherRecordId: z.string().trim().min(1).max(200),
@@ -106,8 +113,24 @@ const place = z
      * domicilio, no que alguien viera un local abierto ahi. La entrega lo
      * subraya — `ACTIVO` y `MATRICULA RENOVADA` son estados registrales — y su
      * licencia viaja en cada fila porque no es abierta como las otras dos.
+     *
+     * AGEMED es la agencia de medicamentos: sus filas son farmacias
+     * habilitadas, cada una con el numero de resolucion que la habilito, y una
+     * habilitacion de 1972 no dice que la farmacia siga abierta hoy. Los tres
+     * ultimos son entidades que publican sus propias sedes en su propio sitio:
+     * ahi el publicador y el sujeto del dato son el mismo, que es la
+     * procedencia mas debil del corpus y por eso se nombra una por una en vez
+     * de esconderlas bajo una etiqueta como «directorio corporativo».
      */
-    publisher: z.enum(['Overture Maps Foundation', 'OpenStreetMap contributors', 'SEPREC']),
+    publisher: z.enum([
+      'Overture Maps Foundation',
+      'OpenStreetMap contributors',
+      'SEPREC',
+      'AGEMED',
+      'BCP',
+      'Banco Economico',
+      'Pollos Copacabana',
+    ]),
     name: z.string().trim().min(1).max(300),
     /**
      * The locality Overture printed, when it printed one.
@@ -163,6 +186,16 @@ const place = z
       'puente_explicito_tags_osm_a_codigos_existentes',
       'puente_explicito_tags_osm_a_catalogo_2330',
       'respaldo_generico_objeto_social_no_confirma_actividad_del_local',
+      /*
+       * Las dos formas en que la clasificacion no la hizo nadie aqui: la
+       * escribio el propio publicador. El regulador sanitario habilita cada
+       * farmacia bajo un tipo —«FARMACIA PRIVADA UNIPERSONAL»— y una entidad
+       * nombra el canal de su sede —«AGENCIA»—. Es la clasificacion mas firme
+       * cuando el publicador es quien licencia, y la mas interesada cuando el
+       * publicador es el propio sujeto; el campo dice cual de las dos es.
+       */
+      'tipo_declarado_por_el_regulador_sanitario',
+      'canal_declarado_por_la_entidad_en_su_propio_directorio',
     ]),
     /**
      * The publisher's own category that the family was matched from.
@@ -201,6 +234,15 @@ const place = z
         'nodo_osm_original',
         'centro_bbox_objeto_osm_no_es_entrada',
         'coordenada_declarada_en_registro_no_entrada_verificada',
+        /*
+         * Publicada, que no es declarada ni medida. La lista de farmacias trae
+         * la coordenada en la propia hoja del regulador y 3.371 de las 5.011
+         * llevan doce decimales o mas: nadie declara nanometros, asi que el
+         * punto salio de un calculo que la hoja no explica. Lo mismo vale para
+         * el mapa que un banco pone en su buscador de sucursales.
+         */
+        'coordenada_publicada_por_el_regulador_no_entrada_verificada',
+        'coordenada_publicada_por_la_entidad_no_entrada_verificada',
       ])
       .nullable(),
     dataLevel: z.enum([
@@ -210,6 +252,13 @@ const place = z
       'NOMBRE_ACTIVIDAD_Y_COORDENADAS',
       'NOMBRE_CATEGORIA_Y_COORDENADAS',
       'REGISTRO_PUBLICO_UBICACION_DECLARADA',
+      /*
+       * Un registro sanitario dice mas que un registro mercantil y menos que
+       * una visita: nombra el establecimiento, la direccion, el numero de la
+       * resolucion que lo habilito y la fecha de esa resolucion. Lo que no
+       * dice —y la propia agencia lo advierte— es que siga abierto hoy.
+       */
+      'REGISTRO_SANITARIO_DIRECCION_DECLARADA',
     ]),
     /*
      * Sesenta, y no cuarenta: en la ampliacion hay un telefono de 42

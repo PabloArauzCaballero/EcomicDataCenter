@@ -128,7 +128,7 @@ function contactList(values) {
  * and from nothing else: no city is appended, no country, no invented comma
  * where a piece is missing.
  */
-function addressFrom(tagged) {
+export function addressFromTags(tagged) {
   const parts = [];
   const street = tagged['addr:street'];
   const number = tagged['addr:housenumber'] ?? tagged['addr:streetnumber'];
@@ -168,7 +168,7 @@ export function toExpansionPlace(record, family, resemblance) {
     name: record.nombre,
     locality: record.municipio_fuente,
     department: record.departamento,
-    address: fromRegistry ? registryAddressFrom(tagged) : addressFrom(tagged),
+    address: fromRegistry ? registryAddressFrom(tagged) : addressFromTags(tagged),
     latitude: record.latitud,
     longitude: record.longitud,
     entityGroup: family.group,
@@ -239,9 +239,19 @@ const UNCLASSIFIED = {
   officialValidationSource: null,
 };
 
-export async function readExpansionDelivery(path, catalogue, heldGrid, options = {}) {
+/**
+ * `source` es el archivo de altas, o las propias filas ya leidas.
+ *
+ * Las dos formas existen porque la entrega llego de las dos: un solo JSON
+ * consolidado publicado aparte, y los lotes que van dentro del ZIP firmado.
+ * Cuando el enlace del consolidado deja de resolver —y su alojamiento no
+ * promete permanencia— los lotes siguen aqui, con su manifiesto de huellas.
+ */
+export async function readExpansionDelivery(source, catalogue, heldGrid, options = {}) {
   const { stableOnly = false, onlyRegistry = false } = options;
-  const parsed = JSON.parse(await readFile(path, 'utf8'));
+  const parsed = Array.isArray(source)
+    ? { registros: source }
+    : JSON.parse(await readFile(source, 'utf8'));
   const places = [];
   const missingFamilies = new Map();
   let resembling = 0;

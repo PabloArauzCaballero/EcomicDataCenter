@@ -4,7 +4,7 @@
  *
  * Usage:
  *   node scripts/places/build-expansion-poi-seed.mjs \
- *     --altas <altas JSON as delivered> \
+ *     --altas <altas JSON as delivered, or the altas_propuestas directory> \
  *     --catalogue <family catalogue, CSV or JSON> \
  *     [--expected-sha256 <the hash the delivery declares>] \
  *     [--held <existing place seed directory>] \
@@ -21,7 +21,7 @@
  */
 
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, stat, unlink, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFamilyCatalogue } from './read-family-catalogue.mjs';
@@ -87,6 +87,47 @@ async function fingerprint(path, expected) {
     throw new Error(`the file hashes ${sha256} and the delivery declares ${expected}`);
   }
   return sha256;
+}
+
+/**
+ * The altas read from the signed lots of the delivery instead of from the
+ * single file it also published.
+ *
+ * The consolidated JSON of the Cochabamba and La Paz expansion lives at a host
+ * that promises no permanence, and it stopped resolving. The same 5.721 rows
+ * travel inside the delivery's own ZIP, split into seven lots, and that ZIP
+ * carries a manifest with the hash of each one — so every byte read here is
+ * checked against what the delivery signed, which is more than the single file
+ * allowed: it was checked against a hash published beside it.
+ *
+ * The fingerprint is the hash of those hashes, the same construction the
+ * national delivery uses, so it is reproducible by anyone holding the ZIP and
+ * does not depend on how the lots were unpacked or listed.
+ */
+async function fingerprintOfLots(directory) {
+  const manifestPath = join(directory, '..', 'metadatos', 'manifest_sha256.json');
+  const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+  const declared = new Map(
+    manifest.map((entry) => [entry.archivo.replace(/\\/gu, '/'), entry.sha256]),
+  );
+
+  const records = [];
+  const checked = [];
+  for (const name of (await readdir(directory)).filter((file) => file.endsWith('.json')).sort()) {
+    const bytes = await readFile(join(directory, name));
+    const sha256 = createHash('sha256').update(bytes).digest('hex');
+    const key = `altas_propuestas/${name}`;
+    const promised = declared.get(key);
+    if (!promised) throw new Error(`el manifiesto de la entrega no menciona ${key}`);
+    if (promised !== sha256) throw new Error(`${key} no coincide con el manifiesto: ${sha256}`);
+    checked.push(`${key}:${sha256}`);
+    records.push(...JSON.parse(bytes.toString('utf8')).registros);
+  }
+  if (checked.length === 0) throw new Error(`no hay lotes de altas en ${directory}`);
+
+  const digest = createHash('sha256');
+  for (const line of checked.sort()) digest.update(`${line}\n`);
+  return { sha256: digest.digest('hex'), records, lots: checked.length };
 }
 
 /** Everything about the delivery that is true of every place in it. */
@@ -162,7 +203,12 @@ async function writePieces(directory, provenance, places, prefix = 'expansion-po
 
 async function main() {
   const options = readArguments(process.argv.slice(2));
-  const sha256 = await fingerprint(options.altas, options.expectedSha256);
+  const fromLots = (await stat(options.altas)).isDirectory();
+  const lots = fromLots ? await fingerprintOfLots(options.altas) : null;
+  const sha256 = lots ? lots.sha256 : await fingerprint(options.altas, options.expectedSha256);
+  if (lots) {
+    process.stdout.write(`lotes verificados:    ${lots.lots}\n`);
+  }
   const catalogue = await readFamilyCatalogue(options.catalogue);
   const heldPlaces = await readHeldPlacesForComparison(options.held, readdir, join);
   const grid = indexHeldPlaces(heldPlaces);
@@ -173,10 +219,15 @@ async function main() {
         .digest('hex')
     : REPORT_SHA256;
 
-  const delivery = await readExpansionDelivery(options.altas, catalogue, grid, {
-    stableOnly: options.stableOnly,
-    onlyRegistry: options.onlyRegistry,
-  });
+  const delivery = await readExpansionDelivery(
+    lots ? lots.records : options.altas,
+    catalogue,
+    grid,
+    {
+      stableOnly: options.stableOnly,
+      onlyRegistry: options.onlyRegistry,
+    },
+  );
   const missing = [...delivery.missingFamilies.values()];
   const affected = missing.reduce((total, family) => total + family.records, 0);
 
