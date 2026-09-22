@@ -8,6 +8,16 @@
  * already enforces every rule below by downloading each source and rejecting
  * what does not match, so the prompt states the rule once instead of arguing
  * for it.
+ *
+ * The one thing worth those tokens is the list of who to ask. A model told only
+ * to «prefer primary sources» returns the same three institutions every run,
+ * and the observatory then reports the country through whoever is easiest to
+ * find rather than whoever measured it. Naming the customs service, the tax
+ * service, the hydrocarbons regulator, the departmental statistics office and
+ * the trade bodies costs a line and is the difference between a corpus with one
+ * voice and a corpus with several. The multilateral compilers are deliberately
+ * absent: deterministic collectors already load them, and spending prompt on
+ * them would buy nothing this step can use.
  */
 
 /** Categories the collector accepts, in the order the model should search them. */
@@ -27,7 +37,9 @@ export function economicResearchInstructions(since: Date, now: Date): string {
     'El colector ya recoge FX_OFFICIAL y UFV por su cuenta: dedica el esfuerzo a las demas.',
     'Guarda una lectura por fecha, no solo el ultimo valor.',
     'Usa busqueda web y abre cada fuente. Devuelve como maximo 12 resultados.',
-    'Prioriza fuentes primarias: BCB, INE, ASFI, MEFP, organismos multilaterales y bolsas.',
+    'Fuentes primarias: BCB, INE, ASFI, MEFP, UDAPE, Aduana, Impuestos, ANH e ICE Santa Cruz.',
+    'Los gremios publican lo que el Estado no desagrega: IBCE, CADEX, CAINCO, CADECOCRUZ, ASOBAN, CNC.',
+    'No cargues toda la tanda del mismo emisor.',
     'La URL debe apuntar al articulo, documento o tabla oficial especifica, nunca a una portada, categoria ni buscador.',
     'Cada excerpt es una cita textual corta que aparece literalmente en esa URL, con el valor y su unidad si es un indicador.',
     'La assertion solo puede contener cifras presentes en el excerpt. entityMentions solo puede incluir nombres que aparezcan literalmente en la fuente.',

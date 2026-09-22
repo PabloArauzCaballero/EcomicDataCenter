@@ -35,7 +35,7 @@ for path, item in spec['paths'].items():
     for method, operation in item.items():
         if method not in {'get', 'post', 'put', 'patch', 'delete'}:
             continue
-        if path not in {'/health', '/ready', '/metrics'} and operation.get('security') != [{'bearerAuth': []}]:
+        if path not in {'/health', '/ready', '/version', '/metrics'} and operation.get('security') != [{'bearerAuth': []}]:
             fail(f'{method.upper()} {path} is not default-deny')
         for status in ['400', '401', '403', '409', '422', '429', '500', '503']:
             if status not in operation['responses']:

@@ -32,6 +32,17 @@
     "quality:diagrams": "python scripts/validate_diagrams.py",
     "smoke": "tsx scripts/smoke.ts",
     "daily:collect": "tsx scripts/daily-economic-collector.ts",
+    "press:collect": "tsx scripts/press/collect-press-coverage.ts",
+    "press:archive": "tsx scripts/press/collect-press-archive.ts",
+    "press:sitemaps": "tsx scripts/press/collect-press-sitemaps.ts",
+    "press:refresh": "tsx scripts/press/refresh-press-snapshot.ts",
+    "press:refresh:terms": "tsx scripts/press/refresh-term-snapshot.ts",
+    "press:respell": "tsx scripts/press/respell-archive.ts",
+    "social:refresh": "tsx scripts/social/refresh-social-snapshot.ts",
+    "social:trade": "tsx scripts/social/report-informal-trade.ts",
+    "markets:collect": "tsx scripts/markets/collect-market-prices.ts",
+    "bcb:collect": "tsx scripts/bcb/collect-bcb-quotes.ts",
+    "quality:sources": "tsx scripts/quality/measure-collection-quality.ts",
     "soak": "node scripts/soak-test.mjs",
     "quality:syntax": "node --check eslint.config.mjs && node --check jest.config.cjs && node --check scripts/check_identifier_language.cjs && node --check scripts/check_typescript_syntax.cjs && node --check scripts/create-local-env.cjs && node --check scripts/verify-local-stack.cjs && node --check scripts/soak-test.mjs && node scripts/check_typescript_syntax.cjs",
     "quality:naming": "node scripts/check_identifier_language.cjs",
@@ -70,7 +81,15 @@
     "jaeger:verify": "sh scripts/verify-jaeger.sh",
     "local:db:up": "docker compose -f docker-compose.yml -f docker-compose.local.yml up -d postgres",
     "local:db:down": "docker compose -f docker-compose.yml -f docker-compose.local.yml down",
-    "release:verify": "sh scripts/run_release_verification.sh"
+    "release:verify": "sh scripts/run_release_verification.sh",
+    "macro:collect": "tsx scripts/macro/collect-worldbank-series.ts",
+    "macro:panel": "tsx scripts/macro/collect-worldbank-panel.ts",
+    "bcb:ufv": "tsx scripts/bcb/collect-ufv-history.ts",
+    "bbv:yields": "tsx scripts/bbv/collect-bbv-yields.ts",
+    "bbv:filings": "tsx scripts/bbv/collect-bbv-filings.ts",
+    "indices:collect": "tsx scripts/macro/collect-owid-indices.ts",
+    "imf:collect": "tsx scripts/macro/collect-imf-weo-series.ts",
+    "trade:collect": "tsx scripts/macro/collect-comtrade-trade.ts"
   },
   "dependencies": {
     "@fastify/helmet": "13.0.1",
@@ -92,7 +111,7 @@
     "@opentelemetry/sdk-trace-base": "2.10.0",
     "@opentelemetry/semantic-conventions": "1.43.0",
     "dotenv": "^17.4.2",
-    "fastify": "5.11.3",
+    "fastify": "5.12.1",
     "ipaddr.js": "2.4.0",
     "jsonwebtoken": "9.0.2",
     "jwks-rsa": "3.2.0",
@@ -123,6 +142,7 @@
     "eslint-config-prettier": "10.1.8",
     "jest": "30.4.2",
     "pdfjs-dist": "6.2.108",
+    "playwright": "1.62.1",
     "prettier": "3.9.6",
     "supertest": "7.2.2",
     "ts-jest": "29.4.12",
@@ -133,6 +153,7 @@
   "resolutions": {
     "sequelize-typescript/**/brace-expansion": "1.1.18",
     "umzug/**/ajv": "^8.18.0",
-    "sequelize/uuid": "^11.1.1"
+    "sequelize/uuid": "^11.1.1",
+    "@nestjs/platform-fastify/fastify": "5.12.1"
   }
 }

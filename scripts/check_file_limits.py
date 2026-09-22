@@ -15,7 +15,13 @@ EXEMPT_NAMES = {
     "daily-economic-collector.ts",
     "generate_migrations.py",
 }
-EXEMPT_PARTS = {"migrations", "models"}
+# `migration-sql` holds the SQL those migrations applied, split out so the
+# migration file itself stays readable. It earns the same exemption as
+# `migrations` for the same reason and not as a favour: once a migration has
+# run, its snapshot is history. Editing one to satisfy a size limit would make
+# the recorded history describe a statement that never executed, and rolling
+# forward and back would stop replaying what the step actually did.
+EXEMPT_PARTS = {"migrations", "migration-sql", "models"}
 
 
 def main() -> int:

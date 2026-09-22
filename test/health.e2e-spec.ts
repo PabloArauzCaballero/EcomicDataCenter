@@ -17,7 +17,10 @@ describe('Health endpoints', () => {
         MetricsService,
         { provide: WRITER_DATABASE, useValue: database },
         { provide: READER_DATABASE, useValue: database },
-        { provide: ENVIRONMENT, useValue: { METRICS_ENABLED: true } },
+        {
+          provide: ENVIRONMENT,
+          useValue: { METRICS_ENABLED: true, APP_NAME: 'observatorio-economico-core' },
+        },
       ],
     }).compile();
     app = module.createNestApplication<NestFastifyApplication>(new FastifyAdapter());
@@ -31,6 +34,18 @@ describe('Health endpoints', () => {
     const response = await app.inject({ method: 'GET', url: '/health' });
     expect(response.statusCode).toBe(200);
     expect(response.json()).toEqual({ status: 'ok' });
+  });
+
+  it('reports the build and the moment it started', async () => {
+    const response = await app.inject({ method: 'GET', url: '/version' });
+    expect(response.statusCode).toBe(200);
+    const body = response.json() as { name: string; startedAt: string; uptimeSeconds: number };
+    expect(body.name).toBe('observatorio-economico-core');
+    // The deployment pipeline compares this instant against the moment it asked
+    // for the deploy, so it has to parse as a date and not drift into the future.
+    expect(Number.isNaN(Date.parse(body.startedAt))).toBe(false);
+    expect(Date.parse(body.startedAt)).toBeLessThanOrEqual(Date.now());
+    expect(body.uptimeSeconds).toBeGreaterThanOrEqual(0);
   });
 
   it('reports database readiness', async () => {

@@ -46,9 +46,15 @@ import {
   type IndicatorMeasure,
 } from '../src/modules/intelligence/indicator-measures';
 import {
+  documentStatedPublication,
   undatedOfficialIndicator,
   verifiedSource,
 } from '../src/modules/intelligence/verified-source-registry';
+import {
+  documentStatesInstant,
+  materialEventAssertion,
+  parseMaterialEvents,
+} from '../src/modules/intelligence/bbv-material-events';
 import { assessPublicationMetadata } from '../src/modules/intelligence/publication-metadata';
 import { calibrateConfidenceForSourceMetadata } from '../src/modules/intelligence/source-metadata-confidence';
 import { verifyStoredEvidenceBlob } from '../src/modules/intelligence/storage-integrity';
@@ -108,6 +114,13 @@ interface Candidate {
   instrument?: string;
   /** Trading venue behind a market quotation. */
   venue?: string;
+  /**
+   * Set when the downloaded document repeats the publication instant claimed.
+   *
+   * A filing whose own page states its stamp is dated by the record itself,
+   * which is a stronger claim than a metadata tag generated for the page.
+   */
+  publicationInDocument?: boolean;
   recordType: 'DAILY_INDICATOR' | 'NEWS';
   dataCategory:
     'FX_OFFICIAL' | 'FX_PARALLEL' | 'UFV' | 'SOVEREIGN_BONDS' | 'MACRO_DAILY' | 'COMPANY_NEWS';
@@ -132,7 +145,7 @@ interface Candidate {
  */
 type AiCandidate = Omit<
   Candidate,
-  'sourceTrust' | 'prefetched' | 'measures' | 'instrument' | 'venue'
+  'sourceTrust' | 'prefetched' | 'measures' | 'instrument' | 'venue' | 'publicationInDocument'
 >;
 
 interface ResearchOutput {
@@ -220,6 +233,14 @@ const desiredDailyCategories = ['SOVEREIGN_BONDS', 'MACRO_DAILY', 'COMPANY_NEWS'
  * against one tokens-per-minute window, so a generous result cap made every
  * attempt exceed the window and return nothing at all. A smaller cap that
  * succeeds collects more than a larger one that is always rejected.
+ *
+ * Medido el 2026-09-06, cuando el proveedor volvio a rechazar cada llamada con
+ * 413 «request too large» y las tres categorias deseadas —bonos soberanos, macro
+ * diaria y noticias de empresas— llevaban dias vacias: las instrucciones ocupan
+ * unos 520 tokens, asi que el prompt no es lo que desborda la ventana. Se probo
+ * a la mitad de esta reserva y el rechazo fue identico, de modo que el techo es
+ * el presupuesto por minuto de la cuenta y ningun valor de aqui lo mueve. Se
+ * deja el que aprovecha mejor una llamada que si pase.
  */
 const maximumResearchResults = 12;
 const maximumResearchCompletionTokens = 3_000;
@@ -397,6 +418,64 @@ async function researchParallelExchange(): Promise<Candidate[]> {
     }
   }
   if (!candidates.length) throw new Error('No parallel exchange venue returned a quotation');
+  return candidates;
+}
+
+/**
+ * Material events filed with the Bolivian stock exchange.
+ *
+ * The country's registry of corporate facts that move a price. Read rather than
+ * researched: each filing is dated to the second by the exchange, attributed to
+ * the entity that filed it and served at a stable address, so it needs none of
+ * the interpretation a news article would.
+ */
+const materialEventsListing =
+  'https://www.bbv.com.bo/acerca-de-la-bolsa/hechos-relevantes-y-noticias/hechos-relevantes/';
+const maximumMaterialEvents = 10;
+
+async function researchMaterialEvents(): Promise<Candidate[]> {
+  const listing = await downloadEvidenceSource(materialEventsListing);
+  const events = parseMaterialEvents(listing.decodedText ?? '').slice(0, maximumMaterialEvents);
+  if (!events.length) throw new Error('Exchange listing exposed no material events');
+
+  const candidates: Candidate[] = [];
+  for (const event of events) {
+    try {
+      // The filing's own page is the evidence, not the listing that indexed it:
+      // a listing is rewritten as new filings arrive, a filing is not.
+      const prefetched = await downloadEvidenceSource(event.url);
+      const text = visibleText(prefetched.decodedText ?? '', prefetched.contentType);
+      const located = locateExcerpt(text, event.subject);
+      if (!located) throw new Error('Filing page did not repeat its own subject');
+      const excerpt = text.slice(located.normalizedStart, located.normalizedStart + 600).trim();
+      candidates.push({
+        sourceTrust: 'DIRECT',
+        prefetched,
+        recordType: 'NEWS',
+        dataCategory: 'COMPANY_NEWS',
+        title: event.subject,
+        url: event.url,
+        publisher: 'BOLSA BOLIVIANA DE VALORES',
+        publishedAt: event.publishedAt,
+        eventDate: event.eventDate,
+        claimType: 'FACT',
+        assertion: materialEventAssertion(event),
+        excerpt,
+        confidenceLevel: 'HIGH',
+        confidenceScore: 0.9,
+        impactLevel: 'MEDIUM',
+        timeHorizon: 'SHORT_TERM',
+        entityMentions: [event.filer],
+        publicationInDocument: documentStatesInstant(text, event.statedInstant),
+      });
+    } catch (error) {
+      (report.directCollectorErrors as Json[]).push({
+        collector: `material-events${new URL(event.url).search}`,
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+  }
+  if (!candidates.length) throw new Error('No material event could be verified against its page');
   return candidates;
 }
 
@@ -657,6 +736,7 @@ async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutpu
 const directCollectors = [
   { name: 'official-bcb', collect: researchOfficialBcb },
   { name: 'parallel-exchange', collect: researchParallelExchange },
+  { name: 'material-events', collect: researchMaterialEvents },
 ] as const;
 
 async function research(): Promise<{ candidates: Candidate[] }> {
@@ -809,6 +889,10 @@ async function persistEvidence(candidate: Candidate) {
         : 'UNVERIFIED';
   const publicationDateVerified =
     publicationDateAssessment === 'MATCHED' ||
+    documentStatedPublication({
+      statedInDocument: candidate.publicationInDocument === true,
+      source: registeredSource,
+    }) ||
     undatedOfficialIndicator({
       recordType: candidate.recordType,
       publishedAt: candidate.publishedAt,

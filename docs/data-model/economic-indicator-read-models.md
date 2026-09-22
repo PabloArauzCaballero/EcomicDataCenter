@@ -64,6 +64,17 @@ Son un contrato: renombrar uno rompe en silencio cualquier panel ya construido s
 | `FX_PARALLEL_USD_BOB` | Dólar paralelo cotizado en plazas de mercado | `BUY`, `SELL` | `BOB/USD` |
 | `UFV_BOB` | Unidad de Fomento de Vivienda | `NULL` | `BOB/UFV` |
 
+La UFV se remonta al **7 de diciembre de 2001**, el día en que se creó valiendo exactamente
+`1.000000`. La serie no la recogió el colector de portada —el BCB publica la tabla del día y ningún
+archivo— sino el endpoint que alimenta su propio gráfico, un año por petición, cada uno con su
+digest. Se carga como `DAILY_AVERAGE`: el banco calcula un valor por día calendario y lo publica
+como el valor de ese día, que no es el mismo estadístico que un precio observado en un instante.
+
+Dos cosas que la serie tiene y que no son defectos. **Baja en deflación**: la UFV se calcula del
+IPC, así que retrocede cuando los precios retroceden, y hay dos tramos así —agosto y septiembre de
+2002, y diciembre de 2020 a enero de 2021—. Y **se adelanta a hoy**: el banco publica unos quince
+días por delante para que un contrato que liquida la semana próxima sepa la unidad ahora.
+
 El paralelo se cotiza en `BOB/USDT` en algunas plazas. La unidad se unifica en `BOB/USD` porque en
 este mercado la stablecoin es el sustituto del dólar, y separar la serie por instrumento dejaría a
 cada plaza sola en su grupo e impediría la mediana entre plazas. El instrumento real se conserva en
@@ -132,12 +143,106 @@ FROM read_models.economic_indicator_reading
 WHERE indicator_code = 'FX_PARALLEL_USD_BOB' AND event_date = current_date;
 ```
 
+## `read_models.macro_indicator_annual`
+
+Grano: **un indicador por año**. Clasifica cada serie anual bajo el sector en que un analista la
+buscaría. Desde `0055` el antiguo `MONETARIO` está partido en dos, porque eran dos preguntas
+distintas metidas en la misma caja:
+
+| `sector` | Qué responde | Series |
+| --- | --- | --- |
+| `MONETARIO` | Cuánto cuesta el dinero y cuánto hay | 12 |
+| `FINANCIERO` | Si el sistema financiero aguanta y hasta dónde llega | 24 |
+| `SOCIAL` | Cómo vive la gente | 32 |
+| `INSTITUCIONAL` | Si las reglas se sostienen | 12 |
+
+`FINANCIERO` incluye lo que «cobertura bancaria» de verdad nombra —previsiones sobre cartera en
+mora (`PROVISIONS_TO_NONPERFORMING_LOANS_PCT`) y capital regulatorio sobre activos ponderados por
+riesgo (`BANK_REGULATORY_CAPITAL_PCT_RWA`)— más rentabilidad, liquidez, concentración, profundidad
+y alcance físico (sucursales y cajeros por cada cien mil adultos).
+
+`SOCIAL` pasó de una docena de conteos a mortalidad infantil y materna, escolarización,
+alfabetización, agua, saneamiento, electricidad, brecha de pobreza, reparto del ingreso, homicidios,
+empleo vulnerable y jóvenes que ni estudian ni trabajan, más el **Índice de Desarrollo Humano**
+(`HUMAN_DEVELOPMENT_INDEX`, PNUD, 1990-2023).
+
+`INSTITUCIONAL` es nuevo. Reúne las seis estimaciones de gobernanza del Banco Mundial —estado de
+derecho, calidad regulatoria, control de la corrupción, efectividad gubernamental, estabilidad
+política, voz y rendición de cuentas, todas 1996-2024— con el Índice de Percepción de la Corrupción
+de Transparency International y los índices de V-Dem. **Es lo más cerca que el observatorio puede
+estar de «libertad económica»**: los índices que llevan ese nombre son de Heritage y del Fraser
+Institute, ambos tras protección anti-bot y licencia, y hacer pasar uno de estos por aquel sería
+peor que la ausencia.
+
+Las estimaciones de gobernanza van en unidad `SCORE`, no `PERCENT`: corren de −2,5 a +2,5 y un eje
+que las dibuje como porcentaje miente. Bolivia cierra 2024 en −1,27 de estado de derecho y −1,25 de
+calidad regulatoria.
+
+La columna `statistic` separa tres cosas que no se pueden promediar juntas:
+
+| `statistic` | Qué es |
+| --- | --- |
+| `PUBLISHED_ANNUAL` | Una cifra que el compilador publica ya como anual |
+| `YEAR_END` | El cierre de un año terminado, derivado de una serie diaria |
+| `YEAR_TO_DATE` | La última lectura del año en curso, que no es un cierre |
+
+Hoy solo la UFV produce las dos últimas. Su cierre excluye los días que el BCB publica por
+adelantado —un cierre hecho de días que no han ocurrido es una proyección disfrazada de lectura— y
+el año corriente se etiqueta aparte para que nadie lo compare contra veinticuatro cierres reales
+como si fuera uno más.
+
+## `read_models.sovereign_yield_curve`
+
+Grano: **un rendimiento**, es decir una combinación de sesión, instrumento, emisor, moneda, lado
+del mercado y banda de plazo. Sale de la tabla de tasas de rendimiento que la Bolsa Boliviana de
+Valores cierra cada sesión.
+
+Vive aparte de los indicadores medidos por aritmética, no por gusto: `economic_indicator_daily`
+agrupa por indicador y lado, así que un rendimiento admitido ahí se fundiría con todos los demás
+del día en una mediana que representaría al Tesoro a tres años y a un depósito a treinta días a la
+vez. Nadie cotizó ese número. Por eso los payloads de la curva **no llevan `measures`**, que es la
+clave por la que la vista de lecturas los recogería.
+
+`is_sovereign` se computa: `TGN` es el Tesoro General de la Nación y `BCB` el banco central, y
+ambos son el Estado endeudándose. Los bancos y las empresas que cotizan al lado se conservan
+porque son lo que hace legible al soberano.
+
+```sql
+-- Curva soberana de la última sesión, del tramo corto al largo.
+SELECT instrument, issuer, currency, tenor_bucket, yield_percent
+FROM read_models.sovereign_yield_curve
+WHERE is_sovereign AND operation = 'COMPRAVENTA'
+  AND event_date = (SELECT max(event_date) FROM read_models.sovereign_yield_curve)
+ORDER BY currency, tenor_days_from;
+```
+
 ## Limitaciones
 
-- Solo cubren tipo de cambio oficial, UFV y dólar paralelo. Bonos soberanos, macro y noticias
-  empresariales dependen de la investigación con IA y hoy no producen mediciones estructuradas.
-- El tipo de cambio oficial y la UFV **no** tienen carga histórica: su serie empieza cuando empezó
-  a funcionar el colector. Solo el paralelo se remonta a enero.
+- El **riesgo país (EMBI)** sigue sin cubrirse. No existe fuente pública legible por máquina para
+  Bolivia: JP Morgan lo licencia y el BCB lo reproduce en PDF. `RISK_PREMIUM_ON_LENDING_PCT` es la
+  prima de riesgo sobre créditos del Banco Mundial y **no** es el EMBI; no la sustituyas por él.
+- Los **bonos soberanos internacionales** (emisiones 2028 y 2030) se negocian fuera de bolsa y no
+  aparecen en la curva de la BBV. Lo que hay es el mercado doméstico: BTS del TGN, LRS del BCB y
+  cupones.
+- La curva de la BBV **no tiene historia**: la bolsa sirve la sesión de cierre y su propio filtro de
+  fechas está comentado en la página, así que la serie empieza el día en que corrió el colector y
+  crece hacia adelante.
+- El tipo de cambio oficial **no** tiene carga histórica diaria: su serie empieza cuando empezó a
+  funcionar el colector. El paralelo se remonta a enero y la UFV a 2001.
+- Las series de solidez bancaria del compilador multilateral llegan hasta 2015 o 2021 según el
+  indicador; para el dato corriente hace falta ASFI, que publica en PDF y XLS y todavía no tiene
+  colector.
+- **La libertad económica como índice no se cubre.** Heritage y Fraser están tras Cloudflare y una
+  licencia; sortear esa protección no es una opción. `INSTITUCIONAL` mide las cosas por las que se
+  leen esos índices —cumplimiento de contratos, previsibilidad regulatoria, captura del cargo
+  público— pero no es ninguno de los dos y no debe citarse como si lo fuera.
+- Los índices compuestos son **construcciones, no conteos**. Cada uno viaja con la institución que
+  lo elabora, y ese nombre es parte de la cifra: «28» no dice nada hasta que dice «28 según
+  Transparency International». Our World in Data es el archivo del que se descargan, no su autor, y
+  el seed guarda los dos por separado.
+- La serie de pobreza y desigualdad del compilador se recalcula hacia atrás cuando cambia la línea
+  de pobreza internacional; una carga nueva puede mover años ya cargados. Se resuelve por digest:
+  la cifra vieja y la nueva conviven como lecturas distintas de artefactos distintos.
 - Son vistas, no tablas materializadas. Con el volumen actual —unas pocas lecturas al día— se
   resuelven de inmediato; si la historia crece hasta hacerlas lentas, la decisión de materializar
   debe medirse antes, no anticiparse.

@@ -16,6 +16,19 @@ import { ENVIRONMENT } from '../../config/configuration.module';
 import type { Environment } from '../../config/environment';
 import { READER_DATABASE, WRITER_DATABASE } from '../../database/database.tokens';
 
+/**
+ * The instant this process began, fixed when the module is first evaluated.
+ *
+ * It exists so a deployment can prove that it happened. Coolify builds this
+ * image on a server that GitHub cannot reach, and the credential the pipeline
+ * carries only fires the webhook: asking the platform how its own deployment
+ * went needs a token with read permission that this one does not have. A start
+ * time later than the moment the deploy was requested can only belong to the
+ * container that deploy created, so the pipeline can wait for it and fail when
+ * it never arrives.
+ */
+const STARTED_AT = new Date(Date.now() - Math.round(process.uptime() * 1000)).toISOString();
+
 @Controller()
 export class HealthController {
   constructor(
@@ -29,6 +42,23 @@ export class HealthController {
   @Get('health')
   health(): { status: 'ok' } {
     return { status: 'ok' };
+  }
+
+  /**
+   * What is running here, and since when.
+   *
+   * Public, like liveness and readiness: it reports the moment of a restart and
+   * the name the build carries, and neither says anything about the data or the
+   * infrastructure that an unauthenticated caller could turn against them.
+   */
+  @Public()
+  @Get('version')
+  version(): { name: string; startedAt: string; uptimeSeconds: number } {
+    return {
+      name: this.environment.APP_NAME,
+      startedAt: STARTED_AT,
+      uptimeSeconds: Math.round(process.uptime()),
+    };
   }
 
   @Public()

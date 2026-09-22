@@ -190,6 +190,7 @@ for name, required in {
 paths = {
     "/health": {"get": operation("health", "Process liveness", "Operations", [], public=True)},
     "/ready": {"get": operation("ready", "Critical dependency readiness", "Operations", [], public=True)},
+    "/version": {"get": operation("version", "Build name and process start time", "Operations", [], public=True)},
     "/metrics": {"get": operation("metrics", "Prometheus metrics when enabled", "Operations", [], public=True)},
     f"{API}/provenance/organizations": {
         "post": operation("createOrganization", "Create producer or custodian organization", "Provenance", ["METHODOLOGY_STEWARD"], "OrganizationInput"),

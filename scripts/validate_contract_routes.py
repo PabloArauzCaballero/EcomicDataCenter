@@ -26,7 +26,7 @@ def controller_routes() -> set[tuple[str, str]]:
             method = HTTP_DECORATORS[match.group(1)]
             suffix = match.group(2) or ''
             route = normalize(f'/{prefix}/{suffix}')
-            if route not in {'/health', '/ready', '/metrics'}:
+            if route not in {'/health', '/ready', '/version', '/metrics'}:
                 route = normalize(f'/api/v1/{route}')
             routes.add((method, route))
     return routes

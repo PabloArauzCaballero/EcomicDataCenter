@@ -1,0 +1,568 @@
+{
+  "series": [
+    {
+      "indicatorCode": "COMTRADE_GOODS_EXPORTS_USD",
+      "compilerCode": "TOTAL_X",
+      "name": "Exportaciones de bienes declaradas ante Naciones Unidas",
+      "unit": "USD",
+      "publisher": "NACIONES UNIDAS",
+      "frequency": "ANNUAL",
+      "points": [
+        {
+          "period": "1992",
+          "value": "765313792",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19920101,\"refYear\":1992,\"refMonth\":52,\"period\":\"1992\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":765313792,\"primaryValue\":765313792,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1992&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "916c25d17e1c7f9c63cce1bfe3faae5f94da82b78e1438f879d21c6c864eaa47",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1993",
+          "value": "808937600",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19930101,\"refYear\":1993,\"refMonth\":52,\"period\":\"1993\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":808937600,\"primaryValue\":808937600,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1993&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "950e6f25d00c55b3fc9927f2959e6c3a0b6fe019e8f18823cdad7f77d1f237b5",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1994",
+          "value": "1124230528",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19940101,\"refYear\":1994,\"refMonth\":52,\"period\":\"1994\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":1124230528,\"primaryValue\":1124230528,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1994&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "0d39376019fc74ee7b766aebc169e91e51705bc26fd4e09a43e6a380afa65a31",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1995",
+          "value": "1181212032",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19950101,\"refYear\":1995,\"refMonth\":52,\"period\":\"1995\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":1181212032,\"primaryValue\":1181212032,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1995&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "f03cfaf9b3b91baded4e2287a09667762a1bcc76236701532c0eb46a1c7f41ea",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1996",
+          "value": "1086943360",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19960101,\"refYear\":1996,\"refMonth\":52,\"period\":\"1996\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":1086943360,\"primaryValue\":1086943360,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1996&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "3fe062f2a69c3de4baf4e0e0209cee98aa500f7655b2b784260bf1ec28fa01cc",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1997",
+          "value": "1272097664",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19970101,\"refYear\":1997,\"refMonth\":52,\"period\":\"1997\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":1272097664,\"primaryValue\":1272097664,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1997&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "3f52fb05bf9ac638060fb9066421b97129282cd9e3609e9dace4606d5ed2cd1b",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1998",
+          "value": "1323269376",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19980101,\"refYear\":1998,\"refMonth\":52,\"period\":\"1998\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":1323269376,\"primaryValue\":1323269376,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1998&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "9f75e65e74ca82eb01cd1f8947152e9ccfacef13a77bcdfe3c49eb0698ba704a",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1999",
+          "value": "1401883454",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19990101,\"refYear\":1999,\"refMonth\":52,\"period\":\"1999\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":1401883454,\"primaryValue\":1401883454,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1999&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "ac7e4ce689c67a1892c744378cd21f7282c82d93f2f820e43bf273d3563b8591",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2000",
+          "value": "1472403785",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20000101,\"refYear\":2000,\"refMonth\":52,\"period\":\"2000\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":1472403785,\"primaryValue\":1472403785,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2000&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "576b835ae31deb7e1353055ddde1da31f1becac0923f5268215eb5957ce11e0c",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2001",
+          "value": "1349864878.47",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20010101,\"refYear\":2001,\"refMonth\":52,\"period\":\"2001\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":1349864878.47,\"primaryValue\":1349864878.47,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2001&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "706066bb9a2140c5ec5a7bad07867733a4efbd946ccc89caa588e3f2be269601",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2002",
+          "value": "1372218621.03",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20020101,\"refYear\":2002,\"refMonth\":52,\"period\":\"2002\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":1372218621.03,\"primaryValue\":1372218621.03,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2002&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "43a84d95272de9ac5d6984be5d36a239b1d0d5e984b9b70a3a3cdbab28b083cb",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2003",
+          "value": "1674001460.36",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20030101,\"refYear\":2003,\"refMonth\":52,\"period\":\"2003\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":1674001460.36,\"primaryValue\":1674001460.36,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2003&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "ef931b4ca9d532999a76e1b7ef7ec6fecf78e73ac82d0406a7427b91acf3b9e0",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2004",
+          "value": "2262672926.87",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20040101,\"refYear\":2004,\"refMonth\":52,\"period\":\"2004\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":2262672926.87,\"primaryValue\":2262672926.87,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2004&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "be721af430e9a7924b8e29980bb7a5d8a8db5280ffadff9fb7670cc7a4beac98",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2005",
+          "value": "2945537489.73",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20050101,\"refYear\":2005,\"refMonth\":52,\"period\":\"2005\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":2945537489.73,\"primaryValue\":2945537489.73,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2005&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "284831b337e3fec5de1a0733b1c34abce4ed9b63ce94b860e817a3c3d402601b",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2006",
+          "value": "4229618678.21",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20060101,\"refYear\":2006,\"refMonth\":52,\"period\":\"2006\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":4229618678.21,\"primaryValue\":4229618678.21,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2006&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "3e8970b2eea3104d7e16112ddf5f2b1d2561b15c92d7ac98b8e0823166001bda",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2007",
+          "value": "4886102395.67",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20070101,\"refYear\":2007,\"refMonth\":52,\"period\":\"2007\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":4886102395.67,\"primaryValue\":4886102395.67,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2007&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "22b1b5d3fae4a5075f554d526d6f90473fba652fa49130554f7da95c7c6d0091",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2008",
+          "value": "7053621894.41",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20080101,\"refYear\":2008,\"refMonth\":52,\"period\":\"2008\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":7053621894.41,\"primaryValue\":7053621894.41,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2008&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "b212ef128233f58b64eda7ee85bb08b5480400cce9d291be2f6d3946e97de088",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2009",
+          "value": "5483902779.1",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20090101,\"refYear\":2009,\"refMonth\":52,\"period\":\"2009\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":5483902779.1,\"primaryValue\":5483902779.1,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2009&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "0d8ef2377a05f0a7f24ef0266fac3e00c1868cba9f2896799a98bb7be8a5ca3e",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2010",
+          "value": "7051433163.26",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20100101,\"refYear\":2010,\"refMonth\":52,\"period\":\"2010\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":7051433163.26,\"primaryValue\":7051433163.26,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2010&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "f923d2dc7e5f76e5929670324cb4f87adc4b84ab4cf473516ee4e0463d62faca",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2011",
+          "value": "9213940071.9",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20110101,\"refYear\":2011,\"refMonth\":52,\"period\":\"2011\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":9213940071.9,\"primaryValue\":9213940071.9,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2011&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "530887ca14c77cf5c1f5d0e7bc3b3a3aee9f1e5685fb920a91651e6525305b34",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2012",
+          "value": "11990832241.58",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20120101,\"refYear\":2012,\"refMonth\":52,\"period\":\"2012\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":11990832241.58,\"primaryValue\":11990832241.58,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2012&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "d3f3b9f04dacbf30dab49d7cb57ef3cf192c9ffda047c5a3fc209d39ca3d6cf8",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2013",
+          "value": "12371515895.71",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20130101,\"refYear\":2013,\"refMonth\":52,\"period\":\"2013\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":12371515895.71,\"primaryValue\":12371515895.71,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2013&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "424960d299b6d2217f81ae95423b4df44bb4765607a73d23be28d3afc18278bf",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2014",
+          "value": "13034220241.28",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20140101,\"refYear\":2014,\"refMonth\":52,\"period\":\"2014\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":13034220241.28,\"primaryValue\":13034220241.28,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2014&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "370a6a800f5b67a16224ee4404147f83c3ed2b85ef0f25a47f7f72b5d0116057",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2015",
+          "value": "8923115382.86",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20150101,\"refYear\":2015,\"refMonth\":52,\"period\":\"2015\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":8923115382.86,\"primaryValue\":8923115382.86,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2015&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "f9e976c1cf9f3405f52e114d155377b56c5099ecd0770fcb9368ac9c78371ff5",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2016",
+          "value": "7258713168.57",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20160101,\"refYear\":2016,\"refMonth\":52,\"period\":\"2016\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":7258713168.57,\"primaryValue\":7258713168.57,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2016&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "bcf869a41cb3801a1385c4825e45069dec53eb16aad9f3693e3fb7d08ec7892c",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2017",
+          "value": "8367078520.09",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20170101,\"refYear\":2017,\"refMonth\":52,\"period\":\"2017\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":8367078520.09,\"primaryValue\":8367078520.09,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2017&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "dfc5f59eb56ee1da91016b745881bbd1599078578a8b37b5bbcfd8c3c8b5c01f",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2018",
+          "value": "9110355630.63",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20180101,\"refYear\":2018,\"refMonth\":52,\"period\":\"2018\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":9110355630.63,\"primaryValue\":9110355630.63,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2018&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "dcce6e20111633a0458df761a908c7bac034068ff15879704a0957585cfb8463",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2019",
+          "value": "8933330988.37",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20190101,\"refYear\":2019,\"refMonth\":52,\"period\":\"2019\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":8933330988.37,\"primaryValue\":8933330988.37,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2019&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "5ea7c69e5ec33f0d3b0557a862fadd5342d7385cb17581b5c93bf1d36631807f",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2020",
+          "value": "7032764187.99",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20200101,\"refYear\":2020,\"refMonth\":52,\"period\":\"2020\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":7032764187.99,\"primaryValue\":7032764187.99,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2020&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "2121666401517891100c3346d31433e53797e3a30fd2de9c0af579a85c00955b",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2021",
+          "value": "11079788840.24",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20210101,\"refYear\":2021,\"refMonth\":52,\"period\":\"2021\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":0,\"fobvalue\":11079788840.24,\"primaryValue\":11079788840.24,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2021&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "67e5af9cc7f9c142d7016a8ebe412f08b082e05c205912f04a4408e485cc7c94",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2022",
+          "value": "13652812870.04",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20220101,\"refYear\":2022,\"refMonth\":52,\"period\":\"2022\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":13652812870.04,\"primaryValue\":13652812870.04,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2022&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "a4553feb337ba1cca66fbdd5674a9d0d0e9c3f5c9112b95ad6a7166b00eba4ac",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2023",
+          "value": "10918688057.06",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20230101,\"refYear\":2023,\"refMonth\":52,\"period\":\"2023\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":10918688057.06,\"primaryValue\":10918688057.06,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2023&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "18510d965b39e02b279c0d8ef003241a50618186c26a4cfb3a662f899b643a4b",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2024",
+          "value": "9059167409.43",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20240101,\"refYear\":2024,\"refMonth\":52,\"period\":\"2024\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":9059167409.43,\"primaryValue\":9059167409.43,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2024&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "4440b9cd0570510f51bff81a4eb78e22be7e8d2bfefd7413064d3ad0f8a9d05f",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2025",
+          "value": "9702117028.3",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20250101,\"refYear\":2025,\"refMonth\":52,\"period\":\"2025\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"X\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":null,\"fobvalue\":9702117028.3,\"primaryValue\":9702117028.3,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2025&partnerCode=0&cmdCode=TOTAL&flowCode=X",
+          "upstreamSha256": "85239f9e7cf46f190cf9877efbd90d678bf73db07cb707aefcc18defb9c75e55",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "COMTRADE_GOODS_IMPORTS_USD",
+      "compilerCode": "TOTAL_M",
+      "name": "Importaciones de bienes declaradas ante Naciones Unidas",
+      "unit": "USD",
+      "publisher": "NACIONES UNIDAS",
+      "frequency": "ANNUAL",
+      "points": [
+        {
+          "period": "1992",
+          "value": "1128597248",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19920101,\"refYear\":1992,\"refMonth\":52,\"period\":\"1992\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":1128597248,\"fobvalue\":null,\"primaryValue\":1128597248,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1992&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "6ca400aeb8097d6d382d3ff0210869393a14732826ef67b87b5483f5f871816d",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1993",
+          "value": "1176929920",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19930101,\"refYear\":1993,\"refMonth\":52,\"period\":\"1993\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":1176929920,\"fobvalue\":null,\"primaryValue\":1176929920,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1993&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "9822be21d1afae3f2cd131b8b760ab8b3b11cd7a872914ed49d4fe029b1dda5f",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1994",
+          "value": "1196333440",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19940101,\"refYear\":1994,\"refMonth\":52,\"period\":\"1994\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":1196333440,\"fobvalue\":null,\"primaryValue\":1196333440,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1994&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "4a6d4acb6bfd09bd29716150eedd729a872dd5227f5db21e35b7d067f79a9741",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1995",
+          "value": "1396248576",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19950101,\"refYear\":1995,\"refMonth\":52,\"period\":\"1995\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":1396248576,\"fobvalue\":null,\"primaryValue\":1396248576,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1995&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "02c4b97de49d1ff26aa3f8ba73b16f8e93606f9c1c73270a93182f93a1701605",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1996",
+          "value": "1643040000",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19960101,\"refYear\":1996,\"refMonth\":52,\"period\":\"1996\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H0\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":1643040000,\"fobvalue\":null,\"primaryValue\":1643040000,\"legacyEstimationFlag\":0,\"isReported\":true,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1996&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "9d25cc7fd0cf8ca87709ee6e8cff1c4ea2e33c615b2a29fa48358a73062a421f",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1997",
+          "value": "1909178240",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19970101,\"refYear\":1997,\"refMonth\":52,\"period\":\"1997\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":1909178240,\"fobvalue\":null,\"primaryValue\":1909178240,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1997&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "0ff73954d1e39e122f5e4ed82dcd3b30caff6b2dc6f827c265a6f983e68aec78",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1998",
+          "value": "2350150400",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19980101,\"refYear\":1998,\"refMonth\":52,\"period\":\"1998\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":2350150400,\"fobvalue\":null,\"primaryValue\":2350150400,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1998&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "8caab0954a857aae47057203d301b16e45eaa7d4a08c3d0ead79bccfd33ad166",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "1999",
+          "value": "1835407742",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":19990101,\"refYear\":1999,\"refMonth\":52,\"period\":\"1999\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":null,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":null,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":1835407742,\"fobvalue\":null,\"primaryValue\":1835407742,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":false}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=1999&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "b60c5e7bbf478e4d4d90a596353fbba0c4f2562d8a6fbb43c2caf6eec18617b9",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2000",
+          "value": "2020310594",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20000101,\"refYear\":2000,\"refMonth\":52,\"period\":\"2000\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":2020310594,\"fobvalue\":1862373260,\"primaryValue\":2020310594,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2000&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "d8d2fa445f41999278799be69d48e1536ee6e65da5fc81db588e3ef48cd41505",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2001",
+          "value": "1707551640",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20010101,\"refYear\":2001,\"refMonth\":52,\"period\":\"2001\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H1\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":1707551640,\"fobvalue\":1579867944,\"primaryValue\":1707551640,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2001&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "760c75c8c77642daebc0b01eba5589f980a0f7392d56284fdf6cabe8a2624cde",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2002",
+          "value": "1831240178",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20020101,\"refYear\":2002,\"refMonth\":52,\"period\":\"2002\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":1831240178,\"fobvalue\":1695448788,\"primaryValue\":1831240178,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2002&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "18c398cd24e28321abd0839df16088fc4d91c784cc01cdce73493348735bfee6",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2003",
+          "value": "1692046161",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20030101,\"refYear\":2003,\"refMonth\":52,\"period\":\"2003\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":1692046161,\"fobvalue\":1568946041,\"primaryValue\":1692046161,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2003&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "15ce773d408d0cab8c8ffb83e72d6ebe930613a4e6a3b1b6728d1debd01ebb3b",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2004",
+          "value": "1919344222",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20040101,\"refYear\":2004,\"refMonth\":52,\"period\":\"2004\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":1919344222,\"fobvalue\":1792040080,\"primaryValue\":1919344222,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2004&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "0612a0913337f6b1bb27b9dc1bdeffc1fd303a5e152a0fd7efe31ed25d6d2935",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2005",
+          "value": "2440039451",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20050101,\"refYear\":2005,\"refMonth\":52,\"period\":\"2005\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":2440039451,\"fobvalue\":2285722637,\"primaryValue\":2440039451,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2005&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "7f929fb5c30a53642f55904fa83f456d7b1b0c40a92fbbc74efa3e5b96d1c416",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2006",
+          "value": "2925735248",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20060101,\"refYear\":2006,\"refMonth\":52,\"period\":\"2006\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H2\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":2925735248,\"fobvalue\":2745517030,\"primaryValue\":2925735248,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2006&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "bca7273c54ad52ecce4e6d745c451db66988f357bcc419391a4f26e6e428d3ce",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2007",
+          "value": "3587951682",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20070101,\"refYear\":2007,\"refMonth\":52,\"period\":\"2007\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":3587951682,\"fobvalue\":3368670284,\"primaryValue\":3587951682,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2007&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "87068e877456eeb4b798190b284652a22fa5d03d6891a9a3d8167cb27ca8f1fa",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2008",
+          "value": "5097054867",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20080101,\"refYear\":2008,\"refMonth\":52,\"period\":\"2008\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":5097054867,\"fobvalue\":4779983741,\"primaryValue\":5097054867,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2008&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "f2225a65cb6ef6ef0882d9a7d831288c44fd8c269f7a32463b2ecc33d10bdc89",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2009",
+          "value": "4568531914",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20090101,\"refYear\":2009,\"refMonth\":52,\"period\":\"2009\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":4568531914,\"fobvalue\":4272437556,\"primaryValue\":4568531914,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2009&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "cd0031ad79d76ac9a2b439b99cc1db4d472c82115ca942367319405173350ada",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2010",
+          "value": "5603872620.94",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20100101,\"refYear\":2010,\"refMonth\":52,\"period\":\"2010\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":5603872620.94,\"fobvalue\":5222063165.44,\"primaryValue\":5603872620.94,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2010&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "1b366f95d49212f63dd1e52b684f3b81416418fc058ae30ce0f4f41e9279ba5c",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2011",
+          "value": "7935744414.95",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20110101,\"refYear\":2011,\"refMonth\":52,\"period\":\"2011\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H3\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":7935744414.95,\"fobvalue\":7389492947.69,\"primaryValue\":7935744414.95,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2011&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "3bc412ce1a526f250445b24e6d81836d0a8653e73edd24b4c339abb23bd4d77b",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2012",
+          "value": "8590084889.58",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20120101,\"refYear\":2012,\"refMonth\":52,\"period\":\"2012\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":8590084889.58,\"fobvalue\":8009291734.58,\"primaryValue\":8590084889.58,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2012&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "7b75f414549d29752744cf4fd4cff56ee37a814d0da75ac72a50b9d9bc8abc5e",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2013",
+          "value": "9699044724.97",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20130101,\"refYear\":2013,\"refMonth\":52,\"period\":\"2013\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":9699044724.97,\"fobvalue\":9079497297.03,\"primaryValue\":9699044724.97,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2013&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "a48e19275a18570b4c2cdf19673c18dea0f7db07d258a35bac0f0fe5f722d7dc",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2014",
+          "value": "10674099376.56",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20140101,\"refYear\":2014,\"refMonth\":52,\"period\":\"2014\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":10674099376.56,\"fobvalue\":9969798045.83,\"primaryValue\":10674099376.56,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2014&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "2eb549eea84136f627b1ab49d70c0a224509a2261825effe06e47c781f1774d4",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2015",
+          "value": "9843076578.56",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20150101,\"refYear\":2015,\"refMonth\":52,\"period\":\"2015\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0 \",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":true,\"grossWgt\":null,\"isGrossWgtEstimated\":false,\"cifvalue\":9843076578.56,\"fobvalue\":9187356653.39,\"primaryValue\":9843076578.56,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2015&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "bfbf31583ee6fb37f83c6bd8de2c2d00a9da87282b541ced98ccc7e522e22536",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2016",
+          "value": "8563809687.11",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20160101,\"refYear\":2016,\"refMonth\":52,\"period\":\"2016\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H4\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":8563809687.11,\"fobvalue\":7983969757.79,\"primaryValue\":8563809687.11,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2016&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "0513c7286f8169c84546c45d1cd0a5ff3f6cffce395c773a3f91de321ee8f0ee",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2017",
+          "value": "9367587902.74",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20170101,\"refYear\":2017,\"refMonth\":52,\"period\":\"2017\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":9367587902.74,\"fobvalue\":8713410722.43,\"primaryValue\":9367587902.74,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2017&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "04b72ae264ad5b38c7a5eb4ee93f5ebfada7d30fe05b29276150050ba7d35205",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2018",
+          "value": "10000376722.28",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20180101,\"refYear\":2018,\"refMonth\":52,\"period\":\"2018\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":10000376722.28,\"fobvalue\":9327897743.42,\"primaryValue\":10000376722.28,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2018&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "2396f313241d9304e91a4736771d6acddaeab5dfc2f9ddaf1a4405c93c6cf868",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2019",
+          "value": "9824367971.12",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20190101,\"refYear\":2019,\"refMonth\":52,\"period\":\"2019\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":9824367971.12,\"fobvalue\":9132423998.45,\"primaryValue\":9824367971.12,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2019&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "5cb66015688e2c777cc1e9786e02bc4cc501d8bb5154c7fbecf221f571ff02c5",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2020",
+          "value": "7115199566.13",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20200101,\"refYear\":2020,\"refMonth\":52,\"period\":\"2020\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":7115199566.13,\"fobvalue\":6598853306.74,\"primaryValue\":7115199566.13,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2020&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "703c3ae1d3940c78ea1969c0b8e9c0490e95e9c7cbbd663847e6c3e913028399",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2021",
+          "value": "9618073964.67",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20210101,\"refYear\":2021,\"refMonth\":52,\"period\":\"2021\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H5\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":0,\"isNetWgtEstimated\":true,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":9618073964.67,\"fobvalue\":0,\"primaryValue\":9618073964.67,\"legacyEstimationFlag\":4,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2021&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "7ec2ce3b211cfba096b6b9cef6f07d9928eadffb8737c0155951589b15adc56d",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2022",
+          "value": "13049405742",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20220101,\"refYear\":2022,\"refMonth\":52,\"period\":\"2022\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":13049405742,\"fobvalue\":null,\"primaryValue\":13049405742,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2022&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "d394fc22557bf643afeae26331555e2f5545bf0d77272d70cb7b09e4443e97a0",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2023",
+          "value": "11489290064",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20230101,\"refYear\":2023,\"refMonth\":52,\"period\":\"2023\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":11489290064,\"fobvalue\":10671323528,\"primaryValue\":11489290064,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2023&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "95e409bf9173f4275dd6ab80e40b1e667c29fc9de983de13eb1239cb5cde0262",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2024",
+          "value": "9903830798",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20240101,\"refYear\":2024,\"refMonth\":52,\"period\":\"2024\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":9903830798,\"fobvalue\":9192163213,\"primaryValue\":9903830798,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2024&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "381beb47b6ffd3bdaa71268a4f9bfbe14d49158eed38e17fefe74c31b136468d",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        },
+        {
+          "period": "2025",
+          "value": "10059047188",
+          "excerpt": "{\"typeCode\":\"C\",\"freqCode\":\"A\",\"refPeriodId\":20250101,\"refYear\":2025,\"refMonth\":52,\"period\":\"2025\",\"reporterCode\":68,\"reporterISO\":null,\"reporterDesc\":null,\"flowCode\":\"M\",\"flowDesc\":null,\"partnerCode\":0,\"partnerISO\":null,\"partnerDesc\":null,\"partner2Code\":0,\"partner2ISO\":null,\"partner2Desc\":null,\"classificationCode\":\"H6\",\"classificationSearchCode\":\"HS\",\"isOriginalClassification\":true,\"cmdCode\":\"TOTAL\",\"cmdDesc\":null,\"aggrLevel\":null,\"isLeaf\":null,\"customsCode\":\"C00\",\"customsDesc\":null,\"mosCode\":\"0\",\"motCode\":0,\"motDesc\":null,\"qtyUnitCode\":-1,\"qtyUnitAbbr\":null,\"qty\":0,\"isQtyEstimated\":false,\"altQtyUnitCode\":-1,\"altQtyUnitAbbr\":null,\"altQty\":0,\"isAltQtyEstimated\":false,\"netWgt\":null,\"isNetWgtEstimated\":false,\"grossWgt\":0,\"isGrossWgtEstimated\":false,\"cifvalue\":10059047188,\"fobvalue\":9301672448,\"primaryValue\":10059047188,\"legacyEstimationFlag\":0,\"isReported\":false,\"isAggregate\":true}",
+          "sourceUrl": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=68&period=2025&partnerCode=0&cmdCode=TOTAL&flowCode=M",
+          "upstreamSha256": "5f328c82e7b65078ebbe76417a82a3537eae674754a48ac9e5b33474279b1a7c",
+          "retrievedAt": "2026-08-28T03:26:10Z"
+        }
+      ]
+    }
+  ]
+}

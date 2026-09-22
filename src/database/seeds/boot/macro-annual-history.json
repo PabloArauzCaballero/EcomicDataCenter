@@ -2,7 +2,7 @@
   "series": [
     {
       "indicatorCode": "CPI_INFLATION_ANNUAL_PCT",
-      "worldBankCode": "FP.CPI.TOTL.ZG",
+      "compilerCode": "FP.CPI.TOTL.ZG",
       "name": "Inflacion de precios al consumidor",
       "unit": "PERCENT",
       "provenance": {
@@ -147,7 +147,7 @@
     },
     {
       "indicatorCode": "GDP_GROWTH_ANNUAL_PCT",
-      "worldBankCode": "NY.GDP.MKTP.KD.ZG",
+      "compilerCode": "NY.GDP.MKTP.KD.ZG",
       "name": "Crecimiento del PIB real",
       "unit": "PERCENT",
       "provenance": {
@@ -292,7 +292,7 @@
     },
     {
       "indicatorCode": "GDP_CURRENT_USD",
-      "worldBankCode": "NY.GDP.MKTP.CD",
+      "compilerCode": "NY.GDP.MKTP.CD",
       "name": "PIB a precios corrientes",
       "unit": "USD",
       "provenance": {
@@ -437,7 +437,7 @@
     },
     {
       "indicatorCode": "GDP_PER_CAPITA_USD",
-      "worldBankCode": "NY.GDP.PCAP.CD",
+      "compilerCode": "NY.GDP.PCAP.CD",
       "name": "PIB per capita",
       "unit": "USD",
       "provenance": {
@@ -582,7 +582,7 @@
     },
     {
       "indicatorCode": "INTERNATIONAL_RESERVES_USD",
-      "worldBankCode": "FI.RES.TOTL.CD",
+      "compilerCode": "FI.RES.TOTL.CD",
       "name": "Reservas internacionales totales",
       "unit": "USD",
       "provenance": {
@@ -727,7 +727,7 @@
     },
     {
       "indicatorCode": "CURRENT_ACCOUNT_PCT_GDP",
-      "worldBankCode": "BN.CAB.XOKA.GD.ZS",
+      "compilerCode": "BN.CAB.XOKA.GD.ZS",
       "name": "Saldo en cuenta corriente",
       "unit": "PERCENT_OF_GDP",
       "provenance": {
@@ -872,7 +872,7 @@
     },
     {
       "indicatorCode": "EXPORTS_GOODS_SERVICES_USD",
-      "worldBankCode": "NE.EXP.GNFS.CD",
+      "compilerCode": "NE.EXP.GNFS.CD",
       "name": "Exportaciones de bienes y servicios",
       "unit": "USD",
       "provenance": {
@@ -1012,7 +1012,7 @@
     },
     {
       "indicatorCode": "IMPORTS_GOODS_SERVICES_USD",
-      "worldBankCode": "NE.IMP.GNFS.CD",
+      "compilerCode": "NE.IMP.GNFS.CD",
       "name": "Importaciones de bienes y servicios",
       "unit": "USD",
       "provenance": {
@@ -1152,7 +1152,7 @@
     },
     {
       "indicatorCode": "EXTERNAL_DEBT_USD",
-      "worldBankCode": "DT.DOD.DECT.CD",
+      "compilerCode": "DT.DOD.DECT.CD",
       "name": "Deuda externa total",
       "unit": "USD",
       "provenance": {
@@ -1292,7 +1292,7 @@
     },
     {
       "indicatorCode": "UNEMPLOYMENT_PCT",
-      "worldBankCode": "SL.UEM.TOTL.ZS",
+      "compilerCode": "SL.UEM.TOTL.ZS",
       "name": "Desempleo total",
       "unit": "PERCENT",
       "provenance": {
@@ -1437,7 +1437,7 @@
     },
     {
       "indicatorCode": "LENDING_RATE_PCT",
-      "worldBankCode": "FR.INR.LEND",
+      "compilerCode": "FR.INR.LEND",
       "name": "Tasa de interes activa",
       "unit": "PERCENT",
       "provenance": {

@@ -36,7 +36,14 @@ describe('economic research policy', () => {
     // The provider bills the whole agentic search loop against the same window,
     // so a prompt that grows back to restating the schema in prose reintroduces
     // the rate-limit failure that stopped every research run.
-    expect(instructions.length).toBeLessThan(1_800);
+    //
+    // The ceiling moved from 1800 once the prompt started naming which
+    // institutions to ask, which is the only way the research step returns more
+    // than the same three publishers every run. That is roughly thirty extra
+    // tokens against a per-minute budget; the failure this guards against came
+    // from a block several times this size, and the guard still has to hold, so
+    // it moved by the size of the source list and not further.
+    expect(instructions.length).toBeLessThan(2_000);
     expect(instructions).toContain('como maximo 12 resultados');
   });
 
