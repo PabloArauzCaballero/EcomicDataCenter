@@ -121,6 +121,17 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('composite-indices', 'Índices compuestos', ['boot/composite-indices.json']),
   historical('foreign-trade', 'Comercio exterior', ['boot/foreign-trade.json']),
   historical('mineral-trade', 'Minerales exportados por partida', ['boot/mineral-trade.json']),
+  /*
+   * Los tres van juntos porque los carga un mismo sembrador y comparten
+   * esquema, no porque compartan fuente: los dos primeros son del INE y el
+   * tercero recopila dos publicaciones privadas. Quien los pida por separado
+   * tiene la procedencia en cada fila, que es donde importa.
+   */
+  historical('annual-registers', 'Registros anuales por departamento y por empresa', [
+    'boot/department-accounts.json',
+    'boot/department-exports.json',
+    'boot/corporate-register.json',
+  ]),
   historical('company-filings', 'Hechos relevantes de emisores', ['boot/company-filings.json']),
   historical('company-filings-archive', 'Archivo de hechos relevantes', [
     'boot/company-filings-archive.json',

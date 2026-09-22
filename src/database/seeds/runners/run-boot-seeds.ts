@@ -25,6 +25,7 @@ import { reconcileBbvYields } from './boot-seed.bbv-yields';
 import { reconcileCompositeIndices } from './boot-seed.composite-indices';
 import { reconcileForeignTrade } from './boot-seed.foreign-trade';
 import { reconcileMineralTrade } from './boot-seed.mineral-trade';
+import { reconcileAnnualRegisters } from './boot-seed.annual-register';
 import { reconcileWorldBankPanel } from './boot-seed.worldbank-panel';
 
 /**
@@ -52,6 +53,7 @@ const SELECTABLE = [
   'composite-indices',
   'foreign-trade',
   'mineral-trade',
+  'annual-registers',
   'company-filings',
   'company-filings-archive',
   'company-filing-texts',
@@ -108,6 +110,7 @@ const ANNUAL_CATALOGUES: readonly Catalogue[] = [
   'bbv-yields',
   'foreign-trade',
   'mineral-trade',
+  'annual-registers',
 ];
 
 const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
@@ -121,6 +124,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['composite-indices', reconcileCompositeIndices],
   ['foreign-trade', reconcileForeignTrade],
   ['mineral-trade', reconcileMineralTrade],
+  ['annual-registers', reconcileAnnualRegisters],
   ['company-filings', reconcileCompanyFilings],
   ['company-filings-archive', reconcileCompanyFilingArchive],
   ['company-filing-texts', reconcileCompanyFilingTexts],
