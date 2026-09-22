@@ -242,9 +242,7 @@ async function collect(
  * precio: es quitar algo que nunca fue un precio.
  */
 function publishable(quote: StablecoinBookSeedQuote): boolean {
-  return (
-    quote.advertisementsRead === undefined || quote.advertisementsRead >= MINIMUM_BOOK_DEPTH
-  );
+  return quote.advertisementsRead === undefined || quote.advertisementsRead >= MINIMUM_BOOK_DEPTH;
 }
 
 async function main(): Promise<void> {
