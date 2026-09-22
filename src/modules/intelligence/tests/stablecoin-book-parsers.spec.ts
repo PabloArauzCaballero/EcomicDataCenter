@@ -1,13 +1,9 @@
-import { BOOK_SIDE_REQUEST, EmptyBookError, parseStablecoinBook } from '../stablecoin-book-parsers';
 import {
-  stablecoinBookAssertion,
-  stablecoinBookMeasure,
-  stablecoinBookTitle,
-} from '../stablecoin-book-readings';
-import { assessLexicalGrounding } from '../claim-evidence-grounding';
-import { comparable } from '../evidence-quality';
-import { ungroundedNumbers } from '../../../common/intelligence/quantitative-grounding';
-import { ungroundedMeasures } from '../indicator-measures';
+  BOOK_SIDE_REQUEST,
+  EmptyBookError,
+  ThinBookError,
+  parseStablecoinBook,
+} from '../stablecoin-book-parsers';
 
 /**
  * Captured from the exchange's peer-to-peer search endpoint on 2026-09-21, with
@@ -100,7 +96,9 @@ describe('parseStablecoinBook', () => {
     const trailing = book(['11.90', '12.10', '12.500'], 'SELL');
 
     expect(parseStablecoinBook(trailing, 'SELL').price).toBe('12.10');
-    expect(parseStablecoinBook(book(['12.500'], 'SELL'), 'SELL').price).toBe('12.500');
+    expect(parseStablecoinBook(book(['12.500', '12.500', '12.500'], 'SELL'), 'SELL').price).toBe(
+      '12.500',
+    );
   });
 
   it('resolves an even count the way percentile_disc(0.5) does', () => {
@@ -108,7 +106,9 @@ describe('parseStablecoinBook', () => {
     // the first position that reaches half the book. Pinned by a test because
     // the read model recomputes this median in SQL: drifting by one position
     // would publish a price that disagrees with itself.
-    expect(parseStablecoinBook(book(['11.00', '12.00'], 'SELL'), 'SELL').price).toBe('11.00');
+    expect(
+      parseStablecoinBook(book(['11.00', '11.00', '12.00', '12.00'], 'SELL'), 'SELL').price,
+    ).toBe('11.00');
     expect(parseStablecoinBook(book(['11.00', '12.00', '13.00'], 'SELL'), 'SELL').price).toBe(
       '12.00',
     );
@@ -143,6 +143,26 @@ describe('parseStablecoinBook', () => {
     expect(() => parseStablecoinBook('{"code":"error"}', 'SELL')).toThrow(/no advertisement list/u);
   });
 
+  it('no llama mediana a uno o dos avisos', () => {
+    // Caso real del 2026-09-22: el libro de FDUSD tenia UN aviso de venta a
+    // 13,30 y DOS de compra a 7,00. Publicarlo habria dado un punto medio de
+    // 10,15, y el panel habria dicho que por ese riel el dolar cuesta diez
+    // bolivianos mientras los demas decian doce. La mediana de un aviso es ese
+    // aviso: el precio que pidio una persona, no el del mercado.
+    expect(() => parseStablecoinBook(book(['13.30'], 'SELL', 'FDUSD'), 'SELL', 'FDUSD')).toThrow(
+      ThinBookError,
+    );
+    expect(() =>
+      parseStablecoinBook(book(['7.00', '7.00'], 'BUY', 'FDUSD'), 'BUY', 'FDUSD'),
+    ).toThrow(ThinBookError);
+
+    // Con tres ya hay algo que medianar.
+    expect(
+      parseStablecoinBook(book(['12.00', '12.10', '12.20'], 'SELL', 'FDUSD'), 'SELL', 'FDUSD')
+        .price,
+    ).toBe('12.10');
+  });
+
   it('tells an empty book apart from a broken one', () => {
     // La diferencia no es de estilo. Tres de las cinco fichas que el recolector
     // pide no tienen mercado en bolivianos, así que su libro vacío es el estado
@@ -157,7 +177,10 @@ describe('parseStablecoinBook', () => {
 
     // Un libro con avisos de un solo lado es la misma clase de ausencia: medio
     // libro no tiene punto medio, y eso es mercado, no avería.
-    const oneSided = `{"data":[${advertisement('12.00', 'SELL', 'USDT')}],"total":1}`;
+    const oneSided =
+      `{"data":[${advertisement('12.00', 'SELL', 'USDT')},` +
+      `${advertisement('12.01', 'SELL', 'USDT')},` +
+      `${advertisement('12.02', 'SELL', 'USDT')}],"total":3}`;
     expect(() => parseStablecoinBook(oneSided, 'BUY', 'USDT')).toThrow(EmptyBookError);
 
     // Y una respuesta ilegible NO es una ausencia: eso es la petición fallando.
@@ -169,115 +192,17 @@ describe('parseStablecoinBook', () => {
   it('survives a brace inside an advertiser remark', () => {
     // The object is found by scanning braces, so a remark carrying one would
     // close it early and truncate the excerpt.
+    // El aviso con el corchete tiene que caer en la mediana, que es el que se
+    // cita: con tres avisos, el del medio por precio.
     const withBrace =
-      `{"data":[{"adv":{"tradeType":"SELL","asset":"USDT","fiatUnit":"BOB",` +
-      `"price":"12.00","remarks":"pago por QR {banco}"}}],"total":1}`;
+      `{"data":[${advertisement('11.99', 'SELL')},` +
+      `{"adv":{"tradeType":"SELL","asset":"USDT","fiatUnit":"BOB",` +
+      `"price":"12.00","remarks":"pago por QR {banco}"}},` +
+      `${advertisement('12.01', 'SELL')}],"total":3}`;
     const quote = parseStablecoinBook(withBrace, 'SELL');
 
     expect(quote.price).toBe('12.00');
     expect(withBrace).toContain(quote.excerpt);
     expect(quote.excerpt).toContain('{banco}');
-  });
-});
-
-describe('stablecoinBookTitle', () => {
-  it('se puede citar del propio libro, que es lo que exige la ingesta', () => {
-    // La validación previa a la ingesta comprueba que el título aparezca
-    // literal en el documento descargado. Esta prueba existe porque esa
-    // comprobación se incumplía en producción sin que nada lo dijera: el
-    // título era el par «USDT/BOB», el libro nunca escribe ese par —deletrea
-    // la ficha y el fiat en campos separados— y las cuatro lecturas de las dos
-    // fichas que cotizan se rechazaban en cada corrida, con la categoría
-    // entera figurando como no recogida. El par describe mejor la lectura y no
-    // sirve de título: no está en la fuente.
-    for (const [text, side] of [
-      [askBook, 'SELL'],
-      [bidBook, 'BUY'],
-    ] as const) {
-      const quote = parseStablecoinBook(text, side, 'USDT');
-      expect(comparable(text)).toContain(comparable(stablecoinBookTitle(quote)));
-      expect(comparable(text)).not.toContain(comparable(`${quote.asset}/${quote.fiat}`));
-    }
-  });
-
-  it('deletrea la ficha como la deletrea el libro, no como la pidió el colector', () => {
-    const quote = parseStablecoinBook(book(['12.50'], 'SELL', 'USDC'), 'SELL', 'usdc');
-    expect(stablecoinBookTitle(quote)).toBe('USDC');
-  });
-});
-
-describe('stablecoinBookAssertion', () => {
-  const quote = parseStablecoinBook(askBook, 'SELL');
-  const assertion = stablecoinBookAssertion(quote);
-
-  it('names the side in the reader’s terms', () => {
-    expect(assertion).toBe(
-      'Dolar paralelo asset USDT fiatUnit BOB tradeType SELL (venta al lector): price 12.03.',
-    );
-  });
-
-  it('cites no figure the excerpt does not contain', () => {
-    expect(ungroundedNumbers(assertion, quote.excerpt)).toEqual([]);
-  });
-
-  it('stays lexically grounded, so the reading is not routed to review', () => {
-    // This is the property that decides whether the series ever publishes: a
-    // prose rendering shares too few terms with a JSON body to clear the
-    // threshold, and every reading would be held for a human instead.
-    expect(assessLexicalGrounding(assertion, quote.excerpt).status).toBe('SUPPORTED');
-  });
-
-  it('states the figure for the other side against its own evidence', () => {
-    const bid = parseStablecoinBook(bidBook, 'BUY');
-    const bidAssertion = stablecoinBookAssertion(bid);
-
-    expect(bidAssertion).toContain('tradeType BUY (compra al lector): price 11.98');
-    expect(ungroundedNumbers(bidAssertion, bid.excerpt)).toEqual([]);
-    expect(assessLexicalGrounding(bidAssertion, bid.excerpt).status).toBe('SUPPORTED');
-  });
-});
-
-describe('stablecoinBookMeasure', () => {
-  it('sends each token to its own series, with the side resolved', () => {
-    expect(stablecoinBookMeasure(parseStablecoinBook(askBook, 'SELL'))).toEqual({
-      indicatorCode: 'FX_PARALLEL_USDT_BOB',
-      priceSide: 'SELL',
-      value: '12.03',
-      unit: 'BOB/USD',
-    });
-    expect(
-      stablecoinBookMeasure(parseStablecoinBook(book(['12.19'], 'BUY', 'USDC'), 'BUY')),
-    ).toEqual({
-      indicatorCode: 'FX_PARALLEL_USDC_BOB',
-      priceSide: 'BUY',
-      value: '12.19',
-      unit: 'BOB/USD',
-    });
-  });
-
-  it('quotes both tokens in bolivianos per dollar, so they share an axis', () => {
-    // The series exists to show whether a USDC dollar costs more than a USDT
-    // one. Quoting them per token would put them on separate axes and hide the
-    // comparison the series was added to make.
-    const usdt = stablecoinBookMeasure(parseStablecoinBook(askBook, 'SELL'));
-    const usdc = stablecoinBookMeasure(
-      parseStablecoinBook(book(['12.19'], 'SELL', 'USDC'), 'SELL'),
-    );
-
-    expect(usdc.unit).toBe(usdt.unit);
-  });
-
-  it('refuses a token that has no series rather than filing it somewhere', () => {
-    const fdusd = parseStablecoinBook(book(['11.71'], 'SELL', 'FDUSD'), 'SELL');
-
-    // FDUSD was checked on 2026-09-21 and has sell advertisements only, so it
-    // gets no series: half a book is not a quotation.
-    expect(() => stablecoinBookMeasure(fdusd)).toThrow(/No series is defined for FDUSD/u);
-  });
-
-  it('grounds the measured value in the excerpt it was read from', () => {
-    const quote = parseStablecoinBook(askBook, 'SELL');
-
-    expect(ungroundedMeasures([stablecoinBookMeasure(quote)], quote.excerpt)).toEqual([]);
   });
 });

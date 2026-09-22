@@ -27,6 +27,21 @@ export type RateSide = 'BUY' | 'SELL';
  */
 const READ_DIRECTLY = new Set(['binancep2p']);
 
+/**
+ * Cuánto puede tener una cotización antes de dejar de ser la de hoy.
+ *
+ * No es una precaución teórica. Este agregador sigue publicando plazas que
+ * dejaron de actualizar: la cotización de DAI contra el boliviano llevaba
+ * **veintiocho días** parada el 2026-09-22 y llegaba con el mismo aspecto que
+ * una de hace un minuto. Sin esta guarda, ese precio viejo se archivaría como
+ * el precio de hoy, y una serie diaria construida así repetiría un día muerto
+ * indefinidamente sin que nada lo dijera.
+ *
+ * Un día, que es la granularidad de la serie: una lectura sellada ayer sigue
+ * siendo defendible como punto de hoy; una de la semana pasada, no.
+ */
+const STALE_AFTER_SECONDS = 24 * 60 * 60;
+
 /** Una cotización utilizable de una plaza, ya resueltos los dos lados. */
 export interface CriptoyaQuote {
   /** La plaza como la deletrea la respuesta, que es lo que se cita. */
@@ -43,7 +58,7 @@ export interface CriptoyaQuote {
 
 /** Por qué se descartó una plaza. Se registra: una ausencia medida es un dato. */
 export type CriptoyaRejection =
-  'ALREADY_READ_DIRECTLY' | 'MISSING_SIDE' | 'CROSSED_QUOTE' | 'MALFORMED';
+  'ALREADY_READ_DIRECTLY' | 'MISSING_SIDE' | 'CROSSED_QUOTE' | 'STALE_QUOTE' | 'MALFORMED';
 
 /**
  * El agregador no cotiza esta ficha contra este fiat.
@@ -122,7 +137,12 @@ function sliceVenue(text: string, venue: string): string | null {
  * Y una cuarta que no es descarte sino reparto: las plazas que ya se leen
  * directas no se toman de aquí.
  */
-export function parseCriptoyaRates(text: string, asset = 'esta ficha'): CriptoyaReading {
+export function parseCriptoyaRates(
+  text: string,
+  asset = 'esta ficha',
+  now: Date = new Date(),
+): CriptoyaReading {
+  const nowSeconds = Math.floor(now.getTime() / 1000);
   const parsed: unknown = JSON.parse(text);
   // Una lista vacía es como este agregador dice «no cotizo ese par».
   if (Array.isArray(parsed) && !parsed.length) throw new PairNotQuotedError(asset);
@@ -164,7 +184,19 @@ export function parseCriptoyaRates(text: string, asset = 'esta ficha'): Criptoya
       rejected[venue] = 'MALFORMED';
       continue;
     }
+    /*
+     * El instante que la plaza declara, y sin él no se publica.
+     *
+     * Esta fuente vale porque dice cuándo miró. Una plaza que no lo diga no se
+     * puede comprobar, y una que lo diga viejo no está cotizando hoy: las dos
+     * se descartan por el mismo motivo, que es no poder afirmar que el precio
+     * es el de la fecha con la que se archivaría.
+     */
     const time = typeof entry.time === 'number' && Number.isFinite(entry.time) ? entry.time : 0;
+    if (time <= 0 || nowSeconds - time > STALE_AFTER_SECONDS) {
+      rejected[venue] = 'STALE_QUOTE';
+      continue;
+    }
     quotes.push({ venue, excerpt, ask: String(ask), bid: String(bid), time });
   }
 
