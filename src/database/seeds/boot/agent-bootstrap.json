@@ -227,6 +227,17 @@
       "specialty": "Lugares de todo el territorio boliviano leidos de Overture y de OpenStreetMap, clasificados en familias de entidad",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000016",
+      "code": "STABLECOIN_BOOKS",
+      "name": "Libros de fichas estables en bolivianos",
+      "agentType": "EXCHANGE_RATE",
+      "provider": "Binance P2P",
+      "modelIdentifier": "c2c-adv-search-20",
+      "specialty": "Dolar paralelo por ficha estable y por lado del libro",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

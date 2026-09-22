@@ -17,6 +17,7 @@ import { reconcileSocialReadings } from './boot-seed.social-readings';
 import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
 import { reconcileMarketPrices } from './boot-seed.market-prices';
 import { reconcileBcbQuotes } from './boot-seed.bcb-quotes';
+import { reconcileStablecoinBooks } from './boot-seed.stablecoin-books';
 import { reconcileBoliviaPoi } from './boot-seed.bolivia-poi';
 import { reconcileBoliviaNationalPoi } from './boot-seed.bolivia-national-poi';
 import { reconcileUfvHistory } from './boot-seed.ufv-history';
@@ -44,6 +45,7 @@ const SELECTABLE = [
   'macro-annual-history',
   'market-prices',
   'bcb-quotes',
+  'stablecoin-books',
   'ufv-history',
   'bbv-yields',
   'composite-indices',
@@ -99,6 +101,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['macro-annual-history', reconcileMacroAnnualHistory],
   ['market-prices', reconcileMarketPrices],
   ['bcb-quotes', reconcileBcbQuotes],
+  ['stablecoin-books', reconcileStablecoinBooks],
   ['ufv-history', reconcileUfvHistory],
   ['bbv-yields', reconcileBbvYields],
   ['composite-indices', reconcileCompositeIndices],

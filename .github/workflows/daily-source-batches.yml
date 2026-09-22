@@ -21,7 +21,7 @@ on:
         required: false
         default: todas
         type: choice
-        options: [todas, mercados, bcb, prensa]
+        options: [todas, mercados, bcb, fichas, prensa]
   schedule:
     # America/La_Paz is UTC-4 year-round: 07:10, 13:10 and 19:10 local.
     - cron: '10 11,17,23 * * *'
@@ -95,6 +95,44 @@ jobs:
           path: src/database/seeds/boot/bcb-quotes.json
           retention-days: 14
 
+  # El unico lote que existe para que un dato llegue a DOS bases.
+  #
+  # Las lecturas por ficha estable ya las recoge el colector de investigacion y
+  # las publica por la API, pero esa API es la de un servidor. El segundo
+  # despliegue mostraba el panel del riel sin la ficha que le faltaba, con el
+  # colector en verde y sin una sola linea roja que lo dijera. Una semilla viaja
+  # en el repositorio y entra al arrancar, asi que la tiene cualquier base.
+  #
+  # Duplica a proposito la via de la API: las dos fallan por motivos distintos y
+  # ninguna base deberia depender de una sola.
+  fichas:
+    if: >-
+      github.event_name == 'schedule' ||
+      contains(fromJSON('["todas","fichas"]'), inputs.batch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Como el lote del BCB y por lo mismo: la semilla se fusiona con la
+          # que haya, y fusionar contra la de otra rama perderia lo que solo
+          # estuviera en esta.
+          ref: dev
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Collect the boliviano books of every stablecoin
+        run: yarn stablecoins:collect
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: stablecoin-books-${{ github.run_id }}
+          path: src/database/seeds/boot/stablecoin-books.json
+          retention-days: 14
+
   # Last and longest: two of the seven outlets need a browser, which is why this
   # batch alone installs one. See ADR-0019.
   prensa:
@@ -148,7 +186,7 @@ jobs:
   # el repositorio sin llegar jamas al servidor, que es la misma clase de final
   # silencioso que este trabajo viene a corregir.
   publicar:
-    needs: [mercados, bcb, prensa]
+    needs: [mercados, bcb, fichas, prensa]
     # Un lote caido cuesta sus fuentes y no las de los otros dos, igual que
     # arriba. `always()` publicaria tambien lo cancelado a mano.
     if: ${{ !cancelled() }}
@@ -172,6 +210,11 @@ jobs:
           name: bcb-quotes-${{ github.run_id }}
           path: src/database/seeds/boot
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        if: needs.fichas.result == 'success'
+        with:
+          name: stablecoin-books-${{ github.run_id }}
+          path: src/database/seeds/boot
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         if: needs.prensa.result == 'success'
         with:
           name: press-coverage-${{ github.run_id }}
@@ -181,7 +224,7 @@ jobs:
           set -euo pipefail
           git config user.name 'observatorio-recolector'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/press-coverage.json
+          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/stablecoin-books.json                   src/database/seeds/boot/press-coverage.json
           # Una fuente que no publico nada hoy deja su semilla igual que ayer, y
           # eso no es un fallo: es un dia sin novedades. Un commit vacio si lo
           # seria, porque desplegaria por nada.

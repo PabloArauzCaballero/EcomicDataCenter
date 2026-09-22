@@ -113,6 +113,9 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   ]),
   historical('market-prices', 'Precios de mercados', ['boot/market-prices.json']),
   historical('bcb-quotes', 'Cotizaciones del BCB', ['boot/bcb-quotes.json']),
+  historical('stablecoin-books', 'Libros de fichas estables en bolivianos', [
+    'boot/stablecoin-books.json',
+  ]),
   historical('ufv-history', 'Histórico de la UFV', ['boot/ufv-history.json']),
   historical('bbv-yields', 'Rendimientos soberanos de la BBV', ['boot/bbv-yields.json']),
   historical('composite-indices', 'Índices compuestos', ['boot/composite-indices.json']),
