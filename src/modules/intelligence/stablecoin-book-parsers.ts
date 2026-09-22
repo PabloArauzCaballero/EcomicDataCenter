@@ -1,4 +1,5 @@
 import { INDICATOR_CODES } from './indicator-measures';
+import { EmptyBookError, ThinBookError } from './stablecoin-book-absences';
 
 /**
  * Parser for a peer-to-peer order book quoted in bolivianos.
@@ -36,6 +37,16 @@ export const STABLECOIN_SERIES = {
   USDS: INDICATOR_CODES.parallelExchangeRateUsds,
   USDE: INDICATOR_CODES.parallelExchangeRateUsde,
   PYUSD: INDICATOR_CODES.parallelExchangeRatePyusd,
+  /*
+   * Entró el 2026-09-22, el día que su libro dejó de tener un solo lado.
+   *
+   * Es la regla de arriba cumpliéndose en vivo: se pedían cinco fichas, tres de
+   * ellas sin mercado, precisamente para que una que abriera no perdiera sus
+   * primeras jornadas. Esta abrió con tres avisos en total, que es poquísimo, y
+   * esa delgadez viaja con el dato —`venue_count` y el número de avisos leídos—
+   * en vez de decidir por el lector si mirarlo o no.
+   */
+  FDUSD: INDICATOR_CODES.parallelExchangeRateFdusd,
 } as const;
 
 export type StablecoinAsset = keyof typeof STABLECOIN_SERIES;
@@ -79,6 +90,22 @@ export const BOOK_SIDE_REQUEST: Readonly<Record<BookSide, 'BUY' | 'SELL'>> = {
  */
 export const BOOK_DEPTH = 20;
 
+/**
+ * Cuántos avisos necesita un lado para que su mediana sea una mediana.
+ *
+ * La cifra publicada es la mediana discreta de los avisos leídos, y la mediana
+ * de un aviso es ese aviso: el precio que pidió una persona, no el del mercado.
+ *
+ * No es una precaución teórica. El 2026-09-22 el libro de FDUSD tenía un aviso
+ * de venta a 13,30 y dos de compra a 7,00, con lo que su punto medio habría
+ * salido 10,15 y el panel habría dicho que por ese riel el dólar cuesta diez
+ * bolivianos mientras los demás decían doce. Tres es el primer número con el
+ * que la mediana descarta algo.
+ */
+export const MINIMUM_BOOK_DEPTH = 3;
+
+export { EmptyBookError, ThinBookError } from './stablecoin-book-absences';
+
 export interface StablecoinBookQuote {
   /** Literal slice of the response body, quoted verbatim as evidence. */
   excerpt: string;
@@ -98,26 +125,6 @@ export interface StablecoinBookQuote {
   advertisementsRead: number;
   /** How many the exchange said exist, which is the side's breadth. */
   advertisementsTotal: number | null;
-}
-
-/**
- * Raised when the exchange answered and the book it described is empty.
- *
- * Separated from every other failure because it is not one. A book with no
- * advertisements is a fact about the market — that token is not traded for
- * bolivianos today — while an unreadable payload is a fact about the request,
- * and the two must not end up in the same error list. The collector files this
- * one as an observed absence and keeps going; anything else it files as a
- * failure worth looking at.
- */
-export class EmptyBookError extends Error {
-  constructor(
-    readonly asset: string,
-    readonly side: BookSide,
-  ) {
-    super(`The boliviano book for ${asset} has no ${side} advertisement`);
-    this.name = 'EmptyBookError';
-  }
 }
 
 interface RawAdvertisement {
@@ -258,6 +265,14 @@ export function parseStablecoinBook(
    * by one position between the two would publish a price that disagrees with
    * itself.
    */
+  /*
+   * Un lado con dos avisos no tiene mediana, tiene dos precios. Se trata como
+   * las demás ausencias —no hay precio hoy— y no como avería.
+   */
+  if (priced.length < MINIMUM_BOOK_DEPTH) {
+    throw new ThinBookError(asset, side, priced.length);
+  }
+
   const median = priced[Math.ceil(priced.length / 2) - 1];
   if (!median) throw new Error('Exchange book collapsed while being read');
 

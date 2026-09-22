@@ -6,6 +6,7 @@ import {
   BOOK_SIDE_REQUEST,
   EmptyBookError,
   STABLECOIN_SERIES,
+  ThinBookError,
   parseStablecoinBook,
   type BookSide,
   type StablecoinAsset,
@@ -99,10 +100,15 @@ async function readBook(
   try {
     quote = parseStablecoinBook(text, side, asset);
   } catch (error) {
-    // Un libro vacío es el estado del mercado, no una avería: tres de las cinco
-    // fichas que se piden no se negocian en bolivianos y así llegan cada vez.
-    if (error instanceof EmptyBookError) {
-      console.log(`  ${asset.padEnd(6)} ${side.padEnd(5)} ${BOOK_VENUE.padEnd(12)} libro vacío`);
+    // Un libro vacío, o demasiado fino para tener mediana, es el estado del
+    // mercado y no una avería: de las fichas que se piden, varias llegan así
+    // cada vez.
+    if (error instanceof EmptyBookError || error instanceof ThinBookError) {
+      const why =
+        error instanceof ThinBookError
+          ? `solo ${error.advertisementsRead} aviso(s)`
+          : 'libro vacío';
+      console.log(`  ${asset.padEnd(6)} ${side.padEnd(5)} ${BOOK_VENUE.padEnd(12)} ${why}`);
       return null;
     }
     throw error;

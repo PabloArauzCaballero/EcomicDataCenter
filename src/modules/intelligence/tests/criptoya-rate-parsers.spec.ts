@@ -14,6 +14,12 @@ import { ungroundedNumbers } from '../../../common/intelligence/quantitative-gro
  * ellas traen `"ask":0` y una compra a 9,5 cuando el resto ronda 12, que es
  * precisamente lo que estas pruebas existen para que no entre.
  */
+/** El instante de la captura, para que estas pruebas no caduquen con el reloj. */
+const CAPTURED_AT = new Date(1790086000 * 1000);
+
+/** Un sello fresco respecto de `CAPTURED_AT`, para los cuerpos armados a mano. */
+const FRESH = Math.floor(CAPTURED_AT.getTime() / 1000) - 60;
+
 const PAYLOAD =
   `{"vitawallet":{"ask":12.3131,"totalAsk":12.3131,"bid":12.056,"totalBid":12.056,"time":1790084809},` +
   `"vibrant":{"ask":12.677,"totalAsk":12.677,"bid":11.754,"totalBid":11.754,"time":1790084808},` +
@@ -23,7 +29,7 @@ const PAYLOAD =
 
 describe('parseCriptoyaRates', () => {
   it('se queda con las plazas que cotizan los dos lados', () => {
-    const { quotes } = parseCriptoyaRates(PAYLOAD);
+    const { quotes } = parseCriptoyaRates(PAYLOAD, 'USDC', CAPTURED_AT);
 
     expect(quotes.map((quote) => quote.venue)).toEqual(['vitawallet', 'vibrant', 'bybitp2p']);
   });
@@ -34,11 +40,13 @@ describe('parseCriptoyaRates', () => {
     // un lector que solo comprobara que el campo existe publicaria un dolar a
     // cero bolivianos y el modelo promediaria ese cero con el otro lado hasta
     // dar un punto medio a mitad de precio.
-    const { rejected } = parseCriptoyaRates(PAYLOAD);
+    const { rejected } = parseCriptoyaRates(PAYLOAD, 'USDC', CAPTURED_AT);
 
     expect(rejected.bitgetp2p).toBe('MISSING_SIDE');
     expect(rejected.mexcp2p).toBe('MISSING_SIDE');
-    expect(JSON.stringify(parseCriptoyaRates(PAYLOAD).quotes)).not.toContain('"ask":"0"');
+    expect(JSON.stringify(parseCriptoyaRates(PAYLOAD, 'USDC', CAPTURED_AT).quotes)).not.toContain(
+      '"ask":"0"',
+    );
   });
 
   it('descarta una cotizacion cruzada dentro de una misma plaza', () => {
@@ -46,12 +54,12 @@ describe('parseCriptoyaRates', () => {
     // alli el cruce es entre rieles de pago distintos y es real. Aqui las dos
     // cifras son de la misma plaza, y que compre mas caro de lo que vende no es
     // un diferencial sino un dato malo.
-    const crossed = `{"plaza":{"ask":11.90,"totalAsk":11.90,"bid":12.40,"totalBid":12.40,"time":1}}`;
+    const crossed = `{"plaza":{"ask":11.90,"totalAsk":11.90,"bid":12.40,"totalBid":12.40,"time":${FRESH}}}`;
 
-    expect(() => parseCriptoyaRates(crossed)).toThrow(/Ninguna plaza/u);
+    expect(() => parseCriptoyaRates(crossed, 'USDC', CAPTURED_AT)).toThrow(/Ninguna plaza/u);
     // Y con una buena al lado, cae solo la cruzada.
-    const mixed = `{"buena":{"ask":12.30,"bid":12.00,"time":1},"cruzada":{"ask":11.90,"bid":12.40,"time":1}}`;
-    const { quotes, rejected } = parseCriptoyaRates(mixed);
+    const mixed = `{"buena":{"ask":12.30,"bid":12.00,"time":${FRESH}},"cruzada":{"ask":11.90,"bid":12.40,"time":${FRESH}}}`;
+    const { quotes, rejected } = parseCriptoyaRates(mixed, 'USDC', CAPTURED_AT);
     expect(quotes.map((quote) => quote.venue)).toEqual(['buena']);
     expect(rejected.cruzada).toBe('CROSSED_QUOTE');
   });
@@ -59,15 +67,45 @@ describe('parseCriptoyaRates', () => {
   it('no toma la plaza cuyo libro ya se lee directo', () => {
     // Tomar las dos haria pesar esa plaza el doble en la mediana entre plazas,
     // que es justo lo que la mediana entre plazas existe para evitar.
-    const withBinance = `{"binancep2p":{"ask":12.26,"bid":12.22,"time":1},"otra":{"ask":12.30,"bid":12.00,"time":1}}`;
-    const { quotes, rejected } = parseCriptoyaRates(withBinance);
+    const withBinance = `{"binancep2p":{"ask":12.26,"bid":12.22,"time":${FRESH}},"otra":{"ask":12.30,"bid":12.00,"time":${FRESH}}}`;
+    const { quotes, rejected } = parseCriptoyaRates(withBinance, 'USDC', CAPTURED_AT);
 
     expect(quotes.map((quote) => quote.venue)).toEqual(['otra']);
     expect(rejected.binancep2p).toBe('ALREADY_READ_DIRECTLY');
   });
 
+  it('descarta una cotizacion vieja en vez de archivarla como la de hoy', () => {
+    // Caso real, no inventado: el 2026-09-22 este agregador seguia publicando
+    // DAI contra el boliviano con un sello de veintiocho dias antes, con el
+    // mismo aspecto que una cotizacion de hace un minuto. Archivada como el
+    // precio de hoy, una serie diaria repetiria un dia muerto indefinidamente
+    // sin que nada lo dijera.
+    const now = new Date(1790086000 * 1000);
+    const stale = `{"saldo":{"ask":11.862,"totalAsk":11.862,"bid":11.538,"totalBid":11.538,"time":1787682567}}`;
+
+    expect(() => parseCriptoyaRates(stale, 'DAI', now)).toThrow(/Ninguna plaza/u);
+    const mixed = `{"fresca":{"ask":12.30,"bid":12.00,"time":1790085000},` + stale.slice(1);
+    const { quotes, rejected } = parseCriptoyaRates(mixed, 'DAI', now);
+    expect(quotes.map((quote) => quote.venue)).toEqual(['fresca']);
+    expect(rejected.saldo).toBe('STALE_QUOTE');
+  });
+
+  it('descarta una plaza que no dice cuando miro', () => {
+    // El valor de esta fuente es que sella cada cotizacion. Sin sello no se
+    // puede afirmar que el precio sea el de la fecha con la que se archiva.
+    const undated = `{"plaza":{"ask":12.30,"bid":12.00}}`;
+
+    expect(() => parseCriptoyaRates(undated, 'USDC')).toThrow(/Ninguna plaza/u);
+    expect(
+      parseCriptoyaRates(
+        `{"a":{"ask":12.3,"bid":12,"time":0},"b":{"ask":12.3,"bid":12,"time":${Math.floor(Date.now() / 1000)}}}`,
+        'USDC',
+      ).rejected.a,
+    ).toBe('STALE_QUOTE');
+  });
+
   it('cita bytes que estan literalmente en la respuesta', () => {
-    const { quotes } = parseCriptoyaRates(PAYLOAD);
+    const { quotes } = parseCriptoyaRates(PAYLOAD, 'USDC', CAPTURED_AT);
 
     for (const quote of quotes) {
       expect(PAYLOAD).toContain(quote.excerpt);
@@ -76,7 +114,7 @@ describe('parseCriptoyaRates', () => {
   });
 
   it('pone la venta por encima de la compra, en los terminos del lector', () => {
-    const [vitawallet] = parseCriptoyaRates(PAYLOAD).quotes;
+    const [vitawallet] = parseCriptoyaRates(PAYLOAD, 'USDC', CAPTURED_AT).quotes;
     if (!vitawallet) throw new Error('faltó la plaza de la prueba');
 
     expect(criptoyaSidePrice(vitawallet, 'SELL')).toBe('12.3131');
@@ -113,7 +151,7 @@ describe('criptoyaTitle y criptoyaAssertion', () => {
     // citable es el nombre de la plaza. Esta prueba existe porque la misma
     // regla ya se incumplio una vez en el lector del libro P2P, en silencio y
     // durante dias.
-    for (const quote of parseCriptoyaRates(PAYLOAD).quotes) {
+    for (const quote of parseCriptoyaRates(PAYLOAD, 'USDC', CAPTURED_AT).quotes) {
       expect(PAYLOAD).toContain(criptoyaTitle(quote));
     }
   });
@@ -123,7 +161,7 @@ describe('criptoyaTitle y criptoyaAssertion', () => {
     // afirmacion esten en el extracto, y el extracto de esta fuente son seis
     // campos, no el aviso de kilobytes del libro P2P. Una redaccion en prosa
     // daba dos terminos sobre once y caia a LIMITED, que enruta a revision.
-    for (const quote of parseCriptoyaRates(PAYLOAD).quotes) {
+    for (const quote of parseCriptoyaRates(PAYLOAD, 'USDC', CAPTURED_AT).quotes) {
       for (const side of ['SELL', 'BUY'] as const) {
         const assertion = criptoyaAssertion(quote, 'USDC', side);
         expect(ungroundedNumbers(assertion, quote.excerpt)).toEqual([]);
@@ -137,12 +175,12 @@ describe('criptoyaTitle y criptoyaAssertion', () => {
     // misma plaza con el mismo texto serian el mismo hecho, y uno desplazaria
     // al otro sin que nada lo dijera.
     const seen = new Set<string>();
-    for (const quote of parseCriptoyaRates(PAYLOAD).quotes) {
+    for (const quote of parseCriptoyaRates(PAYLOAD, 'USDC', CAPTURED_AT).quotes) {
       for (const side of ['SELL', 'BUY'] as const) {
         seen.add(criptoyaAssertion(quote, 'USDC', side));
       }
     }
 
-    expect(seen.size).toBe(parseCriptoyaRates(PAYLOAD).quotes.length * 2);
+    expect(seen.size).toBe(parseCriptoyaRates(PAYLOAD, 'USDC', CAPTURED_AT).quotes.length * 2);
   });
 });

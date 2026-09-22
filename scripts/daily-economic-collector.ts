@@ -51,6 +51,7 @@ import {
   BOOK_SIDE_REQUEST,
   EmptyBookError,
   STABLECOIN_SERIES,
+  ThinBookError,
   parseStablecoinBook,
   type BookSide,
   type StablecoinAsset,
@@ -629,6 +630,11 @@ async function researchStablecoinBooks(): Promise<Candidate[]> {
       } catch (error) {
         if (error instanceof EmptyBookError) {
           census[`${asset}/${side}`] = 'EMPTY_BOOK';
+          continue;
+        }
+        // Un lado con uno o dos avisos no tiene mediana: es mercado, no avería.
+        if (error instanceof ThinBookError) {
+          census[`${asset}/${side}`] = `THIN_BOOK_${error.advertisementsRead}`;
           continue;
         }
         unreadable += 1;

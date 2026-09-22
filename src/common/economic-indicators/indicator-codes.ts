@@ -50,6 +50,7 @@ export const INDICATOR_CODES = {
   parallelExchangeRateUsds: 'FX_PARALLEL_USDS_BOB',
   parallelExchangeRateUsde: 'FX_PARALLEL_USDE_BOB',
   parallelExchangeRatePyusd: 'FX_PARALLEL_PYUSD_BOB',
+  parallelExchangeRateFdusd: 'FX_PARALLEL_FDUSD_BOB',
   housingDevelopmentUnit: 'UFV_BOB',
 } as const;
 
@@ -62,16 +63,18 @@ export const INDICATOR_CODES = {
  * a token that has no line says why it has none instead of simply not being
  * there.
  *
- * Checked on 2026-09-21 against the Binance, Bybit and OKX peer-to-peer books
- * quoted in bolivianos, counting the advertisements each side returned. The
- * counts are the evidence and they are stated here rather than summarised:
+ * Checked on 2026-09-22 against the Binance, Bybit and OKX peer-to-peer books
+ * quoted in bolivianos and against an aggregator that covers wallets and
+ * exchanges with no book of their own. The counts are the evidence and they are
+ * stated rather than summarised:
  *
- * | token | bid side | ask side |
- * | ----- | -------- | -------- |
- * | USDT  |      146 |      266 |
- * | USDC  |       13 |       33 |
- * | FDUSD |        0 |        7 |
- * | USDS, USDe, PYUSD, DAI, TUSD | 0 | 0 |
+ * | token | bid side | ask side | where |
+ * | ----- | -------- | -------- | ----- |
+ * | USDT  |      146 |      266 | book, plus six aggregated venues |
+ * | USDC  |       13 |       33 | book, plus two aggregated venues |
+ * | FDUSD |        1 |        2 | book only; three advertisements in all |
+ * | USDS, USDe, PYUSD, TUSD | 0 | 0 | nowhere |
+ * | DAI   |        0 |        0 | one aggregated venue, stopped 28 days ago |
  *
  * This is a reading of the market on a day, not a permanent property of these
  * tokens, which is why the collector keeps asking for every one of them rather
@@ -84,13 +87,16 @@ export const STABLECOIN_MARKET_SURVEY = {
   /** Real but thin, and on one venue only — Bybit, OKX and Bitget show none. */
   USDC: 'QUOTED_THIN',
   /**
-   * One-sided: a handful of sell advertisements and no bid at all.
+   * Los dos lados, y tres avisos en todo el libro.
    *
-   * Not published. A side without its opposite has no mid-point, and half a
-   * quotation is not a price — the same rule the read model applies when it
-   * drops a venue that showed one side.
+   * Tenía un solo lado el día anterior, que es para lo que sirve fechar el
+   * censo: un mercado lo bastante fino como para cambiar de forma en una noche.
+   * Se pide en cada corrida como las demás, pero no se publica: con un aviso de
+   * venta a 13,30 y dos de compra a 7,00, su punto medio habría sido 10,15 y el
+   * panel habría dicho que por ese riel el dólar cuesta diez bolivianos
+   * mientras los otros decían doce. La mediana de un aviso es ese aviso.
    */
-  FDUSD: 'ONE_SIDED',
+  FDUSD: 'TOO_THIN',
   /**
    * No boliviano market: both sides of the book came back empty.
    *
@@ -102,12 +108,20 @@ export const STABLECOIN_MARKET_SURVEY = {
   USDS: 'NO_MARKET',
   USDE: 'NO_MARKET',
   PYUSD: 'NO_MARKET',
+  /**
+   * Un precio, y de hace veintiocho días.
+   *
+   * El agregador todavía lista una plaza para DAI, con el mismo aspecto que
+   * cualquier otra y un sello del 2026-08-25. Cuenta como sin mercado porque
+   * una cotización que nadie actualiza no es un precio, y el lector la descarta
+   * por vieja antes de que llegue a publicarse.
+   */
   DAI: 'NO_MARKET',
   TUSD: 'NO_MARKET',
 } as const;
 
 /** The day the census above was taken, which is what the panel cites. */
-export const STABLECOIN_MARKET_SURVEY_DATE = '2026-09-21';
+export const STABLECOIN_MARKET_SURVEY_DATE = '2026-09-22';
 
 /**
  * Annual macroeconomic series that give the daily rates their context.

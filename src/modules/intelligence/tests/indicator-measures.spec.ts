@@ -33,6 +33,7 @@ describe('indicator codes', () => {
       parallelExchangeRateUsds: 'FX_PARALLEL_USDS_BOB',
       parallelExchangeRateUsde: 'FX_PARALLEL_USDE_BOB',
       parallelExchangeRatePyusd: 'FX_PARALLEL_PYUSD_BOB',
+      parallelExchangeRateFdusd: 'FX_PARALLEL_FDUSD_BOB',
       housingDevelopmentUnit: 'UFV_BOB',
     });
     expect(INDICATOR_UNITS).toEqual({
