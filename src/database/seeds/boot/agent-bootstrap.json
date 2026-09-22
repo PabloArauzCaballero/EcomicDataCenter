@@ -249,6 +249,28 @@
       "specialty": "Dolar paralelo por ficha estable y por lado del libro",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000018",
+      "code": "INE_DEPARTMENTS_BACKFILL",
+      "name": "Carga de las cuentas y el comercio exterior por departamento",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Instituto Nacional de Estadistica",
+      "modelIdentifier": "ine-cuadros-10.01.x-y-comercio-exterior",
+      "specialty": "Producto interno bruto departamental y exportaciones por departamento y producto",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000019",
+      "code": "CORPORATE_REGISTER_BACKFILL",
+      "name": "Registro de exportadoras y de reputacion empresarial",
+      "agentType": "SECTOR",
+      "provider": "Datasur y Merco",
+      "modelIdentifier": "ranking-exportadoras-2024-y-merco-bolivia",
+      "specialty": "Orden y cuota de las mayores exportadoras de Bolivia y puesto en los monitores de reputacion corporativa",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
