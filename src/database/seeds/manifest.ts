@@ -25,9 +25,17 @@ const historical = (
   code: string,
   label: string,
   files: readonly string[],
+  /*
+   * La version se sube a mano cuando los archivos del paquete cambian, y el
+   * registro de siembra es quien lo exige: su clave unica es destino, paquete y
+   * version, y la fila solo se actualiza cuando la huella coincide. Dejar la
+   * version quieta despues de cambiar el corpus deja al portal enseñando la
+   * huella anterior como si nada hubiera entrado.
+   */
+  version = '1.0.0',
 ): SeedPackageDeclaration => ({
   code,
-  version: '1.0.0',
+  version,
   kind: 'HISTORICAL_DATA',
   files: [...files],
   dependsOn: [
@@ -128,18 +136,29 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   ]),
   historical('social-readings', 'Lecturas de comercio y consumo', ['boot/social-readings.json']),
   historical('worldbank-panel', 'Panel del Banco Mundial', ['boot/worldbank-panel/']),
-  historical('bolivia-poi', 'Lugares de las tres ciudades', [
-    'boot/bolivia-poi/',
-    'boot/bolivia-capitals-poi/',
-  ]),
-  historical('bolivia-national-poi', 'Lugares del país', [
-    'boot/bolivia-national-poi/',
-    'boot/bolivia-expansion-poi/',
-    'boot/bolivia-registry-poi/',
-    'boot/bolivia-registry-additional-poi/',
-    'boot/bolivia-establishments-poi/',
-    'boot/bolivia-establishments-registry-poi/',
-  ]),
+  historical(
+    'bolivia-poi',
+    'Lugares de las tres ciudades',
+    ['boot/bolivia-poi/', 'boot/bolivia-capitals-poi/'],
+    // 2026-09-21: las otras capitales pasan de 2.155 a 4.150 con el catálogo
+    // nuevo. Las tres ciudades no se tocan.
+    '1.1.0',
+  ),
+  historical(
+    'bolivia-national-poi',
+    'Lugares del país',
+    [
+      'boot/bolivia-national-poi/',
+      'boot/bolivia-expansion-poi/',
+      'boot/bolivia-registry-poi/',
+      'boot/bolivia-registry-additional-poi/',
+      'boot/bolivia-establishments-poi/',
+      'boot/bolivia-establishments-registry-poi/',
+    ],
+    // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
+    // esperaban, y entraron las 6.584 de la entrega de establecimientos.
+    '1.1.0',
+  ),
   {
     code: 'observatory-demo',
     version: '1.0.0',
