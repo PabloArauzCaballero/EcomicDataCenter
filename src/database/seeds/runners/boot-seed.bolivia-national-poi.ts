@@ -57,6 +57,14 @@ const PLACE_DIRECTORIES = [
    */
   'boot/bolivia-registry-poi',
   'boot/bolivia-registry-additional-poi',
+  /*
+   * La entrega de establecimientos recuperados llega partida por la misma
+   * razon: lo que viene de OpenStreetMap trae licencia abierta y lo que viene
+   * del registro sanitario y de los directorios de las propias entidades no
+   * trae ninguna. Separadas, retirar las segundas es borrar una carpeta.
+   */
+  'boot/bolivia-establishments-poi',
+  'boot/bolivia-establishments-registry-poi',
 ] as const;
 
 /**

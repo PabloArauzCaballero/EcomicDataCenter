@@ -198,4 +198,54 @@ describe('bolivia national place seed', () => {
       boliviaNationalPoiSchema.parse(seedWith(placeWith({ latitude: -34.6 }))),
     ).toThrow();
   });
+
+  /*
+   * La entrega del 2026-09-21 trae publicadores que no son cartografia: el
+   * regulador sanitario, que habilita cada farmacia con una resolucion, y tres
+   * entidades que publican sus propias sedes. Ninguno numera sus
+   * establecimientos con una clave publica, asi que el identificador se deriva
+   * del contenido y lleva el publicador delante para no pasar por una.
+   */
+  it('accepts the identifiers of the establishments delivery', () => {
+    const identifiers = [
+      'agemed:farmacia:f229668f4ac0a234cab3db98',
+      'bcp:08fe4e939f0bc1e88aa47343057e',
+      'banco_economico:AGENCIA:110',
+      'pollos_copacabana:571f4ab9d06541cb6a4c06234a48',
+    ];
+    for (const placeId of identifiers) {
+      expect(() => boliviaNationalPoiSchema.parse(seedWith(placeWith({ placeId })))).not.toThrow();
+    }
+  });
+
+  /*
+   * Una farmacia habilitada dice mas que un domicilio declarado al registro
+   * mercantil y menos que una visita: nombra el establecimiento, la direccion,
+   * la resolucion que lo habilito y su fecha. No dice que siga abierto.
+   */
+  it('files a licensed pharmacy as a register and not as cartography', () => {
+    const pharmacy = placeWith({
+      placeId: 'agemed:farmacia:f229668f4ac0a234cab3db98',
+      publisher: 'AGEMED',
+      name: '24 DE SEPTIEMBRE',
+      entityGroup: 'SALUD_COMERCIO',
+      entityFamily: 'FARMACIA',
+      commercialRole: 'SELLER',
+      officialValidationSource: 'AGEMED',
+      genericFamily: false,
+      classificationMethod: 'tipo_declarado_por_el_regulador_sanitario',
+      categoryKey: 'FARMACIA PRIVADA UNIPERSONAL',
+      basicCategory: null,
+      positionMethod: 'coordenada_publicada_por_el_regulador_no_entrada_verificada',
+      dataLevel: 'REGISTRO_SANITARIO_DIRECCION_DECLARADA',
+      warnings: ['registro_sanitario_no_verifica_local_abierto'],
+      sourceTags: { resolucion: 'R-602', fecha_resolucion: '1972-09-04' },
+      licence: 'sin_licencia_abierta_expresa_verificada; lista publica de farmacias AGEMED',
+      observationId: 'agemed:farmacia:f229668f4ac0a234cab3db98',
+    });
+    const seed = boliviaNationalPoiSchema.parse(seedWith(pharmacy));
+    expect(seed.places[0]?.dataLevel).toBe('REGISTRO_SANITARIO_DIRECCION_DECLARADA');
+    // El contacto del registro no viaja, como en el registro mercantil.
+    expect(seed.places[0]?.phones).toEqual([]);
+  });
 });

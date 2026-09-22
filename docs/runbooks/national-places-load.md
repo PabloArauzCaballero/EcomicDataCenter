@@ -133,3 +133,132 @@ manzana.
   departamento de `national_place` se lee con esa reserva.
 - **Dos licencias.** Overture llega bajo CDLA-Permissive-2.0 y OpenStreetMap bajo
   ODbL-1.0. La segunda obliga a atribuir; cada fila lleva la suya en `licence`.
+
+## El catálogo de familias, unido (2026-09-21)
+
+Hasta hoy el corpus se clasificaba con el anexo de 201 familias, y 40.482 filas ya
+construidas esperaban a un catálogo que definiera las 435 familias restantes. Ese
+catálogo llegó dentro de la entrega de establecimientos:
+`06_catalogo/catalogo_subcategorias_lugares_bolivia.json`, 2.330 familias, todas con
+`group`, `commercial_role`, `is_regulated` y `official_validation_source`. Cubre las 424
+que faltaban en la entrega nacional y las 11 de la ampliación, sin dejar ninguna fuera.
+
+Los dos catálogos **no dicen lo mismo**. Donde ambos definen una familia coinciden en
+`group` y en `commercial_role` —201 de 201, comprobado, y el constructor para si alguna
+vez dejan de coincidir— y discrepan en `is_regulated` en 63 de ellas. El nuevo dice falso
+donde el viejo decía verdadero (hospital, universidad, colegio, cajero, aeropuerto…), y
+explica en sus propias notas qué significa ese falso: «ausencia de una exigencia sectorial
+suficientemente documentada en esta entrega, no exención legal ni actividad desregulada».
+No es una corrección: es una afirmación más débil bajo una regla de prueba más estricta.
+
+**Manda el anexo en las familias que el anexo define**, y por una razón que no tiene que
+ver con cuál es mejor: esas filas ya están cargadas, el corpus es inmutable y el cargador
+es idempotente por huella del payload. Reclasificar una familia no cambiaría la fila que
+está en la base — añadiría una segunda al lado, y el informe contaría dos veces cada uno
+de esos lugares. El catálogo nuevo rellena lo que nadie había clasificado y no toca nada
+que alguien ya hubiera respondido.
+
+```sh
+node scripts/places/build-family-catalogue.mjs \
+  --anexo-a ~/Downloads/anexo-A-catalogo-actual-201-familias.csv \
+  --v3      <entrega>/06_catalogo/catalogo_subcategorias_lugares_bolivia.json \
+  --out     scripts/places/catalogue/bolivia-place-families.json
+```
+
+El archivo resultante se versiona, lleva la huella de sus dos fuentes y marca cada familia
+con `decided_by`, para que quien lea un `is_regulated` sepa cuál de los dos lo decidió. Las
+70 familias donde el anexo afirma más que el catálogo nuevo se listan enteras en su
+cabecera, bajo `keptFromAnnexDespiteNewerClaim`.
+
+### Lo que desbloqueó, medido antes y después
+
+| Siembra | Antes | Después | Entran |
+| --- | --- | --- | --- |
+| `bolivia-national-poi` | 15.679 | 51.849 | 36.170 |
+| `bolivia-expansion-poi` | 3.404 | 5.721 | 2.317 |
+| `bolivia-capitals-poi` | 2.155 | 4.150 | 1.995 |
+
+**Cero filas cambiadas y cero desaparecidas** en las tres, comprobado campo a campo contra
+la siembra anterior: toda fila ya cargada sale con el mismo payload, que es la única
+condición que impide duplicarlas. Los tres registros mercantiles —`bolivia-registry-poi` y
+`bolivia-registry-additional-poi`— **no se reconstruyen**: su lector archiva todo bajo
+`OTRA_ENTIDAD` sin mirar el catálogo, así que pasarles el nuevo sí cambiaría filas ya
+cargadas.
+
+### El enlace de la ampliación dejó de resolver
+
+El consolidado de Cochabamba y La Paz vivía en `files.catbox.moe`, que no promete
+permanencia, y ya no se descarga. Las mismas 5.721 filas viajan en los siete lotes del ZIP
+de la entrega, cada uno con su huella en `metadatos/manifest_sha256.json`, así que
+`--altas` acepta también ese directorio: verifica los siete contra el manifiesto y firma la
+lectura con la huella de las huellas, igual que la entrega nacional. La procedencia pasa a
+nombrar el ZIP en vez del enlace muerto.
+
+```sh
+node scripts/places/build-expansion-poi-seed.mjs \
+  --altas <entrega>/ampliacion_cochabamba_lapaz/altas_propuestas \
+  --catalogue scripts/places/catalogue/bolivia-place-families.json \
+  --out src/database/seeds/boot/bolivia-expansion-poi \
+  --source https://files.catbox.moe/xbghbi.zip --release 2026-09-12 \
+  --report <entrega>/ampliacion_cochabamba_lapaz/metadatos/reporte_validacion.json
+```
+
+## Quinta entrega, 2026-09-21: establecimientos recuperados (6.783)
+
+Un solo archivo con tres formas dentro, y ninguna de ellas investigada ese día: son las
+altas que las tres rondas anteriores propusieron, recuperadas y reempaquetadas. Las 28
+huellas del `MANIFIESTO_SHA256.json` coinciden, y no hay ningún archivo fuera de él.
+
+| Tanda | Filas | Qué es |
+| --- | --- | --- |
+| `granularidad_osm` | 1.738 | OpenStreetMap, ODbL, con sus etiquetas |
+| `agemed` | 5.011 | farmacias habilitadas, 18 hojas del regulador |
+| `rondas_50` | 34 | sedes que una entidad publica de sí misma |
+
+Se escriben **6.584** en dos directorios, porque llegan bajo dos licencias:
+
+```sh
+node scripts/places/build-establishments-poi-seed.mjs \
+  --registros <entrega>/01_establecimientos/establecimientos_6783.json \
+  --catalogue scripts/places/catalogue/bolivia-place-families.json \
+  --out src/database/seeds/boot/bolivia-establishments-poi \
+  --out-restricted src/database/seeds/boot/bolivia-establishments-registry-poi \
+  --expected-sha256 8b48a33f9126693780fc5966759235eb0bd149301411534d3188f928b95d2143
+```
+
+- `bolivia-establishments-poi` — 1.738 de OpenStreetMap, ODbL-1.0, con sus contactos.
+- `bolivia-establishments-registry-poi` — 4.846 sin licencia abierta declarada. Retirarlas
+  es borrar esa carpeta y volver a desplegar.
+
+**199 farmacias no entran.** Están a más de 25 km de la mediana de su propio municipio —una
+de ellas a 592 km, una dirección de Santa Cruz cayendo en otro departamento—. Cuando la
+coordenada y el municipio se contradicen, uno de los dos está mal y nada aquí puede decir
+cuál. El municipio se agrupa con su departamento delante: hay un San Ignacio en Beni y otro
+en Santa Cruz, y juntarlos pondría el centro del municipio entre los dos.
+
+**Los teléfonos de AGEMED no viajan**, los 4.360. Es la misma regla que con SEPREC: el
+corpus guarda contactos cuando la fuente es un directorio de negocios **y** su licencia es
+abierta, y la hoja del regulador es lo primero y no lo segundo. El nombre, la dirección
+declarada, la resolución que habilitó la farmacia y su fecha entran enteros. Los teléfonos
+de las 34 sedes sí entran: ahí la centralita la publica la propia entidad de su sucursal.
+
+**Lo que ninguna de estas filas dice.** Una habilitación de 1972 no dice que la farmacia
+siga abierta; el regulador lo advierte y la fila lo repite en `warnings`. 3.371 de las
+5.011 coordenadas traen doce decimales o más: nadie declara nanómetros, así que salieron de
+un cálculo que la hoja no explica, y eso viaja con la fila. Las 34 sedes las publica el
+propio sujeto del dato, que es la procedencia más débil del corpus: se nombra a cada
+entidad una por una en vez de esconderlas bajo «directorio corporativo».
+
+**153 de las 6.584 se parecen a un lugar ya guardado** por nombre y distancia. No se funden
+nunca, por lo mismo que las 95 de la ampliación: fundirlas borraría una sucursal real.
+
+### Lo que la entrega trae y no se carga
+
+- `02_enriquecimientos/` — 3.775 bloques sobre 3.758 identificadores. **No son altas**: son
+  propuestas sobre filas existentes, y aquí los datos son inmutables, así que aplicarlas es
+  crear revisiones, no editar. Requieren revisar conflictos y evidencia antes de nada.
+- `03_servicios_no_sumar_a_establecimientos/` — 278 cajeros y 1.322 corresponsales. Son
+  puntos de acceso financiero, no establecimientos, y la entrega pide expresamente no
+  sumarlos al principal.
+- `04_revision_no_importar/` y `05_referencias_no_son_altas/` — coincidencias, fallos,
+  cabeceras SEPREC pendientes y el índice anterior de 90.175. Nada de eso es un alta.
