@@ -120,6 +120,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('bbv-yields', 'Rendimientos soberanos de la BBV', ['boot/bbv-yields.json']),
   historical('composite-indices', 'Índices compuestos', ['boot/composite-indices.json']),
   historical('foreign-trade', 'Comercio exterior', ['boot/foreign-trade.json']),
+  historical('mineral-trade', 'Minerales exportados por partida', ['boot/mineral-trade.json']),
   historical('company-filings', 'Hechos relevantes de emisores', ['boot/company-filings.json']),
   historical('company-filings-archive', 'Archivo de hechos relevantes', [
     'boot/company-filings-archive.json',

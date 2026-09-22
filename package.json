@@ -93,7 +93,8 @@
     "indices:collect": "tsx scripts/macro/collect-owid-indices.ts",
     "freedom:collect": "tsx scripts/macro/collect-freedom-indices.ts",
     "imf:collect": "tsx scripts/macro/collect-imf-weo-series.ts",
-    "trade:collect": "tsx scripts/macro/collect-comtrade-trade.ts"
+    "trade:collect": "tsx scripts/macro/collect-comtrade-trade.ts",
+    "minerals:collect": "tsx scripts/macro/collect-comtrade-minerals.ts"
   },
   "dependencies": {
     "@fastify/helmet": "13.0.1",
