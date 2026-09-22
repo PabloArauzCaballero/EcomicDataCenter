@@ -122,6 +122,17 @@ const registry = new Map<string, VerifiedSource>([
    * que es justo lo que un endpoint JSON no puede declarar por sí mismo.
    */
   ['binance.com', { publisher: 'BINANCE P2P', tier: 'MARKET' }],
+  /*
+   * El agregador que cotiza una misma ficha en varias plazas a la vez.
+   *
+   * No es una plaza: es quien recoge lo que cotizan varias. Va en MARKET igual
+   * que ellas porque lo que publica es el precio al que se negocia, no un
+   * informe sobre él, y cada fila conserva el nombre de la plaza de la que
+   * salió —la lectura no se atribuye al agregador, se atribuye a quien cotizó—.
+   * Entró porque USDC se leía de una sola plaza, y una mediana entre plazas con
+   * una sola plaza no es una mediana.
+   */
+  ['criptoya.com', { publisher: 'CRIPTOYA', tier: 'MARKET' }],
 
   // Trade bodies. These are the only publishers that break out foreign trade by
   // product and department, construction activity, or private-bank aggregates

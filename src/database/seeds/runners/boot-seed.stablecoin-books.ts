@@ -36,7 +36,6 @@ import { readSeed } from './seed.utils';
  */
 
 const AGENT_CODE = 'STABLECOIN_BOOKS';
-const PUBLISHER = 'BINANCE P2P';
 
 async function reconcileArtifact(
   quote: StablecoinBookSeedQuote,
@@ -69,7 +68,7 @@ async function reconcileArtifact(
       publicationDate: quote.eventDate,
       retrievedAt: new Date(quote.retrievedAt),
       metadataJson: {
-        publisher: PUBLISHER,
+        publisher: quote.publisher,
         retrievalStrategy: 'VERSIONED_SNAPSHOT_V1',
         /*
          * El libro no declara instante de publicación: no trae ni un campo de
@@ -103,8 +102,15 @@ function bookPayload(quote: StablecoinBookSeedQuote): Record<string, unknown> {
     ],
     // El par, en el orden en que lo escribe el resto del sistema: fiat/ficha.
     instrument: `BOB/${quote.asset}`,
-    venue: PUBLISHER,
-    publisher: PUBLISHER,
+    /*
+     * La plaza de la fila, no una fija.
+     *
+     * El modelo reduce cada plaza a su punto medio y luego medianá entre
+     * plazas. Con una plaza fija, cuatro fuentes distintas se funden en una y
+     * `venue_count` diría 1 para lo que en realidad son varias.
+     */
+    venue: quote.venue,
+    publisher: quote.publisher,
     publisherVerified: true,
     url: quote.sourceUrl,
     sha256: quote.documentSha256,
@@ -154,17 +160,16 @@ export async function reconcileStablecoinBooks(
     );
 
     /*
-     * La afirmación se redacta con los términos del propio payload —la ficha, el
-     * fiat, el lado— por la misma razón que en la vía de la API: una redacción
-     * en prosa comparte tan pocos términos con un cuerpo JSON que no pasa el
-     * umbral de anclaje léxico, y la lectura acabaría en revisión en vez de
-     * publicarse. La única cifra que se enuncia es el precio, que es la única
-     * que contiene el aviso citado.
+     * La afirmación viene con la fila, redactada por quien leyó la fuente.
+     *
+     * Rearmarla aquí obligaría a una sola redacción para dos fuentes cuyas
+     * pruebas no se parecen: el aviso del libro P2P trae `asset`, `fiatUnit` y
+     * `tradeType`; el objeto del agregador trae `ask`, `bid` y `time`. La
+     * redacción que casa con una no comparte términos con la otra, y una
+     * afirmación que no comparte términos con el extracto que la acompaña es
+     * una afirmación que nadie puede comprobar contra su evidencia.
      */
-    const reading = quote.priceSide === 'SELL' ? 'venta al lector' : 'compra al lector';
-    const assertion =
-      `Dolar paralelo asset ${quote.asset} fiatUnit BOB ` +
-      `tradeType ${quote.priceSide} (${reading}): price ${quote.value}.`;
+    const { assertion } = quote;
     const factClaimId = randomUUID();
     await FactClaimModel.create(
       {
