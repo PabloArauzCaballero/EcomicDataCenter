@@ -24,6 +24,7 @@ import { reconcileUfvHistory } from './boot-seed.ufv-history';
 import { reconcileBbvYields } from './boot-seed.bbv-yields';
 import { reconcileCompositeIndices } from './boot-seed.composite-indices';
 import { reconcileForeignTrade } from './boot-seed.foreign-trade';
+import { reconcileMineralTrade } from './boot-seed.mineral-trade';
 import { reconcileWorldBankPanel } from './boot-seed.worldbank-panel';
 
 /**
@@ -50,6 +51,7 @@ const SELECTABLE = [
   'bbv-yields',
   'composite-indices',
   'foreign-trade',
+  'mineral-trade',
   'company-filings',
   'company-filings-archive',
   'company-filing-texts',
@@ -88,12 +90,24 @@ function requestedCatalogue(argv: readonly string[]): Catalogue | undefined {
  */
 type Loader = (sourceId: string, transaction: Transaction) => Promise<unknown>;
 
-/** The catalogues whose rows the annual panel and its source notes are built from. */
+/**
+ * The catalogues whose rows the annual panel and its source notes are built from.
+ *
+ * `foreign-trade` belonged here from the day it was written and was missing:
+ * its readings are `frequency: 'ANNUAL'` and land in the same view as the rest,
+ * so `--only=foreign-trade` loaded them into the database and left the stored
+ * copy — which is what every panel reads — without them. On a full run the
+ * refresh happened anyway because every catalogue is wanted, which is why the
+ * gap stayed invisible. `mineral-trade` has the same shape and would have
+ * inherited the same silence.
+ */
 const ANNUAL_CATALOGUES: readonly Catalogue[] = [
   'macro-annual-history',
   'composite-indices',
   'ufv-history',
   'bbv-yields',
+  'foreign-trade',
+  'mineral-trade',
 ];
 
 const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
@@ -106,6 +120,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bbv-yields', reconcileBbvYields],
   ['composite-indices', reconcileCompositeIndices],
   ['foreign-trade', reconcileForeignTrade],
+  ['mineral-trade', reconcileMineralTrade],
   ['company-filings', reconcileCompanyFilings],
   ['company-filings-archive', reconcileCompanyFilingArchive],
   ['company-filing-texts', reconcileCompanyFilingTexts],

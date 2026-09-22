@@ -129,24 +129,55 @@ const UNDEFINED_FUNCTION = '42883';
  * `read_models.refresh_snapshot` is the routine migration 0075 adds for this,
  * and the direct statement stays as the fallback for a database that has not
  * reached that migration.
+ *
+ * `concurrently` is what the caller would prefer, not what it gets. A copy that
+ * has never been populated cannot be refreshed `CONCURRENTLY` — there is no old
+ * content to compare against — so the server ends the boot load in red after
+ * every catalogue loaded correctly. `refreshOne` below asks the catalog before
+ * choosing; this path trusted its caller, and every caller passes `true`. That
+ * made a fresh database the one case it could not serve, which is what every
+ * new deployment and every continuous-integration run is.
  */
 export async function refreshOneSnapshot(
   database: { query(sql: string, options?: unknown): Promise<unknown> },
   name: string,
   concurrently: boolean,
 ): Promise<void> {
+  const built = await isPopulated(database, name);
+  const how = concurrently && built;
   try {
     await database.query(
-      `SELECT read_models.refresh_snapshot('${name}', ${concurrently ? 'true' : 'false'})`,
+      `SELECT read_models.refresh_snapshot('${name}', ${how ? 'true' : 'false'})`,
     );
   } catch (error) {
     const code = error as { parent?: { code?: unknown }; code?: unknown } | null;
     const sqlState = code?.parent?.code ?? code?.code;
     if (typeof sqlState !== 'string' || sqlState !== UNDEFINED_FUNCTION) throw error;
     await database.query(
-      `REFRESH MATERIALIZED VIEW ${concurrently ? 'CONCURRENTLY ' : ''}read_models.${name}`,
+      `REFRESH MATERIALIZED VIEW ${how ? 'CONCURRENTLY ' : ''}read_models.${name}`,
     );
   }
+}
+
+/**
+ * Whether that copy has ever been filled, asked of the catalog.
+ *
+ * The same question `listSnapshots` asks and for the same reason: counting rows
+ * cannot tell «nobody has filled this» from «there is nothing in it». A copy
+ * this does not find is reported as unbuilt, and the refresh that follows says
+ * which model is missing — a better error than a refused `CONCURRENTLY`.
+ */
+async function isPopulated(
+  database: { query(sql: string, options?: unknown): Promise<unknown> },
+  name: string,
+): Promise<boolean> {
+  const answer = (await database.query(
+    `SELECT c.relispopulated AS built FROM pg_catalog.pg_class c
+       JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+      WHERE n.nspname = 'read_models' AND c.relkind = 'm' AND c.relname = '${name}'`,
+    { type: 'SELECT' },
+  )) as ReadonlyArray<{ built?: boolean }>;
+  return answer[0]?.built === true;
 }
 
 /**

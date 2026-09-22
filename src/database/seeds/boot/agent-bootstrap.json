@@ -185,6 +185,17 @@
       "schemaVersion": "1.0.0"
     },
     {
+      "aiAgentId": "92000000-0000-4000-8000-000000000017",
+      "code": "MINERAL_TRADE_BACKFILL",
+      "name": "Carga de minerales exportados por partida arancelaria",
+      "agentType": "EXTERNAL_SECTOR",
+      "provider": "Naciones Unidas",
+      "modelIdentifier": "un-comtrade-preview",
+      "specialty": "Exportaciones de minerales, metales, litio e hidrocarburos por partida del Sistema Armonizado",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
       "aiAgentId": "92000000-0000-4000-8000-000000000012",
       "code": "SOCIAL_READINGS",
       "name": "Lecturas publicadas sobre las redes sociales bolivianas",
