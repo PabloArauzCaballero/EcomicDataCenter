@@ -5,6 +5,7 @@ import {
   BOOK_DEPTH,
   BOOK_SIDE_REQUEST,
   EmptyBookError,
+  MINIMUM_BOOK_DEPTH,
   STABLECOIN_SERIES,
   ThinBookError,
   parseStablecoinBook,
@@ -226,6 +227,26 @@ async function collect(
   return { found, failed };
 }
 
+/**
+ * ¿Sigue siendo publicable una fila ya guardada?
+ *
+ * El fichero es de solo añadir, y eso está bien para un precio: uno que una
+ * plaza publicó no es nuestro para revisarlo. Pero una fila recogida bajo una
+ * regla más débil que la de hoy sobrevive a la regla nueva, y eso sí es un
+ * fallo —pasó: el libro de FDUSD se capturó con un aviso de venta y dos de
+ * compra antes de que existiera el mínimo de profundidad, la fila se quedó
+ * dentro, y el panel llegó a publicar el dólar a 10,15 por ese riel mientras
+ * los demás decían doce.
+ *
+ * Así que las guardas se aplican también a lo guardado. No es revisar un
+ * precio: es quitar algo que nunca fue un precio.
+ */
+function publishable(quote: StablecoinBookSeedQuote): boolean {
+  return (
+    quote.advertisementsRead === undefined || quote.advertisementsRead >= MINIMUM_BOOK_DEPTH
+  );
+}
+
 async function main(): Promise<void> {
   const at = new Date();
   const stamp = { eventDate: localDate(at), retrievedAt: `${at.toISOString().slice(0, 19)}Z` };
@@ -248,6 +269,7 @@ async function main(): Promise<void> {
   const floor = localDate(new Date(at.getTime() - KEEP_DAYS * 86_400_000));
   const quotes = [...held, ...added]
     .filter((quote) => quote.eventDate >= floor)
+    .filter(publishable)
     .sort((left, right) => key(left).localeCompare(key(right)));
 
   if (!quotes.length) throw new Error('La semilla quedaría vacía; no se escribe');
