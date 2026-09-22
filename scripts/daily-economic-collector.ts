@@ -42,6 +42,7 @@ import {
   parseParallelQuotation,
 } from '../src/modules/intelligence/daily-indicator-parsers';
 import {
+  INDICATOR_UNITS,
   ungroundedMeasures,
   type IndicatorMeasure,
 } from '../src/modules/intelligence/indicator-measures';
@@ -59,6 +60,13 @@ import {
   stablecoinBookMeasure,
   stablecoinBookTitle,
 } from '../src/modules/intelligence/stablecoin-book-readings';
+import {
+  PairNotQuotedError,
+  criptoyaAssertion,
+  criptoyaSidePrice,
+  criptoyaTitle,
+  parseCriptoyaRates,
+} from '../src/modules/intelligence/criptoya-rate-parsers';
 import {
   documentStatedPublication,
   undatedQuotedIndicator,
@@ -549,6 +557,64 @@ async function researchStablecoinBook(asset: StablecoinAsset, side: BookSide): P
  * shape of the exchange refusing the request: an empty book parses, a refusal
  * does not.
  */
+/**
+ * La misma ficha, leída en las plazas que no tienen libro propio.
+ *
+ * El libro de la bolsa es la fuente con profundidad, pero es una sola plaza, y
+ * para USDC es la única con libro en bolivianos: la mediana entre plazas se
+ * quedaba en una plaza. Este agregador cotiza la misma ficha en billeteras y
+ * bolsas que no publican libro, así que la cifra diaria pasa a apoyarse en
+ * varias sin inventar ninguna.
+ *
+ * Cada plaza es una lectura con su propia prueba —el objeto que el agregador
+ * escribió para ella— y con su propio nombre en `venue`, que es la unidad
+ * sobre la que el modelo de lectura mediana. La plaza cuyo libro ya se lee
+ * directo se excluye en el parser, para que no pese el doble.
+ */
+const aggregatorUrl = 'https://criptoya.com/api';
+const aggregatorPublisher = 'CRIPTOYA';
+
+async function researchAggregatedRates(asset: StablecoinAsset): Promise<Candidate[]> {
+  const url = `${aggregatorUrl}/${asset.toLocaleLowerCase('en')}/bob/1`;
+  const prefetched = await downloadEvidenceSource(url);
+  const text = prefetched.decodedText ?? '';
+  const { quotes } = parseCriptoyaRates(text, asset);
+  const capturedAt = new Date();
+
+  return quotes.flatMap((quote) =>
+    (['SELL', 'BUY'] as const).map((side) => ({
+      sourceTrust: 'DIRECT' as const,
+      prefetched,
+      recordType: 'DAILY_INDICATOR',
+      dataCategory: 'FX_STABLECOIN' as const,
+      title: criptoyaTitle(quote),
+      url,
+      publisher: aggregatorPublisher,
+      // El agregador tampoco declara instante de publicación propio.
+      publishedAt: null,
+      eventDate: localDate(capturedAt),
+      claimType: 'INDICATOR_READING',
+      assertion: criptoyaAssertion(quote, asset, side),
+      excerpt: quote.excerpt,
+      confidenceLevel: 'HIGH',
+      confidenceScore: 0.85,
+      impactLevel: 'HIGH',
+      timeHorizon: 'IMMEDIATE',
+      entityMentions: [aggregatorPublisher],
+      measures: [
+        {
+          indicatorCode: STABLECOIN_SERIES[asset],
+          priceSide: side,
+          value: criptoyaSidePrice(quote, side),
+          unit: INDICATOR_UNITS.bolivianosPerDollar,
+        },
+      ],
+      instrument: `BOB/${asset}`,
+      venue: quote.venue.toLocaleUpperCase('en'),
+    })),
+  );
+}
+
 async function researchStablecoinBooks(): Promise<Candidate[]> {
   const candidates: Candidate[] = [];
   const census: Record<string, string> = {};
@@ -569,6 +635,20 @@ async function researchStablecoinBooks(): Promise<Candidate[]> {
         census[`${asset}/${side}`] = 'UNREADABLE';
         (report.directCollectorErrors as Json[]).push({
           collector: `stablecoin-book/${asset}/${side}`,
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    }
+    try {
+      candidates.push(...(await researchAggregatedRates(asset)));
+      census[`${asset}/AGGREGATOR`] = 'QUOTED';
+    } catch (error) {
+      if (error instanceof PairNotQuotedError) {
+        census[`${asset}/AGGREGATOR`] = 'NOT_QUOTED';
+      } else {
+        census[`${asset}/AGGREGATOR`] = 'UNREADABLE';
+        (report.directCollectorErrors as Json[]).push({
+          collector: `aggregated-rates/${asset}`,
           error: error instanceof Error ? error.message : String(error),
         });
       }

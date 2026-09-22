@@ -47,8 +47,39 @@ export const stablecoinBooksSchema = z.object({
           eventDate: date,
           value: z.string().regex(/^\d+(\.\d+)?$/u),
           unit: z.string().trim().min(2).max(20),
-          /** Cuántos avisos se leyeron para la mediana, que es el método. */
-          advertisementsRead: z.number().int().min(1).max(200),
+          /**
+           * La plaza que cotizó, que es la unidad de la mediana.
+           *
+           * Va fila por fila y no fija en el cargador, que es como estaba. El
+           * modelo de lectura reduce cada plaza a su propio punto medio antes
+           * de medianar entre plazas, así que si todas las filas dicen la misma
+           * plaza, varias fuentes se funden en una y la mediana entre plazas
+           * deja de existir sin que nada lo diga.
+           */
+          venue: z.string().trim().min(2).max(60),
+          /** Quién publicó la lectura: la bolsa misma, o el agregador. */
+          publisher: z.string().trim().min(2).max(60),
+          /**
+           * Cuántos avisos se leyeron para la mediana.
+           *
+           * Solo lo tiene el libro entre particulares, que es el único que
+           * expone profundidad. Un agregador devuelve un par de cifras ya
+           * resumido y no puede decir de cuántas salió, así que aquí falta en
+           * vez de inventarse un uno.
+           */
+          advertisementsRead: z.number().int().min(1).max(200).optional(),
+          /**
+           * La afirmación, redactada por quien leyó la fuente.
+           *
+           * Viaja en la fila en vez de rearmarse en el cargador porque cada
+           * fuente tiene una redacción que **casa con su propia prueba**: el
+           * aviso del libro P2P trae `asset`, `fiatUnit` y `tradeType`, y el
+           * objeto del agregador trae `ask`, `bid` y `time`. Una redacción
+           * única serviría para una y no para la otra, y una afirmación que no
+           * comparte términos con el extracto que la acompaña es una
+           * afirmación que nadie puede comprobar contra su evidencia.
+           */
+          assertion: z.string().trim().min(20).max(400),
           /**
            * El fragmento literal del aviso del que salió el precio.
            *
