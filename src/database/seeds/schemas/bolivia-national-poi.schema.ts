@@ -185,6 +185,16 @@ const place = z
       'puente_semantico_osm_catalogo_v3',
       'puente_explicito_tags_osm_a_codigos_existentes',
       'puente_explicito_tags_osm_a_catalogo_2330',
+      /*
+       * El puente que clasifica salud contra las seis familias que ningun
+       * catalogo traia — `POSTA_SANITARIA`, `PUESTO_DE_SALUD`, `CLINICA_PRIVADA`,
+       * `POLICONSULTORIO`, `CAJA_DE_SALUD`, `CONSULTORIO_ODONTOLOGICO` — y que
+       * este corpus anoto a mano el 2026-09-23. Un lugar de salud que cayo en un
+       * codigo que el anexo o el catalogo de 2.330 ya decidian sigue marcado
+       * `puente_explicito_tags_osm_a_codigos_existentes`; este valor es solo para
+       * los seis que no tenian donde caer.
+       */
+      'puente_explicito_tags_osm_a_catalogo_salud_manual_2026',
       'respaldo_generico_objeto_social_no_confirma_actividad_del_local',
       /*
        * Las dos formas en que la clasificacion no la hizo nadie aqui: la

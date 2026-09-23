@@ -65,6 +65,13 @@ const PLACE_DIRECTORIES = [
    */
   'boot/bolivia-establishments-poi',
   'boot/bolivia-establishments-registry-poi',
+  /*
+   * Farmacias, hospitales, postas y demas establecimientos de salud que
+   * ninguna entrega anterior traia, leidos de OpenStreetMap y clasificados
+   * por `read-health-osm.mjs` porque esta vez nadie los entrego ya
+   * clasificados. Abierta bajo ODbL-1.0, como el resto de lo cartografico.
+   */
+  'boot/bolivia-health-poi',
 ] as const;
 
 /**

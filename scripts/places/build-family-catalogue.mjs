@@ -6,7 +6,8 @@
  *   node scripts/places/build-family-catalogue.mjs \
  *     --anexo-a <anexo-A-catalogo-actual-201-familias.csv> \
  *     --v3      <catalogo_subcategorias_lugares_bolivia.json> \
- *     --out     scripts/places/catalogue/bolivia-place-families.json
+ *     --out     scripts/places/catalogue/bolivia-place-families.json \
+ *     [--manual scripts/places/catalogue/bolivia-health-families-manual.json]
  *
  * Two catalogues exist and they do not say the same thing. The 201-family
  * annex classified everything the observatory holds today; the 2.330-family
@@ -31,6 +32,15 @@
  *
  * The output carries `decided_by` on every family so that anyone reading a
  * place's `is_regulated` can see which of the two catalogues decided it.
+ *
+ * An optional third input, `--manual`, adds families that neither catalogue
+ * defines. It exists because a later corpus can need a family nobody shipped
+ * yet — the health sector's `POSTA_SANITARIA` and five others, added
+ * 2026-09-23 — and inventing one by hand outside this tool would put it a
+ * step ahead of the file that is supposed to be the single source. A manual
+ * entry can only add a code neither source already has: reusing one of theirs
+ * would be the reclassification this file exists to prevent, so the build
+ * stops instead of silently overriding a decided family.
  */
 
 import { createHash } from 'node:crypto';
@@ -49,6 +59,7 @@ function readArguments(argv) {
   return {
     anexoA: options.get('anexo-a'),
     v3: options.get('v3'),
+    manual: options.get('manual') ?? null,
     out: resolve(options.get('out')),
   };
 }
@@ -103,6 +114,27 @@ function readAnnex(text) {
   return families;
 }
 
+/** A hand-authored family, checked for the four fields a place record needs. */
+function readManual(text) {
+  const parsed = JSON.parse(text);
+  const families = new Map();
+  for (const entry of parsed.familias ?? []) {
+    const code = (entry.code ?? '').trim();
+    if (code.length === 0) continue;
+    if (!entry.group || !entry.commercial_role || typeof entry.is_regulated !== 'boolean') {
+      throw new Error(`manual family ${code} needs group, commercial_role and is_regulated`);
+    }
+    families.set(code, {
+      code,
+      group: entry.group,
+      commercial_role: entry.commercial_role,
+      is_regulated: entry.is_regulated,
+      official_validation_source: stated(entry.official_validation_source),
+    });
+  }
+  return families;
+}
+
 function readV3(text) {
   const parsed = JSON.parse(text);
   const families = new Map();
@@ -126,6 +158,15 @@ async function main() {
   const v3Bytes = await readFile(options.v3);
   const annex = readAnnex(annexBytes.toString('utf8'));
   const { families: v3, metadata: v3Metadata } = readV3(v3Bytes.toString('utf8'));
+  const manualBytes = options.manual ? await readFile(options.manual) : null;
+  const manual = manualBytes ? readManual(manualBytes.toString('utf8')) : new Map();
+
+  const alreadyDecided = [...manual.keys()].filter((code) => annex.has(code) || v3.has(code));
+  if (alreadyDecided.length > 0) {
+    throw new Error(
+      `--manual reclasifica familias que ya decide anexo_A_201 o catalogo_2330: ${alreadyDecided.join(', ')}`,
+    );
+  }
 
   /*
    * Una discrepancia en `group` o en `commercial_role` no se resuelve sola:
@@ -162,6 +203,9 @@ async function main() {
   for (const [code, family] of annex) {
     if (!v3.has(code)) families.push({ ...family, decided_by: 'anexo_A_201' });
   }
+  for (const [code, family] of manual) {
+    families.push({ ...family, decided_by: 'anotacion_manual_salud_2026-09-23' });
+  }
   families.sort((one, other) => one.code.localeCompare(other.code));
 
   const document = {
@@ -188,6 +232,13 @@ async function main() {
         baseTaxonomy: v3Metadata.base_taxonomy_citation?.url ?? null,
         overtureRelease: v3Metadata.base_release_overture ?? null,
       },
+      manual: options.manual
+        ? {
+            file: options.manual,
+            sha256: createHash('sha256').update(manualBytes).digest('hex'),
+            families: manual.size,
+          }
+        : null,
       /*
        * Las familias en las que el catalogo nuevo afirma menos que el anexo.
        * Se listan enteras porque son la unica parte de este archivo donde el
@@ -203,6 +254,7 @@ async function main() {
 
   process.stdout.write(`anexo A:                  ${annex.size} familias\n`);
   process.stdout.write(`catalogo de subcategorias:${String(v3.size).padStart(6)} familias\n`);
+  process.stdout.write(`anotacion manual:         ${manual.size} familias\n`);
   process.stdout.write(`catalogo unido:           ${families.length} familias\n`);
   process.stdout.write(`  las decide el anexo A:  ${annex.size}\n`);
   process.stdout.write(`  el anexo afirma mas:    ${weakened.length}\n`);
