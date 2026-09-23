@@ -6,7 +6,9 @@
  *   node scripts/places/build-family-catalogue.mjs \
  *     --anexo-a <anexo-A-catalogo-actual-201-familias.csv> \
  *     --v3      <catalogo_subcategorias_lugares_bolivia.json> \
- *     --out     scripts/places/catalogue/bolivia-place-families.json
+ *     --out     scripts/places/catalogue/bolivia-place-families.json \
+ *     [--additions scripts/places/catalogue/osm-expansion-families.json] \
+ *     [--hierarchy scripts/places/catalogue/family-hierarchy.json]
  *
  * Two catalogues exist and they do not say the same thing. The 201-family
  * annex classified everything the observatory holds today; the 2.330-family
@@ -31,6 +33,21 @@
  *
  * The output carries `decided_by` on every family so that anyone reading a
  * place's `is_regulated` can see which of the two catalogues decided it.
+ *
+ * Dos entradas mas, las dos opcionales y versionadas junto al catalogo:
+ *
+ *  - `--additions`: familias que ningun catalogo define y que una carga nueva
+ *    necesita. Solo anaden: una familia que ya define el anexo o el catalogo de
+ *    2.330 detiene la construccion, porque redefinirla cambiaria el
+ *    `is_regulated` de filas ya cargadas, y eso no se corrige, se duplica.
+ *  - `--hierarchy`: la familia padre de cada familia hija, por reglas de sufijo
+ *    y grupo y por aristas explicitas. Se escribe como `parent_family` y es
+ *    metadato puro: ningun constructor lo copia a una fila y el cargador no lee
+ *    este archivo, asi que no mueve la huella de ningun payload ya cargado.
+ *
+ * Las familias salen ordenadas por codigo. Quien fusione ramas que anadieron
+ * familias por separado debe regenerar con todas sus entradas, no fusionar el
+ * JSON a mano.
  */
 
 import { createHash } from 'node:crypto';
@@ -50,6 +67,8 @@ function readArguments(argv) {
     anexoA: options.get('anexo-a'),
     v3: options.get('v3'),
     out: resolve(options.get('out')),
+    additions: options.get('additions') ?? null,
+    hierarchy: options.get('hierarchy') ?? null,
   };
 }
 
@@ -120,6 +139,82 @@ function readV3(text) {
   return { families, metadata: parsed.metadata ?? {} };
 }
 
+/**
+ * Las familias nuevas, comprobadas una por una.
+ *
+ * Un `is_regulated` verdadero sin regulador nombrado se rechaza: diria que una
+ * autoridad licencia la actividad sin decir cual, que es justo lo que el
+ * catalogo existe para no hacer.
+ */
+function readAdditions(text, known) {
+  const parsed = JSON.parse(text);
+  const decidedBy = stated(parsed.decidedBy);
+  if (!decidedBy) throw new Error('el archivo de familias nuevas no dice quien las decide');
+  const families = new Map();
+  for (const entry of parsed.familias ?? []) {
+    const code = (entry.code ?? '').trim();
+    if (!/^[A-Z0-9_]{2,60}$/u.test(code)) throw new Error(`codigo de familia invalido: ${code}`);
+    if (known.has(code) || families.has(code)) {
+      throw new Error(`la familia ${code} ya esta definida; una alta no puede redefinirla`);
+    }
+    if (!stated(entry.group) || !stated(entry.commercial_role)) {
+      throw new Error(`la familia ${code} no tiene group o commercial_role`);
+    }
+    const source = stated(entry.official_validation_source);
+    if (entry.is_regulated === true && !source) {
+      throw new Error(`la familia ${code} dice estar regulada sin nombrar al regulador`);
+    }
+    families.set(code, {
+      code,
+      group: entry.group.trim(),
+      commercial_role: entry.commercial_role.trim(),
+      is_regulated: entry.is_regulated === true,
+      official_validation_source: source,
+      decided_by: decidedBy,
+    });
+  }
+  return families;
+}
+
+/**
+ * El padre de cada familia, o nada.
+ *
+ * Una arista explicita manda sobre una regla. Un padre que no existe, una
+ * familia que es su propio padre o un ciclo detienen la construccion: una
+ * jerarquia rota agruparia lugares bajo un rubro que no se puede nombrar.
+ */
+function resolveHierarchy(text, families) {
+  const parsed = JSON.parse(text);
+  const parents = new Map();
+  for (const family of families.values()) {
+    for (const rule of parsed.reglas ?? []) {
+      if (
+        family.code.endsWith(rule.sufijo) &&
+        rule.grupos.includes(family.group) &&
+        family.code !== rule.padre
+      ) {
+        parents.set(family.code, rule.padre);
+        break;
+      }
+    }
+  }
+  for (const [child, parent] of Object.entries(parsed.aristas ?? {})) {
+    if (!families.has(child))
+      throw new Error(`la jerarquia nombra una familia que no existe: ${child}`);
+    parents.set(child, parent);
+  }
+  for (const [child, parent] of parents) {
+    if (!families.has(parent)) throw new Error(`${child} tiene por padre ${parent}, que no existe`);
+    if (child === parent) throw new Error(`${child} no puede ser su propio padre`);
+    const seen = new Set([child]);
+    for (let up = parents.get(parent); up; up = parents.get(up)) {
+      if (seen.has(up)) throw new Error(`la jerarquia tiene un ciclo en ${child}`);
+      seen.add(up);
+    }
+  }
+  return parents;
+}
+
 async function main() {
   const options = readArguments(process.argv.slice(2));
   const annexBytes = await readFile(options.anexoA);
@@ -162,7 +257,25 @@ async function main() {
   for (const [code, family] of annex) {
     if (!v3.has(code)) families.push({ ...family, decided_by: 'anexo_A_201' });
   }
+
+  const additionsBytes = options.additions ? await readFile(options.additions) : null;
+  const additions = additionsBytes
+    ? readAdditions(additionsBytes.toString('utf8'), new Set(families.map((one) => one.code)))
+    : new Map();
+  families.push(...additions.values());
   families.sort((one, other) => one.code.localeCompare(other.code));
+
+  const hierarchyBytes = options.hierarchy ? await readFile(options.hierarchy) : null;
+  const parents = hierarchyBytes
+    ? resolveHierarchy(
+        hierarchyBytes.toString('utf8'),
+        new Map(families.map((one) => [one.code, one])),
+      )
+    : new Map();
+  for (const family of families) {
+    const parent = parents.get(family.code);
+    if (parent) family.parent_family = parent;
+  }
 
   const document = {
     metadata: {
@@ -194,6 +307,24 @@ async function main() {
        * lector esta leyendo la afirmacion vieja habiendo otra mas reciente.
        */
       keptFromAnnexDespiteNewerClaim: weakened.sort(),
+      ...(additionsBytes
+        ? {
+            additions: {
+              file: 'osm-expansion-families.json',
+              sha256: createHash('sha256').update(additionsBytes).digest('hex'),
+              families: additions.size,
+            },
+          }
+        : {}),
+      ...(hierarchyBytes
+        ? {
+            hierarchy: {
+              file: 'family-hierarchy.json',
+              sha256: createHash('sha256').update(hierarchyBytes).digest('hex'),
+              familiesWithParent: parents.size,
+            },
+          }
+        : {}),
     },
     familias: families,
   };

@@ -1,8 +1,8 @@
 {
   "metadata": {
     "dataset": "CATALOGO_FAMILIAS_DE_LUGARES_BOLIVIA",
-    "built": "2026-09-22",
-    "families": 2330,
+    "built": "2026-09-23",
+    "families": 2361,
     "precedence": "anexo_A_201 decide las familias que define; el catalogo de 2.330 rellena el resto",
     "precedenceReason": "las filas clasificadas con el anexo A ya estan cargadas y el corpus es inmutable: reclasificar una familia no cambiaria esas filas, anadiria una segunda al lado",
     "annex": {
@@ -90,7 +90,17 @@
       "TIENDA_MASCOTAS",
       "TIENDA_OPERADOR_TELECOM",
       "UNIVERSIDAD"
-    ]
+    ],
+    "additions": {
+      "file": "osm-expansion-families.json",
+      "sha256": "75881bf7b3fae06aac872ee1e19b8d526e225649d83cb508609d20e0d4a155ff",
+      "families": 31
+    },
+    "hierarchy": {
+      "file": "family-hierarchy.json",
+      "sha256": "f4e65ce766f88cf261b194a5309c53b31216335d863a74ac22ec96013351fb97",
+      "familiesWithParent": 551
+    }
   },
   "familias": [
     {
@@ -238,6 +248,14 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "APICULTURA",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
+    },
+    {
       "code": "ARCADE_JUEGOS",
       "group": "ENTRETENIMIENTO",
       "commercial_role": "ENTERTAINMENT",
@@ -268,6 +286,14 @@
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "ATRACTIVO_TURISTICO",
+      "group": "TURISMO",
+      "commercial_role": "ENTERTAINMENT",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
     },
     {
       "code": "AUTOESCUELA",
@@ -358,6 +384,24 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "BOCAMINA",
+      "group": "MINERIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "MINA"
+    },
+    {
+      "code": "BODEGA_DESTILERIA",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "PLANTA_ALIMENTOS"
+    },
+    {
       "code": "BOMBEROS",
       "group": "SEGURIDAD_PUBLICA",
       "commercial_role": "PUBLIC_SERVICE",
@@ -390,12 +434,29 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "CAMPO_GOLF",
+      "group": "DEPORTE",
+      "commercial_role": "RECREATION_INFRASTRUCTURE",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
+    },
+    {
       "code": "CANCHA",
       "group": "DEPORTE",
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "CANTERA_ARIDOS",
+      "group": "MINERIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "MINA"
     },
     {
       "code": "CARNICERIA",
@@ -566,6 +627,15 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "CERVECERIA_PLANTA",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "PLANTA_ALIMENTOS"
+    },
+    {
       "code": "CHAPERIA_PINTURA",
       "group": "AUTOMOTOR",
       "commercial_role": "SERVICE_PROVIDER",
@@ -686,12 +756,30 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "CONVENTO_MONASTERIO",
+      "group": "RELIGION",
+      "commercial_role": "COMMUNITY",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "IGLESIA_TEMPLO"
+    },
+    {
       "code": "COOPERATIVA_FINANCIERA",
       "group": "FINANZAS",
       "commercial_role": "FINANCIAL_SERVICE",
       "is_regulated": true,
       "official_validation_source": "ASFI",
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "COOPERATIVA_MINERA",
+      "group": "MINERIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "AJAM - Autoridad Jurisdiccional Administrativa Minera (Ley 535 de Mineria y Metalurgia)",
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "MINA"
     },
     {
       "code": "CORREDOR_SEGUROS",
@@ -732,6 +820,22 @@
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "CRIADERO_ANIMALES",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
+    },
+    {
+      "code": "CULTIVO_AGRICOLA",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
     },
     {
       "code": "CYBER_INTERNET",
@@ -876,6 +980,14 @@
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "ESTANCIA_FINCA",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
     },
     {
       "code": "ESTUDIO_GRABACION",
@@ -1062,6 +1174,15 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "HUERTO_FRUTAL",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "CULTIVO_AGRICOLA"
+    },
+    {
       "code": "IGLESIA_TEMPLO",
       "group": "RELIGION",
       "commercial_role": "COMMUNITY",
@@ -1100,6 +1221,15 @@
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "INGENIO_AZUCARERO",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "PLANTA_ALIMENTOS"
     },
     {
       "code": "INMOBILIARIA",
@@ -1142,6 +1272,15 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "INVERNADERO",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "CULTIVO_AGRICOLA"
+    },
+    {
       "code": "JOYERIA_RELOJERIA",
       "group": "COMERCIO",
       "commercial_role": "SELLER",
@@ -1180,6 +1319,15 @@
       "is_regulated": true,
       "official_validation_source": "AGEMED",
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "LADRILLERA",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "LAVADERO_AUTOS",
@@ -1238,6 +1386,15 @@
       "decided_by": "catalogo_2330"
     },
     {
+      "code": "MATADERO",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "PLANTA_ALIMENTOS"
+    },
+    {
       "code": "MATERIALES_CONSTRUCCION",
       "group": "COMERCIO_CONSTRUCCION",
       "commercial_role": "SELLER",
@@ -1286,6 +1443,23 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "MINA",
+      "group": "MINERIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "AJAM - Autoridad Jurisdiccional Administrativa Minera (Ley 535 de Mineria y Metalurgia)",
+      "decided_by": "ampliacion_osm_2026_09_23"
+    },
+    {
+      "code": "MINA_HISTORICA",
+      "group": "CULTURA",
+      "commercial_role": "CULTURAL",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "OV_HISTORIC_SITE"
+    },
+    {
       "code": "MINIMARKET",
       "group": "COMERCIO_ALIMENTOS",
       "commercial_role": "SELLER",
@@ -1318,12 +1492,28 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "OBRA_ARTE_PUBLICO",
+      "group": "CULTURA",
+      "commercial_role": "CULTURAL",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
+    },
+    {
       "code": "ODONTOLOGIA",
       "group": "SALUD",
       "commercial_role": "HEALTHCARE",
       "is_regulated": true,
       "official_validation_source": "Ministerio de Salud / SNIS",
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "OFICINA_COOPERATIVA",
+      "group": "ORGANIZACIONES",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
     },
     {
       "code": "OFICINA_DERECHOS_REALES",
@@ -1403,7 +1593,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_ABRASIVES_SUPPLIER",
@@ -1507,7 +1698,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ADVENTURE_SPORT",
@@ -1547,7 +1739,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_AFGHANI_RESTAURANT",
@@ -1555,7 +1748,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_AFRICAN_RESTAURANT",
@@ -1563,7 +1757,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_AFTER_SCHOOL_PROGRAM",
@@ -1659,7 +1854,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_AIRCRAFT_PARTS_AND_SUPPLIES",
@@ -1715,7 +1911,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_ALCOHOL_AND_DRUG_TREATMENT_CENTER",
@@ -1739,7 +1936,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ALLERGY_AND_IMMUNOLOGY",
@@ -1795,7 +1993,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_AMERICAN_RESTAURANT",
@@ -1803,7 +2002,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_AMPHITHEATER",
@@ -1827,7 +2027,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ANESTHESIOLOGY",
@@ -1843,7 +2044,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ANIMAL_ADOPTION_OR_RESCUE",
@@ -1883,7 +2085,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CAFE"
     },
     {
       "code": "OV_ANIMAL_HOSPITAL",
@@ -1891,7 +2094,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "VETERINARIA"
     },
     {
       "code": "OV_ANIMAL_OR_PET_SERVICE",
@@ -1947,7 +2151,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ANTIQUE_STORE",
@@ -1987,7 +2192,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_APPELLATE_PRACTICE_LAWYER",
@@ -2003,7 +2209,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_APPRAISAL_SERVICE",
@@ -2043,7 +2250,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ARCHAEOLOGICAL_SERVICE",
@@ -2099,7 +2307,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_ARENA",
@@ -2115,7 +2324,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ARMENIAN_APOSTOLIC_PLACE_OF_WORSHIP",
@@ -2123,7 +2333,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ARMENIAN_RESTAURANT",
@@ -2131,7 +2342,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ARMY_AND_NAVY_STORE",
@@ -2155,7 +2367,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_ART_RESTORATION_SERVICE",
@@ -2243,7 +2456,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_ASIAN_FUSION_RESTAURANT",
@@ -2251,7 +2465,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ASIAN_GROCERY_STORE",
@@ -2267,7 +2482,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ASSISTED_LIVING_FACILITY",
@@ -2371,7 +2587,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_AUSTRIAN_RESTAURANT",
@@ -2379,7 +2596,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_AUTO_BROKER",
@@ -2435,7 +2653,8 @@
       "commercial_role": "FINANCIAL_SERVICE",
       "is_regulated": true,
       "official_validation_source": "Autoridad de Fiscalización y Control de Pensiones y Seguros (APS)",
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ASEGURADORA"
     },
     {
       "code": "OV_AUTO_LEASING",
@@ -2459,7 +2678,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_AUTO_RESTORATION_SERVICE",
@@ -2539,7 +2759,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_AVIONICS_SHOP",
@@ -2579,7 +2800,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_B2B_ADVERTISING_AND_MARKETING_SERVICE",
@@ -2707,7 +2929,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_FARM"
     },
     {
       "code": "OV_B2B_FARMING",
@@ -3027,7 +3250,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_BAGEL_SHOP",
@@ -3091,7 +3315,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BANK_EQUIPMENT_SERVICE",
@@ -3115,7 +3340,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_BAOZI_RESTAURANT",
@@ -3123,7 +3349,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BAPTIST_PLACE_OF_WORSHIP",
@@ -3131,7 +3358,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_BAR_AND_GRILL_RESTAURANT",
@@ -3139,7 +3367,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BAR_CRAWL",
@@ -3163,7 +3392,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BARRE_CLASS",
@@ -3187,7 +3417,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CENTRO_CAPACITACION"
     },
     {
       "code": "OV_BASEBALL_FIELD",
@@ -3195,7 +3426,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_BASEBALL_STADIUM",
@@ -3203,7 +3435,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ESTADIO"
     },
     {
       "code": "OV_BASKETBALL_COURT",
@@ -3211,7 +3444,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_BASKETBALL_STADIUM",
@@ -3219,7 +3453,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ESTADIO"
     },
     {
       "code": "OV_BASQUE_RESTAURANT",
@@ -3227,7 +3462,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BATH_AND_BODY_STORE",
@@ -3307,7 +3543,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_BEACH_COMBING_AREA",
@@ -3347,7 +3584,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_BEARING_SUPPLIER",
@@ -3395,7 +3633,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_BEER_GARDEN",
@@ -3443,7 +3682,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BELARUSIAN_RESTAURANT",
@@ -3451,7 +3691,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BELGIAN_RESTAURANT",
@@ -3459,7 +3700,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BELIZEAN_RESTAURANT",
@@ -3467,7 +3709,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BENGALI_RESTAURANT",
@@ -3475,7 +3718,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BETTING_CENTER",
@@ -3611,7 +3855,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_BOAT_CHARTER",
@@ -3691,7 +3936,8 @@
       "commercial_role": "RECREATION_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_BOCCE_BALL_COURT",
@@ -3699,7 +3945,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_BODY_ART",
@@ -3731,7 +3978,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BOOK_MAGAZINE_DISTRIBUTION",
@@ -3867,7 +4115,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BREAKFAST_AND_BRUNCH_RESTAURANT",
@@ -3875,7 +4124,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BREWERY",
@@ -3915,7 +4165,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BROADCASTING_MEDIA_PRODUCTION",
@@ -3955,7 +4206,8 @@
       "commercial_role": "CULTURAL",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_RELIGIOUS_LANDMARK"
     },
     {
       "code": "OV_BUDDHIST_PLACE_OF_WORSHIP",
@@ -3963,7 +4215,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_BUFFET_RESTAURANT",
@@ -3971,7 +4224,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BUILDING",
@@ -4011,7 +4265,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_BULGARIAN_RESTAURANT",
@@ -4019,7 +4274,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BUNGEE_JUMPING_CENTER",
@@ -4035,7 +4291,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BURMESE_RESTAURANT",
@@ -4043,7 +4300,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_BUS_RENTAL",
@@ -4099,7 +4357,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_BUSINESS_OFFICE_SUPPLIES_AND_STATIONERY",
@@ -4115,7 +4374,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_CABARET",
@@ -4155,7 +4415,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CALLIGRAPHY",
@@ -4171,7 +4432,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CAMERA_AND_PHOTOGRAPHY_STORE",
@@ -4211,7 +4473,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CANAL",
@@ -4251,7 +4514,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_CANNABIS_COLLECTIVE",
@@ -4299,7 +4563,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CANYON",
@@ -4379,7 +4644,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_CARDIOVASCULAR_AND_VASCULAR_MEDICINE",
@@ -4387,7 +4653,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_CARDS_AND_STATIONERY_STORE",
@@ -4411,7 +4678,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CARICATURE",
@@ -4483,7 +4751,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_CASTING_MOLDING_SERVICE",
@@ -4515,7 +4784,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CAFE"
     },
     {
       "code": "OV_CATALAN_RESTAURANT",
@@ -4523,7 +4793,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CATHOLIC_SHRINE",
@@ -4571,7 +4842,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CENTRAL_ASIAN_RESTAURANT",
@@ -4579,7 +4851,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CENTRAL_EUROPEAN_RESTAURANT",
@@ -4587,7 +4860,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CERTIFICATION_AGENCY",
@@ -4611,7 +4885,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_CHARITY_ORGANIZATION",
@@ -4627,7 +4902,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "COLEGIO_ESCUELA"
     },
     {
       "code": "OV_CHECK_CASHING_PAYDAY_LOANS",
@@ -4667,7 +4943,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CHEMICAL_PLANT",
@@ -4683,7 +4960,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CHICKEN_RESTAURANT",
@@ -4691,7 +4969,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CHICKEN_WINGS_RESTAURANT",
@@ -4699,7 +4978,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CHILD_PROTECTION_SERVICE",
@@ -4747,7 +5027,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "HOSPITAL"
     },
     {
       "code": "OV_CHILDRENS_MUSEUM",
@@ -4755,7 +5036,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_CHILEAN_RESTAURANT",
@@ -4763,7 +5045,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CHIMNEY_SERVICE",
@@ -4795,7 +5078,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CHIROPRACTIC",
@@ -4835,7 +5119,8 @@
       "commercial_role": "CULTURAL",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_RELIGIOUS_LANDMARK"
     },
     {
       "code": "OV_CHRISTIAN_PLACE_OF_WORSHIP",
@@ -4843,7 +5128,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_CHRISTIAN_RETREAT_CENTER",
@@ -4867,7 +5153,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_CHURCH_SUPPLY_STORE",
@@ -4891,7 +5178,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_CIRCUS_SCHOOL",
@@ -4899,7 +5187,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ACADEMIA_ARTE_MUSICA"
     },
     {
       "code": "OV_CIRCUS_VENUE",
@@ -4955,7 +5244,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_CLASS_VENUE",
@@ -5051,7 +5341,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_COFFEE_AND_TEA_SUPPLIES",
@@ -5107,7 +5398,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_COLONIC_HYDROTHERAPY",
@@ -5131,7 +5423,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_COMIC_BOOKS_STORE",
@@ -5219,7 +5512,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_COMPLEMENTARY_AND_ALTERNATIVE_MEDICINE",
@@ -5227,7 +5521,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_COMPUTER_COACHING",
@@ -5251,7 +5546,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_COMPUTER_WHOLESALER",
@@ -5259,7 +5555,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_CONCIERGE_MEDICINE",
@@ -5267,7 +5564,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_CONDOMINIUM",
@@ -5283,7 +5581,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_CONSTRUCTION_MANAGEMENT",
@@ -5299,7 +5598,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_CONTRACT_LAW",
@@ -5307,7 +5607,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_CONTRACTOR",
@@ -5339,7 +5640,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CENTRO_CAPACITACION"
     },
     {
       "code": "OV_COPTIC_ORTHODOX_PLACE_OF_WORSHIP",
@@ -5347,7 +5649,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_COPYWRITING_SERVICE",
@@ -5403,7 +5706,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_COSMETIC_SURGERY",
@@ -5411,7 +5715,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_COSMETOLOGY_SCHOOL",
@@ -5419,7 +5724,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CENTRO_CAPACITACION"
     },
     {
       "code": "OV_COSTA_RICAN_RESTAURANT",
@@ -5427,7 +5733,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_COSTUME_MUSEUM",
@@ -5435,7 +5742,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_COSTUME_STORE",
@@ -5459,7 +5767,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_COUNSELING",
@@ -5571,7 +5880,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_CRISIS_INTERVENTION_SERVICE",
@@ -5611,7 +5921,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CULTURAL_AND_HISTORIC",
@@ -5659,7 +5970,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_CUSTOM_CAKES_SHOP",
@@ -5715,7 +6027,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_DAIRY_FARM",
@@ -5723,7 +6036,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_FARM"
     },
     {
       "code": "OV_DAIRY_STORE",
@@ -5771,7 +6085,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_DATA_RECOVERY",
@@ -5819,7 +6134,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_DELEGATED_DRIVER_SERVICE",
@@ -5875,7 +6191,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_DEPARTMENT_OF_MOTOR_VEHICLES",
@@ -5915,7 +6232,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_DESIGN_SERVICE",
@@ -5971,7 +6289,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_DINER",
@@ -5995,7 +6314,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_DISC_GOLF_COURSE",
@@ -6043,7 +6363,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_DIVE_STORE",
@@ -6075,7 +6396,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_DIY_AUTO_SHOP",
@@ -6091,7 +6413,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_DJ_EQUIPMENT_STORE",
@@ -6131,7 +6454,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CAFE"
     },
     {
       "code": "OV_DOG_PARK",
@@ -6163,7 +6487,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_DONATION_CENTER",
@@ -6179,7 +6504,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_DONGBEI_RESTAURANT",
@@ -6187,7 +6513,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_DONUT_SHOP",
@@ -6219,7 +6546,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ACADEMIA_ARTE_MUSICA"
     },
     {
       "code": "OV_DRINKING_FOUNTAIN",
@@ -6243,7 +6571,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_DRIVING_RANGE",
@@ -6291,7 +6620,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_DUI_SCHOOL",
@@ -6299,7 +6629,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "AUTOESCUELA"
     },
     {
       "code": "OV_DUMPLING_RESTAURANT",
@@ -6307,7 +6638,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_DUMPSTER_RENTAL",
@@ -6331,7 +6663,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_DUTY_FREE_STORE",
@@ -6363,7 +6696,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_EAST_ASIAN_RESTAURANT",
@@ -6371,7 +6705,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_EASTERN_CATHOLIC_PLACE_OF_WORSHIP",
@@ -6379,7 +6714,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_EASTERN_EUROPEAN_RESTAURANT",
@@ -6387,7 +6723,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_EASTERN_ORTHODOX_PLACE_OF_WORSHIP",
@@ -6395,7 +6732,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_EATING_DISORDER_TREATMENT_CENTER",
@@ -6411,7 +6749,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_EDITORIAL_SERVICE",
@@ -6483,7 +6822,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ELDER_CARE_PLANNING",
@@ -6507,7 +6847,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_ELECTRONIC_EQUIPMENT_SUPPLIER",
@@ -6539,7 +6880,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "COLEGIO_ESCUELA"
     },
     {
       "code": "OV_ELEVATOR_SERVICE",
@@ -6571,7 +6913,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": true,
       "official_validation_source": "SENASAG",
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "VETERINARIA"
     },
     {
       "code": "OV_EMERGENCY_ROADSIDE_SERVICE",
@@ -6595,7 +6938,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_EMPLOYMENT_LAW",
@@ -6603,7 +6947,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_EMS_TRAINING",
@@ -6667,7 +7012,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_ENGRAVING",
@@ -6683,7 +7029,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_ENVIRONMENTAL_ABATEMENT_SERVICE",
@@ -6707,7 +7054,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_ENVIRONMENTAL_OR_ECOLOGICAL_SERVICE",
@@ -6747,7 +7095,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ERITREAN_RESTAURANT",
@@ -6755,7 +7104,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_EROTIC_MASSAGE_VENUE",
@@ -6811,7 +7161,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_ESTHETICIAN",
@@ -6835,7 +7186,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ETHIOPIAN_RESTAURANT",
@@ -6843,7 +7195,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_EUROPEAN_RESTAURANT",
@@ -6851,7 +7204,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_EV_CHARGING_STATION",
@@ -6947,7 +7301,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_FACE_PAINTING",
@@ -6971,7 +7326,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FAMILY_COUNSELING",
@@ -7035,7 +7391,8 @@
       "commercial_role": "FINANCIAL_SERVICE",
       "is_regulated": true,
       "official_validation_source": "Autoridad de Fiscalización y Control de Pensiones y Seguros (APS)",
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ASEGURADORA"
     },
     {
       "code": "OV_FARMERS_MARKET",
@@ -7043,7 +7400,8 @@
       "commercial_role": "SELLER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MERCADO"
     },
     {
       "code": "OV_FARMING_EQUIPMENT_STORE",
@@ -7147,7 +7505,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_FERTILIZER_STORE",
@@ -7187,7 +7546,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_FIJIAN_RESTAURANT",
@@ -7195,7 +7555,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FILIPINO_RESTAURANT",
@@ -7203,7 +7564,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FILM_FESTIVAL_VENUE",
@@ -7243,7 +7605,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FIRE_AND_WATER_DAMAGE_RESTORATION",
@@ -7307,7 +7670,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FISH_AND_CHIPS_RESTAURANT",
@@ -7315,7 +7679,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FISH_FARM",
@@ -7323,7 +7688,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_FARM"
     },
     {
       "code": "OV_FISH_FARM_HATCHERY",
@@ -7339,7 +7705,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FISHING",
@@ -7387,7 +7754,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_FITNESS_EXERCISE_STORE",
@@ -7427,7 +7795,8 @@
       "commercial_role": "SELLER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MERCADO"
     },
     {
       "code": "OV_FLIGHT_SCHOOL",
@@ -7435,7 +7804,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "INSTITUTO_TECNICO"
     },
     {
       "code": "OV_FLOAT_SPA",
@@ -7475,7 +7845,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_FLOWER_MARKET",
@@ -7483,7 +7854,8 @@
       "commercial_role": "SELLER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MERCADO"
     },
     {
       "code": "OV_FLOWERS_AND_GIFTS_STORE",
@@ -7515,7 +7887,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_FONDUE_RESTAURANT",
@@ -7523,7 +7896,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FOOD_AND_BEVERAGE_CONSULTANT",
@@ -7635,7 +8009,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ESTADIO"
     },
     {
       "code": "OV_FOOTWEAR_WHOLESALER",
@@ -7643,7 +8018,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_FOREST",
@@ -7755,7 +8131,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FRITERIE",
@@ -7803,7 +8180,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_FUR_CLOTHING",
@@ -7835,7 +8213,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_FURNITURE_RENTAL_SERVICE",
@@ -7867,7 +8246,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_FUTSAL_FIELD",
@@ -7875,7 +8255,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_GAME_PUBLISHER",
@@ -7963,7 +8344,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_GELATO_SHOP",
@@ -8003,7 +8385,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "HOSPITAL"
     },
     {
       "code": "OV_GENERAL_LITIGATION",
@@ -8067,7 +8450,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_GEORGIAN_RESTAURANT",
@@ -8075,7 +8459,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_GERIATRIC_MEDICINE",
@@ -8083,7 +8468,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_GERIATRIC_PSYCHIATRY",
@@ -8099,7 +8485,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_GERONTOLOGY",
@@ -8115,7 +8502,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_GLASS_AND_MIRROR_SALES_SERVICE",
@@ -8139,7 +8527,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_GLIDER_PORT",
@@ -8155,7 +8544,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_GO_KART_CLUB",
@@ -8171,7 +8561,8 @@
       "commercial_role": "RECREATION_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "PISTA_DEPORTIVA"
     },
     {
       "code": "OV_GOLD_BUYER",
@@ -8291,7 +8682,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_GREEK_RESTAURANT",
@@ -8299,7 +8691,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_GREENGROCER",
@@ -8347,7 +8740,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_GUATEMALAN_RESTAURANT",
@@ -8355,7 +8749,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_GUEST_HOUSE",
@@ -8379,7 +8774,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_GUN_AND_AMMO_STORE",
@@ -8483,7 +8879,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HALAL_RESTAURANT",
@@ -8491,7 +8888,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HALFWAY_HOUSE",
@@ -8523,7 +8921,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_HANDYMAN",
@@ -8547,7 +8946,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_HARDWARE_HOME_AND_GARDEN_STORE",
@@ -8579,7 +8979,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HAWAIIAN_RESTAURANT",
@@ -8587,7 +8988,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HAZARDOUS_WASTE_DISPOSAL",
@@ -8635,7 +9037,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HEALTH_FOOD_STORE",
@@ -8659,7 +9062,8 @@
       "commercial_role": "SELLER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MERCADO"
     },
     {
       "code": "OV_HEALTH_RETREAT",
@@ -8739,7 +9143,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "COLEGIO_ESCUELA"
     },
     {
       "code": "OV_HIKING_TRAIL",
@@ -8763,7 +9168,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HINDU_ASHRAM",
@@ -8787,7 +9193,8 @@
       "commercial_role": "CULTURAL",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_RELIGIOUS_LANDMARK"
     },
     {
       "code": "OV_HINDU_PLACE_OF_WORSHIP",
@@ -8795,7 +9202,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_HISTORIC_MISSION",
@@ -8835,7 +9243,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_HOBBY_SHOP",
@@ -8875,7 +9284,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_HOCKEY_RINK",
@@ -8915,7 +9325,8 @@
       "commercial_role": "SELLER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MERCADO"
     },
     {
       "code": "OV_HOLIDAY_PARK",
@@ -8947,7 +9358,8 @@
       "commercial_role": "FINANCIAL_SERVICE",
       "is_regulated": true,
       "official_validation_source": "Autoridad de Fiscalización y Control de Pensiones y Seguros (APS)",
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ASEGURADORA"
     },
     {
       "code": "OV_HOME_AUTOMATION",
@@ -9107,7 +9519,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HONEY_FARM_SHOP",
@@ -9123,7 +9536,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CAFE"
     },
     {
       "code": "OV_HOOKAH_BAR",
@@ -9131,7 +9545,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_HORSE_BOARDING",
@@ -9155,7 +9570,8 @@
       "commercial_role": "RECREATION_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "PISTA_DEPORTIVA"
     },
     {
       "code": "OV_HORSE_RIDING",
@@ -9203,7 +9619,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HOT_SPRINGS",
@@ -9227,7 +9644,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_HOTEL_SUPPLY_SERVICE",
@@ -9283,7 +9701,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HUNGARIAN_RESTAURANT",
@@ -9291,7 +9710,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HUNTING_AND_FISHING_STORE",
@@ -9323,7 +9743,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_HYDRAULIC_EQUIPMENT_SUPPLIER",
@@ -9371,7 +9792,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_HYPNOTHERAPY",
@@ -9387,7 +9809,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_IBERIAN_RESTAURANT",
@@ -9395,7 +9818,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ICE_HOCKEY_CLUB",
@@ -9435,7 +9859,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_IMAGE_CONSULTANT",
@@ -9459,7 +9884,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_IMMUNODERMATOLOGY",
@@ -9507,7 +9933,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_INDIAN_SWEETS_SHOP",
@@ -9523,7 +9950,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_INDONESIAN_RESTAURANT",
@@ -9531,7 +9959,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_INDOOR_GOLF_CENTER",
@@ -9571,7 +10000,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_INDUSTRIAL_FACILITY_OR_SERVICE",
@@ -9651,7 +10081,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_INTERNATIONAL_FUSION_RESTAURANT",
@@ -9659,7 +10090,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_INTERNATIONAL_GROCERY_STORE",
@@ -9715,7 +10147,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_IRISH_PUB",
@@ -9731,7 +10164,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_IRON_AND_STEEL_STORE",
@@ -9787,7 +10221,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_IT_CONSULTANT",
@@ -9803,7 +10238,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_IV_HYDRATION",
@@ -9827,7 +10263,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_JANITORIAL_SERVICE",
@@ -9859,7 +10296,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_JAZZ_AND_BLUES_VENUE",
@@ -9875,7 +10313,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_JET_SKIS_RENTAL",
@@ -9891,7 +10330,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_JEWELRY_MANUFACTURER",
@@ -9899,7 +10339,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_JEWELRY_REPAIR_SERVICE",
@@ -9923,7 +10364,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_JEWISH_RESTAURANT",
@@ -9931,7 +10373,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_JIANGSU_RESTAURANT",
@@ -9939,7 +10382,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_JUNK_REMOVAL_AND_HAULING",
@@ -9995,7 +10439,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_KICKBOXING_CLUB",
@@ -10107,7 +10552,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_KOMBUCHA_BAR",
@@ -10115,7 +10561,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_KOREAN_GROCERY_STORE",
@@ -10131,7 +10578,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_KOSHER_GROCERY_STORE",
@@ -10147,7 +10595,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_KURDISH_RESTAURANT",
@@ -10155,7 +10604,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_LABOR_UNION",
@@ -10203,7 +10653,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_LACTATION_SERVICE",
@@ -10259,7 +10710,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_LASER_CUTTING_SERVICE",
@@ -10291,7 +10743,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_LATIN_FUSION_RESTAURANT",
@@ -10299,7 +10752,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_LAUNDROMAT",
@@ -10315,7 +10769,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_LAWN_BOWLING_CLUB",
@@ -10363,7 +10818,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_LEBANESE_RESTAURANT",
@@ -10371,7 +10827,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_LIFE_COACH",
@@ -10387,7 +10844,8 @@
       "commercial_role": "FINANCIAL_SERVICE",
       "is_regulated": true,
       "official_validation_source": "Autoridad de Fiscalización y Control de Pensiones y Seguros (APS)",
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ASEGURADORA"
     },
     {
       "code": "OV_LIFESTYLE_SERVICES",
@@ -10419,7 +10877,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_LIGHTING_FIXTURES_AND_EQUIPMENT",
@@ -10475,7 +10934,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_LIQUOR_STORE",
@@ -10491,7 +10951,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_LIVE_AND_RAW_FOOD_RESTAURANT",
@@ -10499,7 +10960,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_LIVESTOCK_BREEDER",
@@ -10571,7 +11033,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "HOSPITAL"
     },
     {
       "code": "OV_LOOKOUT",
@@ -10635,7 +11098,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_MACARON_SHOP",
@@ -10667,7 +11131,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_MAGICIAN",
@@ -10683,7 +11148,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_MAILBOX_CENTER",
@@ -10715,7 +11181,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_MALAYSIAN_RESTAURANT",
@@ -10723,7 +11190,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MALTESE_RESTAURANT",
@@ -10731,7 +11199,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MANUFACTURING_AND_INDUSTRIAL_CONSULTANT",
@@ -10811,7 +11280,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CENTRO_CAPACITACION"
     },
     {
       "code": "OV_MASSAGE_THERAPY",
@@ -10867,7 +11337,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MEAT_WHOLESALER",
@@ -10875,7 +11346,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_MEATBALL_RESTAURANT",
@@ -10883,7 +11355,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MECHANICAL_ENGINEER",
@@ -10971,7 +11444,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_MEDICAL_RESEARCH_INSTITUTE",
@@ -10987,7 +11461,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_MEDICAL_SCIENCES_SCHOOL",
@@ -10995,7 +11470,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_MEDICAL_SERVICE",
@@ -11051,7 +11527,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MEHNDI_HENNA",
@@ -11067,7 +11544,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MEMORIAL_PARK",
@@ -11163,7 +11641,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_METRO_STATION",
@@ -11187,7 +11666,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MICRONESIAN_RESTAURANT",
@@ -11195,7 +11675,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MIDDLE_EASTERN_RESTAURANT",
@@ -11203,7 +11684,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MIDDLE_SCHOOL",
@@ -11211,7 +11693,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "COLEGIO_ESCUELA"
     },
     {
       "code": "OV_MIDWIFERY",
@@ -11235,7 +11718,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_MILITARY_OFFICE",
@@ -11267,7 +11751,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_MILKSHAKE_BAR",
@@ -11275,7 +11760,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_MILL",
@@ -11283,7 +11769,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_MIND_BODY_SPIRIT_STORE",
@@ -11315,7 +11802,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_MOBILE_DENT_REPAIR",
@@ -11371,7 +11859,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_MOHEL",
@@ -11387,7 +11876,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MONASTERY",
@@ -11403,7 +11893,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MONTESSORI_SCHOOL",
@@ -11411,7 +11902,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "COLEGIO_ESCUELA"
     },
     {
       "code": "OV_MONUMENT",
@@ -11435,7 +11927,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_MOROCCAN_RESTAURANT",
@@ -11443,7 +11936,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_MORTGAGE_BROKER",
@@ -11483,7 +11977,8 @@
       "commercial_role": "RECREATION_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "PISTA_DEPORTIVA"
     },
     {
       "code": "OV_MOTORCYCLE_MANUFACTURER",
@@ -11491,7 +11986,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_MOTORCYCLE_PARKING",
@@ -11619,7 +12115,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_MUSIC_AND_DVD_STORE",
@@ -11667,7 +12164,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ACADEMIA_ARTE_MUSICA"
     },
     {
       "code": "OV_MUSIC_VENUE",
@@ -11715,7 +12213,8 @@
       "commercial_role": "CULTURAL",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_RELIGIOUS_LANDMARK"
     },
     {
       "code": "OV_MUSLIM_PLACE_OF_WORSHIP",
@@ -11723,7 +12222,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_NANNY_SERVICE",
@@ -11739,7 +12239,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_NATIONAL_MUSEUM",
@@ -11747,7 +12248,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_NATIONAL_PARK",
@@ -11795,7 +12297,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_NEPALESE_RESTAURANT",
@@ -11803,7 +12306,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_NEPHROLOGY",
@@ -11851,7 +12355,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_NEWSPAPER_AND_MAGAZINES_STORE",
@@ -11867,7 +12372,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_NICHIREN_BUDDHIST_PLACE_OF_WORSHIP",
@@ -11875,7 +12381,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_NIGERIAN_RESTAURANT",
@@ -11883,7 +12390,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_NIGHT_MARKET",
@@ -11891,7 +12399,8 @@
       "commercial_role": "SELLER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MERCADO"
     },
     {
       "code": "OV_NIGHTLIFE_VENUE",
@@ -11915,7 +12424,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_NORTH_AMERICAN_RESTAURANT",
@@ -11923,7 +12433,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_NORTH_INDIAN_RESTAURANT",
@@ -11931,7 +12442,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_NORWEGIAN_RESTAURANT",
@@ -11939,7 +12451,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_NOTARY_PUBLIC",
@@ -11963,7 +12476,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "INSTITUTO_TECNICO"
     },
     {
       "code": "OV_NUTRITION_SERVICE",
@@ -12003,7 +12517,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_OCCUPATIONAL_SAFETY",
@@ -12091,7 +12606,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_OPTOMETRY",
@@ -12107,7 +12623,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_ORCHARD",
@@ -12147,7 +12664,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ORTHODONTICS",
@@ -12163,7 +12681,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ORTHOPEDIC_SHOE_STORE",
@@ -12179,7 +12698,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_ORTHOPEDICS",
@@ -12203,7 +12723,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_OTOLARYNGOLOGY",
@@ -12267,7 +12788,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PACKAGE_LOCKER",
@@ -12395,7 +12917,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PALACE",
@@ -12411,7 +12934,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PAN_ASIAN_RESTAURANT",
@@ -12419,7 +12943,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PANAMANIAN_RESTAURANT",
@@ -12427,7 +12952,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PANCAKE_HOUSE",
@@ -12443,7 +12969,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_PARAGUAYAN_RESTAURANT",
@@ -12451,7 +12978,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PARALEGAL_SERVICE",
@@ -12571,7 +13099,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_PATERNITY_TESTING",
@@ -12643,7 +13172,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_PEDIATRIC_DENTISTRY",
@@ -12707,7 +13237,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_PEDIATRIC_PULMONOLOGY",
@@ -12731,7 +13262,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_PEDICAB_SERVICE",
@@ -12755,7 +13287,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_PERFORMING_ARTS_VENUE",
@@ -12787,7 +13320,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PERSONAL_ASSISTANT",
@@ -12819,7 +13353,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_PERSONAL_OR_BEAUTY_SERVICE",
@@ -12843,7 +13378,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PEST_CONTROL_SERVICE",
@@ -12971,7 +13507,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_PHARMACY_AND_DRUG_STORE",
@@ -12987,7 +13524,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_PHLEBOLOGY",
@@ -13019,7 +13557,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_PHYSICAL_MEDICINE_AND_REHABILITATION",
@@ -13035,7 +13574,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PIANO_BAR",
@@ -13043,7 +13583,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_PIANO_SERVICE",
@@ -13083,7 +13624,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_PIE_SHOP",
@@ -13115,7 +13657,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_FARM"
     },
     {
       "code": "OV_PILATES_STUDIO",
@@ -13131,7 +13674,8 @@
       "commercial_role": "CULTURAL",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_RELIGIOUS_LANDMARK"
     },
     {
       "code": "OV_PIPE_SUPPLIER",
@@ -13163,7 +13707,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PLACE_OF_LEARNING",
@@ -13195,7 +13740,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_PLASTIC_INJECTION_MOLDING_SERVICE",
@@ -13211,7 +13757,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_PLASTICS_COMPANY",
@@ -13259,7 +13806,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_POLISH_RESTAURANT",
@@ -13267,7 +13815,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_POLITICAL_ORGANIZATION",
@@ -13291,7 +13840,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_POOL_AND_BILLIARDS_STORE",
@@ -13339,7 +13889,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_POP_UP_STORE",
@@ -13363,7 +13914,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_POULTRY_FARM",
@@ -13371,7 +13923,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_FARM"
     },
     {
       "code": "OV_POULTRY_FARMING",
@@ -13387,7 +13940,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_POWDER_COATING_SERVICE",
@@ -13427,7 +13981,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_PRIMARY_CARE_OR_GENERAL_CLINIC",
@@ -13435,7 +13990,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_PRINT_MEDIA",
@@ -13499,7 +14055,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "COLEGIO_ESCUELA"
     },
     {
       "code": "OV_PRIVATE_TUTOR",
@@ -13539,7 +14096,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_PRODUCT_DESIGN",
@@ -13603,7 +14161,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_PSYCHIATRIC_HOSPITAL",
@@ -13611,7 +14170,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "HOSPITAL"
     },
     {
       "code": "OV_PSYCHIATRY",
@@ -13715,7 +14275,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_PUBLIC_MARKET",
@@ -13723,7 +14284,8 @@
       "commercial_role": "SELLER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MERCADO"
     },
     {
       "code": "OV_PUBLIC_PATHWAY",
@@ -13771,7 +14333,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "COLEGIO_ESCUELA"
     },
     {
       "code": "OV_PUBLIC_TRANSIT_FACILITY_OR_SERVICE",
@@ -13803,7 +14366,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PULMONOLOGY",
@@ -13827,7 +14391,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_PURE_LAND_BUDDHIST_PLACE_OF_WORSHIP",
@@ -13835,7 +14400,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_QI_GONG_STUDIO",
@@ -13859,7 +14425,8 @@
       "commercial_role": "RECREATION_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "PISTA_DEPORTIVA"
     },
     {
       "code": "OV_RACING_EXPERIENCE",
@@ -13875,7 +14442,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_RADIO_STATION",
@@ -13931,7 +14499,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_RAMEN_RESTAURANT",
@@ -13939,7 +14508,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_RANCH",
@@ -13971,7 +14541,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_REAL_ESTATE_PHOTOGRAPHY",
@@ -13987,7 +14558,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_RECORD_LABEL",
@@ -14059,7 +14631,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_REFORMED_OR_CALVINIST_PLACE_OF_WORSHIP",
@@ -14067,7 +14640,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_REFRACTIVE_SURGERY_OR_LASIK",
@@ -14099,7 +14673,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "HOSPITAL"
     },
     {
       "code": "OV_REIKI",
@@ -14147,7 +14722,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "COLEGIO_ESCUELA"
     },
     {
       "code": "OV_RENTAL_KIOSK",
@@ -14227,7 +14803,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_RETAINING_WALL_SUPPLIER",
@@ -14275,7 +14852,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_RICE_STORE",
@@ -14379,7 +14957,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ROMANIAN_ORTHODOX_PLACE_OF_WORSHIP",
@@ -14387,7 +14966,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ROMANIAN_RESTAURANT",
@@ -14395,7 +14975,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ROOFING",
@@ -14411,7 +14992,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ROWING_CLUB",
@@ -14427,7 +15009,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_RUG_STORE",
@@ -14443,7 +15026,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_RUGBY_STADIUM",
@@ -14451,7 +15035,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ESTADIO"
     },
     {
       "code": "OV_RUIN",
@@ -14475,7 +15060,8 @@
       "commercial_role": "RECREATION_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "PISTA_DEPORTIVA"
     },
     {
       "code": "OV_RUNNING_AND_TRACK_CLUB",
@@ -14515,7 +15101,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_RUSSIAN_RESTAURANT",
@@ -14523,7 +15110,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_RV_PARK",
@@ -14603,7 +15191,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_SALAD_BAR",
@@ -14611,7 +15200,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_SALSA_CLUB",
@@ -14627,7 +15217,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SAND_AND_GRAVEL_SUPPLIER",
@@ -14707,7 +15298,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SCAVENGER_HUNT",
@@ -14731,7 +15323,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SCHOOL_DISTRICT_OFFICE",
@@ -14771,7 +15364,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_SCIENCE_SCHOOL",
@@ -14779,7 +15373,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_SCOOTER_DEALER",
@@ -14811,7 +15406,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SCOUT_HALL",
@@ -14875,7 +15471,8 @@
       "commercial_role": "SELLER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MERCADO"
     },
     {
       "code": "OV_SEAFOOD_RESTAURANT",
@@ -14883,7 +15480,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SEAFOOD_WHOLESALER",
@@ -14891,7 +15489,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_SEAL_AND_HANKO_SUPPLIER",
@@ -14963,7 +15562,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SENIOR_CITIZEN_SERVICE",
@@ -14987,7 +15587,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_SERBO_CROATIAN_RESTAURANT",
@@ -14995,7 +15596,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SERVICES_AND_BUSINESS",
@@ -15035,7 +15637,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_SHAKTA_HINDU_PLACE_OF_WORSHIP",
@@ -15043,7 +15646,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_SHANDONG_RESTAURANT",
@@ -15051,7 +15655,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SHANGHAINESE_RESTAURANT",
@@ -15059,7 +15664,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SHARED_OFFICE_SPACE",
@@ -15091,7 +15697,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_SHINTO_SHRINE",
@@ -15131,7 +15738,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_SHOE_SHINING_SERVICE",
@@ -15203,7 +15811,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SIDING",
@@ -15235,7 +15844,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_SILENT_DISCO",
@@ -15251,7 +15861,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SKATE_PARK",
@@ -15283,7 +15894,8 @@
       "commercial_role": "RECREATION_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ACADEMIA_DEPORTIVA"
     },
     {
       "code": "OV_SKI_AND_SNOWBOARD_STORE",
@@ -15403,7 +16015,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_SLEEPWEAR",
@@ -15419,7 +16032,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SMARTA_HINDU_PLACE_OF_WORSHIP",
@@ -15427,7 +16041,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_SMOKE_AND_VAPE_STORE",
@@ -15451,7 +16066,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_SNORKELING",
@@ -15515,7 +16131,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_SOCCER_STADIUM",
@@ -15523,7 +16140,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ESTADIO"
     },
     {
       "code": "OV_SOCIAL_AND_HUMAN_SERVICE",
@@ -15571,7 +16189,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_SOCIAL_SECURITY_SERVICE",
@@ -15595,7 +16214,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_SOLAR_INSTALLATION",
@@ -15619,7 +16239,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SOMMELIER_SERVICE",
@@ -15651,7 +16272,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SOUTH_AFRICAN_RESTAURANT",
@@ -15659,7 +16281,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SOUTH_AMERICAN_RESTAURANT",
@@ -15667,7 +16290,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SOUTH_ASIAN_RESTAURANT",
@@ -15675,7 +16299,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SOUTH_INDIAN_RESTAURANT",
@@ -15683,7 +16308,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SOUTHEAST_ASIAN_RESTAURANT",
@@ -15691,7 +16317,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SOUTHERN_AFRICAN_RESTAURANT",
@@ -15699,7 +16326,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SOUTHERN_AMERICAN_RESTAURANT",
@@ -15707,7 +16335,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SOUVENIR_STORE",
@@ -15723,7 +16352,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SPEAKEASY",
@@ -15739,7 +16369,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SPECIALIZED_HEALTH_CARE",
@@ -15771,7 +16402,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "HOSPITAL"
     },
     {
       "code": "OV_SPECIALTY_SCHOOL",
@@ -15779,7 +16411,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CENTRO_CAPACITACION"
     },
     {
       "code": "OV_SPECIALTY_STORE",
@@ -15811,7 +16444,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_SPICES_WHOLESALER",
@@ -15819,7 +16453,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_SPINE_SURGERY",
@@ -15827,7 +16462,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_SPIRITUAL_ADVISING",
@@ -15843,7 +16479,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_SPORT_EQUIPMENT_RENTAL",
@@ -15883,7 +16520,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_SPORTS_AND_RECREATION",
@@ -15899,7 +16537,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_SPORTS_MEDICINE",
@@ -15907,7 +16546,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_SPORTS_MUSEUM",
@@ -15915,7 +16555,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_SPORTS_PSYCHOLOGY",
@@ -15955,7 +16596,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_SRI_LANKAN_RESTAURANT",
@@ -15963,7 +16605,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_STADIUM_ARENA",
@@ -15987,7 +16630,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_STATE_PARK",
@@ -16043,7 +16687,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_STREET_ART",
@@ -16067,7 +16712,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_STREET_VENDOR",
@@ -16163,7 +16809,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SUNGLASSES_STORE",
@@ -16179,7 +16826,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_SUPPER_CLUB",
@@ -16227,7 +16875,8 @@
       "commercial_role": "RECREATION_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ACADEMIA_DEPORTIVA"
     },
     {
       "code": "OV_SURGERY",
@@ -16235,7 +16884,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_SURGERY_CENTER",
@@ -16251,7 +16901,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SUSHI_RESTAURANT",
@@ -16259,7 +16910,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SWEDISH_RESTAURANT",
@@ -16267,7 +16919,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SWIMMING_INSTRUCTOR",
@@ -16291,7 +16944,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_SYRIAC_ORTHODOX_PLACE_OF_WORSHIP",
@@ -16299,7 +16953,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_SYRIAN_RESTAURANT",
@@ -16307,7 +16962,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_T_SHIRT_PRINTING_SERVICE",
@@ -16355,7 +17011,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_TACTICAL_SUPPLY_STORE",
@@ -16395,7 +17052,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_TALENT_AGENCY",
@@ -16427,7 +17085,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_TASTING_CLASS",
@@ -16443,7 +17102,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_TATTOO",
@@ -16467,7 +17127,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_TAX_SERVICE",
@@ -16507,7 +17168,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_TEAM_BUILDING_ACTIVITY",
@@ -16587,7 +17249,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_TENNIS_COURT",
@@ -16595,7 +17258,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_TENNIS_STADIUM",
@@ -16603,7 +17267,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ESTADIO"
     },
     {
       "code": "OV_TENT_HOUSE_SUPPLIER",
@@ -16619,7 +17284,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_TEXTILE_MANUFACTURER",
@@ -16627,7 +17293,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_TEXTILE_MILL",
@@ -16635,7 +17302,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_TEXTILE_MUSEUM",
@@ -16643,7 +17311,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MUSEO"
     },
     {
       "code": "OV_THAI_RESTAURANT",
@@ -16651,7 +17320,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_THEATRICAL_PRODUCTION",
@@ -16667,7 +17337,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_THERAVADA_BUDDHIST_PLACE_OF_WORSHIP",
@@ -16675,7 +17346,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_THREAD_SUPPLIER",
@@ -16699,7 +17371,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_TIBETAN_RESTAURANT",
@@ -16707,7 +17380,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_TICKET_OFFICE_OR_BOOTH",
@@ -16723,7 +17397,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_TILE_STORE",
@@ -16755,7 +17430,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_TOBACCO_COMPANY",
@@ -16787,7 +17463,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_TOWER_COMMUNICATION_SERVICE",
@@ -16843,7 +17520,8 @@
       "commercial_role": "RECREATION_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "PISTA_DEPORTIVA"
     },
     {
       "code": "OV_TRACK_FIELD_EVENT",
@@ -16859,7 +17537,8 @@
       "commercial_role": "ENTERTAINMENT",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ESTADIO"
     },
     {
       "code": "OV_TRACTOR_DEALER",
@@ -16875,7 +17554,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_TRADITIONAL_CLOTHING",
@@ -16891,7 +17571,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "AUTOESCUELA"
     },
     {
       "code": "OV_TRAFFIC_TICKETING_LAW",
@@ -16899,7 +17580,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_TRAILER_DEALER",
@@ -17019,7 +17701,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_TRIVIA_HOST",
@@ -17043,7 +17726,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_TRUCK_AND_INDUSTRIAL_VEHICLE_SERVICES",
@@ -17139,7 +17823,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_TURKMEN_RESTAURANT",
@@ -17147,7 +17832,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_TURNERY",
@@ -17187,7 +17873,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_ULTRALIGHT_AIRPORT",
@@ -17235,7 +17922,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "OV_FARM"
     },
     {
       "code": "OV_URGENT_CARE_CLINIC",
@@ -17243,7 +17931,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_UROLOGY",
@@ -17259,7 +17948,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_USED_AUTO_DEALER",
@@ -17291,7 +17981,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_VACATION_RENTAL_AGENT",
@@ -17307,7 +17998,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_VAJRAYANA_BUDDHIST_PLACE_OF_WORSHIP",
@@ -17315,7 +18007,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_VALET_SERVICE",
@@ -17339,7 +18032,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CONSULTORIO_MEDICO"
     },
     {
       "code": "OV_VEGAN_RESTAURANT",
@@ -17347,7 +18041,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_VEGETARIAN_RESTAURANT",
@@ -17355,7 +18050,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_VEHICLE_DEALER",
@@ -17371,7 +18067,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_VEHICLE_PARTS_MANUFACTURER",
@@ -17379,7 +18076,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_VEHICLE_PARTS_STORE",
@@ -17443,7 +18141,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_VENISON_RESTAURANT",
@@ -17451,7 +18150,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_VERMOUTH_BAR",
@@ -17459,7 +18159,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_VETERANS_HOSPITAL",
@@ -17467,7 +18168,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "HOSPITAL"
     },
     {
       "code": "OV_VETERANS_ORGANIZATION",
@@ -17491,7 +18193,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "UNIVERSIDAD"
     },
     {
       "code": "OV_VIDEO_AND_VIDEO_GAME_RENTAL",
@@ -17539,7 +18242,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_VINYL_RECORD_STORE",
@@ -17571,7 +18275,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_VITAMIN_AND_SUPPLEMENT_STORE",
@@ -17603,7 +18308,8 @@
       "commercial_role": "RECREATION_INFRASTRUCTURE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CANCHA"
     },
     {
       "code": "OV_VOLUNTEER_ASSOCIATION",
@@ -17627,7 +18333,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_WALDORF_SCHOOL",
@@ -17635,7 +18342,8 @@
       "commercial_role": "EDUCATION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "COLEGIO_ESCUELA"
     },
     {
       "code": "OV_WALK_IN_CLINIC",
@@ -17643,7 +18351,8 @@
       "commercial_role": "HEALTHCARE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "CLINICA"
     },
     {
       "code": "OV_WALKING_TOUR",
@@ -17843,7 +18552,8 @@
       "commercial_role": "PRODUCTION",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "OV_WEB_DESIGNER",
@@ -17931,7 +18641,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_WEST_AFRICAN_RESTAURANT",
@@ -17939,7 +18650,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_WESTERN_CATHOLIC_PLACE_OF_WORSHIP",
@@ -17947,7 +18659,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_WESTERN_EUROPEAN_RESTAURANT",
@@ -17955,7 +18668,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_WHALE_WATCHING_TOUR",
@@ -17979,7 +18693,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_WHOLESALE_FLORIST",
@@ -18019,7 +18734,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_WILDLIFE_CONTROL",
@@ -18115,7 +18831,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "BAR_PUB"
     },
     {
       "code": "OV_WINE_TASTING_CLASS",
@@ -18147,7 +18864,8 @@
       "commercial_role": "SELLER_B2B",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "MAYORISTA"
     },
     {
       "code": "OV_WINERY",
@@ -18163,7 +18881,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_WOMENS_CLOTHING_STORE",
@@ -18187,7 +18906,8 @@
       "commercial_role": "SERVICE_PROVIDER",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "ABOGADOS_NOTARIA"
     },
     {
       "code": "OV_WRAP_RESTAURANT",
@@ -18195,7 +18915,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_WRITING_SERVICE",
@@ -18211,7 +18932,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_YEMENITE_RESTAURANT",
@@ -18219,7 +18941,8 @@
       "commercial_role": "SELLER_SERVICE",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "RESTAURANTE"
     },
     {
       "code": "OV_YOGA_STUDIO",
@@ -18243,7 +18966,8 @@
       "commercial_role": "COMMUNITY",
       "is_regulated": false,
       "official_validation_source": null,
-      "decided_by": "catalogo_2330"
+      "decided_by": "catalogo_2330",
+      "parent_family": "IGLESIA_TEMPLO"
     },
     {
       "code": "OV_ZEN_CENTER",
@@ -18350,6 +19074,40 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "PISTA_DEPORTIVA",
+      "group": "DEPORTE",
+      "commercial_role": "RECREATION_INFRASTRUCTURE",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
+    },
+    {
+      "code": "PLANTA_ALIMENTOS",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "FABRICA_PLANTA"
+    },
+    {
+      "code": "PLANTA_CEMENTO_HORMIGON",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "FABRICA_PLANTA"
+    },
+    {
+      "code": "PLANTA_HIDROCARBUROS",
+      "group": "HIDROCARBUROS",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "ANH - Agencia Nacional de Hidrocarburos",
+      "decided_by": "ampliacion_osm_2026_09_23"
+    },
+    {
       "code": "PLAZA",
       "group": "ESPACIO_PUBLICO",
       "commercial_role": "PUBLIC_SPACE",
@@ -18364,6 +19122,15 @@
       "is_regulated": true,
       "official_validation_source": "Policía Boliviana",
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "PREDIO_INDUSTRIAL",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "FABRICA_PLANTA"
     },
     {
       "code": "PREESCOLAR",
@@ -18404,6 +19171,14 @@
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "REFUGIO_MONTANA",
+      "group": "HOSPEDAJE",
+      "commercial_role": "HOSPITALITY",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
     },
     {
       "code": "REGALOS",
@@ -18548,6 +19323,23 @@
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "SILO_ACOPIO",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
+    },
+    {
+      "code": "SITIO_ARQUEOLOGICO",
+      "group": "CULTURA",
+      "commercial_role": "CULTURAL",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "OV_HISTORIC_SITE"
     },
     {
       "code": "SOFTWARE_TI",
@@ -18702,12 +19494,29 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "VENTA_DIRECTA_PRODUCTOR",
+      "group": "COMERCIO_AGRO",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23"
+    },
+    {
       "code": "VETERINARIA",
       "group": "SALUD_ANIMAL",
       "commercial_role": "HEALTHCARE",
       "is_regulated": true,
       "official_validation_source": "SENASAG",
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "VINEDO",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "decided_by": "ampliacion_osm_2026_09_23",
+      "parent_family": "CULTIVO_AGRICOLA"
     },
     {
       "code": "VIVERO_JARDINERIA",
