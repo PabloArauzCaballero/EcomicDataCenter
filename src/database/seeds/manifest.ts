@@ -122,27 +122,32 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('foreign-trade', 'Comercio exterior', ['boot/foreign-trade.json']),
   historical('mineral-trade', 'Minerales exportados por partida', ['boot/mineral-trade.json']),
   /*
-   * Los tres van juntos porque los carga un mismo sembrador y comparten
-   * esquema, no porque compartan fuente: los dos primeros son del INE y el
-   * tercero recopila dos publicaciones privadas. Quien los pida por separado
-   * tiene la procedencia en cada fila, que es donde importa.
+   * Los seis van juntos porque los carga un mismo sembrador y comparten
+   * esquema, no porque compartan fuente: cinco son del INE y el último recopila
+   * dos publicaciones privadas. Quien los pida por separado tiene la
+   * procedencia en cada fila, que es donde importa.
+   *
+   * **Un paquete es lo que un sembrador carga, no lo que un tema agrupa.** Los
+   * tres cuadros por actividad tentaban a declararse aparte —contestan de qué
+   * vive un departamento y no cuánto produce—, pero los carga
+   * `reconcileAnnualRegisters` como los otros tres, y el registro de siembra
+   * sólo anota los paquetes que tienen sembrador propio. Declarado aparte, el
+   * portal habría enseñado un paquete «nunca aplicado» sobre una base que sí lo
+   * tenía. La versión sube a 1.1.0 porque los archivos del paquete cambiaron.
    */
-  historical('annual-registers', 'Registros anuales por departamento y por empresa', [
-    'boot/department-accounts.json',
-    'boot/department-exports.json',
-    'boot/corporate-register.json',
-  ]),
-  /*
-   * Aparte de los tres de arriba aunque lo cargue el mismo sembrador: aquellos
-   * contestan cuánto produce y cuánto vende un departamento, y estos de qué
-   * vive. Un paquete propio es lo que permite resembrar la apertura por
-   * actividad sin volver a recorrer las exportaciones producto por producto.
-   */
-  historical('annual-activities', 'Producto por actividad, por departamento y del país', [
-    'boot/department-activities-value.json',
-    'boot/department-activities-growth.json',
-    'boot/department-activities-share.json',
-  ]),
+  historical(
+    'annual-registers',
+    'Registros anuales por departamento, por actividad y por empresa',
+    [
+      'boot/department-accounts.json',
+      'boot/department-exports.json',
+      'boot/department-activities-value.json',
+      'boot/department-activities-growth.json',
+      'boot/department-activities-share.json',
+      'boot/corporate-register.json',
+    ],
+    '1.1.0',
+  ),
   historical('company-filings', 'Hechos relevantes de emisores', ['boot/company-filings.json']),
   historical('company-filings-archive', 'Archivo de hechos relevantes', [
     'boot/company-filings-archive.json',
