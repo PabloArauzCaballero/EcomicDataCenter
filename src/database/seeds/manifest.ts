@@ -132,6 +132,17 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/department-exports.json',
     'boot/corporate-register.json',
   ]),
+  /*
+   * Aparte de los tres de arriba aunque lo cargue el mismo sembrador: aquellos
+   * contestan cuánto produce y cuánto vende un departamento, y estos de qué
+   * vive. Un paquete propio es lo que permite resembrar la apertura por
+   * actividad sin volver a recorrer las exportaciones producto por producto.
+   */
+  historical('annual-activities', 'Producto por actividad, por departamento y del país', [
+    'boot/department-activities-value.json',
+    'boot/department-activities-growth.json',
+    'boot/department-activities-share.json',
+  ]),
   historical('company-filings', 'Hechos relevantes de emisores', ['boot/company-filings.json']),
   historical('company-filings-archive', 'Archivo de hechos relevantes', [
     'boot/company-filings-archive.json',

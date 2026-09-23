@@ -96,6 +96,7 @@
     "trade:collect": "tsx scripts/macro/collect-comtrade-trade.ts",
     "minerals:collect": "tsx scripts/macro/collect-comtrade-minerals.ts",
     "departments:collect": "tsx scripts/macro/collect-ine-departments.ts",
+    "departments:activities": "tsx scripts/macro/collect-ine-department-activities.ts",
     "corporate:collect": "tsx scripts/macro/collect-corporate-register.ts"
   },
   "dependencies": {

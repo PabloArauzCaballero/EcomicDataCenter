@@ -26,9 +26,13 @@ export interface RegisterPoint {
  * Si una fila se puede sumar con sus hermanas, y en qué plano vive.
  *
  * `COUNTRY` y `AGGREGATE` son totales que ya contienen a los demás: quien sume
- * todo lo que comparte prefijo cuenta el país dos veces.
+ * todo lo que comparte prefijo cuenta el país dos veces. `ACTIVITY` es la
+ * apertura del producto de un lugar —el gas dentro de Tarija, la minería dentro
+ * de Potosí— y tiene el mismo problema en un escalón más abajo: el cuadro trae
+ * el total, los once grupos y las ramas de cinco de ellos en la misma columna.
  */
-export type RegisterLevel = 'COUNTRY' | 'DEPARTMENT' | 'PRODUCT' | 'COMPANY' | 'AGGREGATE';
+export type RegisterLevel =
+  'COUNTRY' | 'DEPARTMENT' | 'PRODUCT' | 'COMPANY' | 'AGGREGATE' | 'ACTIVITY';
 
 /** Una serie anual que pertenece a un sitio o a alguien. */
 export interface RegisterSeries {
