@@ -1,4 +1,12 @@
 import { z } from 'zod';
+import {
+  OFFICIAL_CLASSIFICATION_METHODS,
+  OFFICIAL_DATA_LEVELS,
+  OFFICIAL_GEOFENCE_METHODS,
+  OFFICIAL_PLACE_IDENTIFIER,
+  OFFICIAL_POSITION_METHODS,
+  OFFICIAL_PUBLISHERS,
+} from './bolivia-national-poi.official-sources';
 
 /**
  * The places of Bolivia, as two publishers record them.
@@ -72,7 +80,12 @@ const provenance = z.object({
    * sociedad declaro en que municipio esta. Es el mas debil de los tres y por
    * eso tiene nombre propio en vez de pasar por uno de los otros dos.
    */
-  geofenceMethod: z.enum(['country_polygon', 'osm_administrative_area', 'declared_municipality']),
+  geofenceMethod: z.enum([
+    'country_polygon',
+    'osm_administrative_area',
+    'declared_municipality',
+    ...OFFICIAL_GEOFENCE_METHODS,
+  ]),
   countryCode: z.literal('BO'),
   catalogueFamilies: z.number().int().positive(),
 });
@@ -100,8 +113,13 @@ const place = z
     placeId: z
       .string()
       .trim()
-      .regex(
-        /^(?:overture:[0-9a-f-]{36}|osm:(?:node|way|relation):\d{1,20}|geofabrik:[a-z_]{3,40}:\d{1,20}|seprec:establecimiento:\d{1,20}|agemed:farmacia:[0-9a-f]{24}|(?:bcp|pollos_copacabana):[0-9a-f]{24,40}|banco_economico:[A-Z_]{3,20}:\d{1,10})$/u,
+      .refine(
+        (placeId) =>
+          OFFICIAL_PLACE_IDENTIFIER.test(placeId) ||
+          /^(?:overture:[0-9a-f-]{36}|osm:(?:node|way|relation):\d{1,20}|geofabrik:[a-z_]{3,40}:\d{1,20}|seprec:establecimiento:\d{1,20}|agemed:farmacia:[0-9a-f]{24}|(?:bcp|pollos_copacabana):[0-9a-f]{24,40}|banco_economico:[A-Z_]{3,20}:\d{1,10})$/u.test(
+            placeId,
+          ),
+        'identifier names no known publisher',
       ),
     /** The same identifier as the publisher mints it, without the prefix. */
     publisherRecordId: z.string().trim().min(1).max(200),
@@ -130,6 +148,7 @@ const place = z
       'BCP',
       'Banco Economico',
       'Pollos Copacabana',
+      ...OFFICIAL_PUBLISHERS,
     ]),
     name: z.string().trim().min(1).max(300),
     /**
@@ -185,6 +204,23 @@ const place = z
       'puente_semantico_osm_catalogo_v3',
       'puente_explicito_tags_osm_a_codigos_existentes',
       'puente_explicito_tags_osm_a_catalogo_2330',
+      /*
+       * El puente que clasifica salud contra las seis familias que ningun
+       * catalogo traia — `POSTA_SANITARIA`, `PUESTO_DE_SALUD`, `CLINICA_PRIVADA`,
+       * `POLICONSULTORIO`, `CAJA_DE_SALUD`, `CONSULTORIO_ODONTOLOGICO` — y que
+       * este corpus anoto a mano el 2026-09-23. Un lugar de salud que cayo en un
+       * codigo que el anexo o el catalogo de 2.330 ya decidian sigue marcado
+       * `puente_explicito_tags_osm_a_codigos_existentes`; este valor es solo para
+       * los seis que no tenian donde caer.
+       */
+      'puente_explicito_tags_osm_a_catalogo_salud_manual_2026',
+      /*
+       * La etiqueta de OpenStreetMap llevo a una familia que ningun catalogo
+       * entregado definia y que el observatorio anadio para esta carga —mina,
+       * cantera, cultivo, matadero—. Se distingue de las otras dos para que
+       * quien lea un `is_regulated` sepa que lo decidio el propio observatorio.
+       */
+      'puente_explicito_tags_osm_a_familias_ampliadas',
       'respaldo_generico_objeto_social_no_confirma_actividad_del_local',
       /*
        * Las dos formas en que la clasificacion no la hizo nadie aqui: la
@@ -196,6 +232,7 @@ const place = z
        */
       'tipo_declarado_por_el_regulador_sanitario',
       'canal_declarado_por_la_entidad_en_su_propio_directorio',
+      ...OFFICIAL_CLASSIFICATION_METHODS,
     ]),
     /**
      * The publisher's own category that the family was matched from.
@@ -243,6 +280,7 @@ const place = z
          */
         'coordenada_publicada_por_el_regulador_no_entrada_verificada',
         'coordenada_publicada_por_la_entidad_no_entrada_verificada',
+        ...OFFICIAL_POSITION_METHODS,
       ])
       .nullable(),
     dataLevel: z.enum([
@@ -259,6 +297,7 @@ const place = z
        * dice —y la propia agencia lo advierte— es que siga abierto hoy.
        */
       'REGISTRO_SANITARIO_DIRECCION_DECLARADA',
+      ...OFFICIAL_DATA_LEVELS,
     ]),
     /*
      * Sesenta, y no cuarenta: en la ampliacion hay un telefono de 42

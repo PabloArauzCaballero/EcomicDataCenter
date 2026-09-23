@@ -65,6 +65,36 @@ const PLACE_DIRECTORIES = [
    */
   'boot/bolivia-establishments-poi',
   'boot/bolivia-establishments-registry-poi',
+  /*
+   * Farmacias, hospitales, postas y demas establecimientos de salud que
+   * ninguna entrega anterior traia, leidos de OpenStreetMap y clasificados
+   * por `read-health-osm.mjs` porque esta vez nadie los entrego ya
+   * clasificados. Abierta bajo ODbL-1.0, como el resto de lo cartografico.
+   */
+  'boot/bolivia-health-poi',
+  /*
+   * Tres fuentes oficiales propias, cada una en su directorio porque cada una
+   * tiene su propio publicador, su propia licencia declarada y su propio
+   * regulador: el Ministerio de Educacion, la ANH y un directorio privado que
+   * ningun regulador respalda.
+   */
+  'boot/bolivia-sie-poi',
+  'boot/bolivia-anh-poi',
+  'boot/bolivia-cajeros-poi',
+  /*
+   * La primera que no entrego nadie: la descargo el observatorio de
+   * OpenStreetMap, por departamento, para los rubros que el corpus casi no
+   * tenia —agro, industria, mineria, oficinas financieras, gobierno, turismo,
+   * cultura y deporte—. Ver `scripts/places/build-osm-expansion-poi-seed.mjs`.
+   */
+  'boot/bolivia-osm-expansion-poi',
+  /*
+   * Puertos, aeropuertos, terminales, paradas y estaciones, leidos en vivo de
+   * OpenStreetMap por `build-transport-poi-seed.mjs`. Misma licencia abierta
+   * que el resto de OpenStreetMap en este corpus, asi que va en su propio
+   * directorio por trazabilidad de la entrega y no por licencia distinta.
+   */
+  'boot/bolivia-transport-poi',
 ] as const;
 
 /**

@@ -185,11 +185,31 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-registry-additional-poi/',
       'boot/bolivia-establishments-poi/',
       'boot/bolivia-establishments-registry-poi/',
+      'boot/bolivia-health-poi/',
+      'boot/bolivia-sie-poi/',
+      'boot/bolivia-anh-poi/',
+      'boot/bolivia-cajeros-poi/',
+      'boot/bolivia-osm-expansion-poi/',
+      'boot/bolivia-transport-poi/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
     // esperaban, y entraron las 6.584 de la entrega de establecimientos.
-    '1.1.0',
+    // 2026-09-23: se anota a mano la sexta familia de salud sin catálogo y se
+    // suma el corpus de salud leído y clasificado de OpenStreetMap; entran
+    // además tres fuentes oficiales propias — unidades educativas del SIE,
+    // estaciones de servicio de la ANH y cajeros de Tel.bo — con la familia
+    // CENTRO_EDUCACION_ALTERNATIVA_ESPECIAL nueva en el catálogo; la
+    // ampliación por rubros (agro, industria, minería, cultura y deporte)
+    // descargada de OpenStreetMap, con jerarquía de familias; y los lugares de
+    // transporte leídos en vivo de OpenStreetMap (puertos, aeropuertos,
+    // terminales, paradas, ferrocarril), con tres familias nuevas (puerto
+    // fluvial, puerto seco, zona franca).
+    '1.5.0',
   ),
+  historical('bolivia-road-network', 'Red vial de Bolivia', [
+    'boot/bolivia-road-network/road-sections.json',
+    'boot/bolivia-road-network/road-lengths.json',
+  ]),
   {
     code: 'observatory-demo',
     version: '1.0.0',

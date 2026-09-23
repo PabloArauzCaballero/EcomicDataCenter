@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "dataset": "FAMILIAS_DECIDIDAS_POR_EL_OBSERVATORIO",
+    "decided_by": "observatorio_2026-09-23",
+    "note": "Familias que ni el anexo de 201 ni el catalogo de 2.330 definen, y que una fuente oficial necesita. Solo se anaden: ninguna redefine un codigo existente."
+  },
+  "familias": [
+    {
+      "code": "CENTRO_EDUCACION_ALTERNATIVA_ESPECIAL",
+      "group": "EDUCACION",
+      "commercial_role": "EDUCATION",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Educación / SIE",
+      "rationale": "El Sistema de Informacion Educativa lista los centros del subsistema de educacion alternativa y especial (CEA, educacion especial) como instituciones educativas abiertas legalmente establecidas, cada una con su codigo R.U.E.: el Ministerio de Educacion es quien las autoriza. No son colegios, y archivarlas bajo COLEGIO_ESCUELA inflaria el conteo de escuelas con centros de adultos."
+    }
+  ]
+}

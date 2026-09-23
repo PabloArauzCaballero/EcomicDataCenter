@@ -262,3 +262,42 @@ nunca, por lo mismo que las 95 de la ampliación: fundirlas borraría una sucurs
   sumarlos al principal.
 - `04_revision_no_importar/` y `05_referencias_no_son_altas/` — coincidencias, fallos,
   cabeceras SEPREC pendientes y el índice anterior de 90.175. Nada de eso es un alta.
+
+## Sexta entrega, 2026-09-23: tres fuentes oficiales propias
+
+Tres sitios que el observatorio descargó él mismo, no una entrega firmada por
+terceros: el registro de unidades educativas del Ministerio de Educación
+(SIE), la lista de estaciones de servicio licenciadas por la ANH y un
+directorio privado de cajeros de Santa Cruz. Cada una tiene su propio runbook
+— [sie-schools-load.md](sie-schools-load.md),
+[anh-fuel-stations-load.md](anh-fuel-stations-load.md),
+[cajeros-santa-cruz-load.md](cajeros-santa-cruz-load.md) — porque cada una se
+descarga distinto y descarta por su propia regla.
+
+| Siembra | Leídas | Escritas | Descartadas, motivo principal |
+| --- | --- | --- | --- |
+| `bolivia-sie-poi` | 17.502 | 14.508 | 2.898 a más de 25 km de su municipio |
+| `bolivia-anh-poi` | 515 | 508 | 6 en un departamento que sus escuelas cercanas contradicen |
+| `bolivia-cajeros-poi` | 673 | 671 | 1 punto mal ubicado en otro departamento (verificado con la fila gemela del propio archivo) |
+
+Familia nueva en el catálogo: `CENTRO_EDUCACION_ALTERNATIVA_ESPECIAL`
+(`EDUCACION`, regulada por el Ministerio de Educación), para los 1.089 centros
+de educación alternativa y especial que el SIE lista junto a los colegios y
+que ningún catálogo anterior definía. Se añadió con
+`build-family-catalogue.mjs --observatorio`, que solo puede sumar una familia:
+para si el código ya lo define cualquiera de los dos catálogos entregados.
+
+La ANH y los cajeros no declaran municipio, solo departamento (la ANH) o nada
+(los cajeros, que solo afirman ser de Santa Cruz). Sin polígonos municipales
+en el repositorio, el cotejo de las dos usa las 14.508 escuelas del SIE como
+referencia territorial: el departamento que votan las cinco escuelas más
+cercanas dentro de 60 km. Por eso las dos siembras exigen construir primero
+la del SIE (`--schools`).
+
+Ninguna de las tres trae contacto de particulares: la ANH no publica el
+teléfono declarado (misma regla que SEPREC y AGEMED) y el SIE no publica el
+nombre del director. Los cajeros no traen ningún contacto en origen.
+
+La cuarta fuente pedida, `soysantacruz.com.bo`, no generó siembra: su guía de
+surtidores trae siete filas sin coordenadas, y el esquema no admite un lugar
+sin posición. El detalle está en `cajeros-santa-cruz-load.md`.
