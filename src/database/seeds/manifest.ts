@@ -194,6 +194,10 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // CENTRO_EDUCACION_ALTERNATIVA_ESPECIAL nueva en el catálogo.
     '1.3.0',
   ),
+  historical('bolivia-road-network', 'Red vial de Bolivia', [
+    'boot/bolivia-road-network/road-sections.json',
+    'boot/bolivia-road-network/road-lengths.json',
+  ]),
   {
     code: 'observatory-demo',
     version: '1.0.0',

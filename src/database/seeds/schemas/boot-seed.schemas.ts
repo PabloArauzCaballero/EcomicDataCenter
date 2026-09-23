@@ -155,9 +155,9 @@ export const agentBootstrapSeedSchema = z
      * El techo sube con el catálogo, y no es decoración: es lo que obliga a
      * mirar cuando una carga histórica nueva entra al arranque. Subió a 24 al
      * añadir las identidades de las cuentas departamentales del INE y del
-     * registro de exportadoras y reputación.
+     * registro de exportadoras y reputación, y a 25 con la de la red vial.
      */
-    backfillAgents: z.array(agentSeedSchema).min(1).max(24),
+    backfillAgents: z.array(agentSeedSchema).min(1).max(25),
   })
   .strict();
 

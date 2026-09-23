@@ -271,6 +271,17 @@
       "specialty": "Orden y cuota de las mayores exportadoras de Bolivia y puesto en los monitores de reputacion corporativa",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000020",
+      "code": "ROAD_NETWORK_ABC_OSM_INE",
+      "name": "Red vial de Bolivia por tramo y longitud oficial",
+      "agentType": "SECTOR",
+      "provider": "OpenStreetMap contributors y el Instituto Nacional de Estadistica",
+      "modelIdentifier": "geofabrik-bolivia-260922-e-ine-longitud-caminos-2000-2024",
+      "specialty": "Tramos de la red vial principal por ruta, departamento y rodadura, y su longitud oficial anual",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
