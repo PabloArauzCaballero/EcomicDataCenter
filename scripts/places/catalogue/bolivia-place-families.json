@@ -2,7 +2,7 @@
   "metadata": {
     "dataset": "CATALOGO_FAMILIAS_DE_LUGARES_BOLIVIA",
     "built": "2026-09-22",
-    "families": 2330,
+    "families": 2333,
     "precedence": "anexo_A_201 decide las familias que define; el catalogo de 2.330 rellena el resto",
     "precedenceReason": "las filas clasificadas con el anexo A ya estan cargadas y el corpus es inmutable: reclasificar una familia no cambiaria esas filas, anadiria una segunda al lado",
     "annex": {
@@ -90,6 +90,18 @@
       "TIENDA_MASCOTAS",
       "TIENDA_OPERADOR_TELECOM",
       "UNIVERSIDAD"
+    ],
+    "additions": [
+      {
+        "addedBy": "mt_transporte_2026-09-23",
+        "addedOn": "2026-09-23",
+        "reason": "puerto fluvial, puerto seco y zona franca: ningun catalogo fusionado los define como infraestructura de transporte",
+        "codes": [
+          "PUERTO_FLUVIAL",
+          "PUERTO_SECO",
+          "ZONA_FRANCA"
+        ]
+      }
     ]
   },
   "familias": [
@@ -18398,6 +18410,22 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "PUERTO_FLUVIAL",
+      "group": "TRANSPORTE",
+      "commercial_role": "TRANSPORT_INFRASTRUCTURE",
+      "is_regulated": true,
+      "official_validation_source": "ASP-B / Ministerio de Obras Públicas, Servicios y Vivienda",
+      "decided_by": "mt_transporte_2026-09-23"
+    },
+    {
+      "code": "PUERTO_SECO",
+      "group": "LOGISTICA",
+      "commercial_role": "TRANSPORT_INFRASTRUCTURE",
+      "is_regulated": true,
+      "official_validation_source": "Aduana Nacional",
+      "decided_by": "mt_transporte_2026-09-23"
+    },
+    {
       "code": "RECURSOS_HUMANOS",
       "group": "SERVICIOS_PROFESIONALES",
       "commercial_role": "SERVICE_PROVIDER",
@@ -18724,6 +18752,14 @@
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "ZONA_FRANCA",
+      "group": "LOGISTICA",
+      "commercial_role": "TRANSPORT_INFRASTRUCTURE",
+      "is_regulated": true,
+      "official_validation_source": "Aduana Nacional",
+      "decided_by": "mt_transporte_2026-09-23"
     },
     {
       "code": "ZOO_ACUARIO",
