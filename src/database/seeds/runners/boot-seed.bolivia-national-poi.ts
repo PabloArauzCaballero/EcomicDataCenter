@@ -72,6 +72,15 @@ const PLACE_DIRECTORIES = [
    * clasificados. Abierta bajo ODbL-1.0, como el resto de lo cartografico.
    */
   'boot/bolivia-health-poi',
+  /*
+   * Tres fuentes oficiales propias, cada una en su directorio porque cada una
+   * tiene su propio publicador, su propia licencia declarada y su propio
+   * regulador: el Ministerio de Educacion, la ANH y un directorio privado que
+   * ningun regulador respalda.
+   */
+  'boot/bolivia-sie-poi',
+  'boot/bolivia-anh-poi',
+  'boot/bolivia-cajeros-poi',
 ] as const;
 
 /**

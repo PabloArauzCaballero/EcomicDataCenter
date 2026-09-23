@@ -181,12 +181,18 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-establishments-poi/',
       'boot/bolivia-establishments-registry-poi/',
       'boot/bolivia-health-poi/',
+      'boot/bolivia-sie-poi/',
+      'boot/bolivia-anh-poi/',
+      'boot/bolivia-cajeros-poi/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
     // esperaban, y entraron las 6.584 de la entrega de establecimientos.
     // 2026-09-23: se anota a mano la sexta familia de salud sin catálogo y se
-    // suma el corpus de salud leído y clasificado de OpenStreetMap.
-    '1.2.0',
+    // suma el corpus de salud leído y clasificado de OpenStreetMap; entran
+    // además tres fuentes oficiales propias — unidades educativas del SIE,
+    // estaciones de servicio de la ANH y cajeros de Tel.bo — con la familia
+    // CENTRO_EDUCACION_ALTERNATIVA_ESPECIAL nueva en el catálogo.
+    '1.3.0',
   ),
   {
     code: 'observatory-demo',
