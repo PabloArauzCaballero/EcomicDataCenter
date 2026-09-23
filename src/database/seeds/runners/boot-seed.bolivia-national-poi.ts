@@ -81,6 +81,13 @@ const PLACE_DIRECTORIES = [
   'boot/bolivia-sie-poi',
   'boot/bolivia-anh-poi',
   'boot/bolivia-cajeros-poi',
+  /*
+   * La primera que no entrego nadie: la descargo el observatorio de
+   * OpenStreetMap, por departamento, para los rubros que el corpus casi no
+   * tenia —agro, industria, mineria, oficinas financieras, gobierno, turismo,
+   * cultura y deporte—. Ver `scripts/places/build-osm-expansion-poi-seed.mjs`.
+   */
+  'boot/bolivia-osm-expansion-poi',
 ] as const;
 
 /**

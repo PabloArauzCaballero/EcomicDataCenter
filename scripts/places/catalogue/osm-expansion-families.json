@@ -1,0 +1,254 @@
+{
+  "_leame": "Familias nuevas que la descarga de OpenStreetMap del 2026-09-23 necesita y que ningun catalogo define. is_regulated es verdadero solo donde un regulador boliviano licencia la actividad y se lo nombra; en el resto es falso con fuente nula, que quiere decir que aqui nadie lo afirma, no que la actividad este desregulada. build-family-catalogue.mjs las une al catalogo con decided_by ampliacion_osm_2026_09_23.",
+  "decidedBy": "ampliacion_osm_2026_09_23",
+  "familias": [
+    {
+      "code": "MINA",
+      "group": "MINERIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "AJAM - Autoridad Jurisdiccional Administrativa Minera (Ley 535 de Mineria y Metalurgia)",
+      "nota": "industrial=mine. La AJAM otorga el derecho minero por contrato administrativo; la fila no dice si ese contrato existe."
+    },
+    {
+      "code": "BOCAMINA",
+      "group": "MINERIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "man_made=adit|mineshaft. Una bocamina puede estar abandonada; no se afirma que haya operacion licenciada."
+    },
+    {
+      "code": "CANTERA_ARIDOS",
+      "group": "MINERIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "landuse=quarry. Los aridos los autoriza el municipio (Ley 3425) y otros minerales la AJAM; la etiqueta no dice cual, asi que no se nombra regulador."
+    },
+    {
+      "code": "COOPERATIVA_MINERA",
+      "group": "MINERIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "AJAM - Autoridad Jurisdiccional Administrativa Minera (Ley 535 de Mineria y Metalurgia)",
+      "nota": "office=cooperative con minera en el nombre."
+    },
+    {
+      "code": "MINA_HISTORICA",
+      "group": "CULTURA",
+      "commercial_role": "CULTURAL",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "historic=mine. Patrimonio, no produccion."
+    },
+    {
+      "code": "CULTIVO_AGRICOLA",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "landuse=farmland con nombre: un area cultivada, no un local."
+    },
+    {
+      "code": "HUERTO_FRUTAL",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "landuse=orchard."
+    },
+    {
+      "code": "VINEDO",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "landuse=vineyard."
+    },
+    {
+      "code": "INVERNADERO",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "landuse=greenhouse_horticulture."
+    },
+    {
+      "code": "CRIADERO_ANIMALES",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "landuse=animal_keeping."
+    },
+    {
+      "code": "ESTANCIA_FINCA",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "place=farm: estancia, finca o granja con nombre; no dice si es agricola o ganadera."
+    },
+    {
+      "code": "APICULTURA",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "craft=beekeeper."
+    },
+    {
+      "code": "SILO_ACOPIO",
+      "group": "PRODUCCION_AGROPECUARIA",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "man_made=silo: almacenamiento de grano."
+    },
+    {
+      "code": "VENTA_DIRECTA_PRODUCTOR",
+      "group": "COMERCIO_AGRO",
+      "commercial_role": "SELLER",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "shop=farm: venta de lo que produce la finca."
+    },
+    {
+      "code": "PREDIO_INDUSTRIAL",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "landuse=industrial con nombre o industrial=* sin valor mas preciso."
+    },
+    {
+      "code": "LADRILLERA",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "industrial=brickyard."
+    },
+    {
+      "code": "MATADERO",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "nota": "industrial=slaughterhouse."
+    },
+    {
+      "code": "PLANTA_ALIMENTOS",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "nota": "industrial=food_industry|dairy|oil_mill."
+    },
+    {
+      "code": "INGENIO_AZUCARERO",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "nota": "industrial=sugar_mill."
+    },
+    {
+      "code": "CERVECERIA_PLANTA",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "nota": "craft=brewery o industrial=brewery: produccion, no bar."
+    },
+    {
+      "code": "BODEGA_DESTILERIA",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "SENASAG - Servicio Nacional de Sanidad Agropecuaria e Inocuidad Alimentaria (registro sanitario)",
+      "nota": "craft=winery|distillery: vino y singani."
+    },
+    {
+      "code": "PLANTA_CEMENTO_HORMIGON",
+      "group": "INDUSTRIA",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "industrial=cement|concrete_plant|asphalt."
+    },
+    {
+      "code": "PLANTA_HIDROCARBUROS",
+      "group": "HIDROCARBUROS",
+      "commercial_role": "PRODUCTION",
+      "is_regulated": true,
+      "official_validation_source": "ANH - Agencia Nacional de Hidrocarburos",
+      "nota": "industrial=oil|gas|refinery: produccion y proceso, no venta al publico."
+    },
+    {
+      "code": "REFUGIO_MONTANA",
+      "group": "HOSPEDAJE",
+      "commercial_role": "HOSPITALITY",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "tourism=alpine_hut|wilderness_hut."
+    },
+    {
+      "code": "ATRACTIVO_TURISTICO",
+      "group": "TURISMO",
+      "commercial_role": "ENTERTAINMENT",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "tourism=attraction."
+    },
+    {
+      "code": "SITIO_ARQUEOLOGICO",
+      "group": "CULTURA",
+      "commercial_role": "CULTURAL",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "historic=archaeological_site."
+    },
+    {
+      "code": "OBRA_ARTE_PUBLICO",
+      "group": "CULTURA",
+      "commercial_role": "CULTURAL",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "tourism=artwork."
+    },
+    {
+      "code": "CONVENTO_MONASTERIO",
+      "group": "RELIGION",
+      "commercial_role": "COMMUNITY",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "amenity=monastery."
+    },
+    {
+      "code": "CAMPO_GOLF",
+      "group": "DEPORTE",
+      "commercial_role": "RECREATION_INFRASTRUCTURE",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "leisure=golf_course."
+    },
+    {
+      "code": "PISTA_DEPORTIVA",
+      "group": "DEPORTE",
+      "commercial_role": "RECREATION_INFRASTRUCTURE",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "leisure=track."
+    },
+    {
+      "code": "OFICINA_COOPERATIVA",
+      "group": "ORGANIZACIONES",
+      "commercial_role": "SERVICE_PROVIDER",
+      "is_regulated": false,
+      "official_validation_source": null,
+      "nota": "office=cooperative cuyo nombre no dice si es minera ni de ahorro: agua, electricidad, transporte, productores."
+    }
+  ]
+}

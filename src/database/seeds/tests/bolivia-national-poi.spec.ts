@@ -248,4 +248,38 @@ describe('bolivia national place seed', () => {
     // El contacto del registro no viaja, como en el registro mercantil.
     expect(seed.places[0]?.phones).toEqual([]);
   });
+
+  /*
+   * La ampliacion por rubros: una mina que ningun catalogo entregado
+   * clasificaba, situada por el area del departamento en OpenStreetMap. El
+   * metodo dice que la familia la anadio el observatorio y no una entrega.
+   */
+  it('accepts a place classified into a family the observatory added', () => {
+    const mine = placeWith({
+      placeId: 'osm:way:123456789',
+      publisherRecordId: '123456789',
+      name: 'Mina Huanuni',
+      department: 'Oruro',
+      entityGroup: 'MINERIA',
+      entityFamily: 'MINA',
+      commercialRole: 'PRODUCTION',
+      isRegulated: true,
+      officialValidationSource: 'AJAM - Autoridad Jurisdiccional Administrativa Minera',
+      genericFamily: false,
+      classificationMethod: 'puente_explicito_tags_osm_a_familias_ampliadas',
+      categoryKey: 'industrial=mine',
+      basicCategory: null,
+      positionMethod: 'centro_bbox_objeto_osm_no_es_entrada',
+      dataLevel: 'NOMBRE_ACTIVIDAD_Y_COORDENADAS',
+      warnings: [],
+      sourceDatasetUrl: null,
+      sourceRecordUrl: 'https://www.openstreetmap.org/way/123456789',
+      sourceTags: { industrial: 'mine', name: 'Mina Huanuni' },
+      observationId: 'osm:way:123456789',
+    });
+    const seed = boliviaNationalPoiSchema.parse(seedWith(mine));
+    expect(seed.places[0]?.classificationMethod).toBe(
+      'puente_explicito_tags_osm_a_familias_ampliadas',
+    );
+  });
 });

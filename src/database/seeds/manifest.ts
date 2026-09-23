@@ -184,6 +184,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-sie-poi/',
       'boot/bolivia-anh-poi/',
       'boot/bolivia-cajeros-poi/',
+      'boot/bolivia-osm-expansion-poi/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
     // esperaban, y entraron las 6.584 de la entrega de establecimientos.
@@ -191,8 +192,10 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // suma el corpus de salud leído y clasificado de OpenStreetMap; entran
     // además tres fuentes oficiales propias — unidades educativas del SIE,
     // estaciones de servicio de la ANH y cajeros de Tel.bo — con la familia
-    // CENTRO_EDUCACION_ALTERNATIVA_ESPECIAL nueva en el catálogo.
-    '1.3.0',
+    // CENTRO_EDUCACION_ALTERNATIVA_ESPECIAL nueva en el catálogo, y la
+    // ampliación por rubros (agro, industria, minería, cultura y deporte)
+    // descargada de OpenStreetMap, con jerarquía de familias.
+    '1.4.0',
   ),
   historical('bolivia-road-network', 'Red vial de Bolivia', [
     'boot/bolivia-road-network/road-sections.json',

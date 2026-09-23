@@ -8,7 +8,9 @@
  *     --v3      <catalogo_subcategorias_lugares_bolivia.json> \
  *     --out     scripts/places/catalogue/bolivia-place-families.json \
  *     [--manual scripts/places/catalogue/bolivia-health-families-manual.json] \
- *     [--observatorio scripts/places/catalogue/observatory-families.json]
+ *     [--observatorio scripts/places/catalogue/observatory-families.json] \
+ *     [--additions scripts/places/catalogue/osm-expansion-families.json] \
+ *     [--hierarchy scripts/places/catalogue/family-hierarchy.json]
  *
  * `--observatorio` anade las familias que decidio el propio observatorio para
  * una fuente que ninguno de los dos catalogos cubre. Solo puede anadir: un
@@ -39,19 +41,34 @@
  * The output carries `decided_by` on every family so that anyone reading a
  * place's `is_regulated` can see which of the two catalogues decided it.
  *
- * An optional third input, `--manual`, adds families that neither catalogue
- * defines. It exists because a later corpus can need a family nobody shipped
- * yet — the health sector's `POSTA_SANITARIA` and five others, added
- * 2026-09-23 — and inventing one by hand outside this tool would put it a
- * step ahead of the file that is supposed to be the single source. A manual
- * entry can only add a code neither source already has: reusing one of theirs
- * would be the reclassification this file exists to prevent, so the build
- * stops instead of silently overriding a decided family.
+ * Cuatro entradas mas, todas opcionales y versionadas junto al catalogo:
+ *
+ *  - `--manual`: familias que ningun catalogo define y que un corpus posterior
+ *    necesita nombrar por su cuenta — el sector salud las anoto a mano el
+ *    2026-09-23. Solo pueden anadir un codigo que ninguna de las dos entregas
+ *    ya decidio; reusar uno de ellas seria la reclasificacion que este
+ *    archivo existe para impedir, asi que la construccion se detiene en vez de
+ *    sobreescribir en silencio una familia ya decidida.
+ *  - `--observatorio`: lo mismo que `--manual`, para familias que decidio el
+ *    propio observatorio con su razon escrita y quien la decidio.
+ *  - `--additions`: familias que ningun catalogo define y que una carga nueva
+ *    necesita. Solo anaden: una familia que ya define el anexo o el catalogo de
+ *    2.330 detiene la construccion, porque redefinirla cambiaria el
+ *    `is_regulated` de filas ya cargadas, y eso no se corrige, se duplica.
+ *  - `--hierarchy`: la familia padre de cada familia hija, por reglas de sufijo
+ *    y grupo y por aristas explicitas. Se escribe como `parent_family` y es
+ *    metadato puro: ningun constructor lo copia a una fila y el cargador no lee
+ *    este archivo, asi que no mueve la huella de ningun payload ya cargado.
+ *
+ * Las familias salen ordenadas por codigo. Quien fusione ramas que anadieron
+ * familias por separado debe regenerar con todas sus entradas, no fusionar el
+ * JSON a mano.
  */
 
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
+import { readAdditions, resolveHierarchy } from './catalogue-extensions.mjs';
 
 function readArguments(argv) {
   const options = new Map();
@@ -68,6 +85,8 @@ function readArguments(argv) {
     manual: options.get('manual') ?? null,
     out: resolve(options.get('out')),
     observatory: options.get('observatorio') ?? null,
+    additions: options.get('additions') ?? null,
+    hierarchy: options.get('hierarchy') ?? null,
   };
 }
 
@@ -252,7 +271,25 @@ async function main() {
     }
     families.push({ ...family, decided_by: observatory.decidedBy });
   }
+
+  const additionsBytes = options.additions ? await readFile(options.additions) : null;
+  const additions = additionsBytes
+    ? readAdditions(additionsBytes.toString('utf8'), new Set(families.map((one) => one.code)))
+    : new Map();
+  families.push(...additions.values());
   families.sort((one, other) => one.code.localeCompare(other.code));
+
+  const hierarchyBytes = options.hierarchy ? await readFile(options.hierarchy) : null;
+  const parents = hierarchyBytes
+    ? resolveHierarchy(
+        hierarchyBytes.toString('utf8'),
+        new Map(families.map((one) => [one.code, one])),
+      )
+    : new Map();
+  for (const family of families) {
+    const parent = parents.get(family.code);
+    if (parent) family.parent_family = parent;
+  }
 
   const document = {
     metadata: {
@@ -298,6 +335,24 @@ async function main() {
               sha256: observatory.sha256,
               decidedBy: observatory.decidedBy,
               families: observatory.families.length,
+            },
+          }
+        : {}),
+      ...(additionsBytes
+        ? {
+            additions: {
+              file: 'osm-expansion-families.json',
+              sha256: createHash('sha256').update(additionsBytes).digest('hex'),
+              families: additions.size,
+            },
+          }
+        : {}),
+      ...(hierarchyBytes
+        ? {
+            hierarchy: {
+              file: 'family-hierarchy.json',
+              sha256: createHash('sha256').update(hierarchyBytes).digest('hex'),
+              familiesWithParent: parents.size,
             },
           }
         : {}),

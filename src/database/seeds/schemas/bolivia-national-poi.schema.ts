@@ -214,6 +214,13 @@ const place = z
        * los seis que no tenian donde caer.
        */
       'puente_explicito_tags_osm_a_catalogo_salud_manual_2026',
+      /*
+       * La etiqueta de OpenStreetMap llevo a una familia que ningun catalogo
+       * entregado definia y que el observatorio anadio para esta carga —mina,
+       * cantera, cultivo, matadero—. Se distingue de las otras dos para que
+       * quien lea un `is_regulated` sepa que lo decidio el propio observatorio.
+       */
+      'puente_explicito_tags_osm_a_familias_ampliadas',
       'respaldo_generico_objeto_social_no_confirma_actividad_del_local',
       /*
        * Las dos formas en que la clasificacion no la hizo nadie aqui: la
