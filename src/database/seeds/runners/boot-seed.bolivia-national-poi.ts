@@ -88,6 +88,13 @@ const PLACE_DIRECTORIES = [
    * cultura y deporte—. Ver `scripts/places/build-osm-expansion-poi-seed.mjs`.
    */
   'boot/bolivia-osm-expansion-poi',
+  /*
+   * Puertos, aeropuertos, terminales, paradas y estaciones, leidos en vivo de
+   * OpenStreetMap por `build-transport-poi-seed.mjs`. Misma licencia abierta
+   * que el resto de OpenStreetMap en este corpus, asi que va en su propio
+   * directorio por trazabilidad de la entrega y no por licencia distinta.
+   */
+  'boot/bolivia-transport-poi',
 ] as const;
 
 /**
