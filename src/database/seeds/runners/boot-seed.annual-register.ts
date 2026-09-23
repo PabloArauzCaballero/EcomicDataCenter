@@ -1,21 +1,15 @@
-import { createHash, randomUUID } from 'node:crypto';
 import type { Transaction } from 'sequelize';
-import {
-  ClaimEvidenceModel,
-  FactClaimModel,
-  RawObservationModel,
-  SourceArtifactModel,
-} from '../../models';
 import { reconcileHistoryRun } from './boot-seed.history-provenance';
-import { claimContentHash, rawPayloadHash } from '../../../common/intelligence/claim-normalizer';
-import { ungroundedMeasures } from '../../../common/economic-indicators/indicator-codes';
+import { CHUNK, writeChunk } from './boot-seed.annual-register.batch';
+import type { QueuedPoint, RegisterContext } from './boot-seed.annual-register.batch';
+import { rawPayloadHash } from '../../../common/intelligence/claim-normalizer';
 import { annualRegisterSchema, type AnnualRegisterSeries } from '../schemas/annual-register.schema';
 import { readSeed } from './seed.utils';
 
 /**
  * Carga las series anuales que pertenecen a un sitio o a alguien.
  *
- * Tres archivos y un solo cargador, porque los tres tienen la misma forma y el
+ * Seis archivos y un solo cargador, porque todos tienen la misma forma y el
  * mismo problema: son un cuadro de dos entradas —una dimensión que el corpus no
  * tenía, cruzada con los años— y la vista anual del observatorio archiva por
  * `indicator_code` sin columna para esa dimensión. El esquema explica por qué
@@ -33,6 +27,10 @@ import { readSeed } from './seed.utils';
  *   visto según Merco. De lo primero se carga el puesto y la cuota y **no los
  *   dólares**, por lo que `corporate-sources` explica: el total de esa fuente
  *   no cuadra con el del INE y su base no está declarada.
+ * - **El producto por actividad económica.** Las once actividades de cada
+ *   departamento y las treinta y cinco del país, en tres medidas. Se cargan
+ *   desde aquí y en su propio catálogo, porque son cinco veces todo lo demás
+ *   junto.
  *
  * Cada punto lleva su procedencia porque una descarga trae un cuadro entero:
  * las diez filas de un cuadro del INE citan el mismo archivo y la misma huella,
@@ -44,9 +42,9 @@ import { readSeed } from './seed.utils';
 /**
  * Los archivos, con quién los recogió y con qué categoría entran al corpus.
  *
- * Dos identidades y no una, aunque el cargador sea uno solo: los dos primeros
- * archivos salen del colector del INE y el tercero de otro que lee dos
- * publicaciones privadas. Un auditor que abra una fila de Potosí y una de una
+ * Dos identidades y no una, aunque el cargador sea uno solo: todos menos el
+ * último salen del colector del INE, y ése de otro que lee dos publicaciones
+ * privadas. Un auditor que abra una fila de Potosí y una de una
  * exportadora tiene que ver dos corridas distintas, porque son dos
  * procedencias distintas; meterlas bajo un mismo agente ahorraría una entrada
  * de catálogo y borraría esa diferencia.
@@ -55,11 +53,14 @@ import { readSeed } from './seed.utils';
  * el prefijo del código— pero queda en la observación cruda, que es lo que
  * alguien lee cuando audita de dónde salió una fila sin el tablero delante.
  */
-const REGISTERS: ReadonlyArray<{
+/** Un archivo de semilla, con quién lo recogió y bajo qué categoría entra. */
+interface Register {
   readonly file: string;
   readonly agentCode: string;
   readonly dataCategory: string;
-}> = [
+}
+
+const REGISTERS: readonly Register[] = [
   {
     file: 'boot/department-accounts.json',
     agentCode: 'INE_DEPARTMENTS_BACKFILL',
@@ -75,12 +76,19 @@ const REGISTERS: ReadonlyArray<{
     agentCode: 'CORPORATE_REGISTER_BACKFILL',
     dataCategory: 'CORPORATE_REGISTER',
   },
-  /*
-   * Los tres cuadros por actividad, que son la apertura de las cuentas
-   * regionales y no otro corpus: mismo publicador, misma corrida y misma
-   * categoría. Van en tres archivos porque el esquema admite cuatrocientas
-   * series por archivo y aquí son más de mil.
-   */
+];
+
+/**
+ * Los tres cuadros del producto abierto por actividad económica.
+ *
+ * Misma fuente, misma corrida y misma categoría que las cuentas regionales
+ * —son su apertura, no otro corpus— y aun así **catálogo aparte**, por lo que
+ * explica `reconcileAnnualActivities`: son treinta y siete mil lecturas contra
+ * las siete mil de los otros tres, y el sembrador abre una transacción por
+ * catálogo. Van en tres archivos porque el esquema admite cuatrocientas series
+ * por archivo y aquí son mil once.
+ */
+const ACTIVITIES: readonly Register[] = [
   {
     file: 'boot/department-activities-value.json',
     agentCode: 'INE_DEPARTMENTS_BACKFILL',
@@ -99,54 +107,6 @@ const REGISTERS: ReadonlyArray<{
 ];
 
 type RegisterPoint = AnnualRegisterSeries['points'][number];
-
-async function reconcilePointArtifact(
-  series: AnnualRegisterSeries,
-  point: RegisterPoint,
-  sourceId: string,
-  transaction: Transaction,
-): Promise<string> {
-  const existing = await SourceArtifactModel.findOne({
-    where: { sha256: point.upstreamSha256 },
-    transaction,
-  });
-  if (existing) return existing.sourceArtifactId;
-
-  const sourceArtifactId = randomUUID();
-  await SourceArtifactModel.create(
-    {
-      sourceArtifactId,
-      sourceId,
-      /*
-       * El tipo del archivo descargado, no el del extracto.
-       *
-       * Las cuentas y las exportaciones son cuadernos de cálculo; el registro
-       * empresarial son dos páginas. Decirlo aquí es lo que permite que alguien
-       * que audite sepa con qué abrir lo que se citó.
-       */
-      artifactType: point.sourceUrl.includes('nube.ine.gob.bo') ? 'XLSX' : 'HTML',
-      originalUri: point.sourceUrl,
-      storageUri: point.sourceUrl,
-      mimeType: point.sourceUrl.includes('nube.ine.gob.bo')
-        ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-        : 'text/html',
-      sha256: point.upstreamSha256,
-      retrievedAt: new Date(point.retrievedAt),
-      metadataJson: {
-        publisher: series.publisher,
-        indicatorCode: series.indicatorCode,
-        indicatorName: series.name,
-        group: series.group,
-        level: series.level,
-        frequency: series.frequency,
-        period: point.period,
-        retrievalStrategy: 'VERSIONED_SNAPSHOT_V1',
-      },
-    },
-    { transaction },
-  );
-  return sourceArtifactId;
-}
 
 /**
  * La carga de un año.
@@ -184,105 +144,73 @@ function annualPayload(
   };
 }
 
-async function reconcilePoint(
-  series: AnnualRegisterSeries,
-  point: RegisterPoint,
-  dataCategory: string,
-  sourceId: string,
-  agentRunId: string,
-  transaction: Transaction,
-): Promise<void> {
-  const payload = annualPayload(series, point, dataCategory);
-  const payloadHash = rawPayloadHash(payload);
-  const present = await RawObservationModel.findOne({
-    attributes: ['rawObservationId'],
-    where: { payloadHash },
-    transaction,
-  });
-  if (present) return;
-
-  // La misma regla que aplica la vía de ingesta: una cifra ausente del registro
-  // que se guarda como prueba no es una lectura.
-  const measures = (payload as { measures: Parameters<typeof ungroundedMeasures>[0] }).measures;
-  const ungrounded = ungroundedMeasures(measures, point.excerpt);
-  if (ungrounded.length) {
-    throw new Error(
-      `${series.indicatorCode} ${point.period}: cifras ausentes del registro citado: ${ungrounded.join(', ')}`,
-    );
-  }
-
-  const sourceArtifactId = await reconcilePointArtifact(series, point, sourceId, transaction);
-  const observation = await RawObservationModel.create(
-    {
-      agentRunId,
-      sourceArtifactId,
-      payloadJson: payload,
-      payloadHash,
-      receivedAt: new Date(point.retrievedAt),
-      processingStatus: 'NORMALIZED',
-      retryCount: 0,
-    },
-    { transaction },
-  );
-
-  const assertion = `${series.name} en ${point.period}: ${point.value} ${series.unit}, segun ${series.publisher}.`;
-  const eventDate = `${point.period}-12-31`;
-  const factClaimId = randomUUID();
-  await FactClaimModel.create(
-    {
-      factClaimId,
-      agentRunId,
-      rawObservationId: observation.rawObservationId,
-      claimType: 'INDICATOR_READING',
-      assertion,
-      eventDate,
-      confidenceLevel: 'HIGH',
-      confidenceScore: '0.9000',
-      impactLevel: 'HIGH',
-      timeHorizon: 'STRUCTURAL',
-      status: 'PUBLISHED',
-      contentHash: claimContentHash({ claimType: 'INDICATOR_READING', assertion, eventDate }),
-      createdAt: new Date(),
-    },
-    { transaction },
-  );
-
-  await ClaimEvidenceModel.create(
-    {
-      factClaimId,
-      sourceArtifactId,
-      excerpt: point.excerpt,
-      excerptHash: createHash('sha256').update(point.excerpt).digest('hex'),
-      locator: point.sourceUrl,
-      retrievedAt: new Date(point.retrievedAt),
-    },
-    { transaction },
-  );
-}
-
-export async function reconcileAnnualRegisters(
+/**
+ * Carga una lista de archivos, acumulando lecturas hasta llenar un lote.
+ *
+ * El lote se vacía en cuanto se llena y otra vez al terminar cada archivo, de
+ * modo que una lectura nunca espera a que se lea el archivo siguiente y la
+ * memoria que se sostiene es la de un lote, no la del corpus. Quien quiera
+ * saber por qué se escribe así, `boot-seed.annual-register.batch.ts` lo cuenta.
+ */
+async function loadRegisters(
+  registers: readonly Register[],
   sourceId: string,
   transaction: Transaction,
 ): Promise<void> {
   const runs = new Map<string, string>();
-  for (const register of REGISTERS) {
+
+  for (const register of registers) {
     let agentRunId = runs.get(register.agentCode);
     if (agentRunId === undefined) {
       agentRunId = await reconcileHistoryRun(register.agentCode, transaction);
       runs.set(register.agentCode, agentRunId);
     }
+
+    const context: RegisterContext = {
+      sourceId,
+      agentRunId,
+      transaction,
+      artifacts: new Map<string, string>(),
+    };
     const loaded = await readSeed(register.file, annualRegisterSchema);
+    let queued: QueuedPoint[] = [];
+
     for (const series of loaded.series) {
       for (const point of series.points) {
-        await reconcilePoint(
-          series,
-          point,
-          register.dataCategory,
-          sourceId,
-          agentRunId,
-          transaction,
-        );
+        const payload = annualPayload(series, point, register.dataCategory);
+        queued.push({ series, point, payload, payloadHash: rawPayloadHash(payload) });
+        if (queued.length >= CHUNK) {
+          await writeChunk(context, queued);
+          queued = [];
+        }
       }
     }
+    await writeChunk(context, queued);
   }
+}
+
+/** Las cuentas regionales, las exportaciones por producto y el registro empresarial. */
+export async function reconcileAnnualRegisters(
+  sourceId: string,
+  transaction: Transaction,
+): Promise<void> {
+  await loadRegisters(REGISTERS, sourceId, transaction);
+}
+
+/**
+ * El producto departamental abierto por actividad económica.
+ *
+ * Catálogo aparte y no una cuarta entrada de la lista anterior, aunque el
+ * cargador sea el mismo. Son treinta y siete mil lecturas contra las siete mil
+ * de aquéllas, y el sembrador abre **una transacción por catálogo**: metidas en
+ * la misma, un corte a mitad de la carga por actividad se llevaba por delante
+ * las cuentas regionales que ya habían entrado, y en un servidor lento eso pasó
+ * tres veces seguidas. Separadas, cada una entra o no entra por su cuenta y se
+ * puede pedir sola con `--only=annual-activities`.
+ */
+export async function reconcileAnnualActivities(
+  sourceId: string,
+  transaction: Transaction,
+): Promise<void> {
+  await loadRegisters(ACTIVITIES, sourceId, transaction);
 }
