@@ -169,10 +169,16 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-registry-additional-poi/',
       'boot/bolivia-establishments-poi/',
       'boot/bolivia-establishments-registry-poi/',
+      'boot/bolivia-sie-poi/',
+      'boot/bolivia-anh-poi/',
+      'boot/bolivia-cajeros-poi/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
     // esperaban, y entraron las 6.584 de la entrega de establecimientos.
-    '1.1.0',
+    // 2026-09-23: entran tres fuentes oficiales propias — unidades educativas
+    // del SIE, estaciones de servicio de la ANH y cajeros de Tel.bo — con la
+    // familia CENTRO_EDUCACION_ALTERNATIVA_ESPECIAL nueva en el catálogo.
+    '1.2.0',
   ),
   {
     code: 'observatory-demo',
