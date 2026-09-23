@@ -261,6 +261,9 @@ async function main() {
   process.stdout.write(`catalogo unido:           ${families.length} familias\n`);
   process.stdout.write(`  las decide el anexo A:  ${annex.size}\n`);
   process.stdout.write(`  el anexo afirma mas:    ${weakened.length}\n`);
+  if (observatory) {
+    process.stdout.write(`  las decide el observatorio: ${observatory.families.length}\n`);
+  }
   process.stdout.write(`escrito en ${options.out}\n`);
 }
 
