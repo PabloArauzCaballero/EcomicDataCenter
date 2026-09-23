@@ -169,10 +169,12 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-registry-additional-poi/',
       'boot/bolivia-establishments-poi/',
       'boot/bolivia-establishments-registry-poi/',
+      'boot/bolivia-osm-expansion-poi/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
     // esperaban, y entraron las 6.584 de la entrega de establecimientos.
-    '1.1.0',
+    // 2026-09-23: entra la ampliación por rubros descargada de OpenStreetMap.
+    '1.2.0',
   ),
   {
     code: 'observatory-demo',
