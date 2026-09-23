@@ -94,6 +94,7 @@
     "freedom:collect": "tsx scripts/macro/collect-freedom-indices.ts",
     "imf:collect": "tsx scripts/macro/collect-imf-weo-series.ts",
     "trade:collect": "tsx scripts/macro/collect-comtrade-trade.ts",
+    "trade-detail:collect": "tsx scripts/macro/collect-comtrade-trade-detail.ts",
     "minerals:collect": "tsx scripts/macro/collect-comtrade-minerals.ts",
     "departments:collect": "tsx scripts/macro/collect-ine-departments.ts",
     "departments:activities": "tsx scripts/macro/collect-ine-department-activities.ts",
