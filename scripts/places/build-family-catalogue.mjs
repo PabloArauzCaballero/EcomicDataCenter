@@ -6,7 +6,12 @@
  *   node scripts/places/build-family-catalogue.mjs \
  *     --anexo-a <anexo-A-catalogo-actual-201-familias.csv> \
  *     --v3      <catalogo_subcategorias_lugares_bolivia.json> \
- *     --out     scripts/places/catalogue/bolivia-place-families.json
+ *     --out     scripts/places/catalogue/bolivia-place-families.json  *     [--observatorio scripts/places/catalogue/observatory-families.json]
+ *
+ * `--observatorio` anade las familias que decidio el propio observatorio para
+ * una fuente que ninguno de los dos catalogos cubre. Solo puede anadir: un
+ * codigo que ya define cualquiera de los dos hace parar el script, porque
+ * reclasificar una familia cargada duplicaria sus filas.
  *
  * Two catalogues exist and they do not say the same thing. The 201-family
  * annex classified everything the observatory holds today; the 2.330-family
@@ -50,6 +55,7 @@ function readArguments(argv) {
     anexoA: options.get('anexo-a'),
     v3: options.get('v3'),
     out: resolve(options.get('out')),
+    observatory: options.get('observatorio') ?? null,
   };
 }
 
@@ -120,6 +126,33 @@ function readV3(text) {
   return { families, metadata: parsed.metadata ?? {} };
 }
 
+/**
+ * Las familias que decidio el observatorio, con quien y cuando lo decidio.
+ *
+ * Cada una trae el mismo par de afirmaciones que los catalogos —si un
+ * regulador licencia la actividad y cual— y ademas la razon escrita, porque
+ * aqui no hay un tercero detras de la respuesta.
+ */
+async function readObservatory(path) {
+  const bytes = await readFile(path);
+  const parsed = JSON.parse(bytes.toString('utf8'));
+  const decidedBy = parsed.metadata?.decided_by;
+  if (!decidedBy) throw new Error(`${path} no dice quien decidio sus familias`);
+  const families = (parsed.familias ?? []).map((entry) => {
+    if (!entry.code || !entry.group || !entry.commercial_role || !entry.rationale) {
+      throw new Error(`familia incompleta en ${path}: ${entry.code ?? '(sin codigo)'}`);
+    }
+    return {
+      code: entry.code,
+      group: entry.group,
+      commercial_role: entry.commercial_role,
+      is_regulated: entry.is_regulated === true,
+      official_validation_source: stated(entry.official_validation_source),
+    };
+  });
+  return { families, decidedBy, sha256: createHash('sha256').update(bytes).digest('hex') };
+}
+
 async function main() {
   const options = readArguments(process.argv.slice(2));
   const annexBytes = await readFile(options.anexoA);
@@ -162,6 +195,18 @@ async function main() {
   for (const [code, family] of annex) {
     if (!v3.has(code)) families.push({ ...family, decided_by: 'anexo_A_201' });
   }
+  const observatory = options.observatory ? await readObservatory(options.observatory) : null;
+  for (const family of observatory?.families ?? []) {
+    /*
+     * Una familia del observatorio solo rellena un hueco. Si alguno de los dos
+     * catalogos ya la define, su respuesta esta cargada y cambiarla aqui
+     * anadiria una segunda fila al lado de cada lugar ya guardado.
+     */
+    if (annex.has(family.code) || v3.has(family.code)) {
+      throw new Error(`la familia ${family.code} ya esta definida; el observatorio solo anade`);
+    }
+    families.push({ ...family, decided_by: observatory.decidedBy });
+  }
   families.sort((one, other) => one.code.localeCompare(other.code));
 
   const document = {
@@ -194,6 +239,16 @@ async function main() {
        * lector esta leyendo la afirmacion vieja habiendo otra mas reciente.
        */
       keptFromAnnexDespiteNewerClaim: weakened.sort(),
+      ...(observatory
+        ? {
+            observatory: {
+              file: 'observatory-families.json',
+              sha256: observatory.sha256,
+              decidedBy: observatory.decidedBy,
+              families: observatory.families.length,
+            },
+          }
+        : {}),
     },
     familias: families,
   };

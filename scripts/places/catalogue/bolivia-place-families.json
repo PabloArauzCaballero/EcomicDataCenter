@@ -1,8 +1,8 @@
 {
   "metadata": {
     "dataset": "CATALOGO_FAMILIAS_DE_LUGARES_BOLIVIA",
-    "built": "2026-09-22",
-    "families": 2330,
+    "built": "2026-09-23",
+    "families": 2331,
     "precedence": "anexo_A_201 decide las familias que define; el catalogo de 2.330 rellena el resto",
     "precedenceReason": "las filas clasificadas con el anexo A ya estan cargadas y el corpus es inmutable: reclasificar una familia no cambiaria esas filas, anadiria una segunda al lado",
     "annex": {
@@ -90,7 +90,13 @@
       "TIENDA_MASCOTAS",
       "TIENDA_OPERADOR_TELECOM",
       "UNIVERSIDAD"
-    ]
+    ],
+    "observatory": {
+      "file": "observatory-families.json",
+      "sha256": "b6ae0a914e5424aa4da64a2409e27101d86fc585cee077272420ff7f08bb1566",
+      "decidedBy": "observatorio_2026-09-23",
+      "families": 1
+    }
   },
   "familias": [
     {
@@ -516,6 +522,14 @@
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "CENTRO_EDUCACION_ALTERNATIVA_ESPECIAL",
+      "group": "EDUCACION",
+      "commercial_role": "EDUCATION",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Educación / SIE",
+      "decided_by": "observatorio_2026-09-23"
     },
     {
       "code": "CENTRO_EVENTOS",
