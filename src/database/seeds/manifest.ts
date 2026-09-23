@@ -122,32 +122,28 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('foreign-trade', 'Comercio exterior', ['boot/foreign-trade.json']),
   historical('mineral-trade', 'Minerales exportados por partida', ['boot/mineral-trade.json']),
   /*
-   * Los seis van juntos porque los carga un mismo sembrador y comparten
-   * esquema, no porque compartan fuente: cinco son del INE y el último recopila
-   * dos publicaciones privadas. Quien los pida por separado tiene la
-   * procedencia en cada fila, que es donde importa.
-   *
-   * **Un paquete es lo que un sembrador carga, no lo que un tema agrupa.** Los
-   * tres cuadros por actividad tentaban a declararse aparte —contestan de qué
-   * vive un departamento y no cuánto produce—, pero los carga
-   * `reconcileAnnualRegisters` como los otros tres, y el registro de siembra
-   * sólo anota los paquetes que tienen sembrador propio. Declarado aparte, el
-   * portal habría enseñado un paquete «nunca aplicado» sobre una base que sí lo
-   * tenía. La versión sube a 1.1.0 porque los archivos del paquete cambiaron.
+   * Los tres van juntos porque los carga un mismo sembrador y comparten
+   * esquema, no porque compartan fuente: los dos primeros son del INE y el
+   * tercero recopila dos publicaciones privadas. Quien los pida por separado
+   * tiene la procedencia en cada fila, que es donde importa.
    */
-  historical(
-    'annual-registers',
-    'Registros anuales por departamento, por actividad y por empresa',
-    [
-      'boot/department-accounts.json',
-      'boot/department-exports.json',
-      'boot/department-activities-value.json',
-      'boot/department-activities-growth.json',
-      'boot/department-activities-share.json',
-      'boot/corporate-register.json',
-    ],
-    '1.1.0',
-  ),
+  historical('annual-registers', 'Registros anuales por departamento y por empresa', [
+    'boot/department-accounts.json',
+    'boot/department-exports.json',
+    'boot/corporate-register.json',
+  ]),
+  /*
+   * El producto por actividad va aparte, y no por tema: **un paquete es lo que
+   * una transacción carga**. Son treinta y siete mil lecturas contra las siete
+   * mil del paquete de arriba, y metidas en la misma transacción un corte a
+   * mitad se llevaba por delante lo que ya había entrado. Tiene sembrador
+   * propio, así que el registro de siembra lo anota como a los demás.
+   */
+  historical('annual-activities', 'Producto departamental por actividad económica', [
+    'boot/department-activities-value.json',
+    'boot/department-activities-growth.json',
+    'boot/department-activities-share.json',
+  ]),
   historical('company-filings', 'Hechos relevantes de emisores', ['boot/company-filings.json']),
   historical('company-filings-archive', 'Archivo de hechos relevantes', [
     'boot/company-filings-archive.json',
