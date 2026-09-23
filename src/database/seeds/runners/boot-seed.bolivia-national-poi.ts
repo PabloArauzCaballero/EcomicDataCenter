@@ -95,6 +95,14 @@ const PLACE_DIRECTORIES = [
    * directorio por trazabilidad de la entrega y no por licencia distinta.
    */
   'boot/bolivia-transport-poi',
+  /*
+   * Comercio y servicios de Santa Cruz de la Sierra leidos en vivo de
+   * OpenStreetMap (minoristas, gastronomia, oficios), para el 34% de la
+   * ciudad que quedaba en `OTRA_ENTIDAD` u `OV_SERVICES_AND_BUSINESS`. Ver
+   * `scripts/places/build-scz-enrichment-poi-seed.mjs` y
+   * `docs/runbooks/santa-cruz-commerce-enrichment.md`.
+   */
+  'boot/bolivia-scz-enrichment-poi',
 ] as const;
 
 /**
