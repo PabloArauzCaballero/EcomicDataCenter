@@ -4,3 +4,4 @@ Procedimientos operativos para despliegue, migraciones y rollback, backup/restor
 
 - [render-hosted-collector.md](render-hosted-collector.md) — backend en Render para el colector de ChatGPT autenticado con clave compartida (ADR-0016).
 - [national-places-load.md](national-places-load.md) — construccion y carga del registro nacional de lugares (`NATIONAL_POI`, migracion 0073).
+- [transport-places-load.md](transport-places-load.md) — puertos, aeropuertos, terminales y paradas de transporte, leidos de OpenStreetMap vía Overpass.
