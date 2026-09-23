@@ -1,8 +1,8 @@
 {
   "metadata": {
     "dataset": "CATALOGO_FAMILIAS_DE_LUGARES_BOLIVIA",
-    "built": "2026-09-22",
-    "families": 2330,
+    "built": "2026-09-23",
+    "families": 2336,
     "precedence": "anexo_A_201 decide las familias que define; el catalogo de 2.330 rellena el resto",
     "precedenceReason": "las filas clasificadas con el anexo A ya estan cargadas y el corpus es inmutable: reclasificar una familia no cambiaria esas filas, anadiria una segunda al lado",
     "annex": {
@@ -18,6 +18,11 @@
       "families": 2330,
       "baseTaxonomy": "https://docs.google.com/spreadsheets/d/1_i2S48zTDoHff0uX-d8Nes3bR-Xee8drx27Gyi80CQ0/edit?usp=sharing0",
       "overtureRelease": "2026-08-19.0"
+    },
+    "manual": {
+      "file": "scripts/places/catalogue/bolivia-health-families-manual.json",
+      "sha256": "03a58383af30621a42b1b019aff02b2153747f226a09ea8383775ee6b0635cdc",
+      "families": 6
     },
     "keptFromAnnexDespiteNewerClaim": [
       "ABOGADOS_NOTARIA",
@@ -374,6 +379,14 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "CAJA_DE_SALUD",
+      "group": "SALUD_SOCIAL",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "INASES (Instituto Nacional de Seguros de Salud)",
+      "decided_by": "anotacion_manual_salud_2026-09-23"
+    },
+    {
       "code": "CAJERO_ATM",
       "group": "FINANZAS",
       "commercial_role": "FINANCIAL_SERVICE",
@@ -606,6 +619,14 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "CLINICA_PRIVADA",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "decided_by": "anotacion_manual_salud_2026-09-23"
+    },
+    {
       "code": "CLUB_DEPORTIVO",
       "group": "DEPORTE",
       "commercial_role": "RECREATION_SERVICE",
@@ -676,6 +697,14 @@
       "is_regulated": true,
       "official_validation_source": "Ministerio de Salud / SNIS",
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "CONSULTORIO_ODONTOLOGICO",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "decided_by": "anotacion_manual_salud_2026-09-23"
     },
     {
       "code": "CONTABILIDAD_AUDITORIA",
@@ -18366,6 +18395,22 @@
       "decided_by": "anexo_A_201"
     },
     {
+      "code": "POLICONSULTORIO",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "decided_by": "anotacion_manual_salud_2026-09-23"
+    },
+    {
+      "code": "POSTA_SANITARIA",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "decided_by": "anotacion_manual_salud_2026-09-23"
+    },
+    {
       "code": "PREESCOLAR",
       "group": "EDUCACION",
       "commercial_role": "EDUCATION",
@@ -18396,6 +18441,14 @@
       "is_regulated": false,
       "official_validation_source": null,
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "PUESTO_DE_SALUD",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "decided_by": "anotacion_manual_salud_2026-09-23"
     },
     {
       "code": "RECURSOS_HUMANOS",
