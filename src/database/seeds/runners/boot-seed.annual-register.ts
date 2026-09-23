@@ -75,6 +75,27 @@ const REGISTERS: ReadonlyArray<{
     agentCode: 'CORPORATE_REGISTER_BACKFILL',
     dataCategory: 'CORPORATE_REGISTER',
   },
+  /*
+   * Los tres cuadros por actividad, que son la apertura de las cuentas
+   * regionales y no otro corpus: mismo publicador, misma corrida y misma
+   * categoría. Van en tres archivos porque el esquema admite cuatrocientas
+   * series por archivo y aquí son más de mil.
+   */
+  {
+    file: 'boot/department-activities-value.json',
+    agentCode: 'INE_DEPARTMENTS_BACKFILL',
+    dataCategory: 'REGIONAL_ACCOUNTS',
+  },
+  {
+    file: 'boot/department-activities-growth.json',
+    agentCode: 'INE_DEPARTMENTS_BACKFILL',
+    dataCategory: 'REGIONAL_ACCOUNTS',
+  },
+  {
+    file: 'boot/department-activities-share.json',
+    agentCode: 'INE_DEPARTMENTS_BACKFILL',
+    dataCategory: 'REGIONAL_ACCOUNTS',
+  },
 ];
 
 type RegisterPoint = AnnualRegisterSeries['points'][number];

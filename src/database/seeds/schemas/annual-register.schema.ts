@@ -61,7 +61,7 @@ export const annualRegisterSchema = z.object({
           /** Qué se mide, sin el nombre del grupo. */
           measure: z.string().trim().min(3).max(120),
           /** Si la fila se puede sumar con sus hermanas, y en qué plano vive. */
-          level: z.enum(['COUNTRY', 'DEPARTMENT', 'PRODUCT', 'COMPANY', 'AGGREGATE']),
+          level: z.enum(['COUNTRY', 'DEPARTMENT', 'PRODUCT', 'COMPANY', 'AGGREGATE', 'ACTIVITY']),
           unit: z
             .string()
             .regex(/^[A-Z0-9_]+$/u)
