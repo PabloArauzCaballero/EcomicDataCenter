@@ -187,6 +187,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-cajeros-poi/',
       'boot/bolivia-osm-expansion-poi/',
       'boot/bolivia-transport-poi/',
+      'boot/bolivia-scz-enrichment-poi/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
     // esperaban, y entraron las 6.584 de la entrega de establecimientos.
@@ -200,7 +201,16 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // transporte leídos en vivo de OpenStreetMap (puertos, aeropuertos,
     // terminales, paradas, ferrocarril), con tres familias nuevas (puerto
     // fluvial, puerto seco, zona franca).
-    '1.5.0',
+    // 2026-09-23 (segunda entrega): 89 lugares de comercio y servicios de
+    // Santa Cruz de la Sierra leídos en vivo de OpenStreetMap (minoristas,
+    // gastronomía, oficios y comercio especializado), ninguno en familia
+    // genérica. Del 34% que la entrega nacional dejó en `OTRA_ENTIDAD` /
+    // `OV_SERVICES_AND_BUSINESS`, el 96% de lo que Overpass devuelve para
+    // esas mismas etiquetas ya estaba cargado por el mismo identificador de
+    // OpenStreetMap (medido: 4.373 de 4.535 elementos leídos, ver
+    // `docs/runbooks/santa-cruz-commerce-enrichment.md`); sin familias
+    // nuevas en el catálogo.
+    '1.5.1',
   ),
   historical('bolivia-road-network', 'Red vial de Bolivia', [
     'boot/bolivia-road-network/road-sections.json',

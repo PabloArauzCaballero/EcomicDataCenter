@@ -282,4 +282,17 @@ describe('bolivia national place seed', () => {
       'puente_explicito_tags_osm_a_familias_ampliadas',
     );
   });
+
+  // Santa Cruz: departamento fijo por área administrativa, no declarado.
+  it('accepts a Santa Cruz commerce place geofenced by the municipal area', () => {
+    const shop = placeWith({
+      department: 'Santa Cruz',
+      locality: 'Santa Cruz de la Sierra',
+      entityGroup: 'ENTRETENIMIENTO',
+      entityFamily: 'DISCOTECA_NIGHTCLUB',
+      classificationMethod: 'puente_explicito_tags_osm_a_codigos_existentes',
+    });
+    const seed = boliviaNationalPoiSchema.parse(seedWith(shop));
+    expect(seed.places[0]?.department).toBe('Santa Cruz');
+  });
 });
