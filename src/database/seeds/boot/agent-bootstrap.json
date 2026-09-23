@@ -282,6 +282,17 @@
       "specialty": "Tramos de la red vial principal por ruta, departamento y rodadura, y su longitud oficial anual",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000021",
+      "code": "FOREIGN_TRADE_DETAIL_BACKFILL",
+      "name": "Carga del comercio exterior por socio y por producto declarado ante Naciones Unidas",
+      "agentType": "EXTERNAL_SECTOR",
+      "provider": "Naciones Unidas",
+      "modelIdentifier": "un-comtrade-preview",
+      "specialty": "Exportaciones e importaciones por pais socio y por capitulo del Sistema Armonizado",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
