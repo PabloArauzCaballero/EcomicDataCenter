@@ -96,6 +96,8 @@
     "trade:collect": "tsx scripts/macro/collect-comtrade-trade.ts",
     "trade-detail:collect": "tsx scripts/macro/collect-comtrade-trade-detail.ts",
     "minerals:collect": "tsx scripts/macro/collect-comtrade-minerals.ts",
+    "exogenous:collect": "tsx scripts/exogenous/collect-exogenous-prices.ts",
+    "exogenous:customs": "tsx scripts/exogenous/collect-exogenous-customs.ts",
     "departments:collect": "tsx scripts/macro/collect-ine-departments.ts",
     "departments:activities": "tsx scripts/macro/collect-ine-department-activities.ts",
     "corporate:collect": "tsx scripts/macro/collect-corporate-register.ts"

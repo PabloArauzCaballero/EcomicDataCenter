@@ -293,6 +293,17 @@
       "specialty": "Exportaciones e importaciones por pais socio y por capitulo del Sistema Armonizado",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000022",
+      "code": "EXOGENOUS_PRICES",
+      "name": "Precios que Bolivia no fija: cotizaciones mundiales, regionales, internas y de aduana",
+      "agentType": "EXTERNAL_SECTOR",
+      "provider": "Banco Mundial, FRED, FAO/GIEWS y Naciones Unidas",
+      "modelIdentifier": "pink-sheet-fred-fpma-comtrade",
+      "specialty": "Precios de energia, minerales, agro, ganaderia, insumos y construccion; valor unitario de aduana",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

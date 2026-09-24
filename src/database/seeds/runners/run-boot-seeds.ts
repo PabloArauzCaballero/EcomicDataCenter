@@ -29,6 +29,7 @@ import { reconcileForeignTradeDetail } from './boot-seed.foreign-trade-detail';
 import { reconcileAnnualActivities, reconcileAnnualRegisters } from './boot-seed.annual-register';
 import { reconcileWorldBankPanel } from './boot-seed.worldbank-panel';
 import { reconcileBoliviaRoadNetwork } from './boot-seed.bolivia-road-network';
+import { reconcileExogenousPrices } from './boot-seed.exogenous-prices';
 
 /**
  * The heavy catalogues, by the name they can be asked for on their own.
@@ -68,6 +69,7 @@ const SELECTABLE = [
   'bolivia-national-poi',
   'worldbank-panel',
   'bolivia-road-network',
+  'exogenous-prices',
 ] as const;
 
 type Catalogue = (typeof SELECTABLE)[number];
@@ -144,6 +146,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bolivia-poi', reconcileBoliviaPoi],
   ['bolivia-national-poi', reconcileBoliviaNationalPoi],
   ['bolivia-road-network', reconcileBoliviaRoadNetwork],
+  ['exogenous-prices', reconcileExogenousPrices],
 ];
 
 /**
