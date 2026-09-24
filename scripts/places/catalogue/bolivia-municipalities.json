@@ -1,0 +1,2718 @@
+{
+ "source": "COD-AB Bolivia v02 (HDX/OCHA; MDRyT, geometría GeoBolivia), adm3",
+ "note": "name = el que ya usa el tablero; officialName = nombre de la capa con grafía corregida; layerName = tal cual la capa",
+ "municipalities": [
+  {
+   "code": "010101",
+   "name": "Sucre",
+   "officialName": "Sucre",
+   "layerName": "Sucre",
+   "department": "Chuquisaca",
+   "province": "Oropeza"
+  },
+  {
+   "code": "010102",
+   "name": "Yotala",
+   "officialName": "Yotala",
+   "layerName": "Yotala",
+   "department": "Chuquisaca",
+   "province": "Oropeza"
+  },
+  {
+   "code": "010103",
+   "name": "Poroma",
+   "officialName": "Poroma",
+   "layerName": "Poroma",
+   "department": "Chuquisaca",
+   "province": "Oropeza"
+  },
+  {
+   "code": "010201",
+   "name": "Azurduy",
+   "officialName": "Azurduy",
+   "layerName": "Azurduy",
+   "department": "Chuquisaca",
+   "province": "Azurduy"
+  },
+  {
+   "code": "010202",
+   "name": "Tarvita",
+   "officialName": "Tarvita",
+   "layerName": "Tarvita",
+   "department": "Chuquisaca",
+   "province": "Azurduy"
+  },
+  {
+   "code": "010301",
+   "name": "Zudañez",
+   "officialName": "Zudañez",
+   "layerName": "Zudañez",
+   "department": "Chuquisaca",
+   "province": "Zudáñez"
+  },
+  {
+   "code": "010302",
+   "name": "Presto",
+   "officialName": "Presto",
+   "layerName": "Presto",
+   "department": "Chuquisaca",
+   "province": "Zudáñez"
+  },
+  {
+   "code": "010303",
+   "name": "Mojocoya",
+   "officialName": "Mojocoya",
+   "layerName": "Mojocoya",
+   "department": "Chuquisaca",
+   "province": "Zudáñez"
+  },
+  {
+   "code": "010304",
+   "name": "Icla",
+   "officialName": "Villa Ricardo Mujía - Icla",
+   "layerName": "Villa Ricardo Mugia - Icla",
+   "department": "Chuquisaca",
+   "province": "Zudáñez"
+  },
+  {
+   "code": "010401",
+   "name": "Padilla",
+   "officialName": "Padilla",
+   "layerName": "Padilla",
+   "department": "Chuquisaca",
+   "province": "Tomina"
+  },
+  {
+   "code": "010402",
+   "name": "Tomina",
+   "officialName": "Tomina",
+   "layerName": "Tomina",
+   "department": "Chuquisaca",
+   "province": "Tomina"
+  },
+  {
+   "code": "010403",
+   "name": "Sopachuy",
+   "officialName": "Sopachuy",
+   "layerName": "Sopachui",
+   "department": "Chuquisaca",
+   "province": "Tomina"
+  },
+  {
+   "code": "010404",
+   "name": "Villa Alcalá",
+   "officialName": "Alcalá",
+   "layerName": "Alcalá",
+   "department": "Chuquisaca",
+   "province": "Tomina"
+  },
+  {
+   "code": "010405",
+   "name": "El Villar",
+   "officialName": "El Villar",
+   "layerName": "El Villar",
+   "department": "Chuquisaca",
+   "province": "Tomina"
+  },
+  {
+   "code": "010501",
+   "name": "Monteagudo",
+   "officialName": "Monteagudo",
+   "layerName": "Monteagudo",
+   "department": "Chuquisaca",
+   "province": "Hernando Siles"
+  },
+  {
+   "code": "010502",
+   "name": "Huacareta",
+   "officialName": "Huacareta",
+   "layerName": "Huacareta",
+   "department": "Chuquisaca",
+   "province": "Hernando Siles"
+  },
+  {
+   "code": "010601",
+   "name": "Tarabuco",
+   "officialName": "Tarabuco",
+   "layerName": "Tarabuco",
+   "department": "Chuquisaca",
+   "province": "Yamparáez"
+  },
+  {
+   "code": "010602",
+   "name": "Yamparáez",
+   "officialName": "Yamparáez",
+   "layerName": "Yamparáez",
+   "department": "Chuquisaca",
+   "province": "Yamparáez"
+  },
+  {
+   "code": "010701",
+   "name": "Camargo",
+   "officialName": "Camargo",
+   "layerName": "Camargo",
+   "department": "Chuquisaca",
+   "province": "Nor Cinti"
+  },
+  {
+   "code": "010702",
+   "name": "San Lucas",
+   "officialName": "San Lucas",
+   "layerName": "San Lucas",
+   "department": "Chuquisaca",
+   "province": "Nor Cinti"
+  },
+  {
+   "code": "010703",
+   "name": "Incahuasi",
+   "officialName": "Incahuasi",
+   "layerName": "Incahuasi",
+   "department": "Chuquisaca",
+   "province": "Nor Cinti"
+  },
+  {
+   "code": "010704",
+   "name": "Villa Charcas",
+   "officialName": "Villa Charcas",
+   "layerName": "Villa Charcas",
+   "department": "Chuquisaca",
+   "province": "Nor Cinti"
+  },
+  {
+   "code": "010801",
+   "name": "Villa Serrano",
+   "officialName": "Villa Serrano",
+   "layerName": "Villa Serrano",
+   "department": "Chuquisaca",
+   "province": "Belisario Boeto"
+  },
+  {
+   "code": "010901",
+   "name": "Villa Abecia",
+   "officialName": "Villa Abecia",
+   "layerName": "Villa Abecia",
+   "department": "Chuquisaca",
+   "province": "Sur Cinti"
+  },
+  {
+   "code": "010902",
+   "name": "Culpina",
+   "officialName": "Culpina",
+   "layerName": "Culpina",
+   "department": "Chuquisaca",
+   "province": "Sur Cinti"
+  },
+  {
+   "code": "010903",
+   "name": "Las Carreras",
+   "officialName": "Las Carreras",
+   "layerName": "Las Carreras",
+   "department": "Chuquisaca",
+   "province": "Sur Cinti"
+  },
+  {
+   "code": "011001",
+   "name": "Villa Vaca Guzmán",
+   "officialName": "Villa Vaca Guzmán",
+   "layerName": "Villa Vaca Guzmán",
+   "department": "Chuquisaca",
+   "province": "Luis Calvo"
+  },
+  {
+   "code": "011002",
+   "name": "Huacaya",
+   "officialName": "Huacaya",
+   "layerName": "Huacaya",
+   "department": "Chuquisaca",
+   "province": "Luis Calvo"
+  },
+  {
+   "code": "011003",
+   "name": "Macharetí",
+   "officialName": "Macharetí",
+   "layerName": "Macharetí",
+   "department": "Chuquisaca",
+   "province": "Luis Calvo"
+  },
+  {
+   "code": "020101",
+   "name": "La Paz",
+   "officialName": "Nuestra Señora de La Paz",
+   "layerName": "Nuestra Señora de La Paz",
+   "department": "La Paz",
+   "province": "Murillo"
+  },
+  {
+   "code": "020102",
+   "name": "Palca",
+   "officialName": "Palca",
+   "layerName": "Palca",
+   "department": "La Paz",
+   "province": "Murillo"
+  },
+  {
+   "code": "020103",
+   "name": "Mecapaca",
+   "officialName": "Mecapaca",
+   "layerName": "Mecapaca",
+   "department": "La Paz",
+   "province": "Murillo"
+  },
+  {
+   "code": "020104",
+   "name": "Achocalla",
+   "officialName": "Achocalla",
+   "layerName": "Achocalla",
+   "department": "La Paz",
+   "province": "Murillo"
+  },
+  {
+   "code": "020105",
+   "name": "El Alto",
+   "officialName": "El Alto",
+   "layerName": "El Alto",
+   "department": "La Paz",
+   "province": "Murillo"
+  },
+  {
+   "code": "020201",
+   "name": "Achacachi",
+   "officialName": "Achacachi",
+   "layerName": "Achacachi",
+   "department": "La Paz",
+   "province": "Omasuyos"
+  },
+  {
+   "code": "020202",
+   "name": "Ancoraimes",
+   "officialName": "Villa Ancoraimes",
+   "layerName": "Villa Ancoraimes",
+   "department": "La Paz",
+   "province": "Omasuyos"
+  },
+  {
+   "code": "020203",
+   "name": "Huarina",
+   "officialName": "Huarina",
+   "layerName": "Huarina",
+   "department": "La Paz",
+   "province": "Omasuyos"
+  },
+  {
+   "code": "020204",
+   "name": "Santiago de Huata",
+   "officialName": "Santiago de Huata",
+   "layerName": "Santiago de Huata",
+   "department": "La Paz",
+   "province": "Omasuyos"
+  },
+  {
+   "code": "020205",
+   "name": "Huatajata",
+   "officialName": "Huatajata",
+   "layerName": "Huatajata",
+   "department": "La Paz",
+   "province": "Omasuyos"
+  },
+  {
+   "code": "020206",
+   "name": "Chua Cocani",
+   "officialName": "Chua Cocani",
+   "layerName": "Chua Cocani",
+   "department": "La Paz",
+   "province": "Omasuyos"
+  },
+  {
+   "code": "020301",
+   "name": "Coro Coro",
+   "officialName": "Corocoro",
+   "layerName": "Corocoro",
+   "department": "La Paz",
+   "province": "Pacajes"
+  },
+  {
+   "code": "020302",
+   "name": "Caquiaviri",
+   "officialName": "Caquiaviri",
+   "layerName": "Caquiaviri",
+   "department": "La Paz",
+   "province": "Pacajes"
+  },
+  {
+   "code": "020303",
+   "name": "Calacoto",
+   "officialName": "Calacoto",
+   "layerName": "Calacoto",
+   "department": "La Paz",
+   "province": "Pacajes"
+  },
+  {
+   "code": "020304",
+   "name": "Comanche",
+   "officialName": "Comanche",
+   "layerName": "Comanche",
+   "department": "La Paz",
+   "province": "Pacajes"
+  },
+  {
+   "code": "020305",
+   "name": "Charaña",
+   "officialName": "Charaña",
+   "layerName": "Charaña",
+   "department": "La Paz",
+   "province": "Pacajes"
+  },
+  {
+   "code": "020306",
+   "name": "Waldo Ballivián",
+   "officialName": "Waldo Ballivián",
+   "layerName": "Waldo Ballivian",
+   "department": "La Paz",
+   "province": "Pacajes"
+  },
+  {
+   "code": "020307",
+   "name": "Nazacara de Pacajes",
+   "officialName": "Nazacara de Pacajes",
+   "layerName": "Nazacara de Pacajes",
+   "department": "La Paz",
+   "province": "Pacajes"
+  },
+  {
+   "code": "020308",
+   "name": "Callapa",
+   "officialName": "Santiago de Callapa",
+   "layerName": "Santiago de Callapa",
+   "department": "La Paz",
+   "province": "Pacajes"
+  },
+  {
+   "code": "020401",
+   "name": "Puerto Acosta",
+   "officialName": "Puerto Acosta",
+   "layerName": "Puerto Acosta",
+   "department": "La Paz",
+   "province": "Camacho"
+  },
+  {
+   "code": "020402",
+   "name": "Mocomoco",
+   "officialName": "Mocomoco",
+   "layerName": "Mocomoco",
+   "department": "La Paz",
+   "province": "Camacho"
+  },
+  {
+   "code": "020403",
+   "name": "Puerto Carabuco",
+   "officialName": "Puerto Mayor de Carabuco",
+   "layerName": "Puerto Mayor de Carabuco",
+   "department": "La Paz",
+   "province": "Camacho"
+  },
+  {
+   "code": "020404",
+   "name": "Humanata",
+   "officialName": "Humanata",
+   "layerName": "Humanata",
+   "department": "La Paz",
+   "province": "Camacho"
+  },
+  {
+   "code": "020405",
+   "name": "Escoma",
+   "officialName": "Escoma",
+   "layerName": "Escoma",
+   "department": "La Paz",
+   "province": "Camacho"
+  },
+  {
+   "code": "020501",
+   "name": "Chuma",
+   "officialName": "Chuma",
+   "layerName": "Chuma",
+   "department": "La Paz",
+   "province": "Muñecas"
+  },
+  {
+   "code": "020502",
+   "name": "Ayata",
+   "officialName": "Ayata",
+   "layerName": "Ayata",
+   "department": "La Paz",
+   "province": "Muñecas"
+  },
+  {
+   "code": "020503",
+   "name": "Aucapata",
+   "officialName": "Aucapata",
+   "layerName": "Aucapata",
+   "department": "La Paz",
+   "province": "Muñecas"
+  },
+  {
+   "code": "020601",
+   "name": "Sorata",
+   "officialName": "Sorata",
+   "layerName": "Sorata",
+   "department": "La Paz",
+   "province": "Larecaja"
+  },
+  {
+   "code": "020602",
+   "name": "Guanay",
+   "officialName": "Guanay",
+   "layerName": "Guanay",
+   "department": "La Paz",
+   "province": "Larecaja"
+  },
+  {
+   "code": "020603",
+   "name": "Tacacoma",
+   "officialName": "Tacacoma",
+   "layerName": "Tacacoma",
+   "department": "La Paz",
+   "province": "Larecaja"
+  },
+  {
+   "code": "020604",
+   "name": "Quiabaya",
+   "officialName": "Quiabaya",
+   "layerName": "Quiabaya",
+   "department": "La Paz",
+   "province": "Larecaja"
+  },
+  {
+   "code": "020605",
+   "name": "Combaya",
+   "officialName": "Combaya",
+   "layerName": "Combaya",
+   "department": "La Paz",
+   "province": "Larecaja"
+  },
+  {
+   "code": "020606",
+   "name": "Tipuani",
+   "officialName": "Tipuani",
+   "layerName": "Tipuani",
+   "department": "La Paz",
+   "province": "Larecaja"
+  },
+  {
+   "code": "020607",
+   "name": "Mapiri",
+   "officialName": "Mapiri",
+   "layerName": "Mapiri",
+   "department": "La Paz",
+   "province": "Larecaja"
+  },
+  {
+   "code": "020608",
+   "name": "Teoponte",
+   "officialName": "Teoponte",
+   "layerName": "Teoponte",
+   "department": "La Paz",
+   "province": "Larecaja"
+  },
+  {
+   "code": "020701",
+   "name": "Apolo",
+   "officialName": "Apolo",
+   "layerName": "Apolo",
+   "department": "La Paz",
+   "province": "Franz Tamayo"
+  },
+  {
+   "code": "020702",
+   "name": "Pelechuco",
+   "officialName": "Pelechuco",
+   "layerName": "Pelechuco",
+   "department": "La Paz",
+   "province": "Franz Tamayo"
+  },
+  {
+   "code": "020801",
+   "name": "Viacha",
+   "officialName": "Viacha",
+   "layerName": "Viacha",
+   "department": "La Paz",
+   "province": "Ingavi"
+  },
+  {
+   "code": "020802",
+   "name": "Guaqui",
+   "officialName": "Puerto Mayor de Guaqui",
+   "layerName": "Puerto Mayor de Guaqui",
+   "department": "La Paz",
+   "province": "Ingavi"
+  },
+  {
+   "code": "020803",
+   "name": "Tiahuanacu",
+   "officialName": "Tiahuanacu",
+   "layerName": "Tiahuanacu",
+   "department": "La Paz",
+   "province": "Ingavi"
+  },
+  {
+   "code": "020804",
+   "name": "Desaguadero",
+   "officialName": "Desaguadero",
+   "layerName": "Desaguadero",
+   "department": "La Paz",
+   "province": "Ingavi"
+  },
+  {
+   "code": "020805",
+   "name": "San Andrés de Machaca",
+   "officialName": "San Andrés de Machaca",
+   "layerName": "La (Marka) San Andrés de Machaca",
+   "department": "La Paz",
+   "province": "Ingavi"
+  },
+  {
+   "code": "020806",
+   "name": "Jesús de Machaca",
+   "officialName": "Jesús de Machaca",
+   "layerName": "Jesús de Machaka",
+   "department": "La Paz",
+   "province": "Ingavi"
+  },
+  {
+   "code": "020807",
+   "name": "Taraco",
+   "officialName": "Taraco",
+   "layerName": "Taraco",
+   "department": "La Paz",
+   "province": "Ingavi"
+  },
+  {
+   "code": "020901",
+   "name": "Luribay",
+   "officialName": "Luribay",
+   "layerName": "Luribay",
+   "department": "La Paz",
+   "province": "Loayza"
+  },
+  {
+   "code": "020902",
+   "name": "Sapahaqui",
+   "officialName": "Sapahaqui",
+   "layerName": "Sapahaqui",
+   "department": "La Paz",
+   "province": "Loayza"
+  },
+  {
+   "code": "020903",
+   "name": "Yaco",
+   "officialName": "Yaco",
+   "layerName": "Yaco",
+   "department": "La Paz",
+   "province": "Loayza"
+  },
+  {
+   "code": "020904",
+   "name": "Malla",
+   "officialName": "Malla",
+   "layerName": "Malla",
+   "department": "La Paz",
+   "province": "Loayza"
+  },
+  {
+   "code": "020905",
+   "name": "Cairoma",
+   "officialName": "Cairoma",
+   "layerName": "Cairoma",
+   "department": "La Paz",
+   "province": "Loayza"
+  },
+  {
+   "code": "021001",
+   "name": "Inquisivi",
+   "officialName": "Inquisivi",
+   "layerName": "Inquisivi",
+   "department": "La Paz",
+   "province": "Inquisivi"
+  },
+  {
+   "code": "021002",
+   "name": "Quime",
+   "officialName": "Quime",
+   "layerName": "Quime",
+   "department": "La Paz",
+   "province": "Inquisivi"
+  },
+  {
+   "code": "021003",
+   "name": "Cajuata",
+   "officialName": "Cajuata",
+   "layerName": "Cajuata",
+   "department": "La Paz",
+   "province": "Inquisivi"
+  },
+  {
+   "code": "021004",
+   "name": "Colquiri",
+   "officialName": "Colquiri",
+   "layerName": "Colquiri",
+   "department": "La Paz",
+   "province": "Inquisivi"
+  },
+  {
+   "code": "021005",
+   "name": "Ichoca",
+   "officialName": "Ichoca",
+   "layerName": "Ichoca",
+   "department": "La Paz",
+   "province": "Inquisivi"
+  },
+  {
+   "code": "021006",
+   "name": "Villa Libertad Licoma",
+   "officialName": "Villa Libertad Licoma",
+   "layerName": "Villa Libertad Licoma",
+   "department": "La Paz",
+   "province": "Inquisivi"
+  },
+  {
+   "code": "021101",
+   "name": "Chulumani",
+   "officialName": "Chulumani",
+   "layerName": "Chulumani",
+   "department": "La Paz",
+   "province": "Sud Yungas"
+  },
+  {
+   "code": "021102",
+   "name": "Irupana",
+   "officialName": "Irupana",
+   "layerName": "Irupana",
+   "department": "La Paz",
+   "province": "Sud Yungas"
+  },
+  {
+   "code": "021103",
+   "name": "Yanacachi",
+   "officialName": "Yanacachi",
+   "layerName": "Yanacachi",
+   "department": "La Paz",
+   "province": "Sud Yungas"
+  },
+  {
+   "code": "021104",
+   "name": "Palos Blancos",
+   "officialName": "Palos Blancos",
+   "layerName": "Palos Blancos",
+   "department": "La Paz",
+   "province": "Sud Yungas"
+  },
+  {
+   "code": "021105",
+   "name": "La Asunta",
+   "officialName": "La Asunta",
+   "layerName": "La Asunta",
+   "department": "La Paz",
+   "province": "Sud Yungas"
+  },
+  {
+   "code": "021201",
+   "name": "Pucarani",
+   "officialName": "Pucarani",
+   "layerName": "Pucarani",
+   "department": "La Paz",
+   "province": "Los Andes"
+  },
+  {
+   "code": "021202",
+   "name": "Laja",
+   "officialName": "Laja",
+   "layerName": "Laja",
+   "department": "La Paz",
+   "province": "Los Andes"
+  },
+  {
+   "code": "021203",
+   "name": "Batallas",
+   "officialName": "Batallas",
+   "layerName": "Batallas",
+   "department": "La Paz",
+   "province": "Los Andes"
+  },
+  {
+   "code": "021204",
+   "name": "Puerto Pérez",
+   "officialName": "Puerto Pérez",
+   "layerName": "Puerto Pérez",
+   "department": "La Paz",
+   "province": "Los Andes"
+  },
+  {
+   "code": "021301",
+   "name": "Sica Sica",
+   "officialName": "Sicasica",
+   "layerName": "Sicasica",
+   "department": "La Paz",
+   "province": "Aroma"
+  },
+  {
+   "code": "021302",
+   "name": "Umala",
+   "officialName": "Umala",
+   "layerName": "Umala",
+   "department": "La Paz",
+   "province": "Aroma"
+  },
+  {
+   "code": "021303",
+   "name": "Ayo Ayo",
+   "officialName": "Ayo Ayo",
+   "layerName": "Ayo Ayo",
+   "department": "La Paz",
+   "province": "Aroma"
+  },
+  {
+   "code": "021304",
+   "name": "Calamarca",
+   "officialName": "Calamarca",
+   "layerName": "Calamarca",
+   "department": "La Paz",
+   "province": "Aroma"
+  },
+  {
+   "code": "021305",
+   "name": "Patacamaya",
+   "officialName": "Patacamaya",
+   "layerName": "Patacamaya",
+   "department": "La Paz",
+   "province": "Aroma"
+  },
+  {
+   "code": "021306",
+   "name": "Colquencha",
+   "officialName": "Colquencha",
+   "layerName": "Colquencha",
+   "department": "La Paz",
+   "province": "Aroma"
+  },
+  {
+   "code": "021307",
+   "name": "Collana",
+   "officialName": "Collana",
+   "layerName": "Collana",
+   "department": "La Paz",
+   "province": "Aroma"
+  },
+  {
+   "code": "021401",
+   "name": "Coroico",
+   "officialName": "Coroico",
+   "layerName": "Coroico",
+   "department": "La Paz",
+   "province": "Nor Yungas"
+  },
+  {
+   "code": "021402",
+   "name": "Coripata",
+   "officialName": "Coripata",
+   "layerName": "Coripata",
+   "department": "La Paz",
+   "province": "Nor Yungas"
+  },
+  {
+   "code": "021501",
+   "name": "Ixiamas",
+   "officialName": "Ixiamas",
+   "layerName": "Ixiamas",
+   "department": "La Paz",
+   "province": "Abel Iturralde"
+  },
+  {
+   "code": "021502",
+   "name": "San Buenaventura",
+   "officialName": "San Buenaventura",
+   "layerName": "San Buenaventura",
+   "department": "La Paz",
+   "province": "Abel Iturralde"
+  },
+  {
+   "code": "021601",
+   "name": "Charazani",
+   "officialName": "Charazani",
+   "layerName": "Charazani",
+   "department": "La Paz",
+   "province": "Bautista Saavedra"
+  },
+  {
+   "code": "021602",
+   "name": "Curva",
+   "officialName": "Curva",
+   "layerName": "Curva",
+   "department": "La Paz",
+   "province": "Bautista Saavedra"
+  },
+  {
+   "code": "021701",
+   "name": "Copacabana",
+   "officialName": "Copacabana",
+   "layerName": "Copacabana",
+   "department": "La Paz",
+   "province": "Manco Kapac"
+  },
+  {
+   "code": "021702",
+   "name": "San Pedro de Tiquina",
+   "officialName": "San Pedro de Tiquina",
+   "layerName": "San Pedro de Tiquina",
+   "department": "La Paz",
+   "province": "Manco Kapac"
+  },
+  {
+   "code": "021703",
+   "name": "Tito Yupanqui",
+   "officialName": "Tito Yupanqui",
+   "layerName": "Tito Yupanqui",
+   "department": "La Paz",
+   "province": "Manco Kapac"
+  },
+  {
+   "code": "021801",
+   "name": "San Pedro de Curahuara",
+   "officialName": "San Pedro de Curahuara",
+   "layerName": "San Pedro de Curahuara",
+   "department": "La Paz",
+   "province": "Gualberto Villarroel"
+  },
+  {
+   "code": "021802",
+   "name": "Papel Pampa",
+   "officialName": "Papel Pampa",
+   "layerName": "Papel Pampa",
+   "department": "La Paz",
+   "province": "Gualberto Villarroel"
+  },
+  {
+   "code": "021803",
+   "name": "Chacarilla",
+   "officialName": "Chacarilla",
+   "layerName": "Chacarilla",
+   "department": "La Paz",
+   "province": "Gualberto Villarroel"
+  },
+  {
+   "code": "021901",
+   "name": "Santiago de Machaca",
+   "officialName": "Santiago de Machaca",
+   "layerName": "Santiago de Machaca",
+   "department": "La Paz",
+   "province": "General José Manuel Pando"
+  },
+  {
+   "code": "021902",
+   "name": "Catacora",
+   "officialName": "Catacora",
+   "layerName": "Catacora",
+   "department": "La Paz",
+   "province": "General José Manuel Pando"
+  },
+  {
+   "code": "022001",
+   "name": "Caranavi",
+   "officialName": "Caranavi",
+   "layerName": "Caranavi",
+   "department": "La Paz",
+   "province": "Caranavi"
+  },
+  {
+   "code": "022002",
+   "name": "Alto Beni",
+   "officialName": "Alto Beni",
+   "layerName": "Alto Beni",
+   "department": "La Paz",
+   "province": "Caranavi"
+  },
+  {
+   "code": "030101",
+   "name": "Cochabamba",
+   "officialName": "Cochabamba",
+   "layerName": "Cochabamba",
+   "department": "Cochabamba",
+   "province": "Cercado"
+  },
+  {
+   "code": "030201",
+   "name": "Aiquile",
+   "officialName": "Aiquile",
+   "layerName": "Aiquile",
+   "department": "Cochabamba",
+   "province": "Campero"
+  },
+  {
+   "code": "030202",
+   "name": "Pasorapa",
+   "officialName": "Pasorapa",
+   "layerName": "Pasorapa",
+   "department": "Cochabamba",
+   "province": "Campero"
+  },
+  {
+   "code": "030203",
+   "name": "Omereque",
+   "officialName": "Omereque",
+   "layerName": "Omereque",
+   "department": "Cochabamba",
+   "province": "Campero"
+  },
+  {
+   "code": "030301",
+   "name": "Independencia",
+   "officialName": "Ayopaya",
+   "layerName": "Ayopaya",
+   "department": "Cochabamba",
+   "province": "Ayopaya"
+  },
+  {
+   "code": "030302",
+   "name": "Morochata",
+   "officialName": "Morochata",
+   "layerName": "Morochata",
+   "department": "Cochabamba",
+   "province": "Ayopaya"
+  },
+  {
+   "code": "030303",
+   "name": "Cocapata",
+   "officialName": "Cocapata",
+   "layerName": "Cocapata",
+   "department": "Cochabamba",
+   "province": "Ayopaya"
+  },
+  {
+   "code": "030401",
+   "name": "Tarata",
+   "officialName": "Tarata",
+   "layerName": "Tarata",
+   "department": "Cochabamba",
+   "province": "Esteban Arze"
+  },
+  {
+   "code": "030402",
+   "name": "Anzaldo",
+   "officialName": "Anzaldo",
+   "layerName": "Anzaldo",
+   "department": "Cochabamba",
+   "province": "Esteban Arze"
+  },
+  {
+   "code": "030403",
+   "name": "Arbieto",
+   "officialName": "Arbieto",
+   "layerName": "Arbieto",
+   "department": "Cochabamba",
+   "province": "Esteban Arze"
+  },
+  {
+   "code": "030404",
+   "name": "Sacabamba",
+   "officialName": "Sacabamba",
+   "layerName": "Sacabamba",
+   "department": "Cochabamba",
+   "province": "Esteban Arze"
+  },
+  {
+   "code": "030501",
+   "name": "Arani",
+   "officialName": "Arani",
+   "layerName": "Arani",
+   "department": "Cochabamba",
+   "province": "Arani"
+  },
+  {
+   "code": "030502",
+   "name": "Vacas",
+   "officialName": "Vacas",
+   "layerName": "Vacas",
+   "department": "Cochabamba",
+   "province": "Arani"
+  },
+  {
+   "code": "030601",
+   "name": "Arque",
+   "officialName": "Arque",
+   "layerName": "Arque",
+   "department": "Cochabamba",
+   "province": "Arque"
+  },
+  {
+   "code": "030602",
+   "name": "Tacopaya",
+   "officialName": "Tacopaya",
+   "layerName": "Tacopaya",
+   "department": "Cochabamba",
+   "province": "Arque"
+  },
+  {
+   "code": "030701",
+   "name": "Capinota",
+   "officialName": "Capinota",
+   "layerName": "Capinota",
+   "department": "Cochabamba",
+   "province": "Capinota"
+  },
+  {
+   "code": "030702",
+   "name": "Santiváñez",
+   "officialName": "Santiváñez",
+   "layerName": "Santivañez",
+   "department": "Cochabamba",
+   "province": "Capinota"
+  },
+  {
+   "code": "030703",
+   "name": "Sicaya",
+   "officialName": "Sicaya",
+   "layerName": "Sicaya",
+   "department": "Cochabamba",
+   "province": "Capinota"
+  },
+  {
+   "code": "030801",
+   "name": "Cliza",
+   "officialName": "Cliza",
+   "layerName": "Cliza",
+   "department": "Cochabamba",
+   "province": "Germán Jordán"
+  },
+  {
+   "code": "030802",
+   "name": "Toco",
+   "officialName": "Toco",
+   "layerName": "Toco",
+   "department": "Cochabamba",
+   "province": "Germán Jordán"
+  },
+  {
+   "code": "030803",
+   "name": "Tolata",
+   "officialName": "Tolata",
+   "layerName": "Tolata",
+   "department": "Cochabamba",
+   "province": "Germán Jordán"
+  },
+  {
+   "code": "030901",
+   "name": "Quillacollo",
+   "officialName": "Quillacollo",
+   "layerName": "Quillacollo",
+   "department": "Cochabamba",
+   "province": "Quillacollo"
+  },
+  {
+   "code": "030902",
+   "name": "Sipe Sipe",
+   "officialName": "Sipesipe",
+   "layerName": "Sipesipe",
+   "department": "Cochabamba",
+   "province": "Quillacollo"
+  },
+  {
+   "code": "030903",
+   "name": "Tiquipaya",
+   "officialName": "Tiquipaya",
+   "layerName": "Tiquipaya",
+   "department": "Cochabamba",
+   "province": "Quillacollo"
+  },
+  {
+   "code": "030904",
+   "name": "Vinto",
+   "officialName": "Vinto",
+   "layerName": "Vinto",
+   "department": "Cochabamba",
+   "province": "Quillacollo"
+  },
+  {
+   "code": "030905",
+   "name": "Colcapirhua",
+   "officialName": "Colcapirhua",
+   "layerName": "Colcapirhua",
+   "department": "Cochabamba",
+   "province": "Quillacollo"
+  },
+  {
+   "code": "031001",
+   "name": "Sacaba",
+   "officialName": "Sacaba",
+   "layerName": "Sacaba",
+   "department": "Cochabamba",
+   "province": "Chapare"
+  },
+  {
+   "code": "031002",
+   "name": "Colomi",
+   "officialName": "Colomi",
+   "layerName": "Colomi",
+   "department": "Cochabamba",
+   "province": "Chapare"
+  },
+  {
+   "code": "031003",
+   "name": "Villa Tunari",
+   "officialName": "Villa Tunari",
+   "layerName": "Villa Tunari",
+   "department": "Cochabamba",
+   "province": "Chapare"
+  },
+  {
+   "code": "031101",
+   "name": "Tapacarí",
+   "officialName": "Tapacarí",
+   "layerName": "Tapacarí",
+   "department": "Cochabamba",
+   "province": "Tapacarí"
+  },
+  {
+   "code": "031201",
+   "name": "Totora",
+   "officialName": "Totora",
+   "layerName": "Totora",
+   "department": "Cochabamba",
+   "province": "Carrasco"
+  },
+  {
+   "code": "031202",
+   "name": "Pojo",
+   "officialName": "Pojo",
+   "layerName": "Pojo",
+   "department": "Cochabamba",
+   "province": "Carrasco"
+  },
+  {
+   "code": "031203",
+   "name": "Pocona",
+   "officialName": "Pocona",
+   "layerName": "Pocona",
+   "department": "Cochabamba",
+   "province": "Carrasco"
+  },
+  {
+   "code": "031204",
+   "name": "Chimoré",
+   "officialName": "Chimoré",
+   "layerName": "Chimoré",
+   "department": "Cochabamba",
+   "province": "Carrasco"
+  },
+  {
+   "code": "031205",
+   "name": "Puerto Villarroel",
+   "officialName": "Puerto Villarroel",
+   "layerName": "Puerto Villarroel",
+   "department": "Cochabamba",
+   "province": "Carrasco"
+  },
+  {
+   "code": "031206",
+   "name": "Entre Ríos",
+   "officialName": "Entre Ríos",
+   "layerName": "Entre Ríos",
+   "department": "Cochabamba",
+   "province": "Carrasco"
+  },
+  {
+   "code": "031301",
+   "name": "Mizque",
+   "officialName": "Mizque",
+   "layerName": "Mizque",
+   "department": "Cochabamba",
+   "province": "Mizque"
+  },
+  {
+   "code": "031302",
+   "name": "Vila Vila",
+   "officialName": "Vila Vila",
+   "layerName": "Vila Vila",
+   "department": "Cochabamba",
+   "province": "Mizque"
+  },
+  {
+   "code": "031303",
+   "name": "Alalay",
+   "officialName": "Alalay",
+   "layerName": "Alalay",
+   "department": "Cochabamba",
+   "province": "Mizque"
+  },
+  {
+   "code": "031401",
+   "name": "Punata",
+   "officialName": "Punata",
+   "layerName": "Punata",
+   "department": "Cochabamba",
+   "province": "Punata"
+  },
+  {
+   "code": "031402",
+   "name": "Villa Rivero",
+   "officialName": "Villa Rivero",
+   "layerName": "Villa Rivero",
+   "department": "Cochabamba",
+   "province": "Punata"
+  },
+  {
+   "code": "031403",
+   "name": "San Benito",
+   "officialName": "San Benito",
+   "layerName": "San Benito",
+   "department": "Cochabamba",
+   "province": "Punata"
+  },
+  {
+   "code": "031404",
+   "name": "Tacachi",
+   "officialName": "Tacachi",
+   "layerName": "Tacachi",
+   "department": "Cochabamba",
+   "province": "Punata"
+  },
+  {
+   "code": "031405",
+   "name": "Villa Gualberto Villarroel",
+   "officialName": "Villa Gualberto Villarroel",
+   "layerName": "Villa Gualberto Villarroel",
+   "department": "Cochabamba",
+   "province": "Punata"
+  },
+  {
+   "code": "031501",
+   "name": "Bolívar",
+   "officialName": "Bolívar",
+   "layerName": "Bolivar",
+   "department": "Cochabamba",
+   "province": "Bolivar"
+  },
+  {
+   "code": "031601",
+   "name": "Tiraque",
+   "officialName": "Tiraque",
+   "layerName": "Tiraque",
+   "department": "Cochabamba",
+   "province": "Tiraque"
+  },
+  {
+   "code": "031602",
+   "name": "Shinahota",
+   "officialName": "Shinahota",
+   "layerName": "Shinahota",
+   "department": "Cochabamba",
+   "province": "Tiraque"
+  },
+  {
+   "code": "040101",
+   "name": "Oruro",
+   "officialName": "Oruro",
+   "layerName": "Oruro",
+   "department": "Oruro",
+   "province": "Cercado"
+  },
+  {
+   "code": "040102",
+   "name": "Caracollo",
+   "officialName": "Caracollo",
+   "layerName": "Caracollo",
+   "department": "Oruro",
+   "province": "Cercado"
+  },
+  {
+   "code": "040103",
+   "name": "El Choro",
+   "officialName": "El Choro",
+   "layerName": "El Choro",
+   "department": "Oruro",
+   "province": "Cercado"
+  },
+  {
+   "code": "040104",
+   "name": "Soracachi",
+   "officialName": "Paria",
+   "layerName": "Paria",
+   "department": "Oruro",
+   "province": "Cercado"
+  },
+  {
+   "code": "040201",
+   "name": "Challapata",
+   "officialName": "Challapata",
+   "layerName": "Challapata",
+   "department": "Oruro",
+   "province": "Abaroa"
+  },
+  {
+   "code": "040202",
+   "name": "Quillacas",
+   "officialName": "Santuario de Quillacas",
+   "layerName": "Santuario de Quillacas",
+   "department": "Oruro",
+   "province": "Abaroa"
+  },
+  {
+   "code": "040301",
+   "name": "Corque",
+   "officialName": "Corque",
+   "layerName": "Corque",
+   "department": "Oruro",
+   "province": "Carangas"
+  },
+  {
+   "code": "040302",
+   "name": "Choque Cota",
+   "officialName": "Choquecota",
+   "layerName": "Choquecota",
+   "department": "Oruro",
+   "province": "Carangas"
+  },
+  {
+   "code": "040401",
+   "name": "Curahuara de Carangas",
+   "officialName": "Curahuara de Carangas",
+   "layerName": "Curahuara de Carangas",
+   "department": "Oruro",
+   "province": "Sajama"
+  },
+  {
+   "code": "040402",
+   "name": "Turco",
+   "officialName": "Turco",
+   "layerName": "Turco",
+   "department": "Oruro",
+   "province": "Sajama"
+  },
+  {
+   "code": "040501",
+   "name": "Huachacalla",
+   "officialName": "Huachacalla",
+   "layerName": "Huachacalla",
+   "department": "Oruro",
+   "province": "Litoral"
+  },
+  {
+   "code": "040502",
+   "name": "Escara",
+   "officialName": "Escara",
+   "layerName": "Escara",
+   "department": "Oruro",
+   "province": "Litoral"
+  },
+  {
+   "code": "040503",
+   "name": "Cruz de Machacamarca",
+   "officialName": "Cruz de Machacamarca",
+   "layerName": "Cruz de Machacamarca",
+   "department": "Oruro",
+   "province": "Litoral"
+  },
+  {
+   "code": "040504",
+   "name": "Yunguyo del Litoral",
+   "officialName": "Yunguyo del Litoral",
+   "layerName": "Yunguyo del Litoral",
+   "department": "Oruro",
+   "province": "Litoral"
+  },
+  {
+   "code": "040505",
+   "name": "Esmeralda",
+   "officialName": "Esmeralda",
+   "layerName": "Esmeralda",
+   "department": "Oruro",
+   "province": "Litoral"
+  },
+  {
+   "code": "040601",
+   "name": "Poopó",
+   "officialName": "Poopó",
+   "layerName": "Poopó",
+   "department": "Oruro",
+   "province": "Poopó"
+  },
+  {
+   "code": "040602",
+   "name": "Pazña",
+   "officialName": "Pazña",
+   "layerName": "Pazña",
+   "department": "Oruro",
+   "province": "Poopó"
+  },
+  {
+   "code": "040603",
+   "name": "Antequera",
+   "officialName": "Antequera",
+   "layerName": "Antequera",
+   "department": "Oruro",
+   "province": "Poopó"
+  },
+  {
+   "code": "040701",
+   "name": "Huanuni",
+   "officialName": "Huanuni",
+   "layerName": "Huanuni",
+   "department": "Oruro",
+   "province": "Pantaleón Dalence"
+  },
+  {
+   "code": "040702",
+   "name": "Machacamarca",
+   "officialName": "Machacamarca",
+   "layerName": "Machacamarca",
+   "department": "Oruro",
+   "province": "Pantaleón Dalence"
+  },
+  {
+   "code": "040801",
+   "name": "Salinas de Garci Mendoza",
+   "officialName": "Salinas de Garci Mendoza",
+   "layerName": "Salinas de Garcí Mendoza",
+   "department": "Oruro",
+   "province": "Ladislao Cabrera"
+  },
+  {
+   "code": "040802",
+   "name": "Pampa Aullagas",
+   "officialName": "Pampa Aullagas",
+   "layerName": "Pampa Aullagas",
+   "department": "Oruro",
+   "province": "Ladislao Cabrera"
+  },
+  {
+   "code": "040901",
+   "name": "Sabaya",
+   "officialName": "Sabaya",
+   "layerName": "Sabaya",
+   "department": "Oruro",
+   "province": "Sabaya"
+  },
+  {
+   "code": "040902",
+   "name": "Coipasa",
+   "officialName": "Coipasa",
+   "layerName": "Coipasa",
+   "department": "Oruro",
+   "province": "Sabaya"
+  },
+  {
+   "code": "040903",
+   "name": "Chipaya",
+   "officialName": "Chipaya",
+   "layerName": "Chipaya",
+   "department": "Oruro",
+   "province": "Sabaya"
+  },
+  {
+   "code": "041001",
+   "name": "Toledo",
+   "officialName": "Toledo",
+   "layerName": "Toledo",
+   "department": "Oruro",
+   "province": "Saucarí"
+  },
+  {
+   "code": "041101",
+   "name": "Eucaliptus",
+   "officialName": "Eucaliptus",
+   "layerName": "Eucaliptus",
+   "department": "Oruro",
+   "province": "Tomás Barrón"
+  },
+  {
+   "code": "041201",
+   "name": "Santiago de Andamarca",
+   "officialName": "Andamarca",
+   "layerName": "Andamarca",
+   "department": "Oruro",
+   "province": "Sur Carangas"
+  },
+  {
+   "code": "041202",
+   "name": "Belén de Andamarca",
+   "officialName": "Belén de Andamarca",
+   "layerName": "Belén de Andamarca",
+   "department": "Oruro",
+   "province": "Sur Carangas"
+  },
+  {
+   "code": "041301",
+   "name": "San Pedro de Totora",
+   "officialName": "Totora",
+   "layerName": "Totora",
+   "department": "Oruro",
+   "province": "San Pedro de Totora"
+  },
+  {
+   "code": "041401",
+   "name": "Huari",
+   "officialName": "Santiago de Huari",
+   "layerName": "Santiago de Huari",
+   "department": "Oruro",
+   "province": "Sebastián Pagador"
+  },
+  {
+   "code": "041501",
+   "name": "La Rivera",
+   "officialName": "La Rivera",
+   "layerName": "La Rivera",
+   "department": "Oruro",
+   "province": "Mejillones"
+  },
+  {
+   "code": "041502",
+   "name": "Todos Santos",
+   "officialName": "Todos Santos",
+   "layerName": "Todos Santos",
+   "department": "Oruro",
+   "province": "Mejillones"
+  },
+  {
+   "code": "041503",
+   "name": "Carangas",
+   "officialName": "Carangas",
+   "layerName": "Carangas",
+   "department": "Oruro",
+   "province": "Mejillones"
+  },
+  {
+   "code": "041601",
+   "name": "Huayllamarca",
+   "officialName": "Huayllamarca",
+   "layerName": "Huayllamarca",
+   "department": "Oruro",
+   "province": "Nor Carangas"
+  },
+  {
+   "code": "050101",
+   "name": "Potosí",
+   "officialName": "Potosí",
+   "layerName": "Potosí",
+   "department": "Potosí",
+   "province": "Tomás Frías"
+  },
+  {
+   "code": "050102",
+   "name": "Tinguipaya",
+   "officialName": "Tinguipaya",
+   "layerName": "Tinguipaya",
+   "department": "Potosí",
+   "province": "Tomás Frías"
+  },
+  {
+   "code": "050103",
+   "name": "Yocalla",
+   "officialName": "Yocalla",
+   "layerName": "Yocalla",
+   "department": "Potosí",
+   "province": "Tomás Frías"
+  },
+  {
+   "code": "050104",
+   "name": "Urmiri",
+   "officialName": "Urmiri",
+   "layerName": "Urmiri",
+   "department": "Potosí",
+   "province": "Tomás Frías"
+  },
+  {
+   "code": "050201",
+   "name": "Uncía",
+   "officialName": "Uncía",
+   "layerName": "Uncía",
+   "department": "Potosí",
+   "province": "Rafael Bustillo"
+  },
+  {
+   "code": "050202",
+   "name": "Chayanta",
+   "officialName": "Chayanta",
+   "layerName": "Chayanta",
+   "department": "Potosí",
+   "province": "Rafael Bustillo"
+  },
+  {
+   "code": "050203",
+   "name": "Llallagua",
+   "officialName": "Llallagua",
+   "layerName": "Llallagua",
+   "department": "Potosí",
+   "province": "Rafael Bustillo"
+  },
+  {
+   "code": "050204",
+   "name": "Chuquihuta Ayllu Jucumani",
+   "officialName": "Chuquihuta Ayllu Jucumani",
+   "layerName": "Chuquihuta Ayllu Jucumani",
+   "department": "Potosí",
+   "province": "Rafael Bustillo"
+  },
+  {
+   "code": "050301",
+   "name": "Betanzos",
+   "officialName": "Betanzos",
+   "layerName": "Betanzos",
+   "department": "Potosí",
+   "province": "Cornelio Saavedra"
+  },
+  {
+   "code": "050302",
+   "name": "Chaquí",
+   "officialName": "Chaquí",
+   "layerName": "Chaquí",
+   "department": "Potosí",
+   "province": "Cornelio Saavedra"
+  },
+  {
+   "code": "050303",
+   "name": "Tacobamba",
+   "officialName": "Tacobamba",
+   "layerName": "Tacobamba",
+   "department": "Potosí",
+   "province": "Cornelio Saavedra"
+  },
+  {
+   "code": "050401",
+   "name": "Colquechaca",
+   "officialName": "Colquechaca",
+   "layerName": "Colquechaca",
+   "department": "Potosí",
+   "province": "Chayanta"
+  },
+  {
+   "code": "050402",
+   "name": "Ravelo",
+   "officialName": "Ravelo",
+   "layerName": "Ravelo",
+   "department": "Potosí",
+   "province": "Chayanta"
+  },
+  {
+   "code": "050403",
+   "name": "Pocoata",
+   "officialName": "Pocoata",
+   "layerName": "Pocoata",
+   "department": "Potosí",
+   "province": "Chayanta"
+  },
+  {
+   "code": "050404",
+   "name": "Ocurí",
+   "officialName": "Ocurí",
+   "layerName": "Ocurí",
+   "department": "Potosí",
+   "province": "Chayanta"
+  },
+  {
+   "code": "050501",
+   "name": "San Pedro de Buena Vista",
+   "officialName": "San Pedro",
+   "layerName": "San Pedro",
+   "department": "Potosí",
+   "province": "Chárcas"
+  },
+  {
+   "code": "050502",
+   "name": "Toro Toro",
+   "officialName": "Toro Toro",
+   "layerName": "Toro Toro",
+   "department": "Potosí",
+   "province": "Chárcas"
+  },
+  {
+   "code": "050601",
+   "name": "Cotagaita",
+   "officialName": "Cotagaita",
+   "layerName": "Cotagaita",
+   "department": "Potosí",
+   "province": "Nor Chichas"
+  },
+  {
+   "code": "050602",
+   "name": "Vitichi",
+   "officialName": "Vitichi",
+   "layerName": "Vitiche",
+   "department": "Potosí",
+   "province": "Nor Chichas"
+  },
+  {
+   "code": "050701",
+   "name": "Sacaca",
+   "officialName": "Sacaca",
+   "layerName": "Sacaca",
+   "department": "Potosí",
+   "province": "Alonso de Ibáñez"
+  },
+  {
+   "code": "050702",
+   "name": "Caripuyo",
+   "officialName": "Caripuyo",
+   "layerName": "Caripuyo",
+   "department": "Potosí",
+   "province": "Alonso de Ibáñez"
+  },
+  {
+   "code": "050801",
+   "name": "Tupiza",
+   "officialName": "Tupiza",
+   "layerName": "Tupiza",
+   "department": "Potosí",
+   "province": "Sur Chichas"
+  },
+  {
+   "code": "050802",
+   "name": "Atocha",
+   "officialName": "Atocha",
+   "layerName": "Atocha",
+   "department": "Potosí",
+   "province": "Sur Chichas"
+  },
+  {
+   "code": "050901",
+   "name": "Colcha «K»",
+   "officialName": "Colcha «K»",
+   "layerName": "Colcha \"K\"",
+   "department": "Potosí",
+   "province": "Nor Lipez"
+  },
+  {
+   "code": "050902",
+   "name": "San Pedro de Quemes",
+   "officialName": "San Pedro de Quemes",
+   "layerName": "San Pedro de Quemes",
+   "department": "Potosí",
+   "province": "Nor Lipez"
+  },
+  {
+   "code": "051001",
+   "name": "San Pablo de Lípez",
+   "officialName": "San Pablo",
+   "layerName": "San Pablo",
+   "department": "Potosí",
+   "province": "Sur Lipez"
+  },
+  {
+   "code": "051002",
+   "name": "Mojinete",
+   "officialName": "Mojinete",
+   "layerName": "Mojinete",
+   "department": "Potosí",
+   "province": "Sur Lipez"
+  },
+  {
+   "code": "051003",
+   "name": "San Antonio de Esmoruco",
+   "officialName": "San Antonio de Esmoruco",
+   "layerName": "San Antonio de Esmoruco",
+   "department": "Potosí",
+   "province": "Sur Lipez"
+  },
+  {
+   "code": "051101",
+   "name": "Puna",
+   "officialName": "Puna",
+   "layerName": "Puna",
+   "department": "Potosí",
+   "province": "José María Linares"
+  },
+  {
+   "code": "051102",
+   "name": "Caiza «D»",
+   "officialName": "Caiza «D»",
+   "layerName": "Caiza \"D\"",
+   "department": "Potosí",
+   "province": "José María Linares"
+  },
+  {
+   "code": "051103",
+   "name": "Ckochas",
+   "officialName": "Ckochas",
+   "layerName": "Ckochas",
+   "department": "Potosí",
+   "province": "José María Linares"
+  },
+  {
+   "code": "051201",
+   "name": "Uyuni",
+   "officialName": "Uyuni",
+   "layerName": "Uyuni",
+   "department": "Potosí",
+   "province": "Antonio Quijarro"
+  },
+  {
+   "code": "051202",
+   "name": "Tomave",
+   "officialName": "Tomave",
+   "layerName": "Tomave",
+   "department": "Potosí",
+   "province": "Antonio Quijarro"
+  },
+  {
+   "code": "051203",
+   "name": "Porco",
+   "officialName": "Porco",
+   "layerName": "Porco",
+   "department": "Potosí",
+   "province": "Antonio Quijarro"
+  },
+  {
+   "code": "051301",
+   "name": "Arampampa",
+   "officialName": "Arampampa",
+   "layerName": "Arampampa",
+   "department": "Potosí",
+   "province": "General Bilbao"
+  },
+  {
+   "code": "051302",
+   "name": "Acasio",
+   "officialName": "Acasio",
+   "layerName": "Acasio",
+   "department": "Potosí",
+   "province": "General Bilbao"
+  },
+  {
+   "code": "051401",
+   "name": "Llica",
+   "officialName": "Llica",
+   "layerName": "Llica",
+   "department": "Potosí",
+   "province": "Daniel Campos"
+  },
+  {
+   "code": "051402",
+   "name": "Tahua",
+   "officialName": "Tahua",
+   "layerName": "Tahua",
+   "department": "Potosí",
+   "province": "Daniel Campos"
+  },
+  {
+   "code": "051501",
+   "name": "Villazón",
+   "officialName": "Villazón",
+   "layerName": "Villazón",
+   "department": "Potosí",
+   "province": "Modesto Omiste"
+  },
+  {
+   "code": "051601",
+   "name": "San Agustín",
+   "officialName": "San Agustín",
+   "layerName": "San Agustín",
+   "department": "Potosí",
+   "province": "Enrique Baldivieso"
+  },
+  {
+   "code": "060101",
+   "name": "Tarija",
+   "officialName": "Tarija",
+   "layerName": "Tarija",
+   "department": "Tarija",
+   "province": "Cercado"
+  },
+  {
+   "code": "060201",
+   "name": "Padcaya",
+   "officialName": "Padcaya",
+   "layerName": "Padcaya",
+   "department": "Tarija",
+   "province": "Arce"
+  },
+  {
+   "code": "060202",
+   "name": "Bermejo",
+   "officialName": "Bermejo",
+   "layerName": "Bermejo",
+   "department": "Tarija",
+   "province": "Arce"
+  },
+  {
+   "code": "060301",
+   "name": "Yacuiba",
+   "officialName": "Yacuiba",
+   "layerName": "Yacuiba",
+   "department": "Tarija",
+   "province": "Gran Chaco"
+  },
+  {
+   "code": "060302",
+   "name": "Caraparí",
+   "officialName": "Caraparí",
+   "layerName": "Caraparí",
+   "department": "Tarija",
+   "province": "Gran Chaco"
+  },
+  {
+   "code": "060303",
+   "name": "Villamontes",
+   "officialName": "Villa Montes",
+   "layerName": "Villa Montes",
+   "department": "Tarija",
+   "province": "Gran Chaco"
+  },
+  {
+   "code": "060401",
+   "name": "Uriondo",
+   "officialName": "Uriondo",
+   "layerName": "Uriondo",
+   "department": "Tarija",
+   "province": "Avilés"
+  },
+  {
+   "code": "060402",
+   "name": "Yunchará",
+   "officialName": "Yunchará",
+   "layerName": "Yunchará",
+   "department": "Tarija",
+   "province": "Avilés"
+  },
+  {
+   "code": "060501",
+   "name": "Villa San Lorenzo",
+   "officialName": "San Lorenzo",
+   "layerName": "San Lorenzo",
+   "department": "Tarija",
+   "province": "Méndez"
+  },
+  {
+   "code": "060502",
+   "name": "El Puente",
+   "officialName": "El Puente",
+   "layerName": "El Puente",
+   "department": "Tarija",
+   "province": "Méndez"
+  },
+  {
+   "code": "060601",
+   "name": "Entre Ríos",
+   "officialName": "Entre Ríos",
+   "layerName": "Entre Ríos",
+   "department": "Tarija",
+   "province": "O'Connor"
+  },
+  {
+   "code": "070101",
+   "name": "Santa Cruz de la Sierra",
+   "officialName": "Santa Cruz de la Sierra",
+   "layerName": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "province": "Andrés Ibáñez"
+  },
+  {
+   "code": "070102",
+   "name": "Cotoca",
+   "officialName": "Cotoca",
+   "layerName": "Cotoca",
+   "department": "Santa Cruz",
+   "province": "Andrés Ibáñez"
+  },
+  {
+   "code": "070103",
+   "name": "Porongo",
+   "officialName": "Porongo",
+   "layerName": "Porongo",
+   "department": "Santa Cruz",
+   "province": "Andrés Ibáñez"
+  },
+  {
+   "code": "070104",
+   "name": "La Guardia",
+   "officialName": "La Guardia",
+   "layerName": "La Guardia",
+   "department": "Santa Cruz",
+   "province": "Andrés Ibáñez"
+  },
+  {
+   "code": "070105",
+   "name": "El Torno",
+   "officialName": "El Torno",
+   "layerName": "El Torno",
+   "department": "Santa Cruz",
+   "province": "Andrés Ibáñez"
+  },
+  {
+   "code": "070201",
+   "name": "Warnes",
+   "officialName": "Warnes",
+   "layerName": "Warnes",
+   "department": "Santa Cruz",
+   "province": "Warnes"
+  },
+  {
+   "code": "070202",
+   "name": "Okinawa Uno",
+   "officialName": "Okinawa Uno",
+   "layerName": "Okinawa Uno",
+   "department": "Santa Cruz",
+   "province": "Warnes"
+  },
+  {
+   "code": "070301",
+   "name": "San Ignacio de Velasco",
+   "officialName": "San Ignacio",
+   "layerName": "San Ignacio",
+   "department": "Santa Cruz",
+   "province": "Velasco"
+  },
+  {
+   "code": "070302",
+   "name": "San Miguel de Velasco",
+   "officialName": "San Miguel",
+   "layerName": "San Miguel",
+   "department": "Santa Cruz",
+   "province": "Velasco"
+  },
+  {
+   "code": "070303",
+   "name": "San Rafael",
+   "officialName": "San Rafael",
+   "layerName": "San Rafael",
+   "department": "Santa Cruz",
+   "province": "Velasco"
+  },
+  {
+   "code": "070401",
+   "name": "Buena Vista",
+   "officialName": "Buena Vista",
+   "layerName": "Buena Vista",
+   "department": "Santa Cruz",
+   "province": "Ichilo"
+  },
+  {
+   "code": "070402",
+   "name": "San Carlos",
+   "officialName": "San Carlos",
+   "layerName": "San Carlos",
+   "department": "Santa Cruz",
+   "province": "Ichilo"
+  },
+  {
+   "code": "070403",
+   "name": "Yapacaní",
+   "officialName": "Yapacaní",
+   "layerName": "Yapacaní",
+   "department": "Santa Cruz",
+   "province": "Ichilo"
+  },
+  {
+   "code": "070404",
+   "name": "San Juan",
+   "officialName": "San Juan",
+   "layerName": "San Juan",
+   "department": "Santa Cruz",
+   "province": "Ichilo"
+  },
+  {
+   "code": "070501",
+   "name": "San José de Chiquitos",
+   "officialName": "San José",
+   "layerName": "San José",
+   "department": "Santa Cruz",
+   "province": "Chiquitos"
+  },
+  {
+   "code": "070502",
+   "name": "Pailón",
+   "officialName": "Pailón",
+   "layerName": "Pailón",
+   "department": "Santa Cruz",
+   "province": "Chiquitos"
+  },
+  {
+   "code": "070503",
+   "name": "Roboré",
+   "officialName": "Roboré",
+   "layerName": "Roboré",
+   "department": "Santa Cruz",
+   "province": "Chiquitos"
+  },
+  {
+   "code": "070601",
+   "name": "Portachuelo",
+   "officialName": "Portachuelo",
+   "layerName": "Portachuelo",
+   "department": "Santa Cruz",
+   "province": "Sara"
+  },
+  {
+   "code": "070602",
+   "name": "Santa Rosa del Sara",
+   "officialName": "Santa Rosa",
+   "layerName": "Santa Rosa",
+   "department": "Santa Cruz",
+   "province": "Sara"
+  },
+  {
+   "code": "070603",
+   "name": "Colpa Bélgica",
+   "officialName": "Colpa Bélgica",
+   "layerName": "Colpa Bélgica",
+   "department": "Santa Cruz",
+   "province": "Sara"
+  },
+  {
+   "code": "070701",
+   "name": "Lagunillas",
+   "officialName": "Lagunillas",
+   "layerName": "Lagunillas",
+   "department": "Santa Cruz",
+   "province": "Cordillera"
+  },
+  {
+   "code": "070702",
+   "name": "Charagua",
+   "officialName": "Charagua",
+   "layerName": "Charagua",
+   "department": "Santa Cruz",
+   "province": "Cordillera"
+  },
+  {
+   "code": "070703",
+   "name": "Cabezas",
+   "officialName": "Cabezas",
+   "layerName": "Cabezas",
+   "department": "Santa Cruz",
+   "province": "Cordillera"
+  },
+  {
+   "code": "070704",
+   "name": "Cuevo",
+   "officialName": "Cuevo",
+   "layerName": "Cuevo",
+   "department": "Santa Cruz",
+   "province": "Cordillera"
+  },
+  {
+   "code": "070705",
+   "name": "Gutiérrez",
+   "officialName": "Gutiérrez",
+   "layerName": "Gutiérrez",
+   "department": "Santa Cruz",
+   "province": "Cordillera"
+  },
+  {
+   "code": "070706",
+   "name": "Camiri",
+   "officialName": "Camiri",
+   "layerName": "Camiri",
+   "department": "Santa Cruz",
+   "province": "Cordillera"
+  },
+  {
+   "code": "070707",
+   "name": "Boyuibe",
+   "officialName": "Boyuibe",
+   "layerName": "Boyuibe",
+   "department": "Santa Cruz",
+   "province": "Cordillera"
+  },
+  {
+   "code": "070801",
+   "name": "Vallegrande",
+   "officialName": "Vallegrande",
+   "layerName": "Vallegrande",
+   "department": "Santa Cruz",
+   "province": "Vallegrande"
+  },
+  {
+   "code": "070802",
+   "name": "Trigal",
+   "officialName": "Trigal",
+   "layerName": "Trigal",
+   "department": "Santa Cruz",
+   "province": "Vallegrande"
+  },
+  {
+   "code": "070803",
+   "name": "Moro Moro",
+   "officialName": "Moro Moro",
+   "layerName": "Moromoro",
+   "department": "Santa Cruz",
+   "province": "Vallegrande"
+  },
+  {
+   "code": "070804",
+   "name": "Postrer Valle",
+   "officialName": "Postrer Valle",
+   "layerName": "Postrervalle",
+   "department": "Santa Cruz",
+   "province": "Vallegrande"
+  },
+  {
+   "code": "070805",
+   "name": "Pucará",
+   "officialName": "Pucará",
+   "layerName": "Pucará",
+   "department": "Santa Cruz",
+   "province": "Vallegrande"
+  },
+  {
+   "code": "070901",
+   "name": "Samaipata",
+   "officialName": "Samaipata",
+   "layerName": "Samaipata",
+   "department": "Santa Cruz",
+   "province": "Florida"
+  },
+  {
+   "code": "070902",
+   "name": "Pampa Grande",
+   "officialName": "Pampa Grande",
+   "layerName": "Pampa Grande",
+   "department": "Santa Cruz",
+   "province": "Florida"
+  },
+  {
+   "code": "070903",
+   "name": "Mairana",
+   "officialName": "Mairana",
+   "layerName": "Mairana",
+   "department": "Santa Cruz",
+   "province": "Florida"
+  },
+  {
+   "code": "070904",
+   "name": "Quirusillas",
+   "officialName": "Quirusillas",
+   "layerName": "Quirusillas",
+   "department": "Santa Cruz",
+   "province": "Florida"
+  },
+  {
+   "code": "071001",
+   "name": "Montero",
+   "officialName": "Montero",
+   "layerName": "Montero",
+   "department": "Santa Cruz",
+   "province": "Obispo Santistéban"
+  },
+  {
+   "code": "071002",
+   "name": "General Saavedra",
+   "officialName": "General Saavedra",
+   "layerName": "General Saavedra",
+   "department": "Santa Cruz",
+   "province": "Obispo Santistéban"
+  },
+  {
+   "code": "071003",
+   "name": "Mineros",
+   "officialName": "Mineros",
+   "layerName": "Mineros",
+   "department": "Santa Cruz",
+   "province": "Obispo Santistéban"
+  },
+  {
+   "code": "071004",
+   "name": "Fernández Alonso",
+   "officialName": "Fernández Alonso",
+   "layerName": "Fernández Alonso",
+   "department": "Santa Cruz",
+   "province": "Obispo Santistéban"
+  },
+  {
+   "code": "071005",
+   "name": "San Pedro",
+   "officialName": "San Pedro",
+   "layerName": "San Pedro",
+   "department": "Santa Cruz",
+   "province": "Obispo Santistéban"
+  },
+  {
+   "code": "071101",
+   "name": "Concepción",
+   "officialName": "Concepción",
+   "layerName": "Concepción",
+   "department": "Santa Cruz",
+   "province": "Ñuflo De Chávez"
+  },
+  {
+   "code": "071102",
+   "name": "San Javier",
+   "officialName": "San Javier",
+   "layerName": "San Javier",
+   "department": "Santa Cruz",
+   "province": "Ñuflo De Chávez"
+  },
+  {
+   "code": "071103",
+   "name": "San Julián",
+   "officialName": "San Julián",
+   "layerName": "San Julián",
+   "department": "Santa Cruz",
+   "province": "Ñuflo De Chávez"
+  },
+  {
+   "code": "071104",
+   "name": "San Antonio de Lomerío",
+   "officialName": "San Antonio de Lomerío",
+   "layerName": "San Antonio de Lomerio",
+   "department": "Santa Cruz",
+   "province": "Ñuflo De Chávez"
+  },
+  {
+   "code": "071105",
+   "name": "San Ramón",
+   "officialName": "San Ramón",
+   "layerName": "San Ramón",
+   "department": "Santa Cruz",
+   "province": "Ñuflo De Chávez"
+  },
+  {
+   "code": "071106",
+   "name": "Cuatro Cañadas",
+   "officialName": "Cuatro Cañadas",
+   "layerName": "Cuatro Cañadas",
+   "department": "Santa Cruz",
+   "province": "Ñuflo De Chávez"
+  },
+  {
+   "code": "071201",
+   "name": "San Matías",
+   "officialName": "San Matías",
+   "layerName": "San Matías",
+   "department": "Santa Cruz",
+   "province": "Angel Sandoval"
+  },
+  {
+   "code": "071301",
+   "name": "Comarapa",
+   "officialName": "Comarapa",
+   "layerName": "Comarapa",
+   "department": "Santa Cruz",
+   "province": "Manuel María Caballero"
+  },
+  {
+   "code": "071302",
+   "name": "Saipina",
+   "officialName": "Saipina",
+   "layerName": "Saipina",
+   "department": "Santa Cruz",
+   "province": "Manuel María Caballero"
+  },
+  {
+   "code": "071401",
+   "name": "Puerto Suárez",
+   "officialName": "Puerto Suárez",
+   "layerName": "Puerto Suarez",
+   "department": "Santa Cruz",
+   "province": "Germán Busch"
+  },
+  {
+   "code": "071402",
+   "name": "Puerto Quijarro",
+   "officialName": "Puerto Quijarro",
+   "layerName": "Puerto Quijarro",
+   "department": "Santa Cruz",
+   "province": "Germán Busch"
+  },
+  {
+   "code": "071403",
+   "name": "Carmen Rivero Tórrez",
+   "officialName": "El Carmen Rivero Tórrez",
+   "layerName": "El Carmen Rivero Tórrez",
+   "department": "Santa Cruz",
+   "province": "Germán Busch"
+  },
+  {
+   "code": "071501",
+   "name": "Ascensión de Guarayos",
+   "officialName": "Ascensión de Guarayos",
+   "layerName": "Ascención de Guarayos",
+   "department": "Santa Cruz",
+   "province": "Guarayos"
+  },
+  {
+   "code": "071502",
+   "name": "Urubichá",
+   "officialName": "Urubichá",
+   "layerName": "Urubicha",
+   "department": "Santa Cruz",
+   "province": "Guarayos"
+  },
+  {
+   "code": "071503",
+   "name": "El Puente",
+   "officialName": "El Puente",
+   "layerName": "El Puente",
+   "department": "Santa Cruz",
+   "province": "Guarayos"
+  },
+  {
+   "code": "080101",
+   "name": "Trinidad",
+   "officialName": "Trinidad",
+   "layerName": "Trinidad",
+   "department": "Beni",
+   "province": "Cercado"
+  },
+  {
+   "code": "080102",
+   "name": "San Javier",
+   "officialName": "San Javier",
+   "layerName": "San Javier",
+   "department": "Beni",
+   "province": "Cercado"
+  },
+  {
+   "code": "080201",
+   "name": "Riberalta",
+   "officialName": "Riberalta",
+   "layerName": "Riberalta",
+   "department": "Beni",
+   "province": "Vaca Diez"
+  },
+  {
+   "code": "080202",
+   "name": "Guayaramerín",
+   "officialName": "Guayaramerín",
+   "layerName": "Guayaramerín",
+   "department": "Beni",
+   "province": "Vaca Diez"
+  },
+  {
+   "code": "080301",
+   "name": "Reyes",
+   "officialName": "Reyes",
+   "layerName": "Reyes",
+   "department": "Beni",
+   "province": "General José Ballivián"
+  },
+  {
+   "code": "080302",
+   "name": "San Borja",
+   "officialName": "San Borja",
+   "layerName": "San Borja",
+   "department": "Beni",
+   "province": "General José Ballivián"
+  },
+  {
+   "code": "080303",
+   "name": "Santa Rosa",
+   "officialName": "Santa Rosa",
+   "layerName": "Santa Rosa",
+   "department": "Beni",
+   "province": "General José Ballivián"
+  },
+  {
+   "code": "080304",
+   "name": "Rurrenabaque",
+   "officialName": "Puerto Menor de Rurrenabaque",
+   "layerName": "Puerto Menor de Rurrenabaque",
+   "department": "Beni",
+   "province": "General José Ballivián"
+  },
+  {
+   "code": "080401",
+   "name": "Santa Ana de Yacuma",
+   "officialName": "Santa Ana",
+   "layerName": "Santa Ana",
+   "department": "Beni",
+   "province": "Yacuma"
+  },
+  {
+   "code": "080402",
+   "name": "Exaltación",
+   "officialName": "Exaltación",
+   "layerName": "Exaltación",
+   "department": "Beni",
+   "province": "Yacuma"
+  },
+  {
+   "code": "080501",
+   "name": "San Ignacio de Moxos",
+   "officialName": "San Ignacio",
+   "layerName": "San Ignacio",
+   "department": "Beni",
+   "province": "Moxos"
+  },
+  {
+   "code": "080601",
+   "name": "Loreto",
+   "officialName": "Loreto",
+   "layerName": "Loreto",
+   "department": "Beni",
+   "province": "Marbán"
+  },
+  {
+   "code": "080602",
+   "name": "San Andrés",
+   "officialName": "San Andrés",
+   "layerName": "San Andrés",
+   "department": "Beni",
+   "province": "Marbán"
+  },
+  {
+   "code": "080701",
+   "name": "San Joaquín",
+   "officialName": "San Joaquín",
+   "layerName": "San Joaquín",
+   "department": "Beni",
+   "province": "Mamoré"
+  },
+  {
+   "code": "080702",
+   "name": "San Ramón",
+   "officialName": "San Ramón",
+   "layerName": "San Ramón",
+   "department": "Beni",
+   "province": "Mamoré"
+  },
+  {
+   "code": "080703",
+   "name": "Puerto Siles",
+   "officialName": "Puerto Siles",
+   "layerName": "Puerto Siles",
+   "department": "Beni",
+   "province": "Mamoré"
+  },
+  {
+   "code": "080801",
+   "name": "Magdalena",
+   "officialName": "Magdalena",
+   "layerName": "Magdalena",
+   "department": "Beni",
+   "province": "Iténez"
+  },
+  {
+   "code": "080802",
+   "name": "Baures",
+   "officialName": "Baures",
+   "layerName": "Baures",
+   "department": "Beni",
+   "province": "Iténez"
+  },
+  {
+   "code": "080803",
+   "name": "Huacaraje",
+   "officialName": "Huacaraje",
+   "layerName": "Huacaraje",
+   "department": "Beni",
+   "province": "Iténez"
+  },
+  {
+   "code": "090101",
+   "name": "Cobija",
+   "officialName": "Cobija",
+   "layerName": "Cobija",
+   "department": "Pando",
+   "province": "Nicolás Suárez"
+  },
+  {
+   "code": "090102",
+   "name": "Porvenir",
+   "officialName": "Porvenir",
+   "layerName": "Porvenir",
+   "department": "Pando",
+   "province": "Nicolás Suárez"
+  },
+  {
+   "code": "090103",
+   "name": "Bolpebra",
+   "officialName": "Bolpebra",
+   "layerName": "Bolpebra",
+   "department": "Pando",
+   "province": "Nicolás Suárez"
+  },
+  {
+   "code": "090104",
+   "name": "Bella Flor",
+   "officialName": "Bella Flor",
+   "layerName": "Bella Flor",
+   "department": "Pando",
+   "province": "Nicolás Suárez"
+  },
+  {
+   "code": "090201",
+   "name": "Puerto Rico",
+   "officialName": "Puerto Rico",
+   "layerName": "Puerto Rico",
+   "department": "Pando",
+   "province": "Manuripi"
+  },
+  {
+   "code": "090202",
+   "name": "San Pedro",
+   "officialName": "San Pedro",
+   "layerName": "San Pedro",
+   "department": "Pando",
+   "province": "Manuripi"
+  },
+  {
+   "code": "090203",
+   "name": "Filadelfia",
+   "officialName": "Filadelfia",
+   "layerName": "Filadelfia",
+   "department": "Pando",
+   "province": "Manuripi"
+  },
+  {
+   "code": "090301",
+   "name": "Puerto Gonzalo Moreno",
+   "officialName": "Puerto Gonzalo Moreno",
+   "layerName": "Puerto Gonzalo Moreno",
+   "department": "Pando",
+   "province": "Madre de Dios"
+  },
+  {
+   "code": "090302",
+   "name": "San Lorenzo",
+   "officialName": "San Lorenzo",
+   "layerName": "San Lorenzo",
+   "department": "Pando",
+   "province": "Madre de Dios"
+  },
+  {
+   "code": "090303",
+   "name": "El Sena",
+   "officialName": "Sena",
+   "layerName": "Sena",
+   "department": "Pando",
+   "province": "Madre de Dios"
+  },
+  {
+   "code": "090401",
+   "name": "Santa Rosa",
+   "officialName": "Santa Rosa",
+   "layerName": "Santa Rosa",
+   "department": "Pando",
+   "province": "Abuná"
+  },
+  {
+   "code": "090402",
+   "name": "Ingavi",
+   "officialName": "Ingavi",
+   "layerName": "Ingavi",
+   "department": "Pando",
+   "province": "Abuná"
+  },
+  {
+   "code": "090501",
+   "name": "Nueva Esperanza",
+   "officialName": "Nueva Esperanza",
+   "layerName": "Nueva Esperanza",
+   "department": "Pando",
+   "province": "Federico Román"
+  },
+  {
+   "code": "090502",
+   "name": "Villa Nueva",
+   "officialName": "Villa Nueva",
+   "layerName": "Villa Nueva",
+   "department": "Pando",
+   "province": "Federico Román"
+  },
+  {
+   "code": "090503",
+   "name": "Santos Mercado",
+   "officialName": "Santos Mercado",
+   "layerName": "Santos Mercado",
+   "department": "Pando",
+   "province": "Federico Román"
+  }
+ ]
+}

@@ -192,6 +192,10 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-osm-expansion-poi/',
       'boot/bolivia-transport-poi/',
       'boot/bolivia-scz-enrichment-poi/',
+      'boot/bolivia-overture-refresh-poi/',
+      'boot/bolivia-osm-sweep-poi/',
+      'boot/bolivia-asfi-poi/',
+      'boot/bolivia-place-municipality/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
     // esperaban, y entraron las 6.584 de la entrega de establecimientos.
@@ -214,7 +218,14 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // OpenStreetMap (medido: 4.373 de 4.535 elementos leídos, ver
     // `docs/runbooks/santa-cruz-commerce-enrichment.md`); sin familias
     // nuevas en el catálogo.
-    '1.5.1',
+    // 2026-09-24: 51.690 lugares nuevos —35.463 de Overture 2026-09-23.0 con
+    // confianza 0,3 o más (19.282 bajo 0,5, marcadas como confianza baja),
+    // 4.072 del barrido completo de OpenStreetMap y 12.155
+    // puntos de atención de la ASFI, con la familia CORRESPONSAL_FINANCIERO
+    // nueva— y el municipio, por polígono, de las filas que no declaran
+    // localidad (migración 0084). Santa Cruz de la Sierra tenía 7.821 lugares
+    // cargados en «Sin localidad declarada».
+    '1.6.0',
   ),
   historical('bolivia-road-network', 'Red vial de Bolivia', [
     'boot/bolivia-road-network/road-sections.json',

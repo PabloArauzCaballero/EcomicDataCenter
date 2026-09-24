@@ -232,6 +232,8 @@ const place = z
        */
       'tipo_declarado_por_el_regulador_sanitario',
       'canal_declarado_por_la_entidad_en_su_propio_directorio',
+      // Ver `scripts/places/build_overture_refresh_seed.py`.
+      'categoria_overture_por_familia_ya_asignada_en_el_corpus',
       ...OFFICIAL_CLASSIFICATION_METHODS,
     ]),
     /**

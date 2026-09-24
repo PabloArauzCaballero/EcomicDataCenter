@@ -6,6 +6,7 @@ import { RawObservationModel, SourceArtifactModel } from '../../models';
 import { reconcileHistoryRun } from './boot-seed.history-provenance';
 import { rawPayloadHash } from '../../../common/intelligence/claim-normalizer';
 import { loadNationalPlaceBatch } from './boot-seed.bolivia-national-poi.batch';
+import { reconcilePlaceMunicipalities } from './boot-seed.bolivia-place-municipality';
 import {
   boliviaNationalPoiSchema,
   type BoliviaNationalPoi,
@@ -103,6 +104,9 @@ const PLACE_DIRECTORIES = [
    * `docs/runbooks/santa-cruz-commerce-enrichment.md`.
    */
   'boot/bolivia-scz-enrichment-poi',
+  'boot/bolivia-overture-refresh-poi',
+  'boot/bolivia-osm-sweep-poi',
+  'boot/bolivia-asfi-poi', // sin licencia abierta, como SEPREC
 ] as const;
 
 /**
@@ -250,6 +254,7 @@ export async function reconcileBoliviaNationalPoi(
   for (const piece of pieces) {
     await loadPiece(piece, sourceId, agentRunId, transaction);
   }
+  await reconcilePlaceMunicipalities(sourceId, agentRunId, transaction);
 }
 
 /** One piece of the corpus, read and loaded before the next one is opened. */
