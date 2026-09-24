@@ -2,7 +2,7 @@
   "metadata": {
     "dataset": "CATALOGO_FAMILIAS_DE_LUGARES_BOLIVIA",
     "built": "2026-09-23",
-    "families": 2371,
+    "families": 2372,
     "precedence": "anexo_A_201 decide las familias que define; el catalogo de 2.330 rellena el resto",
     "precedenceReason": "las filas clasificadas con el anexo A ya estan cargadas y el corpus es inmutable: reclasificar una familia no cambiaria esas filas, anadiria una segunda al lado",
     "annex": {
@@ -98,9 +98,9 @@
     ],
     "observatory": {
       "file": "observatory-families.json",
-      "sha256": "b6ae0a914e5424aa4da64a2409e27101d86fc585cee077272420ff7f08bb1566",
+      "sha256": "2d14de9e13b435c7d9c1c25bbcb4a500932966861b43e947bc5a74f86ccf0f05",
       "decidedBy": "observatorio_2026-09-23",
-      "families": 1
+      "families": 2
     },
     "additions": {
       "file": "osm-expansion-families.json",
@@ -851,6 +851,14 @@
       "is_regulated": true,
       "official_validation_source": "ATT",
       "decided_by": "anexo_A_201"
+    },
+    {
+      "code": "CORRESPONSAL_FINANCIERO",
+      "group": "FINANZAS",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ASFI",
+      "decided_by": "observatorio_2026-09-23"
     },
     {
       "code": "COSMETICOS_PERFUMERIA",

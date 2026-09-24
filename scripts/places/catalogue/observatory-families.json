@@ -12,6 +12,14 @@
       "is_regulated": true,
       "official_validation_source": "Ministerio de Educación / SIE",
       "rationale": "El Sistema de Informacion Educativa lista los centros del subsistema de educacion alternativa y especial (CEA, educacion especial) como instituciones educativas abiertas legalmente establecidas, cada una con su codigo R.U.E.: el Ministerio de Educacion es quien las autoriza. No son colegios, y archivarlas bajo COLEGIO_ESCUELA inflaria el conteo de escuelas con centros de adultos."
+    },
+    {
+      "code": "CORRESPONSAL_FINANCIERO",
+      "group": "FINANZAS",
+      "commercial_role": "FINANCIAL_SERVICE",
+      "is_regulated": true,
+      "official_validation_source": "ASFI",
+      "rationale": "La ASFI registra cada punto de atencion corresponsal no financiero: un comercio (tienda de celulares, minimercado, farmacia) autorizado por una entidad financiera para recibir depositos y pagos en su nombre. No es una agencia ni un cajero —no lo opera el banco— y archivarlo bajo BANCO_MULTIPLE o CAJERO_ATM inflaria la red propia de las entidades con locales de terceros."
     }
   ]
 }

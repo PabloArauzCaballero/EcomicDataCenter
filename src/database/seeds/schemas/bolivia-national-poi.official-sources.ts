@@ -18,7 +18,12 @@
  * que ningun banco ni ASFI respalde la lista, y por eso se nombra por su
  * nombre en vez de pasar por fuente financiera.
  */
-export const OFFICIAL_PUBLISHERS = ['Ministerio de Educacion (SIE)', 'ANH', 'Tel.bo'] as const;
+export const OFFICIAL_PUBLISHERS = [
+  'Ministerio de Educacion (SIE)',
+  'ANH',
+  'Tel.bo',
+  'ASFI',
+] as const;
 
 /**
  * Los identificadores que esas fuentes permiten.
@@ -30,7 +35,7 @@ export const OFFICIAL_PUBLISHERS = ['Ministerio de Educacion (SIE)', 'ANH', 'Tel
  * no numera nada: su identificador sale del contenido de la fila.
  */
 export const OFFICIAL_PLACE_IDENTIFIER =
-  /^(?:sie:rue:\d{6,10}|anh:estacion:ANH\d{3,8}-[A-Z]{2,8}\d{1,4}|tel_bo:cajero:[0-9a-f]{24})$/u;
+  /^(?:sie:rue:\d{6,10}|anh:estacion:ANH\d{3,8}-[A-Z]{2,8}\d{1,4}|tel_bo:cajero:[0-9a-f]{24}|asfi:paf:\d{1,10})$/u;
 
 /**
  * Como se clasifico.
