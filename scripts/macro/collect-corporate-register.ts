@@ -3,14 +3,14 @@ import { join } from 'node:path';
 import {
   EXPORTERS,
   EXPORTER_PREFIX,
+  MERCO,
   REPUTATION_EDITIONS,
   REPUTATION_PREFIX,
   REPUTATION_PUBLISHER,
-  type Podium,
   type ReputationEdition,
 } from './corporate-sources';
 import { canonicalCompany } from './corporate-aliases';
-import { fetchPage, pageSlice, pageStates, rankedNames } from './corporate-pages';
+import { fetchHtml, fetchPage, mercoTables } from './corporate-pages';
 import { countPoints, type RegisterPoint, type RegisterSeries } from './annual-register-shape';
 
 /**
@@ -19,16 +19,10 @@ import { countPoints, type RegisterPoint, type RegisterSeries } from './annual-r
  * `corporate-sources` explica por qué estas dos fuentes y no otras, y por qué
  * de la primera se publica el orden y la cuota pero no los dólares. Aquí sólo
  * está el cómo, y el cómo tiene una regla: **no se transcribe, se extrae**. Las
- * dos páginas se descargan en cada corrida, se les toma la huella y las cifras
- * salen de su texto con una expresión regular. Una lista copiada a mano
- * envejece sin avisar; una extraída se rompe el día que la fuente cambia, que
- * es cuando hay que enterarse.
- *
- * Las tres posiciones del podio de 2024 son la excepción, y llevan su propio
- * candado: el artículo las pone en prosa sin numerarlas, así que van declaradas
- * en el catálogo con el trozo exacto de frase que las afirma, y si ese trozo no
- * aparece literal en la página descargada la corrida se detiene. Declarado no
- * es lo mismo que supuesto.
+ * páginas —la de Datasur y las trece ediciones de Merco— se descargan en cada
+ * corrida, se les toma la huella y las cifras salen de su HTML. Una lista
+ * copiada a mano envejece sin avisar; una extraída se rompe el día que la
+ * fuente cambia, que es cuando hay que enterarse.
  *
  * Se corre con `yarn corporate:collect`.
  */
@@ -119,133 +113,128 @@ function exporterSeries(text: string, sha256: string, retrievedAt: string): Regi
   return series;
 }
 
+/** Una celda de una serie de reputación: el puesto o la puntuación, con su fila. */
 function reputationPoint(
   edition: ReputationEdition,
-  rank: number,
-  company: string,
-  quote: string,
+  value: number,
+  quote: Record<string, string>,
   sha256: string,
   retrievedAt: string,
 ): RegisterPoint {
   return {
     period: edition.period,
-    value: String(rank),
+    value: String(value),
     /*
-     * El puesto, la empresa y la frase de la que salen. El puesto va en el
-     * extracto porque la comprobación de anclaje lo busca ahí, y la frase va
-     * porque sin ella el extracto sería una copia de la afirmación en vez de
-     * su prueba.
+     * La fila de la tabla, con los nombres de sus columnas. El valor va dentro
+     * porque la comprobación de anclaje lo busca ahí, y la empresa va escrita
+     * como Merco la escribe: lo que se unifica es la serie, no la cita.
      */
-    excerpt: JSON.stringify({
-      edicion: edition.edition,
-      puesto: String(rank),
-      empresa: company,
-      cita: quote.slice(0, 600),
-    }),
-    sourceUrl: edition.url,
+    excerpt: JSON.stringify({ edicion: edition.edition, ...quote }),
+    sourceUrl: `${MERCO.url}?edicion=${edition.edicion}`,
     upstreamSha256: sha256,
     retrievedAt,
   };
 }
 
-/** El ránking general y el sectorial de una edición del monitor. */
+/**
+ * Las series de reputación de todas las ediciones.
+ *
+ * Una serie por empresa y medida, con un punto por edición: así el tablero lee
+ * la trayectoria de Sofía de 2013 a hoy como una línea y no como trece filas
+ * sueltas. El sectorial es la excepción parcial: una serie por empresa **y
+ * sector**, porque Merco renombra y parte sectores de una edición a otra
+ * —«HIDROCARBUROS» pasa a «HIDROCARBUROS Y ENERGÍA»— y el nombre de la serie
+ * lleva el sector, que es de donde el tablero lo lee.
+ */
 function reputationSeries(
-  edition: ReputationEdition,
-  text: string,
-  sha256: string,
+  pages: ReadonlyArray<{ edition: ReputationEdition; html: string; sha256: string }>,
   retrievedAt: string,
 ): RegisterSeries[] {
-  const series: RegisterSeries[] = [];
-  const seen = new Set<string>();
+  const series = new Map<string, RegisterSeries>();
 
-  const add = (
-    kind: 'GEN' | 'SEC',
-    rank: number,
-    published: string,
-    quote: string,
-    sector?: string,
-  ): void => {
-    const { slug, name: company } = canonicalCompany(published);
-    const code = `${REPUTATION_PREFIX}MERCO_${kind}_${slug}`;
-    if (seen.has(code)) return;
-    seen.add(code);
-    series.push({
-      indicatorCode: code,
-      name: sector
-        ? `${company}: puesto en ${sector} (Merco)`
-        : `${company}: puesto en Merco Empresas`,
-      group: slug,
-      groupLabel: company,
-      measure: sector ? `Puesto en el sector ${sector}` : 'Puesto en Merco Empresas',
-      level: 'COMPANY',
-      unit: 'RANK',
-      basis: sector
-        ? `Puesto dentro del sector «${sector}» en ${edition.edition}. Mide reputación percibida, no tamaño ni solvencia.`
-        : `Puesto en el ránking general de ${edition.edition}. Mide reputación percibida, no tamaño ni solvencia.`,
-      publisher: REPUTATION_PUBLISHER,
-      frequency: 'ANNUAL',
-      points: [reputationPoint(edition, rank, published, quote, sha256, retrievedAt)],
-    });
+  const push = (key: string, make: () => RegisterSeries, point: RegisterPoint): void => {
+    const own = series.get(key) ?? make();
+    if (own.points.some((existing) => existing.period === point.period)) {
+      throw new Error(`${key}: dos puestos en ${point.period}; dos nombres colapsan a la misma empresa`);
+    }
+    own.points.push(point);
+    series.set(key, own);
   };
 
-  for (const seat of edition.podium) {
-    verifyPodium(seat, text, edition);
-    add('GEN', seat.rank, seat.company, seat.anchor);
-  }
+  const base = (slug: string, company: string) => ({
+    group: slug,
+    groupLabel: company,
+    level: 'COMPANY' as const,
+    publisher: REPUTATION_PUBLISHER,
+    frequency: 'ANNUAL' as const,
+    points: [] as RegisterPoint[],
+  });
 
-  const general = pageSlice(text, edition.general.from, edition.general.to, edition.edition);
-  const ranked = rankedNames(general);
-  if (ranked.length < edition.general.expected) {
-    throw new Error(
-      `${edition.edition}: el ránking general trajo ${ranked.length} posiciones y se esperaban ${edition.general.expected}`,
-    );
-  }
-  for (const { rank, company } of ranked) add('GEN', rank, company, general);
-
-  if (edition.sectors) {
-    const sectorial = pageSlice(text, edition.sectors.from, edition.sectors.to, edition.edition);
-    const marks = edition.sectors.names
-      .map((name) => ({ name, at: sectorial.indexOf(name) }))
-      .sort((left, right) => left.at - right.at);
-    const missing = marks.filter((mark) => mark.at < 0).map((mark) => mark.name);
-    if (missing.length) {
-      throw new Error(`${edition.edition}: sectores que ya no aparecen: ${missing.join(', ')}`);
+  for (const { edition, html, sha256 } of pages) {
+    const { general, sectors } = mercoTables(html);
+    if (general.length !== MERCO.expected) {
+      throw new Error(
+        `${edition.edition}: el ránking general trajo ${general.length} puestos y Merco publica ${MERCO.expected}`,
+      );
     }
-    for (const [index, mark] of marks.entries()) {
-      const next = marks[index + 1];
-      const block = sectorial.slice(mark.at + mark.name.length, next ? next.at : undefined);
-      const ranked = rankedNames(block);
-      /*
-       * Un sector sin ninguna empresa debajo no es un sector vacío: es un
-       * rótulo que se localizó en el sitio equivocado —dentro del nombre de
-       * otro sector, o dentro de una razón social— y todo lo que cuelgue de él
-       * estaría mal atribuido. Se detiene la corrida en vez de publicarlo.
-       */
-      if (!ranked.length) {
-        throw new Error(`${edition.edition}: el sector «${mark.name}» no trajo ninguna empresa`);
-      }
-      for (const { rank, company } of ranked) {
-        add('SEC', rank, company, `${mark.name}: ${block.trim()}`, mark.name);
-      }
+    if (!sectors.length) throw new Error(`${edition.edition}: el ránking sectorial vino vacío`);
+
+    for (const seat of general) {
+      const { slug, name: company } = canonicalCompany(seat.company);
+      const row = { puesto: String(seat.rank), empresa: seat.company, puntuacion: String(seat.score) };
+      push(
+        `${REPUTATION_PREFIX}MERCO_GEN_${slug}`,
+        () => ({
+          ...base(slug, company),
+          indicatorCode: `${REPUTATION_PREFIX}MERCO_GEN_${slug}`,
+          name: `${company}: puesto en Merco Empresas`,
+          measure: 'Puesto en Merco Empresas',
+          unit: 'RANK',
+          basis:
+            'Puesto entre las cien empresas con mejor reputación de Bolivia según Merco. Mide reputación percibida, no tamaño ni solvencia.',
+        }),
+        reputationPoint(edition, seat.rank, row, sha256, retrievedAt),
+      );
+      push(
+        `${REPUTATION_PREFIX}MERCO_SCORE_${slug}`,
+        () => ({
+          ...base(slug, company),
+          indicatorCode: `${REPUTATION_PREFIX}MERCO_SCORE_${slug}`,
+          name: `${company}: puntuación en Merco Empresas`,
+          measure: 'Puntuación en Merco Empresas',
+          unit: 'POINTS',
+          basis:
+            'Puntuación de Merco en su propia escala: el primero de cada edición vale 10.000 y el centésimo 3.000. Se compara dentro de una edición, no entre ediciones.',
+        }),
+        reputationPoint(edition, seat.score, row, sha256, retrievedAt),
+      );
+    }
+
+    for (const seat of sectors) {
+      const { slug, name: company } = canonicalCompany(seat.company);
+      const code = `${REPUTATION_PREFIX}MERCO_SEC_${slug}`;
+      push(
+        `${code}|${seat.sector}`,
+        () => ({
+          ...base(slug, company),
+          indicatorCode: code,
+          name: `${company}: puesto en ${seat.sector} (Merco)`,
+          measure: `Puesto en el sector ${seat.sector}`.slice(0, 120),
+          unit: 'RANK',
+          basis: `Puesto dentro del sector «${seat.sector}» de Merco Empresas. Mide reputación percibida, no tamaño ni solvencia.`,
+        }),
+        reputationPoint(
+          edition,
+          seat.rank,
+          { sector: seat.sector, puesto: String(seat.rank), empresa: seat.company },
+          sha256,
+          retrievedAt,
+        ),
+      );
     }
   }
 
-  return series;
-}
-
-/**
- * Que la frase que sostiene una posición del podio siga ahí.
- *
- * Si no está, la posición pierde su prueba y la corrida se detiene con el
- * nombre de la empresa en el mensaje: este corpus no admite una afirmación sin
- * cita, y menos una que alguien declaró a mano.
- */
-function verifyPodium(seat: Podium, text: string, edition: ReputationEdition): void {
-  if (!pageStates(text, seat.anchor)) {
-    throw new Error(
-      `${edition.edition}: la página ya no dice «${seat.anchor}», así que el puesto ${seat.rank} de ${seat.company} se queda sin prueba`,
-    );
-  }
+  return [...series.values()];
 }
 
 async function main(): Promise<void> {
@@ -256,12 +245,16 @@ async function main(): Promise<void> {
   const series = exporterSeries(exporters.text, exporters.sha256, retrievedAt);
   console.log(`  exportadoras            ${series.length / 2} empresas`);
 
+  const pages = [];
   for (const edition of REPUTATION_EDITIONS) {
-    const page = await fetchPage(edition.url);
-    const own = reputationSeries(edition, page.text, page.sha256, retrievedAt);
-    series.push(...own);
-    console.log(`  ${edition.edition.padEnd(36)} ${own.length} posiciones`);
+    const page = await fetchHtml(`${MERCO.url}?edicion=${edition.edicion}`, MERCO.cookie);
+    pages.push({ edition, ...page });
   }
+  const reputation = reputationSeries(pages, retrievedAt);
+  series.push(...reputation);
+  console.log(
+    `  Merco Empresas           ${pages.length} ediciones, ${reputation.length} series, ${countPoints(reputation)} puestos`,
+  );
 
   writeFileSync(SEED, `${JSON.stringify({ series }, null, 2)}\n`, 'utf-8');
   console.log(`  -> ${SEED}: ${series.length} series, ${countPoints(series)} observaciones`);

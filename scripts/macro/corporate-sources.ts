@@ -83,143 +83,66 @@ export const EXPORTERS = {
   expected: 100,
 } as const;
 
-const MERCO_2026 =
-  'https://www.infodiez.com/cerveceria-boliviana-nacional-embol-coca-cola-y-farmacorp-encabezan-el-ranking-de-las-empresas-con-mejor-reputacion-de-bolivia-en-la-ultima-edicion/';
-const MERCO_2024 =
-  'https://www.economy.com.bo/articulo/branding-y-rse/ranking-merco-2024-empresas-mejor-reputacion-bolivia/20250611101932018700.html';
-
 /**
- * Una posición que la página escribe en prosa y no con su marcador.
+ * Dónde publica Merco su monitor, y cómo hay que pedírselo.
  *
- * El artículo de la edición 2024 pone el podio en la frase de entrada —«se
- * sitúa a la cabeza … seguida de … y la cadena de farmacias …»— y sólo numera
- * del cuarto puesto en adelante. Esas tres posiciones no se pueden extraer con
- * la misma regla que las otras siete, así que se declaran aquí con el trozo
- * exacto de la frase que las afirma, y el colector se niega a escribirlas si no
- * encuentra ese trozo literal en la página. No es una transcripción de
- * confianza: es una afirmación con su cita, comprobada en cada corrida.
+ * **Se lee la fuente y no la prensa que la cita.** Hasta septiembre de 2026 el
+ * capítulo se armaba con dos artículos —uno por edición— que reproducían el
+ * top diez y los tres primeros de cada sector, en prosa y con los nombres a
+ * medias. La web de Merco publica el ránking entero: las cien empresas de cada
+ * edición desde 2013, con su **puntuación** y su sector. Trece ediciones de
+ * cien puestos contra dos de diez, y con la cifra que dice cuánto separa al
+ * primero del segundo, que un puesto solo no dice.
+ *
+ * La puntuación es la del propio monitor: el primero vale 10.000 y el centésimo
+ * 3.000, y lo de en medio está en esa escala. Se publica tal cual. No es un
+ * porcentaje ni se puede comparar entre ediciones como un nivel —cada edición
+ * reescala a su primero—; lo que sí se lee es la distancia dentro de una
+ * edición.
+ *
+ * **La cookie no es un truco.** La página redirige a sí misma hasta que el
+ * navegador guarda el país elegido (`m.cou1=bo`); sin ella la petición entra en
+ * un bucle de redirecciones. Mandarla es lo que hace cualquier visitante que
+ * haya elegido Bolivia en el selector de país.
  */
-export interface Podium {
-  readonly rank: number;
-  readonly company: string;
-  /** El fragmento que tiene que aparecer literal para que la fila se escriba. */
-  readonly anchor: string;
-}
+export const MERCO = {
+  url: 'https://www.merco.info/bo/ranking-merco-empresas',
+  cookie: 'm.cou1=bo',
+  /** Cuántos puestos trae el ránking general de cada edición. */
+  expected: 100,
+} as const;
 
-/** Cómo se lee una edición del monitor en la página que la publica. */
+/** Una edición del monitor, con el año con el que entra al corpus. */
 export interface ReputationEdition {
-  readonly monitor: string;
+  /** Lo que la página espera en `?edicion=`. */
+  readonly edicion: string;
   /** El rótulo entero, para citarlo tal como Merco lo escribe. */
   readonly edition: string;
-  /** El año con el que entra al corpus: el último de su rótulo. */
+  /**
+   * El año con el que entra al corpus: el último de su rótulo.
+   *
+   * La edición que Merco llama «2025/26» entra como 2026, que es como la
+   * nombraba la prensa de la que el capítulo leía antes y como ya está en las
+   * dos bases. Cambiarla a 2025 dejaría la fila vieja de 2026 en el corpus y
+   * el tablero dibujaría dos ediciones donde hay una.
+   */
   readonly period: string;
-  readonly url: string;
-  /** El tramo de la página donde está el ránking general, por sus dos extremos. */
-  readonly general: { readonly from: string; readonly to: string; readonly expected: number };
-  /** Las posiciones que la página no numera, con su cita. */
-  readonly podium: readonly Podium[];
-  /** El tramo del ránking sectorial, cuando la página lo trae. */
-  readonly sectors?: {
-    readonly from: string;
-    readonly to: string;
-    /** Los sectores, escritos como la página los imprime. */
-    readonly names: readonly string[];
-  };
 }
 
 /**
- * Los sectores de la edición 2025-2026, en el orden en que la página los lista.
+ * Las ediciones publicadas, de la más antigua a la más nueva.
  *
- * Están declarados y no deducidos porque el cuadro no separa el sector de la
- * primera empresa con nada: «ALIMENTACIÓN SOFÍA LTDA. (1º)» es una sola cadena
- * y no hay forma de saber dónde acaba uno y empieza la otra sin saber ya cómo
- * se llama el sector. El colector exige encontrarlos todos: uno que falte
- * significa que Merco renombró un sector, y eso hay que verlo, no absorberlo.
+ * Declaradas y no descubiertas del selector de la página: una edición nueva
+ * tiene que entrar a propósito, con su año decidido, y no porque la página
+ * haya cambiado. El colector se detiene si una de estas deja de traer sus cien
+ * puestos.
  */
-const SECTORS_2026 = [
-  'ALIMENTACIÓN',
-  'ASESORES AGROPECUARIO Y VETERINARIO',
-  'AUTOMOCIÓN',
-  'BEBIDAS',
-  'BIENES RAÍCES',
-  'CADENA DE FARMACIAS',
-  'CADENA DE SUPERMERCADOS',
-  'CALZADOS',
-  'CENTRO COMERCIAL',
-  'CLÍNICAS',
-  'CONSTRUCCIÓN',
-  'CONSULTORES Y/O OUTSOURCING',
-  'COOPERATIVAS DE SERVICIOS PÚBLICOS',
-  'CUIDADO PERSONAL',
-  'DELIVERY',
-  'EMPAQUES Y EMBALAJES SOSTENIBLES',
-  'EMPRESARIAL CORPORATIVO',
-  'ENERGÍA',
-  'ENTIDADES FINANCIERAS',
-  'FORMACIÓN',
-  'HIDROCARBUROS Y ENERGÍA',
-  'HOLDING',
-  'HOTELERÍA Y TURISMO',
-  'INDUSTRIA COMERCIAL',
-  'INDUSTRIA DE LOGÍSTICA',
-  'INDUSTRIAL Y MANUFACTURA',
-  'LABORATORIOS SALUD',
-  'LOGÍSTICA, DISTRIBUCIÓN Y COMERCIALIZACIÓN',
-  'MEDIOS DE COMUNICACIÓN',
-  'MINERÍA',
-  'PRODUCTOS Y SERVICIOS AGROINDUSTRIALES',
-  'RESTAURANTES Y CADENAS DE COMIDA',
-  'RETAIL GENERALISTA',
-  'SALUD Y EQUIPAMIENTO MÉDICO',
-  'SEGUROS',
-  'SERVICIOS LEGALES',
-  'TECNOLOGÍA',
-  'TELECOMUNICACIONES',
-  'TRANSPORTE',
-] as const;
-
 export const REPUTATION_EDITIONS: readonly ReputationEdition[] = [
-  {
-    monitor: 'Merco Empresas',
-    edition: 'Merco Empresas Bolivia 2025-2026',
-    period: '2026',
-    url: MERCO_2026,
-    general: {
-      from: 'Top 10 del Ranking Merco Empresas Bolivia 2025-2026',
-      to: 'Top 3 Ranking sectorial',
-      expected: 10,
-    },
-    podium: [],
-    sectors: {
-      from: 'Top 3 Ranking sectorial Merco Empresas Bolivia 2025-2026',
-      to: 'Top 10 del Ranking Merco Líderes',
-      names: SECTORS_2026,
-    },
-  },
-  {
-    monitor: 'Merco Empresas',
-    edition: 'Merco Empresas Bolivia 2024',
-    period: '2024',
-    url: MERCO_2024,
-    general: { from: 'El top ten lo completan', to: 'Para la CBN', expected: 7 },
-    podium: [
-      {
-        rank: 1,
-        company: 'Cervecería Boliviana Nacional',
-        anchor: 'la Cervecería Boliviana Nacional (CBN) se sitúa a la cabeza',
-      },
-      {
-        rank: 2,
-        company: 'Sofía',
-        anchor: 'seguida de la empresa de alimentos Sofía Ltda.',
-      },
-      {
-        rank: 3,
-        company: 'Farmacorp',
-        anchor: 'la cadena de farmacias Farmacorp',
-      },
-    ],
-  },
+  ...Array.from({ length: 12 }, (_unused, index) => {
+    const year = String(2013 + index);
+    return { edicion: year, edition: `Merco Empresas Bolivia ${year}`, period: year };
+  }),
+  { edicion: '2025', edition: 'Merco Empresas Bolivia 2025-2026', period: '2026' },
 ];
 
 export const REPUTATION_PUBLISHER = 'MERCO';

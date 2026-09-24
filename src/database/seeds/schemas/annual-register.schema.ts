@@ -90,7 +90,14 @@ export const annualRegisterSchema = z.object({
         .strict(),
     )
     .min(1)
-    .max(400),
+    /*
+     * Mil quinientas y no cuatrocientas desde que el registro empresarial lee
+     * las trece ediciones de Merco: doscientas series de exportadoras más una
+     * por empresa y medida del monitor —puesto, puntuación y sector— dan unas
+     * mil cien. El tope sigue ahí para lo que tiene que atrapar, un colector
+     * que por un fallo de agrupación escriba una serie por punto.
+     */
+    .max(1_500),
 });
 
 export type AnnualRegister = z.infer<typeof annualRegisterSchema>;
