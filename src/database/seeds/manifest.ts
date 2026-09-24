@@ -231,6 +231,10 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/bolivia-road-network/road-sections.json',
     'boot/bolivia-road-network/road-lengths.json',
   ]),
+  historical('exogenous-prices', 'Precios que Bolivia no fija (variables exógenas)', [
+    'boot/exogenous-prices.json',
+    'boot/exogenous-customs.json',
+  ]),
   {
     code: 'observatory-demo',
     version: '1.0.0',
