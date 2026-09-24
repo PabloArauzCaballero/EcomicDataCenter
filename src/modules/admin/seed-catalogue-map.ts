@@ -217,6 +217,7 @@ export const PACKAGE_SNAPSHOTS: Readonly<Record<string, readonly string[]>> = {
   'macro-annual-history': ['macro_indicator_annual_snapshot', 'indicator_source_note_snapshot'],
   'composite-indices': ['macro_indicator_annual_snapshot', 'indicator_source_note_snapshot'],
   'worldbank-panel': ['world_panel_catalogue_snapshot'],
+  'bolivia-national-poi': ['national_place'],
 };
 
 /** Converts a seed field name into the column the models map it to. */

@@ -35,8 +35,9 @@ export interface RefreshOutcome {
   failed: string[];
 }
 
-/** The stored copies, in the order their cost suggests: cheapest first. */
+/** The stored copies, cheapest first — but the places first: unbuilt, they raise (0085). */
 const ORDER = [
+  'national_place',
   'world_panel_catalogue_snapshot',
   'company_filing_snapshot',
   'indicator_source_note_snapshot',

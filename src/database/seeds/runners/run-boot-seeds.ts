@@ -274,6 +274,12 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
       await refreshOneSnapshot(database, 'indicator_source_note_snapshot', true);
     }
 
+    // A stored copy since 0085: a load of places or municipalities leaves it
+    // stale until this runs, and it reads only what was committed.
+    if (wanted('bolivia-national-poi')) {
+      await refreshOneSnapshot(database, 'national_place', true);
+    }
+
     if (failed.length > 0) {
       throw new Error(`catalogos que no cargaron: ${failed.join(', ')}`);
     }
