@@ -28,6 +28,93 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Contabo (`test`, test.datosbolivia.com) no recibe nada del recolector: su
+  # API solo escucha dentro del servidor. Sus datos entran por las semillas, y
+  # daily-source-batches las publica solo en `dev`. Sin este trabajo `test` se
+  # quedo una semana con las lecturas del 22 de septiembre de 2026. Corre aparte
+  # del despliegue a pablo-h310 y no pasa por la tailnet: que ese servidor sea
+  # inalcanzable no debe dejar a Contabo sin datos. El push a `test` lo recoge
+  # el webhook de Coolify en Contabo.
+  seeds-to-test:
+    if: github.ref_name == 'dev'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: test
+          fetch-depth: 0
+
+      - name: Carry the day's seeds from dev to test
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898541+github-actions[bot]@users.noreply.github.com'
+          seeds='src/database/seeds/boot/*.json'
+
+          # Lo que cada semilla necesita para entrar: su sembrador, su esquema y
+          # las piezas comunes. Si eso difiere entre ramas, el sembrador de
+          # `test` podria no entender el archivo de `dev` y tumbar el arranque
+          # de Contabo.
+          shared='src/database/seeds/schemas/seed.primitives.ts src/database/seeds/schemas/seed.schemas.ts src/database/seeds/schemas/boot-seed.schemas.ts'
+
+          for intento in 1 2 3; do
+            git fetch --quiet origin dev test
+            git reset --quiet --hard origin/test
+
+            if ! git diff --quiet origin/test origin/dev -- $shared; then
+              echo "::error::Los esquemas comunes de las semillas difieren entre test y dev; hay que llevar ese codigo a test antes que los datos."
+              exit 1
+            fi
+
+            changed=""
+            held=""
+            for file in $(git diff --name-only origin/test origin/dev -- "$seeds"); do
+              name=$(basename "$file" .json)
+              code="src/database/seeds/runners/boot-seed.$name.ts src/database/seeds/schemas/$name.schema.ts"
+              if ! git cat-file -e "origin/test:$file" 2>/dev/null; then
+                held="$held $name(nueva)"
+              elif ! git diff --quiet origin/test origin/dev -- $code; then
+                held="$held $name(codigo)"
+              else
+                git show "origin/dev:$file" > "$file"
+                changed="$changed $file"
+              fi
+            done
+
+            if [ -n "$changed" ]; then
+              git add $changed
+              git commit --quiet -m 'Llevar a test las lecturas del dia'                 -m "Copiadas de dev ($(git rev-parse --short origin/dev)) por la ejecucion ${{ github.run_id }} de deploy-to-coolify."
+              if ! git push --quiet origin HEAD:test; then
+                echo "push rechazado (intento $intento): vuelvo a partir de test"
+                continue
+              fi
+              echo "semillas publicadas en test:$changed"
+            else
+              echo "no hay semillas compatibles que llevar a test"
+            fi
+
+            # Lo retenido no se puede dejar en un aviso que nadie lee: Contabo
+            # se quedaria sin esas series igual que antes. Rojo y al issue.
+            if [ -n "$held" ]; then
+              echo "::error::Semillas retenidas porque test no tiene su codigo:$held. Llevar ese codigo a test."
+              exit 1
+            fi
+            exit 0
+          done
+          echo "::error::no se pudieron publicar las semillas en test tras tres intentos"
+          exit 1
+
+      - name: Report the failure where someone will see it
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        # El checkout es de `test`, que no tiene scripts/ops: el aviso sale de `dev`.
+        run: git show origin/dev:scripts/ops/avisar-ingesta-caida.sh | bash -s -- "semillas a test (Contabo)"
+
   deploy:
     runs-on: ubuntu-24.04
     # Mas que los quince minutos que espera el ultimo paso: si el trabajo muere
