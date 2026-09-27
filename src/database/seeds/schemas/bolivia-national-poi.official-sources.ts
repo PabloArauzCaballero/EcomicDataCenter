@@ -23,6 +23,8 @@ export const OFFICIAL_PUBLISHERS = [
   'ANH',
   'Tel.bo',
   'ASFI',
+  // El registro de establecimientos de salud del SNIS-VE (2026-09-27).
+  'Ministerio de Salud y Deportes (SNIS-VE)',
 ] as const;
 
 /**
@@ -35,7 +37,7 @@ export const OFFICIAL_PUBLISHERS = [
  * no numera nada: su identificador sale del contenido de la fila.
  */
 export const OFFICIAL_PLACE_IDENTIFIER =
-  /^(?:sie:rue:\d{6,10}|anh:estacion:ANH\d{3,8}-[A-Z]{2,8}\d{1,4}|tel_bo:cajero:[0-9a-f]{24}|asfi:paf:\d{1,10})$/u;
+  /^(?:sie:rue:\d{6,10}|anh:estacion:ANH\d{3,8}-[A-Z]{2,8}\d{1,4}|tel_bo:cajero:[0-9a-f]{24}|asfi:paf:\d{1,10}|snis:establecimiento:\d{5,10})$/u;
 
 /**
  * Como se clasifico.
@@ -53,6 +55,16 @@ export const OFFICIAL_CLASSIFICATION_METHODS = [
 /** Un punto que un tercero puso en su mapa, sin decir como. */
 export const OFFICIAL_POSITION_METHODS = [
   'coordenada_publicada_por_un_directorio_privado_no_entrada_verificada',
+  /*
+   * El registro de salud del SNIS no trae coordenadas; se las da, en este orden,
+   * el mapa del SUS que publica el propio Ministerio, su capa georreferenciada
+   * de 2001-2008 y, solo en lo rural, la comunidad homonima de OpenStreetMap.
+   * La tercera es la comunidad y no el edificio (mediana 0,48 km del punto del
+   * Ministerio donde hay los dos), y por eso tiene nombre propio.
+   */
+  'coordenada_del_mapa_sus_del_ministerio',
+  'coordenada_de_la_capa_msyd_2001_2008',
+  'centro_de_la_comunidad_osm_homonima',
 ] as const;
 
 /**

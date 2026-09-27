@@ -196,6 +196,8 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-overture-refresh-poi/',
       'boot/bolivia-osm-sweep-poi/',
       'boot/bolivia-asfi-poi/',
+      'boot/bolivia-snis-health-poi/',
+      'boot/bolivia-agemed-pharmacies-poi/',
       'boot/bolivia-place-municipality/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
@@ -226,7 +228,13 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // nueva— y el municipio, por polígono, de las filas que no declaran
     // localidad (migración 0084). Santa Cruz de la Sierra tenía 7.821 lugares
     // cargados en «Sin localidad declarada».
-    '1.6.0',
+    // 2026-09-27: la red de salud que faltaba — 2.719 establecimientos del
+    // registro del Ministerio (SNIS-VE, gestión 2026: 1.540 centros y 1.051
+    // puestos de salud, cajas y hospitales), la mayoría con la coordenada del
+    // mapa del SUS del Ministerio y 310 ubicados en su comunidad, marcados como
+    // aproximados; y 695 farmacias de AGEMED que la entrega del 2026-09-21 dejó
+    // fuera, entre ellas las primeras públicas, municipales y de las cajas.
+    '1.7.0',
   ),
   historical('bolivia-road-network', 'Red vial de Bolivia', [
     'boot/bolivia-road-network/road-sections.json',
