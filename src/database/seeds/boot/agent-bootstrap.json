@@ -304,6 +304,17 @@
       "specialty": "Precios de energia, minerales, agro, ganaderia, insumos y construccion; valor unitario de aduana",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000023",
+      "code": "INE_TRADE_RECORDS",
+      "name": "Carga de la base de comercio exterior del INE, registro por registro",
+      "agentType": "EXTERNAL_SECTOR",
+      "provider": "Instituto Nacional de Estadistica",
+      "modelIdentifier": "ine-bases-de-datos-comercio-exterior",
+      "specialty": "Exportaciones e importaciones por partida NANDINA, pais, departamento y mes",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
