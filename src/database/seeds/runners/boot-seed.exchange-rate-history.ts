@@ -15,6 +15,7 @@ import {
   type ExchangeRatePoint,
 } from '../schemas/exchange-rate-history.schema';
 import { readSeed } from './seed.utils';
+import { reconcileFxDaily } from './boot-seed.fx-daily';
 
 /**
  * Loads the exchange rate series that predate the daily collector.
@@ -239,4 +240,6 @@ export async function reconcileExchangeRateHistory(
   transaction: Transaction,
 ): Promise<void> {
   for (const series of SERIES) await reconcileSeries(series, sourceId, transaction);
+  // Lo que estas series tienen despues del 23 de agosto de 2026, dia a dia.
+  await reconcileFxDaily(sourceId, transaction);
 }

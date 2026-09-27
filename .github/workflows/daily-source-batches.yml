@@ -21,7 +21,7 @@ on:
         required: false
         default: todas
         type: choice
-        options: [todas, mercados, bcb, fichas, exogenas, prensa]
+        options: [todas, mercados, bcb, dolar, fichas, exogenas, prensa]
   schedule:
     # America/La_Paz is UTC-4 year-round: 07:10, 13:10 and 19:10 local.
     - cron: '10 11,17,23 * * *'
@@ -93,6 +93,36 @@ jobs:
         with:
           name: bcb-quotes-${{ github.run_id }}
           path: src/database/seeds/boot/bcb-quotes.json
+          retention-days: 14
+
+  # El dolar oficial y el paralelo solo llegaban por la API del recolector, que
+  # escribe en la base de un servidor: Contabo se quedo con el dolar del 20 de
+  # septiembre de 2026 mientras el oficial pasaba de 11,00 a 12,26. Como semilla
+  # llega a las dos bases. Falla si la fuente deja de publicar mas de tres dias.
+  dolar:
+    if: >-
+      github.event_name == 'schedule' ||
+      contains(fromJSON('["todas","dolar"]'), inputs.batch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Fusiona con la semilla que encuentra: tiene que ser la de `dev`.
+          ref: dev
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Collect the official and parallel dollar
+        run: yarn fx:collect
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: fx-daily-${{ github.run_id }}
+          path: src/database/seeds/boot/fx-daily.json
           retention-days: 14
 
   # El unico lote que existe para que un dato llegue a DOS bases.
@@ -220,7 +250,7 @@ jobs:
   # el repositorio sin llegar jamas al servidor, que es la misma clase de final
   # silencioso que este trabajo viene a corregir.
   publicar:
-    needs: [mercados, bcb, fichas, exogenas, prensa]
+    needs: [mercados, bcb, dolar, fichas, exogenas, prensa]
     # Un lote caido cuesta sus fuentes y no las de los otros dos, igual que
     # arriba. `always()` publicaria tambien lo cancelado a mano.
     if: ${{ !cancelled() }}
@@ -229,10 +259,22 @@ jobs:
     permissions:
       contents: write
       actions: write
+      issues: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: dev
+      # Un lote caido no para a los demas, y por eso mismo nadie lo ve: la
+      # corrida publica lo que volvio y el lote que falto se queda con la semilla
+      # de ayer. Se deja constancia en el issue `ingesta-caida`.
+      - name: Report the batches that failed
+        if: contains(needs.*.result, 'failure')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          FAILED: >-
+            ${{ needs.mercados.result == 'failure' && 'mercados ' || '' }}${{ needs.bcb.result == 'failure' && 'bcb ' || '' }}${{ needs.dolar.result == 'failure' && 'dolar ' || '' }}${{ needs.fichas.result == 'failure' && 'fichas ' || '' }}${{ needs.exogenas.result == 'failure' && 'exogenas ' || '' }}${{ needs.prensa.result == 'failure' && 'prensa' || '' }}
+        run: bash scripts/ops/avisar-ingesta-caida.sh "daily-source-batches, lotes caidos $FAILED"
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         if: needs.mercados.result == 'success'
         with:
@@ -242,6 +284,11 @@ jobs:
         if: needs.bcb.result == 'success'
         with:
           name: bcb-quotes-${{ github.run_id }}
+          path: src/database/seeds/boot
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        if: needs.dolar.result == 'success'
+        with:
+          name: fx-daily-${{ github.run_id }}
           path: src/database/seeds/boot
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         if: needs.fichas.result == 'success'
@@ -263,7 +310,7 @@ jobs:
           set -euo pipefail
           git config user.name 'observatorio-recolector'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/stablecoin-books.json                   src/database/seeds/boot/exogenous-prices.json                   src/database/seeds/boot/press-coverage.json
+          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/fx-daily.json                   src/database/seeds/boot/stablecoin-books.json                   src/database/seeds/boot/exogenous-prices.json                   src/database/seeds/boot/press-coverage.json
           # Una fuente que no publico nada hoy deja su semilla igual que ayer, y
           # eso no es un fallo: es un dia sin novedades. Un commit vacio si lo
           # seria, porque desplegaria por nada.
