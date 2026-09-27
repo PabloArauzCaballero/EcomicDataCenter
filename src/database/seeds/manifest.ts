@@ -98,6 +98,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/fx-parallel-history.json',
     'boot/fx-parallel-history-2024.json',
     'boot/fx-parallel-history-2025.json',
+    'boot/fx-daily.json',
   ]),
   historical('macro-annual-history', 'Series macroeconómicas anuales', [
     'boot/macro-annual-history.json',
