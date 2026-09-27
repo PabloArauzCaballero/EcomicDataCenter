@@ -244,6 +244,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/exogenous-prices.json',
     'boot/exogenous-customs.json',
   ]),
+  historical('ine-trade', 'Comercio exterior del INE, registro por registro', ['boot/ine-trade/']),
   {
     code: 'observatory-demo',
     version: '1.0.0',

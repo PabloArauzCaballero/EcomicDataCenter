@@ -1,4 +1,6 @@
-import { inflateRawSync } from 'node:zlib';
+import { Readable } from 'node:stream';
+import { StringDecoder } from 'node:string_decoder';
+import { createInflateRaw, inflateRawSync } from 'node:zlib';
 
 /**
  * Reads the cells of a workbook without a spreadsheet library.
@@ -50,11 +52,15 @@ function listEntries(bytes: Buffer): ZipEntry[] {
   return entries;
 }
 
-function readEntry(bytes: Buffer, entry: ZipEntry): string {
+function packedBytes(bytes: Buffer, entry: ZipEntry): Buffer {
   const at = entry.headerOffset;
   if (bytes.readUInt32LE(at) !== LOCAL_HEADER) throw new Error(`${entry.name}: cabecera rota`);
   const start = at + 30 + bytes.readUInt16LE(at + 26) + bytes.readUInt16LE(at + 28);
-  const packed = bytes.subarray(start, start + entry.compressedSize);
+  return bytes.subarray(start, start + entry.compressedSize);
+}
+
+function readEntry(bytes: Buffer, entry: ZipEntry): string {
+  const packed = packedBytes(bytes, entry);
   if (entry.method === 0) return packed.toString('utf-8');
   if (entry.method === 8) return inflateRawSync(packed).toString('utf-8');
   throw new Error(`${entry.name}: compresion ${entry.method} no soportada`);
@@ -108,6 +114,53 @@ export class Workbook {
    * publisher reorders tabs between editions.
    */
   rows(sheetName: string): SheetRow[] {
+    const xml = this.part(this.sheetPart(sheetName));
+    if (xml === null) throw new Error(`la hoja «${sheetName}» falta en el archivo`);
+    return [...xml.matchAll(/<row\s[^>]*>([\s\S]*?)<\/row>/gu)].map((row) =>
+      this.cells(row[1] ?? ''),
+    );
+  }
+
+  /**
+   * The rows of one sheet, one at a time, without holding the sheet in memory.
+   *
+   * The customs registers the statistics institute publishes run to fifty
+   * megabytes compressed and several hundred uncompressed — past the longest
+   * string the runtime will build — so `rows` cannot open them. This inflates
+   * the part as a stream and hands each row over as soon as it is complete.
+   * `visit` returning `false` stops the reading, which is how a caller that
+   * only wanted the header avoids inflating the rest.
+   */
+  async eachRow(sheetName: string, visit: (row: SheetRow) => boolean | void): Promise<void> {
+    const name = this.sheetPart(sheetName);
+    const entry = this.entries.get(name);
+    if (!entry) throw new Error(`la hoja «${sheetName}» falta en el archivo`);
+    const packed = packedBytes(this.bytes, entry);
+    const source =
+      entry.method === 0
+        ? Readable.from([packed])
+        : Readable.from([packed]).pipe(createInflateRaw());
+    const decoder = new StringDecoder('utf8');
+    let pending = '';
+    for await (const chunk of source) {
+      pending += decoder.write(chunk as Buffer);
+      let end = pending.indexOf('</row>');
+      let consumed = 0;
+      while (end !== -1) {
+        const open = pending.lastIndexOf('<row', end);
+        const body = pending.slice(pending.indexOf('>', open) + 1, end);
+        if (visit(this.cells(body)) === false) {
+          source.destroy();
+          return;
+        }
+        consumed = end + '</row>'.length;
+        end = pending.indexOf('</row>', consumed);
+      }
+      pending = pending.slice(consumed);
+    }
+  }
+
+  private sheetPart(sheetName: string): string {
     const workbook = this.part('xl/workbook.xml') ?? '';
     const sheet = [...workbook.matchAll(/<sheet\s([^>]*)\/?>/gu)]
       .map((match) => match[1] ?? '')
@@ -120,11 +173,7 @@ export class Workbook {
       .find((attributes) => new RegExp(`Id="${relationId}"`, 'u').test(attributes));
     const target = relation ? /Target="([^"]*)"/u.exec(relation)?.[1] : undefined;
     if (!target) throw new Error(`la hoja «${sheetName}» no tiene parte en el cuaderno`);
-    const xml = this.part(target.startsWith('/') ? target.slice(1) : `xl/${target}`);
-    if (xml === null) throw new Error(`la hoja «${sheetName}» falta en el archivo`);
-    return [...xml.matchAll(/<row\s[^>]*>([\s\S]*?)<\/row>/gu)].map((row) =>
-      this.cells(row[1] ?? ''),
-    );
+    return target.startsWith('/') ? target.slice(1) : `xl/${target}`;
   }
 
   private cells(rowXml: string): SheetRow {
