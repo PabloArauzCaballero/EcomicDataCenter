@@ -70,6 +70,23 @@ async function reconcileArtifact(
  * close, and the exchange serves a new response every day. Including it made a
  * re-collection of the same 2024 candle hash differently and land as a second
  * record. The digest is on the artifact, which is where a reader checks it.
+ *
+ * `url` y `storageUri` siguen dentro, y eso es la misma trampa a medio cerrar:
+ * son la direccion de donde se descargo, no el cierre. Cuando el recolector
+ * cambio de `api.binance.com` a `data-api.binance.vision` —Binance responde 451
+ * a los runners de GitHub— las 2.442 huellas cambiaron de golpe y la serie
+ * entera vuelve a entrar como si fuera nueva.
+ *
+ * Medido antes de tocar nada, porque el susto es mayor que el dano: la vista
+ * `economic_indicator_daily` agrega por `percentile_disc(0.5)`, asi que dos
+ * filas con el mismo valor dan la misma mediana. La serie NO se duplica en
+ * pantalla; lo que sube es `reading_count` y el numero de filas guardadas. No
+ * hay restriccion unica sobre `content_hash`, de modo que tampoco falla nada.
+ *
+ * Sacarlos del payload cierra la trampa para siempre, al precio de una ultima
+ * reinsercion completa de la serie. Es una decision sobre el conjunto de datos
+ * real y por eso no se toma aqui de tapadillo: quien la tome, que lo haga a
+ * sabiendas de las dos mitades.
  */
 function dailyPayload(series: MarketSeries, date: string, close: string): Record<string, unknown> {
   return {

@@ -29,3 +29,4 @@ Los ADR son inmutables después de aceptarse. Una decisión nueva reemplaza a la
 | 0023 | El comercio se lee por su forma de hacer negocio, no por la plataforma | Aceptado |
 | 0024 | El panel mundial entra completo, no como lista de lectura | Aceptado |
 | 0025 | El registro lee comercio, no plataformas | Aceptado |
+| 0026 | El tablero mundial lee el mundo, no a los vecinos | Aceptado |

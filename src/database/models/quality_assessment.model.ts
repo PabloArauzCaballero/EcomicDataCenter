@@ -46,4 +46,22 @@ export class QualityAssessmentModel extends Model<
 
   @Column({ field: 'assessed_at', type: DataType.DATE, allowNull: false })
   declare assessedAt: Date;
+
+  @Column({ field: 'rule_version', type: DataType.STRING(20), allowNull: true })
+  declare ruleVersion: string | null;
+
+  @Column({ field: 'evaluation_scope', type: DataType.STRING(120), allowNull: true })
+  declare evaluationScope: string | null;
+
+  @Column({ field: 'numerator', type: DataType.BIGINT, allowNull: true })
+  declare numerator: string | null;
+
+  @Column({ field: 'denominator', type: DataType.BIGINT, allowNull: true })
+  declare denominator: string | null;
+
+  @Column({ field: 'not_evaluated', type: DataType.BIGINT, allowNull: true })
+  declare notEvaluated: string | null;
+
+  @Column({ field: 'cutoff_at', type: DataType.DATE, allowNull: true })
+  declare cutoffAt: Date | null;
 }

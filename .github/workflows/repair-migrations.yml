@@ -1,0 +1,106 @@
+name: repair-migrations
+
+# Aplica las migraciones pendientes sobre la base que la API escribe.
+#
+# Por que existe. El recurso de Coolify tiene `DATABASE_MIGRATOR_URL` apuntando
+# a una base distinta de `DATABASE_WRITER_URL`. El servicio `migrate` corre
+# verde en cada despliegue, el `api` arranca detras de el, y sin embargo las
+# migraciones no llegan a los datos: el 2026-09-07 la base que sirve el informe
+# estaba en `0069-retire-platform-analytics` mientras el despliegue habia
+# aplicado 0070 y 0071 en la otra. El tablero lo reporta en `/api/readers`, que
+# devuelve `42P01` sobre los dos modelos de lugares.
+#
+# Que hace. Entra a la tailnet, pide a Coolify que ejecute el mismo CLI de
+# migraciones que corre el despliegue, dentro del contenedor de la API y con
+# `DATABASE_MIGRATOR_URL` igualado a `DATABASE_WRITER_URL`. La sustitucion pasa
+# por el nombre de la variable, que el shell del contenedor resuelve: ninguna
+# credencial entra ni sale de este archivo, ni aparece en el log de Actions.
+#
+# Es una reparacion, no un despliegue: no reemplaza al arreglo de fondo, que es
+# corregir esa variable en la UI de Coolify para que las dos apunten a la misma
+# base. Mientras siga torcida, cada migracion nueva vuelve a caer en la base
+# equivocada y hay que volver a correr esto.
+#
+# Se dispara a mano. Correrla de mas no hace dano: umzug aplica solo lo
+# pendiente y no repite lo que ya esta en `infrastructure.migration_history`.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repair-migrations
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Join the tailnet
+        uses: tailscale/github-action@v3
+        with:
+          authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
+          args: --ssh=false
+
+      - name: Run the pending migrations against the written database
+        env:
+          TOKEN: ${{ secrets.PABLO_H310_COOLIFY_TOKEN }}
+        run: |
+          set -u
+
+          api() {
+            curl --silent --show-error --max-time 120 \
+                 --header "Authorization: Bearer $TOKEN" \
+                 --header "Accept: application/json" \
+                 "$@"
+          }
+
+          unwrap='if type == "array" then . elif type == "object" and (.data | type) == "array" then .data else empty end'
+
+          list=$(api "http://100.101.207.88/api/v1/applications" | jq "$unwrap")
+          if [ -z "$list" ]; then
+            echo "Coolify no devolvio la lista de aplicaciones" >&2
+            exit 1
+          fi
+
+          # El recurso de la API es el que no es el tablero: el contenedor que
+          # lleva el CLI de migraciones compilado en `dist`.
+          uuid=$(printf '%s' "$list" \
+            | jq -r '.[] | select((.name // "") | test("dashboard") | not) | .uuid' \
+            | head -n 1)
+          if [ -z "$uuid" ]; then
+            echo "no hay ninguna aplicacion que no sea el tablero" >&2
+            exit 1
+          fi
+          echo "recurso de la API: $uuid"
+
+          # El comando es fijo y no toma nada de la entrada del trabajo. Iguala
+          # el destino del migrador al de la escritura por nombre de variable:
+          # el valor lo resuelve el shell del contenedor.
+          command='DATABASE_MIGRATOR_URL="$DATABASE_WRITER_URL" node dist/database/cli/migrate.js'
+
+          response=$(api --request POST \
+            --header 'Content-Type: application/json' \
+            --data "$(jq -n --arg command "$command" '{command: $command}')" \
+            "http://100.101.207.88/api/v1/applications/$uuid/execute")
+
+          printf '%s\n' "$response" | jq . 2>/dev/null || printf '%s\n' "$response"
+
+          if printf '%s' "$response" | jq -e '.message // .error // empty' >/dev/null 2>&1; then
+            echo
+            echo "Coolify rechazo la ejecucion. Si el token no puede ejecutar" >&2
+            echo "comandos, corre el CLI desde el servidor:" >&2
+            echo "  docker exec <contenedor-api> sh -c 'DATABASE_MIGRATOR_URL=\"\$DATABASE_WRITER_URL\" node dist/database/cli/migrate.js'" >&2
+            exit 1
+          fi
+
+      - name: Say what the report can read now
+        run: |
+          # La prueba no es que el comando volviera, sino que el informe ya lee
+          # los modelos que faltaban y que su historia llego a la ultima
+          # migracion.
+          curl --silent --max-time 180 "http://100.101.207.88:3003/api/readers" \
+            | jq '{base, fallidos, faltan: [.lectores[] | select(.ok | not) | .name]}'

@@ -1,6 +1,6 @@
 # Modelos de lectura para el tablero de indicadores
 
-Tres vistas en el esquema `read_models` sostienen el análisis de los indicadores medidos. Se
+Las vistas del esquema `read_models` sostienen el análisis de los indicadores medidos. Se
 consumen conectando directamente a la base con un rol de solo lectura; no requieren pasar por la
 API.
 
@@ -62,6 +62,8 @@ Son un contrato: renombrar uno rompe en silencio cualquier panel ya construido s
 | --- | --- | --- | --- |
 | `FX_OFFICIAL_USD_BOB` | Tipo de cambio oficial del BCB | `OFFICIAL` | `BOB/USD` |
 | `FX_PARALLEL_USD_BOB` | Dólar paralelo cotizado en plazas de mercado | `BUY`, `SELL` | `BOB/USD` |
+| `FX_PARALLEL_USDT_BOB` | Dólar paralelo cotizado **en USDT** | `BUY`, `SELL` | `BOB/USD` |
+| `FX_PARALLEL_USDC_BOB` | Dólar paralelo cotizado **en USDC** | `BUY`, `SELL` | `BOB/USD` |
 | `UFV_BOB` | Unidad de Fomento de Vivienda | `NULL` | `BOB/UFV` |
 
 La UFV se remonta al **7 de diciembre de 2001**, el día en que se creó valiendo exactamente
@@ -76,9 +78,31 @@ IPC, así que retrocede cuando los precios retroceden, y hay dos tramos así —
 días por delante para que un contrato que liquida la semana próxima sepa la unidad ahora.
 
 El paralelo se cotiza en `BOB/USDT` en algunas plazas. La unidad se unifica en `BOB/USD` porque en
-este mercado la stablecoin es el sustituto del dólar, y separar la serie por instrumento dejaría a
-cada plaza sola en su grupo e impediría la mediana entre plazas. El instrumento real se conserva en
-la columna `instrument`, de modo que la sustitución queda a la vista y no supuesta.
+este mercado la stablecoin es el sustituto del dólar. El instrumento real se conserva en la columna
+`instrument`, de modo que la sustitución queda a la vista y no supuesta.
+
+**Lo que cambió en septiembre de 2026.** Hasta entonces la serie no se separaba por instrumento con
+un argumento explícito: hacerlo dejaría a cada plaza sola en su grupo e impediría la mediana entre
+plazas. Ese argumento dependía de tener una sola cotización por plaza, y dejó de valer cuando el
+colector empezó a leer el **libro de órdenes** de un mercado que lista los dos tokens
+(`0076-read-the-parallel-rate-by-token.ts`): USDT pasó a tener tres plazas y USDC una. Con eso la
+separación ya no vacía los grupos, y responde la pregunta que el agregado no puede —cuánto cuesta
+un dólar *por cada riel*—, que es donde se ve el costo de sacar plata en un país con controles.
+
+Medido el 2026-09-21, el USDC salía a `12.19` y el USDT a `12.05` del mismo lado: un 1,2 % más caro,
+con un diferencial compra-venta cinco veces más ancho. Esa diferencia es el precio del riel, no el de
+otro dólar, y por eso las dos series comparten unidad (`BOB/USD`) y eje.
+
+**El agregado no se toca y sigue siendo el titular.** `FX_PARALLEL_USD_BOB` conserva toda su
+historia; las series por token empiezan donde el colector empezó a nombrar el instrumento y **no
+llegan al archivo**, porque la carga histórica no registró `instrument`. Un gráfico de dos años por
+moneda no existe, y prometerlo sería inventarlo.
+
+**Tokens comprobados y descartados.** El 2026-09-21 se revisaron los libros en bolivianos de cuatro
+mercados. Solo USDT y USDC tienen mercado de dos puntas. `FDUSD` tiene avisos de un solo lado y de
+un dígito; `DAI`, `TUSD` y `PYUSD` no tienen mercado en bolivianos. La ausencia queda registrada en
+código (`STABLECOIN_MARKET_SURVEY`) y no por omisión: un lector que ve dos series tiene derecho a
+saber que las otras se buscaron.
 
 ## `read_models.economic_indicator_reading`
 
@@ -116,11 +140,42 @@ depende de si lo estás comprando o vendiendo; el punto medio queda disponible p
 de titular. `venue_count` viaja con la fila para que una brecha calculada sobre una plaza no se
 confunda nunca con una de mercado.
 
+## `read_models.stablecoin_parallel_daily`
+
+Grano: **un día por token**. Responde cuánto cuesta un dólar por cada riel, que es la pregunta que
+el agregado no puede contestar porque promedia plazas que no cotizan lo mismo. La crea
+`0076-read-the-parallel-rate-by-token.ts`, que **no modifica** `economic_indicator_daily` ni
+`exchange_rate_gap`: el titular y la brecha no pueden moverse por esta migración.
+
+Tres decisiones aquí son de método y no de implementación.
+
+**Se agrupa por el punto medio, nunca por los lados.** La plaza que sirve el paralelo desde 2024
+publica dos cifras rotuladas `buy` y `sell` cuyo orden se invierte a mitad de la serie, así que esos
+rótulos no llevan la convención boliviana y no pueden tratarse como lados. El libro de órdenes sí
+lleva un lado resuelto, porque se deriva del propio `tradeType` del aviso. Mezclar los dos por lado
+metería una cifra sin rótulo fiable en una columna que afirma significar «lo que paga el lector», de
+modo que la cifra entre plazas es el punto medio —que ningún intercambio de rótulos altera— y los
+lados (`bid_median`, `ask_median`) se publican **solo** desde las fuentes que los resuelven.
+`sides_resolved` dice de cuál se trata cada fila.
+
+**La mediana se toma dos veces, y la de dentro es por plaza.** Una plaza que cotiza tres veces al
+día pesaría el triple que otra que cotiza una. Cada plaza se reduce primero a su propio punto medio
+del día, y la cifra del día es la mediana discreta de esos: un precio que una plaza cotizó de verdad.
+
+**Una plaza con un solo lado se descarta.** Media cotización no es un precio, y duplicarla en un
+punto medio inventaría el otro lado.
+
+El token se lee de la lectura y no se supone del código, para recuperar la historia que el colector
+ya reunió desde que empezó a nombrar el par. No alcanza al archivo: la carga histórica no registró
+instrumento, así que este modelo empieza ahí y `economic_indicator_daily` sigue siendo el único
+lugar con la serie completa.
+
 ## Acceso
 
-`backend_reader` y `backup_operator` reciben `SELECT` sobre las tres vistas. Una vista resuelve sus
-lecturas con los privilegios de su propietario, así que una conexión de reportería a la que solo se
-le concedan estas tres puede graficar las series sin llegar a tener `SELECT` sobre `intelligence`.
+`backend_reader` y `backup_operator` reciben `SELECT` sobre todas las vistas de este esquema. Una
+vista resuelve sus lecturas con los privilegios de su propietario, así que una conexión de
+reportería a la que solo se le concedan estas puede graficar las series sin llegar a tener
+`SELECT` sobre `intelligence`.
 
 ## Consultas de partida
 

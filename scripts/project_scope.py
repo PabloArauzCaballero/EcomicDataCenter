@@ -14,6 +14,7 @@ CORE_SOURCE_ROOTS = (
     ROOT / "src" / "common",
     ROOT / "src" / "config",
     ROOT / "src" / "database",
+    ROOT / "src" / "modules" / "admin",
     ROOT / "src" / "modules" / "governance",
     ROOT / "src" / "modules" / "health",
     ROOT / "src" / "modules" / "ingestion",

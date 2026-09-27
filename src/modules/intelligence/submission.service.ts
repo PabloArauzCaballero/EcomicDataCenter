@@ -5,6 +5,7 @@ import { AuditService } from '../../common/audit/audit.service';
 import type { Actor } from '../../common/auth/actor';
 import { assertActorOrganization } from '../../common/auth/organization-scope';
 import { ApplicationError } from '../../common/errors/application.error';
+import { IngestionEventRecorder } from '../../common/observability/ingestion-event.recorder';
 import { MetricsService } from '../../common/observability/metrics.service';
 import { APP_ATTRIBUTES } from '../../common/observability/telemetry.constants';
 import { TracingService } from '../../common/observability/tracing.service';
@@ -25,6 +26,7 @@ export class SubmissionService {
     private readonly metrics: MetricsService,
     private readonly audit: AuditService,
     private readonly tracing: TracingService,
+    private readonly events: IngestionEventRecorder,
   ) {}
 
   /**
@@ -108,6 +110,31 @@ export class SubmissionService {
     for (const item of result.items) {
       this.metrics.observeIntelligence('raw', outcomeToMetric(item.outcome));
     }
+    /*
+     * Recorded after the commit, never inside it.
+     *
+     * An insert that fails inside the submission's transaction aborts the whole
+     * transaction, so telemetry written there could discard a day of collected
+     * intelligence to save a row nobody reads. Outside it, a failed write costs
+     * one missing stage — which the portal shows as missing rather than as
+     * nothing having happened.
+     */
+    await this.events.record({
+      correlationId: agentRunId,
+      agentRunId,
+      stage: 'DELIVERY',
+      outcome:
+        result.rejectedCount > 0 || result.quarantinedCount > 0
+          ? 'PARTIAL'
+          : result.receivedCount === 0
+            ? 'NO_CHANGES'
+            : 'SUCCEEDED',
+      recordsReceived: result.receivedCount,
+      recordsAccepted: result.publishedCount + result.pendingReviewCount,
+      recordsRejected: result.rejectedCount,
+      recordsSkipped: result.duplicateCount,
+      details: { submissionCode: result.submissionCode },
+    });
     // Outcome counts are bounded integers, so they are safe to publish and let
     // an operator see a batch that was accepted but mostly quarantined.
     this.tracing.setAttributes({

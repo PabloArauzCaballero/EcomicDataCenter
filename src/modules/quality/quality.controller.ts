@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Query } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ACTOR_ROLES } from '../../common/auth/actor';
 import { Roles } from '../../common/auth/auth.decorators';
@@ -20,13 +20,17 @@ import {
   type IssueListInput,
   type IssueTransitionInput,
 } from './quality.schemas';
+import { QualityEvaluationService } from './quality-evaluation.service';
 import { QualityService } from './quality.service';
 
 @ApiTags('Quality and lineage')
 @ApiBearerAuth()
 @Controller('quality')
 export class QualityController {
-  constructor(private readonly service: QualityService) {}
+  constructor(
+    private readonly service: QualityService,
+    private readonly evaluations: QualityEvaluationService,
+  ) {}
 
   @Post('dimensions')
   @Roles(ACTOR_ROLES.METHODOLOGY_STEWARD)
@@ -64,6 +68,21 @@ export class QualityController {
     @Body(new ZodValidationPipe(createSeriesBreakSchema)) input: CreateSeriesBreakInput,
   ) {
     return this.service.createSeriesBreak(input);
+  }
+
+  /**
+   * Runs every declared collection rule against one cutoff.
+   *
+   * It is a POST because it writes: each rule produces a stored assessment with
+   * its population, and re-running at the same cutoff replaces that assessment
+   * rather than appending a second opinion about the same instant.
+   */
+  @Post('evaluations')
+  @HttpCode(HttpStatus.OK)
+  @Roles(ACTOR_ROLES.METHODOLOGY_STEWARD)
+  @ApiOperation({ operationId: 'evaluateCollectionQuality' })
+  evaluate() {
+    return this.evaluations.evaluateAll();
   }
 
   @Get('issues')

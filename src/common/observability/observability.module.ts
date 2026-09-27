@@ -1,4 +1,5 @@
 import { Global, Module } from '@nestjs/common';
+import { IngestionEventRecorder } from './ingestion-event.recorder';
 import { MessagingTraceService } from './messaging-trace.service';
 import { MetricsService } from './metrics.service';
 import { TelemetryLifecycle } from './telemetry.lifecycle';
@@ -8,12 +9,19 @@ import { TracingService } from './tracing.service';
 @Global()
 @Module({
   providers: [
+    IngestionEventRecorder,
     MetricsService,
     TracingService,
     TraceContextService,
     MessagingTraceService,
     TelemetryLifecycle,
   ],
-  exports: [MetricsService, TracingService, TraceContextService, MessagingTraceService],
+  exports: [
+    IngestionEventRecorder,
+    MetricsService,
+    TracingService,
+    TraceContextService,
+    MessagingTraceService,
+  ],
 })
 export class ObservabilityModule {}

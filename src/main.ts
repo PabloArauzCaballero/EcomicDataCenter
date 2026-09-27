@@ -8,6 +8,7 @@ import rateLimit from '@fastify/rate-limit';
 import { RequestMethod } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { FastifyAdapter, type NestFastifyApplication } from '@nestjs/platform-fastify';
+import type { Sequelize } from 'sequelize-typescript';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { createHash } from 'node:crypto';
 import type { IncomingMessage } from 'node:http';
@@ -17,6 +18,8 @@ import { createRequestId } from './common/http/request-id';
 import { fastifyTracingPlugin } from './common/observability/fastify-tracing.plugin';
 import { getEnvironment } from './config/environment';
 import { provisionDatabase } from './database/startup-provisioning';
+import { refreshSnapshotsAfterBoot } from './database/startup-snapshot-refresh';
+import { WRITER_DATABASE } from './database/database.tokens';
 
 /**
  * Derives a stable per-caller key without verifying the token.
@@ -119,6 +122,16 @@ async function bootstrap(): Promise<void> {
     }
 
     await application.listen({ host: environment.APP_HOST, port: environment.APP_PORT });
+    // After `listen`, never before: the stored copies of the slow read models
+    // can wait, and a replica that could already serve the daily series must
+    // not be kept from serving them by a register that is minutes away. The
+    // rebuild runs in the background and cannot fail the process.
+    if (environment.SNAPSHOT_REFRESH_ON_BOOT) {
+      void refreshSnapshotsAfterBoot(
+        application.get<Sequelize>(WRITER_DATABASE),
+        application.get(Logger),
+      );
+    }
   } catch (error) {
     if (application) {
       await application.close().catch(() => undefined);

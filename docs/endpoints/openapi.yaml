@@ -16,6 +16,7 @@ tags:
 - name: Quality and lineage
 - name: Agent intelligence
 - name: Claim review
+- name: Administration
 paths:
   /health:
     get:
@@ -3659,6 +3660,1444 @@ paths:
         in: path
         required: true
         schema: *id002
+  /api/v1/admin/overview:
+    get:
+      operationId: getAdminOverview
+      summary: Operational summary with coverage and freshness
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: &id005
+      - ANALYST
+      - METHODOLOGY_STEWARD
+      security:
+      - bearerAuth: []
+  /api/v1/admin/health/summary:
+    get:
+      operationId: getAdminHealthSummary
+      summary: Availability evidence kept apart by kind
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+  /api/v1/admin/audit/events:
+    get:
+      operationId: listAdminAuditEvents
+      summary: Audited actions within the scope of the caller
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+      parameters:
+      - &id007
+        name: since
+        in: query
+        schema: &id006
+          type: string
+          format: date-time
+      - &id008
+        name: until
+        in: query
+        schema: *id006
+      - &id009
+        name: pageSize
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 200
+          default: 50
+      - &id010
+        name: cursor
+        in: query
+        schema:
+          type: string
+          maxLength: 512
+      - name: entityType
+        in: query
+        schema:
+          type: string
+          maxLength: 60
+      - name: outcome
+        in: query
+        schema:
+          type: string
+          enum:
+          - SUCCESS
+          - FAILURE
+      - name: actorSubject
+        in: query
+        schema:
+          type: string
+          maxLength: 200
+  /api/v1/admin/metadata/{catalog}:
+    get:
+      operationId: getAdminMetadataCatalog
+      summary: Read one allowlisted metadata catalogue
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: catalog
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - frequencies
+          - units
+          - geographic-units
+          - statistical-domains
+          - quality-dimensions
+          - organizations
+          - sources
+          - datasets
+          - indicators
+          - methodologies
+  /api/v1/admin/ingestion/sources:
+    get:
+      operationId: listAdminSources
+      summary: Sources, calendars and freshness verdicts
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+  /api/v1/admin/ingestion/runs:
+    get:
+      operationId: listAdminIngestionRuns
+      summary: Collection executions, filtered and paged
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+      parameters:
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+      - name: sourceCode
+        in: query
+        schema:
+          type: string
+          maxLength: 80
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - RUNNING
+          - SUCCEEDED
+          - PARTIAL
+          - FAILED
+          - CANCELLED
+      - name: stage
+        in: query
+        schema:
+          type: string
+          enum:
+          - COLLECTION
+          - VALIDATION
+          - DELIVERY
+          - PERSISTENCE
+          - REVIEW
+          - PUBLICATION
+  /api/v1/admin/ingestion/runs/{agentRunId}:
+    get:
+      operationId: getAdminIngestionRun
+      summary: One execution with its stages and counters
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: agentRunId
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^\d+$
+  /api/v1/admin/quality/evaluations:
+    get:
+      operationId: listAdminQualityEvaluations
+      summary: Rule evaluations with numerator and denominator
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+      parameters:
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+      - name: ruleCode
+        in: query
+        schema:
+          type: string
+          maxLength: 80
+      - name: result
+        in: query
+        schema:
+          type: string
+          enum:
+          - PASS
+          - WARNING
+          - FAIL
+          - ERROR
+          - NOT_EVALUATED
+          - NOT_APPLICABLE
+      - name: severity
+        in: query
+        schema:
+          type: string
+          enum:
+          - INFO
+          - WARNING
+          - ERROR
+          - CRITICAL
+  /api/v1/admin/quality/issues/{dataIssueId}:
+    get:
+      operationId: getAdminQualityIssue
+      summary: One quality issue, its evidence and its history
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: dataIssueId
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^\d+$
+  /api/v1/admin/quality/summary:
+    get:
+      operationId: getAdminQualitySummary
+      summary: Rule coverage, blocking failures and open issues
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+  /api/v1/admin/analytics/traffic:
+    get:
+      operationId: getAdminTraffic
+      summary: Traffic aggregates with declared coverage
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+      parameters:
+      - *id007
+      - *id008
+      - name: granularity
+        in: query
+        schema:
+          type: string
+          enum:
+          - hour
+          - day
+          default: day
+    post:
+      operationId: recordSiteTraffic
+      summary: Report page views from the public site
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - SITE_TELEMETRY
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SiteTrafficInput'
+  /api/v1/admin/analytics/exports:
+    get:
+      operationId: listAdminExports
+      summary: Export requests, generations and failures
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id005
+      security:
+      - bearerAuth: []
+      parameters:
+      - *id007
+      - *id008
+      - *id009
+      - *id010
+      - name: datasetCode
+        in: query
+        schema:
+          type: string
+          maxLength: 40
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - REQUESTED
+          - GENERATED
+          - FAILED
+    post:
+      operationId: recordExportEvent
+      summary: Report one export stage
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - SITE_TELEMETRY
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportEventInput'
+  /api/v1/admin/seeds/packages:
+    get:
+      operationId: listSeedPackages
+      summary: Seed manifest next to the ledger of what was applied
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: &id011
+      - ANALYST
+      - METHODOLOGY_STEWARD
+      - SEED_OPERATOR
+      security:
+      - bearerAuth: []
+  /api/v1/admin/seeds/runs/{seedRunId}:
+    get:
+      operationId: getSeedRun
+      summary: Durable state of one seed run
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: seedRunId
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^\d+$
+  /api/v1/admin/seeds/validations:
+    post:
+      operationId: validateSeedPackage
+      summary: Validate a package without mutating domain data
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - METHODOLOGY_STEWARD
+      - SEED_OPERATOR
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SeedValidationInput'
+  /api/v1/admin/seeds/reconciliations:
+    post:
+      operationId: reconcileSeedPackage
+      summary: Request a reconciliation; answers 202 with a run id
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - SEED_OPERATOR
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SeedReconciliationInput'
+  /api/v1/quality/evaluations:
+    post:
+      operationId: evaluateCollectionQuality
+      summary: Run the declared collection rules at one cutoff
+      tags:
+      - Quality and lineage
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - METHODOLOGY_STEWARD
+      security:
+      - bearerAuth: []
 components:
   securitySchemes:
     bearerAuth:
@@ -3709,10 +5148,10 @@ components:
           type: boolean
         isActive:
           type: boolean
-        validFrom: &id005
+        validFrom: &id012
           type: string
           format: date
-        validTo: *id005
+        validTo: *id012
       additionalProperties: false
       required:
       - code
@@ -3740,8 +5179,8 @@ components:
           format: uri
         licenseCode:
           type: string
-        activeFrom: *id005
-        activeTo: *id005
+        activeFrom: *id012
+        activeTo: *id012
         isActive:
           type: boolean
       additionalProperties: false
@@ -3769,10 +5208,8 @@ components:
         sha256:
           type: string
           pattern: ^[a-f0-9]{64}$
-        publicationDate: *id005
-        retrievedAt: &id006
-          type: string
-          format: date-time
+        publicationDate: *id012
+        retrievedAt: *id006
         fileSizeBytes:
           type: string
           pattern: ^\d+$
@@ -3797,7 +5234,7 @@ components:
           type: string
         numericValue:
           type: string
-        dateValue: *id005
+        dateValue: *id012
       additionalProperties: false
       required:
       - dimensionDefinitionId
@@ -3834,11 +5271,11 @@ components:
         indicatorVersionId: *id002
         frequencyId: *id002
         unitMeasureId: *id002
-        periodStart: *id005
-        periodEnd: *id005
+        periodStart: *id012
+        periodEnd: *id012
         periodCode:
           type: string
-        referenceDate: *id005
+        referenceDate: *id012
         dimensions:
           type: array
           items:
@@ -3856,8 +5293,8 @@ components:
           maxItems: 50
         confidentialityStatus:
           type: string
-        publicationDate: *id005
-        vintageDate: *id005
+        publicationDate: *id012
+        vintageDate: *id012
         revisionReason:
           type: string
       additionalProperties: false
@@ -4021,9 +5458,9 @@ components:
       properties:
         datasetVersionId: *id002
         indicatorVersionId: *id002
-        periodFrom: *id005
-        periodTo: *id005
-        vintageDate: *id005
+        periodFrom: *id012
+        periodTo: *id012
+        vintageDate: *id012
         dimensions:
           type: array
           items:
@@ -4348,7 +5785,7 @@ components:
     FactClaimInput:
       type: object
       properties:
-        claimType: &id007
+        claimType: &id013
           type: string
           enum:
           - FACT
@@ -4366,7 +5803,7 @@ components:
           type: string
           minLength: 20
           maxLength: 4000
-        eventDate: *id005
+        eventDate: *id012
         publishedAt: *id006
         timeHorizon:
           type: string
@@ -4526,7 +5963,7 @@ components:
     ClaimQueryInput:
       type: object
       properties:
-        claimType: *id007
+        claimType: *id013
         statisticalDomainId: *id002
         geographicUnitId: *id002
         economicEntityId: *id002
@@ -4557,3 +5994,133 @@ components:
           maximum: 10080
           default: 60
       additionalProperties: false
+    SeedValidationInput:
+      type: object
+      properties:
+        packageCode:
+          type: string
+          pattern: ^[a-z][a-z0-9-]{1,79}$
+      additionalProperties: false
+      required:
+      - packageCode
+    SeedReconciliationInput:
+      type: object
+      properties:
+        packageCode:
+          type: string
+          pattern: ^[a-z][a-z0-9-]{1,79}$
+        expectedVersion:
+          type: string
+          pattern: ^\d+\.\d+\.\d+$
+        expectedChecksum:
+          type: string
+          pattern: ^[a-f0-9]{64}$
+        reason:
+          type: string
+          minLength: 4
+          maxLength: 500
+      additionalProperties: false
+      required:
+      - packageCode
+      - expectedVersion
+      - expectedChecksum
+      - reason
+    SiteTrafficInput:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              eventId:
+                type: string
+                pattern: ^[A-Za-z0-9_-]{8,64}$
+              occurredAt: *id006
+              route:
+                type: string
+                pattern: ^/[A-Za-z0-9\-_/{}]{0,120}$
+              kind:
+                type: string
+                enum:
+                - PAGE_VIEW
+                - DOWNLOAD_INTENT
+              device:
+                type: string
+                enum:
+                - DESKTOP
+                - MOBILE
+                - TABLET
+                - UNKNOWN
+              referrer:
+                type: string
+                enum:
+                - DIRECT
+                - SEARCH
+                - SOCIAL
+                - EXTERNAL
+                - INTERNAL
+              visitorBucket:
+                type: string
+                pattern: ^[a-f0-9]{16}$
+              isRobot:
+                type: boolean
+            additionalProperties: false
+            required:
+            - eventId
+            - occurredAt
+            - route
+            - kind
+            - device
+            - referrer
+            - visitorBucket
+            - isRobot
+          maxItems: 50
+      additionalProperties: false
+      required:
+      - events
+    ExportEventInput:
+      type: object
+      properties:
+        requestId:
+          type: string
+          pattern: ^[A-Za-z0-9._:-]{8,64}$
+        datasetCode:
+          type: string
+          pattern: ^[a-z]{1,40}$
+        format:
+          type: string
+          enum:
+          - csv
+          - json
+        status:
+          type: string
+          enum:
+          - REQUESTED
+          - GENERATED
+          - FAILED
+        filters:
+          type: object
+          additionalProperties:
+            type: string
+            maxLength: 120
+        rowCount:
+          type: integer
+          minimum: 0
+        byteCount:
+          type: integer
+          minimum: 0
+        durationMs:
+          type: integer
+          minimum: 0
+        truncated:
+          type: boolean
+        errorCode:
+          type: string
+          pattern: ^[A-Z_]{1,60}$
+      additionalProperties: false
+      required:
+      - requestId
+      - datasetCode
+      - format
+      - status

@@ -1,5 +1,5 @@
 import { ACTOR_ROLES } from '../../auth/actor';
-import { describeActor, extractReference, summarizeBody } from '../audit-entry';
+import { describeActor, extractReference, referenceFromPath, summarizeBody } from '../audit-entry';
 
 describe('describeActor', () => {
   it('describes an authenticated actor', () => {
@@ -72,5 +72,45 @@ describe('extractReference', () => {
 
   it('ignores a non-string identifier', () => {
     expect(extractReference({ observationId: 42 })).toBeNull();
+  });
+
+  /*
+   * A persistence model keeps its attributes out of its own properties, so a
+   * reader that only looks at those finds nothing and every write is recorded
+   * as an action against no entity. This is the case that made the trail
+   * unjoinable in practice, because handlers return rows.
+   */
+  it('reads the identifier of a result that presents itself through toJSON', () => {
+    const row = {
+      dataValues: { dataIssueId: 'issue-7', status: 'CLOSED' },
+      toJSON(): unknown {
+        return this.dataValues;
+      },
+    };
+    expect(extractReference(row)).toBe('issue-7');
+  });
+
+  it('returns null when toJSON yields something that is not a record', () => {
+    expect(extractReference({ toJSON: (): unknown => 'closed' })).toBeNull();
+  });
+});
+
+describe('referenceFromPath', () => {
+  it('takes the identifier the request named, deepest first', () => {
+    expect(
+      referenceFromPath('/api/v1/quality/issues/0b0e1f6c-17c9-4f4e-9e4a-6b6e0e2a1f11/transitions'),
+    ).toBe('0b0e1f6c-17c9-4f4e-9e4a-6b6e0e2a1f11');
+  });
+
+  it('accepts a numeric identifier', () => {
+    expect(referenceFromPath('/api/v1/quality/assessments/4821')).toBe('4821');
+  });
+
+  it('ignores the query string', () => {
+    expect(referenceFromPath('/api/v1/quality/issues/4821?motivo=corregido')).toBe('4821');
+  });
+
+  it('returns null when the path names no identifier', () => {
+    expect(referenceFromPath('/api/v1/quality/rules')).toBeNull();
   });
 });

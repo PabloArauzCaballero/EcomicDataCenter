@@ -185,6 +185,17 @@
       "schemaVersion": "1.0.0"
     },
     {
+      "aiAgentId": "92000000-0000-4000-8000-000000000017",
+      "code": "MINERAL_TRADE_BACKFILL",
+      "name": "Carga de minerales exportados por partida arancelaria",
+      "agentType": "EXTERNAL_SECTOR",
+      "provider": "Naciones Unidas",
+      "modelIdentifier": "un-comtrade-preview",
+      "specialty": "Exportaciones de minerales, metales, litio e hidrocarburos por partida del Sistema Armonizado",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
       "aiAgentId": "92000000-0000-4000-8000-000000000012",
       "code": "SOCIAL_READINGS",
       "name": "Lecturas publicadas sobre las redes sociales bolivianas",
@@ -214,6 +225,83 @@
       "provider": "Overture Maps Foundation",
       "modelIdentifier": "overture-places-2026-08-19.0",
       "specialty": "Lugares de Santa Cruz de la Sierra, La Paz y Cochabamba clasificados en 201 familias de entidad",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000015",
+      "code": "NATIONAL_POI",
+      "name": "Registro nacional de lugares de Bolivia",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Overture Maps Foundation y OpenStreetMap",
+      "modelIdentifier": "bolivia-national-places-2026-09-11",
+      "specialty": "Lugares de todo el territorio boliviano leidos de Overture y de OpenStreetMap, clasificados en familias de entidad",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000016",
+      "code": "STABLECOIN_BOOKS",
+      "name": "Libros de fichas estables en bolivianos",
+      "agentType": "EXCHANGE_RATE",
+      "provider": "Binance P2P",
+      "modelIdentifier": "c2c-adv-search-20",
+      "specialty": "Dolar paralelo por ficha estable y por lado del libro",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000018",
+      "code": "INE_DEPARTMENTS_BACKFILL",
+      "name": "Carga de las cuentas y el comercio exterior por departamento",
+      "agentType": "SOCIOECONOMIC",
+      "provider": "Instituto Nacional de Estadistica",
+      "modelIdentifier": "ine-cuadros-10.01.x-y-comercio-exterior",
+      "specialty": "Producto interno bruto departamental y exportaciones por departamento y producto",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000019",
+      "code": "CORPORATE_REGISTER_BACKFILL",
+      "name": "Registro de exportadoras y de reputacion empresarial",
+      "agentType": "SECTOR",
+      "provider": "Datasur y Merco",
+      "modelIdentifier": "ranking-exportadoras-2024-y-merco-bolivia",
+      "specialty": "Orden y cuota de las mayores exportadoras de Bolivia y puesto en los monitores de reputacion corporativa",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000020",
+      "code": "ROAD_NETWORK_ABC_OSM_INE",
+      "name": "Red vial de Bolivia por tramo y longitud oficial",
+      "agentType": "SECTOR",
+      "provider": "OpenStreetMap contributors y el Instituto Nacional de Estadistica",
+      "modelIdentifier": "geofabrik-bolivia-260922-e-ine-longitud-caminos-2000-2024",
+      "specialty": "Tramos de la red vial principal por ruta, departamento y rodadura, y su longitud oficial anual",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000021",
+      "code": "FOREIGN_TRADE_DETAIL_BACKFILL",
+      "name": "Carga del comercio exterior por socio y por producto declarado ante Naciones Unidas",
+      "agentType": "EXTERNAL_SECTOR",
+      "provider": "Naciones Unidas",
+      "modelIdentifier": "un-comtrade-preview",
+      "specialty": "Exportaciones e importaciones por pais socio y por capitulo del Sistema Armonizado",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000022",
+      "code": "EXOGENOUS_PRICES",
+      "name": "Precios que Bolivia no fija: cotizaciones mundiales, regionales, internas y de aduana",
+      "agentType": "EXTERNAL_SECTOR",
+      "provider": "Banco Mundial, FRED, FAO/GIEWS y Naciones Unidas",
+      "modelIdentifier": "pink-sheet-fred-fpma-comtrade",
+      "specialty": "Precios de energia, minerales, agro, ganaderia, insumos y construccion; valor unitario de aduana",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
     }

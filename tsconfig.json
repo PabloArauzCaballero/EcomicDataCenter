@@ -28,6 +28,7 @@
     "src/common/**/*.ts",
     "src/config/**/*.ts",
     "src/database/**/*.ts",
+    "src/modules/admin/**/*.ts",
     "src/modules/governance/**/*.ts",
     "src/modules/health/**/*.ts",
     "src/modules/ingestion/**/*.ts",

@@ -1,0 +1,22 @@
+[
+  {
+    "sourceExpectationId": "94000000-0000-4000-8000-000000000001",
+    "sourceCode": "AI-AGENT-COLLECTION",
+    "cadence": "CONTINUOUS",
+    "expectedIntervalHours": 24,
+    "toleranceHours": 6,
+    "timeZone": "America/La_Paz",
+    "isActive": true,
+    "note": "Recolección diaria de agentes: se espera al menos una consulta exitosa por día, con seis horas de tolerancia para el desfase del despliegue."
+  },
+  {
+    "sourceExpectationId": "94000000-0000-4000-8000-000000000002",
+    "sourceCode": "IT-SRC",
+    "cadence": "PERIODIC",
+    "expectedIntervalHours": 8760,
+    "toleranceHours": 720,
+    "timeZone": "America/La_Paz",
+    "isActive": true,
+    "note": "Fuente anual: un mes de tolerancia porque la publicación oficial no tiene día fijo. No está atrasada por no publicar hoy."
+  }
+]

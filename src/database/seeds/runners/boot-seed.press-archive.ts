@@ -202,3 +202,25 @@ export async function reconcilePressArchive(
     await reconcileYear(`boot/press-archive-${year}.json`, sourceId, agentRunId, transaction);
   }
 }
+
+/** The years this corpus is split into, in the order they must be applied. */
+export const PRESS_ARCHIVE_YEARS: readonly number[] = YEARS;
+
+/**
+ * Loads one year, so a caller that wants a durable checkpoint can have one.
+ *
+ * The whole-archive entry point above runs the seven years inside whatever
+ * transaction it was handed, which is right for boot provisioning and wrong for
+ * an operator-triggered reconciliation: an interruption at year six rolls back
+ * the five that had already landed. Driving the years one at a time lets each
+ * commit with the checkpoint that records it, so a resumed run starts at the
+ * year that failed rather than at the beginning.
+ */
+export async function reconcilePressArchiveYear(
+  year: number,
+  sourceId: string,
+  transaction: Transaction,
+): Promise<number> {
+  const agentRunId = await reconcileHistoryRun(AGENT_CODE, transaction);
+  return reconcileYear(`boot/press-archive-${year}.json`, sourceId, agentRunId, transaction);
+}

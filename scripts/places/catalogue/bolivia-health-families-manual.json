@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "dataset": "CATALOGO_FAMILIAS_SALUD_ANOTACION_MANUAL",
+    "built": "2026-09-23",
+    "reason": "La microtarea de salud pidio diez familias y el catalogo unido ya definia cuatro con otro nombre exacto: CENTRO_SALUD (no CENTRO_DE_SALUD), CLINICA (no CLINICA_PRIVADA), LABORATORIO_CLINICO (ya identico) y CENTRO_DIALISIS/BANCO_SANGRE (no CENTRO_DE_DIALISIS/BANCO_DE_SANGRE). Crear un segundo codigo para el mismo concepto duplicaria la familia y el informe contaria cada lugar dos veces la primera vez que alguien clasificara con el nombre pedido y con el ya cargado. Este archivo anota solo las seis familias que ningun catalogo definia: no se les puede aplicar la regla de precedencia anexo/v3 porque ninguno de los dos las decidio.",
+    "correspondence": {
+      "CENTRO_DE_SALUD": "CENTRO_SALUD (ya en el catalogo unido, decided_by anexo_A_201)",
+      "CLINICA_PRIVADA": "CLINICA para el concepto generico (ya en el catalogo unido); CLINICA_PRIVADA se anade aqui solo para el matiz de propiedad privada que CLINICA no distingue",
+      "LABORATORIO_CLINICO": "identico en el catalogo unido, decided_by anexo_A_201; no se toca",
+      "CENTRO_DE_DIALISIS": "CENTRO_DIALISIS (ya en el catalogo unido, decided_by anexo_A_201)",
+      "BANCO_DE_SANGRE": "BANCO_SANGRE (ya en el catalogo unido, decided_by anexo_A_201)"
+    },
+    "sources": {
+      "regulator": "Ministerio de Salud y Deportes / SEDES departamental, via el Registro Unico de Establecimientos de Salud (RUES) y su normativa de caracterizacion de establecimientos: snis.minsalud.gob.bo/49-estructura-de-establecimientos",
+      "cajaDeSalud": "Instituto Nacional de Seguros de Salud (INASES), que regula y supervisa a las cajas de salud de corto plazo (CNS, CPS, Caja Petrolera y otras) como entidades aseguradoras y a su red de establecimientos: ley 1883 y normativa INASES"
+    }
+  },
+  "familias": [
+    {
+      "code": "POSTA_SANITARIA",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "note": "Establecimiento de primer nivel, la denominacion mas antigua del nivel I sin medico permanente; SEDES lo habilita igual que un puesto o centro de salud."
+    },
+    {
+      "code": "PUESTO_DE_SALUD",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "note": "Establecimiento de primer nivel de atencion, la denominacion vigente para el mismo escalon que una posta sanitaria en la estructura SNIS."
+    },
+    {
+      "code": "CLINICA_PRIVADA",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "note": "Establecimiento de internacion del subsector privado con fines de lucro; SEDES lo habilita igual que una clinica sin distincion de propiedad, que es lo que el codigo generico CLINICA ya cubre. Se anade separado solo porque la microtarea pidio distinguir la propiedad privada explicitamente."
+    },
+    {
+      "code": "POLICONSULTORIO",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "note": "Local con varios consultorios de distintas especialidades bajo una misma administracion, sin internacion; se habilita como establecimiento ambulatorio ante SEDES."
+    },
+    {
+      "code": "CAJA_DE_SALUD",
+      "group": "SALUD_SOCIAL",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "INASES (Instituto Nacional de Seguros de Salud)",
+      "note": "Oficina o sede administrativa/de afiliacion de una caja de salud de corto plazo (CNS, CPS, Caja Petrolera, etc). Sus policlinicos y hospitales propios, cuando se identifican como tales, se cargan bajo HOSPITAL o CLINICA/CLINICA_PRIVADA; este codigo es para la sede que atiende afiliacion y tramites, y para un centro cuya OSM no distingue mas que 'oficina de la caja'."
+    },
+    {
+      "code": "CONSULTORIO_ODONTOLOGICO",
+      "group": "SALUD",
+      "commercial_role": "HEALTHCARE",
+      "is_regulated": true,
+      "official_validation_source": "Ministerio de Salud / SEDES",
+      "note": "Consultorio dental, con o sin mas de un profesional; SEDES lo habilita como establecimiento de salud igual que un consultorio medico general, que es el codigo ODONTOLOGIA existente para el prestador individual dental cuando no se distingue el local. Este codigo separa el local del prestador."
+    }
+  ]
+}

@@ -42,12 +42,35 @@ import {
   parseParallelQuotation,
 } from '../src/modules/intelligence/daily-indicator-parsers';
 import {
+  INDICATOR_UNITS,
   ungroundedMeasures,
   type IndicatorMeasure,
 } from '../src/modules/intelligence/indicator-measures';
 import {
+  BOOK_DEPTH,
+  BOOK_SIDE_REQUEST,
+  EmptyBookError,
+  STABLECOIN_SERIES,
+  ThinBookError,
+  parseStablecoinBook,
+  type BookSide,
+  type StablecoinAsset,
+} from '../src/modules/intelligence/stablecoin-book-parsers';
+import {
+  stablecoinBookAssertion,
+  stablecoinBookMeasure,
+  stablecoinBookTitle,
+} from '../src/modules/intelligence/stablecoin-book-readings';
+import {
+  PairNotQuotedError,
+  criptoyaAssertion,
+  criptoyaSidePrice,
+  criptoyaTitle,
+  parseCriptoyaRates,
+} from '../src/modules/intelligence/criptoya-rate-parsers';
+import {
   documentStatedPublication,
-  undatedOfficialIndicator,
+  undatedQuotedIndicator,
   verifiedSource,
 } from '../src/modules/intelligence/verified-source-registry';
 import {
@@ -122,8 +145,24 @@ interface Candidate {
    */
   publicationInDocument?: boolean;
   recordType: 'DAILY_INDICATOR' | 'NEWS';
+  /**
+   * What the reading is about.
+   *
+   * `FX_STABLECOIN` is absent from the schemas the research model answers
+   * against, and deliberately so: it is the only category with no prose form.
+   * A stablecoin quotation exists as a position in an order book, is read by a
+   * parser against the retained bytes, and means nothing if asserted in a
+   * sentence instead. Leaving it out of the model's vocabulary is what keeps an
+   * unverified price out of a series whose whole claim is that it was measured.
+   */
   dataCategory:
-    'FX_OFFICIAL' | 'FX_PARALLEL' | 'UFV' | 'SOVEREIGN_BONDS' | 'MACRO_DAILY' | 'COMPANY_NEWS';
+    | 'FX_OFFICIAL'
+    | 'FX_PARALLEL'
+    | 'FX_STABLECOIN'
+    | 'UFV'
+    | 'SOVEREIGN_BONDS'
+    | 'MACRO_DAILY'
+    | 'COMPANY_NEWS';
   title: string;
   url: string;
   publisher: string;
@@ -224,7 +263,21 @@ const requiredDailyCategories = ['FX_OFFICIAL', 'FX_PARALLEL', 'UFV'] as const;
  * so demanding them every run marked every single execution as failed and hid
  * the failures that were real.
  */
-const desiredDailyCategories = ['SOVEREIGN_BONDS', 'MACRO_DAILY', 'COMPANY_NEWS'] as const;
+const desiredDailyCategories = [
+  'SOVEREIGN_BONDS',
+  'MACRO_DAILY',
+  'COMPANY_NEWS',
+  /*
+   * Desired rather than required, for two reasons that are both about the book
+   * and not about the collector. The USDC side of it runs on a couple of dozen
+   * advertisements, so a day with none on one side is a real state of that
+   * market and not a fault. And the exchange serves the book to a browser
+   * rather than to a data client, so it may refuse a datacentre address on a
+   * given day; that would otherwise mark every single run as failed and bury
+   * the failures that matter.
+   */
+  'FX_STABLECOIN',
+] as const;
 
 /**
  * Research budget.
@@ -418,6 +471,197 @@ async function researchParallelExchange(): Promise<Candidate[]> {
     }
   }
   if (!candidates.length) throw new Error('No parallel exchange venue returned a quotation');
+  return candidates;
+}
+
+/**
+ * Stablecoin order books quoted in bolivianos.
+ *
+ * The venue behind the aggregate parallel rate reports one pair per venue and
+ * nothing about the book, and it lists no USDC at all. Read on 2026-09-21,
+ * Bybit, OKX and Bitget each returned an empty USDC book in bolivianos, so this
+ * exchange is not one source among several for that token — it is the only one
+ * there is. That is a limitation of the market and not of the collector, and it
+ * travels with the reading rather than being smoothed over: a USDC series built
+ * on a single venue says so, and the `venue_count` the read model publishes is
+ * one.
+ *
+ * Each token and side is a claim of its own with its own evidence, for the same
+ * reason the venues are: a book that thins out stays visible instead of being
+ * averaged into one that did not.
+ */
+const stablecoinBookUrl = 'https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search';
+const stablecoinBookVenue = 'BINANCE P2P';
+
+async function researchStablecoinBook(asset: StablecoinAsset, side: BookSide): Promise<Candidate> {
+  const body = JSON.stringify({
+    asset,
+    fiat: 'BOB',
+    tradeType: BOOK_SIDE_REQUEST[side],
+    page: 1,
+    rows: BOOK_DEPTH,
+  });
+  const prefetched = await downloadEvidenceSource(stablecoinBookUrl, {
+    method: 'POST',
+    body,
+    contentType: 'application/json',
+  });
+  const quote = parseStablecoinBook(prefetched.decodedText ?? '', side, asset);
+  /*
+   * El libro se lee ahora y no trae instante propio: ni un campo de fecha, ni
+   * uno solo, en toda la respuesta. Así que la lectura se fecha por el momento
+   * en que se tomó y **no declara fecha de publicación**.
+   *
+   * `publishedAt: null` no es un hueco que rellenar más adelante: es la
+   * afirmación correcta. Antes se ponía aquí el instante de la captura, que
+   * dice «la bolsa publicó esto a las 23:15» cuando la bolsa no dijo tal cosa,
+   * y eso es exactamente la clase de dato inventado que la validación existe
+   * para atrapar. Sin fecha declarada, no hay nada que contradecir.
+   */
+  const capturedAt = new Date();
+  return {
+    sourceTrust: 'DIRECT',
+    prefetched,
+    recordType: 'DAILY_INDICATOR',
+    dataCategory: 'FX_STABLECOIN',
+    title: stablecoinBookTitle(quote),
+    url: stablecoinBookUrl,
+    publisher: stablecoinBookVenue,
+    publishedAt: null,
+    eventDate: localDate(capturedAt),
+    claimType: 'INDICATOR_READING',
+    assertion: stablecoinBookAssertion(quote),
+    excerpt: quote.excerpt,
+    confidenceLevel: 'HIGH',
+    confidenceScore: 0.85,
+    impactLevel: 'HIGH',
+    timeHorizon: 'IMMEDIATE',
+    entityMentions: [stablecoinBookVenue],
+    measures: [stablecoinBookMeasure(quote)],
+    instrument: `${quote.fiat}/${quote.asset}`,
+    venue: stablecoinBookVenue,
+  };
+}
+
+/**
+ * Reads every token's book and records what each one held.
+ *
+ * Three of the five tokens asked for have no boliviano market at all, so an
+ * empty book is the expected answer rather than an exception, and treating it
+ * as a failure would bury the failures that matter under a permanent list of
+ * three. Each token's outcome is written to the run report instead — quoted, or
+ * empty on a named side — which turns the run into a standing census of which
+ * rails exist. That census is what tells anybody reading the report that a new
+ * market opened, on the day it opens rather than whenever somebody checks.
+ *
+ * The run still fails when **every** token is unreadable, because that is the
+ * shape of the exchange refusing the request: an empty book parses, a refusal
+ * does not.
+ */
+/**
+ * La misma ficha, leída en las plazas que no tienen libro propio.
+ *
+ * El libro de la bolsa es la fuente con profundidad, pero es una sola plaza, y
+ * para USDC es la única con libro en bolivianos: la mediana entre plazas se
+ * quedaba en una plaza. Este agregador cotiza la misma ficha en billeteras y
+ * bolsas que no publican libro, así que la cifra diaria pasa a apoyarse en
+ * varias sin inventar ninguna.
+ *
+ * Cada plaza es una lectura con su propia prueba —el objeto que el agregador
+ * escribió para ella— y con su propio nombre en `venue`, que es la unidad
+ * sobre la que el modelo de lectura mediana. La plaza cuyo libro ya se lee
+ * directo se excluye en el parser, para que no pese el doble.
+ */
+const aggregatorUrl = 'https://criptoya.com/api';
+const aggregatorPublisher = 'CRIPTOYA';
+
+async function researchAggregatedRates(asset: StablecoinAsset): Promise<Candidate[]> {
+  const url = `${aggregatorUrl}/${asset.toLocaleLowerCase('en')}/bob/1`;
+  const prefetched = await downloadEvidenceSource(url);
+  const text = prefetched.decodedText ?? '';
+  const { quotes } = parseCriptoyaRates(text, asset);
+  const capturedAt = new Date();
+
+  return quotes.flatMap((quote) =>
+    (['SELL', 'BUY'] as const).map((side) => ({
+      sourceTrust: 'DIRECT' as const,
+      prefetched,
+      recordType: 'DAILY_INDICATOR',
+      dataCategory: 'FX_STABLECOIN' as const,
+      title: criptoyaTitle(quote),
+      url,
+      publisher: aggregatorPublisher,
+      // El agregador tampoco declara instante de publicación propio.
+      publishedAt: null,
+      eventDate: localDate(capturedAt),
+      claimType: 'INDICATOR_READING',
+      assertion: criptoyaAssertion(quote, asset, side),
+      excerpt: quote.excerpt,
+      confidenceLevel: 'HIGH',
+      confidenceScore: 0.85,
+      impactLevel: 'HIGH',
+      timeHorizon: 'IMMEDIATE',
+      entityMentions: [aggregatorPublisher],
+      measures: [
+        {
+          indicatorCode: STABLECOIN_SERIES[asset],
+          priceSide: side,
+          value: criptoyaSidePrice(quote, side),
+          unit: INDICATOR_UNITS.bolivianosPerDollar,
+        },
+      ],
+      instrument: `BOB/${asset}`,
+      venue: quote.venue.toLocaleUpperCase('en'),
+    })),
+  );
+}
+
+async function researchStablecoinBooks(): Promise<Candidate[]> {
+  const candidates: Candidate[] = [];
+  const census: Record<string, string> = {};
+  let unreadable = 0;
+  let asked = 0;
+  for (const asset of Object.keys(STABLECOIN_SERIES) as StablecoinAsset[]) {
+    for (const side of ['SELL', 'BUY'] as const) {
+      asked += 1;
+      try {
+        candidates.push(await researchStablecoinBook(asset, side));
+        census[`${asset}/${side}`] = 'QUOTED';
+      } catch (error) {
+        if (error instanceof EmptyBookError) {
+          census[`${asset}/${side}`] = 'EMPTY_BOOK';
+          continue;
+        }
+        // Un lado con uno o dos avisos no tiene mediana: es mercado, no avería.
+        if (error instanceof ThinBookError) {
+          census[`${asset}/${side}`] = `THIN_BOOK_${error.advertisementsRead}`;
+          continue;
+        }
+        unreadable += 1;
+        census[`${asset}/${side}`] = 'UNREADABLE';
+        (report.directCollectorErrors as Json[]).push({
+          collector: `stablecoin-book/${asset}/${side}`,
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    }
+    try {
+      candidates.push(...(await researchAggregatedRates(asset)));
+      census[`${asset}/AGGREGATOR`] = 'QUOTED';
+    } catch (error) {
+      if (error instanceof PairNotQuotedError) {
+        census[`${asset}/AGGREGATOR`] = 'NOT_QUOTED';
+      } else {
+        census[`${asset}/AGGREGATOR`] = 'UNREADABLE';
+        (report.directCollectorErrors as Json[]).push({
+          collector: `aggregated-rates/${asset}`,
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    }
+  }
+  report.stablecoinMarketCensus = census;
+  if (unreadable === asked) throw new Error('No stablecoin book could be read at all');
   return candidates;
 }
 
@@ -736,6 +980,7 @@ async function researchWithOpenAi(since: Date, now: Date): Promise<ResearchOutpu
 const directCollectors = [
   { name: 'official-bcb', collect: researchOfficialBcb },
   { name: 'parallel-exchange', collect: researchParallelExchange },
+  { name: 'stablecoin-books', collect: researchStablecoinBooks },
   { name: 'material-events', collect: researchMaterialEvents },
 ] as const;
 
@@ -779,10 +1024,30 @@ function contentExtension(contentType: string): string {
   return 'txt';
 }
 
-async function downloadEvidenceSource(rawUrl: string | URL) {
+/**
+ * Downloads the bytes a reading will be verified against.
+ *
+ * `request` exists for the one class of source that cannot be reached with a
+ * plain GET: an order book is queried, not served at an address, so the
+ * exchange takes the instrument and the side in a posted body. The retained
+ * response is still the exact bytes the value was read from, which is the
+ * property the whole evidence chain rests on — only the way they were asked for
+ * changes. Everything else about the download is unchanged, the public-address
+ * and size checks included.
+ */
+async function downloadEvidenceSource(
+  rawUrl: string | URL,
+  request: { method: string; body: string; contentType: string } | undefined = undefined,
+) {
   const sourceFetch = await fetchPublicSource(
     rawUrl,
-    { headers: { 'User-Agent': collectorUserAgent } },
+    {
+      headers: {
+        'User-Agent': collectorUserAgent,
+        ...(request ? { 'Content-Type': request.contentType } : {}),
+      },
+      ...(request ? { method: request.method, body: request.body } : {}),
+    },
     45_000,
   );
   if (sourceFetch.response.status !== 200) {
@@ -893,7 +1158,7 @@ async function persistEvidence(candidate: Candidate) {
       statedInDocument: candidate.publicationInDocument === true,
       source: registeredSource,
     }) ||
-    undatedOfficialIndicator({
+    undatedQuotedIndicator({
       recordType: candidate.recordType,
       publishedAt: candidate.publishedAt,
       publicationDateAssessment,
