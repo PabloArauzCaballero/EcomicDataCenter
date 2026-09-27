@@ -236,15 +236,25 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // fuera, entre ellas las primeras públicas, municipales y de las cajas.
     '1.7.0',
   ),
-  historical('bolivia-road-network', 'Red vial de Bolivia', [
-    'boot/bolivia-road-network/road-sections.json',
-    'boot/bolivia-road-network/road-lengths.json',
-  ]),
+  historical(
+    'bolivia-road-network',
+    'Red vial de Bolivia',
+    ['boot/bolivia-road-network/road-sections.json', 'boot/bolivia-road-network/road-lengths.json'],
+    // 2026-09-27: extracto del 26 de septiembre, con la clase `tertiary` y los
+    // códigos de las relaciones de ruta; la Red Departamental con código pasó
+    // de 1.271 a 5.225 km y lo trazado, de 27.403 a 57.424 km.
+    '1.1.0',
+  ),
   historical('exogenous-prices', 'Precios que Bolivia no fija (variables exógenas)', [
     'boot/exogenous-prices.json',
     'boot/exogenous-customs.json',
   ]),
   historical('ine-trade', 'Comercio exterior del INE, registro por registro', ['boot/ine-trade/']),
+  historical('bolivia-transport-network', 'Red ferroviaria y red fluvial de Bolivia', [
+    'boot/bolivia-transport-network/rail-network.json',
+    'boot/bolivia-transport-network/rail-flows.json',
+    'boot/bolivia-transport-network/waterways.json',
+  ]),
   {
     code: 'observatory-demo',
     version: '1.0.0',

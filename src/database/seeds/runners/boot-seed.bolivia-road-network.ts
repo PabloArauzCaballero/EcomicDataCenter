@@ -1,6 +1,11 @@
 import { randomUUID } from 'node:crypto';
 import { Op, type Transaction } from 'sequelize';
-import { ClaimEvidenceModel, FactClaimModel, RawObservationModel, SourceArtifactModel } from '../../models';
+import {
+  ClaimEvidenceModel,
+  FactClaimModel,
+  RawObservationModel,
+  SourceArtifactModel,
+} from '../../models';
 import { rawPayloadHash, claimContentHash } from '../../../common/intelligence/claim-normalizer';
 import { textHash } from '../../../common/hashing/canonical-hash';
 import { reconcileHistoryRun } from './boot-seed.history-provenance';
@@ -30,11 +35,23 @@ const CHUNK = 500;
 
 export const ROAD_NETWORK_CHUNK = CHUNK;
 
-function sectionPayload(dataset: string, section: RoadSection): Record<string, unknown> {
+/*
+ * `snapshotDate` travels in the payload because a newer extract does not
+ * update the rows of the older one — the loader only adds — and the view shows
+ * the latest snapshot alone (migration 0088). Without it, loading the
+ * 2026-09-26 extract beside the 2026-09-22 one would have drawn every road
+ * twice and summed both into one total.
+ */
+function sectionPayload(
+  dataset: string,
+  snapshotDate: string,
+  section: RoadSection,
+): Record<string, unknown> {
   return {
     recordType: 'ROAD_SECTION',
     dataCategory: 'ROAD_SECTION',
     dataset,
+    snapshotDate,
     sectionId: section.sectionId,
     route: section.route,
     network: section.network,
@@ -68,7 +85,10 @@ export async function reconcileRoadArtifact(
     retrievedAt: string;
   },
 ): Promise<string> {
-  const existing = await SourceArtifactModel.findOne({ where: { sha256: fields.sha256 }, transaction });
+  const existing = await SourceArtifactModel.findOne({
+    where: { sha256: fields.sha256 },
+    transaction,
+  });
   if (existing) return existing.sourceArtifactId;
 
   const sourceArtifactId = randomUUID();
@@ -108,8 +128,13 @@ export async function roadHashesAlreadyHeld(
 }
 
 async function loadSections(sourceId: string, agentRunId: string, transaction: Transaction) {
-  const seed = await readSeed('boot/bolivia-road-network/road-sections.json', roadSectionsSeedSchema);
-  const payloads = seed.sections.map((section) => sectionPayload(seed.dataset, section));
+  const seed = await readSeed(
+    'boot/bolivia-road-network/road-sections.json',
+    roadSectionsSeedSchema,
+  );
+  const payloads = seed.sections.map((section) =>
+    sectionPayload(seed.dataset, seed.provenance.snapshotDate, section),
+  );
   const hashes = payloads.map((payload) => rawPayloadHash(payload));
   const held = await roadHashesAlreadyHeld(hashes, transaction);
 

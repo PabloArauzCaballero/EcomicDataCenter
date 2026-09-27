@@ -28,6 +28,7 @@ import { reconcileForeignTradeDetail } from './boot-seed.foreign-trade-detail';
 import { reconcileAnnualActivities, reconcileAnnualRegisters } from './boot-seed.annual-register';
 import { reconcileWorldBankPanel } from './boot-seed.worldbank-panel';
 import { reconcileBoliviaRoadNetwork } from './boot-seed.bolivia-road-network';
+import { reconcileBoliviaTransportNetwork } from './boot-seed.bolivia-transport-network';
 import { reconcileExogenousPrices } from './boot-seed.exogenous-prices';
 import { reconcileIneTrade } from './boot-seed.ine-trade';
 import { refreshAfterLoad } from './boot-seed.refresh';
@@ -72,6 +73,7 @@ const SELECTABLE = [
   'bolivia-road-network',
   'exogenous-prices',
   'ine-trade',
+  'bolivia-transport-network',
 ] as const;
 
 export type Catalogue = (typeof SELECTABLE)[number];
@@ -127,6 +129,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bolivia-road-network', reconcileBoliviaRoadNetwork],
   ['exogenous-prices', reconcileExogenousPrices],
   ['ine-trade', reconcileIneTrade],
+  ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
 ];
 
 /**
