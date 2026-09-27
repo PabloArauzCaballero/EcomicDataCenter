@@ -14,6 +14,198 @@
  },
  "assignments": [
   {
+   "placeId": "geofabrik:pois_areas:453083803",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031001",
+   "municipality": "Sacaba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:453091554",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:453155823",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:454435269",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030901",
+   "municipality": "Quillacollo",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:454650840",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:454963551",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:45604431",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:456170430",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020202",
+   "municipality": "Ancoraimes",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:456680036",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070201",
+   "municipality": "Warnes",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:457809755",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:458125028",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:458343790",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:458542538",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031403",
+   "municipality": "San Benito",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:458751804",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:458903633",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:458947900",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:459193927",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031001",
+   "municipality": "Sacaba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:459883905",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070404",
+   "municipality": "San Juan",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:459913286",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:460472580",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010602",
+   "municipality": "Yamparáez",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:460828414",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:461094255",
+   "method": "MUNICIPIO",
+   "municipalityCode": "071401",
+   "municipality": "Puerto Suárez",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:461954009",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030904",
+   "municipality": "Vinto",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:462867663",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
    "placeId": "geofabrik:pois_areas:462867671",
    "method": "MUNICIPIO",
    "municipalityCode": "020105",
@@ -39819,198 +40011,6 @@
    "municipalityCode": "070103",
    "municipality": "Porongo",
    "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10719239745",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070103",
-   "municipality": "Porongo",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10719239746",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070103",
-   "municipality": "Porongo",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10719239747",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070103",
-   "municipality": "Porongo",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10719871405",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020105",
-   "municipality": "El Alto",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10720280779",
-   "method": "MUNICIPIO",
-   "municipalityCode": "051202",
-   "municipality": "Tomave",
-   "department": "Potosí",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10720280780",
-   "method": "MUNICIPIO",
-   "municipalityCode": "051202",
-   "municipality": "Tomave",
-   "department": "Potosí",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10720370002",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10720370003",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10721511354",
-   "method": "MUNICIPIO",
-   "municipalityCode": "050101",
-   "municipality": "Potosí",
-   "department": "Potosí",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10722956314",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10723225176",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10724455050",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10724957398",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10725008340",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030602",
-   "municipality": "Tacopaya",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10726067521",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10731195705",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020607",
-   "municipality": "Mapiri",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10731195706",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020607",
-   "municipality": "Mapiri",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10731786773",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10731788105",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020602",
-   "municipality": "Guanay",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10733794507",
-   "method": "MUNICIPIO",
-   "municipalityCode": "080201",
-   "municipality": "Riberalta",
-   "department": "Beni",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10733802605",
-   "method": "MUNICIPIO",
-   "municipalityCode": "080201",
-   "municipality": "Riberalta",
-   "department": "Beni",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10733803805",
-   "method": "MUNICIPIO",
-   "municipalityCode": "080201",
-   "municipality": "Riberalta",
-   "department": "Beni",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10733809305",
-   "method": "MUNICIPIO",
-   "municipalityCode": "080201",
-   "municipality": "Riberalta",
-   "department": "Beni",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:10733874384",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
    "distanceMetres": null
   }
  ]
