@@ -3,8 +3,10 @@ import { z } from 'zod';
 /**
  * The road network Bolivia signs on the ground, read from two publishers.
  *
- * `bolivia-road-network-osm` is the geometry: every motorway, trunk, primary
- * and secondary way OpenStreetMap holds inside the country, cut at each
+ * `bolivia-road-network-osm` is the geometry: every motorway, trunk, primary,
+ * secondary and tertiary way OpenStreetMap holds inside the country, and any
+ * lesser way that carries a Red Fundamental or Departamental code of its own
+ * or through its route relation (see `scripts/roads/read_osm_roads.py`), cut at each
  * department border and grouped into the tramo the report draws — a section
  * that shares route, department, surface and status. It is not the ABC's own
  * administrative tramo: the ABC's Sistema de Información Vial and
@@ -22,6 +24,25 @@ import { z } from 'zod';
  * into one figure, because they measure different things under the same
  * word.
  */
+
+/**
+ * The classes a section can be. The first reading took the first four only,
+ * and with them left out the departmental network, which Bolivia's mappers
+ * tag `tertiary`; the rest enter only when they carry an F or D code.
+ */
+const HIGHWAY_CLASSES = [
+  'motorway',
+  'trunk',
+  'primary',
+  'secondary',
+  'tertiary',
+  'unclassified',
+  'road',
+  'track',
+  'residential',
+  'living_street',
+  'service',
+] as const;
 
 const provenanceCommon = z.object({
   retrievedAt: z.iso.datetime({ offset: false }),
@@ -41,7 +62,7 @@ export const roadSectionsSeedSchema = z
         snapshotDate: z.iso.date(),
         boundaries: z.string().trim().min(10).max(200),
         boundariesSha256: z.string().regex(/^[a-f0-9]{64}$/u),
-        highwayClasses: z.array(z.enum(['motorway', 'trunk', 'primary', 'secondary'])).min(1),
+        highwayClasses: z.array(z.enum(HIGHWAY_CLASSES)).min(1),
         simplificationToleranceDeg: z.number().positive().max(0.05),
         wayCount: z.number().int().positive(),
       })
@@ -50,9 +71,7 @@ export const roadSectionsSeedSchema = z
       .array(
         z
           .object({
-            sectionId: z
-              .string()
-              .regex(/^[a-f0-9]{16}$/u),
+            sectionId: z.string().regex(/^[a-f0-9]{16}$/u),
             /** `F-<n>` for a Red Fundamental route, `D<n>` for a departmental one, null otherwise. */
             route: z.string().trim().min(2).max(20).nullable(),
             network: z.enum(['FUNDAMENTAL', 'DEPARTAMENTAL', 'SIN_REFERENCIA']),
@@ -68,7 +87,7 @@ export const roadSectionsSeedSchema = z
               'SANTA_CRUZ',
               'TARIJA',
             ]),
-            highwayClass: z.enum(['motorway', 'trunk', 'primary', 'secondary']),
+            highwayClass: z.enum(HIGHWAY_CLASSES),
             surface: z.enum([
               'PAVIMENTO',
               'EMPEDRADO',
@@ -85,9 +104,7 @@ export const roadSectionsSeedSchema = z
             maxspeed: z.string().trim().min(1).max(20).nullable(),
             wayCount: z.number().int().positive(),
             /** One or more polylines, `[longitude, latitude]`, already simplified. */
-            geometry: z
-              .array(z.array(z.tuple([z.number(), z.number()])).min(2))
-              .min(1),
+            geometry: z.array(z.array(z.tuple([z.number(), z.number()])).min(2)).min(1),
           })
           .strict(),
       )
