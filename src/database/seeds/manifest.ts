@@ -199,6 +199,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-snis-health-poi/',
       'boot/bolivia-agemed-pharmacies-poi/',
       'boot/bolivia-fsq-health-poi/',
+      'boot/bolivia-fsq-poi/',
       'boot/bolivia-place-municipality/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
@@ -238,7 +239,12 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // 2026-09-28: 835 lugares de salud de Foursquare Open Source Places que el
     // corpus no tenía; los 585 que nadie actualiza desde antes de 2020 entran
     // marcados como confianza baja.
-    '1.8.0',
+    // 2026-09-28 (segunda): 11.540 lugares más de Foursquare fuera de salud
+    // —gastronomía, comercio, hospedaje, servicios—, con la familia que el
+    // corpus ya daba a esos mismos locales; 8.706 sin actualizar desde antes
+    // de 2020, marcados. Sin bancos, cajeros ni colegios: ASFI y SIE ya los
+    // enumeran todos.
+    '1.9.0',
   ),
   historical(
     'bolivia-road-network',
