@@ -88,4 +88,6 @@ export const PLACE_DIRECTORIES = [
    * Ver `docs/runbooks/fsq-health-load.md`.
    */
   'boot/bolivia-fsq-health-poi',
+  // El resto de Foursquare: gastronomia, comercio, hospedaje, servicios. Mismas reglas.
+  'boot/bolivia-fsq-poi',
 ] as const;

@@ -40,3 +40,22 @@ Los **585 que nadie actualiza desde antes de 2020** entran con
 igual que a Overture bajo 0,5 — decisión del usuario del 2026-09-28 («todo, marcado»). Los
 contactos no viajan. La familia sale de la categoría de Foursquare, solo hacia familias que el
 catálogo ya tenía. La localidad la pone el polígono (`assign_place_municipality.py`).
+
+## Segunda parte: el resto de Foursquare (11.540 lugares)
+
+`python scripts/places/build_fsq_poi_seed.py --extract fsq_bolivia_2026-09-15.parquet --adm0 bol_admin0.geojson --retrieved 2026-09-28T03:30:00Z`
+→ `bolivia-fsq-poi`. Mismas reglas de calidad que salud; lo nuevo es la familia, que se decide
+**por voto del corpus** (188 categorías) y un mapa escrito para las frecuentes sin voto claro.
+
+| Descartado | Filas |
+| --- | --- |
+| Categoría sin familia decidible | 8.079 |
+| No es un establecimiento (calles, barrios, casas, eventos, «Oficina») o es salud | 8.062 |
+| Ya en el corpus | 6.625 |
+| Cubierto por un registro oficial (bancos y cajeros: ASFI; colegios: SIE; pistas y puertas de aeropuerto) | 1.024 |
+| Cerrado o marcado por Foursquare | 883 |
+| Nombre genérico o de una casa | 359 |
+| Ficha repetida / fuera de Bolivia | 82 / 52 |
+
+8.706 de los 11.540 no se actualizan desde antes de 2020 y entran marcados. La construcción es
+determinista (dos corridas, mismos bytes).
