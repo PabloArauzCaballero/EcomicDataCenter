@@ -198,6 +198,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-asfi-poi/',
       'boot/bolivia-snis-health-poi/',
       'boot/bolivia-agemed-pharmacies-poi/',
+      'boot/bolivia-fsq-health-poi/',
       'boot/bolivia-place-municipality/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
@@ -234,7 +235,10 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // mapa del SUS del Ministerio y 310 ubicados en su comunidad, marcados como
     // aproximados; y 695 farmacias de AGEMED que la entrega del 2026-09-21 dejó
     // fuera, entre ellas las primeras públicas, municipales y de las cajas.
-    '1.7.0',
+    // 2026-09-28: 835 lugares de salud de Foursquare Open Source Places que el
+    // corpus no tenía; los 585 que nadie actualiza desde antes de 2020 entran
+    // marcados como confianza baja.
+    '1.8.0',
   ),
   historical(
     'bolivia-road-network',
