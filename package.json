@@ -108,10 +108,10 @@
     "@fastify/otel": "0.21.0",
     "@fastify/rate-limit": "11.2.0",
     "@fastify/static": "10.1.4",
-    "@nestjs/common": "12.1.0",
-    "@nestjs/core": "12.1.0",
-    "@nestjs/platform-fastify": "12.1.0",
-    "@nestjs/swagger": "12.0.2",
+    "@nestjs/common": "11.2.1",
+    "@nestjs/core": "11.2.1",
+    "@nestjs/platform-fastify": "11.2.1",
+    "@nestjs/swagger": "11.4.7",
     "@opentelemetry/api": "1.9.1",
     "@opentelemetry/exporter-trace-otlp-http": "0.222.0",
     "@opentelemetry/instrumentation-http": "0.222.0",
@@ -126,7 +126,7 @@
     "fastify": "5.12.5",
     "ipaddr.js": "2.5.0",
     "jsonwebtoken": "9.0.3",
-    "jwks-rsa": "4.1.0",
+    "jwks-rsa": "3.2.0",
     "nestjs-pino": "5.2.0",
     "pg": "8.23.0",
     "pino": "10.3.1",
@@ -166,6 +166,6 @@
     "sequelize-typescript/**/brace-expansion": "1.1.18",
     "umzug/**/ajv": "^8.18.0",
     "sequelize/uuid": "^11.1.1",
-    "@nestjs/platform-fastify/fastify": "5.12.1"
+    "@nestjs/platform-fastify/fastify": "5.12.5"
   }
 }
