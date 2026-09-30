@@ -8,7 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from harvest import grid, series, shape, versions  # noqa: E402
+from harvest import grid, omas, series, shape, versions  # noqa: E402
 
 
 def sheet(rows):
@@ -87,6 +87,34 @@ class Extraction(unittest.TestCase):
         first = series._unique('Total', 2, seen)
         second = series._unique('Total', 3, seen)
         self.assertNotEqual(first, second)
+
+
+class Auctions(unittest.TestCase):
+    report = '''A. SUBASTA
+1. ADJUDICACIÓN DE VALORES DE LA SUBASTA DE FECHA 23/09/2026
+Valor Emisor Plazo 1) Periodo de
+Protección 2) Cantidad 3) TR (%) TD (%) TEA (%)
+LB-MN BCB 91 - 24.092 9,1000 8,9000 9,4100
+BT-MN 10,45% TGN 364 - 300.000 10,4500 - -
+3) Cada título tiene un valor nominal de 1.000 unidades en moneda origen.
+'''
+
+    def test_reads_a_row_and_takes_the_date_from_its_own_heading(self):
+        awards, unread = omas.parse_awards(self.report)
+        self.assertEqual(unread, 0)
+        bill = awards[0]
+        self.assertEqual((bill.date, bill.valor, bill.plazo), ('2026-09-23', 'LB-MN', 91))
+        self.assertEqual((bill.cantidad, bill.tr, bill.td, bill.tea), ('24092', '9.1000', '8.9000', '9.4100'))
+
+    def test_a_bond_has_no_discount_rate_and_that_is_no_value_not_zero(self):
+        bond = omas.parse_awards(self.report)[0][1]
+        self.assertIsNone(bond.td)
+        self.assertIsNone(bond.tea)
+
+    def test_a_row_it_cannot_read_is_counted_and_not_guessed(self):
+        awards, unread = omas.parse_awards(self.report.replace('24.092 9,1000', '???'))
+        self.assertEqual(unread, 1)
+        self.assertEqual(len(awards), 1)
 
 
 if __name__ == '__main__':

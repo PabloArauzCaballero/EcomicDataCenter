@@ -301,9 +301,13 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install the workbook readers
-        run: python -m pip install --quiet openpyxl==3.1.5 xlrd==2.0.2
+        run: python -m pip install --quiet openpyxl==3.1.5 xlrd==2.0.2 pypdf==6.19.0
       - name: Read the central bank's workbooks
         run: python scripts/bcb/harvest/collect.py
+      # Las subastas salen de los PDF semanales «O&M»: solo baja los informes que aun
+      # no tiene guardados, asi que fuera de la semana de publicacion no baja nada.
+      - name: Read the auction reports
+        run: python scripts/bcb/harvest/collect_omas.py
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: bcb-statistics-${{ github.run_id }}
