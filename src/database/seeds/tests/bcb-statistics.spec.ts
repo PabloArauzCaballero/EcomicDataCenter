@@ -51,7 +51,10 @@ describe('central bank statistic seeds', () => {
   it('says where each series sits in its sheet', async () => {
     for (const { seed } of await load()) {
       for (const one of seed.series.slice(0, 200)) {
-        expect(['columns', 'rows']).toContain(one.locator.orientation);
+        // Una hoja de cálculo dice su orientación; un gráfico de PDF dice cuál y en qué página.
+        const sheet = ['columns', 'rows'].includes(String(one.locator.orientation));
+        const chart = typeof one.locator.chart === 'string' && typeof one.locator.page === 'number';
+        expect(sheet || chart).toBe(true);
       }
     }
   }, 120_000);
