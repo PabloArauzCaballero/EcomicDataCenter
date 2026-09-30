@@ -157,9 +157,10 @@ export const agentBootstrapSeedSchema = z
      * añadir las identidades de las cuentas departamentales del INE y del
      * registro de exportadoras y reputación, y a 25 con la de la red vial. A 26
      * con la base de comercio exterior del INE, registro por registro. A 27
-     * con los servicios de dólar digital de los bancos.
+     * con los servicios de dólar digital de los bancos, y a 28 con las
+     * estadísticas del Banco Central.
      */
-    backfillAgents: z.array(agentSeedSchema).min(1).max(27),
+    backfillAgents: z.array(agentSeedSchema).min(1).max(28),
   })
   .strict();
 

@@ -263,6 +263,9 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('bank-virtual-assets', 'Servicios de dólar digital de los bancos bolivianos', [
     'boot/bank-virtual-assets.json',
   ]),
+  historical('bcb-statistics', 'Estadísticas del Banco Central de Bolivia, serie por serie', [
+    'boot/bcb-statistics/',
+  ]),
   historical('bolivia-transport-network', 'Red ferroviaria y red fluvial de Bolivia', [
     'boot/bolivia-transport-network/rail-network.json',
     'boot/bolivia-transport-network/rail-flows.json',
