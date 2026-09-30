@@ -54,7 +54,7 @@ export class AnalyticsViewRepository {
       database.query<TrafficBucketRow>(
         `
 SELECT
-  date_trunc(:granularity, occurred_at) AS bucket,
+  (date_trunc(:granularity, occurred_at AT TIME ZONE :zone) AT TIME ZONE :zone) AS bucket,
   route,
   event_kind,
   device_category,
@@ -74,6 +74,7 @@ LIMIT 2000
           transaction,
           replacements: {
             granularity: query.granularity,
+            zone: query.timeZone,
             since: query.since ?? null,
             until: query.until ?? null,
           },
