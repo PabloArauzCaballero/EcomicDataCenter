@@ -103,7 +103,7 @@ function assertionOf(entry: Pending): string {
 function excerptOf(series: BcbSeries): string {
   const first = series.points[0];
   const last = series.points.at(-1);
-  return `Cuaderno ${series.workbook}, hoja «${series.sheet}», ${JSON.stringify(series.locator)}: ${first?.[0]} = ${first?.[1]}; ${last?.[0]} = ${last?.[1]}`;
+  return `Fuente ${series.workbook}, «${series.sheet}», ${JSON.stringify(series.locator)}: ${first?.[0]} = ${first?.[1]}; ${last?.[0]} = ${last?.[1]}`;
 }
 
 async function reconcileArtifact(
