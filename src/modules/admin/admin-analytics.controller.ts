@@ -56,6 +56,7 @@ export class AdminAnalyticsController {
     return envelope(
       {
         granularity: query.granularity,
+        timeZone: query.timeZone,
         buckets: buckets.map((bucket) => ({
           bucket: bucket.bucket.toISOString(),
           route: bucket.route,

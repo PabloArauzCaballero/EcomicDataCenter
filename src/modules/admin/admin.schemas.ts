@@ -60,8 +60,28 @@ export const exportQuerySchema = listQuerySchema.extend({
   status: z.enum(['REQUESTED', 'GENERATED', 'FAILED']).optional(),
 });
 
+function isTimeZone(value: string): boolean {
+  try {
+    new Intl.DateTimeFormat('en', { timeZone: value });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export const trafficQuerySchema = windowSchema.extend({
   granularity: z.enum(['hour', 'day']).default('day'),
+  /**
+   * Zona en la que se cortan los baldes. Un balde «día» en UTC empieza a las
+   * 20:00 del día anterior en La Paz, y quien mira el panel lee las visitas de
+   * la noche bajo la fecha de mañana. El valor va como parámetro de la consulta
+   * (nunca interpolado) y se comprueba contra la base de zonas del runtime.
+   */
+  timeZone: z
+    .string()
+    .max(60)
+    .refine(isTimeZone, { message: 'Zona horaria desconocida' })
+    .default('UTC'),
 });
 
 /**
