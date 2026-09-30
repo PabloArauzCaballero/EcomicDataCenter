@@ -21,7 +21,7 @@ on:
         required: false
         default: todas
         type: choice
-        options: [todas, mercados, bcb, dolar, fichas, exogenas, aduana, bancos, prensa]
+        options: [todas, mercados, bcb, dolar, fichas, exogenas, aduana, bancos, bcb-estadisticas, prensa]
   schedule:
     # America/La_Paz is UTC-4 year-round: 07:10, 13:10 and 19:10 local.
     - cron: '10 11,17,23 * * *'
@@ -275,6 +275,41 @@ jobs:
           path: src/database/seeds/boot/bank-virtual-assets.json
           retention-days: 14
 
+  # Las estadisticas que el Banco Central publica en cuadernos de Excel: reservas,
+  # dinero, precios, tasas, sector externo y sistema de pagos, serie por serie.
+  #
+  # Son unos doscientos treinta informes y el sitio es lento, pero el lote no baja lo
+  # que no cambio: pregunta con If-None-Match y reutiliza las series ya sembradas de
+  # cada cuaderno que el sitio dice igual. Solo la primera corrida baja todo. El
+  # estado (las huellas de cada cuaderno) viaja en el repositorio junto a las semillas.
+  # Python y no node porque el lector de hojas ya esta probado ahi y entiende las
+  # fechas de Excel y los .xls antiguos.
+  bcb-estadisticas:
+    if: >-
+      github.event_name == 'schedule' ||
+      contains(fromJSON('["todas","bcb-estadisticas"]'), inputs.batch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Fusiona con las semillas y el estado que haya: leerlos de otra rama
+          # perderia lo que solo estuviera en esta.
+          ref: dev
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - name: Install the workbook readers
+        run: python -m pip install --quiet openpyxl==3.1.5 xlrd==2.0.2
+      - name: Read the central bank's workbooks
+        run: python scripts/bcb/harvest/collect.py
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: bcb-statistics-${{ github.run_id }}
+          path: src/database/seeds/boot/bcb-statistics
+          retention-days: 14
+
   # Last and longest: two of the seven outlets need a browser, which is why this
   # batch alone installs one. See ADR-0019.
   prensa:
@@ -328,7 +363,7 @@ jobs:
   # el repositorio sin llegar jamas al servidor, que es la misma clase de final
   # silencioso que este trabajo viene a corregir.
   publicar:
-    needs: [mercados, bcb, dolar, fichas, exogenas, aduana, bancos, prensa]
+    needs: [mercados, bcb, dolar, fichas, exogenas, aduana, bancos, bcb-estadisticas, prensa]
     # Un lote caido cuesta sus fuentes y no las de los otros dos, igual que
     # arriba. `always()` publicaria tambien lo cancelado a mano.
     if: ${{ !cancelled() }}
@@ -351,7 +386,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           FAILED: >-
-            ${{ needs.mercados.result == 'failure' && 'mercados ' || '' }}${{ needs.bcb.result == 'failure' && 'bcb ' || '' }}${{ needs.dolar.result == 'failure' && 'dolar ' || '' }}${{ needs.fichas.result == 'failure' && 'fichas ' || '' }}${{ needs.exogenas.result == 'failure' && 'exogenas ' || '' }}${{ needs.aduana.result == 'failure' && 'aduana ' || '' }}${{ needs.bancos.result == 'failure' && 'bancos ' || '' }}${{ needs.prensa.result == 'failure' && 'prensa' || '' }}
+            ${{ needs.mercados.result == 'failure' && 'mercados ' || '' }}${{ needs.bcb.result == 'failure' && 'bcb ' || '' }}${{ needs.dolar.result == 'failure' && 'dolar ' || '' }}${{ needs.fichas.result == 'failure' && 'fichas ' || '' }}${{ needs.exogenas.result == 'failure' && 'exogenas ' || '' }}${{ needs.aduana.result == 'failure' && 'aduana ' || '' }}${{ needs.bancos.result == 'failure' && 'bancos ' || '' }}${{ needs['bcb-estadisticas'].result == 'failure' && 'bcb-estadisticas ' || '' }}${{ needs.prensa.result == 'failure' && 'prensa' || '' }}
         run: bash scripts/ops/avisar-ingesta-caida.sh "daily-source-batches, lotes caidos $FAILED"
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         if: needs.mercados.result == 'success'
@@ -389,6 +424,11 @@ jobs:
           name: bank-virtual-assets-${{ github.run_id }}
           path: src/database/seeds/boot
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        if: needs['bcb-estadisticas'].result == 'success'
+        with:
+          name: bcb-statistics-${{ github.run_id }}
+          path: src/database/seeds/boot/bcb-statistics
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         if: needs.prensa.result == 'success'
         with:
           name: press-coverage-${{ github.run_id }}
@@ -398,7 +438,7 @@ jobs:
           set -euo pipefail
           git config user.name 'observatorio-recolector'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/fx-daily.json                   src/database/seeds/boot/stablecoin-books.json                   src/database/seeds/boot/exogenous-prices.json                   src/database/seeds/boot/bank-virtual-assets.json                   src/database/seeds/boot/press-coverage.json                   src/database/seeds/boot/ine-trade
+          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/fx-daily.json                   src/database/seeds/boot/stablecoin-books.json                   src/database/seeds/boot/exogenous-prices.json                   src/database/seeds/boot/bank-virtual-assets.json                   src/database/seeds/boot/bcb-statistics                   src/database/seeds/boot/press-coverage.json                   src/database/seeds/boot/ine-trade
           # Una fuente que no publico nada hoy deja su semilla igual que ayer, y
           # eso no es un fallo: es un dia sin novedades. Un commit vacio si lo
           # seria, porque desplegaria por nada.

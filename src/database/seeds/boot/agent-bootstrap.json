@@ -326,6 +326,17 @@
       "specialty": "Si cada banco ofrece USDT o USDC a sus clientes, desde cuando y con que limites",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000025",
+      "code": "BCB_STATISTICS",
+      "name": "Estadisticas del Banco Central de Bolivia publicadas en cuadernos de Excel",
+      "agentType": "SECTOR",
+      "provider": "Banco Central de Bolivia",
+      "modelIdentifier": "bcb-published-workbooks",
+      "specialty": "Reservas, agregados monetarios, precios, tasas, sector externo y sistema de pagos",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

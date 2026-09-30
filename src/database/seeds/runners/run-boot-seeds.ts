@@ -32,6 +32,7 @@ import { reconcileBoliviaTransportNetwork } from './boot-seed.bolivia-transport-
 import { reconcileExogenousPrices } from './boot-seed.exogenous-prices';
 import { reconcileIneTrade } from './boot-seed.ine-trade';
 import { reconcileBankVirtualAssets } from './boot-seed.bank-virtual-assets';
+import { reconcileBcbStatistics } from './boot-seed.bcb-statistics';
 import { refreshAfterLoad } from './boot-seed.refresh';
 
 /**
@@ -75,6 +76,7 @@ const SELECTABLE = [
   'exogenous-prices',
   'ine-trade',
   'bank-virtual-assets',
+  'bcb-statistics',
   'bolivia-transport-network',
 ] as const;
 
@@ -137,6 +139,9 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['exogenous-prices', reconcileExogenousPrices],
   ['ine-trade', reconcileIneTrade],
   ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
+  // La carga grande va al final: si el segundo servidor se reinicia a mitad de ella,
+  // lo chico ya entró.
+  ['bcb-statistics', reconcileBcbStatistics],
 ];
 
 /**
