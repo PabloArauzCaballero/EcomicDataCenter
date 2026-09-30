@@ -218,6 +218,7 @@ export const PACKAGE_SNAPSHOTS: Readonly<Record<string, readonly string[]>> = {
   'composite-indices': ['macro_indicator_annual_snapshot', 'indicator_source_note_snapshot'],
   'worldbank-panel': ['world_panel_catalogue_snapshot'],
   'bolivia-national-poi': ['national_place'],
+  'ine-trade': ['trade_flow', 'trade_product', 'trade_code'],
 };
 
 /** Converts a seed field name into the column the models map it to. */

@@ -35,9 +35,12 @@ export interface RefreshOutcome {
   failed: string[];
 }
 
-/** The stored copies, cheapest first — but the places first: unbuilt, they raise (0085). */
+/** The stored copies, cheapest first — but the places and trade first: unbuilt, they raise. */
 const ORDER = [
   'national_place',
+  'trade_code',
+  'trade_product',
+  'trade_flow',
   'world_panel_catalogue_snapshot',
   'company_filing_snapshot',
   'indicator_source_note_snapshot',
@@ -114,7 +117,6 @@ async function listSnapshots(
 }
 
 /** PostgreSQL's code for a function the server does not have. */
-
 const UNDEFINED_FUNCTION = '42883';
 
 /**

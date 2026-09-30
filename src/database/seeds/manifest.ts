@@ -198,6 +198,8 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-asfi-poi/',
       'boot/bolivia-snis-health-poi/',
       'boot/bolivia-agemed-pharmacies-poi/',
+      'boot/bolivia-fsq-health-poi/',
+      'boot/bolivia-fsq-poi/',
       'boot/bolivia-place-municipality/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
@@ -234,15 +236,40 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // mapa del SUS del Ministerio y 310 ubicados en su comunidad, marcados como
     // aproximados; y 695 farmacias de AGEMED que la entrega del 2026-09-21 dejó
     // fuera, entre ellas las primeras públicas, municipales y de las cajas.
-    '1.7.0',
+    // 2026-09-28: 835 lugares de salud de Foursquare Open Source Places que el
+    // corpus no tenía; los 585 que nadie actualiza desde antes de 2020 entran
+    // marcados como confianza baja.
+    // 2026-09-28 (segunda): 11.540 lugares más de Foursquare fuera de salud
+    // —gastronomía, comercio, hospedaje, servicios—, con la familia que el
+    // corpus ya daba a esos mismos locales; 8.706 sin actualizar desde antes
+    // de 2020, marcados. Sin bancos, cajeros ni colegios: ASFI y SIE ya los
+    // enumeran todos.
+    '1.9.0',
   ),
-  historical('bolivia-road-network', 'Red vial de Bolivia', [
-    'boot/bolivia-road-network/road-sections.json',
-    'boot/bolivia-road-network/road-lengths.json',
-  ]),
+  historical(
+    'bolivia-road-network',
+    'Red vial de Bolivia',
+    ['boot/bolivia-road-network/road-sections.json', 'boot/bolivia-road-network/road-lengths.json'],
+    // 2026-09-27: extracto del 26 de septiembre, con la clase `tertiary` y los
+    // códigos de las relaciones de ruta; la Red Departamental con código pasó
+    // de 1.271 a 5.225 km y lo trazado, de 27.403 a 57.424 km.
+    '1.1.0',
+  ),
   historical('exogenous-prices', 'Precios que Bolivia no fija (variables exógenas)', [
     'boot/exogenous-prices.json',
     'boot/exogenous-customs.json',
+  ]),
+  historical('ine-trade', 'Comercio exterior del INE, registro por registro', ['boot/ine-trade/']),
+  historical('bank-virtual-assets', 'Servicios de dólar digital de los bancos bolivianos', [
+    'boot/bank-virtual-assets.json',
+  ]),
+  historical('bcb-statistics', 'Estadísticas del Banco Central de Bolivia, serie por serie', [
+    'boot/bcb-statistics/',
+  ]),
+  historical('bolivia-transport-network', 'Red ferroviaria y red fluvial de Bolivia', [
+    'boot/bolivia-transport-network/rail-network.json',
+    'boot/bolivia-transport-network/rail-flows.json',
+    'boot/bolivia-transport-network/waterways.json',
   ]),
   {
     code: 'observatory-demo',

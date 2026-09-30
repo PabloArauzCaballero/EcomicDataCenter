@@ -25,6 +25,8 @@ export const OFFICIAL_PUBLISHERS = [
   'ASFI',
   // El registro de establecimientos de salud del SNIS-VE (2026-09-27).
   'Ministerio de Salud y Deportes (SNIS-VE)',
+  // Directorio colaborativo, Apache-2.0: lo crean usuarios, no lo respalda nadie (2026-09-28).
+  'Foursquare Open Source Places',
 ] as const;
 
 /**
@@ -37,7 +39,7 @@ export const OFFICIAL_PUBLISHERS = [
  * no numera nada: su identificador sale del contenido de la fila.
  */
 export const OFFICIAL_PLACE_IDENTIFIER =
-  /^(?:sie:rue:\d{6,10}|anh:estacion:ANH\d{3,8}-[A-Z]{2,8}\d{1,4}|tel_bo:cajero:[0-9a-f]{24}|asfi:paf:\d{1,10}|snis:establecimiento:\d{5,10})$/u;
+  /^(?:sie:rue:\d{6,10}|anh:estacion:ANH\d{3,8}-[A-Z]{2,8}\d{1,4}|tel_bo:cajero:[0-9a-f]{24}|asfi:paf:\d{1,10}|snis:establecimiento:\d{5,10}|fsq:[0-9a-f]{24})$/u;
 
 /**
  * Como se clasifico.
@@ -50,6 +52,8 @@ export const OFFICIAL_PLACE_IDENTIFIER =
 export const OFFICIAL_CLASSIFICATION_METHODS = [
   'actividad_declarada_por_el_regulador_en_su_registro',
   'actividad_declarada_por_un_directorio_privado',
+  // La categoria que un usuario de Foursquare eligio, llevada a una familia que el catalogo ya tiene.
+  'categoria_foursquare_a_familia_existente',
 ] as const;
 
 /** Un punto que un tercero puso en su mapa, sin decir como. */
@@ -78,6 +82,12 @@ export const OFFICIAL_POSITION_METHODS = [
 export const OFFICIAL_DATA_LEVELS = [
   'REGISTRO_DEL_REGULADOR_DIRECCION_DECLARADA',
   'DIRECTORIO_PRIVADO_DIRECCION_DECLARADA',
+  /*
+   * Foursquare: una ficha que abrio un usuario al hacer check-in. La segunda es la que nadie
+   * actualiza desde antes de 2020 —el 70 % en Bolivia— y el tablero la marca «Confianza baja».
+   */
+  'DIRECTORIO_COLABORATIVO',
+  'DIRECTORIO_COLABORATIVO_SIN_ACTUALIZAR',
 ] as const;
 
 /**

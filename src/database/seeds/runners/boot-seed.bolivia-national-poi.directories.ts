@@ -82,4 +82,12 @@ export const PLACE_DIRECTORIES = [
    */
   'boot/bolivia-snis-health-poi',
   'boot/bolivia-agemed-pharmacies-poi',
+  /*
+   * Lo que Foursquare Open Source Places tenia de salud y el corpus no: directorio
+   * colaborativo, Apache-2.0. Lo no actualizado desde antes de 2020 entra marcado.
+   * Ver `docs/runbooks/fsq-health-load.md`.
+   */
+  'boot/bolivia-fsq-health-poi',
+  // El resto de Foursquare: gastronomia, comercio, hospedaje, servicios. Mismas reglas.
+  'boot/bolivia-fsq-poi',
 ] as const;
