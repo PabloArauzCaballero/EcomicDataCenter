@@ -102,10 +102,15 @@ function requestedCatalogue(argv: readonly string[]): Catalogue | undefined {
  *
  * El archivo de hechos relevantes va antes que sus textos, que se cuelgan de las
  * afirmaciones que aquel crea; el resto es independiente entre si.
+ *
+ * Los bancos van primero porque son quince filas y el despliegue del segundo
+ * servidor se reinicia con cada lectura del dia, mucho antes de que la siembra
+ * termine el corpus grande: detras de el, el panel de bancos no llegaba nunca.
  */
 type Loader = (sourceId: string, transaction: Transaction) => Promise<unknown>;
 
 const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
+  ['bank-virtual-assets', reconcileBankVirtualAssets],
   ['exchange-rate-history', reconcileExchangeRateHistory],
   ['macro-annual-history', reconcileMacroAnnualHistory],
   ['market-prices', reconcileMarketPrices],
@@ -131,7 +136,6 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bolivia-road-network', reconcileBoliviaRoadNetwork],
   ['exogenous-prices', reconcileExogenousPrices],
   ['ine-trade', reconcileIneTrade],
-  ['bank-virtual-assets', reconcileBankVirtualAssets],
   ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
 ];
 
