@@ -44,6 +44,16 @@ describe('bank virtual-asset snapshots', () => {
     }
   });
 
+  it('is stored in the key order the schema writes', async () => {
+    // The collector writes what the schema returns; a seed in any other order
+    // would be rewritten by the next run without one figure changing, and every
+    // rewrite is a deploy.
+    const raw = JSON.parse(
+      await readFile(join(__dirname, '..', 'boot', 'bank-virtual-assets.json'), 'utf8'),
+    ) as unknown;
+    expect(JSON.stringify(bankVirtualAssetsSchema.parse(raw))).toBe(JSON.stringify(raw));
+  });
+
   it('names every bank the pages read in a series of its own', async () => {
     const seed = await load();
     const banks = new Set(seed.series.map((one) => one.bank));
