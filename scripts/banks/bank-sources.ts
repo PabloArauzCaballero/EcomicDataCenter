@@ -13,7 +13,7 @@ import type { BankSeries } from '../../src/database/seeds/schemas/bank-virtual-a
 export type SeriesSpec = Pick<
   BankSeries,
   'indicatorCode' | 'bank' | 'bankName' | 'product' | 'asset' | 'kind' | 'unit' | 'note'
-> & { readonly limit?: string };
+> & { readonly limit?: string; readonly side?: 'CLIENT_BUYS' | 'CLIENT_SELLS' };
 
 const offered = (
   bank: string,
@@ -100,6 +100,31 @@ export const LIMIT_SERIES: readonly SeriesSpec[] = [
   limit('TRANSFER_MIN', 'TRANSFER_MIN', 'Mínimo por giro internacional en USDC.'),
   limit('TRANSFER_MAX_DAY', 'TRANSFER_MAX_DAY', 'Máximo por día de giros internacionales en USDC.'),
 ];
+
+const quote = (spec: SeriesSpec, side: 'CLIENT_BUYS' | 'CLIENT_SELLS'): SeriesSpec => ({
+  indicatorCode: `VASP_${spec.bank}_${spec.asset}_QUOTE_${side}`,
+  bank: spec.bank,
+  bankName: spec.bankName,
+  product: spec.product,
+  asset: spec.asset,
+  kind: 'QUOTE',
+  side,
+  unit: 'BOB',
+  note:
+    side === 'CLIENT_BUYS'
+      ? `Bolivianos que el cliente paga por cada ${spec.asset} en ${spec.bankName}.`
+      : `Bolivianos que el cliente recibe por cada ${spec.asset} en ${spec.bankName}.`,
+});
+
+/**
+ * Lo que cada banco cobra y paga por ficha. Ningún banco lo publica fuera de su
+ * aplicación: estas series no se leen, se cargan a mano desde una captura, y
+ * quedan sin puntos —y por tanto fuera de la semilla— hasta que llega la primera.
+ */
+export const QUOTE_SERIES: readonly SeriesSpec[] = OFFERED_SERIES.flatMap((spec) => [
+  quote(spec, 'CLIENT_BUYS'),
+  quote(spec, 'CLIENT_SELLS'),
+]);
 
 export interface LimitReading {
   readonly indicatorCode: string;
