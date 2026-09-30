@@ -260,6 +260,9 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/exogenous-customs.json',
   ]),
   historical('ine-trade', 'Comercio exterior del INE, registro por registro', ['boot/ine-trade/']),
+  historical('bank-virtual-assets', 'Servicios de dólar digital de los bancos bolivianos', [
+    'boot/bank-virtual-assets.json',
+  ]),
   historical('bolivia-transport-network', 'Red ferroviaria y red fluvial de Bolivia', [
     'boot/bolivia-transport-network/rail-network.json',
     'boot/bolivia-transport-network/rail-flows.json',
