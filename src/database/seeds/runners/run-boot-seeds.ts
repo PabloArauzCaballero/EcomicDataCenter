@@ -113,6 +113,9 @@ type Loader = (sourceId: string, transaction: Transaction) => Promise<unknown>;
 
 const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bank-virtual-assets', reconcileBankVirtualAssets],
+  // Doce mil series que se siembran en doce segundos: por la misma razón que los bancos van
+  // delante de las cargas que tardan veinte minutos.
+  ['bcb-statistics', reconcileBcbStatistics],
   ['exchange-rate-history', reconcileExchangeRateHistory],
   ['macro-annual-history', reconcileMacroAnnualHistory],
   ['market-prices', reconcileMarketPrices],
@@ -139,9 +142,6 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['exogenous-prices', reconcileExogenousPrices],
   ['ine-trade', reconcileIneTrade],
   ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
-  // La carga grande va al final: si el segundo servidor se reinicia a mitad de ella,
-  // lo chico ya entró.
-  ['bcb-statistics', reconcileBcbStatistics],
 ];
 
 /**
