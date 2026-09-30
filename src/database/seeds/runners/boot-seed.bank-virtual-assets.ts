@@ -52,6 +52,7 @@ function payloadOf(series: BankSeries, point: BankPoint): Record<string, unknown
     asset: series.asset,
     kind: series.kind,
     ...(series.limit ? { limit: series.limit } : {}),
+    ...(series.side ? { side: series.side } : {}),
     unit: series.unit,
     note: series.note,
     date: point.date,
@@ -64,6 +65,10 @@ function assertionOf(series: BankSeries, point: BankPoint): string {
   if (series.kind === 'OFFERED') {
     const state = point.value === '1' ? 'ofrece' : 'ya no anuncia';
     return `${series.bankName} ${state} ${series.product} (${series.asset}) el ${point.date}.`;
+  }
+  if (series.kind === 'QUOTE') {
+    const verb = series.side === 'CLIENT_BUYS' ? 'vende' : 'compra';
+    return `${series.bankName} ${verb} ${series.asset} a ${point.value} Bs por ficha el ${point.date}.`;
   }
   return `${series.bankName}, ${series.product}: ${series.limit ?? 'límite'} de ${point.value} ${series.unit} el ${point.date}.`;
 }

@@ -7,13 +7,19 @@ import { z } from 'zod';
  * Ningún banco publica el precio al que compra o vende: la cotización se ve
  * dentro de la aplicación, ya autenticado. Lo que sí es público y cambia con el
  * tiempo es SI el servicio existe y con qué límites, y eso es lo que se
- * guarda. Por eso hay dos clases de serie:
+ * guarda. Por eso hay tres clases de serie:
  *
  * - `OFFERED`: 1 mientras la página oficial del banco anuncia el servicio, 0 si
  *   la página responde y ya no lo nombra. Una página que no responde NO escribe
  *   un 0: no saber no es lo mismo que haberlo retirado.
  * - `LIMIT`: una cifra que la página oficial declara (mínimo o máximo por
  *   operación, por día).
+ * - `QUOTE`: lo que el banco cobra o paga por cada USDT o USDC, en bolivianos.
+ *   Ningún banco lo publica fuera de su aplicación, así que NO se lee: llega a
+ *   mano, de una captura de la app, y por eso su `basis` es `USER_CAPTURE`. El
+ *   lado se dice desde el cliente y no desde el banco (`CLIENT_BUYS` es lo que
+ *   el cliente paga por cada ficha), porque «compra» y «venta» según quién
+ *   hable ya invirtieron un lado en los libros P2P.
  *
  * `basis` dice de dónde salió cada punto, porque no valen lo mismo:
  * `ANNOUNCEMENT` es la fecha en que el banco o la prensa dicen que arrancó,
@@ -26,7 +32,13 @@ import { z } from 'zod';
 const measured = z.string().regex(/^-?\d+(?:\.\d+)?$/u, 'una cantidad decimal sin exponente');
 
 export const BANK_ASSETS = ['USDT', 'USDC'] as const;
-export const BANK_POINT_BASES = ['ANNOUNCEMENT', 'FIRST_PUBLIC_DOCUMENT', 'OFFICIAL_PAGE'] as const;
+export const BANK_POINT_BASES = [
+  'ANNOUNCEMENT',
+  'FIRST_PUBLIC_DOCUMENT',
+  'OFFICIAL_PAGE',
+  'USER_CAPTURE',
+] as const;
+export const QUOTE_SIDES = ['CLIENT_BUYS', 'CLIENT_SELLS'] as const;
 
 const point = z
   .object({
@@ -52,7 +64,9 @@ const series = z
     bankName: z.string().trim().min(3).max(120),
     product: z.string().trim().min(3).max(80),
     asset: z.enum(BANK_ASSETS),
-    kind: z.enum(['OFFERED', 'LIMIT']),
+    kind: z.enum(['OFFERED', 'LIMIT', 'QUOTE']),
+    /** Para `QUOTE`: qué precio es, dicho desde el cliente. */
+    side: z.enum(QUOTE_SIDES).optional(),
     /** Para `LIMIT`: qué límite es (`TRADE_MIN`, `TRADE_MAX_DAY`…). */
     limit: z
       .string()
@@ -72,8 +86,29 @@ const series = z
         message: 'un límite dice cuál es, y un anuncio de servicio no lleva ninguno',
       });
     }
+    if ((one.kind === 'QUOTE') !== (one.side !== undefined)) {
+      context.addIssue({
+        code: 'custom',
+        path: ['side'],
+        message: 'una cotización dice de qué lado es, y lo demás no lleva lado',
+      });
+    }
     const seen = new Set<string>();
     for (const [index, entry] of one.points.entries()) {
+      if (one.kind === 'QUOTE' && !(Number(entry.value) >= 1 && Number(entry.value) <= 100)) {
+        context.addIssue({
+          code: 'custom',
+          path: ['points', index, 'value'],
+          message: 'un dólar digital no vale menos de 1 ni más de 100 bolivianos',
+        });
+      }
+      if ((entry.basis === 'USER_CAPTURE') !== (one.kind === 'QUOTE')) {
+        context.addIssue({
+          code: 'custom',
+          path: ['points', index, 'basis'],
+          message: 'solo una cotización llega de una captura, y toda cotización llega así',
+        });
+      }
       if (one.kind === 'OFFERED' && entry.value !== '0' && entry.value !== '1') {
         context.addIssue({
           code: 'custom',

@@ -103,7 +103,8 @@
     "departments:collect": "tsx scripts/macro/collect-ine-departments.ts",
     "departments:activities": "tsx scripts/macro/collect-ine-department-activities.ts",
     "corporate:collect": "tsx scripts/macro/collect-corporate-register.ts",
-    "banks:collect": "tsx scripts/banks/collect-bank-virtual-assets.ts"
+    "banks:collect": "tsx scripts/banks/collect-bank-virtual-assets.ts",
+    "banks:quote": "tsx scripts/banks/record-bank-quote.ts"
   },
   "dependencies": {
     "@fastify/helmet": "13.0.1",

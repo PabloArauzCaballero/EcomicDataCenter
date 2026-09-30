@@ -4,7 +4,13 @@ import type {
   BankSeries,
 } from '../../src/database/seeds/schemas/bank-virtual-assets.schema';
 import { ANCHORS } from './bank-anchors';
-import { LIMIT_SERIES, OFFERED_SERIES, type BankPage, type SeriesSpec } from './bank-sources';
+import {
+  LIMIT_SERIES,
+  OFFERED_SERIES,
+  QUOTE_SERIES,
+  type BankPage,
+  type SeriesSpec,
+} from './bank-sources';
 
 /**
  * La lógica pura de la lectura de los bancos, aparte del colector para poder
@@ -117,7 +123,7 @@ export function readPage(page: BankPage, bytes: Buffer, today: string, now: Date
 }
 
 function emptySeed(): BankSeries[] {
-  return [...OFFERED_SERIES, ...LIMIT_SERIES].map((spec: SeriesSpec) => {
+  return [...OFFERED_SERIES, ...LIMIT_SERIES, ...QUOTE_SERIES].map((spec: SeriesSpec) => {
     const anchor = ANCHORS[spec.indicatorCode];
     return { ...spec, points: anchor ? [anchor] : [] };
   });

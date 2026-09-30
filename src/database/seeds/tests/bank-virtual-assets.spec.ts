@@ -10,6 +10,7 @@ import {
   visibleText,
 } from '../../../../scripts/banks/bank-readings';
 import { PAGES } from '../../../../scripts/banks/bank-sources';
+import { quoteReadings } from '../../../../scripts/banks/bank-quote-capture';
 
 /**
  * Guards the virtual-dollar services of the banks.
@@ -147,5 +148,54 @@ describe('merging a reading into the seed', () => {
     const next = mergeSeed(first, readPage(ganadero, body, '2026-10-01', now));
     const offered = next.find((one) => one.indicatorCode === 'VASP_GANADERO_USDC_OFFERED');
     expect(offered?.points).toHaveLength(3);
+  });
+});
+
+describe('a quotation captured by hand', () => {
+  const capture = {
+    bank: 'BNB',
+    clientBuys: '9,35',
+    clientSells: '9.30',
+    date: '2026-09-30',
+    source: 'captura de BNB Móvil, 15:20',
+    now: new Date('2026-09-30T19:30:00Z'),
+  };
+
+  it('writes both sides from the client, in plain decimals and marked as a capture', () => {
+    const readings = quoteReadings(capture);
+    const byCode = new Map(readings.map((one) => [one.indicatorCode, one.point]));
+    expect(byCode.get('VASP_BNB_USDT_QUOTE_CLIENT_BUYS')?.value).toBe('9.35');
+    expect(byCode.get('VASP_BNB_USDT_QUOTE_CLIENT_SELLS')?.value).toBe('9.30');
+    for (const point of byCode.values()) expect(point.basis).toBe('USER_CAPTURE');
+  });
+
+  it('refuses a bank that is not followed, a figure that is not one and a source left blank', () => {
+    expect(() => quoteReadings({ ...capture, bank: 'NADA' })).toThrow(/no hay un banco/u);
+    expect(() => quoteReadings({ ...capture, clientBuys: '9,3x' })).toThrow(/no es una cifra/u);
+    expect(() => quoteReadings({ ...capture, source: 'app' })).toThrow(/de dónde salió/u);
+    expect(() => quoteReadings({ ...capture, date: '30/09/2026' })).toThrow(/AAAA-MM-DD/u);
+  });
+
+  it('enters the seed next to the announcement without disturbing it', () => {
+    const merged = mergeSeed([], quoteReadings(capture));
+    const buys = merged.find((one) => one.indicatorCode === 'VASP_BNB_USDT_QUOTE_CLIENT_BUYS');
+    expect(buys?.side).toBe('CLIENT_BUYS');
+    expect(buys?.points).toHaveLength(1);
+    expect(
+      merged.find((one) => one.indicatorCode === 'VASP_BNB_USDT_OFFERED')?.points[0]?.basis,
+    ).toBe('FIRST_PUBLIC_DOCUMENT');
+    expect(() => bankVirtualAssetsSchema.parse({ series: merged })).not.toThrow();
+  });
+
+  it('rejects a quotation that claims to be read from a page, or that is not a price', () => {
+    const [buys] = mergeSeed([], quoteReadings(capture)).filter((one) => one.kind === 'QUOTE');
+    if (!buys) throw new Error('falta la serie');
+    const page = {
+      ...buys,
+      points: buys.points.map((p) => ({ ...p, basis: 'OFFICIAL_PAGE' as const })),
+    };
+    expect(() => bankVirtualAssetsSchema.parse({ series: [page] })).toThrow();
+    const cheap = { ...buys, points: buys.points.map((p) => ({ ...p, value: '0.5' })) };
+    expect(() => bankVirtualAssetsSchema.parse({ series: [cheap] })).toThrow();
   });
 });
