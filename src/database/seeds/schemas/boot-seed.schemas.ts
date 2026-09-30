@@ -156,9 +156,10 @@ export const agentBootstrapSeedSchema = z
      * mirar cuando una carga histórica nueva entra al arranque. Subió a 24 al
      * añadir las identidades de las cuentas departamentales del INE y del
      * registro de exportadoras y reputación, y a 25 con la de la red vial. A 26
-     * con la base de comercio exterior del INE, registro por registro.
+     * con la base de comercio exterior del INE, registro por registro. A 27
+     * con los servicios de dólar digital de los bancos.
      */
-    backfillAgents: z.array(agentSeedSchema).min(1).max(26),
+    backfillAgents: z.array(agentSeedSchema).min(1).max(27),
   })
   .strict();
 

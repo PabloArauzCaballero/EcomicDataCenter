@@ -315,6 +315,17 @@
       "specialty": "Exportaciones e importaciones por partida NANDINA, pais, departamento y mes",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000024",
+      "code": "BANK_VIRTUAL_ASSETS",
+      "name": "Servicios de dolar digital (USDT y USDC) de los bancos bolivianos",
+      "agentType": "SECTOR",
+      "provider": "Paginas oficiales de los bancos y anuncios de prensa",
+      "modelIdentifier": "bank-official-pages",
+      "specialty": "Si cada banco ofrece USDT o USDC a sus clientes, desde cuando y con que limites",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

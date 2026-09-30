@@ -31,6 +31,7 @@ import { reconcileBoliviaRoadNetwork } from './boot-seed.bolivia-road-network';
 import { reconcileBoliviaTransportNetwork } from './boot-seed.bolivia-transport-network';
 import { reconcileExogenousPrices } from './boot-seed.exogenous-prices';
 import { reconcileIneTrade } from './boot-seed.ine-trade';
+import { reconcileBankVirtualAssets } from './boot-seed.bank-virtual-assets';
 import { refreshAfterLoad } from './boot-seed.refresh';
 
 /**
@@ -73,6 +74,7 @@ const SELECTABLE = [
   'bolivia-road-network',
   'exogenous-prices',
   'ine-trade',
+  'bank-virtual-assets',
   'bolivia-transport-network',
 ] as const;
 
@@ -129,6 +131,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bolivia-road-network', reconcileBoliviaRoadNetwork],
   ['exogenous-prices', reconcileExogenousPrices],
   ['ine-trade', reconcileIneTrade],
+  ['bank-virtual-assets', reconcileBankVirtualAssets],
   ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
 ];
 
