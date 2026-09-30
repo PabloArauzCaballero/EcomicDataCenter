@@ -45,14 +45,15 @@ async function main(): Promise<void> {
   const previous = existsSync(SEED)
     ? bankVirtualAssetsSchema.parse(JSON.parse(readFileSync(SEED, 'utf8'))).series
     : [];
-  const series = mergeSeed(previous, readings);
-  bankVirtualAssetsSchema.parse({ series });
+  // Se escribe lo que el esquema devuelve y no lo que se armó: el esquema fija el
+  // orden de las claves, y sin eso la semilla cambia de forma entre una corrida y
+  // la siguiente sin que cambie ninguna cifra, y cada cambio es un despliegue.
+  const { series } = bankVirtualAssetsSchema.parse({ series: mergeSeed(previous, readings) });
   writeFileSync(SEED, `${JSON.stringify({ series }, null, 2)}\n`);
   console.log(`semilla escrita: ${series.length} series, ${readings.length} lecturas de ${today}`);
 }
 
 main().catch((error: unknown) => {
-  process.stderr.write(`${error instanceof Error ? error.message : 'bank collection failed'}
-`);
+  process.stderr.write(`${error instanceof Error ? error.message : 'bank collection failed'}\n`);
   process.exitCode = 1;
 });
