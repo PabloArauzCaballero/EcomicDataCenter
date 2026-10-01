@@ -1,15 +1,15 @@
 {
   "model": "Observatorio Económico y de Mercados de Bolivia",
   "version": "1.0-final-logical",
-  "entity_count": 63,
-  "field_count": 624,
+  "entity_count": 65,
+  "field_count": 635,
   "packages": {
     "provenance": 4,
     "semantic": 11,
     "metadata": 9,
     "statistics": 9,
     "quality_lineage": 7,
-    "intelligence": 12,
+    "intelligence": 14,
     "audit": 1,
     "operations": 10
   },
@@ -5858,6 +5858,143 @@
           "table": "fact_claim",
           "field": "created_at",
           "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "intelligence",
+      "table": "press_claim_reading",
+      "alias": "press_claim_reading",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "press_claim_reading",
+          "field": "fact_claim_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "intelligence",
+          "table": "press_claim_reading",
+          "field": "class_digest",
+          "type": "varchar(32)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "press_claim_reading",
+          "field": "term_digest",
+          "type": "varchar(32)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "press_claim_reading",
+          "field": "topic",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "press_claim_reading",
+          "field": "tone",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "press_claim_reading",
+          "field": "region",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "press_claim_reading",
+          "field": "read_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "intelligence",
+      "table": "press_claim_term",
+      "alias": "press_claim_term",
+      "fields": [
+        {
+          "package": "intelligence",
+          "table": "press_claim_term",
+          "field": "fact_claim_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "press_claim_term",
+          "field": "term",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "press_claim_term",
+          "field": "label",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "intelligence",
+          "table": "press_claim_term",
+          "field": "family",
+          "type": "text",
           "primary_key": false,
           "foreign_key": false,
           "unique": false,
