@@ -144,6 +144,15 @@
           "sourceUrl": "https://cuentacripto.bancofie.com.bo/apertura-cripto",
           "upstreamSha256": "6825ccd264938b1954f1fa0beb5a23f96e12d424bc3e4dd6ff7d30a97bc804a9",
           "retrievedAt": "2026-09-30T15:49:19Z"
+        },
+        {
+          "date": "2026-10-01",
+          "value": "1",
+          "basis": "OFFICIAL_PAGE",
+          "excerpt": "-> --> --> Términos y Condiciones Abre tu cuenta Cripto FIE Compra, vende, recibe y envía USDT en minutos 100% en línea Comenzar Tu Cuenta Cripto en minutos, desde la palma de tu mano. Apertura Inmediata Banca móvi",
+          "sourceUrl": "https://cuentacripto.bancofie.com.bo/apertura-cripto",
+          "upstreamSha256": "edf44fee7eaa0ac5be2640b607eca3bbc56fe034b4ab0d14bf3c935ea378c77c",
+          "retrievedAt": "2026-10-01T20:54:54Z"
         }
       ]
     },
@@ -328,6 +337,50 @@
           "sourceUrl": "https://www.bg.com.bo/ganacripto/",
           "upstreamSha256": "bf5ff31aaa27a684324f28c8d4884e56f8a128a911b7acce0d2b7491dc6d9bb4",
           "retrievedAt": "2026-10-01T17:21:47Z"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "VASP_BISA_USDT_QUOTE_CLIENT_BUYS",
+      "bank": "BISA",
+      "bankName": "Banco BISA",
+      "product": "CriptoBISA",
+      "asset": "USDT",
+      "kind": "QUOTE",
+      "side": "CLIENT_BUYS",
+      "unit": "BOB",
+      "note": "Bolivianos que el cliente paga por cada USDT en Banco BISA.",
+      "points": [
+        {
+          "date": "2026-10-01",
+          "value": "12.20",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>11.15</ns1:ValorCompra><ns1:ValorVenta>12.20</ns1:ValorVenta></ns1:Cotizacion>",
+          "sourceUrl": "https://sjoven.bisa.com/assets/cotizaciones.xml",
+          "upstreamSha256": "1aa984605b72e4d47c11f07e31fd76fac8e3858942093a1d693e0b449c090f83",
+          "retrievedAt": "2026-10-01T20:54:54Z"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "VASP_BISA_USDT_QUOTE_CLIENT_SELLS",
+      "bank": "BISA",
+      "bankName": "Banco BISA",
+      "product": "CriptoBISA",
+      "asset": "USDT",
+      "kind": "QUOTE",
+      "side": "CLIENT_SELLS",
+      "unit": "BOB",
+      "note": "Bolivianos que el cliente recibe por cada USDT en Banco BISA.",
+      "points": [
+        {
+          "date": "2026-10-01",
+          "value": "11.15",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>11.15</ns1:ValorCompra><ns1:ValorVenta>12.20</ns1:ValorVenta></ns1:Cotizacion>",
+          "sourceUrl": "https://sjoven.bisa.com/assets/cotizaciones.xml",
+          "upstreamSha256": "1aa984605b72e4d47c11f07e31fd76fac8e3858942093a1d693e0b449c090f83",
+          "retrievedAt": "2026-10-01T20:54:54Z"
         }
       ]
     }

@@ -9,6 +9,7 @@ import {
   OFFERED_SERIES,
   QUOTE_SERIES,
   type BankPage,
+  type QuoteFeed,
   type SeriesSpec,
 } from './bank-sources';
 
@@ -118,6 +119,65 @@ export function readPage(page: BankPage, bytes: Buffer, today: string, now: Date
         point: { ...provenance, value, excerpt: match[0] },
       });
     }
+  }
+  return readings;
+}
+
+/** El valor de una etiqueta del bloque, sin importar el prefijo de espacio de nombres. */
+function tagValue(block: string, tag: string): string | null {
+  const found = new RegExp(`<(?:\\w+:)?${tag}>\\s*([^<]*?)\\s*</(?:\\w+:)?${tag}>`, 'u').exec(block);
+  return found?.[1] ?? null;
+}
+
+/**
+ * La cotización que un banco sirve en su archivo público, con los lados del
+ * cliente.
+ *
+ * El banco dice «compra» y «venta» desde su punto de vista: `ValorCompra` es lo
+ * que paga al comprarle USDT al cliente —lo que el cliente RECIBE— y
+ * `ValorVenta` lo que cobra al vendérselo —lo que el cliente PAGA—. Un archivo
+ * que no trae la moneda, o que trae un precio que no es un precio, no escribe
+ * nada: la cifra de ayer no se repite ni se inventa.
+ */
+export function readQuoteFeed(
+  feed: QuoteFeed,
+  bytes: Buffer,
+  today: string,
+  now: Date,
+): Reading[] {
+  const xml = decodePage(bytes);
+  const blocks = xml.match(/<(?:\w+:)?Cotizacion>[\s\S]*?<\/(?:\w+:)?Cotizacion>/gu) ?? [];
+  const block = blocks.find(
+    (one) =>
+      tagValue(one, 'Moneda') === feed.currency && tagValue(one, 'MonedaCambio') === feed.against,
+  );
+  if (!block) throw new Error(`el archivo no trae ${feed.currency}/${feed.against}`);
+  const bankBuys = plainAmount(tagValue(block, 'ValorCompra') ?? '');
+  const bankSells = plainAmount(tagValue(block, 'ValorVenta') ?? '');
+  if (!bankBuys || !bankSells || Number(bankBuys) < 1 || Number(bankSells) < 1) {
+    throw new Error(
+      `${feed.currency}/${feed.against} no trae una compra y una venta en bolivianos`,
+    );
+  }
+  const offered = OFFERED_SERIES.find((spec) => spec.bank === feed.bank);
+  const provenance = {
+    date: today,
+    basis: 'OFFICIAL_FEED' as const,
+    excerpt: block.replace(/\s+/gu, ' '),
+    sourceUrl: feed.url,
+    upstreamSha256: sha256(bytes),
+    retrievedAt: now.toISOString().replace(/\.\d{3}Z$/u, 'Z'),
+  };
+  const readings: Reading[] = [];
+  for (const [side, value] of [
+    ['CLIENT_BUYS', bankSells],
+    ['CLIENT_SELLS', bankBuys],
+  ] as const) {
+    const series = QUOTE_SERIES.find(
+      (spec) => spec.bank === feed.bank && spec.asset === offered?.asset && spec.side === side,
+    );
+    if (!series) throw new Error(`no hay serie de cotización para ${feed.bank}`);
+    readings.push({ indicatorCode: series.indicatorCode, point: { ...provenance, value } });
   }
   return readings;
 }

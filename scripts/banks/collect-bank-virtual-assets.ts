@@ -1,12 +1,15 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { bankVirtualAssetsSchema } from '../../src/database/seeds/schemas/bank-virtual-assets.schema';
-import { PAGES } from './bank-sources';
-import { laPazDate, mergeSeed, readPage, type Reading } from './bank-readings';
+import { PAGES, QUOTE_FEEDS } from './bank-sources';
+import { laPazDate, mergeSeed, readPage, readQuoteFeed, type Reading } from './bank-readings';
 
 /**
  * Lee la página oficial de cada banco que ofrece dólar digital y suma el
  * punto del día a su serie.
+ *
+ * También lee la cotización de los bancos que la publican en un archivo
+ * público (hoy BISA, `QUOTE_FEEDS`).
  *
  * Fusiona con la semilla que encuentra y solo agrega: ningún día se borra. Una
  * página que no responde, o que responde otra cosa que la del banco, no
@@ -37,6 +40,16 @@ async function main(): Promise<void> {
       console.log(`${page.bank}: ${offered}, ${one.length - 1} límites leídos`);
     } catch (error) {
       console.warn(`${page.bank}: sin lectura hoy (${(error as Error).message})`);
+    }
+  }
+  // La cotización de los bancos que la publican en un archivo (hoy BISA).
+  for (const feed of QUOTE_FEEDS) {
+    try {
+      const one = readQuoteFeed(feed, await download(feed.url), today, now);
+      readings.push(...one);
+      console.log(`${feed.bank}: cotización ${one.map((reading) => reading.point.value).join(' / ')} Bs`);
+    } catch (error) {
+      console.warn(`${feed.bank}: sin cotización hoy (${(error as Error).message})`);
     }
   }
   if (readings.length === 0) {

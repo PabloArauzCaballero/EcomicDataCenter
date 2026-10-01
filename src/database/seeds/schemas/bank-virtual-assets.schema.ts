@@ -4,10 +4,11 @@ import { z } from 'zod';
  * Los bancos bolivianos que ofrecen dólares digitales (USDT, USDC) a sus
  * clientes, y las condiciones que publican.
  *
- * Ningún banco publica el precio al que compra o vende: la cotización se ve
- * dentro de la aplicación, ya autenticado. Lo que sí es público y cambia con el
- * tiempo es SI el servicio existe y con qué límites, y eso es lo que se
- * guarda. Por eso hay tres clases de serie:
+ * Casi ningún banco publica el precio al que compra o vende: la cotización se
+ * ve dentro de la aplicación, ya autenticado. La excepción es Banco BISA, que la
+ * sirve en un XML público (`OFFICIAL_FEED`). Lo demás que es público y cambia
+ * con el tiempo es SI el servicio existe y con qué límites. Por eso hay tres
+ * clases de serie:
  *
  * - `OFFERED`: 1 mientras la página oficial del banco anuncia el servicio, 0 si
  *   la página responde y ya no lo nombra. Una página que no responde NO escribe
@@ -15,17 +16,20 @@ import { z } from 'zod';
  * - `LIMIT`: una cifra que la página oficial declara (mínimo o máximo por
  *   operación, por día).
  * - `QUOTE`: lo que el banco cobra o paga por cada USDT o USDC, en bolivianos.
- *   Ningún banco lo publica fuera de su aplicación, así que NO se lee: llega a
- *   mano, de una captura de la app, y por eso su `basis` es `USER_CAPTURE`. El
- *   lado se dice desde el cliente y no desde el banco (`CLIENT_BUYS` es lo que
- *   el cliente paga por cada ficha), porque «compra» y «venta» según quién
- *   hable ya invirtieron un lado en los libros P2P.
+ *   Si el banco la publica (BISA) se lee cada día de su archivo y su `basis` es
+ *   `OFFICIAL_FEED`; si no, llega a mano, de una captura de la app, y su
+ *   `basis` es `USER_CAPTURE`. El lado se dice desde el cliente y no desde el
+ *   banco (`CLIENT_BUYS` es lo que el cliente paga por cada ficha), porque
+ *   «compra» y «venta» según quién hable ya invirtieron un lado en los libros
+ *   P2P.
  *
  * `basis` dice de dónde salió cada punto, porque no valen lo mismo:
  * `ANNOUNCEMENT` es la fecha en que el banco o la prensa dicen que arrancó,
  * `FIRST_PUBLIC_DOCUMENT` es la fecha del primer documento oficial que
  * conservamos cuando el banco nunca dijo cuándo empezó, y `OFFICIAL_PAGE` es
- * una lectura diaria de su propia página. La huella de un `ANNOUNCEMENT` es la
+ * una lectura diaria de su propia página. `OFFICIAL_FEED` es la cifra que el
+ * propio banco sirve en un archivo público para su sitio, y `USER_CAPTURE` la
+ * que alguien leyó dentro de su aplicación. La huella de un `ANNOUNCEMENT` es la
  * del pasaje citado, no la de la página entera, que no se conservó.
  */
 
@@ -36,6 +40,7 @@ export const BANK_POINT_BASES = [
   'ANNOUNCEMENT',
   'FIRST_PUBLIC_DOCUMENT',
   'OFFICIAL_PAGE',
+  'OFFICIAL_FEED',
   'USER_CAPTURE',
 ] as const;
 export const QUOTE_SIDES = ['CLIENT_BUYS', 'CLIENT_SELLS'] as const;
@@ -102,11 +107,13 @@ const series = z
           message: 'un dólar digital no vale menos de 1 ni más de 100 bolivianos',
         });
       }
-      if ((entry.basis === 'USER_CAPTURE') !== (one.kind === 'QUOTE')) {
+      const priced = entry.basis === 'USER_CAPTURE' || entry.basis === 'OFFICIAL_FEED';
+      if (priced !== (one.kind === 'QUOTE')) {
         context.addIssue({
           code: 'custom',
           path: ['points', index, 'basis'],
-          message: 'solo una cotización llega de una captura, y toda cotización llega así',
+          message:
+            'solo una cotización llega de una captura o del archivo del banco, y toda cotización llega así',
         });
       }
       if (one.kind === 'OFFERED' && entry.value !== '0' && entry.value !== '1') {
