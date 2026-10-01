@@ -15,13 +15,13 @@ const PRESS_BATCH = 1000;
 /**
  * Reads, and stores, the press notes whose reading is missing or out of date.
  *
- * Until 0092 the two press copies re-filed the WHOLE archive on every rebuild —
+ * Until 0093 the two press copies re-filed the WHOLE archive on every rebuild —
  * about 120 ms a note, over two hours on Contabo, on every deploy that brought
  * a day's notes. Now a note is filed once and a rebuild only pays for the new
  * ones. Nothing here decides which notes need it: the database does, by
  * comparing each stored reading with the digest of the lexicon that made it.
  *
- * A database that has not reached 0092 has no such routine. The rebuild after
+ * A database that has not reached 0093 has no such routine. The rebuild after
  * this is then the old, slow one, and that is correct, just not fast.
  */
 export async function readPressNotes(

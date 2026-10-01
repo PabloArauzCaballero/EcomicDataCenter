@@ -107,7 +107,7 @@ export async function refreshAfterLoad(
   }
   if (wanted('press-coverage') || wanted('press-archive')) {
     await attempt('press', failures, async () => {
-      // Each note is read once and stored (0092); this pays only for the new ones.
+      // Each note is read once and stored (0093); this pays only for the new ones.
       await readPressNotesOn(database);
       await refreshOneSnapshot(database, 'press_article_snapshot', true);
       await refreshOneSnapshot(database, 'press_term_mention_snapshot', true);

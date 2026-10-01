@@ -3,7 +3,7 @@ import {
   fillFunction,
   functions,
   termReadingView,
-} from '../migration-sql/0092-read-each-press-note-once.view';
+} from '../migration-sql/0093-read-each-press-note-once.view';
 import { readPressNotes } from '../press-readings';
 
 describe('readPressNotes', () => {
@@ -33,7 +33,7 @@ describe('readPressNotes', () => {
   });
 });
 
-describe('migration 0092 SQL', () => {
+describe('migration 0093 SQL', () => {
   it('builds the classifier from the 0071 lexicon: 48 rule lists, three defaults', () => {
     expect(functions.match(/~ ANY \(ARRAY\[/g)).toHaveLength(48);
     for (const fallback of ["'OTROS'", "'NEUTRO'", "'NACIONAL'"]) {
