@@ -40,7 +40,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Join the tailnet
-        uses: tailscale/github-action@v3
+        uses: tailscale/github-action@v4
         with:
           authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
           args: --ssh=false
