@@ -3,11 +3,13 @@ import type { BankSeries } from '../../src/database/seeds/schemas/bank-virtual-a
 /**
  * Qué se lee, y dónde, de cada banco que ofrece dólar digital.
  *
- * Ningún banco publica su cotización fuera de la aplicación autenticada, así
- * que no hay un precio que leer: se lee si la página oficial sigue anunciando
- * el servicio y qué límites declara. Banco Unión no aparece en `PAGES`: su
- * sitio de Yasta rechaza (403) las consultas automáticas, y esa serie solo
- * tiene su fecha de arranque, sin lectura diaria.
+ * Casi ningún banco publica su cotización fuera de la aplicación autenticada:
+ * de esos se lee si la página oficial sigue anunciando el servicio y qué
+ * límites declara. La excepción es Banco BISA, que sirve compra y venta de
+ * USDT en bolivianos en un XML público que alimenta su propia portada
+ * (`QUOTE_FEEDS`). Banco Unión no aparece en `PAGES`: su sitio de Yasta
+ * rechaza (403) las consultas automáticas, y esa serie solo tiene su fecha de
+ * arranque, sin lectura diaria.
  */
 
 export type SeriesSpec = Pick<
@@ -117,14 +119,39 @@ const quote = (spec: SeriesSpec, side: 'CLIENT_BUYS' | 'CLIENT_SELLS'): SeriesSp
 });
 
 /**
- * Lo que cada banco cobra y paga por ficha. Ningún banco lo publica fuera de su
- * aplicación: estas series no se leen, se cargan a mano desde una captura, y
- * quedan sin puntos —y por tanto fuera de la semilla— hasta que llega la primera.
+ * Lo que cada banco cobra y paga por ficha. Solo BISA lo publica (`QUOTE_FEEDS`);
+ * en los demás estas series se cargan a mano desde una captura de la aplicación,
+ * y quedan sin puntos —y por tanto fuera de la semilla— hasta que llega la primera.
  */
 export const QUOTE_SERIES: readonly SeriesSpec[] = OFFERED_SERIES.flatMap((spec) => [
   quote(spec, 'CLIENT_BUYS'),
   quote(spec, 'CLIENT_SELLS'),
 ]);
+
+/**
+ * Un banco que publica su cotización de la ficha en un archivo público.
+ *
+ * El XML de BISA es el mismo que lee la portada de bisa.com (CORS abierto, sin
+ * cookie ni token). `ValorCompra` es lo que el BANCO compra y `ValorVenta` lo que
+ * VENDE; el lector los invierte a los lados del cliente. El archivo se
+ * actualiza varias veces al día y la semilla guarda el último valor de cada día.
+ */
+export interface QuoteFeed {
+  readonly bank: string;
+  readonly url: string;
+  /** La moneda y contra qué se cotiza, como las nombra el archivo: `UST` contra `BOB`. */
+  readonly currency: string;
+  readonly against: string;
+}
+
+export const QUOTE_FEEDS: readonly QuoteFeed[] = [
+  {
+    bank: 'BISA',
+    url: 'https://sjoven.bisa.com/assets/cotizaciones.xml',
+    currency: 'UST',
+    against: 'BOB',
+  },
+];
 
 export interface LimitReading {
   readonly indicatorCode: string;

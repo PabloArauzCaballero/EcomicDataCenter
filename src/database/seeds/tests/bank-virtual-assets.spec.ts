@@ -7,9 +7,10 @@ import {
   mergeSeed,
   plainAmount,
   readPage,
+  readQuoteFeed,
   visibleText,
 } from '../../../../scripts/banks/bank-readings';
-import { PAGES } from '../../../../scripts/banks/bank-sources';
+import { PAGES, QUOTE_FEEDS } from '../../../../scripts/banks/bank-sources';
 import { quoteReadings } from '../../../../scripts/banks/bank-quote-capture';
 
 /**
@@ -197,5 +198,88 @@ describe('a quotation captured by hand', () => {
     expect(() => bankVirtualAssetsSchema.parse({ series: [page] })).toThrow();
     const cheap = { ...buys, points: buys.points.map((p) => ({ ...p, value: '0.5' })) };
     expect(() => bankVirtualAssetsSchema.parse({ series: [cheap] })).toThrow();
+  });
+});
+
+describe('a quotation the bank publishes in its own file', () => {
+  const feed = QUOTE_FEEDS.find((one) => one.bank === 'BISA');
+  if (!feed) throw new Error('falta el archivo de BISA');
+  const now = new Date('2026-10-01T20:40:00Z');
+  /* El archivo de verdad, el 2026-10-01 20:50 GMT, recortado a lo que lee el colector. */
+  const xml = (usdt: string) =>
+    Buffer.from(
+      `<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope><soapenv:Body><ns1:ObtenerCotizacionResponse><ns1:Cotizaciones>` +
+        `<ns1:Cotizacion><ns1:Moneda>USD</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>11.30</ns1:ValorCompra><ns1:ValorVenta>12.30</ns1:ValorVenta></ns1:Cotizacion>` +
+        usdt +
+        `<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>USD</ns1:MonedaCambio><ns1:ValorCompra>0.9999</ns1:ValorCompra><ns1:ValorVenta>0</ns1:ValorVenta></ns1:Cotizacion>` +
+        `</ns1:Cotizaciones></ns1:ObtenerCotizacionResponse></soapenv:Body></soapenv:Envelope>`,
+    );
+  const usdt = (buy: string, sell: string) =>
+    `<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>${buy}</ns1:ValorCompra><ns1:ValorVenta>${sell}</ns1:ValorVenta></ns1:Cotizacion>`;
+
+  it('puts what the bank sells on the side the client pays, and what it buys on the side the client receives', () => {
+    const byCode = new Map(
+      readQuoteFeed(feed, xml(usdt('11.15', '12.20')), '2026-10-01', now).map((one) => [
+        one.indicatorCode,
+        one.point,
+      ]),
+    );
+    // El banco COMPRA a 11.15: el cliente que vende recibe 11.15. El banco VENDE a 12.20: el cliente paga 12.20.
+    expect(byCode.get('VASP_BISA_USDT_QUOTE_CLIENT_BUYS')?.value).toBe('12.20');
+    expect(byCode.get('VASP_BISA_USDT_QUOTE_CLIENT_SELLS')?.value).toBe('11.15');
+    for (const point of byCode.values()) {
+      expect(point.basis).toBe('OFFICIAL_FEED');
+      expect(point.sourceUrl).toBe('https://sjoven.bisa.com/assets/cotizaciones.xml');
+      expect(point.excerpt).toContain('<ns1:Moneda>UST</ns1:Moneda>');
+    }
+  });
+
+  it('reads UST against BOB and not the dollar or UST against USD that sit around it', () => {
+    const [buys] = readQuoteFeed(feed, xml(usdt('11.15', '12.20')), '2026-10-01', now);
+    expect(buys?.point.value).not.toBe('12.30');
+    expect(buys?.point.value).not.toBe('0.9999');
+  });
+
+  it('refuses a file without the pair, or with a price that is not one', () => {
+    expect(() => readQuoteFeed(feed, xml(''), '2026-10-01', now)).toThrow(/no trae UST\/BOB/u);
+    expect(() => readQuoteFeed(feed, xml(usdt('0', '12.20')), '2026-10-01', now)).toThrow(
+      /compra y una venta/u,
+    );
+    expect(() => readQuoteFeed(feed, xml(usdt('11.15', '')), '2026-10-01', now)).toThrow(
+      /compra y una venta/u,
+    );
+    expect(() => readQuoteFeed(feed, Buffer.from('<html>403</html>'), '2026-10-01', now)).toThrow();
+  });
+
+  it('enters the seed as a valid quotation, and the same value twice in a day leaves it alone', () => {
+    const first = mergeSeed([], readQuoteFeed(feed, xml(usdt('11.15', '12.20')), '2026-10-01', now));
+    expect(() => bankVirtualAssetsSchema.parse({ series: first })).not.toThrow();
+    const again = mergeSeed(
+      first,
+      readQuoteFeed(feed, xml(usdt('11.15', '12.20')), '2026-10-01', new Date('2026-10-01T22:00:00Z')),
+    );
+    expect(JSON.stringify(again)).toBe(JSON.stringify(first));
+    const moved = mergeSeed(first, readQuoteFeed(feed, xml(usdt('11.20', '12.25')), '2026-10-01', now));
+    const buys = moved.find((one) => one.indicatorCode === 'VASP_BISA_USDT_QUOTE_CLIENT_BUYS');
+    expect(buys?.points).toHaveLength(1);
+    expect(buys?.points[0]?.value).toBe('12.25');
+  });
+
+  it('is the only basis, besides a capture, that a price may carry', () => {
+    const [buys] = mergeSeed([], readQuoteFeed(feed, xml(usdt('11.15', '12.20')), '2026-10-01', now)).filter(
+      (one) => one.kind === 'QUOTE',
+    );
+    if (!buys) throw new Error('falta la serie');
+    const announced = {
+      ...buys,
+      points: buys.points.map((p) => ({ ...p, basis: 'ANNOUNCEMENT' as const })),
+    };
+    expect(() => bankVirtualAssetsSchema.parse({ series: [announced] })).toThrow();
+    const offered = mergeSeed([], []).find((one) => one.kind === 'OFFERED');
+    const feedOnService = offered
+      ? { ...offered, points: offered.points.map((p) => ({ ...p, basis: 'OFFICIAL_FEED' as const })) }
+      : undefined;
+    expect(feedOnService).toBeDefined();
+    expect(() => bankVirtualAssetsSchema.parse({ series: [feedOnService] })).toThrow();
   });
 });
