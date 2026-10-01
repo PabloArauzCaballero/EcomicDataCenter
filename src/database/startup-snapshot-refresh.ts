@@ -1,5 +1,6 @@
 import type { Sequelize } from 'sequelize';
 import { refreshSnapshots, withPinnedSession } from './snapshot-refresh';
+import { refreshStaleTradeCopies } from './trade-copies-currency';
 
 /** The three levels the process log offers, and all this needs of it. */
 export interface BootLog {
@@ -27,6 +28,10 @@ export interface BootLog {
  * load the server was measured not to carry. The normal case costs one catalog
  * query and an advisory lock, and does nothing.
  *
+ * The exception is the customs register's copies, which are also compared with
+ * the blocks they should hold (migration 0092): a copy that is populated but
+ * empty looks built to the catalog and was never refilled.
+ *
  * If a deploy kills this halfway, the next container picks it up where the
  * catalog says it stopped: that is what `relispopulated` is for.
  *
@@ -39,9 +44,14 @@ export async function refreshSnapshotsAfterBoot(database: Sequelize, log: BootLo
     problem: (text: string) => log.warn(`[copias] ${text}`),
   };
   try {
-    const outcome = await withPinnedSession(database, (session) =>
-      refreshSnapshots(session, report, { onlyUnbuilt: true }),
-    );
+    const outcome = await withPinnedSession(database, async (session) => {
+      const filled = await refreshSnapshots(session, report, { onlyUnbuilt: true });
+      // A copy can be built and still wrong — built empty before its blocks
+      // arrived, or left behind by a load that died — and `relispopulated` says
+      // nothing about that, so the trade copies are also asked what they hold.
+      if (filled !== null) filled.built.push(...(await refreshStaleTradeCopies(session, report)));
+      return filled;
+    });
     if (outcome === null) {
       log.log('[copias] otra reconstruccion tiene el candado; esta se retira');
     } else if (outcome.built.length === 0 && outcome.failed.length === 0) {
