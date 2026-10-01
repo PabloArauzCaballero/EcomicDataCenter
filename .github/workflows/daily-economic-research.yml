@@ -61,7 +61,7 @@ jobs:
       # escuchar fuera de ella, que importa mas aqui que en otros sitios: este
       # despliegue corre con la autenticacion desactivada sobre los datos reales.
       - name: Join the tailnet
-        uses: tailscale/github-action@v3
+        uses: tailscale/github-action@v4
         with:
           # Tiene que ser una clave efimera: solo asi el `logout` del ultimo paso
           # borra el nodo. Una clave normal lo deja en la tailnet para siempre.
