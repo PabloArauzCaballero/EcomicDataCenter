@@ -3,7 +3,7 @@ import {
   fillFunction,
   functions,
   termReadingView,
-} from '../migration-sql/0092-read-each-press-note-once.view';
+} from '../migration-sql/0093-read-each-press-note-once.view';
 import { articleView } from '../migration-sql/0071-widen-the-coverage-lexicon.view';
 import { termView } from '../migration-sql/0078-widen-the-watchlist-again.view';
 import type { MigrationContext } from '../migration.types';
@@ -20,7 +20,7 @@ import type { MigrationContext } from '../migration.types';
  *
  * Lo unico que cambia lo que una nota significa es el lexico, asi que se guarda
  * la lectura de cada nota junto con la huella del lexico que la produjo. Ver el
- * comentario de `0092-read-each-press-note-once.view.ts` para como se detecta un
+ * comentario de `0093-read-each-press-note-once.view.ts` para como se detecta un
  * lexico nuevo y que pasa mientras una nota no tiene lectura guardada.
  *
  * ## Si hay que ensanchar el lexico otra vez

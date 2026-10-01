@@ -33,7 +33,7 @@ function classificationCases(): string {
   const endMarker = 'END AS region';
   const last = articleView.indexOf(endMarker);
   if (first === -1 || last === -1 || last < first) {
-    throw new Error('La vista de la 0071 ya no tiene la forma que la 0092 espera');
+    throw new Error('La vista de la 0071 ya no tiene la forma que la 0093 espera');
   }
   return articleView.slice(first + marker.length, last + endMarker.length);
 }
