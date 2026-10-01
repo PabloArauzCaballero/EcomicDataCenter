@@ -392,47 +392,47 @@ jobs:
           FAILED: >-
             ${{ needs.mercados.result == 'failure' && 'mercados ' || '' }}${{ needs.bcb.result == 'failure' && 'bcb ' || '' }}${{ needs.dolar.result == 'failure' && 'dolar ' || '' }}${{ needs.fichas.result == 'failure' && 'fichas ' || '' }}${{ needs.exogenas.result == 'failure' && 'exogenas ' || '' }}${{ needs.aduana.result == 'failure' && 'aduana ' || '' }}${{ needs.bancos.result == 'failure' && 'bancos ' || '' }}${{ needs['bcb-estadisticas'].result == 'failure' && 'bcb-estadisticas ' || '' }}${{ needs.prensa.result == 'failure' && 'prensa' || '' }}
         run: bash scripts/ops/avisar-ingesta-caida.sh "daily-source-batches, lotes caidos $FAILED"
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: needs.mercados.result == 'success'
         with:
           name: market-prices-${{ github.run_id }}
           path: src/database/seeds/boot
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: needs.bcb.result == 'success'
         with:
           name: bcb-quotes-${{ github.run_id }}
           path: src/database/seeds/boot
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: needs.dolar.result == 'success'
         with:
           name: fx-daily-${{ github.run_id }}
           path: src/database/seeds/boot
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: needs.fichas.result == 'success'
         with:
           name: stablecoin-books-${{ github.run_id }}
           path: src/database/seeds/boot
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: needs.exogenas.result == 'success'
         with:
           name: exogenous-prices-${{ github.run_id }}
           path: src/database/seeds/boot
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: needs.aduana.result == 'success' && needs.aduana.outputs.changed != '0'
         with:
           name: ine-trade-${{ github.run_id }}
           path: src/database/seeds/boot/ine-trade
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: needs.bancos.result == 'success'
         with:
           name: bank-virtual-assets-${{ github.run_id }}
           path: src/database/seeds/boot
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: needs['bcb-estadisticas'].result == 'success'
         with:
           name: bcb-statistics-${{ github.run_id }}
           path: src/database/seeds/boot/bcb-statistics
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         if: needs.prensa.result == 'success'
         with:
           name: press-coverage-${{ github.run_id }}
