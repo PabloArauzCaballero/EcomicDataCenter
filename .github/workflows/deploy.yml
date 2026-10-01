@@ -72,7 +72,16 @@ jobs:
             changed=""
             held=""
             for file in $(git diff --name-only origin/test origin/dev -- "$seeds"); do
+              # `_registry.json`, `_state.json`... son la memoria del recolector,
+              # no semillas: los sembradores los saltan (`!name.startsWith('_')`),
+              # asi que no hay sembrador de `test` que deba entenderlos.
+              case "$(basename "$file")" in _*) continue ;; esac
+
+              # Un archivo suelto es su propia semilla; los de una carpeta
+              # (bcb-statistics/, ine-trade/) los lee el sembrador de la carpeta.
               name=$(basename "$file" .json)
+              folder=$(basename "$(dirname "$file")")
+              if [ "$folder" != "boot" ]; then name="$folder"; fi
               code="src/database/seeds/runners/boot-seed.$name.ts src/database/seeds/schemas/$name.schema.ts"
               if ! git cat-file -e "origin/test:$file" 2>/dev/null; then
                 held="$held $name(nueva)"
