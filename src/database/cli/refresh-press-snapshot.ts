@@ -2,6 +2,7 @@ import 'dotenv/config';
 import type { Sequelize } from 'sequelize';
 import { getEnvironment } from '../../config/environment';
 import { createWriterDatabase } from '../database.factory';
+import { readPressNotesOn } from '../press-readings';
 
 /**
  * Rebuilds the stored copy of the press read models, from inside the image.
@@ -47,6 +48,9 @@ async function main(): Promise<void> {
     await database.authenticate();
     await database.query('SET statement_timeout = 0');
     const started = Date.now();
+    const read = await readPressNotesOn(database);
+    process.stdout.write(`notas leidas por primera vez o con el lexico nuevo: ${read}
+`);
     await database.query(
       'REFRESH MATERIALIZED VIEW CONCURRENTLY read_models.press_article_snapshot',
     );

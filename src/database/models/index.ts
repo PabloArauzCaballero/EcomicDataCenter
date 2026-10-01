@@ -48,6 +48,8 @@ export { EconomicEntityModel } from './economic_entity.model';
 export { EntityAliasModel } from './entity_alias.model';
 export { EntityMentionModel } from './entity_mention.model';
 export { FactClaimModel } from './fact_claim.model';
+export { PressClaimReadingModel } from './press_claim_reading.model';
+export { PressClaimTermModel } from './press_claim_term.model';
 export { RawObservationModel } from './raw_observation.model';
 export { ReviewTaskModel } from './review_task.model';
 export { AuditLogModel } from './audit_log.model';

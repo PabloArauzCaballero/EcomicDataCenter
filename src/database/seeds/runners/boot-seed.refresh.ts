@@ -1,3 +1,4 @@
+import { readPressNotesOn } from '../../press-readings';
 import { refreshOneSnapshot } from '../../snapshot-refresh';
 import { TRADE_COPIES, tradeCopiesAreCurrentIn } from '../../trade-copies-currency';
 import type { Catalogue } from './run-boot-seeds';
@@ -106,6 +107,8 @@ export async function refreshAfterLoad(
   }
   if (wanted('press-coverage') || wanted('press-archive')) {
     await attempt('press', failures, async () => {
+      // Each note is read once and stored (0092); this pays only for the new ones.
+      await readPressNotesOn(database);
       await refreshOneSnapshot(database, 'press_article_snapshot', true);
       await refreshOneSnapshot(database, 'press_term_mention_snapshot', true);
     });
