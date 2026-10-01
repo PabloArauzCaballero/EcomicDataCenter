@@ -16,7 +16,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -1637,7 +1637,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -3257,8 +3257,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGASUSGULF&fq=Monthly&fam=avg&cosd=2000-01-01",
-        "upstreamSha256": "9e42f7d5839c835d332bffdd9504caa2f9fdb6a89c1c8588bb6288b3cddf6d50",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "upstreamSha256": "51468559d895d1243e95fce0430302922df180c7de0235050f692b96edaeff4a",
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -4855,6 +4855,11 @@
           "period": "2026-08",
           "value": "3.323",
           "excerpt": "2026-08-01,3.323"
+        },
+        {
+          "period": "2026-09",
+          "value": "3.732",
+          "excerpt": "2026-09-01,3.732"
         }
       ]
     },
@@ -4873,8 +4878,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DDFUELUSGULF&fq=Monthly&fam=avg&cosd=2000-01-01",
-        "upstreamSha256": "ba0f5935be13910f2f44a772a6b55fa0b27f04d6902a2b816e3dc1a28afcb781",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "upstreamSha256": "6ed1eb76e96174b4fcb3d7e5c927fa5b1c46b08114f85f0d26f4751cf12dec5a",
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -6086,6 +6091,11 @@
           "period": "2026-08",
           "value": "4.208",
           "excerpt": "2026-08-01,4.208"
+        },
+        {
+          "period": "2026-09",
+          "value": "4.887",
+          "excerpt": "2026-09-01,4.887"
         }
       ]
     },
@@ -6105,7 +6115,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -7726,7 +7736,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -9347,7 +9357,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -10967,8 +10977,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DPROPANEMBTX&fq=Monthly&fam=avg&cosd=2000-01-01",
-        "upstreamSha256": "209bfb9e8b7b3815a24aa8bdfeb9d79cc31facb767dce8a6b4511489451581ef",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "upstreamSha256": "4a641bb29eed70896ed05024d455017911504afeddb4258546ed7f9cf13486ca",
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -12570,6 +12580,11 @@
           "period": "2026-08",
           "value": "0.688",
           "excerpt": "2026-08-01,0.688"
+        },
+        {
+          "period": "2026-09",
+          "value": "0.845",
+          "excerpt": "2026-09-01,0.845"
         }
       ]
     },
@@ -12589,7 +12604,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -14210,7 +14225,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -15831,7 +15846,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -17452,7 +17467,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -19073,7 +19088,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -20694,7 +20709,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -22315,7 +22330,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -23936,7 +23951,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -25557,7 +25572,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -27178,7 +27193,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1017&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "1676ae39962bfa77f538ff47a13e2ce3840fe617166f232b95a659023af085ae",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -28799,7 +28814,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -30420,7 +30435,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -32041,7 +32056,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -33662,7 +33677,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -35133,7 +35148,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -36754,7 +36769,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -38375,7 +38390,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -39996,7 +40011,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -41617,7 +41632,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -43238,7 +43253,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -44859,7 +44874,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -46480,7 +46495,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -48101,7 +48116,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -49722,7 +49737,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -51343,7 +51358,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -52964,7 +52979,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -54585,7 +54600,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -56206,7 +56221,7 @@
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
         "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -57827,7 +57842,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU066&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "c6c7d805e3f836443bd52326b2c15ef61b3be78eb9db62ac256d74817602f3eb",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -59448,7 +59463,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0662&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "78c5234f0a69c73303304670dc13079bdfe3291e1ddd395ca1fd19b9313d442d",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -61069,7 +61084,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU06530109&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "7e41febeee7f9221f2276c7e1692f51e4375455622e784147f36923aa9cd6128",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -62485,7 +62500,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU065201&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "ee9e1b3f5d65861ed434ef64035aad25a3559ba4c9b7085ae576faeb4267150e",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -64106,7 +64121,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0613020T1&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "a4b9a6af9d4ff14e52d77cd298618ee94a395248b750aecd623c0f3eb04f71c7",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -65607,7 +65622,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0614&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "0ab18a8cacbf66a5aa673fc96518d7f44bfdf072ea661f195d06b230b03b6aee",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -67228,7 +67243,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1322&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "c1cfb34e42f1bdebb7b35bb0150eae3363f19ae2ce5e7aa8f4bd518630a27a01",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -68849,7 +68864,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU133501&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "59480be10560badeaddbe8055a56d9330c3ae2f11b7bbcd5f2cd0eb4178265ed",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -70470,7 +70485,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU101705&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "0d40afb45ec5b56d53ab5739e23ac4d7cdd76342464e57fef0abbd4097d19c7a",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -72061,7 +72076,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU101704&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "ff997b3ce10e8b4cdfcd91b477017efc366ffd029c8ce2476d1d434085230cfa",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -73682,7 +73697,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1333&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "98527acd2f5afa32dba11fddf654dc1db0d671f2f12824f466d7de9bf15f8419",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -75303,7 +75318,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1321&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "cd38e5d4499dc5a9a568e52129e0fe5d4c2c2d6c527e12bcd02c372b2597490b",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -76924,7 +76939,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1342&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "d7c879f6f4a3d3b9771d7abc7cfd5f1b81042e35ee225eb4987ba84e884bacdd",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -78545,7 +78560,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU081&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "789aa7398ba23fec42b10d2bb6564282743fedd5c6bcfbc8ef08b32fb6179732",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -80165,8 +80180,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/e23b83a7-7cf7-40b0-87f7-6c03a2d3b2bc/",
-        "upstreamSha256": "009d3c48ae020ee6ca6d4f04b08f83627979e27a7f1bba5f5a224c07d910a4dc",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "upstreamSha256": "8bba8d7ea4c8b6c4bb1b689af99447253bb17bfbe0d2b7037b3ad17ef6083c58",
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -81776,8 +81791,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/3fefffb8-a60a-43f6-9f70-b71479f44a04/",
-        "upstreamSha256": "988fb690b7856ab5171965a316ff5ab55af25885651e5a9d773cc377e354cedf",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "upstreamSha256": "cb7e9c1a81524116b1744fa34f154e177c2068401ed724d608bb789e9b54f43a",
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -83398,7 +83413,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/d471f6ae-21d2-4c05-a910-55f042fdebf1/",
         "upstreamSha256": "732f6e71bd8610480f83db45b220751a143161ca6abe385c011533deae6d5865",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -84418,8 +84433,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/16bc8be4-6b15-4551-a9d8-7084ddee3a1c/",
-        "upstreamSha256": "10ff457800dd915cf6a35d086a611d1d53a408063f3e19885e75a13f462de5f5",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "upstreamSha256": "cf2c684bd3c6e990426b0f1f455914a26845a0244c5b38b309e8b6265d8e3c1a",
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -85955,7 +85970,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/897688ad-9181-4c54-a7fd-abd48684797a/",
         "upstreamSha256": "fabc9a4f21cce1eff85748ef11e9d7bfd11e46e16bec04383bd9ae07ac996376",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -87576,7 +87591,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/ab4ef0f6-aa61-4fd2-ad26-29f6b82a8311/",
         "upstreamSha256": "fca5ab347928600d34669eafeb5061c45d013b3af935008636d503d8fda57255",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -89197,7 +89212,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/223de48c-f284-486a-8bb6-fdbdaf81a4ba/",
         "upstreamSha256": "3f807bb47b3c543e8c7cd2cbb494326173cf4061d2d26d3992ac0affc55b18a9",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -90818,7 +90833,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/70d0099b-3cda-4997-9bf1-dfc86ed1927c/",
         "upstreamSha256": "aa8fd9e29770a9dd8ce9b58d376643ffe769de79f56c7e6d967a079080b9744c",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -92439,7 +92454,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/050a093f-268a-415b-8e1a-a87033d1908f/",
         "upstreamSha256": "8a4cb8e4f5929605f99a15bc21ad4d09dbf8de0fc00d3b2423805e25275fec21",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -94060,7 +94075,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/23397429-69b2-472f-bfed-19d0bd943937/",
         "upstreamSha256": "cff487967c9e49d1602391bcf1476b1086a2bff560e2e4bf1da71cd4f552da87",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -95681,7 +95696,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/a2d52862-666a-45d6-8887-2f6a56205000/",
         "upstreamSha256": "d58789060585c02afda4bd8f152a1c209d7fef07476b7520a146376151ffa879",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -97302,7 +97317,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/3418d905-0fcc-4cdf-85d5-2a3c0de6c484/",
         "upstreamSha256": "b8380a1a005ec022bdafc6f962b963bded132bed5548728cf0a21d02d95cf9b3",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -98263,7 +98278,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/8aab93c3-b940-44c7-89a4-e88cdf34aad0/",
         "upstreamSha256": "d005e96e240d29c3d9802fdc27056807d03951c8ec4e90b7ad609482e86e1c6c",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -98989,7 +99004,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/ee40cfe4-8069-4211-a149-c56d4851883d/",
         "upstreamSha256": "d6113e5343bc6c9b81c0ad864d1eda8260b6425429ce9fbdd84bcdc346856167",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -99925,7 +99940,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/21a5e40b-605f-436c-80df-2c44f4bac0b4/",
         "upstreamSha256": "9547f99d6539b8ce5a449ba903546fc835cd58b710aae45e06dd748e9fc42910",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -100716,7 +100731,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/6ed43cda-91e9-435c-9c63-76dde9c3903c/",
         "upstreamSha256": "7f09817e64e03526ea42ecafdf0fcda44d62aaf4674e27af6838772a331eb26b",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -101657,7 +101672,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/0e96d94d-0e31-41b1-ba2d-6f5bf34bed65/",
         "upstreamSha256": "a4dcc2c5d67369f8db0ce5134a942610f3fb97583078fe1502047b6f2d4e0d80",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -102418,7 +102433,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/0bf18386-4f8f-4c69-a17a-9a530c945976/",
         "upstreamSha256": "a5e74aa603d987a680705a756fb583c7f29dec37da2459ed453e0e5f1910fe01",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -102834,7 +102849,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/6365c28c-3790-466c-92c9-c83c44c7b3e8/",
         "upstreamSha256": "39ec41684a2bf1e0ff0c52d59ad0ef59a0723e57ca2677ae5d241150ce1f2dc7",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -103740,7 +103755,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/72f3baa1-6e68-44d8-9840-7fef195bd3f4/",
         "upstreamSha256": "c3628918d7ba773d62f90c37f281ec8e870cf15bbcb2ad7a51c564c9d8468f8f",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -104866,7 +104881,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/77b36eee-4579-4aac-a40b-2d4e5c198e27/",
         "upstreamSha256": "a7a3b163e5abf5ed34a45e201bd2cc4fc1859df0a5fa249b54c26f63cc77b935",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -105952,7 +105967,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/172d7372-7cde-4fcd-841e-7d3cd58569ff/",
         "upstreamSha256": "d4d679eb5841f0e60339474835a5ab3c801d740e8ccbcc3bf97354e1161f1846",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -107018,7 +107033,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/073aa226-3629-4bec-99c1-9f450a280262/",
         "upstreamSha256": "a5d1e1f141d56959509773faa253b55ea9536e4fd656b08b192a477849d403fa",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -108084,7 +108099,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/d0c53b28-d380-481b-a19c-ffd8233cdd30/",
         "upstreamSha256": "50b285fb284bd04ae796769479e98de3924ccabf48b42b93f2a53493d5c69eb8",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -109195,7 +109210,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/ad042b5d-5013-463c-95ea-6986c79eff80/",
         "upstreamSha256": "f597ef9ef4388e4e2c6f0c33bd7a7fad4ff3e833127cf65c4d7f148d63dec3df",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -110291,7 +110306,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/6c9683dd-73b0-4298-86b5-ba42c413cbed/",
         "upstreamSha256": "5f88527960e811da453e2f2f686e3381711e4a7ba941a6536d39c0acc6ee2859",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -111362,7 +111377,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/d07783c8-cff4-4220-b39a-3ef40a6b8cb3/",
         "upstreamSha256": "16e72d8a6cbfff31e49439fe7e71185912c768b60277513cf92d796c307bd16c",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -112438,7 +112453,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/45ef01a5-e664-4299-8c19-3c737cf9bb17/",
         "upstreamSha256": "fbc568a6b7f6758cb54f71088faebfd755efe1e48722e0ee2f3795c0a72630a7",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -113369,7 +113384,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/7d725895-1aa2-4b1c-af08-c61ea51b92b4/",
         "upstreamSha256": "6f87c410ab07826f762768d99335bc8f5ee172dc58039adb4b778c27120db30c",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -114285,7 +114300,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/c061e903-0c64-4e53-afe2-988cdbdab45e/",
         "upstreamSha256": "705f3a5eee28ef7d3fd0938a79d2da84d3b9ab125d9549a5b9858f82cbf29c4a",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -115196,7 +115211,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/cd8576e4-e902-454b-abea-46ab179fb811/",
         "upstreamSha256": "0c4737f5924893405e4bd52221198eec348f88bc1102508a78011442c939d582",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -116092,7 +116107,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/f9d49e62-4ae2-48ce-bf41-62ca1a9813d3/",
         "upstreamSha256": "6bcd9129d8d4d32801c17f0f53c478209bfe56525a58d30c7e0e39f2e2dee8ba",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -117218,7 +117233,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/3867f9c8-1d37-4e9a-94ae-1f6d24b4c730/",
         "upstreamSha256": "0c7771d29027451feeb40fb188861a235e50dbf7b2d7897a4dd4ae9161d1f26b",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -118314,7 +118329,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/06664ade-2f8f-40ea-962f-f44d31e35b68/",
         "upstreamSha256": "25bbde9ca744d7f5e1ee8315e401c29fa5ebbcf5c55606554e97f2c48dd1669e",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -119385,7 +119400,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/0b16549f-afc0-4b78-92a3-04deacc85c5c/",
         "upstreamSha256": "2aff59e6604a9cfcbff0728d3144bdd83690ecdc259f62e8ed81ff13ff0c51f7",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -120461,7 +120476,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/658b3fc6-350f-4630-9c62-eb61026f2cd8/",
         "upstreamSha256": "b3aca840e9492568da37f9457e88016a19d6d601303ce9903278f3ddf3779721",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -121002,7 +121017,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/da3df29d-58f6-4453-9b1a-3ed24c4f73b7/",
         "upstreamSha256": "a1ff6ce495cfb26d0fab686bd3a3665d519f981c6bb703e889d1e9ee149f74d4",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -121543,7 +121558,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/53463e30-c254-4698-8c18-2ec7906a7b5d/",
         "upstreamSha256": "17c5b30dbb53ce0bff498e1c1f030f282e8df8728c435b1ad99593f2c5db1cee",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -122624,7 +122639,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/372ac15a-2ed1-4904-8d94-1058885ffc7e/",
         "upstreamSha256": "8c036fc0cdbc0b00633fde3994e30fe1c7c48070698e6ceba9d39fd9028ec61d",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -123705,7 +123720,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/2d79f438-7772-49c5-a68e-bc308d379b96/",
         "upstreamSha256": "f33473c6fa777b3005aa257846f4bbff622a416e19faeb80cead9a946fe076dd",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -124246,7 +124261,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/f406c9e1-f3ba-4631-9062-cec1cab81ff7/",
         "upstreamSha256": "c22d4b21540859358d2bd3ef8a3c7a76da7ac8d120b26362eaabfa01844a8aaa",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -124787,7 +124802,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/48c8e355-85a8-4dd5-ae17-cc9a19a38a15/",
         "upstreamSha256": "fb79d35e910ed537d2612482c66a32f3bb01075711618151ad615d92cc8b0154",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -125328,7 +125343,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/cd22c0a3-9bf7-41c1-9f5a-86a749c684cd/",
         "upstreamSha256": "52fc6ad2cae827bf7677fffdcf0fab0944ee60fd1b7575bc39e561ddc4e69cae",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -125869,7 +125884,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/55253f8e-d22b-4f62-a123-8b94ab215510/",
         "upstreamSha256": "1b020c9f6e61ac140f4bd463557fcb7a507d0667663506046fcdfcad2880fc1b",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
@@ -126950,7 +126965,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/4b93359e-c4e1-49cb-86d8-b210c8d52555/",
         "upstreamSha256": "656ebddd835086d7995476be13415e84c842aa1cc371f25bce17427cde314a4f",
-        "retrievedAt": "2026-09-24T15:46:48Z"
+        "retrievedAt": "2026-10-01T02:05:10Z"
       },
       "points": [
         {
