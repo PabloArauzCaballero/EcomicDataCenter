@@ -1,4 +1,5 @@
 import { refreshOneSnapshot } from '../../snapshot-refresh';
+import { TRADE_COPIES, tradeCopiesAreCurrentIn } from '../../trade-copies-currency';
 import type { Catalogue } from './run-boot-seeds';
 
 /**
@@ -85,18 +86,22 @@ export async function refreshAfterLoad(
 
   /*
    * Stored copies since 0087: the flows, the products and the codes they cite.
-   * Rebuilt only when a block came in — a million rows are not rebuilt on every
-   * deploy for nothing; the API fills them after a migration leaves them empty.
+   *
+   * Rebuilt when a block came in, and also when the database says the copies no
+   * longer match the blocks it holds (0092). The first rule alone left a copy
+   * empty for good once its rebuild died after the blocks were committed: the
+   * next load found nothing new. A million rows are still not rebuilt on every
+   * deploy for nothing — the probe costs milliseconds and answers «current».
    *
    * First in line, ahead of the press copies: those are the slowest and, when
-   * one is cancelled, anything queued behind it is lost with a block already
-   * committed and nothing left to trigger the rebuild again.
+   * one is cancelled, anything queued behind it is lost.
    */
-  if (outcomes.get('ine-trade') === true) {
+  if (wanted('ine-trade')) {
     await attempt('trade', failures, async () => {
-      for (const name of ['trade_flow', 'trade_product', 'trade_code']) {
-        await refreshOneSnapshot(database, name, true);
-      }
+      const rebuild =
+        outcomes.get('ine-trade') === true || !(await tradeCopiesAreCurrentIn(database));
+      if (!rebuild) return;
+      for (const name of TRADE_COPIES) await refreshOneSnapshot(database, name, true);
     });
   }
   if (wanted('press-coverage') || wanted('press-archive')) {
