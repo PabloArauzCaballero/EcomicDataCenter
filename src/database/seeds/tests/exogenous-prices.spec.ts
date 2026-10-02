@@ -19,7 +19,7 @@ describe('exogenous price snapshots', () => {
       JSON.parse(await readFile(join(__dirname, '..', 'boot', file), 'utf8')),
     );
 
-  it('covers the six families the tab offers', async () => {
+  it('covers every family the tab offers', async () => {
     const monthly = await load('exogenous-prices.json');
     const customs = await load('exogenous-customs.json');
     const groups = new Set([...monthly.series, ...customs.series].map((one) => one.group));

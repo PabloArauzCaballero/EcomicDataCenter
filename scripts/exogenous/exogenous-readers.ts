@@ -83,7 +83,7 @@ export function plainNumber(raw: string | undefined): string | null {
  * El mes en curso no se guarda: un promedio de medio mes baja o sube cada vez
  * que alguien lo consulta, y no es comparable con los meses cerrados.
  */
-const closedMonth = (period: string): boolean =>
+export const closedMonth = (period: string): boolean =>
   period >= FIRST_MONTH && period < new Date().toISOString().slice(0, 7);
 
 /**
