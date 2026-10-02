@@ -2657,6 +2657,74 @@
       ]
     },
     {
+      "indicatorCode": "OWNER_EQUITY_COMERCIALIZADORA_NEXOLIDER",
+      "name": "Comercializadora Nexolider: patrimonio {empresa=COMERCIALIZADORA_NEXOLIDER; sector=Comercio}",
+      "group": "COMERCIALIZADORA_NEXOLIDER",
+      "groupLabel": "Comercializadora Nexolider",
+      "measure": "Patrimonio total al cierre del ejercicio",
+      "level": "COMPANY",
+      "unit": "THOUSAND_BOB",
+      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance de su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes y confirmado por un segundo cuadro independiente. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo de los que coinciden.",
+      "publisher": "Autoridad de Supervisión del Sistema Financiero (ASFI)",
+      "frequency": "ANNUAL",
+      "points": [
+        {
+          "period": "2019",
+          "value": "14006",
+          "excerpt": "Prospecto «Bonos Nexolider II», p. 309, columna Dic.2019, cifra impresa 14.006 (en miles de bolivianos): Patrimonio 14.006 16.342 19.490 22.420 24.888 25.465 28.142. Convertido a miles de bolivianos: 14006. Confirmado por «Bonos NEXOLIDER», p. 124, columna Dic.2019: 14.006 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20Nexolider%20II.pdf",
+          "upstreamSha256": "9c22b85c8e7359371910247d7c2f3c1dd5d7c8e506bd4c39c3a94db42f31f52d",
+          "retrievedAt": "2026-10-02T02:28:28Z"
+        },
+        {
+          "period": "2020",
+          "value": "16342",
+          "excerpt": "Prospecto «Bonos Nexolider II», p. 309, columna Dic.2020, cifra impresa 16.342 (en miles de bolivianos): Patrimonio 14.006 16.342 19.490 22.420 24.888 25.465 28.142. Convertido a miles de bolivianos: 16342. Confirmado por «Bonos NEXOLIDER», p. 124, columna Dic.2020: 16.342 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20Nexolider%20II.pdf",
+          "upstreamSha256": "9c22b85c8e7359371910247d7c2f3c1dd5d7c8e506bd4c39c3a94db42f31f52d",
+          "retrievedAt": "2026-10-02T02:28:28Z"
+        },
+        {
+          "period": "2021",
+          "value": "19490",
+          "excerpt": "Prospecto «Bonos Nexolider II», p. 309, columna Dic.2021, cifra impresa 19.490 (en miles de bolivianos): Patrimonio 14.006 16.342 19.490 22.420 24.888 25.465 28.142. Convertido a miles de bolivianos: 19490. Confirmado por «Bonos NEXOLIDER», p. 124, columna Dic.2021: 19.490 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20Nexolider%20II.pdf",
+          "upstreamSha256": "9c22b85c8e7359371910247d7c2f3c1dd5d7c8e506bd4c39c3a94db42f31f52d",
+          "retrievedAt": "2026-10-02T02:28:28Z"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "OWNER_EQUITY_COMPANIA_BOLIVIANA_DE_ENERGIA_ELECTRICA",
+      "name": "Compañía Boliviana de Energía Eléctrica: patrimonio {empresa=COMPANIA_BOLIVIANA_DE_ENERGIA_ELECTRICA; sector=Energía eléctrica}",
+      "group": "COMPANIA_BOLIVIANA_DE_ENERGIA_ELECTRICA",
+      "groupLabel": "Compañía Boliviana de Energía Eléctrica",
+      "measure": "Patrimonio total al cierre del ejercicio",
+      "level": "COMPANY",
+      "unit": "THOUSAND_BOB",
+      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance de su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes y confirmado por un segundo cuadro independiente. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo de los que coinciden.",
+      "publisher": "Autoridad de Supervisión del Sistema Financiero (ASFI)",
+      "frequency": "ANNUAL",
+      "points": [
+        {
+          "period": "2014",
+          "value": "2496206",
+          "excerpt": "Prospecto «Bonos COBEE V - Emisión 1», p. 93, columna Dic-14, cifra impresa 2.496.206 (en miles de bolivianos): Total Patrimonio 2.496.206 2.511.087 2.535.797 2.475.659 2.377.354 2.304.757. Convertido a miles de bolivianos: 2496206. Confirmado por «Bonos Cobee IV - Emisión 5 (Actualizado)», p. 135, columna Dic-14: 2.496.206 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20COBEE%20V%20-%20Emisi%C3%B3n%201.pdf",
+          "upstreamSha256": "b999b12e2cdea301bc25222567ba08841ba007ee731f6ad76c3de5047942d400",
+          "retrievedAt": "2026-10-02T02:26:41Z"
+        },
+        {
+          "period": "2015",
+          "value": "2511087",
+          "excerpt": "Prospecto «Bonos COBEE V - Emisión 1», p. 93, columna Dic-15, cifra impresa 2.511.087 (en miles de bolivianos): Total Patrimonio 2.496.206 2.511.087 2.535.797 2.475.659 2.377.354 2.304.757. Convertido a miles de bolivianos: 2511087. Confirmado por «Bonos Cobee IV - Emisión 5 (Actualizado)», p. 135, columna Dic-15: 2.511.087 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20COBEE%20V%20-%20Emisi%C3%B3n%201.pdf",
+          "upstreamSha256": "b999b12e2cdea301bc25222567ba08841ba007ee731f6ad76c3de5047942d400",
+          "retrievedAt": "2026-10-02T02:26:41Z"
+        }
+      ]
+    },
+    {
       "indicatorCode": "OWNER_EQUITY_DROGUERIA_INTI",
       "name": "Droguería INTI: patrimonio {empresa=DROGUERIA_INTI; sector=Farmacéutica}",
       "group": "DROGUERIA_INTI",
@@ -2664,173 +2732,41 @@
       "measure": "Patrimonio total al cierre del ejercicio",
       "level": "COMPANY",
       "unit": "THOUSAND_BOB",
-      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance resumido que trae su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo.",
+      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance de su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes y confirmado por un segundo cuadro independiente. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo de los que coinciden.",
       "publisher": "Autoridad de Supervisión del Sistema Financiero (ASFI)",
       "frequency": "ANNUAL",
       "points": [
         {
-          "period": "2009",
-          "value": "106981",
-          "excerpt": "Prospecto «Bonos INTI IV - Emisión 1», p. 52, columna 31-mar-09, cifra impresa 106,981 (en miles de bolivianos): TOTAL PATRIMONIO 106,981 125,824 148,544 149,795. Convertido a miles de bolivianos: 106981",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20INTI%20IV%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "493be383752677b44267e84a96effdc71b5e25948308caa5e5ea874d244c95e7",
-          "retrievedAt": "2026-10-02T02:27:07Z"
-        },
-        {
-          "period": "2010",
-          "value": "125824",
-          "excerpt": "Prospecto «Bonos INTI IV - Emisión 1», p. 52, columna 31-mar-10, cifra impresa 125,824 (en miles de bolivianos): TOTAL PATRIMONIO 106,981 125,824 148,544 149,795. Convertido a miles de bolivianos: 125824",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20INTI%20IV%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "493be383752677b44267e84a96effdc71b5e25948308caa5e5ea874d244c95e7",
-          "retrievedAt": "2026-10-02T02:27:07Z"
-        },
-        {
-          "period": "2011",
-          "value": "148544",
-          "excerpt": "Prospecto «Bonos INTI IV - Emisión 1», p. 52, columna 31-mar-11, cifra impresa 148,544 (en miles de bolivianos): TOTAL PATRIMONIO 106,981 125,824 148,544 149,795. Convertido a miles de bolivianos: 148544",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20INTI%20IV%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "493be383752677b44267e84a96effdc71b5e25948308caa5e5ea874d244c95e7",
-          "retrievedAt": "2026-10-02T02:27:07Z"
+          "period": "2012",
+          "value": "178967.94",
+          "excerpt": "Prospecto «Bonos INTI VI», p. 118, columna Mar.12, cifra impresa 178.967,94 (en miles de bolivianos): Patrimonio 178.967,94 217.308,72 255.094,73 301.668,69 315.181,95 357.611,63 376.016,31. Convertido a miles de bolivianos: 178967.94. Confirmado por «Bonos INTI V - Emisión 1 (Serie A,B,C,D,E)», p. 118, columna Mar.12: 178.967,94 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20INTI%20VI.pdf",
+          "upstreamSha256": "7ac174af3238b91656386e7052604ef436f7a4cfcc030e3ee17268d2a0e6b37d",
+          "retrievedAt": "2026-10-02T02:27:08Z"
         },
         {
           "period": "2013",
-          "value": "247920",
-          "excerpt": "Prospecto «Bonos INTI V - Emisión 1 (Serie A,B,C,D,E)», p. 81, columna 31-mar-13, cifra impresa 247,92 (en millones de bolivianos): TOTAL PATRIMONIO 247,92 274,84 307,39 315,18. Convertido a miles de bolivianos: 247920",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20INTI%20V%20-%20Emisi%C3%B3n%201%20%28Serie%20A%2CB%2CC%2CD%2CE%29.pdf",
-          "upstreamSha256": "0bf6eee69b4a5d2e96b651676d4ed93b8402351c528b59e1118f7f1901610940",
+          "value": "217308.72",
+          "excerpt": "Prospecto «Bonos INTI VI», p. 118, columna Mar.13, cifra impresa 217.308,72 (en miles de bolivianos): Patrimonio 178.967,94 217.308,72 255.094,73 301.668,69 315.181,95 357.611,63 376.016,31. Convertido a miles de bolivianos: 217308.72. Confirmado por «Bonos INTI V - Emisión 1 (Serie A,B,C,D,E)», p. 118, columna Mar.13: 217.308,72 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20INTI%20VI.pdf",
+          "upstreamSha256": "7ac174af3238b91656386e7052604ef436f7a4cfcc030e3ee17268d2a0e6b37d",
           "retrievedAt": "2026-10-02T02:27:08Z"
         },
         {
           "period": "2014",
-          "value": "285000",
-          "excerpt": "Prospecto «Bonos INTI VI», p. 88, columna 31-mar-14, cifra impresa 285 (en millones de bolivianos): TOTAL PATRIMONIO 285 318 364 376. Convertido a miles de bolivianos: 285000",
+          "value": "255094.73",
+          "excerpt": "Prospecto «Bonos INTI VI», p. 118, columna Mar.14, cifra impresa 255.094,73 (en miles de bolivianos): Patrimonio 178.967,94 217.308,72 255.094,73 301.668,69 315.181,95 357.611,63 376.016,31. Convertido a miles de bolivianos: 255094.73. Confirmado por «Bonos INTI V - Emisión 1 (Serie A,B,C,D,E)», p. 118, columna Mar.14: 255.094,73 (en miles de bolivianos).",
           "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20INTI%20VI.pdf",
           "upstreamSha256": "7ac174af3238b91656386e7052604ef436f7a4cfcc030e3ee17268d2a0e6b37d",
           "retrievedAt": "2026-10-02T02:27:08Z"
         },
         {
           "period": "2015",
-          "value": "318000",
-          "excerpt": "Prospecto «Bonos INTI VI», p. 88, columna 31-mar-15, cifra impresa 318 (en millones de bolivianos): TOTAL PATRIMONIO 285 318 364 376. Convertido a miles de bolivianos: 318000",
+          "value": "301668.69",
+          "excerpt": "Prospecto «Bonos INTI VI», p. 118, columna Mar.15, cifra impresa 301.668,69 (en miles de bolivianos): Patrimonio 178.967,94 217.308,72 255.094,73 301.668,69 315.181,95 357.611,63 376.016,31. Convertido a miles de bolivianos: 301668.69. Confirmado por «Bonos INTI V - Emisión 1 (Serie A,B,C,D,E)», p. 118, columna Mar.15: 301.668,69 (en miles de bolivianos).",
           "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20INTI%20VI.pdf",
           "upstreamSha256": "7ac174af3238b91656386e7052604ef436f7a4cfcc030e3ee17268d2a0e6b37d",
           "retrievedAt": "2026-10-02T02:27:08Z"
-        },
-        {
-          "period": "2016",
-          "value": "364000",
-          "excerpt": "Prospecto «Bonos INTI VI», p. 88, columna 31-mar-16, cifra impresa 364 (en millones de bolivianos): TOTAL PATRIMONIO 285 318 364 376. Convertido a miles de bolivianos: 364000",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20INTI%20VI.pdf",
-          "upstreamSha256": "7ac174af3238b91656386e7052604ef436f7a4cfcc030e3ee17268d2a0e6b37d",
-          "retrievedAt": "2026-10-02T02:27:08Z"
-        }
-      ]
-    },
-    {
-      "indicatorCode": "OWNER_EQUITY_GRAVETAL_BOLIVIA",
-      "name": "Gravetal Bolivia: patrimonio {empresa=GRAVETAL_BOLIVIA; sector=Agroindustria}",
-      "group": "GRAVETAL_BOLIVIA",
-      "groupLabel": "Gravetal Bolivia",
-      "measure": "Patrimonio total al cierre del ejercicio",
-      "level": "COMPANY",
-      "unit": "THOUSAND_BOB",
-      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance resumido que trae su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo.",
-      "publisher": "Autoridad de Supervisión del Sistema Financiero (ASFI)",
-      "frequency": "ANNUAL",
-      "points": [
-        {
-          "period": "2008",
-          "value": "436979",
-          "excerpt": "Prospecto «Bonos GRAVETAL 2011 BOLIVIA», p. 15, columna 30-jun-08, cifra impresa 436.979 (en miles de bolivianos): TOTAL PATRIMONIO 436.979 399.857 446.018 481.314. Convertido a miles de bolivianos: 436979",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20GRAVETAL%202011%20BOLIVIA.pdf",
-          "upstreamSha256": "24d0b72c2e37ae1eb8f6723e75ed294e49b8cefede6e28b403389cecdedffb66",
-          "retrievedAt": "2026-10-02T02:28:01Z"
-        },
-        {
-          "period": "2009",
-          "value": "399857",
-          "excerpt": "Prospecto «Bonos GRAVETAL 2011 BOLIVIA», p. 15, columna 30-jun-09, cifra impresa 399.857 (en miles de bolivianos): TOTAL PATRIMONIO 436.979 399.857 446.018 481.314. Convertido a miles de bolivianos: 399857",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20GRAVETAL%202011%20BOLIVIA.pdf",
-          "upstreamSha256": "24d0b72c2e37ae1eb8f6723e75ed294e49b8cefede6e28b403389cecdedffb66",
-          "retrievedAt": "2026-10-02T02:28:01Z"
-        },
-        {
-          "period": "2010",
-          "value": "446018",
-          "excerpt": "Prospecto «Bonos GRAVETAL 2011 BOLIVIA», p. 15, columna 30-jun-10, cifra impresa 446.018 (en miles de bolivianos): TOTAL PATRIMONIO 436.979 399.857 446.018 481.314. Convertido a miles de bolivianos: 446018",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20GRAVETAL%202011%20BOLIVIA.pdf",
-          "upstreamSha256": "24d0b72c2e37ae1eb8f6723e75ed294e49b8cefede6e28b403389cecdedffb66",
-          "retrievedAt": "2026-10-02T02:28:01Z"
-        },
-        {
-          "period": "2021",
-          "value": "860544.83",
-          "excerpt": "Prospecto «Bonos Gravetal 1», p. 78, columna jun-21, cifra impresa 860.544.829 (en bolivianos): TOTAL PATRIMONIO NETO 860.544.829 971.525.678 1.018.035.418 1.040.663.071. Convertido a miles de bolivianos: 860544.83",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20Gravetal%201.pdf",
-          "upstreamSha256": "92f7c4df5805c22d2529edf61c53a6ab91ad9f03d24e1f8bf292f51d86e861b8",
-          "retrievedAt": "2026-10-02T02:28:02Z"
-        },
-        {
-          "period": "2022",
-          "value": "971525.68",
-          "excerpt": "Prospecto «Bonos Gravetal 1», p. 78, columna jun-22, cifra impresa 971.525.678 (en bolivianos): TOTAL PATRIMONIO NETO 860.544.829 971.525.678 1.018.035.418 1.040.663.071. Convertido a miles de bolivianos: 971525.68",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20Gravetal%201.pdf",
-          "upstreamSha256": "92f7c4df5805c22d2529edf61c53a6ab91ad9f03d24e1f8bf292f51d86e861b8",
-          "retrievedAt": "2026-10-02T02:28:02Z"
-        },
-        {
-          "period": "2023",
-          "value": "1018035.42",
-          "excerpt": "Prospecto «Bonos Gravetal 1», p. 78, columna jun-23, cifra impresa 1.018.035.418 (en bolivianos): TOTAL PATRIMONIO NETO 860.544.829 971.525.678 1.018.035.418 1.040.663.071. Convertido a miles de bolivianos: 1018035.42",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20Gravetal%201.pdf",
-          "upstreamSha256": "92f7c4df5805c22d2529edf61c53a6ab91ad9f03d24e1f8bf292f51d86e861b8",
-          "retrievedAt": "2026-10-02T02:28:02Z"
-        }
-      ]
-    },
-    {
-      "indicatorCode": "OWNER_EQUITY_INDUSTRIAS_OLEAGINOSAS",
-      "name": "Industrias Oleaginosas: patrimonio {empresa=INDUSTRIAS_OLEAGINOSAS; sector=Agroindustria}",
-      "group": "INDUSTRIAS_OLEAGINOSAS",
-      "groupLabel": "Industrias Oleaginosas",
-      "measure": "Patrimonio total al cierre del ejercicio",
-      "level": "COMPANY",
-      "unit": "THOUSAND_BOB",
-      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance resumido que trae su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo.",
-      "publisher": "Autoridad de Supervisión del Sistema Financiero (ASFI)",
-      "frequency": "ANNUAL",
-      "points": [
-        {
-          "period": "2009",
-          "value": "227714",
-          "excerpt": "Prospecto «Bonos IOL I - Emisión 1», p. 51, columna 31-mar-09, cifra impresa 227,714 (en miles de bolivianos): TOTAL PATRIMONIO 227,714 240,172 255,256 256,333. Convertido a miles de bolivianos: 227714",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20IOL%20I%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "1c08194f2738c974f967a1392ea6ba77e9ea28f4f8b4e2a439490a2ca8f5f99c",
-          "retrievedAt": "2026-10-02T02:28:13Z"
-        },
-        {
-          "period": "2010",
-          "value": "266522",
-          "excerpt": "Prospecto «Bonos IOL I - Emisión 2», p. 58, columna 31-mar-10, cifra impresa 266,522 (en miles de bolivianos): TOTAL PATRIMONIO 266,522 283,259 318,957 342,001. Convertido a miles de bolivianos: 266522",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20IOL%20I%20-%20Emisi%C3%B3n%202.pdf",
-          "upstreamSha256": "21e3abc0af6c38f19f4aa7112465cbe52ab4ccb774672ecaa04ebbaf323f74f1",
-          "retrievedAt": "2026-10-02T02:28:15Z"
-        },
-        {
-          "period": "2011",
-          "value": "283259",
-          "excerpt": "Prospecto «Bonos IOL I - Emisión 2», p. 58, columna 31-mar-11, cifra impresa 283,259 (en miles de bolivianos): TOTAL PATRIMONIO 266,522 283,259 318,957 342,001. Convertido a miles de bolivianos: 283259",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20IOL%20I%20-%20Emisi%C3%B3n%202.pdf",
-          "upstreamSha256": "21e3abc0af6c38f19f4aa7112465cbe52ab4ccb774672ecaa04ebbaf323f74f1",
-          "retrievedAt": "2026-10-02T02:28:15Z"
-        },
-        {
-          "period": "2012",
-          "value": "318957",
-          "excerpt": "Prospecto «Bonos IOL I - Emisión 2», p. 58, columna 31-mar-12, cifra impresa 318,957 (en miles de bolivianos): TOTAL PATRIMONIO 266,522 283,259 318,957 342,001. Convertido a miles de bolivianos: 318957",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20IOL%20I%20-%20Emisi%C3%B3n%202.pdf",
-          "upstreamSha256": "21e3abc0af6c38f19f4aa7112465cbe52ab4ccb774672ecaa04ebbaf323f74f1",
-          "retrievedAt": "2026-10-02T02:28:15Z"
         }
       ]
     },
@@ -2842,103 +2778,87 @@
       "measure": "Patrimonio total al cierre del ejercicio",
       "level": "COMPANY",
       "unit": "THOUSAND_BOB",
-      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance resumido que trae su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo.",
+      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance de su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes y confirmado por un segundo cuadro independiente. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo de los que coinciden.",
       "publisher": "Autoridad de Supervisión del Sistema Financiero (ASFI)",
       "frequency": "ANNUAL",
       "points": [
         {
-          "period": "2014",
-          "value": "2120000",
-          "excerpt": "Prospecto «Bonos SOBOCE VII - Emisión 1», p. 92, columna 31-mar-14, cifra impresa 2.120 (en millones de bolivianos): TOTAL PATRIMONIO 2.120 2.129 1.832 1.874. Convertido a miles de bolivianos: 2120000",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20SOBOCE%20VII%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "bdf638f231c0bde2fdeb8fa536564f9bd92816784ecb0021294f90f559bb73fd",
-          "retrievedAt": "2026-10-02T02:39:43Z"
-        },
-        {
-          "period": "2015",
-          "value": "2129000",
-          "excerpt": "Prospecto «Bonos SOBOCE VII - Emisión 1», p. 92, columna 31-mar-15, cifra impresa 2.129 (en millones de bolivianos): TOTAL PATRIMONIO 2.120 2.129 1.832 1.874. Convertido a miles de bolivianos: 2129000",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20SOBOCE%20VII%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "bdf638f231c0bde2fdeb8fa536564f9bd92816784ecb0021294f90f559bb73fd",
-          "retrievedAt": "2026-10-02T02:39:43Z"
-        },
-        {
           "period": "2016",
-          "value": "1832000",
-          "excerpt": "Prospecto «Bonos SOBOCE VII - Emisión 1», p. 92, columna 31-mar-16, cifra impresa 1.832 (en millones de bolivianos): TOTAL PATRIMONIO 2.120 2.129 1.832 1.874. Convertido a miles de bolivianos: 1832000",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20SOBOCE%20VII%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "bdf638f231c0bde2fdeb8fa536564f9bd92816784ecb0021294f90f559bb73fd",
-          "retrievedAt": "2026-10-02T02:39:43Z"
+          "value": "1821359",
+          "excerpt": "Prospecto «Bonos SOBOCE VIII - Emisión 1 (Actualizado)», p. 93, columna mar-16, cifra impresa 1.821.359 (en miles de bolivianos): Total Patrimonio 1.821.359 1.840.168 1.728.945 1.774.184 1.769.756 1.762.687 1.693.468. Convertido a miles de bolivianos: 1821359. Confirmado por «Bonos Soboce VII - Emisión 2», p. 111, columna mar-16: 1.821.359 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20SOBOCE%20VIII%20-%20Emisi%C3%B3n%201%20%28Actualizado%29.pdf",
+          "upstreamSha256": "f5a9b201922750dda5502d6c077adfbe0f2faebe62ec91363d37cc5ec27c3016",
+          "retrievedAt": "2026-10-02T02:39:56Z"
+        },
+        {
+          "period": "2017",
+          "value": "1840168",
+          "excerpt": "Prospecto «Bonos SOBOCE VIII - Emisión 1 (Actualizado)», p. 93, columna mar-17, cifra impresa 1.840.168 (en miles de bolivianos): Total Patrimonio 1.821.359 1.840.168 1.728.945 1.774.184 1.769.756 1.762.687 1.693.468. Convertido a miles de bolivianos: 1840168. Confirmado por «Bonos Soboce VII - Emisión 2», p. 111, columna mar-17: 1.840.168 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20SOBOCE%20VIII%20-%20Emisi%C3%B3n%201%20%28Actualizado%29.pdf",
+          "upstreamSha256": "f5a9b201922750dda5502d6c077adfbe0f2faebe62ec91363d37cc5ec27c3016",
+          "retrievedAt": "2026-10-02T02:39:56Z"
+        },
+        {
+          "period": "2018",
+          "value": "1728945",
+          "excerpt": "Prospecto «Bonos SOBOCE VIII - Emisión 1 (Actualizado)», p. 93, columna mar-18, cifra impresa 1.728.945 (en miles de bolivianos): Total Patrimonio 1.821.359 1.840.168 1.728.945 1.774.184 1.769.756 1.762.687 1.693.468. Convertido a miles de bolivianos: 1728945. Confirmado por «Bonos Soboce VII - Emisión 2», p. 111, columna mar-18: 1.728.945 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20SOBOCE%20VIII%20-%20Emisi%C3%B3n%201%20%28Actualizado%29.pdf",
+          "upstreamSha256": "f5a9b201922750dda5502d6c077adfbe0f2faebe62ec91363d37cc5ec27c3016",
+          "retrievedAt": "2026-10-02T02:39:56Z"
         }
       ]
     },
     {
-      "indicatorCode": "OWNER_EQUITY_TOYOSA",
-      "name": "Toyosa: patrimonio {empresa=TOYOSA; sector=Automotriz}",
-      "group": "TOYOSA",
-      "groupLabel": "Toyosa",
+      "indicatorCode": "OWNER_EQUITY_TIENDA_AMIGA_ER",
+      "name": "Tienda Amiga ER: patrimonio {empresa=TIENDA_AMIGA_ER; sector=Comercio}",
+      "group": "TIENDA_AMIGA_ER",
+      "groupLabel": "Tienda Amiga ER",
       "measure": "Patrimonio total al cierre del ejercicio",
       "level": "COMPANY",
       "unit": "THOUSAND_BOB",
-      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance resumido que trae su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo.",
+      "basis": "Patrimonio total al cierre del ejercicio de la empresa, del balance de su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes y confirmado por un segundo cuadro independiente. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo de los que coinciden.",
       "publisher": "Autoridad de Supervisión del Sistema Financiero (ASFI)",
       "frequency": "ANNUAL",
       "points": [
         {
-          "period": "2009",
-          "value": "175094",
-          "excerpt": "Prospecto «Bonos Toyosa I - Emisión 1», p. 68, columna 31-dic-09, cifra impresa 175,094 (en miles de bolivianos): TOTAL PATRIMONIO 175,094 219,438 303,889 364,113. Convertido a miles de bolivianos: 175094",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20Toyosa%20I%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "879c06ea5350060448c3e4fa962aa137b6454cfcb57985a29c3c577feed6b9b6",
-          "retrievedAt": "2026-10-02T02:40:57Z"
+          "period": "2019",
+          "value": "32579",
+          "excerpt": "Prospecto «Bonos TIENDA AMIGA I – Emisión 1», p. 172, columna Dic.19, cifra impresa 32.579 (en miles de bolivianos): Total Patrimonio 32.579 36.700 53.637 58.827 63.760 69.895. Convertido a miles de bolivianos: 32579. Confirmado por «Bonos TIENDA AMIGA (Actualizado)», p. 158, columna Dic.19: 32.579 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-07/Bonos%20TIENDA%20AMIGA%20I%20%E2%80%93%20Emisi%C3%B3n%201.pdf",
+          "upstreamSha256": "b2a4bfe381120a810cc37cbdc29e46e0232957140001fc347687bf0a916fb540",
+          "retrievedAt": "2026-10-02T02:40:12Z"
         },
         {
-          "period": "2010",
-          "value": "236559",
-          "excerpt": "Prospecto «Bonos TOYOSA I  - Emisión 2», p. 91, columna 31-dic-10, cifra impresa 236.559 (en miles de bolivianos): TOTAL PATRIMONIO 236.559 327.599 392.712 425.918. Convertido a miles de bolivianos: 236559",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20TOYOSA%20I%20%20-%20Emisi%C3%B3n%202.pdf",
-          "upstreamSha256": "31dcf5fe1c66454a9caa5da34c0b2450d8dd1ee4dc06d9fec0276ec68ae07bf3",
-          "retrievedAt": "2026-10-02T02:41:02Z"
+          "period": "2020",
+          "value": "36700",
+          "excerpt": "Prospecto «Bonos TIENDA AMIGA I – Emisión 1», p. 172, columna Dic.20, cifra impresa 36.700 (en miles de bolivianos): Total Patrimonio 32.579 36.700 53.637 58.827 63.760 69.895. Convertido a miles de bolivianos: 36700. Confirmado por «Bonos TIENDA AMIGA (Actualizado)», p. 158, columna Dic.20: 36.700 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-07/Bonos%20TIENDA%20AMIGA%20I%20%E2%80%93%20Emisi%C3%B3n%201.pdf",
+          "upstreamSha256": "b2a4bfe381120a810cc37cbdc29e46e0232957140001fc347687bf0a916fb540",
+          "retrievedAt": "2026-10-02T02:40:12Z"
         },
         {
-          "period": "2011",
-          "value": "327599",
-          "excerpt": "Prospecto «Bonos TOYOSA I  - Emisión 2», p. 91, columna 31-dic-11, cifra impresa 327.599 (en miles de bolivianos): TOTAL PATRIMONIO 236.559 327.599 392.712 425.918. Convertido a miles de bolivianos: 327599",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20TOYOSA%20I%20%20-%20Emisi%C3%B3n%202.pdf",
-          "upstreamSha256": "31dcf5fe1c66454a9caa5da34c0b2450d8dd1ee4dc06d9fec0276ec68ae07bf3",
-          "retrievedAt": "2026-10-02T02:41:02Z"
+          "period": "2021",
+          "value": "53637",
+          "excerpt": "Prospecto «Bonos TIENDA AMIGA II», p. 191, columna Dic.21, cifra impresa 53.637 (en miles de bolivianos): Total Patrimonio 53.637 58.827 63.760 72.895 75.481 70.168 86.158 86.487. Convertido a miles de bolivianos: 53637. Confirmado por «Bonos TIENDA AMIGA I – Emisión 1», p. 172, columna Dic.21: 53.637 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2026-07/Bonos%20TIENDA%20AMIGA%20II.pdf",
+          "upstreamSha256": "2c3b081ced595ca98a15ee44baf8ab7e97390938270b5dadfcaeead15aa8e367",
+          "retrievedAt": "2026-10-02T02:40:16Z"
         },
         {
-          "period": "2012",
-          "value": "392712",
-          "excerpt": "Prospecto «Bonos TOYOSA I  - Emisión 2», p. 91, columna 31-dic-12, cifra impresa 392.712 (en miles de bolivianos): TOTAL PATRIMONIO 236.559 327.599 392.712 425.918. Convertido a miles de bolivianos: 392712",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20TOYOSA%20I%20%20-%20Emisi%C3%B3n%202.pdf",
-          "upstreamSha256": "31dcf5fe1c66454a9caa5da34c0b2450d8dd1ee4dc06d9fec0276ec68ae07bf3",
-          "retrievedAt": "2026-10-02T02:41:02Z"
+          "period": "2022",
+          "value": "58827",
+          "excerpt": "Prospecto «Bonos TIENDA AMIGA II», p. 191, columna Dic.22, cifra impresa 58.827 (en miles de bolivianos): Total Patrimonio 53.637 58.827 63.760 72.895 75.481 70.168 86.158 86.487. Convertido a miles de bolivianos: 58827. Confirmado por «Bonos TIENDA AMIGA I – Emisión 1», p. 172, columna Dic.22: 58.827 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2026-07/Bonos%20TIENDA%20AMIGA%20II.pdf",
+          "upstreamSha256": "2c3b081ced595ca98a15ee44baf8ab7e97390938270b5dadfcaeead15aa8e367",
+          "retrievedAt": "2026-10-02T02:40:16Z"
         },
         {
-          "period": "2013",
-          "value": "464050",
-          "excerpt": "Prospecto «Bonos TOYOSA II - Emisión 1», p. 92, columna 31-dic-13, cifra impresa 464,05 (en millones de bolivianos): TOTAL PATRIMONIO 464,05 487,60 552,12 565,50. Convertido a miles de bolivianos: 464050",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20TOYOSA%20II%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "1f31f54c65d5b98a42066ff66329d309bd1e91f32ad3c05181cd4e35c1420328",
-          "retrievedAt": "2026-10-02T02:41:08Z"
-        },
-        {
-          "period": "2014",
-          "value": "487600",
-          "excerpt": "Prospecto «Bonos TOYOSA II - Emisión 1», p. 92, columna 31-dic-14, cifra impresa 487,60 (en millones de bolivianos): TOTAL PATRIMONIO 464,05 487,60 552,12 565,50. Convertido a miles de bolivianos: 487600",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20TOYOSA%20II%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "1f31f54c65d5b98a42066ff66329d309bd1e91f32ad3c05181cd4e35c1420328",
-          "retrievedAt": "2026-10-02T02:41:08Z"
-        },
-        {
-          "period": "2015",
-          "value": "552120",
-          "excerpt": "Prospecto «Bonos TOYOSA II - Emisión 1», p. 92, columna 31-dic-15, cifra impresa 552,12 (en millones de bolivianos): TOTAL PATRIMONIO 464,05 487,60 552,12 565,50. Convertido a miles de bolivianos: 552120",
-          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2025-08/Bonos%20TOYOSA%20II%20-%20Emisi%C3%B3n%201.pdf",
-          "upstreamSha256": "1f31f54c65d5b98a42066ff66329d309bd1e91f32ad3c05181cd4e35c1420328",
-          "retrievedAt": "2026-10-02T02:41:08Z"
+          "period": "2023",
+          "value": "63760",
+          "excerpt": "Prospecto «Bonos TIENDA AMIGA II», p. 191, columna Dic.23, cifra impresa 63.760 (en miles de bolivianos): Total Patrimonio 53.637 58.827 63.760 72.895 75.481 70.168 86.158 86.487. Convertido a miles de bolivianos: 63760. Confirmado por «Bonos TIENDA AMIGA I – Emisión 1», p. 172, columna Dic.23: 63.760 (en miles de bolivianos).",
+          "sourceUrl": "https://www.asfi.gob.bo/sites/default/files/2026-07/Bonos%20TIENDA%20AMIGA%20II.pdf",
+          "upstreamSha256": "2c3b081ced595ca98a15ee44baf8ab7e97390938270b5dadfcaeead15aa8e367",
+          "retrievedAt": "2026-10-02T02:40:16Z"
         }
       ]
     },

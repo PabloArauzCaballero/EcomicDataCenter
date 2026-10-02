@@ -26,7 +26,7 @@ export interface ClosingFigure {
 const MONTHS = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
 const DATE = /^(?:(\d{1,2})[-/. ])?([a-z]{3}|\d{1,2})[a-z]*[-/. ](\d{2}|\d{4})$/iu;
 const FIGURE = /^\(?-?\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{1,2})?\)?$/u;
-const TOTAL_EQUITY = /^total\s+patrimonio(?:\s+neto)?\s*$/iu;
+const TOTAL_EQUITY = /^(?:total\s+)?patrimonio(?:\s+(?:neto|total))?\s*$/iu;
 
 const centre = (glyph: Glyph): number => (glyph.x + glyph.right) / 2;
 
@@ -35,7 +35,9 @@ function columnDate(text: string): { month: number; year: string } | undefined {
   const match = DATE.exec(text.trim());
   if (!match) return undefined;
   const monthText = (match[2] ?? '').toLowerCase();
-  const month = /^\d+$/u.test(monthText) ? Number(monthText) : MONTHS.indexOf(monthText.slice(0, 3)) + 1;
+  const month = /^\d+$/u.test(monthText)
+    ? Number(monthText)
+    : MONTHS.indexOf(monthText.slice(0, 3)) + 1;
   const short = match[3] ?? '';
   const year = short.length === 2 ? `20${short}` : short;
   return month >= 1 && month <= 12 ? { month, year } : undefined;
@@ -62,15 +64,43 @@ export function plainFigure(printed: string): string {
 
 /** Las cifras de cierre de la fila del patrimonio, una por columna de cierre. */
 export function closingEquity(rows: readonly PdfRow[], closingMonth: number): ClosingFigure[] {
-  const index = rows.findIndex((row) =>
-    TOTAL_EQUITY.test(row.glyphs.filter((glyph) => !FIGURE.test(glyph.text)).map((glyph) => glyph.text).join(' ')),
-  );
+  /*
+   * Hay renglones «Patrimonio» sin cifras —un título de sección— antes del que
+   * lleva las cifras: se prueba cada candidato y gana el primero que da alguna.
+   */
+  for (let index = 0; index < rows.length; index += 1) {
+    const row = rows[index];
+    if (
+      !row ||
+      !TOTAL_EQUITY.test(
+        row.glyphs
+          .filter((glyph) => !FIGURE.test(glyph.text))
+          .map((glyph) => glyph.text)
+          .join(' '),
+      )
+    )
+      continue;
+    const found = closingFigures(rows, index, closingMonth);
+    if (found.length) return found;
+  }
+  return [];
+}
+
+function closingFigures(
+  rows: readonly PdfRow[],
+  index: number,
+  closingMonth: number,
+): ClosingFigure[] {
   const target = rows[index];
   if (!target) return [];
   const header = rows
     .slice(0, index)
     .reverse()
-    .find((row) => row.page === target.page && row.glyphs.filter((glyph) => columnDate(glyph.text)).length >= 2);
+    .find(
+      (row) =>
+        row.page === target.page &&
+        row.glyphs.filter((glyph) => columnDate(glyph.text)).length >= 2,
+    );
   if (!header) return [];
   const columns = header.glyphs.flatMap((glyph) => {
     const date = columnDate(glyph.text);
@@ -79,8 +109,11 @@ export function closingEquity(rows: readonly PdfRow[], closingMonth: number): Cl
   return target.glyphs
     .filter((glyph) => FIGURE.test(glyph.text))
     .flatMap((glyph) => {
-      const nearest = [...columns].sort((a, b) => Math.abs(a.x - centre(glyph)) - Math.abs(b.x - centre(glyph)))[0];
-      if (!nearest || nearest.month !== closingMonth || Math.abs(nearest.x - centre(glyph)) > 40) return [];
+      const nearest = [...columns].sort(
+        (a, b) => Math.abs(a.x - centre(glyph)) - Math.abs(b.x - centre(glyph)),
+      )[0];
+      if (!nearest || nearest.month !== closingMonth || Math.abs(nearest.x - centre(glyph)) > 40)
+        return [];
       return [{ year: nearest.year, printed: glyph.text, column: nearest.text, line: target.text }];
     });
 }

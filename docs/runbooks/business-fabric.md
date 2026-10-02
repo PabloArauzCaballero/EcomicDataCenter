@@ -39,6 +39,11 @@ poca memoria: `node --max-old-space-size=700 node_modules/tsx/dist/cli.mjs scrip
 - **Tamaño no es facturación.** Ninguna fuente pública cuenta empresas por tramo de ventas. El tablero
   muestra el tamaño declarado al registro (un corte) y la categoría del padrón de Impuestos (anual),
   cada uno con su nombre.
+- **El patrimonio de una empresa no bancaria sólo entra si dos prospectos distintos imprimen la misma cifra** 
+  (dentro del 1 % o del redondeo de la impresión): los prospectos reexpresan por la UFV y un cierre suele salir
+  distinto en cada emisión. Los cuadros se declaran en `scripts/business/ownership-balance-tables.ts` y los años sin
+  confirmar salen en el informe de `business:owners` como «hueco de patrimonio». Dos páginas del mismo prospecto no
+  confirman nada. Para sumar una empresa: agregar el renglón (emisor|corte|página|mes de cierre|unidad) de cada emisión.
 - **Las fortunas estimadas no se siembran** (ADR 0028): se siembran participaciones y patrimonios y el
   tablero multiplica.
 - Para actualizar el corte del SEPREC: cambiar `SEPREC_STOCK_REPORT` en `registry-sources.ts` por el
