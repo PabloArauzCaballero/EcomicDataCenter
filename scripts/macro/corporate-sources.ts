@@ -57,7 +57,10 @@
  * **El ránking de líderes queda fuera a propósito.** Merco mide también la
  * reputación de personas y este capítulo es de empresas; nombrar directivos no
  * contesta ninguna pregunta que el tablero haga y sí añade datos personales a
- * un corpus que no los necesita.
+ * un corpus que no los necesita. Sigue fuera: los dueños de las empresas sí
+ * entraron desde la ADR 0028, pero leídos en documentos públicos que declaran
+ * su participación (`scripts/business/collect-ownership.ts`), no en una
+ * encuesta de percepción sobre personas.
  */
 
 export const USER_AGENT = 'Mozilla/5.0 (compatible; ObservatorioEconomicoBO/1.0)';

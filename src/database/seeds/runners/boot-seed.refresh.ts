@@ -34,6 +34,9 @@ const ANNUAL_CATALOGUES: readonly Catalogue[] = [
   'foreign-trade-detail',
   'annual-registers',
   'annual-activities',
+  'business-registry',
+  'business-rankings',
+  'business-wealth',
 ];
 
 /**

@@ -54,7 +54,7 @@ import { readSeed } from './seed.utils';
  * alguien lee cuando audita de dónde salió una fila sin el tablero delante.
  */
 /** Un archivo de semilla, con quién lo recogió y bajo qué categoría entra. */
-interface Register {
+export interface Register {
   readonly file: string;
   readonly agentCode: string;
   readonly dataCategory: string;
@@ -152,7 +152,7 @@ function annualPayload(
  * memoria que se sostiene es la de un lote, no la del corpus. Quien quiera
  * saber por qué se escribe así, `boot-seed.annual-register.batch.ts` lo cuenta.
  */
-async function loadRegisters(
+export async function loadRegisters(
   registers: readonly Register[],
   sourceId: string,
   transaction: Transaction,
