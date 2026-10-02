@@ -40,6 +40,27 @@ Al terminar, el recolector imprime la cobertura por red: cuántas cuentas quedar
 `BLOCKED`, `NOT_FOUND` o `ERROR`. Si una red supera el 50 % de bloqueos, no se publica esa corrida
 sin mirar antes el HTML guardado en `artifacts/social-raw/<corrida>/html/<red>/`.
 
+## Segunda pasada de profundidad
+
+Después de la recolección, `collect-deep.ts` vuelve sobre las cuentas leídas `OK` y baja más. Escribe en
+`artifacts/social-raw/<corrida>-deep/` y el análisis une las dos lecturas por cuenta (la cifra que alguna
+trajo, el texto más largo, los comentarios sin repetir); una lectura profunda fallida no borra la primera.
+
+```bash
+yarn tsx scripts/social/company/collect-deep.ts --run=AAAA-MM-DD --platforms=youtube --budget-minutes=6 --details=6
+```
+
+- **YouTube:** lista hasta 120 videos del canal (vistas y fecha de cada tarjeta) y abre los más vistos y los
+  más nuevos para leer likes y comentarios. Las cuentas grandes primero. Pasado el canal 100 el aumento es
+  marginal (de 84 a ~15 videos nuevos por canal).
+- **Facebook:** sin sesión no pasa de unos 6 posts por página (el muro corta); no vale la pena repetirlo.
+- **TikTok e Instagram:** buscan más publicaciones de la cuenta en Bing y las abren sueltas (`--platforms=tiktok|instagram`).
+- **LinkedIn:** el lector prueba la dirección del directorio, `bo.linkedin.com` y los otros tipos de página, cada
+  una en un contexto limpio; si el muro sigue, toma los seguidores del extracto de Bing (sin posts, con nota).
+
+Un solo Chromium a la vez, tramos de unos 6 minutos y RAM libre sobre 3,5 GB: el sistema mata los procesos en
+segundo plano cuando la laptop se queda sin memoria.
+
 ## Publicar
 
 La semilla se commitea a `dev` y se lleva a `test` (cherry-pick). Cada servidor la siembra al

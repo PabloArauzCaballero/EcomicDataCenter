@@ -134,7 +134,7 @@ export function channelFromHtml(html: string): {
   };
 }
 
-async function readVideo(
+export async function readVideo(
   context: BrowserContext,
   target: AccountTarget,
   id: string,

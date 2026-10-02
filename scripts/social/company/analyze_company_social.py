@@ -50,18 +50,58 @@ def clip(text: str, limit: int) -> str:
     return text
 
 
+def _read_jsonl(path: Path) -> list[dict]:
+    rows: list[dict] = []
+    if path.exists():
+        # `splitlines()` también corta en U+2028/U+2029, que JSON.stringify deja crudos dentro de un texto.
+        for line in path.read_text(encoding="utf-8").split("\n"):
+            if line:
+                try:
+                    rows.append(json.loads(line))
+                except json.JSONDecodeError:
+                    pass  # una línea cortada por un tramo interrumpido no es una lectura
+    return rows
+
+
+_POST_FIELDS = ("publishedAt", "likes", "comments", "shares", "views", "format", "publishedHour")
+
+
+def _best_post(versions: list[dict]) -> dict:
+    """De varias lecturas del mismo post: el texto más largo y, campo a campo, la cifra que alguna trajo."""
+    best = dict(max(versions, key=lambda post: sum(post.get(name) is not None for name in _POST_FIELDS)))
+    best["text"] = max((post.get("text") or "" for post in versions), key=len)
+    for name in _POST_FIELDS:
+        if best.get(name) is None:
+            best[name] = next((post[name] for post in versions if post.get(name) is not None), None)
+    return best
+
+
+def _merge(readings: list[dict]) -> dict:
+    """Las lecturas de una cuenta (la corrida y su segunda pasada) en una: lo mejor de cada una, sin perder nada."""
+    ok = [reading for reading in readings if reading["profile"]["status"] == "OK"]
+    if not ok:
+        return readings[-1]  # nunca se leyó bien: vale la última, con su razón
+    newest = max(ok, key=lambda reading: reading["profile"]["retrievedAt"])
+    versions: dict[str, list[dict]] = defaultdict(list)
+    for reading in ok:
+        for post in reading["posts"]:
+            versions[post["postId"]].append(post)
+    comments = {(c["postId"], c["text"]): c for reading in ok for c in reading["comments"]}
+    return {
+        "profile": newest["profile"],
+        "posts": [_best_post(group) for group in versions.values()],
+        "comments": list(comments.values()),
+    }
+
+
 def load_run(run_dir: Path) -> list[dict]:
-    """Las lecturas de la corrida; si una cuenta se leyó dos veces, vale la última."""
-    latest: dict[tuple[str, str], dict] = {}
-    for platform in PLATFORMS:
-        path = run_dir / f"{platform}.jsonl"
-        if path.exists():
-            # `splitlines()` también corta en U+2028/U+2029, que JSON.stringify deja crudos dentro de un texto.
-            for line in path.read_text(encoding="utf-8").split("\n"):
-                if line:
-                    reading = json.loads(line)
-                    latest[(platform, reading["profile"]["slug"])] = reading
-    return list(latest.values())
+    """Las lecturas de la corrida y de su segunda pasada (`<corrida>-deep`), unidas por cuenta."""
+    by_account: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for directory in (run_dir, run_dir.with_name(run_dir.name + "-deep")):
+        for platform in PLATFORMS:
+            for reading in _read_jsonl(directory / f"{platform}.jsonl"):
+                by_account[(platform, reading["profile"]["slug"])].append(reading)
+    return [_merge(readings) for readings in by_account.values()]
 
 
 def summary(labels: list[dict]) -> dict | None:
@@ -202,7 +242,8 @@ def main() -> None:
         "posts": sorted(posts, key=lambda row: (row["slug"], row["platform"], row["publishedAt"] or "", row["postId"])),
         "terms": terms,
     }
-    SEED.write_text(json.dumps(seed, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    # Compacta: con la segunda pasada la semilla pasa de decenas de miles de posts y la sangría la triplicaría.
+    SEED.write_text(json.dumps(seed, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
     status = Counter((row["platform"], row["status"]) for row in profiles)
     print(f"{len(profiles)} cuentas, {len(posts)} posts, {len(all_comments)} comentarios clasificados, {len(terms)} términos")
     for platform in PLATFORMS:

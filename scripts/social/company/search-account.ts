@@ -117,6 +117,8 @@ export function bingTarget(href: string): string {
 export interface SearchResult {
   readonly url: string;
   readonly title: string;
+  /** El extracto que el buscador muestra bajo el título (cifras incluidas). */
+  readonly snippet?: string;
 }
 
 /**
@@ -145,10 +147,16 @@ export function bingResults(context: BrowserContext, query: string): Promise<Sea
           anchors.map((anchor) => ({
             href: anchor.getAttribute('href') ?? '',
             title: anchor.textContent ?? '',
+            snippet:
+              anchor.closest('li.b_algo')?.querySelector('.b_caption p, p')?.textContent ?? '',
           })),
         );
         if (results.length)
-          return results.map((result) => ({ url: bingTarget(result.href), title: result.title }));
+          return results.map((result) => ({
+            url: bingTarget(result.href),
+            title: result.title,
+            snippet: result.snippet,
+          }));
       } catch {
         // Una consulta caída vale lo mismo que una vacía: se reintenta una vez.
       } finally {

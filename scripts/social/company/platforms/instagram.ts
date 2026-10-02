@@ -60,7 +60,7 @@ export function shortcodeOf(url: string): string | null {
   return /\/(?:p|reel|tv)\/([A-Za-z0-9_-]+)/u.exec(url)?.[1] ?? null;
 }
 
-async function readPost(
+export async function readPost(
   context: BrowserContext,
   target: AccountTarget,
   url: string,

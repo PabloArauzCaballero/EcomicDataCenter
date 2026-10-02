@@ -1,6 +1,7 @@
 import type { BrowserContext } from 'playwright';
 import { countBefore, parseCount } from '../parse-count';
-import { sha256 } from '../social-browser';
+import { bingResults } from '../search-account';
+import { openContext, pause, sha256 } from '../social-browser';
 import {
   metaContent,
   unread,
@@ -49,28 +50,47 @@ export function linkedinAge(text: string, now = new Date()): string | null {
   return new Date(now.getTime() - days * 86_400_000).toISOString().slice(0, 10);
 }
 
-export async function readLinkedin(
+const WALL = /\/authwall|\/login|\/uas\/|\/checkpoint\//u;
+
+/**
+ * Direcciones que se prueban para una misma empresa: la que dice el directorio, el mismo
+ * nombre en el subdominio de Bolivia (otro borde de LinkedIn, que a veces no pide sesión) y
+ * los otros tipos de página (`company`, `school`, `showcase`), por si la empresa cambió de tipo.
+ */
+export function linkedinVariants(url: string): string[] {
+  const match = /^https?:\/\/[^/]+\/(company|school|showcase)\/([^/?#]+)/iu.exec(url);
+  if (!match) return [url];
+  const kind = (match[1] ?? 'company').toLowerCase();
+  const slug = match[2] ?? '';
+  const others = ['company', 'school', 'showcase'].filter((other) => other !== kind);
+  return [
+    `https://www.linkedin.com/${kind}/${slug}/`,
+    `https://bo.linkedin.com/${kind}/${slug}`,
+    ...others.slice(0, 2).map((other) => `https://www.linkedin.com/${other}/${slug}/`),
+  ];
+}
+
+type Attempt =
+  | { kind: 'READ'; reading: AccountReading }
+  | { kind: 'WALL'; html: string; evidence: string }
+  | { kind: 'MISSING'; html: string; evidence: string };
+
+async function readPage(
   context: BrowserContext,
   target: AccountTarget,
-): Promise<AccountReading> {
+  url: string,
+): Promise<Attempt> {
   const page = await context.newPage();
   try {
-    const response = await page.goto(target.url, {
-      waitUntil: 'domcontentloaded',
-      timeout: 45_000,
-    });
+    const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 });
     await page.waitForTimeout(4_000);
     const html = await page.content();
     const evidence = sha256(html);
-    if (page.url().includes('/authwall') || page.url().includes('/login')) {
-      return unread(target, 'BLOCKED', 'LinkedIn pidió iniciar sesión', html, evidence);
-    }
-    if (response?.status() === 404)
-      return unread(target, 'NOT_FOUND', 'LinkedIn respondió 404', html, evidence);
+    if (WALL.test(page.url())) return { kind: 'WALL', html, evidence };
+    if (response?.status() === 404) return { kind: 'MISSING', html, evidence };
     const description = metaContent(html, 'og:description') ?? '';
     const followers = countBefore(description, /(?:seguidores|followers)/);
-    if (followers === null)
-      return unread(target, 'BLOCKED', 'la página llegó sin seguidores', html, evidence);
+    if (followers === null) return { kind: 'WALL', html, evidence };
 
     // Sin funciones con nombre dentro del callback: tsx les agrega `__name`,
     // que no existe en la página.
@@ -116,23 +136,108 @@ export async function readLinkedin(
         publishedHour: null,
       }));
     return {
+      kind: 'READ',
+      reading: {
+        profile: {
+          ...target,
+          status: 'OK',
+          retrievedAt: new Date().toISOString(),
+          sha256: evidence,
+          displayName: metaContent(html, 'og:title')?.replace(/\s*\|\s*LinkedIn\s*$/u, '') ?? null,
+          followers,
+          following: null,
+          postCount: null,
+          likesTotal: null,
+          talkingAbout: null,
+        },
+        posts,
+        comments: [],
+        html,
+      },
+    };
+  } finally {
+    await page.close();
+  }
+}
+
+/**
+ * Último recurso con el muro puesto: el extracto que Bing guarda de la página de la empresa
+ * («Entel | 66.230 seguidores en LinkedIn…») trae los seguidores sin visitar LinkedIn. Es una cifra
+ * del buscador, no de la página, y por eso lleva su nota; no trae posts.
+ */
+async function followersFromSearch(
+  context: BrowserContext,
+  target: AccountTarget,
+): Promise<number | null> {
+  const slug = /\/(?:company|school|showcase)\/([^/?#]+)/iu.exec(target.url)?.[1];
+  if (!slug) return null;
+  const results = await bingResults(context, `${decodeURIComponent(slug)} LinkedIn seguidores`);
+  for (const result of results) {
+    if (!result.url.toLowerCase().includes(`/${slug.toLowerCase()}`)) continue;
+    const followers = countBefore(result.snippet ?? '', /(?:seguidores|followers)/);
+    if (followers !== null) return followers;
+  }
+  return null;
+}
+
+export async function readLinkedin(
+  context: BrowserContext,
+  target: AccountTarget,
+): Promise<AccountReading> {
+  let last: { html: string; evidence: string } | null = null;
+  let walled = false;
+  const browser = context.browser();
+  for (const [index, url] of linkedinVariants(target.url).entries()) {
+    // Cada variante en un contexto limpio: el muro se apoya en las cookies de la visita anterior.
+    const fresh = index > 0 && browser?.isConnected() ? await openContext(browser) : null;
+    try {
+      const attempt = await readPage(fresh ?? context, target, url);
+      if (attempt.kind === 'READ') return attempt.reading;
+      last = attempt;
+      walled ||= attempt.kind === 'WALL';
+      // Un muro cede a veces con otra dirección; un 404 pide probar el otro tipo de página.
+      await pause(5, 9);
+    } finally {
+      await fresh?.close().catch(() => undefined);
+    }
+  }
+  const html = last?.html ?? null;
+  const evidence = last?.evidence ?? null;
+  if (!walled) {
+    return unread(
+      target,
+      'NOT_FOUND',
+      'LinkedIn respondió 404 en todas las variantes',
+      html,
+      evidence,
+    );
+  }
+  const followers = await followersFromSearch(context, target);
+  if (followers !== null) {
+    return {
       profile: {
         ...target,
         status: 'OK',
+        statusNote: 'seguidores del extracto de Bing; LinkedIn pidió sesión y no se leyeron posts',
         retrievedAt: new Date().toISOString(),
         sha256: evidence,
-        displayName: metaContent(html, 'og:title')?.replace(/\s*\|\s*LinkedIn\s*$/u, '') ?? null,
+        displayName: null,
         followers,
         following: null,
         postCount: null,
         likesTotal: null,
         talkingAbout: null,
       },
-      posts,
+      posts: [],
       comments: [],
       html,
     };
-  } finally {
-    await page.close();
   }
+  return unread(
+    target,
+    'BLOCKED',
+    'LinkedIn pidió iniciar sesión en todas las variantes',
+    html,
+    evidence,
+  );
 }
