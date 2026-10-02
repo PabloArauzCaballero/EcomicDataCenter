@@ -264,6 +264,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('exogenous-prices', 'Precios que Bolivia no fija (variables exógenas)', [
     'boot/exogenous-prices.json',
     'boot/exogenous-customs.json',
+    'boot/exogenous-currencies/',
   ]),
   historical('ine-trade', 'Comercio exterior del INE, registro por registro', ['boot/ine-trade/']),
   historical('bank-virtual-assets', 'Servicios de dólar digital de los bancos bolivianos', [

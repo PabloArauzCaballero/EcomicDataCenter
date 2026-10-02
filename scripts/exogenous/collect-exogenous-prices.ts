@@ -2,9 +2,11 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { FAO_DOMESTIC } from './exogenous-sources-fao';
 import { FAO_INTERNATIONAL } from './exogenous-sources-neighbours';
+import { FREIGHT_SERIES, monthsOf, readFreightos, saveWeeks } from './exogenous-freight';
 import { MONTHLY_SERIES } from './exogenous-sources';
 import type { ExogenousSpec } from './exogenous-sources';
 import {
+  closedMonth,
   faoSeries,
   fredSeries,
   sleep,
@@ -39,6 +41,7 @@ const PUBLISHERS: Record<ExogenousSpec['origin']['kind'], string> = {
   WORLD_BANK: 'BANCO MUNDIAL (PINK SHEET)',
   FRED: 'FRED, BANCO DE LA RESERVA FEDERAL DE SAN LUIS',
   FAO: 'FAO, SISTEMA MUNDIAL DE INFORMACIÓN Y ALERTA (GIEWS)',
+  FREIGHTOS: 'FREIGHTOS (BALTIC INDEX Y AIR INDEX)',
 };
 
 interface SeedSeries {
@@ -98,9 +101,26 @@ async function collect(previous: Map<string, SeedSeries>): Promise<SeedSeries[]>
     console.log(`  Banco Mundial: ${error instanceof Error ? error.message : 'ilegible'}`);
   }
 
-  for (const spec of [...MONTHLY_SERIES, ...FAO_INTERNATIONAL, ...FAO_DOMESTIC]) {
+  let freightos: Awaited<ReturnType<typeof readFreightos>> | null = null;
+  try {
+    freightos = await readFreightos();
+    saveWeeks(freightos.weeks);
+  } catch (error: unknown) {
+    console.log(`  Freightos: ${error instanceof Error ? error.message : 'ilegible'}`);
+  }
+
+  for (const spec of [...MONTHLY_SERIES, ...FREIGHT_SERIES, ...FAO_INTERNATIONAL, ...FAO_DOMESTIC]) {
     const origin = spec.origin;
     try {
+      if (origin.kind === 'FREIGHTOS') {
+        const file = freightos?.files.get(origin.ticker);
+        const points = file
+          ? monthsOf(freightos?.weeks[origin.ticker], closedMonth, spec.unit)
+          : [];
+        if (!file || !points.length) keep(spec, 'sin semanas cerradas');
+        else out.push(seriesOf(spec, file, points, at));
+        continue;
+      }
       if (origin.kind === 'WORLD_BANK') {
         const points = bank?.columns.get(origin.column.trim());
         if (!bank || !points?.length) {

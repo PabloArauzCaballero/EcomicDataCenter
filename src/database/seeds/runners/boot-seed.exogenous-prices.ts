@@ -1,4 +1,6 @@
 import { randomUUID } from 'node:crypto';
+import { readdir } from 'node:fs/promises';
+import { join } from 'node:path';
 import type { Transaction } from 'sequelize';
 import {
   ClaimEvidenceModel,
@@ -11,8 +13,9 @@ import { textHash } from '../../../common/hashing/canonical-hash';
 import { reconcileHistoryRun } from './boot-seed.history-provenance';
 import { roadHashesAlreadyHeld } from './boot-seed.bolivia-road-network';
 import {
+  currencyRatesSchema,
   exogenousPricesSchema,
-  type ExogenousPoint,
+  type CurrencySeries,
   type ExogenousSeries,
 } from '../schemas/exogenous-prices.schema';
 import { readSeed } from './seed.utils';
@@ -36,10 +39,15 @@ import { readSeed } from './seed.utils';
 const AGENT_CODE = 'EXOGENOUS_PRICES';
 const CHUNK = 500;
 const FILES = ['boot/exogenous-prices.json', 'boot/exogenous-customs.json'] as const;
+const CURRENCIES = 'boot/exogenous-currencies';
+
+/** Una serie de precios o una de monedas: comparten todo lo que el sembrador lee. */
+type AnySeries = ExogenousSeries | CurrencySeries;
+type AnyPoint = AnySeries['points'][number];
 
 interface Pending {
-  readonly series: ExogenousSeries;
-  readonly point: ExogenousPoint;
+  readonly series: AnySeries;
+  readonly point: AnyPoint;
   readonly payload: Record<string, unknown>;
   readonly hash: string;
   readonly sourceUrl: string;
@@ -47,7 +55,7 @@ interface Pending {
   readonly retrievedAt: string;
 }
 
-function payloadOf(series: ExogenousSeries, point: ExogenousPoint): Record<string, unknown> {
+function payloadOf(series: AnySeries, point: AnyPoint): Record<string, unknown> {
   return {
     recordType: 'EXOGENOUS_PRICE',
     dataCategory: 'EXOGENOUS_PRICE',
@@ -65,27 +73,32 @@ function payloadOf(series: ExogenousSeries, point: ExogenousPoint): Record<strin
     note: series.note,
     period: point.period,
     value: point.value,
-    ...(point.tradeValueUsd ? { tradeValueUsd: point.tradeValueUsd } : {}),
-    ...(point.netWeightKg ? { netWeightKg: point.netWeightKg } : {}),
+    ...('tradeValueUsd' in point && point.tradeValueUsd
+      ? { tradeValueUsd: point.tradeValueUsd }
+      : {}),
+    ...('netWeightKg' in point && point.netWeightKg ? { netWeightKg: point.netWeightKg } : {}),
   };
 }
 
-const eventDateOf = (period: string): string =>
-  period.length === 4 ? `${period}-01-01` : `${period}-01`;
+const eventDateOf = (period: string): string => {
+  if (period.length === 4) return `${period}-01-01`;
+  return period.length === 10 ? period : `${period}-01`;
+};
 
-function assertionOf(series: ExogenousSeries, point: ExogenousPoint): string {
+function assertionOf(series: AnySeries, point: AnyPoint): string {
   const when = `en ${point.period}`;
-  if (point.tradeValueUsd && point.netWeightKg) {
+  if ('tradeValueUsd' in point && point.tradeValueUsd && point.netWeightKg) {
     return `${series.name}: ${point.value} ${series.unit} ${when} (${point.tradeValueUsd} US$ entre ${point.netWeightKg} kg).`;
   }
   return `${series.name} (${series.market}): ${point.value} ${series.unit} ${when}.`;
 }
 
-function pendingOf(series: ExogenousSeries, point: ExogenousPoint): Pending {
+function pendingOf(series: AnySeries, point: AnyPoint): Pending {
   const payload = payloadOf(series, point);
-  const sourceUrl = point.sourceUrl ?? series.provenance?.sourceUrl ?? '';
-  const sha256 = point.upstreamSha256 ?? series.provenance?.upstreamSha256 ?? '';
-  const retrievedAt = point.retrievedAt ?? series.provenance?.retrievedAt ?? '';
+  const provenance = 'provenance' in series ? series.provenance : undefined;
+  const sourceUrl = point.sourceUrl ?? provenance?.sourceUrl ?? '';
+  const sha256 = point.upstreamSha256 ?? provenance?.upstreamSha256 ?? '';
+  const retrievedAt = point.retrievedAt ?? provenance?.retrievedAt ?? '';
   return { series, point, payload, hash: rawPayloadHash(payload), sourceUrl, sha256, retrievedAt };
 }
 
@@ -98,6 +111,7 @@ function formatOf(url: string): { artifactType: string; mimeType: string } {
     };
   }
   if (url.includes('fredgraph.csv')) return { artifactType: 'CSV', mimeType: 'text/csv' };
+  if (url.includes('bcb.gob.bo')) return { artifactType: 'HTML', mimeType: 'text/html' };
   return { artifactType: 'JSON', mimeType: 'application/json' };
 }
 
@@ -192,8 +206,14 @@ export async function reconcileExogenousPrices(
   transaction: Transaction,
 ): Promise<void> {
   const agentRunId = await reconcileHistoryRun(AGENT_CODE, transaction);
-  for (const file of FILES) {
-    const seed = await readSeed(file, exogenousPricesSchema);
+  const currencyFiles = (await readdir(join(__dirname, '..', CURRENCIES)))
+    .filter((name) => name.endsWith('.json'))
+    .sort()
+    .map((name) => `${CURRENCIES}/${name}`);
+  for (const file of [...FILES, ...currencyFiles]) {
+    const seed: { series: readonly AnySeries[] } = file.startsWith(`${CURRENCIES}/`)
+      ? await readSeed(file, currencyRatesSchema)
+      : await readSeed(file, exogenousPricesSchema);
     const entries = seed.series.flatMap((series) =>
       series.points.map((point) => pendingOf(series, point)),
     );
