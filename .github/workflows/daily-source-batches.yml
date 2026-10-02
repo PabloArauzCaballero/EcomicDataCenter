@@ -21,7 +21,7 @@ on:
         required: false
         default: todas
         type: choice
-        options: [todas, mercados, bcb, dolar, fichas, exogenas, aduana, bancos, bcb-estadisticas, prensa]
+        options: [todas, mercados, bcb, dolar, fichas, exogenas, aduana, bancos, bcb-estadisticas, prensa, registro]
   schedule:
     # America/La_Paz is UTC-4 year-round: 07:10, 13:10 and 19:10 local.
     - cron: '10 11,17,23 * * *'
@@ -274,6 +274,38 @@ jobs:
           path: ${{ runner.temp }}/ine-trade
           retention-days: 14
 
+  # La base empresarial del registro de comercio (SIIP y reporte del SEPREC) y
+  # la foto de tamano del Ministerio. Cambian una vez al mes como mucho, asi
+  # que el lote NO entra en el cron ni en «todas»: se pide a mano con
+  # `batch: registro` cuando el SEPREC publica un reporte nuevo. Correrlo tres
+  # veces al dia gastaria minutos de Actions para escribir la misma semilla.
+  registro:
+    if: github.event_name == 'workflow_dispatch' && inputs.batch == 'registro'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: dev
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Read the commercial register and the size snapshot
+        run: |
+          yarn business:registry --fresh
+          yarn business:size --fresh
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: business-registry-${{ github.run_id }}
+          path: |
+            src/database/seeds/boot/business-registry.json
+            src/database/seeds/boot/business-size.json
+          retention-days: 14
+
   # Los bancos que ofrecen dolar digital (USDT, USDC) a sus clientes.
   #
   # Ningun banco publica su cotizacion fuera de la aplicacion, asi que no hay
@@ -399,7 +431,7 @@ jobs:
   # el repositorio sin llegar jamas al servidor, que es la misma clase de final
   # silencioso que este trabajo viene a corregir.
   publicar:
-    needs: [mercados, bcb, dolar, monedas, fichas, exogenas, aduana, bancos, bcb-estadisticas, prensa]
+    needs: [mercados, bcb, dolar, monedas, fichas, exogenas, aduana, bancos, bcb-estadisticas, prensa, registro]
     # Un lote caido cuesta sus fuentes y no las de los otros dos, igual que
     # arriba. `always()` publicaria tambien lo cancelado a mano.
     if: ${{ !cancelled() }}
@@ -422,7 +454,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           FAILED: >-
-            ${{ needs.mercados.result == 'failure' && 'mercados ' || '' }}${{ needs.bcb.result == 'failure' && 'bcb ' || '' }}${{ needs.dolar.result == 'failure' && 'dolar ' || '' }}${{ needs.monedas.result == 'failure' && 'monedas ' || '' }}${{ needs.fichas.result == 'failure' && 'fichas ' || '' }}${{ needs.exogenas.result == 'failure' && 'exogenas ' || '' }}${{ needs.aduana.result == 'failure' && 'aduana ' || '' }}${{ needs.bancos.result == 'failure' && 'bancos ' || '' }}${{ needs['bcb-estadisticas'].result == 'failure' && 'bcb-estadisticas ' || '' }}${{ needs.prensa.result == 'failure' && 'prensa' || '' }}
+            ${{ needs.mercados.result == 'failure' && 'mercados ' || '' }}${{ needs.bcb.result == 'failure' && 'bcb ' || '' }}${{ needs.dolar.result == 'failure' && 'dolar ' || '' }}${{ needs.monedas.result == 'failure' && 'monedas ' || '' }}${{ needs.fichas.result == 'failure' && 'fichas ' || '' }}${{ needs.exogenas.result == 'failure' && 'exogenas ' || '' }}${{ needs.aduana.result == 'failure' && 'aduana ' || '' }}${{ needs.bancos.result == 'failure' && 'bancos ' || '' }}${{ needs['bcb-estadisticas'].result == 'failure' && 'bcb-estadisticas ' || '' }}${{ needs.prensa.result == 'failure' && 'prensa ' || '' }}${{ needs.registro.result == 'failure' && 'registro' || '' }}
         run: bash scripts/ops/avisar-ingesta-caida.sh "daily-source-batches, lotes caidos $FAILED"
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         if: needs.mercados.result == 'success'
@@ -474,12 +506,17 @@ jobs:
         with:
           name: press-coverage-${{ github.run_id }}
           path: src/database/seeds/boot
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        if: needs.registro.result == 'success'
+        with:
+          name: business-registry-${{ github.run_id }}
+          path: src/database/seeds/boot
       - name: Commit the readings that came back
         run: |
           set -euo pipefail
           git config user.name 'observatorio-recolector'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/fx-daily.json                   src/database/seeds/boot/stablecoin-books.json                   src/database/seeds/boot/exogenous-prices.json                   src/database/seeds/boot/exogenous-freight-weeks.json                   src/database/seeds/boot/exogenous-currencies                   src/database/seeds/boot/bank-virtual-assets.json                   src/database/seeds/boot/bcb-statistics                   src/database/seeds/boot/press-coverage.json                   src/database/seeds/boot/ine-trade
+          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/fx-daily.json                   src/database/seeds/boot/stablecoin-books.json                   src/database/seeds/boot/exogenous-prices.json                   src/database/seeds/boot/exogenous-freight-weeks.json                   src/database/seeds/boot/exogenous-currencies                   src/database/seeds/boot/bank-virtual-assets.json                   src/database/seeds/boot/bcb-statistics                   src/database/seeds/boot/press-coverage.json                   src/database/seeds/boot/ine-trade                   src/database/seeds/boot/business-registry.json                   src/database/seeds/boot/business-size.json
           # Una fuente que no publico nada hoy deja su semilla igual que ayer, y
           # eso no es un fallo: es un dia sin novedades. Un commit vacio si lo
           # seria, porque desplegaria por nada.

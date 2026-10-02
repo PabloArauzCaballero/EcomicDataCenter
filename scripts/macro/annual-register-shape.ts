@@ -30,9 +30,20 @@ export interface RegisterPoint {
  * apertura del producto de un lugar —el gas dentro de Tarija, la minería dentro
  * de Potosí— y tiene el mismo problema en un escalón más abajo: el cuadro trae
  * el total, los once grupos y las ramas de cinco de ellos en la misma columna.
+ * `LEGAL_FORM` y `SIZE` abren a las empresas por tipo societario y por tamaño o
+ * categoría tributaria, y `PERSON` es una serie que pertenece a una persona: un
+ * patrimonio publicado o una participación accionaria.
  */
 export type RegisterLevel =
-  'COUNTRY' | 'DEPARTMENT' | 'PRODUCT' | 'COMPANY' | 'AGGREGATE' | 'ACTIVITY';
+  | 'COUNTRY'
+  | 'DEPARTMENT'
+  | 'PRODUCT'
+  | 'COMPANY'
+  | 'AGGREGATE'
+  | 'ACTIVITY'
+  | 'LEGAL_FORM'
+  | 'SIZE'
+  | 'PERSON';
 
 /** Una serie anual que pertenece a un sitio o a alguien. */
 export interface RegisterSeries {

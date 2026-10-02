@@ -30,6 +30,12 @@ import { z } from 'zod';
  * bolivianos de 1990», «peso neto en toneladas»— y viaja porque sin ella dos
  * series de PIB del mismo departamento se ven iguales y no lo son.
  *
+ * Desde la migración 0097 lo usan también los cuadros del tejido empresarial
+ * —el registro de comercio, el padrón y el ránking de Impuestos, «Las 500» y las
+ * participaciones accionarias—, y por eso `level` distingue además el tipo
+ * societario (`LEGAL_FORM`), el tamaño o la categoría tributaria (`SIZE`) y a
+ * una persona (`PERSON`).
+ *
  * La procedencia va en el punto y no en la serie, como en `mineral-trade`: una
  * descarga trae el cuadro entero, así que diez series citan el mismo archivo y
  * la misma huella, y el sembrador concilia el artefacto por esa huella para que
@@ -47,7 +53,7 @@ export const annualRegisterSchema = z.object({
         .object({
           indicatorCode: z
             .string()
-            .regex(/^(?:DEPT|EXPORTER|REPUTATION)_[A-Z0-9_]+$/u)
+            .regex(/^(?:DEPT|EXPORTER|REPUTATION|FIRMS|TAXROLL|TAXTOP|LARGEST|WEALTH|OWNER)_[A-Z0-9_]+$/u)
             .max(80),
           /** El nombre completo que se lee en una leyenda o en una tabla. */
           name: z.string().trim().min(3).max(200),
@@ -61,7 +67,17 @@ export const annualRegisterSchema = z.object({
           /** Qué se mide, sin el nombre del grupo. */
           measure: z.string().trim().min(3).max(120),
           /** Si la fila se puede sumar con sus hermanas, y en qué plano vive. */
-          level: z.enum(['COUNTRY', 'DEPARTMENT', 'PRODUCT', 'COMPANY', 'AGGREGATE', 'ACTIVITY']),
+          level: z.enum([
+            'COUNTRY',
+            'DEPARTMENT',
+            'PRODUCT',
+            'COMPANY',
+            'AGGREGATE',
+            'ACTIVITY',
+            'LEGAL_FORM',
+            'SIZE',
+            'PERSON',
+          ]),
           unit: z
             .string()
             .regex(/^[A-Z0-9_]+$/u)

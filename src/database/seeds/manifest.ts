@@ -149,6 +149,24 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/department-activities-growth.json',
     'boot/department-activities-share.json',
   ]),
+  /*
+   * El tejido empresarial va en tres paquetes porque son tres transacciones:
+   * el registro y el padrón, los ránkings, y los dueños con sus fortunas. Cada
+   * uno se carga o no por su cuenta (`boot-seed.business-fabric.ts`).
+   */
+  historical('business-registry', 'Base empresarial, tamaño y padrón de Impuestos', [
+    'boot/business-registry.json',
+    'boot/business-registry-flows.json',
+    'boot/business-size.json',
+    'boot/tax-roll.json',
+  ]),
+  historical('business-rankings', 'Principales empresas: Impuestos y Las 500', [
+    'boot/tax-top-payers.json',
+  ]),
+  historical('business-wealth', 'Empresarios: fortunas publicadas y participaciones', [
+    'boot/wealth-benchmarks.json',
+    'boot/company-ownership.json',
+  ]),
   historical('company-filings', 'Hechos relevantes de emisores', ['boot/company-filings.json']),
   historical('company-filings-archive', 'Archivo de hechos relevantes', [
     'boot/company-filings-archive.json',
