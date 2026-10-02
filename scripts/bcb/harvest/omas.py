@@ -110,14 +110,148 @@ def build_series(awards: list[Award], url: str, digest: str, at: str) -> list[di
                 'indicatorCode': code_of(valor, plazo, measure),
                 'name': f'Subasta del {emisor}, {valor} a {plazo} días: {label.lower()}',
                 'family': 'operaciones-de-mercado-abierto',
-                'workbook': 'omas/informe-semanal',
+                'workbook': 'omas/informes-de-subasta',
                 'sheet': 'Adjudicación de valores de la subasta',
                 'unit': unit,
                 'frequency': 'WEEKLY',
-                'locator': {'chart': 'Informe semanal O&M', 'page': 1, 'valor': valor, 'plazo': plazo},
+                'locator': {'chart': 'Informe de subasta (O&M semanal o resultado)', 'page': 1, 'valor': valor, 'plazo': plazo},
                 'sourceUrl': url,
                 'upstreamSha256': digest,
                 'retrievedAt': at,
                 'points': points,
             })
     return out
+
+
+# ---------------------------------------------------------------------------------------
+# Resultados de cada subasta: un PDF por subasta («RESULTADOS DE SUBASTA LETRAS … 17 / 2026»)
+# ---------------------------------------------------------------------------------------
+
+RESULT_TITLE = re.compile(
+    r'RESULTADOS?\s+DE\s+SUBASTA\s+(?P<tipo>.+?)\s+(?P<number>\d+)\s*/\s*(?P<year>\d{4})(?P<rest>.*)'
+)
+STAMP = re.compile(r'Fecha:\s*(\d{1,2})/(\d{1,2})/(\d{4})')
+ANY_DATE = re.compile(r'\b(\d{1,2})/(\d{1,2})/(\d{4})\b')
+OFFER = re.compile(
+    r'(?:Cantidad|Monto)\s+Ofertad[oa]:\s*[\d.]+\s+Plazo:\s*(?:d[ií]as\s*)?(?P<days>\d[\d.]*)'
+)
+BID_ISSUER = re.compile(r'^\s*\*?\s*\d[\d.]*\s+(?P<emisor>BCB|TGN)\s+-?\d+,\d+')
+NUMBER = re.compile(r'^-?\d[\d.]*(?:,\d+)?$')
+KIND_CODES = (
+    ('LETRAS RESCATABLES', 'LR'),
+    ('BONOS RESCATABLES', 'BR'),
+    ('LETRAS DEL TESORO', 'LT'),
+    ('LETRAS', 'LB'),
+    ('BONOS TGN', 'BT'),
+    ('BONOS DEL TGN', 'BT'),
+    ('BONOS BCB', 'BB'),
+    ('BONOS DEL BCB', 'BB'),
+)
+FIRST_ERA = 2022  # antes de esa fecha los informes tienen otro formato y no se leen
+
+
+def _currency(line: str) -> str | None:
+    text = line.strip().upper()
+    if text.startswith('MONEDA NACIONAL INDEXADA') or text.startswith('UNIDAD DE FOMENTO'):
+        return 'UFV'
+    if text.startswith(('BOLIVIANOS', 'MONEDA NACIONAL')):
+        return 'MN'
+    if 'LARES AMERICANOS' in text or text.startswith('MONEDA EXTRANJERA'):
+        return 'ME'
+    return None
+
+
+def _total_numbers(line: str) -> list[str] | None:
+    """Los números de la línea de promedio («1) 219.367 9,1486 8,7400 9,3600 188.900»)."""
+    body = line.strip()
+    if body.startswith('1)'):
+        body = body[2:]
+    elif body.startswith('*'):
+        body = body[1:]
+    else:
+        return None
+    tokens = [t for t in body.replace('%', ' ').split() if t]
+    return tokens if tokens and all(NUMBER.match(t) for t in tokens) else None
+
+
+def parse_results(text: str) -> tuple[list[Award], int]:
+    """La adjudicación de cada serie de un informe de resultado de subasta, y cuántas series no se leyeron.
+
+    El texto viene en modo «layout», que conserva las columnas: sin él, el monto adjudicado y la
+    tasa que le sigue quedan pegados (`5.2008,7000`) y no se sabe dónde parte uno del otro.
+    Una serie sin línea de promedio —desierta— o sin nada adjudicado no es una adjudicación, y
+    una línea de promedio que no calza con ninguna de las dos formas conocidas se cuenta como
+    «sin leer» en vez de adivinarse.
+    """
+    lines = text.splitlines()
+    title = next((m for m in map(RESULT_TITLE.search, lines) if m), None)
+    if not title:
+        return [], 0
+    stamp = STAMP.search(text) or ANY_DATE.search(title['rest'])
+    if not stamp:
+        return [], 0
+    day, month, year = (int(g) for g in stamp.groups())
+    if year < FIRST_ERA:
+        return [], 0
+    date = f'{year:04d}-{month:02d}-{day:02d}'
+    heading = title['tipo'].upper()
+    default_issuer = 'TGN' if 'TGN' in heading else 'BCB'
+    awards: list[Award] = []
+    unread = 0
+    currency = None
+    block: dict | None = None
+
+    def close() -> None:
+        nonlocal block, unread
+        if block is None:
+            return
+        done, block = block, None
+        kind = next((code for name, code in KIND_CODES if heading.startswith(name)), None)
+        if not kind or not currency:
+            unread += 1
+            return
+        numbers = done['total']
+        if done['broken']:
+            unread += 1  # la línea de promedio está ahí pero sus columnas se pisan
+            return
+        if numbers is None:
+            return  # sin línea de promedio: subasta desierta
+        has_award = len(numbers) > 1 and ',' not in numbers[-1] and decimal(numbers[-1]) != '0'
+        if not has_award:
+            return  # nada adjudicado (solo la demanda): no hay tasa de adjudicación
+        if len(numbers) == 5:  # letras: demandada, TR, TD, TEA, adjudicada
+            _, tr, td, tea, awarded = numbers
+        elif len(numbers) == 3:  # bonos: demandada, TR, adjudicada
+            _, tr, awarded = numbers
+            td = tea = None
+        else:
+            unread += 1
+            return
+        awards.append(
+            Award(
+                date, f'{kind}-{currency}', done['emisor'] or default_issuer, done['days'], '-',
+                decimal(awarded), decimal(tr), decimal(td) if td else None, decimal(tea) if tea else None,
+            )
+        )
+
+    for raw in lines:
+        found = _currency(raw)
+        if found:
+            currency = found
+        offer = OFFER.search(raw)
+        if offer:
+            close()
+            block = {'days': int(offer['days'].replace('.', '')), 'emisor': None, 'total': None, 'broken': False}
+            continue
+        if block is None:
+            continue
+        bid = BID_ISSUER.match(raw)
+        if bid and not block['emisor']:
+            block['emisor'] = bid['emisor']
+        numbers = _total_numbers(raw)
+        if numbers is not None:
+            block['total'] = numbers
+        elif re.match(r'^\s*1\)\s+-?\d', raw):
+            block['broken'] = True
+    close()
+    return awards, unread

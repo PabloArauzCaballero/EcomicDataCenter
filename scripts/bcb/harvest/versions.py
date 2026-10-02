@@ -35,12 +35,17 @@ def group_key(url: str) -> str:
     directory, _, name = _path(url).rpartition('/')
     directory = re.sub(r'/?\d{4}/\d{2}/\d{2}', '', directory)
     name = re.sub(r'\.xlsx?$', '', _fold(name), flags=re.I)
+    whole = re.sub(r'[^a-z0-9]+', ' ', name).strip()
     name = re.sub(r'\(\d+\)', '', name)
     name = _NOISE.sub('', name)
     name = re.sub(rf'\b({_MONTH_WORD})\b', '', name)
     name = re.sub(r'\d+', '', name)
     name = re.sub(r'[^a-z]+', ' ', name).strip()
-    return f'{directory}/{name}'
+    # Un cuadro que solo se conoce por su número («45.xlsx», «01_01.xlsx») es un informe propio:
+    # sin nombre, las ciento noventa y siete tablas de un boletín quedaban en un solo grupo y se
+    # leía una. El número lo distingue; la fecha de la carpeta ya se quitó, así que la misma
+    # tabla de dos entregas sigue siendo una y gana la más nueva.
+    return f'{directory}/{name or whole}'
 
 
 def version_key(url: str) -> tuple:

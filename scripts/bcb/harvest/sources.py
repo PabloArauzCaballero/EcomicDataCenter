@@ -31,6 +31,11 @@ ADMIN = re.compile(
 )
 
 
+def encoded(url: str) -> str:
+    """La dirección con espacios y tildes codificados: `Depósitos` no viaja como ASCII."""
+    return urllib.parse.quote(url, safe=":/?&=%#+,;@!$'()*~")
+
+
 def read_json(path: Path, default):
     return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
 
@@ -39,7 +44,7 @@ class Remote:
     @staticmethod
     def _request(url: str, headers: dict) -> urllib.request.Request:
         return urllib.request.Request(
-            url.replace(' ', '%20'), headers={'User-Agent': USER_AGENT, **headers}
+            encoded(url), headers={'User-Agent': USER_AGENT, **headers}
         )
 
     def get(self, url: str, validators: dict | None = None):
@@ -117,7 +122,7 @@ def prime_state(latest: dict[str, str]) -> None:
     state: dict = read_json(STATE, {})
     for _, url in sorted(latest.items()):
         request = urllib.request.Request(
-            url.replace(' ', '%20'), headers={'User-Agent': USER_AGENT}, method='HEAD'
+            encoded(url), headers={'User-Agent': USER_AGENT}, method='HEAD'
         )
         try:
             with urllib.request.urlopen(request, timeout=60) as response:

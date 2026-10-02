@@ -47,10 +47,6 @@
   "etag": "\"35243-638045a7a177b\"",
   "lastModified": "Fri, 20 Jun 2025 17:40:09 GMT"
  },
- "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2.%20Balanza%20de%20Pagos%20IIT_2025_0.xlsx": {
-  "etag": "\"362e1-63df9a4b7bdb0\"",
-  "lastModified": "Thu, 04 Sep 2025 13:24:39 GMT"
- },
  "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2.%20PII_2025.xlsx": {
   "etag": "\"1abb63-64bc0b5fc7dfd\"",
   "lastModified": "Thu, 26 Feb 2026 21:21:59 GMT"
@@ -59,17 +55,801 @@
   "etag": "\"31a84-65996bbc9f1e6\"",
   "lastModified": "Fri, 21 Aug 2026 23:09:50 GMT"
  },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/01_01.xlsx": {
+  "etag": "\"3aca5-6472bcf28fe40\"",
+  "lastModified": "Tue, 30 Dec 2025 14:02:25 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/01_02.xlsx": {
+  "etag": "\"41cba-6472c1bcfcbc0\"",
+  "lastModified": "Tue, 30 Dec 2025 14:23:51 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/01_03.xlsx": {
+  "etag": "\"31ac3-6472c3135b380\"",
+  "lastModified": "Tue, 30 Dec 2025 14:29:50 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/01_04.xlsx": {
+  "etag": "\"2c636-6472c55ed1d80\"",
+  "lastModified": "Tue, 30 Dec 2025 14:40:06 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/01_05.xlsx": {
+  "etag": "\"53df2-6472c7480dfc0\"",
+  "lastModified": "Tue, 30 Dec 2025 14:48:39 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/01_06.xlsx": {
+  "etag": "\"2d589-6472c8001d200\"",
+  "lastModified": "Tue, 30 Dec 2025 14:51:52 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/01_07.xlsx": {
+  "etag": "\"31375-6472c86163780\"",
+  "lastModified": "Tue, 30 Dec 2025 14:53:34 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/01_08.xlsx": {
+  "etag": "\"33b01-6472cb6e72a40\"",
+  "lastModified": "Tue, 30 Dec 2025 15:07:13 GMT"
+ },
  "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/02_14P.xlsx": {
   "etag": "\"2a925-64730c33fbb00\"",
   "lastModified": "Tue, 30 Dec 2025 19:57:00 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_01.xlsx": {
+  "etag": "\"25bdc-64730d661cd40\"",
+  "lastModified": "Tue, 30 Dec 2025 20:02:21 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_02.xlsx": {
+  "etag": "\"2aa92-64730e66a6a80\"",
+  "lastModified": "Tue, 30 Dec 2025 20:06:50 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_03.xlsx": {
+  "etag": "\"24540-64731888a5280\"",
+  "lastModified": "Tue, 30 Dec 2025 20:52:10 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_04.xlsx": {
+  "etag": "\"251af-64731db087c80\"",
+  "lastModified": "Tue, 30 Dec 2025 21:15:14 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_05.xlsx": {
+  "etag": "\"2bbd4-64731044711c0\"",
+  "lastModified": "Tue, 30 Dec 2025 20:15:11 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_06.xlsx": {
+  "etag": "\"3c69-647337ee36580\"",
+  "lastModified": "Tue, 30 Dec 2025 23:12:38 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_07.xlsx": {
+  "etag": "\"36275-647310b129240\"",
+  "lastModified": "Tue, 30 Dec 2025 20:17:05 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_08.xlsx": {
+  "etag": "\"29f52-64731570244c0\"",
+  "lastModified": "Tue, 30 Dec 2025 20:38:19 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_09.xlsx": {
+  "etag": "\"26f2f-6473173bd0140\"",
+  "lastModified": "Tue, 30 Dec 2025 20:46:21 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_10.xlsx": {
+  "etag": "\"2a01a-6473179ff2d80\"",
+  "lastModified": "Tue, 30 Dec 2025 20:48:06 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_11.xlsx": {
+  "etag": "\"27606-647359ec7d8c0\"",
+  "lastModified": "Wed, 31 Dec 2025 01:44:43 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_12.xlsx": {
+  "etag": "\"85af-64731b079b600\"",
+  "lastModified": "Tue, 30 Dec 2025 21:03:20 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_13.xlsx": {
+  "etag": "\"87fc-64731c11ae9c0\"",
+  "lastModified": "Tue, 30 Dec 2025 21:07:59 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_14.xlsx": {
+  "etag": "\"2a7f8-64731b885a5c0\"",
+  "lastModified": "Tue, 30 Dec 2025 21:05:35 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/03_15.xlsx": {
+  "etag": "\"27a1c-64731a3f55d80\"",
+  "lastModified": "Tue, 30 Dec 2025 20:59:50 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_01.xlsx": {
+  "etag": "\"23718-64732e71342c0\"",
+  "lastModified": "Tue, 30 Dec 2025 22:30:11 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_02.xlsx": {
+  "etag": "\"2374e-64732e75f8e00\"",
+  "lastModified": "Tue, 30 Dec 2025 22:30:16 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_03.xlsx": {
+  "etag": "\"238a4-64732e853b200\"",
+  "lastModified": "Tue, 30 Dec 2025 22:30:32 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_04.xlsx": {
+  "etag": "\"2311d-64732e9efaec0\"",
+  "lastModified": "Tue, 30 Dec 2025 22:30:59 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_05.xlsx": {
+  "etag": "\"230fa-64732eb4ea280\"",
+  "lastModified": "Tue, 30 Dec 2025 22:31:22 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_06.xlsx": {
+  "etag": "\"23298-64732ec614b00\"",
+  "lastModified": "Tue, 30 Dec 2025 22:31:40 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_07.xlsx": {
+  "etag": "\"23741-64732edc03ec0\"",
+  "lastModified": "Tue, 30 Dec 2025 22:32:03 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_08.xlsx": {
+  "etag": "\"2336b-64732eef16bc0\"",
+  "lastModified": "Tue, 30 Dec 2025 22:32:23 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_09.xlsx": {
+  "etag": "\"231ab-64732f0505f80\"",
+  "lastModified": "Tue, 30 Dec 2025 22:32:46 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_10.xlsx": {
+  "etag": "\"23150-64732f116bcc0\"",
+  "lastModified": "Tue, 30 Dec 2025 22:32:59 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_11.xlsx": {
+  "etag": "\"24a06-64732f1be9580\"",
+  "lastModified": "Tue, 30 Dec 2025 22:33:10 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_12.xlsx": {
+  "etag": "\"23d95-64735c5f0df00\"",
+  "lastModified": "Wed, 31 Dec 2025 01:55:40 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_13.xlsx": {
+  "etag": "\"23ee6-64732fdf6a2c0\"",
+  "lastModified": "Tue, 30 Dec 2025 22:36:35 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_14.xlsx": {
+  "etag": "\"24895-6473302043bc0\"",
+  "lastModified": "Tue, 30 Dec 2025 22:37:43 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_15.xlsx": {
+  "etag": "\"1a083-64a946f77c780\"",
+  "lastModified": "Wed, 11 Feb 2026 23:07:26 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_16.xlsx": {
+  "etag": "\"27bfe-64a947999c600\"",
+  "lastModified": "Wed, 11 Feb 2026 23:10:16 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/04_17.xlsx": {
+  "etag": "\"26edc-64a92756ca900\"",
+  "lastModified": "Wed, 11 Feb 2026 20:45:56 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_01.xlsx": {
+  "etag": "\"82ff-647332d0d1440\"",
+  "lastModified": "Tue, 30 Dec 2025 22:49:45 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_02.xlsx": {
+  "etag": "\"9d51-647332f41a780\"",
+  "lastModified": "Tue, 30 Dec 2025 22:50:22 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_03.xlsx": {
+  "etag": "\"c9c3-6473331d1c840\"",
+  "lastModified": "Tue, 30 Dec 2025 22:51:05 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_04.xlsx": {
+  "etag": "\"5d03-64733349ef200\"",
+  "lastModified": "Tue, 30 Dec 2025 22:51:52 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_05.xlsx": {
+  "etag": "\"8bc5-6473338f8d640\"",
+  "lastModified": "Tue, 30 Dec 2025 22:53:05 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_06.xlsx": {
+  "etag": "\"c4f4-647333c218d80\"",
+  "lastModified": "Tue, 30 Dec 2025 22:53:58 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_07.xlsx": {
+  "etag": "\"a5a1-647333f0d3bc0\"",
+  "lastModified": "Tue, 30 Dec 2025 22:54:47 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_08.xlsx": {
+  "etag": "\"6912-647334226b0c0\"",
+  "lastModified": "Tue, 30 Dec 2025 22:55:39 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_09.xlsx": {
+  "etag": "\"5a63-6473344d55600\"",
+  "lastModified": "Tue, 30 Dec 2025 22:56:24 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_10.xlsx": {
+  "etag": "\"59c7-6473347d04680\"",
+  "lastModified": "Tue, 30 Dec 2025 22:57:14 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_11.xlsx": {
+  "etag": "\"33269-647334ae9bb80\"",
+  "lastModified": "Tue, 30 Dec 2025 22:58:06 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/05_12.xlsx": {
+  "etag": "\"402d6-647334db6e540\"",
+  "lastModified": "Tue, 30 Dec 2025 22:58:53 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/06_01.xlsx": {
+  "etag": "\"814d-64733659dab80\"",
+  "lastModified": "Tue, 30 Dec 2025 23:05:34 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/06_02.xlsx": {
+  "etag": "\"76df-64733685b9300\"",
+  "lastModified": "Tue, 30 Dec 2025 23:06:20 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/06_03.xlsx": {
+  "etag": "\"5aa8-647336a625f80\"",
+  "lastModified": "Tue, 30 Dec 2025 23:06:54 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/06_04.xlsx": {
+  "etag": "\"5f75-647336c3b6540\"",
+  "lastModified": "Tue, 30 Dec 2025 23:07:25 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/07_01.xlsx": {
+  "etag": "\"266f3-64733743812c0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:09:39 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/07_02.xlsx": {
+  "etag": "\"25239-6473376a9af00\"",
+  "lastModified": "Tue, 30 Dec 2025 23:10:20 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/08_01.xlsx": {
+  "etag": "\"11a1c-64733875a2500\"",
+  "lastModified": "Tue, 30 Dec 2025 23:15:00 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/08_02.xlsx": {
+  "etag": "\"144ac-64733898eb840\"",
+  "lastModified": "Tue, 30 Dec 2025 23:15:37 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/08_03.xlsx": {
+  "etag": "\"40f62-647338ecd7e40\"",
+  "lastModified": "Tue, 30 Dec 2025 23:17:05 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/08_04.xlsx": {
+  "etag": "\"1b725-647339078bd40\"",
+  "lastModified": "Tue, 30 Dec 2025 23:17:33 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/08_05.xlsx": {
+  "etag": "\"175b9-64733919aa800\"",
+  "lastModified": "Tue, 30 Dec 2025 23:17:52 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_01.xlsx": {
+  "etag": "\"1aee8-6473397ec1680\"",
+  "lastModified": "Tue, 30 Dec 2025 23:19:38 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_02.xlsx": {
+  "etag": "\"46c7-6473399698ec0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:20:03 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_03.xlsx": {
+  "etag": "\"6d65-647339b241000\"",
+  "lastModified": "Tue, 30 Dec 2025 23:20:32 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_04.xlsx": {
+  "etag": "\"a3f0-647339d496100\"",
+  "lastModified": "Tue, 30 Dec 2025 23:21:08 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_05.xlsx": {
+  "etag": "\"be3a-647339f2266c0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:21:39 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_06.xlsx": {
+  "etag": "\"15888-64733a0be6380\"",
+  "lastModified": "Tue, 30 Dec 2025 23:22:06 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_07.xlsx": {
+  "etag": "\"101f7-64733a3023900\"",
+  "lastModified": "Tue, 30 Dec 2025 23:22:44 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_08.xlsx": {
+  "etag": "\"c229-64733a536cc40\"",
+  "lastModified": "Tue, 30 Dec 2025 23:23:21 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_09.xlsx": {
+  "etag": "\"ca64-64733a8227a80\"",
+  "lastModified": "Tue, 30 Dec 2025 23:24:10 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_10.xlsx": {
+  "etag": "\"fe23-64733aaa35900\"",
+  "lastModified": "Tue, 30 Dec 2025 23:24:52 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_11.xlsx": {
+  "etag": "\"13094-64733bc75b9c0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:29:51 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_12.xlsx": {
+  "etag": "\"17332-64733bfdb7a00\"",
+  "lastModified": "Tue, 30 Dec 2025 23:30:48 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_13.xlsx": {
+  "etag": "\"17ffb-64733c2c72840\"",
+  "lastModified": "Tue, 30 Dec 2025 23:31:37 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_14.xlsx": {
+  "etag": "\"732f-64733c4fbbb80\"",
+  "lastModified": "Tue, 30 Dec 2025 23:32:14 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_15.xlsx": {
+  "etag": "\"3d0b4-64733c76d57c0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:32:55 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_16.xlsx": {
+  "etag": "\"6a23-64733cac3d5c0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:33:51 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_17.xlsx": {
+  "etag": "\"2c41d-64733d0029bc0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:35:19 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_18.xlsx": {
+  "etag": "\"9869-64733d18f5640\"",
+  "lastModified": "Tue, 30 Dec 2025 23:35:45 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_19.xlsx": {
+  "etag": "\"aa5d-64733d3e26e00\"",
+  "lastModified": "Tue, 30 Dec 2025 23:36:24 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/09_20.xlsx": {
+  "etag": "\"f49d-64733d6a05580\"",
+  "lastModified": "Tue, 30 Dec 2025 23:37:10 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_01.xlsx": {
+  "etag": "\"1fe42-64734068c6680\"",
+  "lastModified": "Tue, 30 Dec 2025 23:50:34 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_02.xlsx": {
+  "etag": "\"1faac-6473407eb5a40\"",
+  "lastModified": "Tue, 30 Dec 2025 23:50:57 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_03.xlsx": {
+  "etag": "\"20634-64734093b0bc0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:51:19 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_04.xlsx": {
+  "etag": "\"204d4-647340a2f2fc0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:51:35 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_05.xlsx": {
+  "etag": "\"1ec71-647340baca800\"",
+  "lastModified": "Tue, 30 Dec 2025 23:52:00 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_06.xlsx": {
+  "etag": "\"1e2a1-647340d396280\"",
+  "lastModified": "Tue, 30 Dec 2025 23:52:26 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_07.xlsx": {
+  "etag": "\"1efad-647340e4c0b00\"",
+  "lastModified": "Tue, 30 Dec 2025 23:52:44 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_08.xlsx": {
+  "etag": "\"1ecfe-64734030821c0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:49:35 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_09.xlsx": {
+  "etag": "\"2b8d8-647342337e0c0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:58:35 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_10.xlsx": {
+  "etag": "\"26796-6473428399dc0\"",
+  "lastModified": "Tue, 30 Dec 2025 23:59:59 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_11.xlsx": {
+  "etag": "\"288f6-647342a4fac80\"",
+  "lastModified": "Wed, 31 Dec 2025 00:00:34 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_12.xlsx": {
+  "etag": "\"2698e-647342c0a2dc0\"",
+  "lastModified": "Wed, 31 Dec 2025 00:01:03 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_13.xlsx": {
+  "etag": "\"2636d-6473430b05d40\"",
+  "lastModified": "Wed, 31 Dec 2025 00:02:21 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_14.xlsx": {
+  "etag": "\"28be6-64734325b9c40\"",
+  "lastModified": "Wed, 31 Dec 2025 00:02:49 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_15.xlsx": {
+  "etag": "\"2695a-64734338cc940\"",
+  "lastModified": "Wed, 31 Dec 2025 00:03:09 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_16.xlsx": {
+  "etag": "\"264c6-6473435568cc0\"",
+  "lastModified": "Wed, 31 Dec 2025 00:03:39 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_17.xlsx": {
+  "etag": "\"28cce-6473438147440\"",
+  "lastModified": "Wed, 31 Dec 2025 00:04:25 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_18.xlsx": {
+  "etag": "\"26375-647343a2a8300\"",
+  "lastModified": "Wed, 31 Dec 2025 00:05:00 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_19.xlsx": {
+  "etag": "\"9d84f-647343edff4c0\"",
+  "lastModified": "Wed, 31 Dec 2025 00:06:19 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_20.xlsx": {
+  "etag": "\"9e183-6473440f60380\"",
+  "lastModified": "Wed, 31 Dec 2025 00:06:54 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_21.xlsx": {
+  "etag": "\"9d603-647344376e200\"",
+  "lastModified": "Wed, 31 Dec 2025 00:07:36 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_22.xlsx": {
+  "etag": "\"9d4cb-64734457dae80\"",
+  "lastModified": "Wed, 31 Dec 2025 00:08:10 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_23.xlsx": {
+  "etag": "\"e816a-64734484ad840\"",
+  "lastModified": "Wed, 31 Dec 2025 00:08:57 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_24.xlsx": {
+  "etag": "\"a0e42-647344a149bc0\"",
+  "lastModified": "Wed, 31 Dec 2025 00:09:27 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/10_25.xlsx": {
+  "etag": "\"9ede5-647344b738f80\"",
+  "lastModified": "Wed, 31 Dec 2025 00:09:50 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/11_01.xlsx": {
+  "etag": "\"174a1-647345056c800\"",
+  "lastModified": "Wed, 31 Dec 2025 00:11:12 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/11_02.xlsx": {
+  "etag": "\"13ba2-64734523f1000\"",
+  "lastModified": "Wed, 31 Dec 2025 00:11:44 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/11_03.xlsx": {
+  "etag": "\"ecb4-6473454369a40\"",
+  "lastModified": "Wed, 31 Dec 2025 00:12:17 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/11_04.xlsx": {
+  "etag": "\"6af7-6473455b41280\"",
+  "lastModified": "Wed, 31 Dec 2025 00:12:42 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/11_05.xlsx": {
+  "etag": "\"686b-647345a78c680\"",
+  "lastModified": "Wed, 31 Dec 2025 00:14:02 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/12_01.xlsx": {
+  "etag": "\"43b8-6473465241940\"",
+  "lastModified": "Wed, 31 Dec 2025 00:17:01 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/12_02.xlsx": {
+  "etag": "\"3f7b-6473467c37c40\"",
+  "lastModified": "Wed, 31 Dec 2025 00:17:45 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/12_03.xlsx": {
+  "etag": "\"286c4-6473469f80f80\"",
+  "lastModified": "Wed, 31 Dec 2025 00:18:22 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/12_04.xlsx": {
+  "etag": "\"516f-647346c0e1e40\"",
+  "lastModified": "Wed, 31 Dec 2025 00:18:57 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/12_05.xlsx": {
+  "etag": "\"e85c-64734726ecf00\"",
+  "lastModified": "Wed, 31 Dec 2025 00:20:44 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/12_06.xlsx": {
+  "etag": "\"75de-6473470868700\"",
+  "lastModified": "Wed, 31 Dec 2025 00:20:12 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/13_01.xlsx": {
+  "etag": "\"540f-64730ca1a7dc0\"",
+  "lastModified": "Tue, 30 Dec 2025 19:58:55 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/13_02.xlsx": {
+  "etag": "\"583b-64730ca854d80\"",
+  "lastModified": "Tue, 30 Dec 2025 19:59:02 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/13_03.xlsx": {
+  "etag": "\"551f-64730e8066740\"",
+  "lastModified": "Tue, 30 Dec 2025 20:07:17 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/13_04.xlsx": {
+  "etag": "\"5f23-6473108362640\"",
+  "lastModified": "Tue, 30 Dec 2025 20:16:17 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/13_05.xlsx": {
+  "etag": "\"896b-64735a5dfa480\"",
+  "lastModified": "Wed, 31 Dec 2025 01:46:42 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/13_06.xlsx": {
+  "etag": "\"775b-64735a710d180\"",
+  "lastModified": "Wed, 31 Dec 2025 01:47:02 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/13_07.xlsx": {
+  "etag": "\"4ae3-64735a8237a00\"",
+  "lastModified": "Wed, 31 Dec 2025 01:47:20 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/13_08.xlsx": {
+  "etag": "\"4b2c-64735a9362280\"",
+  "lastModified": "Wed, 31 Dec 2025 01:47:38 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/14_01.xlsx": {
+  "etag": "\"1d6c5-64740e9304e00\"",
+  "lastModified": "Wed, 31 Dec 2025 15:12:56 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/14_02.xlsx": {
+  "etag": "\"7d92-64740ea7fff80\"",
+  "lastModified": "Wed, 31 Dec 2025 15:13:18 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/14_03.xlsx": {
+  "etag": "\"805c-64740eb742380\"",
+  "lastModified": "Wed, 31 Dec 2025 15:13:34 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/14_04.xlsx": {
+  "etag": "\"7c2d-64740ec0cba00\"",
+  "lastModified": "Wed, 31 Dec 2025 15:13:44 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/14_05.xlsx": {
+  "etag": "\"7135-64740f12cfb80\"",
+  "lastModified": "Wed, 31 Dec 2025 15:15:10 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/14_06.xlsx": {
+  "etag": "\"6f93-64740f23061c0\"",
+  "lastModified": "Wed, 31 Dec 2025 15:15:27 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/15_01.xlsx": {
+  "etag": "\"2de44-64734cd72fac0\"",
+  "lastModified": "Wed, 31 Dec 2025 00:46:11 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/15_02.xlsx": {
+  "etag": "\"24bfc-6474026298c00\"",
+  "lastModified": "Wed, 31 Dec 2025 14:18:24 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/15_03.xlsx": {
+  "etag": "\"23a48-64740272cf240\"",
+  "lastModified": "Wed, 31 Dec 2025 14:18:41 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/15_04.xlsx": {
+  "etag": "\"23800-64740284edd00\"",
+  "lastModified": "Wed, 31 Dec 2025 14:19:00 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2025/12/31/15_05.xlsx": {
+  "etag": "\"4c52-64734c730ce80\"",
+  "lastModified": "Wed, 31 Dec 2025 00:44:26 GMT"
  },
  "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026%20Q1%20Resumen_de_Cifras_BOP%2026%205%2026_0.xlsx": {
   "etag": "\"2909b9-658f2b0cb70a2\"",
   "lastModified": "Thu, 13 Aug 2026 19:27:11 GMT"
  },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/01.xlsx": {
+  "etag": "\"3cc32-64c9bf0fcb8c0\"",
+  "lastModified": "Mon, 09 Mar 2026 18:55:07 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/02.xlsx": {
+  "etag": "\"42546-64c9c3d8501c0\"",
+  "lastModified": "Mon, 09 Mar 2026 19:16:31 GMT"
+ },
  "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/03A.xlsx": {
   "etag": "\"39373-64c9caa0f4300\"",
   "lastModified": "Mon, 09 Mar 2026 19:46:52 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/04.xlsx": {
+  "etag": "\"5dcb6-64bbb420734c0\"",
+  "lastModified": "Thu, 26 Feb 2026 14:51:39 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/05.xlsx": {
+  "etag": "\"33f9f-64bbb4a31a900\"",
+  "lastModified": "Thu, 26 Feb 2026 14:53:56 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/06.xlsx": {
+  "etag": "\"38760-64c9cac902180\"",
+  "lastModified": "Mon, 09 Mar 2026 19:47:34 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/07.xlsx": {
+  "etag": "\"2483e-64bbb53e8d7c0\"",
+  "lastModified": "Thu, 26 Feb 2026 14:56:39 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/08.xlsx": {
+  "etag": "\"24b47-64bbb55388940\"",
+  "lastModified": "Thu, 26 Feb 2026 14:57:01 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/09.xlsx": {
+  "etag": "\"246ad-64bbb565a7400\"",
+  "lastModified": "Thu, 26 Feb 2026 14:57:20 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/10.xlsx": {
+  "etag": "\"285ba-64bbb57c8aa00\"",
+  "lastModified": "Thu, 26 Feb 2026 14:57:44 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/11.xlsx": {
+  "etag": "\"39d55-64bbb5d077000\"",
+  "lastModified": "Thu, 26 Feb 2026 14:59:12 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/12.xlsx": {
+  "etag": "\"32d83-64bbb64c71480\"",
+  "lastModified": "Thu, 26 Feb 2026 15:01:22 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/13.xlsx": {
+  "etag": "\"31fb5-64bbb66ec6580\"",
+  "lastModified": "Thu, 26 Feb 2026 15:01:58 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/14.xlsx": {
+  "etag": "\"316b2-64bbb694ebf80\"",
+  "lastModified": "Thu, 26 Feb 2026 15:02:38 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/15.xlsx": {
+  "etag": "\"3234b-64bbb6aeabc40\"",
+  "lastModified": "Thu, 26 Feb 2026 15:03:05 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/16.xlsx": {
+  "etag": "\"fce8-64bbb61709680\"",
+  "lastModified": "Thu, 26 Feb 2026 15:00:26 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/17.xlsx": {
+  "etag": "\"3bad5-64c9cb5256580\"",
+  "lastModified": "Mon, 09 Mar 2026 19:49:58 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/18.xlsx": {
+  "etag": "\"28472-64bcdcc589440\"",
+  "lastModified": "Fri, 27 Feb 2026 12:58:49 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/19.xlsx": {
+  "etag": "\"6239-64bbef76932c0\"",
+  "lastModified": "Thu, 26 Feb 2026 19:17:07 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/20.xlsx": {
+  "etag": "\"5af8-64bbef8e6ab00\"",
+  "lastModified": "Thu, 26 Feb 2026 19:17:32 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/21.xlsx": {
+  "etag": "\"4e57-64bbef9bc4a80\"",
+  "lastModified": "Thu, 26 Feb 2026 19:17:46 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/22.xlsx": {
+  "etag": "\"4eee-64bbefaa12c40\"",
+  "lastModified": "Thu, 26 Feb 2026 19:18:01 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/23.xlsx": {
+  "etag": "\"2edd-64bbefb678980\"",
+  "lastModified": "Thu, 26 Feb 2026 19:18:14 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/24.xlsx": {
+  "etag": "\"2c4d1-64bbb6d4d1640\"",
+  "lastModified": "Thu, 26 Feb 2026 15:03:45 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/25.xlsx": {
+  "etag": "\"12d97-64bc2004c4140\"",
+  "lastModified": "Thu, 26 Feb 2026 22:54:21 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/26.xlsx": {
+  "etag": "\"19946-64bc208a47c40\"",
+  "lastModified": "Thu, 26 Feb 2026 22:56:41 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/27.xlsx": {
+  "etag": "\"198be-64bc20a4fbb40\"",
+  "lastModified": "Thu, 26 Feb 2026 22:57:09 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/28.xlsx": {
+  "etag": "\"66bb-64bc20d4aabc0\"",
+  "lastModified": "Thu, 26 Feb 2026 22:57:59 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/29.xlsx": {
+  "etag": "\"35d46-64bbb897e7e80\"",
+  "lastModified": "Thu, 26 Feb 2026 15:11:38 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/30.xlsx": {
+  "etag": "\"151dc-64bc210de32c0\"",
+  "lastModified": "Thu, 26 Feb 2026 22:58:59 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/31.xlsx": {
+  "etag": "\"1afb7-64bc2138cd800\"",
+  "lastModified": "Thu, 26 Feb 2026 22:59:44 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/32.xlsx": {
+  "etag": "\"5fa6-64bc215b22900\"",
+  "lastModified": "Thu, 26 Feb 2026 23:00:20 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/33.xlsx": {
+  "etag": "\"41264-64bc21823c540\"",
+  "lastModified": "Thu, 26 Feb 2026 23:01:01 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/34.xlsx": {
+  "etag": "\"aa01-64bc21ac32840\"",
+  "lastModified": "Thu, 26 Feb 2026 23:01:45 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/35.xlsx": {
+  "etag": "\"bd47-64bc21cbab280\"",
+  "lastModified": "Thu, 26 Feb 2026 23:02:18 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/36.xlsx": {
+  "etag": "\"15bd2d-64bc2217f6680\"",
+  "lastModified": "Thu, 26 Feb 2026 23:03:38 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/37.xlsx": {
+  "etag": "\"154596-64bc22498db80\"",
+  "lastModified": "Thu, 26 Feb 2026 23:04:30 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/38.xlsx": {
+  "etag": "\"12689-64bc226be2c80\"",
+  "lastModified": "Thu, 26 Feb 2026 23:05:06 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/39.xlsx": {
+  "etag": "\"118e7-64bc2292fc8c0\"",
+  "lastModified": "Thu, 26 Feb 2026 23:05:47 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/40.xlsx": {
+  "etag": "\"17b282-64bc22b1810c0\"",
+  "lastModified": "Thu, 26 Feb 2026 23:06:19 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/41.xlsx": {
+  "etag": "\"120b5-64bc22d3d61c0\"",
+  "lastModified": "Thu, 26 Feb 2026 23:06:55 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/42.xlsx": {
+  "etag": "\"1bf43-64bc1fbe31ac0\"",
+  "lastModified": "Thu, 26 Feb 2026 22:53:07 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/43.xlsx": {
+  "etag": "\"2ec1c-64bbbc4dc3f80\"",
+  "lastModified": "Thu, 26 Feb 2026 15:28:14 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/44.xlsx": {
+  "etag": "\"24cde-64bbbcdae8c80\"",
+  "lastModified": "Thu, 26 Feb 2026 15:30:42 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/45.xlsx": {
+  "etag": "\"4fe2-64bbbc3310080\"",
+  "lastModified": "Thu, 26 Feb 2026 15:27:46 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/46.xlsx": {
+  "etag": "\"46d8-64bc471c9fcc0\"",
+  "lastModified": "Fri, 27 Feb 2026 01:49:15 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/47.xlsx": {
+  "etag": "\"7054-64bbefd314d00\"",
+  "lastModified": "Thu, 26 Feb 2026 19:18:44 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/48.xlsx": {
+  "etag": "\"726f-64bbefe71bc40\"",
+  "lastModified": "Thu, 26 Feb 2026 19:19:05 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/49.xlsx": {
+  "etag": "\"a3b0-64bbeff475bc0\"",
+  "lastModified": "Thu, 26 Feb 2026 19:19:19 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/50.xlsx": {
+  "etag": "\"547e-64bbf001cfb40\"",
+  "lastModified": "Thu, 26 Feb 2026 19:19:33 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/51.xlsx": {
+  "etag": "\"8637-64bbf04f0f180\"",
+  "lastModified": "Thu, 26 Feb 2026 19:20:54 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/52.xlsx": {
+  "etag": "\"987d-64bbf066e69c0\"",
+  "lastModified": "Thu, 26 Feb 2026 19:21:19 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/53.xlsx": {
+  "etag": "\"7ead-64bbf07628dc0\"",
+  "lastModified": "Thu, 26 Feb 2026 19:21:35 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/54.xlsx": {
+  "etag": "\"58de-64bbf08476f80\"",
+  "lastModified": "Thu, 26 Feb 2026 19:21:50 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/55.xlsx": {
+  "etag": "\"5127-64bbf08ef4840\"",
+  "lastModified": "Thu, 26 Feb 2026 19:22:01 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/56.xlsx": {
+  "etag": "\"5131-64bbf09f2ae80\"",
+  "lastModified": "Thu, 26 Feb 2026 19:22:18 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/57.xlsx": {
+  "etag": "\"3327-64bbf0ae6d280\"",
+  "lastModified": "Thu, 26 Feb 2026 19:22:34 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/58.xlsx": {
+  "etag": "\"40cd1-64bced713a900\"",
+  "lastModified": "Fri, 27 Feb 2026 14:13:24 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/59.xlsx": {
+  "etag": "\"287bb-64bbb8f651d40\"",
+  "lastModified": "Thu, 26 Feb 2026 15:13:17 GMT"
  },
  "https://www.bcb.gob.bo/webdocs/publicacionesbcb/2026/02/27/60.xlsx": {
   "etag": "\"336cb-64bbff72ca980\"",
@@ -243,7 +1023,10 @@
   "etag": "\"58e2-65aa7b223e8c0\"",
   "lastModified": "Fri, 04 Sep 2026 12:49:15 GMT"
  },
- "https://www.bcb.gob.bo/webdocs/sector_externo/B%20Comercio%20Internacional%20de%20Servicios/Saldo comercial de servicios segun pa\u00eds.xlsx": {},
+ "https://www.bcb.gob.bo/webdocs/sector_externo/B%20Comercio%20Internacional%20de%20Servicios/Saldo comercial de servicios segun pa\u00eds.xlsx": {
+  "etag": "\"5162-65aa7b223e8c0\"",
+  "lastModified": "Fri, 04 Sep 2026 12:49:15 GMT"
+ },
  "https://www.bcb.gob.bo/webdocs/sector_externo/C%20Remesas%20de%20Trabajadores/Remesas de trabajadores recibidas segun pais de origen.xlsx": {
   "etag": "\"1ce6f-65bc3ef0386c0\"",
   "lastModified": "Fri, 18 Sep 2026 15:55:47 GMT"
@@ -296,7 +1079,10 @@
   "etag": "\"2aef7-65afd305eaa40\"",
   "lastModified": "Tue, 08 Sep 2026 18:49:05 GMT"
  },
- "https://www.bcb.gob.bo/webdocs/sector_externo/E%20Deuda%20Externa/EXTERNA PRIVADA SERVICIO TOTAL DE LA DEUDA POR SECTOR Y ACTIVIDAD ECON\u00d3MICA.xlsx": {},
+ "https://www.bcb.gob.bo/webdocs/sector_externo/E%20Deuda%20Externa/EXTERNA PRIVADA SERVICIO TOTAL DE LA DEUDA POR SECTOR Y ACTIVIDAD ECON\u00d3MICA.xlsx": {
+  "etag": "\"2a536-65afd41893240\"",
+  "lastModified": "Tue, 08 Sep 2026 18:53:53 GMT"
+ },
  "https://www.bcb.gob.bo/webdocs/sector_externo/E%20Deuda%20Externa/EXTERNA%20PRIVADA%20DESEMBOLSOS%20TOTALES%20-%20POR%20ACREEDOR%20Y%20PLAZO.xlsx": {
   "etag": "\"2806b-65a8251176540\"",
   "lastModified": "Wed, 02 Sep 2026 16:13:33 GMT"
@@ -585,15 +1371,30 @@
   "etag": "\"10f77-65bfecfa85400\"",
   "lastModified": "Mon, 21 Sep 2026 14:10:24 GMT"
  },
- "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/17. Dep\u00f3sitos totales por monedas serie.xlsx": {},
- "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/18. Dep\u00f3sitos vista por monedas serie.xlsx": {},
- "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/19. Dep\u00f3sitos en caja de ahorro por monedas serie.xlsx": {},
+ "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/17. Dep\u00f3sitos totales por monedas serie.xlsx": {
+  "etag": "\"7f8e2-65bfef6850f00\"",
+  "lastModified": "Mon, 21 Sep 2026 14:21:16 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/18. Dep\u00f3sitos vista por monedas serie.xlsx": {
+  "etag": "\"59f6a-65bff0a6d7e80\"",
+  "lastModified": "Mon, 21 Sep 2026 14:26:50 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/19. Dep\u00f3sitos en caja de ahorro por monedas serie.xlsx": {
+  "etag": "\"7b97e-65bff74c32c80\"",
+  "lastModified": "Mon, 21 Sep 2026 14:56:34 GMT"
+ },
  "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/2.%20Financiamiento%20por%20Destino%20del%20Cr%C3%A9dito%20por%20Bancos.xlsx": {
   "etag": "\"24512-65b3613a1db00\"",
   "lastModified": "Fri, 11 Sep 2026 14:41:16 GMT"
  },
- "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/20. Dep\u00f3sitos a plazo fijo por monedas serie.xlsx": {},
- "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/21. Dep\u00f3sitos otros por monedas serie.xlsx": {},
+ "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/20. Dep\u00f3sitos a plazo fijo por monedas serie.xlsx": {
+  "etag": "\"7a59c-65bffa9556d00\"",
+  "lastModified": "Mon, 21 Sep 2026 15:11:16 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/21. Dep\u00f3sitos otros por monedas serie.xlsx": {
+  "etag": "\"67149-65bffc9a3b080\"",
+  "lastModified": "Mon, 21 Sep 2026 15:20:18 GMT"
+ },
  "https://www.bcb.gob.bo/webdocs/sector_monetario/Cr%C3%A9ditos%20y%20Dep%C3%B3sitos/OSD/3.%20Financiamiento%20por%20Destino%20del%20Cr%C3%A9dito%20EFV.xlsx": {
   "etag": "\"7bb1-65b7472e1d280\"",
   "lastModified": "Mon, 14 Sep 2026 17:06:02 GMT"
@@ -818,9 +1619,9 @@
   "etag": "\"1024e-65b11246ef9d0\"",
   "lastModified": "Wed, 09 Sep 2026 18:37:24 GMT"
  },
- "https://www.bcb.gob.bo/webdocs/tasas_interes/28%20AH%20S%202026.xlsx": {
-  "etag": "\"969379-65c8a04c4dc8a\"",
-  "lastModified": "Mon, 28 Sep 2026 12:15:15 GMT"
+ "https://www.bcb.gob.bo/webdocs/tasas_interes/28%20AH%20S%202026_0.xlsx": {
+  "etag": "\"9ab8da-65cc69ba947f1\"",
+  "lastModified": "Thu, 01 Oct 2026 12:32:25 GMT"
  },
  "https://www.bcb.gob.bo/webdocs/tasas_interes/28%20AHS%202019.xlsx": {
   "etag": "\"181b2-59bbc58e346c0\"",
@@ -850,13 +1651,9 @@
   "etag": "\"d4f8c-5109277a31780\"",
   "lastModified": "Thu, 05 Mar 2015 22:55:42 GMT"
  },
- "https://www.bcb.gob.bo/webdocs/tasas_interes/PUBLICACION%202026%2009%2007%20TASAS%20ACT%20Y%20PAS.xlsx": {
-  "etag": "\"d2be-65b9fe864e22d\"",
-  "lastModified": "Wed, 16 Sep 2026 20:56:57 GMT"
- },
- "https://www.bcb.gob.bo/webdocs/tasas_interes/PUBLICACION%202026%2009%2014%20TASAS%20EMP.%20ACT.%20INF%20%281%29.xlsx": {
-  "etag": "\"8d6a-65c89ea0e54f7\"",
-  "lastModified": "Mon, 28 Sep 2026 12:07:47 GMT"
+ "https://www.bcb.gob.bo/webdocs/tasas_interes/PUBLICACION%202026%2009%2021%20TASAS%20ACT%20Y%20PAS.xlsx": {
+  "etag": "\"d3c8-65ccb2e08e48c\"",
+  "lastModified": "Thu, 01 Oct 2026 17:59:40 GMT"
  },
  "https://www.bcb.gob.bo/webdocs/tasas_interes/TASAS%20ACT%20Y%20PAS_4.xlsx": {
   "etag": "\"1f96e-64407eb59b602\"",
@@ -866,13 +1663,17 @@
   "etag": "\"104b6-62cc53e3bd3d6\"",
   "lastModified": "Tue, 28 Jan 2025 14:45:24 GMT"
  },
- "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_24%2009%202026%20%281%29.xlsx": {
-  "etag": "\"c30c-65c9347f63f0c\"",
-  "lastModified": "Mon, 28 Sep 2026 23:18:17 GMT"
+ "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_28%2009%202026.xlsx": {
+  "etag": "\"c87d-65cc68293b6c0\"",
+  "lastModified": "Thu, 01 Oct 2026 12:25:24 GMT"
  },
- "https://www.bcb.gob.bo/webdocs/tasas_interes/otras_tasas/NUEVA%20TRE%20GESTION-2026.xlsx": {
-  "etag": "\"97de-65a6ad6fc6bc1\"",
-  "lastModified": "Tue, 01 Sep 2026 12:13:00 GMT"
+ "https://www.bcb.gob.bo/webdocs/tasas_interes/Tasas%20de%20Interes%2007.03.13.xls": {
+  "etag": "\"11400-51249feb8f4c0\"",
+  "lastModified": "Fri, 27 Mar 2015 19:18:19 GMT"
+ },
+ "https://www.bcb.gob.bo/webdocs/tasas_interes/otras_tasas/NUEVA%20TRE%20GESTION-2026_0.xlsx": {
+  "etag": "\"9858-65cc679a6355b\"",
+  "lastModified": "Thu, 01 Oct 2026 12:22:54 GMT"
  },
  "https://www.bcb.gob.bo/webdocs/tasas_interes/otras_tasas/TRE%20GESTION%202009C.xlsx": {
   "etag": "\"e017-5593a92b71300\"",
