@@ -159,9 +159,9 @@ export const agentBootstrapSeedSchema = z
      * con la base de comercio exterior del INE, registro por registro. A 27
      * con los servicios de dólar digital de los bancos, a 28 con las
      * estadísticas del Banco Central, y a 29 con las cuentas de las empresas
-     * en redes sociales (ADR 0027).
+     * en redes sociales (ADR 0027), y a 30 con las cuentas públicas.
      */
-    backfillAgents: z.array(agentSeedSchema).min(1).max(29),
+    backfillAgents: z.array(agentSeedSchema).min(1).max(30),
   })
   .strict();
 
