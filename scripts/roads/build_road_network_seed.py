@@ -27,6 +27,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import re
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -82,20 +83,40 @@ def geometry_of(lines) -> list[list[list[float]]]:
     return out
 
 
+# Lado, en grados, de la celda en que se parte una via sin nombre ni ruta: ~11 km.
+CELL_DEG = 0.1
+
+
+def cell_of(way: dict) -> str:
+    """La celda de una via, por su punto medio: «-17.8:-63.2»."""
+    mid = way['line'].interpolate(0.5, normalized=True)
+    return f'{math.floor(mid.y / CELL_DEG) * CELL_DEG:.1f}:{math.floor(mid.x / CELL_DEG) * CELL_DEG:.1f}'
+
+
 def sections_of(ways: list[dict]) -> list[dict]:
+    """Agrupa vias en tramos: cada tramo comparte ruta o nombre, departamento, rodadura y estado.
+
+    La primera version juntaba por ruta (o por clase si no habia nombre) y se quedaba con UN
+    nombre por tramo: F-10 pavimentada era un solo tramo de 383 km y 145 tramos sin nombre
+    reunian 13.148 km (uno solo, 915 vias). Ahora el nombre es parte de la clave, tambien en
+    las rutas con codigo, y lo que no tiene nombre se parte ademas por celda de ~11 km, para
+    que cada pedazo se pueda ver, señalar y contar donde esta.
+    """
     groups: dict[tuple, list[dict]] = defaultdict(list)
     for way in ways:
         network, ref = way['network'], way['route']
-        # Sin referencia se agrupa por nombre y clase; sin nombre, solo por clase.
-        label = ref or f"{way['name'] or ''}({way['highway']})"
-        groups[(network, label, way['department'], way['surface'], way['status'])].append(way)
+        name = way['name'] or ''
+        label = ref or f"{name}({way['highway']})"
+        # Sin ruta y sin nombre: la celda separa lo que la clase junta.
+        cell = cell_of(way) if not ref and not name else ''
+        groups[(network, label, name, cell, way['department'], way['surface'], way['status'])].append(way)
     sections = []
-    for (network, label, department, surface, status), members in sorted(groups.items()):
+    for (network, label, name, cell, department, surface, status), members in sorted(groups.items()):
         names = Counter(way['name'] for way in members if way['name'])
         speeds = Counter(way['maxspeed'] for way in members if way['maxspeed'])
         highway = max((way['highway'] for way in members), key=CLASS_RANK.get)
         centreline = sum(way['km'] * (0.5 if way['oneway'] else 1) for way in members)
-        key = f'{network}|{label}|{department}|{surface}|{status}'
+        key = f'{network}|{label}|{name}|{cell}|{department}|{surface}|{status}'
         sections.append({
             'sectionId': hashlib.sha1(key.encode('utf-8')).hexdigest()[:16],
             'route': label if network != 'SIN_REFERENCIA' else None,
