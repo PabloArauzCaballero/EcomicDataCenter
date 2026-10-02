@@ -30,6 +30,7 @@ if __package__ in (None, ''):  # ejecutado como script
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     __package__ = 'harvest'
 
+from . import blocks, cuts, feeds, matrix  # noqa: E402
 from .grid import load_grid  # noqa: E402
 from .series import Series, extract, slug  # noqa: E402
 from .shape import analyze_sheet  # noqa: E402
@@ -46,6 +47,7 @@ from .sources import (  # noqa: E402
 )
 from .versions import MONTHS, group_key, latest_versions  # noqa: E402
 
+FEEDS = [cuts.FEED, blocks.FEED]
 ROOT = Path(__file__).resolve().parents[3]
 REGISTRY = Path(__file__).with_name('registry.json')
 
@@ -98,10 +100,20 @@ def workbook_series(url: str, data: bytes, retrieved_at: str) -> list[dict]:
     digest = hashlib.sha256(data).hexdigest()
     found: list[dict] = []
     for name, state, rows in sheets:
+        daily = matrix.read(rows, name, book_title(url))
+        if daily:  # un cuadro de día × mes no se lee como serie por columnas
+            found.extend(to_record(one, family, group, url, digest, retrieved_at) for one in daily)
+            continue
         info, detail = analyze_sheet(name, state, rows)
         for one in extract(info, detail):
             found.append(to_record(one, family, group, url, digest, retrieved_at))
     return found
+
+
+def book_title(url: str) -> str:
+    """El nombre del cuaderno si dice algo («Tipo de cambio oficial diario»), vacío si es un número."""
+    base = urllib.parse.unquote(url).rsplit('/', 1)[-1].rsplit('.', 1)[0].replace('_', ' ').strip()
+    return base if len(re.sub(r'[\d\s]', '', base)) >= 6 else ''
 
 
 def to_record(one: Series, family: str, group: str, url: str, digest: str, at: str) -> dict:
@@ -210,6 +222,15 @@ def main() -> int:
         print(f'--only: {total} series leídas; no se escribe ninguna semilla')
         return 0
     changed = [family for family, records in by_family.items() if write_family(family, records)]
+    for feed in FEEDS:
+        added = feeds.update(feed, fetcher, urls, at, pause=0 if args.local else args.pause)
+        if added:
+            records, feed_state = added
+            if write_family(feed.family, records):
+                changed.append(feed.family)
+            OUT.mkdir(parents=True, exist_ok=True)
+            body = json.dumps(feed_state, indent=1, sort_keys=True)
+            (OUT / feed.state).write_text(body + '\n', encoding='utf-8', newline='\n')
     if not args.local and new_state != state:
         OUT.mkdir(parents=True, exist_ok=True)
         STATE.write_text(json.dumps(new_state, indent=1, sort_keys=True) + '\n', encoding='utf-8')
