@@ -1177,6 +1177,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
       "asset": "USDT",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-02",
+      "value": "11.97",
+      "unit": "BOB/USD",
+      "venue": "BITGETP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB bitgetp2p bid 11.97 time 1790975902.",
+      "excerpt": "\"bitgetp2p\":{\"ask\":12,\"totalAsk\":12,\"bid\":11.97,\"totalBid\":11.97,\"time\":1790975902}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "a95f32b571688e2cacb2b789e744ee1a0040cf82d53e7f0776372f5ce11e8d09",
+      "retrievedAt": "2026-10-02T21:18:39Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
       "priceSide": "SELL",
       "eventDate": "2026-09-22",
       "value": "12.23",
@@ -1263,6 +1278,21 @@
       "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
       "documentSha256": "68891b1915974f002305230271363316a63c338551bf0c3e37f595068cc1976f",
       "retrievedAt": "2026-10-01T17:21:58Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-02",
+      "value": "12",
+      "unit": "BOB/USD",
+      "venue": "BITGETP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB bitgetp2p ask 12 time 1790975902.",
+      "excerpt": "\"bitgetp2p\":{\"ask\":12,\"totalAsk\":12,\"bid\":11.97,\"totalBid\":11.97,\"time\":1790975902}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "a95f32b571688e2cacb2b789e744ee1a0040cf82d53e7f0776372f5ce11e8d09",
+      "retrievedAt": "2026-10-02T21:18:39Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
