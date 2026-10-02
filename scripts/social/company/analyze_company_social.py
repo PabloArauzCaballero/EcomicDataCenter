@@ -43,13 +43,25 @@ EMOTIONS = ("joy", "sadness", "anger", "surprise", "disgust", "fear")
 CAPTION_LIMIT = 600
 
 
+def clip(text: str, limit: int) -> str:
+    """Recorta a `limit` unidades UTF-16: así cuenta el validador de la semilla (un emoji vale 2)."""
+    while len(text.encode("utf-16-le")) // 2 > limit:
+        text = text[:-1]
+    return text
+
+
 def load_run(run_dir: Path) -> list[dict]:
-    readings = []
+    """Las lecturas de la corrida; si una cuenta se leyó dos veces, vale la última."""
+    latest: dict[tuple[str, str], dict] = {}
     for platform in PLATFORMS:
         path = run_dir / f"{platform}.jsonl"
         if path.exists():
-            readings += [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line]
-    return readings
+            # `splitlines()` también corta en U+2028/U+2029, que JSON.stringify deja crudos dentro de un texto.
+            for line in path.read_text(encoding="utf-8").split("\n"):
+                if line:
+                    reading = json.loads(line)
+                    latest[(platform, reading["profile"]["slug"])] = reading
+    return list(latest.values())
 
 
 def summary(labels: list[dict]) -> dict | None:
@@ -152,7 +164,7 @@ def main() -> None:
             posts.append(
                 {
                     **{k: post.get(k) for k in ("slug", "platform", "postId", "url", "publishedAt", "likes", "comments", "shares", "views", "discovery", "format", "publishedHour")},
-                    "text": (post["text"] or "")[:CAPTION_LIMIT],
+                    "text": clip(post["text"] or "", CAPTION_LIMIT),
                     "interactions": total,
                     "captionPolarity": caption["polarity"] if caption else None,
                     "commentSentiment": summary(labels_by_post.get(key, [])),
