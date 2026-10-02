@@ -1,0 +1,395 @@
+{
+  "family": "subsidios-combustibles",
+  "series": [
+    {
+      "indicatorCode": "FISC_IMF_FFS_EXPLICITA_GAS_NATURAL_PCT_GDP",
+      "name": "Subvención explícita (lo que paga el Estado) · gas natural (% del PIB)",
+      "family": "subsidios-combustibles",
+      "topic": "subsidio",
+      "place": "BOL",
+      "concept": "EXPLICITA_GAS_NATURAL",
+      "perimeter": "FMI",
+      "unit": "PCT_GDP",
+      "frequency": "ANNUAL",
+      "publisher": "Fondo Monetario Internacional",
+      "locator": {
+        "dataflow": "IMF.STA,FFS",
+        "key": "BOL.EX.NGA.POGDP_PT.A"
+      },
+      "sourceUrl": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,FFS/BOL.EX+IM.ALL+OIL+NGA.POGDP_PT.A",
+      "upstreamSha256": "ec55f7769fa22a0f797e98b81ffe38cd9dac71d92b824ceefe950e1159c5a2ab",
+      "retrievedAt": "2026-10-02T01:44:02Z",
+      "points": [
+        [
+          "2015-01-01",
+          "1.149628325297028"
+        ],
+        [
+          "2016-01-01",
+          "0.4672817396657706"
+        ],
+        [
+          "2017-01-01",
+          "0.4291051106359258"
+        ],
+        [
+          "2018-01-01",
+          "1.311034783400573"
+        ],
+        [
+          "2019-01-01",
+          "0.4529212362624759"
+        ],
+        [
+          "2020-01-01",
+          "0.4570268203462262"
+        ],
+        [
+          "2021-01-01",
+          "1.812851030287958"
+        ],
+        [
+          "2022-01-01",
+          "1.807679632368309"
+        ],
+        [
+          "2023-01-01",
+          "1.557783862980885"
+        ],
+        [
+          "2024-01-01",
+          "1.275719903445895"
+        ],
+        [
+          "2025-01-01",
+          "0.9160413279159154"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_IMF_FFS_EXPLICITA_PETROLEO_PCT_GDP",
+      "name": "Subvención explícita (lo que paga el Estado) · derivados del petróleo (% del PIB)",
+      "family": "subsidios-combustibles",
+      "topic": "subsidio",
+      "place": "BOL",
+      "concept": "EXPLICITA_PETROLEO",
+      "perimeter": "FMI",
+      "unit": "PCT_GDP",
+      "frequency": "ANNUAL",
+      "publisher": "Fondo Monetario Internacional",
+      "locator": {
+        "dataflow": "IMF.STA,FFS",
+        "key": "BOL.EX.OIL.POGDP_PT.A"
+      },
+      "sourceUrl": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,FFS/BOL.EX+IM.ALL+OIL+NGA.POGDP_PT.A",
+      "upstreamSha256": "ec55f7769fa22a0f797e98b81ffe38cd9dac71d92b824ceefe950e1159c5a2ab",
+      "retrievedAt": "2026-10-02T01:44:02Z",
+      "points": [
+        [
+          "2015-01-01",
+          "1.757854130221695"
+        ],
+        [
+          "2016-01-01",
+          "0.9973950252391864"
+        ],
+        [
+          "2017-01-01",
+          "1.551305831016899"
+        ],
+        [
+          "2018-01-01",
+          "2.743104959016166"
+        ],
+        [
+          "2019-01-01",
+          "2.27847080957439"
+        ],
+        [
+          "2020-01-01",
+          "0.4768801554420216"
+        ],
+        [
+          "2021-01-01",
+          "2.768497211004234"
+        ],
+        [
+          "2022-01-01",
+          "5.667473321516578"
+        ],
+        [
+          "2023-01-01",
+          "3.152407309742223"
+        ],
+        [
+          "2024-01-01",
+          "2.924903961711346"
+        ],
+        [
+          "2025-01-01",
+          "1.668371625949131"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_IMF_FFS_EXPLICITA_TOTAL_PCT_GDP",
+      "name": "Subvención explícita (lo que paga el Estado) · todos los combustibles fósiles (% del PIB)",
+      "family": "subsidios-combustibles",
+      "topic": "subsidio",
+      "place": "BOL",
+      "concept": "EXPLICITA_TOTAL",
+      "perimeter": "FMI",
+      "unit": "PCT_GDP",
+      "frequency": "ANNUAL",
+      "publisher": "Fondo Monetario Internacional",
+      "locator": {
+        "dataflow": "IMF.STA,FFS",
+        "key": "BOL.EX.ALL.POGDP_PT.A"
+      },
+      "sourceUrl": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,FFS/BOL.EX+IM.ALL+OIL+NGA.POGDP_PT.A",
+      "upstreamSha256": "ec55f7769fa22a0f797e98b81ffe38cd9dac71d92b824ceefe950e1159c5a2ab",
+      "retrievedAt": "2026-10-02T01:44:02Z",
+      "points": [
+        [
+          "2015-01-01",
+          "2.907482453020817"
+        ],
+        [
+          "2016-01-01",
+          "1.464676767308472"
+        ],
+        [
+          "2017-01-01",
+          "1.980410943814417"
+        ],
+        [
+          "2018-01-01",
+          "4.054139742416738"
+        ],
+        [
+          "2019-01-01",
+          "2.731392045836866"
+        ],
+        [
+          "2020-01-01",
+          "0.9339069734420523"
+        ],
+        [
+          "2021-01-01",
+          "4.629611168731149"
+        ],
+        [
+          "2022-01-01",
+          "7.528993722718951"
+        ],
+        [
+          "2023-01-01",
+          "4.71019117461986"
+        ],
+        [
+          "2024-01-01",
+          "4.200623863348312"
+        ],
+        [
+          "2025-01-01",
+          "2.584412953865047"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_IMF_FFS_IMPLICITA_GAS_NATURAL_PCT_GDP",
+      "name": "Subvención implícita (costos no cobrados) · gas natural (% del PIB)",
+      "family": "subsidios-combustibles",
+      "topic": "subsidio",
+      "place": "BOL",
+      "concept": "IMPLICITA_GAS_NATURAL",
+      "perimeter": "FMI",
+      "unit": "PCT_GDP",
+      "frequency": "ANNUAL",
+      "publisher": "Fondo Monetario Internacional",
+      "locator": {
+        "dataflow": "IMF.STA,FFS",
+        "key": "BOL.IM.NGA.POGDP_PT.A"
+      },
+      "sourceUrl": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,FFS/BOL.EX+IM.ALL+OIL+NGA.POGDP_PT.A",
+      "upstreamSha256": "ec55f7769fa22a0f797e98b81ffe38cd9dac71d92b824ceefe950e1159c5a2ab",
+      "retrievedAt": "2026-10-02T01:44:02Z",
+      "points": [
+        [
+          "2015-01-01",
+          "1.288587396329712"
+        ],
+        [
+          "2016-01-01",
+          "1.146749129969786"
+        ],
+        [
+          "2017-01-01",
+          "1.28974871875926"
+        ],
+        [
+          "2018-01-01",
+          "1.275329019711747"
+        ],
+        [
+          "2019-01-01",
+          "1.225309348837163"
+        ],
+        [
+          "2020-01-01",
+          "1.192675754795729"
+        ],
+        [
+          "2021-01-01",
+          "1.224528388818703"
+        ],
+        [
+          "2022-01-01",
+          "1.231623804044472"
+        ],
+        [
+          "2023-01-01",
+          "1.210901290256317"
+        ],
+        [
+          "2024-01-01",
+          "1.298061778064449"
+        ],
+        [
+          "2025-01-01",
+          "1.154631000528408"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_IMF_FFS_IMPLICITA_PETROLEO_PCT_GDP",
+      "name": "Subvención implícita (costos no cobrados) · derivados del petróleo (% del PIB)",
+      "family": "subsidios-combustibles",
+      "topic": "subsidio",
+      "place": "BOL",
+      "concept": "IMPLICITA_PETROLEO",
+      "perimeter": "FMI",
+      "unit": "PCT_GDP",
+      "frequency": "ANNUAL",
+      "publisher": "Fondo Monetario Internacional",
+      "locator": {
+        "dataflow": "IMF.STA,FFS",
+        "key": "BOL.IM.OIL.POGDP_PT.A"
+      },
+      "sourceUrl": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,FFS/BOL.EX+IM.ALL+OIL+NGA.POGDP_PT.A",
+      "upstreamSha256": "ec55f7769fa22a0f797e98b81ffe38cd9dac71d92b824ceefe950e1159c5a2ab",
+      "retrievedAt": "2026-10-02T01:44:02Z",
+      "points": [
+        [
+          "2015-01-01",
+          "5.022144432982663"
+        ],
+        [
+          "2016-01-01",
+          "4.84725469243558"
+        ],
+        [
+          "2017-01-01",
+          "5.20287219661984"
+        ],
+        [
+          "2018-01-01",
+          "5.36029880998614"
+        ],
+        [
+          "2019-01-01",
+          "5.756321026270202"
+        ],
+        [
+          "2020-01-01",
+          "4.398700435270883"
+        ],
+        [
+          "2021-01-01",
+          "6.292889155102934"
+        ],
+        [
+          "2022-01-01",
+          "6.636964230859685"
+        ],
+        [
+          "2023-01-01",
+          "6.27087895030689"
+        ],
+        [
+          "2024-01-01",
+          "6.250676797125945"
+        ],
+        [
+          "2025-01-01",
+          "5.597965484583161"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_IMF_FFS_IMPLICITA_TOTAL_PCT_GDP",
+      "name": "Subvención implícita (costos no cobrados) · todos los combustibles fósiles (% del PIB)",
+      "family": "subsidios-combustibles",
+      "topic": "subsidio",
+      "place": "BOL",
+      "concept": "IMPLICITA_TOTAL",
+      "perimeter": "FMI",
+      "unit": "PCT_GDP",
+      "frequency": "ANNUAL",
+      "publisher": "Fondo Monetario Internacional",
+      "locator": {
+        "dataflow": "IMF.STA,FFS",
+        "key": "BOL.IM.ALL.POGDP_PT.A"
+      },
+      "sourceUrl": "https://api.imf.org/external/sdmx/2.1/data/IMF.STA,FFS/BOL.EX+IM.ALL+OIL+NGA.POGDP_PT.A",
+      "upstreamSha256": "ec55f7769fa22a0f797e98b81ffe38cd9dac71d92b824ceefe950e1159c5a2ab",
+      "retrievedAt": "2026-10-02T01:44:02Z",
+      "points": [
+        [
+          "2015-01-01",
+          "6.316236999740892"
+        ],
+        [
+          "2016-01-01",
+          "5.999805502793737"
+        ],
+        [
+          "2017-01-01",
+          "6.500994220160966"
+        ],
+        [
+          "2018-01-01",
+          "6.642382368651564"
+        ],
+        [
+          "2019-01-01",
+          "6.989597815801891"
+        ],
+        [
+          "2020-01-01",
+          "5.594871868867192"
+        ],
+        [
+          "2021-01-01",
+          "7.525575415374881"
+        ],
+        [
+          "2022-01-01",
+          "7.876548266504455"
+        ],
+        [
+          "2023-01-01",
+          "7.489579464393169"
+        ],
+        [
+          "2024-01-01",
+          "7.557072042233711"
+        ],
+        [
+          "2025-01-01",
+          "6.760475709168391"
+        ]
+      ]
+    }
+  ]
+}

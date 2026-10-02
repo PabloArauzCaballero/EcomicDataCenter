@@ -1,0 +1,2519 @@
+{
+  "family": "deuda-tgn",
+  "series": [
+    {
+      "indicatorCode": "FISC_DEBT_EXT_ALEMANIA_MM_USD",
+      "name": "Deuda externa del TGN · Alemania (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_ALEMANIA",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 32
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "22.805620145999999"
+        ],
+        [
+          "2025-01-01",
+          "23.190224389999997"
+        ],
+        [
+          "2025-02-01",
+          "23.608118646999998"
+        ],
+        [
+          "2025-03-01",
+          "24.542271224000004"
+        ],
+        [
+          "2025-04-01",
+          "25.816170832000001"
+        ],
+        [
+          "2025-05-01",
+          "25.918306060999999"
+        ],
+        [
+          "2025-06-01",
+          "26.144424654999998"
+        ],
+        [
+          "2025-07-01",
+          "25.521284002999998"
+        ],
+        [
+          "2025-08-01",
+          "27.268896740999999"
+        ],
+        [
+          "2025-09-01",
+          "27.357453917999997"
+        ],
+        [
+          "2025-10-01",
+          "27.32725649"
+        ],
+        [
+          "2025-11-01",
+          "27.920563794"
+        ],
+        [
+          "2025-12-01",
+          "28.173901371999996"
+        ],
+        [
+          "2026-01-01",
+          "28.670220760000003"
+        ],
+        [
+          "2026-02-01",
+          "28.819869591000007"
+        ],
+        [
+          "2026-03-01",
+          "28.401188023"
+        ],
+        [
+          "2026-04-01",
+          "29.022524169"
+        ],
+        [
+          "2026-05-01",
+          "29.303535012000001"
+        ],
+        [
+          "2026-06-01",
+          "28.329569921999997"
+        ],
+        [
+          "2026-07-01",
+          "28.710267884999993"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_ASOCIACION_INTERNACIONAL_PARA_EL_DESARROLLO_MM_USD",
+      "name": "Deuda externa del TGN · Asociacion Internacional para el Desarrollo (IDA-BM) (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_ASOCIACION_INTERNACIONAL_PARA_EL_DESARROLLO",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 19
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "648.00396187500007"
+        ],
+        [
+          "2025-01-01",
+          "644.00744896699996"
+        ],
+        [
+          "2025-02-01",
+          "644.25763910000012"
+        ],
+        [
+          "2025-03-01",
+          "649.4170364590002"
+        ],
+        [
+          "2025-04-01",
+          "662.24429166599998"
+        ],
+        [
+          "2025-05-01",
+          "661.2608609670001"
+        ],
+        [
+          "2025-06-01",
+          "662.49941382500003"
+        ],
+        [
+          "2025-07-01",
+          "653.00524663299984"
+        ],
+        [
+          "2025-08-01",
+          "650.09908272500013"
+        ],
+        [
+          "2025-09-01",
+          "650.05150470900003"
+        ],
+        [
+          "2025-10-01",
+          "644.73717259599994"
+        ],
+        [
+          "2025-11-01",
+          "641.1067145940001"
+        ],
+        [
+          "2025-12-01",
+          "639.20846539000024"
+        ],
+        [
+          "2026-01-01",
+          "639.2582211749999"
+        ],
+        [
+          "2026-02-01",
+          "630.29600917700009"
+        ],
+        [
+          "2026-03-01",
+          "623.29594687200006"
+        ],
+        [
+          "2026-04-01",
+          "626.86344662299996"
+        ],
+        [
+          "2026-05-01",
+          "625.01048499299998"
+        ],
+        [
+          "2026-06-01",
+          "612.57021130999988"
+        ],
+        [
+          "2026-07-01",
+          "611.41526518099988"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_BANCO_EUROPEO_DE_INVERSIONES_MM_USD",
+      "name": "Deuda externa del TGN · BEI (Banco Europeo de Inversiones) (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_BANCO_EUROPEO_DE_INVERSIONES",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 12
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "111.51483519999999"
+        ],
+        [
+          "2025-01-01",
+          "111.51483519999999"
+        ],
+        [
+          "2025-02-01",
+          "110.96796019999999"
+        ],
+        [
+          "2025-03-01",
+          "110.2833701"
+        ],
+        [
+          "2025-04-01",
+          "110.2833701"
+        ],
+        [
+          "2025-05-01",
+          "109.94633884999999"
+        ],
+        [
+          "2025-06-01",
+          "108.70290134999999"
+        ],
+        [
+          "2025-07-01",
+          "108.70290134999999"
+        ],
+        [
+          "2025-08-01",
+          "108.15602634999999"
+        ],
+        [
+          "2025-09-01",
+          "107.47143625"
+        ],
+        [
+          "2025-10-01",
+          "107.47143625"
+        ],
+        [
+          "2025-11-01",
+          "107.134405"
+        ],
+        [
+          "2025-12-01",
+          "108.89796293000001"
+        ],
+        [
+          "2026-01-01",
+          "108.89796292999999"
+        ],
+        [
+          "2026-02-01",
+          "108.35108792999999"
+        ],
+        [
+          "2026-03-01",
+          "107.66649783"
+        ],
+        [
+          "2026-04-01",
+          "107.66649783"
+        ],
+        [
+          "2026-05-01",
+          "107.32946658"
+        ],
+        [
+          "2026-06-01",
+          "106.08602908"
+        ],
+        [
+          "2026-07-01",
+          "106.08602908"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_BANCO_INTERAMERICANO_DE_DESARROLLO_MM_USD",
+      "name": "Deuda externa del TGN · BID (Banco Interamericano de Desarrollo) (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_BANCO_INTERAMERICANO_DE_DESARROLLO",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 13
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "3889.2473133769995"
+        ],
+        [
+          "2025-01-01",
+          "3882.6409442430004"
+        ],
+        [
+          "2025-02-01",
+          "3882.3932763180005"
+        ],
+        [
+          "2025-03-01",
+          "3911.7609328650005"
+        ],
+        [
+          "2025-04-01",
+          "3978.8287452650002"
+        ],
+        [
+          "2025-05-01",
+          "3986.9408271810007"
+        ],
+        [
+          "2025-06-01",
+          "4014.0496285190002"
+        ],
+        [
+          "2025-07-01",
+          "3996.7842530029998"
+        ],
+        [
+          "2025-08-01",
+          "4019.9545323230009"
+        ],
+        [
+          "2025-09-01",
+          "4034.7022773619997"
+        ],
+        [
+          "2025-10-01",
+          "4029.0355254800006"
+        ],
+        [
+          "2025-11-01",
+          "4021.7722462270003"
+        ],
+        [
+          "2025-12-01",
+          "4028.833387177001"
+        ],
+        [
+          "2026-01-01",
+          "4060.9922122270018"
+        ],
+        [
+          "2026-02-01",
+          "4061.5408361240015"
+        ],
+        [
+          "2026-03-01",
+          "4007.6773858890015"
+        ],
+        [
+          "2026-04-01",
+          "4025.1679124970005"
+        ],
+        [
+          "2026-05-01",
+          "4016.6004350530025"
+        ],
+        [
+          "2026-06-01",
+          "3994.7827896170011"
+        ],
+        [
+          "2026-07-01",
+          "3994.9413838460014"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_BANCO_INTERNACIONAL_DE_RECONSTRUCCION_Y_FOME_MM_USD",
+      "name": "Deuda externa del TGN · BIRF (Banco Internacional de Reconstruccion y Fomento) (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_BANCO_INTERNACIONAL_DE_RECONSTRUCCION_Y_FOME",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 14
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "925.76640609999993"
+        ],
+        [
+          "2025-01-01",
+          "927.27916408999988"
+        ],
+        [
+          "2025-02-01",
+          "923.08751101999997"
+        ],
+        [
+          "2025-03-01",
+          "923.08751101999997"
+        ],
+        [
+          "2025-04-01",
+          "937.53835645000004"
+        ],
+        [
+          "2025-05-01",
+          "937.53835645000004"
+        ],
+        [
+          "2025-06-01",
+          "947.07606381000005"
+        ],
+        [
+          "2025-07-01",
+          "948.57142711999995"
+        ],
+        [
+          "2025-08-01",
+          "944.37977405000004"
+        ],
+        [
+          "2025-09-01",
+          "965.13692317999994"
+        ],
+        [
+          "2025-10-01",
+          "967.21747188999996"
+        ],
+        [
+          "2025-11-01",
+          "986.22177182000007"
+        ],
+        [
+          "2025-12-01",
+          "986.22177182000007"
+        ],
+        [
+          "2026-01-01",
+          "986.22177181999996"
+        ],
+        [
+          "2026-02-01",
+          "990.03011875000004"
+        ],
+        [
+          "2026-03-01",
+          "990.03011875000004"
+        ],
+        [
+          "2026-04-01",
+          "1001.7353945499999"
+        ],
+        [
+          "2026-05-01",
+          "1001.7353945499999"
+        ],
+        [
+          "2026-06-01",
+          "1014.30839955"
+        ],
+        [
+          "2026-07-01",
+          "1014.30839955"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_BILATERAL_MM_USD",
+      "name": "Deuda externa del TGN · Bilateral (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_BILATERAL",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 22
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "1578.5583013649998"
+        ],
+        [
+          "2025-01-01",
+          "1553.9454375930004"
+        ],
+        [
+          "2025-02-01",
+          "1566.8113268510001"
+        ],
+        [
+          "2025-03-01",
+          "1571.2252098380002"
+        ],
+        [
+          "2025-04-01",
+          "1595.1033756930001"
+        ],
+        [
+          "2025-05-01",
+          "1597.648173864"
+        ],
+        [
+          "2025-06-01",
+          "1604.8081371570001"
+        ],
+        [
+          "2025-07-01",
+          "1527.3854913389998"
+        ],
+        [
+          "2025-08-01",
+          "1544.7860919649997"
+        ],
+        [
+          "2025-09-01",
+          "1546.0390834580003"
+        ],
+        [
+          "2025-10-01",
+          "1519.9590469189998"
+        ],
+        [
+          "2025-11-01",
+          "1522.041899691"
+        ],
+        [
+          "2025-12-01",
+          "1521.8574377570003"
+        ],
+        [
+          "2026-01-01",
+          "1462.3013502580002"
+        ],
+        [
+          "2026-02-01",
+          "1454.407618467"
+        ],
+        [
+          "2026-03-01",
+          "1416.9183811439998"
+        ],
+        [
+          "2026-04-01",
+          "1429.5343174040001"
+        ],
+        [
+          "2026-05-01",
+          "1430.3849444280002"
+        ],
+        [
+          "2026-06-01",
+          "1405.950444436"
+        ],
+        [
+          "2026-07-01",
+          "1343.92572642"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_BONOS_SOBERANOS_MM_USD",
+      "name": "Deuda externa del TGN · Bonos Soberanos (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_BONOS_SOBERANOS",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 37
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "1850"
+        ],
+        [
+          "2025-01-01",
+          "1850"
+        ],
+        [
+          "2025-02-01",
+          "1850"
+        ],
+        [
+          "2025-03-01",
+          "1850"
+        ],
+        [
+          "2025-04-01",
+          "1850"
+        ],
+        [
+          "2025-05-01",
+          "1850"
+        ],
+        [
+          "2025-06-01",
+          "1850"
+        ],
+        [
+          "2025-07-01",
+          "1850"
+        ],
+        [
+          "2025-08-01",
+          "1850"
+        ],
+        [
+          "2025-09-01",
+          "1850"
+        ],
+        [
+          "2025-10-01",
+          "1850"
+        ],
+        [
+          "2025-11-01",
+          "1850"
+        ],
+        [
+          "2025-12-01",
+          "1850"
+        ],
+        [
+          "2026-01-01",
+          "1850"
+        ],
+        [
+          "2026-02-01",
+          "1850"
+        ],
+        [
+          "2026-03-01",
+          "1286.9320266"
+        ],
+        [
+          "2026-04-01",
+          "1286.9320266"
+        ],
+        [
+          "2026-05-01",
+          "2286.9320266"
+        ],
+        [
+          "2026-06-01",
+          "2286.9320266"
+        ],
+        [
+          "2026-07-01",
+          "2286.9320266"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_BRASIL_MM_USD",
+      "name": "Deuda externa del TGN · Brasil (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_BRASIL",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 26
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "10.213367300000002"
+        ],
+        [
+          "2025-01-01",
+          "10.213367300000002"
+        ],
+        [
+          "2025-02-01",
+          "10.213367300000002"
+        ],
+        [
+          "2025-03-01",
+          "9.0785486100000021"
+        ],
+        [
+          "2025-04-01",
+          "9.0785486100000021"
+        ],
+        [
+          "2025-05-01",
+          "9.0785486100000021"
+        ],
+        [
+          "2025-06-01",
+          "9.0785486100000021"
+        ],
+        [
+          "2025-07-01",
+          "9.0785486100000021"
+        ],
+        [
+          "2025-08-01",
+          "9.0785486100000021"
+        ],
+        [
+          "2025-09-01",
+          "7.94372992"
+        ],
+        [
+          "2025-10-01",
+          "7.94372992"
+        ],
+        [
+          "2025-11-01",
+          "7.94372992"
+        ],
+        [
+          "2025-12-01",
+          "7.94372992"
+        ],
+        [
+          "2026-01-01",
+          "7.94372992"
+        ],
+        [
+          "2026-02-01",
+          "7.94372992"
+        ],
+        [
+          "2026-03-01",
+          "6.8089112299999996"
+        ],
+        [
+          "2026-04-01",
+          "6.8089112299999996"
+        ],
+        [
+          "2026-05-01",
+          "6.8089112299999996"
+        ],
+        [
+          "2026-06-01",
+          "6.8089112299999996"
+        ],
+        [
+          "2026-07-01",
+          "6.8089112299999996"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_COREA_MM_USD",
+      "name": "Deuda externa del TGN · Corea (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_COREA",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 29
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "31.392080285999999"
+        ],
+        [
+          "2025-01-01",
+          "32.369068220999999"
+        ],
+        [
+          "2025-02-01",
+          "31.756456395000001"
+        ],
+        [
+          "2025-03-01",
+          "30.861755136999999"
+        ],
+        [
+          "2025-04-01",
+          "31.652590973999999"
+        ],
+        [
+          "2025-05-01",
+          "33.097693403999997"
+        ],
+        [
+          "2025-06-01",
+          "33.342812866999999"
+        ],
+        [
+          "2025-07-01",
+          "32.642509951999997"
+        ],
+        [
+          "2025-08-01",
+          "33.305597808999998"
+        ],
+        [
+          "2025-09-01",
+          "33.522920957000004"
+        ],
+        [
+          "2025-10-01",
+          "32.799055814000006"
+        ],
+        [
+          "2025-11-01",
+          "32.096789252999997"
+        ],
+        [
+          "2025-12-01",
+          "32.636101402999998"
+        ],
+        [
+          "2026-01-01",
+          "32.704520901999999"
+        ],
+        [
+          "2026-02-01",
+          "31.938122666999995"
+        ],
+        [
+          "2026-03-01",
+          "30.064495924999999"
+        ],
+        [
+          "2026-04-01",
+          "30.663125269000002"
+        ],
+        [
+          "2026-05-01",
+          "30.530096525999998"
+        ],
+        [
+          "2026-06-01",
+          "29.593307026999994"
+        ],
+        [
+          "2026-07-01",
+          "32.071642359000002"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_CORPORACION_ANDINA_DE_FOMENTO_MM_USD",
+      "name": "Deuda externa del TGN · CAF (Corporacion Andina de Fomento) (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_CORPORACION_ANDINA_DE_FOMENTO",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 15
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "2630.4933618500004"
+        ],
+        [
+          "2025-01-01",
+          "2816.8527703300001"
+        ],
+        [
+          "2025-02-01",
+          "2773.0988823299995"
+        ],
+        [
+          "2025-03-01",
+          "2821.0127708999994"
+        ],
+        [
+          "2025-04-01",
+          "2808.1437729699992"
+        ],
+        [
+          "2025-05-01",
+          "2901.2368895199993"
+        ],
+        [
+          "2025-06-01",
+          "2878.3977968300001"
+        ],
+        [
+          "2025-07-01",
+          "2965.3702463099999"
+        ],
+        [
+          "2025-08-01",
+          "2921.0311986100005"
+        ],
+        [
+          "2025-09-01",
+          "2912.1630183600005"
+        ],
+        [
+          "2025-10-01",
+          "2888.4940204300001"
+        ],
+        [
+          "2025-11-01",
+          "2881.6644446700002"
+        ],
+        [
+          "2025-12-01",
+          "3295.0453900600005"
+        ],
+        [
+          "2026-01-01",
+          "3381.4047985399993"
+        ],
+        [
+          "2026-02-01",
+          "3346.4924906199994"
+        ],
+        [
+          "2026-03-01",
+          "3325.90201497"
+        ],
+        [
+          "2026-04-01",
+          "3297.41559289"
+        ],
+        [
+          "2026-05-01",
+          "3290.2570241299995"
+        ],
+        [
+          "2026-06-01",
+          "3253.6379695599999"
+        ],
+        [
+          "2026-07-01",
+          "3223.3307113699993"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_ESPANA_MM_USD",
+      "name": "Deuda externa del TGN · Espana (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_ESPANA",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 31
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "4.4878049999999998"
+        ],
+        [
+          "2025-01-01",
+          "4.4878049999999998"
+        ],
+        [
+          "2025-02-01",
+          "4.4878049999999998"
+        ],
+        [
+          "2025-03-01",
+          "4.4878049999999998"
+        ],
+        [
+          "2025-04-01",
+          "4.4878049999999998"
+        ],
+        [
+          "2025-05-01",
+          "4.4878049999999998"
+        ],
+        [
+          "2025-06-01",
+          "4.2926830599999999"
+        ],
+        [
+          "2025-07-01",
+          "8.7926830599999981"
+        ],
+        [
+          "2025-08-01",
+          "8.7926830599999981"
+        ],
+        [
+          "2025-09-01",
+          "8.7926830599999981"
+        ],
+        [
+          "2025-10-01",
+          "8.7926830599999981"
+        ],
+        [
+          "2025-11-01",
+          "8.7926830599999981"
+        ],
+        [
+          "2025-12-01",
+          "8.5975611200000017"
+        ],
+        [
+          "2026-01-01",
+          "8.5975611200000017"
+        ],
+        [
+          "2026-02-01",
+          "8.5975611200000017"
+        ],
+        [
+          "2026-03-01",
+          "8.5975611200000017"
+        ],
+        [
+          "2026-04-01",
+          "8.5975611200000017"
+        ],
+        [
+          "2026-05-01",
+          "8.5975611200000017"
+        ],
+        [
+          "2026-06-01",
+          "8.40243918"
+        ],
+        [
+          "2026-07-01",
+          "8.40243918"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_FONDO_FINANCIERO_PARA_EL_DESARROLLO_DE_LA_CU_MM_USD",
+      "name": "Deuda externa del TGN · Fondo Financiero para el Desarrollo de la Cuenca del Plata (FONPLATA) (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_FONDO_FINANCIERO_PARA_EL_DESARROLLO_DE_LA_CU",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 18
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "434.01493124000007"
+        ],
+        [
+          "2025-01-01",
+          "447.91493124000004"
+        ],
+        [
+          "2025-02-01",
+          "444.51905877000002"
+        ],
+        [
+          "2025-03-01",
+          "441.42382067"
+        ],
+        [
+          "2025-04-01",
+          "432.90720851000003"
+        ],
+        [
+          "2025-05-01",
+          "433.32902128000006"
+        ],
+        [
+          "2025-06-01",
+          "432.21496245000009"
+        ],
+        [
+          "2025-07-01",
+          "432.21496245000009"
+        ],
+        [
+          "2025-08-01",
+          "428.81915230000016"
+        ],
+        [
+          "2025-09-01",
+          "428.81442132000012"
+        ],
+        [
+          "2025-10-01",
+          "416.99025572000016"
+        ],
+        [
+          "2025-11-01",
+          "415.20139212000015"
+        ],
+        [
+          "2025-12-01",
+          "416.13118198000012"
+        ],
+        [
+          "2026-01-01",
+          "415.55130381000004"
+        ],
+        [
+          "2026-02-01",
+          "412.23557760999995"
+        ],
+        [
+          "2026-03-01",
+          "425.88302708999993"
+        ],
+        [
+          "2026-04-01",
+          "422.58466512999985"
+        ],
+        [
+          "2026-05-01",
+          "421.68045391999982"
+        ],
+        [
+          "2026-06-01",
+          "420.59513137999983"
+        ],
+        [
+          "2026-07-01",
+          "420.59513137999983"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_FONDO_INTERNACIONAL_DE_DESARROLLO_AGRICOLA_MM_USD",
+      "name": "Deuda externa del TGN · FIDA (Fondo Internacional de Desarrollo Agricola) (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_FONDO_INTERNACIONAL_DE_DESARROLLO_AGRICOLA",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 16
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "57.263094686000002"
+        ],
+        [
+          "2025-01-01",
+          "57.322950430000006"
+        ],
+        [
+          "2025-02-01",
+          "57.577459589"
+        ],
+        [
+          "2025-03-01",
+          "58.882674457"
+        ],
+        [
+          "2025-04-01",
+          "60.318368896999999"
+        ],
+        [
+          "2025-05-01",
+          "58.122693496000004"
+        ],
+        [
+          "2025-06-01",
+          "59.714778517999996"
+        ],
+        [
+          "2025-07-01",
+          "59.148456677000006"
+        ],
+        [
+          "2025-08-01",
+          "59.579161437000003"
+        ],
+        [
+          "2025-09-01",
+          "59.602192476999996"
+        ],
+        [
+          "2025-10-01",
+          "59.343558836"
+        ],
+        [
+          "2025-11-01",
+          "58.43081191200001"
+        ],
+        [
+          "2025-12-01",
+          "58.903241148999996"
+        ],
+        [
+          "2026-01-01",
+          "59.391732056000002"
+        ],
+        [
+          "2026-02-01",
+          "59.080678754999994"
+        ],
+        [
+          "2026-03-01",
+          "58.330002756000006"
+        ],
+        [
+          "2026-04-01",
+          "58.834093288999995"
+        ],
+        [
+          "2026-05-01",
+          "56.58682055500001"
+        ],
+        [
+          "2026-06-01",
+          "56.016679881000002"
+        ],
+        [
+          "2026-07-01",
+          "57.971743874000005"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_FONDO_NORDICO_DE_DESARROLLO_MM_USD",
+      "name": "Deuda externa del TGN · FND (Fondo Nordico de Desarrollo) (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_FONDO_NORDICO_DE_DESARROLLO",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 17
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "19.405140416000002"
+        ],
+        [
+          "2025-01-01",
+          "19.435005651999997"
+        ],
+        [
+          "2025-02-01",
+          "19.502880309000002"
+        ],
+        [
+          "2025-03-01",
+          "19.889197376999995"
+        ],
+        [
+          "2025-04-01",
+          "19.770320129000002"
+        ],
+        [
+          "2025-05-01",
+          "19.740810000000003"
+        ],
+        [
+          "2025-06-01",
+          "20.119192810000001"
+        ],
+        [
+          "2025-07-01",
+          "19.834144563999999"
+        ],
+        [
+          "2025-08-01",
+          "20.071777047000001"
+        ],
+        [
+          "2025-09-01",
+          "20.094939684"
+        ],
+        [
+          "2025-10-01",
+          "19.114316594000002"
+        ],
+        [
+          "2025-11-01",
+          "19.120367951999999"
+        ],
+        [
+          "2025-12-01",
+          "19.322902193999997"
+        ],
+        [
+          "2026-01-01",
+          "19.551186447999999"
+        ],
+        [
+          "2026-02-01",
+          "19.390998552999999"
+        ],
+        [
+          "2026-03-01",
+          "19.036877336"
+        ],
+        [
+          "2026-04-01",
+          "18.471109120999998"
+        ],
+        [
+          "2026-05-01",
+          "18.433143415"
+        ],
+        [
+          "2026-06-01",
+          "18.174070954000001"
+        ],
+        [
+          "2026-07-01",
+          "18.310246639000002"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_FRANCIA_MM_USD",
+      "name": "Deuda externa del TGN · Francia (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_FRANCIA",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 33
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "549.09261334500002"
+        ],
+        [
+          "2025-01-01",
+          "542.26654402999998"
+        ],
+        [
+          "2025-02-01",
+          "541.58888732000003"
+        ],
+        [
+          "2025-03-01",
+          "557.01154768799995"
+        ],
+        [
+          "2025-04-01",
+          "578.10914384199998"
+        ],
+        [
+          "2025-05-01",
+          "577.50409695900009"
+        ],
+        [
+          "2025-06-01",
+          "594.20043705000012"
+        ],
+        [
+          "2025-07-01",
+          "573.21472925"
+        ],
+        [
+          "2025-08-01",
+          "586.26365054100006"
+        ],
+        [
+          "2025-09-01",
+          "588.16757259000019"
+        ],
+        [
+          "2025-10-01",
+          "573.98894950599993"
+        ],
+        [
+          "2025-11-01",
+          "575.57959185599998"
+        ],
+        [
+          "2025-12-01",
+          "583.37177649099999"
+        ],
+        [
+          "2026-01-01",
+          "580.52758810500006"
+        ],
+        [
+          "2026-02-01",
+          "572.42244395900002"
+        ],
+        [
+          "2026-03-01",
+          "550.54985135899994"
+        ],
+        [
+          "2026-04-01",
+          "560.43925594000007"
+        ],
+        [
+          "2026-05-01",
+          "559.66862571500008"
+        ],
+        [
+          "2026-06-01",
+          "548.52127007700005"
+        ],
+        [
+          "2026-07-01",
+          "540.9716820650001"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_GOB_DE_CHINA_MM_USD",
+      "name": "Deuda externa del TGN · Gob. De China (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_GOB_DE_CHINA",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 27
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "947.66077434699991"
+        ],
+        [
+          "2025-01-01",
+          "928.69676774300024"
+        ],
+        [
+          "2025-02-01",
+          "942.3709267910001"
+        ],
+        [
+          "2025-03-01",
+          "932.06119791100014"
+        ],
+        [
+          "2025-04-01",
+          "932.08754529199996"
+        ],
+        [
+          "2025-05-01",
+          "933.73762494399989"
+        ],
+        [
+          "2025-06-01",
+          "923.62463360100014"
+        ],
+        [
+          "2025-07-01",
+          "864.64235491299996"
+        ],
+        [
+          "2025-08-01",
+          "866.29181435099986"
+        ],
+        [
+          "2025-09-01",
+          "866.46468735000008"
+        ],
+        [
+          "2025-10-01",
+          "855.56249820100004"
+        ],
+        [
+          "2025-11-01",
+          "856.16907339700015"
+        ],
+        [
+          "2025-12-01",
+          "847.44631322900022"
+        ],
+        [
+          "2026-01-01",
+          "790.18521047799993"
+        ],
+        [
+          "2026-02-01",
+          "791.21849187599992"
+        ],
+        [
+          "2026-03-01",
+          "779.38609028799999"
+        ],
+        [
+          "2026-04-01",
+          "780.70630147899999"
+        ],
+        [
+          "2026-05-01",
+          "782.17940722000003"
+        ],
+        [
+          "2026-06-01",
+          "771.25611834100005"
+        ],
+        [
+          "2026-07-01",
+          "714.04295351999997"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_ITALIA_MM_USD",
+      "name": "Deuda externa del TGN · Italia (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_ITALIA",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 24
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "9.9395290700000007"
+        ],
+        [
+          "2025-01-01",
+          "9.9662680150000007"
+        ],
+        [
+          "2025-02-01",
+          "9.9538134229999997"
+        ],
+        [
+          "2025-03-01",
+          "10.347677103000001"
+        ],
+        [
+          "2025-04-01",
+          "10.884787205"
+        ],
+        [
+          "2025-05-01",
+          "10.873395227"
+        ],
+        [
+          "2025-06-01",
+          "11.187758199000001"
+        ],
+        [
+          "2025-07-01",
+          "10.921102993999998"
+        ],
+        [
+          "2025-08-01",
+          "11.169715958999999"
+        ],
+        [
+          "2025-09-01",
+          "11.205990199"
+        ],
+        [
+          "2025-10-01",
+          "11.052055710000001"
+        ],
+        [
+          "2025-11-01",
+          "11.082683248"
+        ],
+        [
+          "2025-12-01",
+          "11.232720384"
+        ],
+        [
+          "2026-01-01",
+          "11.430599156"
+        ],
+        [
+          "2026-02-01",
+          "11.271008715000001"
+        ],
+        [
+          "2026-03-01",
+          "10.959421405999999"
+        ],
+        [
+          "2026-04-01",
+          "11.156283055999999"
+        ],
+        [
+          "2026-05-01",
+          "11.140942644999999"
+        ],
+        [
+          "2026-06-01",
+          "10.919039818"
+        ],
+        [
+          "2026-07-01",
+          "11.020577655999999"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_JAPON_MM_USD",
+      "name": "Deuda externa del TGN · Japon (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_JAPON",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 28
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "2.9665115490000002"
+        ],
+        [
+          "2025-01-01",
+          "2.7553925709999998"
+        ],
+        [
+          "2025-02-01",
+          "2.8319516519999999"
+        ],
+        [
+          "2025-03-01",
+          "2.8344068289999997"
+        ],
+        [
+          "2025-04-01",
+          "2.9867835839999999"
+        ],
+        [
+          "2025-05-01",
+          "2.9507033049999998"
+        ],
+        [
+          "2025-06-01",
+          "2.9368387500000002"
+        ],
+        [
+          "2025-07-01",
+          "2.5722782029999998"
+        ],
+        [
+          "2025-08-01",
+          "2.6151845320000002"
+        ],
+        [
+          "2025-09-01",
+          "2.5840451"
+        ],
+        [
+          "2025-10-01",
+          "2.4928178590000001"
+        ],
+        [
+          "2025-11-01",
+          "2.4567848029999997"
+        ],
+        [
+          "2025-12-01",
+          "2.4553334740000001"
+        ],
+        [
+          "2026-01-01",
+          "2.2419194449999997"
+        ],
+        [
+          "2026-02-01",
+          "2.1963906189999998"
+        ],
+        [
+          "2026-03-01",
+          "2.1508617930000002"
+        ],
+        [
+          "2026-04-01",
+          "2.1403551409999997"
+        ],
+        [
+          "2026-05-01",
+          "2.1558649600000002"
+        ],
+        [
+          "2026-06-01",
+          "2.1197888410000001"
+        ],
+        [
+          "2026-07-01",
+          "1.8972525249999999"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_MULTILATERAL_MM_USD",
+      "name": "Deuda externa del TGN · Multilateral (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_MULTILATERAL",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 10
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "8826.9236776739981"
+        ],
+        [
+          "2025-01-01",
+          "9015.710473082001"
+        ],
+        [
+          "2025-02-01",
+          "8964.1470905660008"
+        ],
+        [
+          "2025-03-01",
+          "9043.3649867780005"
+        ],
+        [
+          "2025-04-01",
+          "9117.6421069169992"
+        ],
+        [
+          "2025-05-01",
+          "9213.9800206740001"
+        ],
+        [
+          "2025-06-01",
+          "9232.8271016620001"
+        ],
+        [
+          "2025-07-01",
+          "9291.2117916569987"
+        ],
+        [
+          "2025-08-01",
+          "9259.6708583920026"
+        ],
+        [
+          "2025-09-01",
+          "9284.4821168919989"
+        ],
+        [
+          "2025-10-01",
+          "9238.849161346001"
+        ],
+        [
+          "2025-11-01",
+          "9235.1581878449997"
+        ],
+        [
+          "2025-12-01",
+          "9656.7523202500015"
+        ],
+        [
+          "2026-01-01",
+          "9772.9849965559988"
+        ],
+        [
+          "2026-02-01",
+          "9729.1336050690006"
+        ],
+        [
+          "2026-03-01",
+          "9658.4029290430026"
+        ],
+        [
+          "2026-04-01",
+          "9659.3197694799983"
+        ],
+        [
+          "2026-05-01",
+          "9636.2749107460022"
+        ],
+        [
+          "2026-06-01",
+          "9574.4949528820034"
+        ],
+        [
+          "2026-07-01",
+          "9542.8103724700013"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_ORGANIZACION_DE_PAISES_EXPORTADORES_DE_PETRO_MM_USD",
+      "name": "Deuda externa del TGN · OPEP (Organizacion de Paises Exportadores de Petroleo) (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_ORGANIZACION_DE_PAISES_EXPORTADORES_DE_PETRO",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 20
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "111.21463293000001"
+        ],
+        [
+          "2025-01-01",
+          "108.74242293"
+        ],
+        [
+          "2025-02-01",
+          "108.74242293"
+        ],
+        [
+          "2025-03-01",
+          "107.60767293000001"
+        ],
+        [
+          "2025-04-01",
+          "107.60767293000001"
+        ],
+        [
+          "2025-05-01",
+          "105.86422293000001"
+        ],
+        [
+          "2025-06-01",
+          "110.05236355"
+        ],
+        [
+          "2025-07-01",
+          "107.58015354999999"
+        ],
+        [
+          "2025-08-01",
+          "107.58015354999999"
+        ],
+        [
+          "2025-09-01",
+          "106.44540354999999"
+        ],
+        [
+          "2025-10-01",
+          "106.44540354999999"
+        ],
+        [
+          "2025-11-01",
+          "104.50603355"
+        ],
+        [
+          "2025-12-01",
+          "104.18801755"
+        ],
+        [
+          "2026-01-01",
+          "101.71580754999999"
+        ],
+        [
+          "2026-02-01",
+          "101.71580754999999"
+        ],
+        [
+          "2026-03-01",
+          "100.58105755"
+        ],
+        [
+          "2026-04-01",
+          "100.58105755"
+        ],
+        [
+          "2026-05-01",
+          "98.64168755"
+        ],
+        [
+          "2026-06-01",
+          "98.32367155"
+        ],
+        [
+          "2026-07-01",
+          "95.851461549999996"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_PRIVADOS_MM_USD",
+      "name": "Deuda externa del TGN · Privados (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_PRIVADOS",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 35
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "1850"
+        ],
+        [
+          "2025-01-01",
+          "1850"
+        ],
+        [
+          "2025-02-01",
+          "1850"
+        ],
+        [
+          "2025-03-01",
+          "1850"
+        ],
+        [
+          "2025-04-01",
+          "1850"
+        ],
+        [
+          "2025-05-01",
+          "1850"
+        ],
+        [
+          "2025-06-01",
+          "1850"
+        ],
+        [
+          "2025-07-01",
+          "1850"
+        ],
+        [
+          "2025-08-01",
+          "1850"
+        ],
+        [
+          "2025-09-01",
+          "1850"
+        ],
+        [
+          "2025-10-01",
+          "1850"
+        ],
+        [
+          "2025-11-01",
+          "1850"
+        ],
+        [
+          "2025-12-01",
+          "1850"
+        ],
+        [
+          "2026-01-01",
+          "1850"
+        ],
+        [
+          "2026-02-01",
+          "1850"
+        ],
+        [
+          "2026-03-01",
+          "1286.9320266"
+        ],
+        [
+          "2026-04-01",
+          "1286.9320266"
+        ],
+        [
+          "2026-05-01",
+          "2286.9320266"
+        ],
+        [
+          "2026-06-01",
+          "2286.9320266"
+        ],
+        [
+          "2026-07-01",
+          "2286.9320266"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_EXT_TOTAL_MM_USD",
+      "name": "Deuda externa del TGN · Total (millones de US$, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "EXT_TOTAL",
+      "perimeter": "TGN",
+      "unit": "MM_USD",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "SALDO",
+        "row": 8
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/3._DEUDA_EXTERNA_JULIO_2026.xlsx",
+      "upstreamSha256": "62fe5e60b5f50e85b2bcebe337bd760e664db41611ea2f60d4466c18d17e10ec",
+      "retrievedAt": "2026-10-02T01:46:29Z",
+      "points": [
+        [
+          "2024-12-01",
+          "12255.481979038997"
+        ],
+        [
+          "2025-01-01",
+          "12419.655910675001"
+        ],
+        [
+          "2025-02-01",
+          "12380.958417417001"
+        ],
+        [
+          "2025-03-01",
+          "12464.590196616"
+        ],
+        [
+          "2025-04-01",
+          "12562.74548261"
+        ],
+        [
+          "2025-05-01",
+          "12661.628194538"
+        ],
+        [
+          "2025-06-01",
+          "12687.635238819001"
+        ],
+        [
+          "2025-07-01",
+          "12668.597282995999"
+        ],
+        [
+          "2025-08-01",
+          "12654.456950357002"
+        ],
+        [
+          "2025-09-01",
+          "12680.521200349998"
+        ],
+        [
+          "2025-10-01",
+          "12608.808208265"
+        ],
+        [
+          "2025-11-01",
+          "12607.200087535999"
+        ],
+        [
+          "2025-12-01",
+          "13028.609758007002"
+        ],
+        [
+          "2026-01-01",
+          "13085.286346813999"
+        ],
+        [
+          "2026-02-01",
+          "13033.541223536"
+        ],
+        [
+          "2026-03-01",
+          "12362.253336787002"
+        ],
+        [
+          "2026-04-01",
+          "12375.786113483999"
+        ],
+        [
+          "2026-05-01",
+          "13353.591881774002"
+        ],
+        [
+          "2026-06-01",
+          "13267.377423918002"
+        ],
+        [
+          "2026-07-01",
+          "13173.668125490001"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_INT_BANCO_CENTRAL_MM_BOB",
+      "name": "Deuda interna del TGN · Banco Central de Bolivia (millones de Bs, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "INT_BANCO_CENTRAL",
+      "perimeter": "TGN",
+      "unit": "MM_BOB",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "Saldo",
+        "row": 12
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/1.2026_DEUDA_INTERNA_BS_JULIO.xlsx",
+      "upstreamSha256": "af3d4dd10e4c28ce554357d9c09be963d8aa9083eb9e9614da9637fcd5b7c768",
+      "retrievedAt": "2026-10-02T01:46:31Z",
+      "points": [
+        [
+          "2025-12-01",
+          "153996.88231953097"
+        ],
+        [
+          "2026-01-01",
+          "153636.80691971199"
+        ],
+        [
+          "2026-02-01",
+          "154509.74927343699"
+        ],
+        [
+          "2026-03-01",
+          "156540.970820708"
+        ],
+        [
+          "2026-04-01",
+          "156479.40965300601"
+        ],
+        [
+          "2026-05-01",
+          "156484.70377637097"
+        ],
+        [
+          "2026-06-01",
+          "157449.90407259497"
+        ],
+        [
+          "2026-07-01",
+          "158245.34844560499"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_INT_MERCADO_FINANCIERO_MM_BOB",
+      "name": "Deuda interna del TGN · Mercado financiero (Subasta) (millones de Bs, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "INT_MERCADO_FINANCIERO",
+      "perimeter": "TGN",
+      "unit": "MM_BOB",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "Saldo",
+        "row": 34
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/1.2026_DEUDA_INTERNA_BS_JULIO.xlsx",
+      "upstreamSha256": "af3d4dd10e4c28ce554357d9c09be963d8aa9083eb9e9614da9637fcd5b7c768",
+      "retrievedAt": "2026-10-02T01:46:31Z",
+      "points": [
+        [
+          "2025-12-01",
+          "72321.871495700005"
+        ],
+        [
+          "2026-01-01",
+          "72076.514215739997"
+        ],
+        [
+          "2026-02-01",
+          "72232.584399999992"
+        ],
+        [
+          "2026-03-01",
+          "72243.05839999998"
+        ],
+        [
+          "2026-04-01",
+          "73421.584819999989"
+        ],
+        [
+          "2026-05-01",
+          "74326.723819999985"
+        ],
+        [
+          "2026-06-01",
+          "76369.246119999952"
+        ],
+        [
+          "2026-07-01",
+          "79054.839549999961"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_INT_SECTOR_PRIVADO_MM_BOB",
+      "name": "Deuda interna del TGN · Sector Privado (millones de Bs, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "INT_SECTOR_PRIVADO",
+      "perimeter": "TGN",
+      "unit": "MM_BOB",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "Saldo",
+        "row": 29
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/1.2026_DEUDA_INTERNA_BS_JULIO.xlsx",
+      "upstreamSha256": "af3d4dd10e4c28ce554357d9c09be963d8aa9083eb9e9614da9637fcd5b7c768",
+      "retrievedAt": "2026-10-02T01:46:31Z",
+      "points": [
+        [
+          "2025-12-01",
+          "77422.211495700001"
+        ],
+        [
+          "2026-01-01",
+          "77176.854215739993"
+        ],
+        [
+          "2026-02-01",
+          "77332.924399999989"
+        ],
+        [
+          "2026-03-01",
+          "77343.398399999976"
+        ],
+        [
+          "2026-04-01",
+          "78521.924819999986"
+        ],
+        [
+          "2026-05-01",
+          "79427.063819999981"
+        ],
+        [
+          "2026-06-01",
+          "81469.586119999949"
+        ],
+        [
+          "2026-07-01",
+          "84155.179549999957"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_INT_SECTOR_PUBLICO_FINANCIERO_MM_BOB",
+      "name": "Deuda interna del TGN · Sector Publico Financiero (millones de Bs, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "INT_SECTOR_PUBLICO_FINANCIERO",
+      "perimeter": "TGN",
+      "unit": "MM_BOB",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "Saldo",
+        "row": 10
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/1.2026_DEUDA_INTERNA_BS_JULIO.xlsx",
+      "upstreamSha256": "af3d4dd10e4c28ce554357d9c09be963d8aa9083eb9e9614da9637fcd5b7c768",
+      "retrievedAt": "2026-10-02T01:46:31Z",
+      "points": [
+        [
+          "2025-12-01",
+          "153996.88231953097"
+        ],
+        [
+          "2026-01-01",
+          "153636.80691971199"
+        ],
+        [
+          "2026-02-01",
+          "154509.74927343699"
+        ],
+        [
+          "2026-03-01",
+          "156540.970820708"
+        ],
+        [
+          "2026-04-01",
+          "156479.40965300601"
+        ],
+        [
+          "2026-05-01",
+          "156484.70377637097"
+        ],
+        [
+          "2026-06-01",
+          "157449.90407259497"
+        ],
+        [
+          "2026-07-01",
+          "158245.34844560499"
+        ]
+      ]
+    },
+    {
+      "indicatorCode": "FISC_DEBT_INT_TOTAL_MM_BOB",
+      "name": "Deuda interna del TGN · Deuda Publica Interna Total del TGN (millones de Bs, saldo a fin de mes)",
+      "family": "deuda-tgn",
+      "topic": "deuda",
+      "place": "BOL",
+      "concept": "INT_TOTAL",
+      "perimeter": "TGN",
+      "unit": "MM_BOB",
+      "frequency": "MONTHLY",
+      "publisher": "Ministerio de Economía y Finanzas Públicas",
+      "locator": {
+        "orientation": "rows",
+        "sheet": "Saldo",
+        "row": 8
+      },
+      "sourceUrl": "https://www.economiayfinanzas.gob.bo/sites/default/files/2026-09/1.2026_DEUDA_INTERNA_BS_JULIO.xlsx",
+      "upstreamSha256": "af3d4dd10e4c28ce554357d9c09be963d8aa9083eb9e9614da9637fcd5b7c768",
+      "retrievedAt": "2026-10-02T01:46:31Z",
+      "points": [
+        [
+          "2025-12-01",
+          "231419.90181522098"
+        ],
+        [
+          "2026-01-01",
+          "230814.46913544199"
+        ],
+        [
+          "2026-02-01",
+          "231843.48167342698"
+        ],
+        [
+          "2026-03-01",
+          "233885.17722069798"
+        ],
+        [
+          "2026-04-01",
+          "235002.142472996"
+        ],
+        [
+          "2026-05-01",
+          "235912.57559636096"
+        ],
+        [
+          "2026-06-01",
+          "238920.29819258495"
+        ],
+        [
+          "2026-07-01",
+          "242401.33599559497"
+        ]
+      ]
+    }
+  ]
+}
