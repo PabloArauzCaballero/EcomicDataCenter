@@ -8,7 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from harvest import grid, omas, series, shape, versions  # noqa: E402
+from harvest import grid, omas, series, shape, sources, versions  # noqa: E402
 
 
 def sheet(rows):
@@ -40,6 +40,17 @@ class NumbersAndPeriods(unittest.TestCase):
         self.assertEqual(series.plain(1234.5), '1234.5')
 
 
+class Addresses(unittest.TestCase):
+    def test_an_accent_or_a_space_in_the_address_is_encoded_and_a_coded_one_is_left_alone(self):
+        raw = 'https://www.bcb.gob.bo/webdocs/OSD/18. Depósitos vista por país.xlsx'
+        self.assertEqual(
+            sources.encoded(raw),
+            'https://www.bcb.gob.bo/webdocs/OSD/18.%20Dep%C3%B3sitos%20vista%20por%20pa%C3%ADs.xlsx',
+        )
+        coded = 'https://www.bcb.gob.bo/webdocs/Cr%C3%A9ditos%20y%20Dep.xlsx'
+        self.assertEqual(sources.encoded(coded), coded)
+
+
 class Versions(unittest.TestCase):
     base = 'https://www.bcb.gob.bo/webdocs/'
 
@@ -52,6 +63,14 @@ class Versions(unittest.TestCase):
         chosen = versions.latest_versions(urls)
         self.assertEqual(len(chosen), 1)
         self.assertIn('Agosto', next(iter(chosen.values())))
+
+    def test_a_table_known_only_by_its_number_is_its_own_report(self):
+        base = self.base + 'publicacionesbcb/'
+        forty_five, forty_six = base + '2026/02/27/45.xlsx', base + '2026/02/27/46.xlsx'
+        self.assertEqual(len(versions.latest_versions([forty_five, forty_six])), 2)
+        # la misma tabla en dos entregas sigue siendo una, y gana la más nueva
+        older = base + '2025/12/31/45.xlsx'
+        self.assertEqual(list(versions.latest_versions([older, forty_five]).values()), [forty_five])
 
     def test_reads_a_full_date_in_the_name(self):
         urls = [
