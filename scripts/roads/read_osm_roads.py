@@ -38,6 +38,7 @@ from shapely import prepared
 from shapely.geometry import LineString, MultiLineString, shape
 
 from osm_lines import read_lines
+from street_names import resolve_name
 
 # Las clases que se leen siempre, lleven o no codigo de ruta.
 MAIN_CLASSES = ('motorway', 'trunk', 'primary', 'secondary', 'tertiary')
@@ -204,12 +205,13 @@ def read_ways(pbf_path: str, departments) -> list[dict]:
     ways = []
     for way_id, tags, coords in read_lines(pbf_path, lambda way_id, tags: resolved(way_id, tags) is not None):
         highway, status, route = resolved(way_id, tags)
+        name, name_source = resolve_name(tags)
         for department, piece in split_by_department(LineString(coords), departments):
             ways.append({
                 'wayId': way_id, 'highway': highway, 'status': status,
                 'network': route[0] if route else 'SIN_REFERENCIA',
                 'route': route[1] if route else None,
-                'name': tags.get('name'),
+                'name': name, 'nameSource': name_source,
                 'surface': surface_of(tags), 'rawSurface': tags.get('surface'),
                 'maxspeed': tags.get('maxspeed'), 'department': department,
                 # Una calzada de sentido unico es media via: la doble calzada se
