@@ -7,7 +7,7 @@ import { readInstagram } from './platforms/instagram';
 import { readLinkedin } from './platforms/linkedin';
 import { readTiktok } from './platforms/tiktok';
 import { readYoutube } from './platforms/youtube';
-import { launchBrowser, openContext, pause, sleep } from './social-browser';
+import { launchBrowser, openContext, pause } from './social-browser';
 import { PLATFORMS, type Platform } from './social-links';
 import { resembles } from './search-account';
 import {
@@ -70,19 +70,30 @@ const BUDGET_MS =
   60_000;
 const STARTED = Date.now();
 const outOfTime = (): boolean => BUDGET_MS > 0 && Date.now() - STARTED > BUDGET_MS;
-const COOL_DOWN_MS = 10 * 60_000;
 
 function argument(name: string): string | undefined {
   return process.argv.find((value) => value.startsWith(`--${name}=`))?.slice(name.length + 3);
 }
 
+/**
+ * Las cuentas ya leídas de una red. Con `--retry-errors` una cuenta que quedó en
+ * `ERROR` (página colgada, Chromium caído) o `BLOCKED` (muro de sesión) no cuenta
+ * como leída y se vuelve a pedir; la nueva lectura se agrega al final y el análisis se queda con la última.
+ */
+function readProfiles(file: string): Array<AccountReading['profile']> {
+  if (!existsSync(file)) return [];
+  return readFileSync(file, 'utf-8')
+    .split('\n')
+    .filter(Boolean)
+    .map((line) => (JSON.parse(line) as AccountReading).profile);
+}
+
 function alreadyRead(file: string): Set<string> {
-  if (!existsSync(file)) return new Set();
+  const retry = process.argv.includes('--retry-errors');
   return new Set(
-    readFileSync(file, 'utf-8')
-      .split('\n')
-      .filter(Boolean)
-      .map((line) => (JSON.parse(line) as AccountReading).profile.slug),
+    readProfiles(file)
+      .filter((profile) => !(retry && (profile.status === 'ERROR' || profile.status === 'BLOCKED')))
+      .map((profile) => profile.slug),
   );
 }
 
@@ -128,16 +139,41 @@ function owned(target: CollectTarget, reading: AccountReading): AccountReading {
   );
 }
 
+const ACCOUNT_LIMIT_MS = 4 * 60_000;
+const TIMED_OUT = 'tiempo agotado leyendo la cuenta';
+
+/** Una cuenta no puede quedarse con el tramo entero: pasado el límite se la da por perdida. */
+async function readWithin(
+  context: BrowserContext,
+  platform: Platform,
+  target: CollectTarget,
+): Promise<AccountReading> {
+  let timer: NodeJS.Timeout | undefined;
+  const limit = new Promise<AccountReading>((resolve) => {
+    timer = setTimeout(() => resolve(unread(target, 'ERROR', TIMED_OUT)), ACCOUNT_LIMIT_MS);
+  });
+  try {
+    return await Promise.race([readSafely(context, platform, target), limit]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function runPlatform(
   openFresh: () => Promise<BrowserContext>,
   platform: Platform,
   targets: readonly CollectTarget[],
   runDir: string,
 ): Promise<void> {
-  const done = alreadyRead(join(runDir, `${platform}.jsonl`));
-  const pending = targets.filter((target) => !done.has(target.slug));
+  const file = join(runDir, `${platform}.jsonl`);
+  const done = alreadyRead(file);
+  const tried = new Set(readProfiles(file).map((profile) => profile.slug));
+  // Las cuentas que nunca se pidieron van primero: un reintento choca con el muro
+  // de la red y no debe comerse el tramo antes de que las nuevas tengan su turno.
+  const pending = targets
+    .filter((target) => !done.has(target.slug))
+    .sort((left, right) => Number(tried.has(left.slug)) - Number(tried.has(right.slug)));
   let strikes = 0;
-  let cooled = false;
   let context = await openFresh();
   try {
     for (const [index, target] of pending.entries()) {
@@ -145,7 +181,13 @@ async function runPlatform(
         console.log(`[${platform}] fin del tramo; faltan ${pending.length - index} cuentas`);
         return;
       }
-      let reading = await readSafely(context, platform, target);
+      let reading = await readWithin(context, platform, target);
+      if (reading.profile.statusNote === TIMED_OUT) {
+        // Una página colgada: se suelta todo el contexto (con ella, lo que quedó a medias)
+        // y la cuenta queda como ERROR para el próximo tramo, que la reintenta.
+        await context.close().catch(() => undefined);
+        context = await openFresh();
+      }
       if (!context.browser()?.isConnected()) {
         // Chromium se cayó (falta de memoria): esa lectura no vale como ERROR de la
         // cuenta. Se reabre y se vuelve a leer la misma.
@@ -161,16 +203,12 @@ async function runPlatform(
       );
       strikes = status === 'BLOCKED' ? strikes + 1 : 0;
       if (strikes >= STRIKES) {
-        if (cooled) {
-          console.log(
-            `[${platform}] bloqueada otra vez: se detiene; faltan ${pending.length - index - 1} cuentas`,
-          );
-          return;
-        }
-        console.log(`[${platform}] ${STRIKES} bloqueos seguidos: espera de 10 minutos`);
-        await sleep(COOL_DOWN_MS);
-        cooled = true;
-        strikes = 0;
+        // No se espera dentro del tramo: la red se enfría mientras corren las otras,
+        // y las cuentas bloqueadas se reintentan con --retry-errors.
+        console.log(
+          `[${platform}] ${STRIKES} bloqueos seguidos: se detiene en este tramo; faltan ${pending.length - index - 1} cuentas`,
+        );
+        return;
       }
       await pause(...PACE[platform]);
     }

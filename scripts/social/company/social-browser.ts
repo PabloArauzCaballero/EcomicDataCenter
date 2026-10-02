@@ -12,11 +12,24 @@ import { chromium, type Browser, type BrowserContext } from 'playwright';
  * detrás de uno se registra como `BLOCKED`.
  */
 
+/**
+ * Con la memoria al límite Chromium a veces ni arranca. Se reintenta con espera
+ * en vez de tumbar el tramo: lo normal es que la presión pase en un minuto.
+ */
 export async function launchBrowser(): Promise<Browser> {
-  return chromium.launch({
-    headless: true,
-    args: ['--disable-blink-features=AutomationControlled'],
-  });
+  let failure: unknown = null;
+  for (let attempt = 1; attempt <= 5; attempt += 1) {
+    try {
+      return await chromium.launch({
+        headless: true,
+        args: ['--disable-blink-features=AutomationControlled'],
+      });
+    } catch (error: unknown) {
+      failure = error;
+      await sleep(attempt * 20_000);
+    }
+  }
+  throw failure;
 }
 
 export async function openContext(
