@@ -33,6 +33,7 @@ import { reconcileExogenousPrices } from './boot-seed.exogenous-prices';
 import { reconcileIneTrade } from './boot-seed.ine-trade';
 import { reconcileBankVirtualAssets } from './boot-seed.bank-virtual-assets';
 import { reconcileBcbStatistics } from './boot-seed.bcb-statistics';
+import { reconcileCompanySocial } from './boot-seed.company-social';
 import { refreshAfterLoad } from './boot-seed.refresh';
 
 /**
@@ -78,6 +79,7 @@ const SELECTABLE = [
   'bank-virtual-assets',
   'bcb-statistics',
   'bolivia-transport-network',
+  'company-social',
 ] as const;
 
 export type Catalogue = (typeof SELECTABLE)[number];
@@ -116,6 +118,8 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   // Doce mil series que se siembran en doce segundos: por la misma razón que los bancos van
   // delante de las cargas que tardan veinte minutos.
   ['bcb-statistics', reconcileBcbStatistics],
+  // Unas dos mil filas por corrida: va delante de las cargas largas, como los bancos.
+  ['company-social', reconcileCompanySocial],
   ['exchange-rate-history', reconcileExchangeRateHistory],
   ['macro-annual-history', reconcileMacroAnnualHistory],
   ['market-prices', reconcileMarketPrices],

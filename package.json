@@ -103,6 +103,8 @@
     "departments:collect": "tsx scripts/macro/collect-ine-departments.ts",
     "departments:activities": "tsx scripts/macro/collect-ine-department-activities.ts",
     "corporate:collect": "tsx scripts/macro/collect-corporate-register.ts",
+    "social:accounts": "tsx scripts/social/company/discover-company-accounts.ts",
+    "social:collect": "tsx scripts/social/company/collect-company-social.ts",
     "banks:collect": "tsx scripts/banks/collect-bank-virtual-assets.ts",
     "banks:quote": "tsx scripts/banks/record-bank-quote.ts"
   },

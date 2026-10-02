@@ -266,6 +266,9 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('bcb-statistics', 'Estadísticas del Banco Central de Bolivia, serie por serie', [
     'boot/bcb-statistics/',
   ]),
+  historical('company-social', 'Redes sociales de empresas (ADR 0027)', [
+    'boot/company-social.json',
+  ]),
   historical('bolivia-transport-network', 'Red ferroviaria y red fluvial de Bolivia', [
     'boot/bolivia-transport-network/rail-network.json',
     'boot/bolivia-transport-network/rail-flows.json',
