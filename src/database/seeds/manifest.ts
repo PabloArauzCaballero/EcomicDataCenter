@@ -249,11 +249,17 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical(
     'bolivia-road-network',
     'Red vial de Bolivia',
-    ['boot/bolivia-road-network/road-sections.json', 'boot/bolivia-road-network/road-lengths.json'],
-    // 2026-09-27: extracto del 26 de septiembre, con la clase `tertiary` y los
-    // códigos de las relaciones de ruta; la Red Departamental con código pasó
-    // de 1.271 a 5.225 km y lo trazado, de 27.403 a 57.424 km.
-    '1.1.0',
+    [
+      'boot/bolivia-road-network/road-sections.json',
+      'boot/bolivia-road-network/road-lengths.json',
+      'boot/bolivia-road-network/urban-streets.json',
+      'boot/bolivia-road-network/urban-street-index.json',
+    ],
+    // 2026-10-01: extracto del 30 de septiembre; un tramo por nombre y, sin ruta ni
+    // nombre, por celda de ~11 km (de 6.725 a 10.741 tramos); y las calles de las
+    // ciudades en celdas de ~2,2 km (159.675 calles, 3.256 celdas) con su índice
+    // de nombres (18.758). Ver la migración 0095.
+    '1.2.0',
   ),
   historical('exogenous-prices', 'Precios que Bolivia no fija (variables exógenas)', [
     'boot/exogenous-prices.json',

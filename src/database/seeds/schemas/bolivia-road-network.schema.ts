@@ -169,3 +169,117 @@ export const roadLengthsSeedSchema = z
 
 export type BoliviaRoadLengths = z.infer<typeof roadLengthsSeedSchema>;
 export type RoadLengthPoint = BoliviaRoadLengths['points'][number];
+
+/**
+ * The city streets, in cells.
+ *
+ * `road-sections.json` holds the national network at ~200 m of simplification, which
+ * is right for a country and wrong for a street: at the deepest zoom the map shows,
+ * a 200 m tolerance is a visible kink. The streets of the cities —residential,
+ * living streets, unclassified and service ways that are not the Red Fundamental or
+ * Departamental, which `tertiary` and above already cover— are read apart, at ~2 m,
+ * and cut into cells of 0.02 degrees (~2.2 km) so the tablero asks only for the ones
+ * the screen crosses. One cell is one observation.
+ *
+ * Only a quarter of the residential ways OpenStreetMap holds in Bolivia carry a
+ * name (measured on the 2026-09-30 extract); the rest are drawn with `name: null`
+ * and are not in the index.
+ */
+
+const URBAN_DEPARTMENT = z.enum([
+  'BENI',
+  'CHUQUISACA',
+  'COCHABAMBA',
+  'LA_PAZ',
+  'ORURO',
+  'PANDO',
+  'POTOSI',
+  'SANTA_CRUZ',
+  'TARIJA',
+]);
+
+const urbanProvenance = provenanceCommon
+  .extend({
+    publisher: z.literal('OpenStreetMap contributors'),
+    licence: z.literal('ODbL-1.0'),
+    attribution: z.string().trim().min(5).max(80),
+    extractUri: z.url(),
+    extractSha256: z.string().regex(/^[a-f0-9]{64}$/u),
+    extractMd5: z.string().regex(/^[a-f0-9]{32}$/u),
+    snapshotDate: z.iso.date(),
+    boundaries: z.string().trim().min(10).max(200),
+    boundariesSha256: z.string().regex(/^[a-f0-9]{64}$/u),
+    highwayClasses: z.array(z.string().trim().min(3).max(20)).min(1),
+    simplificationToleranceDeg: z.number().positive().max(0.05),
+    wayCount: z.number().int().positive(),
+    cellDeg: z.number().positive().max(1).optional(),
+  })
+  .strict();
+
+const box = z.tuple([z.number(), z.number(), z.number(), z.number()]);
+
+export const urbanStreetsSeedSchema = z
+  .object({
+    dataset: z.literal('bolivia-urban-streets-osm'),
+    provenance: urbanProvenance,
+    cells: z
+      .array(
+        z
+          .object({
+            /** `<latitude>:<longitude>` of the cell's south-west corner, two decimals. */
+            cellId: z.string().regex(/^-?\d+\.\d{2}:-?\d+\.\d{2}$/u),
+            department: URBAN_DEPARTMENT.nullable(),
+            /** `[minLon, minLat, maxLon, maxLat]` of every way the cell holds, not of the cell. */
+            bounds: box,
+            streets: z
+              .array(
+                z
+                  .object({
+                    id: z.number().int().positive(),
+                    name: z.string().trim().min(1).max(200).nullable(),
+                    /** r residential, l living_street, u unclassified, s service, p pedestrian. */
+                    class: z.enum(['r', 'l', 'u', 's', 'p']),
+                    /** P pavimento, E empedrado, R ripio, T tierra, U sin pavimentar, D sin dato. */
+                    surface: z.enum(['P', 'E', 'R', 'T', 'U', 'D']),
+                    km: z.number().nonnegative().max(200),
+                    line: z.array(z.tuple([z.number(), z.number()])).min(2),
+                  })
+                  .strict(),
+              )
+              .min(1),
+          })
+          .strict(),
+      )
+      .min(1),
+  })
+  .strict();
+
+export type UrbanStreetsSeed = z.infer<typeof urbanStreetsSeedSchema>;
+export type UrbanStreetCell = UrbanStreetsSeed['cells'][number];
+
+export const urbanStreetIndexSeedSchema = z
+  .object({
+    dataset: z.literal('bolivia-urban-street-index-osm'),
+    provenance: urbanProvenance,
+    streets: z
+      .array(
+        z
+          .object({
+            name: z.string().trim().min(1).max(200),
+            /** The name without accents, case or signs: what the reader's search is folded to. */
+            key: z.string().trim().min(1).max(200),
+            city: z.string().trim().min(2).max(120),
+            ways: z.number().int().positive(),
+            department: URBAN_DEPARTMENT.nullable(),
+            km: z.number().nonnegative().max(2_000),
+            paved: z.number().nonnegative().max(2_000),
+            bounds: box,
+          })
+          .strict(),
+      )
+      .min(1),
+  })
+  .strict();
+
+export type UrbanStreetIndexSeed = z.infer<typeof urbanStreetIndexSeedSchema>;
+export type UrbanStreetIndexEntry = UrbanStreetIndexSeed['streets'][number];

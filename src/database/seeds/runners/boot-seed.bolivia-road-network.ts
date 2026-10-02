@@ -10,6 +10,7 @@ import { rawPayloadHash, claimContentHash } from '../../../common/intelligence/c
 import { textHash } from '../../../common/hashing/canonical-hash';
 import { reconcileHistoryRun } from './boot-seed.history-provenance';
 import { loadRoadLengths } from './boot-seed.bolivia-road-network.lengths';
+import { loadUrbanStreets } from './boot-seed.bolivia-road-network.streets';
 import { roadSectionsSeedSchema, type RoadSection } from '../schemas/bolivia-road-network.schema';
 import { readSeed } from './seed.utils';
 
@@ -220,4 +221,5 @@ export async function reconcileBoliviaRoadNetwork(
   const agentRunId = await reconcileHistoryRun(AGENT_CODE, transaction);
   await loadSections(sourceId, agentRunId, transaction);
   await loadRoadLengths(sourceId, agentRunId, transaction);
+  await loadUrbanStreets(sourceId, agentRunId, transaction);
 }
