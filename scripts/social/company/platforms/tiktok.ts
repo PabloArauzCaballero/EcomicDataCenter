@@ -110,7 +110,7 @@ async function videoLinks(context: BrowserContext, handle: string): Promise<stri
   return [...new Set(ids)].map((id) => `https://www.tiktok.com/@${handle}/video/${id}`);
 }
 
-async function readVideo(
+export async function readVideo(
   context: BrowserContext,
   target: AccountTarget,
   url: string,
