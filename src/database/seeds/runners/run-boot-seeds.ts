@@ -133,6 +133,9 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   // Quinientas series y pocos miles de puntos: se siembran en segundos y van delante de las
   // cargas largas por la misma razón que los bancos y las estadisticas del Banco Central.
   ['public-accounts', reconcilePublicAccounts],
+  // El tablero abre transporte como primera página del capítulo. No debe esperar a que el
+  // replay atraviese el panel mundial y los corpus de comercio para recibir sus datos.
+  ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
   ['exchange-rate-history', reconcileExchangeRateHistory],
   ['macro-annual-history', reconcileMacroAnnualHistory],
   ['market-prices', reconcileMarketPrices],
@@ -161,7 +164,6 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bolivia-road-network', reconcileBoliviaRoadNetwork],
   ['exogenous-prices', reconcileExogenousPrices],
   ['ine-trade', reconcileIneTrade],
-  ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
 ];
 
 /**

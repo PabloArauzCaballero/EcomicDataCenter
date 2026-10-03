@@ -4,6 +4,7 @@ import { reconcileBbvYields } from '../../database/seeds/runners/boot-seed.bbv-y
 import { reconcileBcbQuotes } from '../../database/seeds/runners/boot-seed.bcb-quotes';
 import { reconcileBoliviaNationalPoi } from '../../database/seeds/runners/boot-seed.bolivia-national-poi';
 import { reconcileBoliviaPoi } from '../../database/seeds/runners/boot-seed.bolivia-poi';
+import { reconcileBoliviaTransportNetwork } from '../../database/seeds/runners/boot-seed.bolivia-transport-network';
 import { reconcileCompanyFilingTexts } from '../../database/seeds/runners/boot-seed.company-filing-texts';
 import { reconcileCompanyFilings } from '../../database/seeds/runners/boot-seed.company-filings';
 import { reconcileCompanyFilingArchive } from '../../database/seeds/runners/boot-seed.company-filings-archive';
@@ -143,5 +144,9 @@ export const SEED_UNITS: Readonly<Record<string, readonly SeedUnit[]>> = {
   'worldbank-panel': single('worldbank-panel', reconcileWorldBankPanel),
   'bolivia-poi': single('bolivia-poi', reconcileBoliviaPoi),
   'bolivia-national-poi': single('bolivia-national-poi', reconcileBoliviaNationalPoi),
+  'bolivia-transport-network': single(
+    'bolivia-transport-network',
+    reconcileBoliviaTransportNetwork,
+  ),
   'observatory-demo': DEMO_UNITS,
 };
