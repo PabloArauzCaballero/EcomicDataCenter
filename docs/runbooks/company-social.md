@@ -48,6 +48,8 @@ trajo, el texto más largo, los comentarios sin repetir); una lectura profunda f
 
 ```bash
 yarn tsx scripts/social/company/collect-deep.ts --run=AAAA-MM-DD --platforms=youtube --budget-minutes=6 --details=6
+# Reintenta de forma dirigida las lecturas profundas que devolvieron cero posts:
+yarn tsx scripts/social/company/collect-deep.ts --run=AAAA-MM-DD --platforms=tiktok --retry-empty --only=EMPRESA_1,EMPRESA_2
 ```
 
 - **YouTube:** lista hasta 120 videos del canal (vistas y fecha de cada tarjeta) y abre los más vistos y los

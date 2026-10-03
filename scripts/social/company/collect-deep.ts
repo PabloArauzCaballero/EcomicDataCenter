@@ -5,6 +5,7 @@ import { readFacebookDeep, readYoutubeDeep, type DeepOptions } from './platforms
 import { readInstagramDeep, readTiktokDeep } from './platforms/deep-search';
 import { launchBrowser, openContext, pause } from './social-browser';
 import type { AccountReading, AccountTarget } from './social-types';
+import { completedDeepSlugs } from './deep-progress';
 
 /**
  * Segunda pasada de profundidad sobre las cuentas ya leídas `OK` (ADR 0027).
@@ -33,6 +34,7 @@ const options: DeepOptions = {
   searchPosts: Number(argument('search-posts') ?? 15),
 };
 const only = argument('only')?.split(',');
+const retryEmpty = process.argv.includes('--retry-empty');
 const platforms = (argument('platforms') ?? 'youtube,facebook').split(',');
 const PACE: Record<string, readonly [number, number]> = {
   youtube: [2, 4],
@@ -73,10 +75,9 @@ async function main(): Promise<void> {
     for (const platform of platforms) {
       const base = latest(readJsonl(join(source, `${platform}.jsonl`)));
       const deepFile = join(deepDir, `${platform}.jsonl`);
-      const done = new Set(
-        [...latest(readJsonl(deepFile)).values()]
-          .filter((row) => row.profile.status !== 'ERROR' && row.profile.status !== 'BLOCKED')
-          .map((row) => row.profile.slug),
+      const done = completedDeepSlugs(
+        [...latest(readJsonl(deepFile)).values()],
+        retryEmpty,
       );
       const pending = [...base.values()]
         .filter((row) => row.profile.status === 'OK' && !done.has(row.profile.slug))
