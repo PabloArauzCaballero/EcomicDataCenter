@@ -294,14 +294,22 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('company-social', 'Redes sociales de empresas (ADR 0027)', [
     'boot/company-social.json',
   ]),
-  historical('public-accounts', 'Cuentas públicas: recaudación, ingresos y gastos del Estado, deuda y subsidios', [
-    'boot/public-accounts/',
-  ]),
-  historical('bolivia-transport-network', 'Red ferroviaria y red fluvial de Bolivia', [
-    'boot/bolivia-transport-network/rail-network.json',
-    'boot/bolivia-transport-network/rail-flows.json',
-    'boot/bolivia-transport-network/waterways.json',
-  ]),
+  historical(
+    'public-accounts',
+    'Cuentas públicas: recaudación, ingresos y gastos del Estado, deuda y subsidios',
+    ['boot/public-accounts/'],
+  ),
+  historical(
+    'bolivia-transport-network',
+    'Redes y economia del transporte de Bolivia',
+    [
+      'boot/bolivia-transport-network/rail-network.json',
+      'boot/bolivia-transport-network/rail-flows.json',
+      'boot/bolivia-transport-network/waterways.json',
+      'boot/bolivia-transport-network/road-transport.json',
+    ],
+    '1.1.0',
+  ),
   {
     code: 'observatory-demo',
     version: '1.0.0',

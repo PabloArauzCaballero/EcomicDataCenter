@@ -186,3 +186,141 @@ export const waterwaysSeedSchema = z
 export type BoliviaWaterways = z.infer<typeof waterwaysSeedSchema>;
 export type Waterway = BoliviaWaterways['waterways'][number];
 export type WaterPort = BoliviaWaterways['ports'][number];
+
+const transportSourceSchema = z
+  .object({
+    key: z.string().regex(/^[A-Z0-9_]+$/u),
+    publisher: z.string().trim().min(3).max(200),
+    title: z.string().trim().min(5).max(300),
+    url: z.url(),
+    sha256,
+    retrievedAt: z.iso.datetime({ offset: false }),
+    status: z.enum(['LOADED', 'REFERENCE_ONLY', 'EMPTY_OFFICIAL_WORKBOOK']),
+    note: z.string().trim().min(5).max(500).nullable(),
+  })
+  .strict();
+
+const periodYear = z.string().regex(/^20(0[3-9]|1\d|2[0-5])$/u);
+const service = z.enum(['TOTAL', 'PARTICULAR', 'PUBLICO', 'OFICIAL']);
+const vehicleClass = z.enum([
+  'TOTAL',
+  'AMBULANCIA',
+  'AUTOMOVIL',
+  'BUS',
+  'CAMION',
+  'CAMIONETA',
+  'FURGON',
+  'JEEP',
+  'MAQUINARIA_PESADA',
+  'MICROBUS',
+  'MINIBUS',
+  'MOTO',
+  'QUADRATRACK',
+  'TORPEDO',
+  'TRACTO_CAMION',
+  'TRIMOVIL_CAMION',
+  'VAGONETA',
+]);
+
+const fleetPointSchema = z
+  .object({
+    dimension: z.enum([
+      'DEPARTMENT_SERVICE',
+      'SERVICE_CLASS',
+      'SERVICE_CLASS_CAPACITY',
+    ]),
+    department: z.enum([...DEPARTMENTS, 'BOLIVIA']).nullable(),
+    service,
+    vehicleClass: vehicleClass.nullable(),
+    capacityBand: z
+      .enum(['TOTAL', 'LE_1_4', 'GT_1_4_LE_3', 'GT_3_LE_5', 'GT_5_LE_11', 'GT_11_LE_13', 'GT_13', 'UNSPECIFIED'])
+      .nullable(),
+    period: periodYear,
+    value: z.number().int().nonnegative().max(10_000_000),
+    preliminary: z.boolean(),
+    sourceKey: z.string().regex(/^[A-Z0-9_]+$/u),
+  })
+  .strict();
+
+const gnvPointSchema = z
+  .object({
+    metric: z.enum(['CONVERSION', 'CYLINDER_REQUALIFICATION']),
+    dimension: z.enum(['DEPARTMENT_QUARTER', 'DEPARTMENT_CLASS']),
+    department: z.enum([...DEPARTMENTS, 'BOLIVIA']),
+    vehicleClass: vehicleClass.nullable(),
+    period: z.string().regex(/^20(1\d|2[0-5])(-Q[1-4])?$/u),
+    value: z.number().int().nonnegative().max(1_000_000),
+    preliminary: z.boolean(),
+    sourceKey: z.string().regex(/^[A-Z0-9_]+$/u),
+  })
+  .strict();
+
+const nullableFare = z.number().int().positive().max(10_000).nullable();
+const fareBandSchema = z
+  .object({
+    regulation: z.enum(['ATT_0178_2013', 'ATT_0032_2025']),
+    publishedOn: z.iso.date(),
+    effectiveFrom: z.iso.date(),
+    effectiveUntil: z.iso.date().nullable(),
+    origin: z.string().regex(/^[A-Z ]+$/u),
+    destination: z.string().regex(/^[A-Z ]+$/u),
+    road: z.enum(['DEFAULT', 'NEW', 'OLD']),
+    currency: z.literal('BOB'),
+    normalMin: z.number().int().positive().max(10_000),
+    normalMax: z.number().int().positive().max(10_000),
+    semicamaMin: nullableFare,
+    semicamaMax: nullableFare,
+    camaMin: nullableFare,
+    camaMax: nullableFare,
+    sourceKey: z.string().regex(/^[A-Z0-9_]+$/u),
+  })
+  .strict()
+  .refine((band) => band.normalMin <= band.normalMax, 'normal fare band is inverted')
+  .refine(
+    (band) =>
+      (band.semicamaMin === null && band.semicamaMax === null) ||
+      (band.semicamaMin !== null &&
+        band.semicamaMax !== null &&
+        band.semicamaMin <= band.semicamaMax),
+    'semicama fare band is incomplete or inverted',
+  )
+  .refine(
+    (band) =>
+      (band.camaMin === null && band.camaMax === null) ||
+      (band.camaMin !== null && band.camaMax !== null && band.camaMin <= band.camaMax),
+    'cama fare band is incomplete or inverted',
+  );
+
+/**
+ * Registered road vehicles, GNV work and passenger fare bands.
+ *
+ * The three arrays deliberately keep different meanings instead of flattening
+ * them into one generic indicator: a stock, an event and a regulated range
+ * cannot safely share one set of optional columns.
+ */
+export const roadTransportSeedSchema = z
+  .object({
+    dataset: z.literal('bolivia-road-transport-economy'),
+    generatedAt: z.iso.datetime({ offset: false }),
+    sources: z.array(transportSourceSchema).min(8),
+    fleetPoints: z.array(fleetPointSchema).min(1),
+    gnvPoints: z.array(gnvPointSchema).min(1),
+    fareBands: z.array(fareBandSchema).length(60),
+  })
+  .strict()
+  .superRefine((seed, context) => {
+    const sources = new Set(seed.sources.map((source) => source.key));
+    for (const point of [...seed.fleetPoints, ...seed.gnvPoints, ...seed.fareBands]) {
+      if (!sources.has(point.sourceKey)) {
+        context.addIssue({
+          code: 'custom',
+          message: `unknown road transport source: ${point.sourceKey}`,
+        });
+      }
+    }
+  });
+
+export type RoadTransportSeed = z.infer<typeof roadTransportSeedSchema>;
+export type FleetPoint = RoadTransportSeed['fleetPoints'][number];
+export type GnvPoint = RoadTransportSeed['gnvPoints'][number];
+export type FareBand = RoadTransportSeed['fareBands'][number];
