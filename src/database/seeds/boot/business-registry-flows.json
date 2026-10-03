@@ -6288,8 +6288,8 @@
       "measure": "matrículas canceladas",
       "level": "DEPARTMENT",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -6387,22 +6387,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "52",
-          "excerpt": "Beni 52",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "80",
-          "excerpt": "Beni 80",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
@@ -6414,8 +6398,8 @@
       "measure": "matrículas canceladas",
       "level": "DEPARTMENT",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -6513,22 +6497,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "135",
-          "excerpt": "Chuquisaca 135",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "85",
-          "excerpt": "Chuquisaca",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
@@ -6540,8 +6508,8 @@
       "measure": "matrículas canceladas",
       "level": "DEPARTMENT",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -6639,22 +6607,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "787",
-          "excerpt": "Cochabamba 787",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "872",
-          "excerpt": "Cochabamba",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
@@ -6666,8 +6618,8 @@
       "measure": "matrículas canceladas",
       "level": "DEPARTMENT",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -6765,22 +6717,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "1066",
-          "excerpt": "La Paz",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "1299",
-          "excerpt": "La P az 1.299",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
@@ -6792,8 +6728,8 @@
       "measure": "matrículas canceladas",
       "level": "DEPARTMENT",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -6891,22 +6827,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "163",
-          "excerpt": "Oruro 163",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "164",
-          "excerpt": "Oruro 164",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
@@ -6918,8 +6838,8 @@
       "measure": "matrículas canceladas",
       "level": "DEPARTMENT",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -7017,22 +6937,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "11",
-          "excerpt": "Pando 11",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "16",
-          "excerpt": "Pando",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
@@ -7044,8 +6948,8 @@
       "measure": "matrículas canceladas",
       "level": "DEPARTMENT",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -7143,22 +7047,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "94",
-          "excerpt": "Potosí 94",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "144",
-          "excerpt": "Potosí 144",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
@@ -7170,8 +7058,8 @@
       "measure": "matrículas canceladas",
       "level": "DEPARTMENT",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -7269,22 +7157,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "852",
-          "excerpt": "Santa Cruz 852",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "1084",
-          "excerpt": "Santa Cruz 1.084",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
@@ -7296,8 +7168,8 @@
       "measure": "matrículas canceladas",
       "level": "DEPARTMENT",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -7395,22 +7267,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "179",
-          "excerpt": "Tarija 179",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "201",
-          "excerpt": "Tarija 201",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
@@ -11548,8 +11404,8 @@
       "measure": "matrículas canceladas",
       "level": "COUNTRY",
       "unit": "COUNT",
-      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock. Hasta 2021 FUNDEMPRESA, desde 2022 SEPREC. La frase introductoria de 2022 imprime 2.491, pero el gráfico nacional y los nueve departamentos coinciden en 3.339; se usa la cifra internamente consistente.",
-      "publisher": "FUNDEMPRESA (hasta marzo de 2022) y SEPREC (desde abril de 2022)",
+      "basis": "Matrículas de comercio canceladas (cierre de empresas) en la gestión; flujo del año, no stock.",
+      "publisher": "FUNDEMPRESA (concesionaria del Registro de Comercio de Bolivia)",
       "frequency": "ANNUAL",
       "points": [
         {
@@ -11647,22 +11503,6 @@
           "sourceUrl": "https://web.archive.org/web/20220210150944id_/https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf",
           "upstreamSha256": "53f28328c61fd00eba068edc1ea50cc2bcc4f5f916b58e0642756a3914df0e71",
           "retrievedAt": "2026-10-02T01:14:41Z"
-        },
-        {
-          "period": "2022",
-          "value": "3339",
-          "excerpt": "{\"frase\":\"De enero a diciembre de gestión 2022 cancelaron su Matrícula de Comercio 2.491 unidades económicas.\",\"totalGrafico\":3339,\"sumaDepartamentos\":3339}",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf",
-          "upstreamSha256": "5ea1f0be4710fb2b682f9d79cce02294f69ad3a901c7e58308a99797c25167e6",
-          "retrievedAt": "2026-10-03T06:42:57Z"
-        },
-        {
-          "period": "2023",
-          "value": "3945",
-          "excerpt": "De enero a diciembre de 2023 cancelaron su matrícula de comercio 3.945 unidades económicas de las cuales",
-          "sourceUrl": "https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf",
-          "upstreamSha256": "114e495af45eb656c5845272bf5e2264a349af1fd98c42a356088104667b529f",
-          "retrievedAt": "2026-10-03T06:43:28Z"
         }
       ]
     },
