@@ -6,6 +6,7 @@ import {
   statisticalDomainSeedSchema,
 } from '../schemas/seed.schemas';
 import { AGENT_BOOTSTRAP_IDS } from '../seed-identifiers';
+import { annualRegisterSchema } from '../schemas/annual-register.schema';
 
 const BOOT_DIRECTORY = join(__dirname, '..', 'boot');
 
@@ -109,4 +110,13 @@ describe('boot/agent-bootstrap.json', () => {
   it('keeps the observatory out of the official statistics producers', () => {
     expect(bootstrap.organization.officialStatisticsProducer).toBe(false);
   });
+});
+
+describe('business boot catalogs', () => {
+  it.each(['wealth-benchmarks.json', 'company-ownership.json'])(
+    'keeps %s compatible with the schema used by the seed container',
+    (filename) => {
+      expect(() => annualRegisterSchema.parse(readCatalog(filename))).not.toThrow();
+    },
+  );
 });
