@@ -154,12 +154,17 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
    * el registro y el padrón, los ránkings, y los dueños con sus fortunas. Cada
    * uno se carga o no por su cuenta (`boot-seed.business-fabric.ts`).
    */
-  historical('business-registry', 'Base empresarial, tamaño y padrón de Impuestos', [
-    'boot/business-registry.json',
-    'boot/business-registry-flows.json',
-    'boot/business-size.json',
-    'boot/tax-roll.json',
-  ]),
+  historical(
+    'business-registry',
+    'Base empresarial, tamaño y padrón de Impuestos',
+    [
+      'boot/business-registry.json',
+      'boot/business-registry-flows.json',
+      'boot/business-size.json',
+      'boot/tax-roll.json',
+    ],
+    '1.1.0',
+  ),
   historical('business-rankings', 'Principales empresas: Impuestos y Las 500', [
     'boot/tax-top-payers.json',
   ]),

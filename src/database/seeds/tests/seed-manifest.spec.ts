@@ -20,6 +20,10 @@ describe('seed manifest', () => {
     expect(new Set(codes).size).toBe(codes.length);
   });
 
+  it('publishes the revised business registry under a new seed version', () => {
+    expect(findDeclaration('business-registry')?.version).toBe('1.1.0');
+  });
+
   it('orders dependencies before the packages that need them', () => {
     const { order, problems } = planOrder(SEED_PACKAGES);
     expect(problems).toEqual([]);
