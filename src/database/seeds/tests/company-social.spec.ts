@@ -11,6 +11,7 @@ import {
 import { pageFigures, postsFromBlobs } from '../../../../scripts/social/company/platforms/facebook';
 import { initialJson, relativeDate } from '../../../../scripts/social/company/platforms/youtube';
 import { linkedinAge } from '../../../../scripts/social/company/platforms/linkedin';
+import { completedDeepSlugs } from '../../../../scripts/social/company/deep-progress';
 
 /**
  * Guards the company social accounts (ADR 0027).
@@ -127,5 +128,20 @@ describe('company social accounts', () => {
       expect(profile.followers).toBeNull();
     }
     expect(raw).not.toMatch(/"(?:author|username|commenter|userId)"/u);
+  });
+
+  it('retries empty deep readings only when explicitly requested', () => {
+    const reading = (slug: string, posts: number, status = 'OK') => ({
+      profile: { slug, status },
+      posts: Array.from({ length: posts }, (_, index) => ({ postId: `${index}` })),
+      comments: [],
+      html: null,
+    });
+    const rows = [reading('WITH_POSTS', 2), reading('EMPTY', 0), reading('BLOCKED', 0, 'BLOCKED')];
+
+    expect(completedDeepSlugs(rows as never, false)).toEqual(
+      new Set(['WITH_POSTS', 'EMPTY']),
+    );
+    expect(completedDeepSlugs(rows as never, true)).toEqual(new Set(['WITH_POSTS']));
   });
 });
