@@ -6,6 +6,7 @@ import {
   type FleetPoint,
 } from '../schemas/bolivia-transport-network.schema';
 import { roadTransportRows } from '../runners/boot-seed.bolivia-transport-network.road';
+import { rawPayloadHash } from '../../../common/intelligence/claim-normalizer';
 
 describe('road transport official snapshot', () => {
   const load = async () =>
@@ -65,6 +66,16 @@ describe('road transport official snapshot', () => {
       ['CONVERSION', 14_871, true],
       ['CYLINDER_REQUALIFICATION', 21_729, true],
     ]);
+    const keys = seed.gnvPoints.map((point) =>
+      [
+        point.metric,
+        point.dimension,
+        point.department,
+        point.vehicleClass,
+        point.period,
+      ].join('|'),
+    );
+    expect(new Set(keys).size).toBe(keys.length);
   });
 
   it('keeps the 30 ATT routes in both bands and treats unavailable classes as null', async () => {
@@ -99,5 +110,6 @@ describe('road transport official snapshot', () => {
     expect(rows.some((row) => row.payload.dataCategory === 'VEHICLE_FLEET')).toBe(true);
     expect(rows.some((row) => row.payload.dataCategory === 'GNV_ACTIVITY')).toBe(true);
     expect(rows.some((row) => row.payload.dataCategory === 'INTERCITY_FARE_BAND')).toBe(true);
+    expect(new Set(rows.map((row) => rawPayloadHash(row.payload))).size).toBe(rows.length);
   });
 });

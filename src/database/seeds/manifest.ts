@@ -308,7 +308,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-transport-network/waterways.json',
       'boot/bolivia-transport-network/road-transport.json',
     ],
-    '1.1.0',
+    '1.1.1',
   ),
   {
     code: 'observatory-demo',

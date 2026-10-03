@@ -107,7 +107,7 @@ DEPARTMENTS = {
 SERVICES = {'TOTAL': 'TOTAL', 'PARTICULAR': 'PARTICULAR', 'PUBLICO': 'PUBLICO', 'OFICIAL': 'OFICIAL'}
 CLASSES = {
     'TOTAL': 'TOTAL', 'AMBULANCIA': 'AMBULANCIA', 'AUTOMOVIL': 'AUTOMOVIL',
-    'BUS': 'BUS', 'OMNIBUS': 'BUS', 'CAMION': 'CAMION', 'CAMIONETA': 'CAMIONETA',
+    'BUS': 'BUS', 'OMNIBUS': 'OMNIBUS', 'CAMION': 'CAMION', 'CAMIONETA': 'CAMIONETA',
     'FURGON': 'FURGON', 'JEEP': 'JEEP', 'MAQUINARIA PESADA': 'MAQUINARIA_PESADA',
     'MICROBUS': 'MICROBUS', 'MINIBUS': 'MINIBUS', 'MOTO': 'MOTO',
     'QUADRATRACK': 'QUADRATRACK', 'QUADRA TRACK': 'QUADRATRACK', 'TORPEDO': 'TORPEDO',
@@ -190,6 +190,19 @@ def add_years(target: list[dict], row: list[object], columns, base: dict) -> Non
         value = row[column] if column < len(row) else None
         if isinstance(value, (int, float)):
             target.append({**base, 'period': period, 'value': int(value), 'preliminary': preliminary})
+
+
+def unique_readings(points: list[dict]) -> list[dict]:
+    """Keep one observation when an upstream sheet repeats the same normalized row."""
+    seen: set[str] = set()
+    output: list[dict] = []
+    for point in points:
+        key = json.dumps(point, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
+        if key in seen:
+            continue
+        seen.add(key)
+        output.append(point)
+    return output
 
 
 def fleet_department_service(path: Path) -> list[dict]:
@@ -357,6 +370,9 @@ def build(root: Path) -> dict:
     gnv += gnv_by_class(root / FILES['GNV_REQUAL_TYPE'][0], 'CYLINDER_REQUALIFICATION', 'GNV_REQUAL_TYPE')
     bands = fares_2013(root / FILES['ATT_2013_ARCHIVE'][0])
     bands += [fare(row, 'ATT_0032_2025', 'ATT_2025_PDF') for row in ATT_2025_ROWS]
+    fleet = unique_readings(fleet)
+    gnv = unique_readings(gnv)
+    bands = unique_readings(bands)
     if len(bands) != 60: raise ValueError(f'Expected 60 fare bands, got {len(bands)}')
     return {'dataset': 'bolivia-road-transport-economy', 'generatedAt': RETRIEVED_AT,
             'sources': sources(root), 'fleetPoints': fleet, 'gnvPoints': gnv, 'fareBands': bands}

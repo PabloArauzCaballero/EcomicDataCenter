@@ -215,6 +215,7 @@ const vehicleClass = z.enum([
   'MICROBUS',
   'MINIBUS',
   'MOTO',
+  'OMNIBUS',
   'QUADRATRACK',
   'TORPEDO',
   'TRACTO_CAMION',
