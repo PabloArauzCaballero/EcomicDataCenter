@@ -52,7 +52,9 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898541+github-actions[bot]@users.noreply.github.com'
-          seeds='src/database/seeds/boot/*.json'
+          # `:(glob)` hace que `*` no atraviese `/`: los JSON auxiliares de
+          # subcarpetas no son semillas independientes y no deben sincronizarse.
+          seeds=':(glob)src/database/seeds/boot/*.json'
 
           # Lo que cada semilla necesita para entrar: su sembrador, su esquema y
           # las piezas comunes. Si eso difiere entre ramas, el sembrador de
