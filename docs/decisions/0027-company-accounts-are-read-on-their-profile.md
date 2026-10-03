@@ -76,6 +76,22 @@ La polaridad (POS/NEG/NEU) es obligatoria. La emoción y la ironía se agregan c
 La ironía se informa por separado y no se suma a lo positivo. Es la respuesta a la advertencia de la
 ADR 0022.
 
+### 6. La sesión del operador es de solo lectura y no amplía los datos personales
+
+Cuando una red no entregue suficiente profundidad sin sesión, el responsable puede aportar una
+sesión iniciada manualmente en un Chromium visible. Debe usarse una cuenta secundaria, no la cuenta
+personal principal. El operador escribe sus credenciales directamente en la ventana: ningún script,
+registro o conversación las recibe.
+
+El `storageState` queda fuera de Git, bajo `artifacts/social-profile/`, y se elimina cuando termina la
+corrida. La automatización puede abrir perfiles, publicaciones y comentarios, pero nunca dar «me
+gusta», seguir, comentar, compartir, enviar mensajes ni modificar la cuenta. Debe detenerse ante un
+captcha, un checkpoint, una advertencia de «actividad sospechosa» o cualquier pedido de verificación.
+
+La sesión no cambia la minimización decidida arriba: de los comentarios se conserva únicamente el
+texto necesario para clasificarlo, su fecha y sus cifras de interacción cuando la red las muestra. No
+se guardan nombres, usuarios, avatares, enlaces de perfil ni otros identificadores de quien comenta.
+
 ## Consecuencias
 
 - La cobertura es desigual por red, y el tablero la muestra como cobertura: cuántas cuentas se
