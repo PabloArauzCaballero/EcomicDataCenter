@@ -136,6 +136,10 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   // El tablero abre transporte como primera página del capítulo. No debe esperar a que el
   // replay atraviese el panel mundial y los corpus de comercio para recibir sus datos.
   ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
+  // El directorio y los cierres son datos públicos de primera pantalla. Conciliar este paquete
+  // antes de los históricos largos evita que una actualización empresarial espere decenas de
+  // minutos detrás de series que no cambiaron.
+  ['business-registry', reconcileBusinessRegistry],
   ['exchange-rate-history', reconcileExchangeRateHistory],
   ['macro-annual-history', reconcileMacroAnnualHistory],
   ['market-prices', reconcileMarketPrices],
@@ -149,7 +153,6 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['foreign-trade-detail', reconcileForeignTradeDetail],
   ['annual-registers', reconcileAnnualRegisters],
   ['annual-activities', reconcileAnnualActivities],
-  ['business-registry', reconcileBusinessRegistry],
   ['business-rankings', reconcileBusinessRankings],
   ['business-wealth', reconcileBusinessWealth],
   ['company-filings', reconcileCompanyFilings],
