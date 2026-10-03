@@ -1,17 +1,9 @@
 import { download, writeSeed, type Downloaded } from './business-common';
 import { pdfRows } from './pdf-rows';
 import { municipalFigures } from './registry-flow-municipal';
-import { seprecMemoryNew, seprecNew, seprecRenewalGroups, seprecRenewed, type SeprecFigure } from './registry-flow-seprec';
+import { seprecCancelled, seprecMemoryNew, seprecNew, seprecRenewalGroups, seprecRenewed, type SeprecFigure } from './registry-flow-seprec';
 import { buildSeries, resolve, type Candidate, type FlowDimension } from './registry-flow-series';
-import {
-  FUNDEMPRESA,
-  FUNDEMPRESA_REPORTS,
-  SEPREC,
-  SEPREC_MEMORY,
-  SEPREC_MONTHLY,
-  type FundempresaReport,
-  type Measure,
-} from './registry-flow-sources';
+import { FUNDEMPRESA, FUNDEMPRESA_REPORTS, SEPREC, SEPREC_CANCELLATION_MEMORIES, SEPREC_MEMORY, SEPREC_MONTHLY, type FundempresaReport, type Measure } from './registry-flow-sources';
 import { readTable } from './registry-flow-tables';
 
 /**
@@ -64,7 +56,16 @@ async function fromReport(report: FundempresaReport): Promise<Candidate[]> {
       const dimension: FlowDimension = cross ? crossed : cell.rowKey === 'BOLIVIA' ? 'TOTAL' : table.dimension;
       const key = cross ? `${cell.columnKey}__${cell.rowKey}` : cell.rowKey;
       const rank = Number(year) === own ? 0 : 10_000 - own;
-      found.push({ measure: table.measure, dimension, key, year, value: cell.value, excerpt: cell.excerpt, rank, ...stamp(source) });
+      found.push({
+        measure: table.measure,
+        dimension,
+        key,
+        year,
+        value: cell.value,
+        excerpt: cell.excerpt,
+        rank,
+        ...stamp(source),
+      });
     }
   }
   if (report.municipalities) {
@@ -98,13 +99,18 @@ function fromSeprec(figures: readonly SeprecFigure[], measure: Measure, dimensio
     // Una gestión entera gana a una parcial del mismo año.
     rank: figure.months ? 1 : 0,
     ...(figure.months ? { months: figure.months } : {}),
+    ...(figure.note ? { note: figure.note } : {}),
     ...stamp(source),
   }));
 }
 
-/** Lo del SEPREC: totales de inscripciones y renovaciones, y las renovaciones por periodo. */
+/** Lo del SEPREC: inscripciones, renovaciones y cancelaciones con sus desgloses verificables. */
 async function seprecCandidates(): Promise<Candidate[]> {
-  const fresh = async (url: string): Promise<Source> => ({ url, file: await download(url), publisher: SEPREC });
+  const fresh = async (url: string): Promise<Source> => ({
+    url,
+    file: await download(url),
+    publisher: SEPREC,
+  });
   const news = await fresh(SEPREC_MONTHLY.newUrl);
   const renewals = await fresh(SEPREC_MONTHLY.renewedUrl);
   const memory = await fresh(SEPREC_MEMORY.url);
@@ -114,13 +120,39 @@ async function seprecCandidates(): Promise<Candidate[]> {
   const totalsNew = seprecNew(newRows);
   const totalsRenewed = seprecRenewed(renewedRows);
   const memoryNew = seprecMemoryNew(memoryRows);
-  for (const [name, list] of [['inscripciones', totalsNew], ['renovaciones', totalsRenewed]] as const) {
+  for (const [name, list] of [
+    ['inscripciones', totalsNew],
+    ['renovaciones', totalsRenewed],
+  ] as const) {
     if (list.length !== SEPREC_MONTHLY.years) {
       throw new Error(`${SEPREC_MONTHLY.edition}, ${name}: ${list.length} gestiones y debían ser ${SEPREC_MONTHLY.years}`);
     }
   }
   if (memoryNew.length !== 1) throw new Error(`${SEPREC_MEMORY.edition}: ${memoryNew.length} cifras de inscripción de 2022`);
   const groups = seprecRenewalGroups(renewedRows, totalsRenewed, SEPREC_MONTHLY.edition);
+  const cancelled: Candidate[] = [];
+  for (const cancellationMemory of SEPREC_CANCELLATION_MEMORIES) {
+    const source = await fresh(cancellationMemory.url);
+    const rows = await pdfRows(source.file.bytes, cancellationMemory.pages);
+    const figures = seprecCancelled(rows, cancellationMemory.year);
+    if (figures.length !== 10) {
+      throw new Error(`${cancellationMemory.edition}: ${figures.length} cifras de cancelación y debían ser 10`);
+    }
+    cancelled.push(
+      ...fromSeprec(
+        figures.filter((figure) => figure.key === 'BOLIVIA'),
+        'CANCELLED',
+        'TOTAL',
+        source,
+      ),
+      ...fromSeprec(
+        figures.filter((figure) => figure.key !== 'BOLIVIA'),
+        'CANCELLED',
+        'DEPT',
+        source,
+      ),
+    );
+  }
   return [
     ...fromSeprec(totalsNew, 'NEW', 'TOTAL', news),
     ...fromSeprec(memoryNew, 'NEW', 'TOTAL', memory).map((one) => ({
@@ -129,6 +161,7 @@ async function seprecCandidates(): Promise<Candidate[]> {
     })),
     ...fromSeprec(totalsRenewed, 'RENEWED', 'TOTAL', renewals),
     ...fromSeprec(groups, 'RENEWED', 'GROUP', renewals),
+    ...cancelled,
   ];
 }
 
