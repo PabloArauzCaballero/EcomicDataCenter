@@ -32,7 +32,7 @@ type Unit = 'miles' | 'millones' | 'bolivianos';
 const TO_THOUSAND: Readonly<Record<Unit, number>> = { miles: 1, millones: 1000, bolivianos: 0.001 };
 
 const BASIS =
-  'Patrimonio total al cierre del ejercicio de la empresa, del balance de su prospecto de emisión de bonos en ASFI, convertido a miles de bolivianos corrientes y confirmado por un segundo cuadro independiente. Es valor en libros, no valor de mercado ni la fortuna de sus accionistas; si un prospecto posterior reexpresa el cierre, vale el más nuevo de los que coinciden.';
+  'Patrimonio total al cierre, según el balance del prospecto de bonos en ASFI, convertido a miles de bolivianos corrientes y confirmado en un segundo cuadro independiente. Es valor en libros, no valor de mercado ni fortuna personal; ante una reexpresión, rige el prospecto más reciente coincidente.';
 
 interface Reading {
   readonly issuer: string;
