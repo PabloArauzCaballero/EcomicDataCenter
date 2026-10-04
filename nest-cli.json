@@ -8,7 +8,7 @@
     "assets": [
       {
         "include": "database/seeds/**/*.json",
-        "watchAssets": true
+        "watchAssets": false
       }
     ]
   }
