@@ -9,6 +9,9 @@
       {
         "include": "database/seeds/**/*.json",
         "watchAssets": false
+      },
+      {
+        "include": "database/seeds/boot/abi-news/evidence/*.gz"
       }
     ]
   }
