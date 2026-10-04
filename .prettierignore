@@ -42,3 +42,6 @@ src/database/seeds/boot/press-archive-*.json
 # The world panel, on the same terms and for the same reason: 33 MB of
 # collector output across twenty-five files, each a single line. See ADR 0024.
 src/database/seeds/boot/worldbank-panel/*.json
+
+# ABI capture manifests, normalized shards and immutable source evidence.
+src/database/seeds/boot/abi-news/

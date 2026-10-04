@@ -5,8 +5,15 @@ import { runBootSeeds } from '../../../src/database/seeds/runners/run-boot-seeds
 
 async function main(): Promise<void> {
   const url = 'postgres://postgres:abi-local-test@127.0.0.1:55440/observatorio_abi_test';
-  Object.assign(process.env, { NODE_ENV: 'test', DATABASE_WRITER_URL: url, DATABASE_READER_URL: url,
-    DATABASE_MIGRATOR_URL: url, DATABASE_SSL: 'false', AUTH_MODE: 'disabled', ADMIN_ENVIRONMENT_ID: 'abi-local-test' });
+  Object.assign(process.env, {
+    NODE_ENV: 'test',
+    DATABASE_WRITER_URL: url,
+    DATABASE_READER_URL: url,
+    DATABASE_MIGRATOR_URL: url,
+    DATABASE_SSL: 'false',
+    AUTH_MODE: 'disabled',
+    ADMIN_ENVIRONMENT_ID: 'abi-local-test',
+  });
   const { database, migrator } = await createMigrationRunner(getEnvironment());
   try {
     console.log('ABI isolated database: applying migrations');
@@ -14,7 +21,9 @@ async function main(): Promise<void> {
     console.log('ABI loading corpus');
     await runBootSeeds('abi-news');
     const count = async (): Promise<number> => {
-      const [rows] = await database.query("SELECT count(*)::integer AS n FROM intelligence.raw_observation WHERE payload_json ->> 'abiKey' IS NOT NULL");
+      const [rows] = await database.query(
+        "SELECT count(*)::integer AS n FROM intelligence.raw_observation WHERE payload_json ->> 'abiKey' IS NOT NULL",
+      );
       return (rows[0] as { n: number }).n;
     };
     const before = await count();
@@ -26,6 +35,11 @@ async function main(): Promise<void> {
       count(*) FILTER (WHERE jsonb_array_length(article -> 'mentions') > 0)::integer AS company_articles
       FROM read_models.abi_article_snapshot`);
     console.log('ABI idempotency verified', summary);
-  } finally { await database.close(); }
+  } finally {
+    await database.close();
+  }
 }
-main().catch((error: unknown) => { console.error(error instanceof Error ? error.message : error); process.exitCode = 1; });
+main().catch((error: unknown) => {
+  console.error(error instanceof Error ? error.message : error);
+  process.exitCode = 1;
+});

@@ -3,17 +3,23 @@ import { join } from 'node:path';
 import { ROOT, atomicJson, capture, capturedText, type Capture } from './http';
 
 export interface WpInventory {
-  cutoff: string; complete: boolean; captures: Capture[]; expected: number;
+  cutoff: string;
+  complete: boolean;
+  captures: Capture[];
+  expected: number;
 }
-const fields = 'id,date,date_gmt,modified,modified_gmt,slug,status,type,link,title,content,excerpt,author,featured_media,categories,tags,meta,acf,yoast_head_json,_embedded';
+const fields =
+  'id,date,date_gmt,modified,modified_gmt,slug,status,type,link,title,content,excerpt,author,featured_media,categories,tags,meta,acf,yoast_head_json,_embedded';
 
 /** A bounded modified window prevents new posts shifting pages during a run. */
 async function collectPosts(full: boolean): Promise<void> {
   const path = join(ROOT, 'wordpress.json');
-  const previous: WpInventory | null = existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')) as WpInventory : null;
+  const previous: WpInventory | null = existsSync(path)
+    ? (JSON.parse(readFileSync(path, 'utf8')) as WpInventory)
+    : null;
   const pendingPath = join(ROOT, 'pending-wordpress.json');
   const pending: WpInventory = existsSync(pendingPath)
-    ? JSON.parse(readFileSync(pendingPath, 'utf8')) as WpInventory
+    ? (JSON.parse(readFileSync(pendingPath, 'utf8')) as WpInventory)
     : { cutoff: new Date().toISOString().slice(0, 19), complete: false, captures: [], expected: 0 };
   const base = new URL('https://abi.bo/wp-json/wp/v2/posts');
   base.searchParams.set('per_page', '100');
@@ -24,7 +30,10 @@ async function collectPosts(full: boolean): Promise<void> {
   base.searchParams.set('modified_before', pending.cutoff);
   if (previous?.complete && !full) {
     // Overlap covers equal timestamps and imports corrected after discovery.
-    base.searchParams.set('modified_after', new Date(Date.parse(`${previous.cutoff}Z`) - 3 * 86400000).toISOString().slice(0, 19));
+    base.searchParams.set(
+      'modified_after',
+      new Date(Date.parse(`${previous.cutoff}Z`) - 3 * 86400000).toISOString().slice(0, 19),
+    );
   }
   let pages = pending.captures[0]?.pages ?? 1;
   for (let page = pending.captures.length + 1; page <= pages; page++) {
@@ -33,18 +42,29 @@ async function collectPosts(full: boolean): Promise<void> {
     const records: unknown = JSON.parse(capturedText(result));
     if (!Array.isArray(records) || result.total === null || result.pages === null)
       throw new Error('ABI posts response lacks array/pagination headers');
-    if (page === 1) { pending.expected = result.total; pages = result.pages; }
-    if (result.total !== pending.expected) throw new Error('ABI inventory changed within bounded window; rerun full reconciliation');
+    if (page === 1) {
+      pending.expected = result.total;
+      pages = result.pages;
+    }
+    if (result.total !== pending.expected)
+      throw new Error('ABI inventory changed within bounded window; rerun full reconciliation');
     pending.captures.push(result);
     atomicJson(pendingPath, pending);
     console.log(`ABI posts ${page}/${Math.max(1, pages)} (${records.length})`);
   }
-  const count = pending.captures.reduce((n, c) => n + (JSON.parse(capturedText(c)) as unknown[]).length, 0);
-  if (count !== pending.expected) throw new Error(`ABI incomplete window: ${count}/${pending.expected}`);
+  const count = pending.captures.reduce(
+    (n, c) => n + (JSON.parse(capturedText(c)) as unknown[]).length,
+    0,
+  );
+  if (count !== pending.expected)
+    throw new Error(`ABI incomplete window: ${count}/${pending.expected}`);
   pending.complete = true;
   // Captures remain immutable, including previous versions needed for audit.
   const captures = [...(previous?.captures ?? []), ...pending.captures];
-  atomicJson(path, { ...pending, captures: [...new Map(captures.map(c => [c.sha256, c])).values()] });
+  atomicJson(path, {
+    ...pending,
+    captures: [...new Map(captures.map((c) => [c.sha256, c])).values()],
+  });
   // Keep no stale resume state after a successful atomic publication.
   const { unlinkSync } = await import('node:fs');
   unlinkSync(pendingPath);
@@ -53,23 +73,29 @@ async function collectPosts(full: boolean): Promise<void> {
 export async function collectWordpress(full: boolean): Promise<void> {
   mkdirSync(ROOT, { recursive: true });
   const robots = await capture('https://abi.bo/robots.txt');
-  if (/Disallow:\s*\/\s*$/mu.test(capturedText(robots))) throw new Error('ABI robots disallows crawling');
+  if (/Disallow:\s*\/\s*$/mu.test(capturedText(robots)))
+    throw new Error('ABI robots disallows crawling');
   await collectPosts(full);
   const taxonomy: Record<string, Capture[]> = {};
   for (const kind of ['categories', 'tags']) {
     const captures: Capture[] = [];
     let pages = 1;
     for (let page = 1; page <= pages; page++) {
-      const result = await capture(`https://abi.bo/wp-json/wp/v2/${kind}?per_page=100&page=${page}&_fields=id,name,slug,count,parent,link,description`);
+      const result = await capture(
+        `https://abi.bo/wp-json/wp/v2/${kind}?per_page=100&page=${page}&_fields=id,name,slug,count,parent,link,description`,
+      );
       if (result.pages === null) throw new Error(`ABI ${kind} lacks pagination`);
-      pages = result.pages; captures.push(result);
+      pages = result.pages;
+      captures.push(result);
     }
     taxonomy[kind] = captures;
     console.log(`ABI ${kind}: ${captures.length} pages`);
   }
   atomicJson(join(ROOT, 'taxonomy.json'), taxonomy);
   const index = await capture('https://abi.bo/sitemap_index.xml');
-  const children = [...capturedText(index).matchAll(/<loc>(https:\/\/abi\.bo\/post-sitemap\d*\.xml)<\/loc>/gu)].map(m => m[1]!);
+  const children = [
+    ...capturedText(index).matchAll(/<loc>(https:\/\/abi\.bo\/post-sitemap\d*\.xml)<\/loc>/gu),
+  ].map((m) => m[1]!);
   if (!children.length) throw new Error('ABI sitemap has no post indices');
   const sitemaps = [index];
   for (const url of children) sitemaps.push(await capture(url));
@@ -77,6 +103,8 @@ export async function collectWordpress(full: boolean): Promise<void> {
   atomicJson(join(ROOT, 'rss.json'), await capture('https://abi.bo/feed/'));
 }
 
-if (require.main === module) collectWordpress(process.argv.includes('--full')).catch((error: unknown) => {
-  console.error(error instanceof Error ? error.message : error); process.exitCode = 1;
-});
+if (require.main === module)
+  collectWordpress(process.argv.includes('--full')).catch((error: unknown) => {
+    console.error(error instanceof Error ? error.message : error);
+    process.exitCode = 1;
+  });

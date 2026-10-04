@@ -109,7 +109,9 @@ export async function refreshAfterLoad(
     });
   }
   if (wanted('abi-news')) {
-    await attempt('abi-news', failures, async () => { await database.query('SELECT read_models.refresh_abi_news()'); });
+    await attempt('abi-news', failures, async () => {
+      await database.query('SELECT read_models.refresh_abi_news()');
+    });
   }
   if (wanted('press-coverage') || wanted('press-archive') || wanted('abi-news')) {
     await attempt('press', failures, async () => {

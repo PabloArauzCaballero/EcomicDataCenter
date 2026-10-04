@@ -179,7 +179,10 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('company-filing-texts', 'Textos de hechos relevantes', [
     'boot/company-filing-texts.json',
   ]),
-  { ...historical('abi-news', 'Noticias ABI y menciones de emisores BBV', ['boot/abi-news/']), minimumSchemaVersion: '0103' },
+  {
+    ...historical('abi-news', 'Noticias ABI y menciones de emisores BBV', ['boot/abi-news/']),
+    minimumSchemaVersion: '0103',
+  },
   historical('press-coverage', 'Cobertura de prensa corriente', ['boot/press-coverage.json']),
   historical('press-archive', 'Archivo de prensa 2020-2026', [
     'boot/press-archive-2020.json',
@@ -307,9 +310,12 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/company-social.json',
   ]),
   {
-    ...historical('automotive-study', 'Estudio empresarial del mercado automotor', [
-      'boot/automotive-study.json',
-    ], '1.0.1'),
+    ...historical(
+      'automotive-study',
+      'Estudio empresarial del mercado automotor',
+      ['boot/automotive-study.json'],
+      '1.0.1',
+    ),
     minimumSchemaVersion: '0101',
   },
   {

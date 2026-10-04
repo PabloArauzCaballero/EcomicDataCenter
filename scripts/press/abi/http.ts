@@ -4,21 +4,33 @@ import { join } from 'node:path';
 import { gzipSync, gunzipSync } from 'node:zlib';
 
 export const ROOT = join('src', 'database', 'seeds', 'boot', 'abi-news');
-export const sha = (bytes: string | Buffer): string => createHash('sha256').update(bytes).digest('hex');
-export const pause = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
+export const sha = (bytes: string | Buffer): string =>
+  createHash('sha256').update(bytes).digest('hex');
+export const pause = (ms: number): Promise<void> =>
+  new Promise((resolve) => setTimeout(resolve, ms));
 export function atomicJson(path: string, data: unknown): void {
   writeFileSync(`${path}.tmp`, `${JSON.stringify(data)}\n`, 'utf8');
   renameSync(`${path}.tmp`, path);
 }
 export interface Capture {
-  url: string; sha256: string; storage: string; retrievedAt: string;
-  total: number | null; pages: number | null; contentType: string;
+  url: string;
+  sha256: string;
+  storage: string;
+  retrievedAt: string;
+  total: number | null;
+  pages: number | null;
+  contentType: string;
 }
 let lastRequest = 0;
 /** Only public ABI hosts; redirects must stay on those hosts too. */
 export function abiUrl(raw: string): URL {
   const url = new URL(raw);
-  if (url.protocol !== 'https:' || !['abi.bo', 'historico.abi.bo'].includes(url.hostname) || url.username || url.password)
+  if (
+    url.protocol !== 'https:' ||
+    !['abi.bo', 'historico.abi.bo'].includes(url.hostname) ||
+    url.username ||
+    url.password
+  )
     throw new Error(`Unsupported ABI URL: ${url.hostname}`);
   return url;
 }
@@ -36,8 +48,12 @@ export async function capture(url: string): Promise<Capture> {
     lastRequest = Date.now();
     try {
       const response = await fetch(url, {
-        headers: { 'User-Agent': 'ObservatorioEconomicoBO/1.0 (public news research)', Accept: 'application/json, application/xml, text/html' },
-        signal: AbortSignal.timeout(45000), redirect: 'manual',
+        headers: {
+          'User-Agent': 'ObservatorioEconomicoBO/1.0 (public news research)',
+          Accept: 'application/json, application/xml, text/html',
+        },
+        signal: AbortSignal.timeout(45000),
+        redirect: 'manual',
       });
       if (response.status >= 300 && response.status < 400) {
         const target = new URL(response.headers.get('location') ?? '', url).href;
@@ -48,7 +64,11 @@ export async function capture(url: string): Promise<Capture> {
       if (!response.ok) {
         if ([429, 502, 503, 504].includes(response.status)) {
           const retry = Number(response.headers.get('retry-after'));
-          await pause(Number.isFinite(retry) && retry > 0 ? Math.min(retry * 1000, 60000) : 1500 * 2 ** attempt);
+          await pause(
+            Number.isFinite(retry) && retry > 0
+              ? Math.min(retry * 1000, 60000)
+              : 1500 * 2 ** attempt,
+          );
         }
         throw new Error(`ABI HTTP ${response.status} ${url}`);
       }
@@ -61,10 +81,19 @@ export async function capture(url: string): Promise<Capture> {
         const value = response.headers.get(header);
         return value !== null && /^\d+$/u.test(value) ? Number(value) : null;
       };
-      return { url, sha256: digest, storage, retrievedAt: new Date().toISOString(),
-        total: number('x-wp-total'), pages: number('x-wp-totalpages'),
-        contentType: response.headers.get('content-type') ?? '' };
-    } catch (error) { failure = error; await pause(1000 * 2 ** attempt); }
+      return {
+        url,
+        sha256: digest,
+        storage,
+        retrievedAt: new Date().toISOString(),
+        total: number('x-wp-total'),
+        pages: number('x-wp-totalpages'),
+        contentType: response.headers.get('content-type') ?? '',
+      };
+    } catch (error) {
+      failure = error;
+      await pause(1000 * 2 ** attempt);
+    }
   }
   throw failure;
 }
