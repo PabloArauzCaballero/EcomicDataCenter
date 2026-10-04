@@ -35,6 +35,7 @@ import { reconcileWorldBankPanel } from './boot-seed.worldbank-panel';
 import { reconcileBoliviaRoadNetwork } from './boot-seed.bolivia-road-network';
 import { reconcileBoliviaTransportNetwork } from './boot-seed.bolivia-transport-network';
 import { reconcileExogenousPrices } from './boot-seed.exogenous-prices';
+import { reconcileExogenousFactors } from './boot-seed.exogenous-factors';
 import { reconcileIneTrade } from './boot-seed.ine-trade';
 import { reconcileBankVirtualAssets } from './boot-seed.bank-virtual-assets';
 import { reconcileBcbStatistics } from './boot-seed.bcb-statistics';
@@ -86,6 +87,7 @@ const SELECTABLE = [
   'worldbank-panel',
   'bolivia-road-network',
   'exogenous-prices',
+  'exogenous-factors',
   'ine-trade',
   'bank-virtual-assets',
   'bcb-statistics',
@@ -172,6 +174,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bolivia-national-poi', reconcileBoliviaNationalPoi],
   ['bolivia-road-network', reconcileBoliviaRoadNetwork],
   ['exogenous-prices', reconcileExogenousPrices],
+  ['exogenous-factors', reconcileExogenousFactors],
   ['ine-trade', reconcileIneTrade],
 ];
 

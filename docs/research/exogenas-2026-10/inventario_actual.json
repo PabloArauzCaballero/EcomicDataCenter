@@ -1,0 +1,2490 @@
+{
+  "cutoff": "2026-10-04",
+  "scope": "Archivos locales del árbol de trabajo; no equivale a producción ni a cobertura completa",
+  "totals": {
+    "series": 170,
+    "points": 46411,
+    "pointsDatedAfterCutoff": 23
+  },
+  "files": [
+    {
+      "file": "exogenous-prices.json",
+      "sha256": "9eed0a73ccf7c000c20cacecf03c821f73a73525949f7b6eccecb75444432dbf",
+      "series": 112,
+      "points": 26181,
+      "start": "2000-01",
+      "end": "2026-09",
+      "groups": {
+        "AGRICULTURE": 41,
+        "CONSTRUCTION": 8,
+        "ENERGY": 9,
+        "FREIGHT": 17,
+        "INDUSTRY": 10,
+        "LIVESTOCK": 18,
+        "MINERALS": 9
+      },
+      "scopes": {
+        "BOLIVIA_MARKET": 34,
+        "REGIONAL": 6,
+        "US_PRODUCER_INDEX": 18,
+        "WORLD": 54
+      },
+      "pointsDatedAfterCutoff": 0,
+      "detail": [
+        {
+          "code": "EXO_CRUDE_BRENT",
+          "group": "ENERGY",
+          "product": "CRUDE",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_CRUDE_WTI",
+          "group": "ENERGY",
+          "product": "CRUDE",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_GASOLINE_GULF",
+          "group": "ENERGY",
+          "product": "GASOLINE",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-02",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_DIESEL_GULF",
+          "group": "ENERGY",
+          "product": "DIESEL",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 243,
+          "start": "2006-07",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_GAS_HENRY_HUB",
+          "group": "ENERGY",
+          "product": "NATURAL_GAS",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_GAS_EUROPE",
+          "group": "ENERGY",
+          "product": "NATURAL_GAS",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_LNG_JAPAN",
+          "group": "ENERGY",
+          "product": "NATURAL_GAS",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_LPG_PROPANE",
+          "group": "ENERGY",
+          "product": "LPG",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_COAL_AUSTRALIA",
+          "group": "ENERGY",
+          "product": "COAL",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_GOLD",
+          "group": "MINERALS",
+          "product": "GOLD",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_SILVER",
+          "group": "MINERALS",
+          "product": "SILVER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_ZINC",
+          "group": "MINERALS",
+          "product": "ZINC",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_LEAD",
+          "group": "MINERALS",
+          "product": "LEAD",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_TIN",
+          "group": "MINERALS",
+          "product": "TIN",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_COPPER",
+          "group": "MINERALS",
+          "product": "COPPER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_IRON_ORE",
+          "group": "MINERALS",
+          "product": "IRON_ORE",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_ALUMINUM",
+          "group": "MINERALS",
+          "product": "ALUMINUM",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_STEEL_MILL",
+          "group": "MINERALS",
+          "product": "STEEL",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_SOYBEANS",
+          "group": "AGRICULTURE",
+          "product": "SOY",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_SOYBEAN_MEAL",
+          "group": "AGRICULTURE",
+          "product": "SOY",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_SOYBEAN_OIL",
+          "group": "AGRICULTURE",
+          "product": "SOY",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_SUNFLOWER_OIL",
+          "group": "AGRICULTURE",
+          "product": "SUNFLOWER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 291,
+          "start": "2002-02",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_MAIZE",
+          "group": "AGRICULTURE",
+          "product": "MAIZE",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_RICE_THAI",
+          "group": "AGRICULTURE",
+          "product": "RICE",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_WHEAT_HRW",
+          "group": "AGRICULTURE",
+          "product": "WHEAT",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_SUGAR_WORLD",
+          "group": "AGRICULTURE",
+          "product": "SUGAR",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_COFFEE_ARABICA",
+          "group": "AGRICULTURE",
+          "product": "COFFEE",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_COCOA",
+          "group": "AGRICULTURE",
+          "product": "COCOA",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BANANA_US",
+          "group": "AGRICULTURE",
+          "product": "BANANA",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BEEF",
+          "group": "LIVESTOCK",
+          "product": "BEEF",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_CHICKEN",
+          "group": "LIVESTOCK",
+          "product": "CHICKEN",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FISH_MEAL",
+          "group": "LIVESTOCK",
+          "product": "FISH",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_UREA",
+          "group": "INDUSTRY",
+          "product": "FERTILIZERS",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_DAP",
+          "group": "INDUSTRY",
+          "product": "FERTILIZERS",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_TSP",
+          "group": "INDUSTRY",
+          "product": "FERTILIZERS",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_POTASH",
+          "group": "INDUSTRY",
+          "product": "FERTILIZERS",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_RESINS",
+          "group": "INDUSTRY",
+          "product": "RESINS",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_THERMOPLASTICS",
+          "group": "INDUSTRY",
+          "product": "RESINS",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_PESTICIDES",
+          "group": "INDUSTRY",
+          "product": "AGROCHEMICALS",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 279,
+          "start": "2003-06",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_NITROGENATES",
+          "group": "INDUSTRY",
+          "product": "FERTILIZERS",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_SULFURIC_ACID",
+          "group": "INDUSTRY",
+          "product": "PRECURSORS",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 296,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_ORGANIC_CHEMICALS",
+          "group": "INDUSTRY",
+          "product": "PRECURSORS",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_CEMENT",
+          "group": "CONSTRUCTION",
+          "product": "CEMENT",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_PRESTRESSED",
+          "group": "CONSTRUCTION",
+          "product": "JOISTS",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_STEEL_WIRE",
+          "group": "CONSTRUCTION",
+          "product": "JOISTS",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 314,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_REBAR",
+          "group": "CONSTRUCTION",
+          "product": "REBAR",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_READY_MIX",
+          "group": "CONSTRUCTION",
+          "product": "CONCRETE",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_AGGREGATES",
+          "group": "CONSTRUCTION",
+          "product": "CONCRETE",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BRICK",
+          "group": "CONSTRUCTION",
+          "product": "BRICK",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_LUMBER",
+          "group": "CONSTRUCTION",
+          "product": "LUMBER",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 3,
+          "start": "2026-07",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX01",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX02",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX03",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX04",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX11",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX12",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX13",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX14",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX21",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX22",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX24",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FBX26",
+          "group": "FREIGHT",
+          "product": "CONTAINER",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 1,
+          "start": "2026-09",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_FAX",
+          "group": "FREIGHT",
+          "product": "AIR_FREIGHT",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 3,
+          "start": "2026-07",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_SEA_PPI",
+          "group": "FREIGHT",
+          "product": "SEA_FREIGHT",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_AIR_PPI",
+          "group": "FREIGHT",
+          "product": "AIR_FREIGHT",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 273,
+          "start": "2003-12",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_FREIGHT_LOGISTICS_PPI",
+          "group": "FREIGHT",
+          "product": "LOGISTICS",
+          "kind": "INDEX",
+          "scope": "US_PRODUCER_INDEX",
+          "frequency": "MONTHLY",
+          "points": 320,
+          "start": "2000-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_WHEAT_ARGENTINA",
+          "group": "AGRICULTURE",
+          "product": "WHEAT",
+          "kind": "PRICE",
+          "scope": "REGIONAL",
+          "frequency": "MONTHLY",
+          "points": 319,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_MAIZE_ARGENTINA",
+          "group": "AGRICULTURE",
+          "product": "MAIZE",
+          "kind": "PRICE",
+          "scope": "REGIONAL",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_MAIZE_BRAZIL",
+          "group": "AGRICULTURE",
+          "product": "MAIZE",
+          "kind": "PRICE",
+          "scope": "REGIONAL",
+          "frequency": "MONTHLY",
+          "points": 201,
+          "start": "2008-04",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_SORGHUM",
+          "group": "AGRICULTURE",
+          "product": "SORGHUM",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 304,
+          "start": "2001-06",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BEEF_BRAZIL",
+          "group": "LIVESTOCK",
+          "product": "BEEF",
+          "kind": "PRICE",
+          "scope": "REGIONAL",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_POULTRY_BRAZIL",
+          "group": "LIVESTOCK",
+          "product": "CHICKEN",
+          "kind": "PRICE",
+          "scope": "REGIONAL",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_PORK_BRAZIL",
+          "group": "LIVESTOCK",
+          "product": "PORK",
+          "kind": "PRICE",
+          "scope": "REGIONAL",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_WHOLE_MILK_POWDER",
+          "group": "LIVESTOCK",
+          "product": "DAIRY",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_SKIM_MILK_POWDER",
+          "group": "LIVESTOCK",
+          "product": "DAIRY",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_CHEDDAR",
+          "group": "LIVESTOCK",
+          "product": "CHEESE",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BUTTER",
+          "group": "LIVESTOCK",
+          "product": "DAIRY",
+          "kind": "PRICE",
+          "scope": "WORLD",
+          "frequency": "MONTHLY",
+          "points": 321,
+          "start": "2000-01",
+          "end": "2026-09",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_POTATO_NATIONAL",
+          "group": "AGRICULTURE",
+          "product": "POTATO",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 188,
+          "start": "2010-07",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_POTATO_LA_PAZ",
+          "group": "AGRICULTURE",
+          "product": "POTATO",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 141,
+          "start": "2011-02",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_POTATO_SANTA_CRUZ",
+          "group": "AGRICULTURE",
+          "product": "POTATO",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 183,
+          "start": "2010-07",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_POTATO_COCHABAMBA",
+          "group": "AGRICULTURE",
+          "product": "POTATO",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 154,
+          "start": "2011-10",
+          "end": "2025-12",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_QUINOA_NATIONAL",
+          "group": "AGRICULTURE",
+          "product": "QUINOA",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 184,
+          "start": "2010-07",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_QUINOA_LA_PAZ",
+          "group": "AGRICULTURE",
+          "product": "QUINOA",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 148,
+          "start": "2011-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_QUINOA_SANTA_CRUZ",
+          "group": "AGRICULTURE",
+          "product": "QUINOA",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 79,
+          "start": "2010-07",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_QUINOA_COCHABAMBA",
+          "group": "AGRICULTURE",
+          "product": "QUINOA",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 177,
+          "start": "2010-07",
+          "end": "2025-11",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_MAIZE_NATIONAL",
+          "group": "AGRICULTURE",
+          "product": "MAIZE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 221,
+          "start": "2008-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_MAIZE_LA_PAZ",
+          "group": "AGRICULTURE",
+          "product": "MAIZE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 213,
+          "start": "2008-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_MAIZE_SANTA_CRUZ",
+          "group": "AGRICULTURE",
+          "product": "MAIZE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 209,
+          "start": "2008-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_MAIZE_COCHABAMBA",
+          "group": "AGRICULTURE",
+          "product": "MAIZE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 209,
+          "start": "2008-01",
+          "end": "2025-12",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_RICE_NATIONAL",
+          "group": "AGRICULTURE",
+          "product": "RICE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 218,
+          "start": "2008-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_RICE_LA_PAZ",
+          "group": "AGRICULTURE",
+          "product": "RICE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 215,
+          "start": "2008-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_RICE_SANTA_CRUZ",
+          "group": "AGRICULTURE",
+          "product": "RICE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 210,
+          "start": "2008-04",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_RICE_COCHABAMBA",
+          "group": "AGRICULTURE",
+          "product": "RICE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 211,
+          "start": "2008-01",
+          "end": "2025-12",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_WHEAT_FLOUR_NATIONAL",
+          "group": "AGRICULTURE",
+          "product": "WHEAT",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 182,
+          "start": "2011-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_WHEAT_FLOUR_LA_PAZ",
+          "group": "AGRICULTURE",
+          "product": "WHEAT",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 179,
+          "start": "2011-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_WHEAT_FLOUR_SANTA_CRUZ",
+          "group": "AGRICULTURE",
+          "product": "WHEAT",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 178,
+          "start": "2011-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_WHEAT_FLOUR_COCHABAMBA",
+          "group": "AGRICULTURE",
+          "product": "WHEAT",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 175,
+          "start": "2011-01",
+          "end": "2025-12",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_CHICKEN_NATIONAL",
+          "group": "LIVESTOCK",
+          "product": "CHICKEN",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 221,
+          "start": "2008-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_CHICKEN_LA_PAZ",
+          "group": "LIVESTOCK",
+          "product": "CHICKEN",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 215,
+          "start": "2008-01",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_CHICKEN_SANTA_CRUZ",
+          "group": "LIVESTOCK",
+          "product": "CHICKEN",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 210,
+          "start": "2008-05",
+          "end": "2026-07",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_CHICKEN_COCHABAMBA",
+          "group": "LIVESTOCK",
+          "product": "CHICKEN",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 211,
+          "start": "2008-01",
+          "end": "2025-12",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_BANANA_LA_PAZ",
+          "group": "AGRICULTURE",
+          "product": "BANANA",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 104,
+          "start": "2018-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_BANANA_SANTA_CRUZ",
+          "group": "AGRICULTURE",
+          "product": "BANANA",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 104,
+          "start": "2018-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_SUGAR_SANTA_CRUZ",
+          "group": "AGRICULTURE",
+          "product": "SUGAR",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 212,
+          "start": "2009-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_SUGAR_ORURO",
+          "group": "AGRICULTURE",
+          "product": "SUGAR",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 212,
+          "start": "2009-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_SUNFLOWER_OIL_LA_PAZ",
+          "group": "AGRICULTURE",
+          "product": "SUNFLOWER",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 104,
+          "start": "2018-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_SUNFLOWER_OIL_SANTA_CRUZ",
+          "group": "AGRICULTURE",
+          "product": "SUNFLOWER",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 104,
+          "start": "2018-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EGGS_LA_PAZ",
+          "group": "LIVESTOCK",
+          "product": "EGGS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 104,
+          "start": "2018-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EGGS_SANTA_CRUZ",
+          "group": "LIVESTOCK",
+          "product": "EGGS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 104,
+          "start": "2018-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_MILK_SANTA_CRUZ",
+          "group": "LIVESTOCK",
+          "product": "DAIRY",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 212,
+          "start": "2009-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_MILK_SUCRE",
+          "group": "LIVESTOCK",
+          "product": "DAIRY",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_MARKET",
+          "frequency": "MONTHLY",
+          "points": 212,
+          "start": "2009-01",
+          "end": "2026-08",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-customs.json",
+      "sha256": "2d109aaa8eb09932e09c7552881759869feb1563efcbb28fd20d672ff5af39f8",
+      "series": 35,
+      "points": 490,
+      "start": "2010",
+      "end": "2025",
+      "groups": {
+        "AGRICULTURE": 11,
+        "CONSTRUCTION": 3,
+        "ENERGY": 4,
+        "INDUSTRY": 10,
+        "LIVESTOCK": 2,
+        "MINERALS": 5
+      },
+      "scopes": {
+        "BOLIVIA_CUSTOMS": 35
+      },
+      "pointsDatedAfterCutoff": 0,
+      "detail": [
+        {
+          "code": "EXO_BO_EXPORT_NATURAL_GAS",
+          "group": "ENERGY",
+          "product": "NATURAL_GAS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_LITHIUM",
+          "group": "MINERALS",
+          "product": "LITHIUM",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 8,
+          "start": "2016",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_BISMUTH",
+          "group": "MINERALS",
+          "product": "BISMUTH",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 12,
+          "start": "2011",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_TIN",
+          "group": "MINERALS",
+          "product": "TIN",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_SILVER",
+          "group": "MINERALS",
+          "product": "SILVER",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_GOLD",
+          "group": "MINERALS",
+          "product": "GOLD",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_QUINOA",
+          "group": "AGRICULTURE",
+          "product": "QUINOA",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 14,
+          "start": "2012",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_BRAZIL_NUT",
+          "group": "AGRICULTURE",
+          "product": "BRAZIL_NUT",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_SOYBEAN_MEAL",
+          "group": "AGRICULTURE",
+          "product": "SOY",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_SOYBEAN_OIL",
+          "group": "AGRICULTURE",
+          "product": "SOY",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_SUNFLOWER_OIL",
+          "group": "AGRICULTURE",
+          "product": "SUNFLOWER",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_SUGAR",
+          "group": "AGRICULTURE",
+          "product": "SUGAR",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_BANANA",
+          "group": "AGRICULTURE",
+          "product": "BANANA",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_COFFEE",
+          "group": "AGRICULTURE",
+          "product": "COFFEE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_COCOA",
+          "group": "AGRICULTURE",
+          "product": "COCOA",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_BEEF",
+          "group": "LIVESTOCK",
+          "product": "BEEF",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 14,
+          "start": "2012",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_EXPORT_UREA",
+          "group": "INDUSTRY",
+          "product": "FERTILIZERS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 8,
+          "start": "2018",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_GASOLINE",
+          "group": "ENERGY",
+          "product": "GASOLINE",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 12,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_DIESEL",
+          "group": "ENERGY",
+          "product": "DIESEL",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 12,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_LPG",
+          "group": "ENERGY",
+          "product": "LPG",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 11,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_WHEAT",
+          "group": "AGRICULTURE",
+          "product": "WHEAT",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 14,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_WHEAT_FLOUR",
+          "group": "AGRICULTURE",
+          "product": "WHEAT",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 15,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_FISH",
+          "group": "LIVESTOCK",
+          "product": "FISH",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 16,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_PET",
+          "group": "INDUSTRY",
+          "product": "RESINS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 15,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_POLYPROPYLENE",
+          "group": "INDUSTRY",
+          "product": "RESINS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 12,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_HDPE",
+          "group": "INDUSTRY",
+          "product": "RESINS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 14,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_LDPE",
+          "group": "INDUSTRY",
+          "product": "RESINS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 14,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_UREA",
+          "group": "INDUSTRY",
+          "product": "FERTILIZERS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 13,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_HERBICIDES",
+          "group": "INDUSTRY",
+          "product": "AGROCHEMICALS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 14,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_SULFURIC_ACID",
+          "group": "INDUSTRY",
+          "product": "PRECURSORS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 12,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_HYDROCHLORIC_ACID",
+          "group": "INDUSTRY",
+          "product": "PRECURSORS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 14,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_ACETONE",
+          "group": "INDUSTRY",
+          "product": "PRECURSORS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 15,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_CEMENT",
+          "group": "CONSTRUCTION",
+          "product": "CEMENT",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 13,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_REBAR",
+          "group": "CONSTRUCTION",
+          "product": "REBAR",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 13,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        },
+        {
+          "code": "EXO_BO_IMPORT_STEEL_WIRE",
+          "group": "CONSTRUCTION",
+          "product": "JOISTS",
+          "kind": "PRICE",
+          "scope": "BOLIVIA_CUSTOMS",
+          "frequency": "ANNUAL",
+          "points": 13,
+          "start": "2010",
+          "end": "2025",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/AED.json",
+      "sha256": "5634bc7910249c3f2b52449c0ee699e8c5c9b05fc294f2fc19748e3b1820cb8a",
+      "series": 1,
+      "points": 405,
+      "start": "2019-06-03",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_AED",
+          "group": "CURRENCY",
+          "product": "AED",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 405,
+          "start": "2019-06-03",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/ARS.json",
+      "sha256": "6676bdf2af0c0cf8a0e51b30ee2fdcd3dcc20e8aa691831d591c7415dc95d4af",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_ARS",
+          "group": "CURRENCY",
+          "product": "ARS",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/AUD.json",
+      "sha256": "edd722cfae06d84fd05aa0a2ceb7bc5607a9b8365ba3fdb4c973361ccc9ce9f7",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_AUD",
+          "group": "CURRENCY",
+          "product": "AUD",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/BRL.json",
+      "sha256": "1c5ed0994ee96acb8133da63120e1dea91cb5fdad584048da7517dbf85f68fae",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_BRL",
+          "group": "CURRENCY",
+          "product": "BRL",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/CAD.json",
+      "sha256": "e201c514d5f670c2d5c84056555743d0ea968f51c1cfdc2f6992805fc969d798",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_CAD",
+          "group": "CURRENCY",
+          "product": "CAD",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/CHF.json",
+      "sha256": "38273f6966aaa348dedab4cd6dd8a7b8fa8b640a19e8de9cf2630917e840475e",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_CHF",
+          "group": "CURRENCY",
+          "product": "CHF",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/CLP.json",
+      "sha256": "de0cd0b2aeb69a4a6b4a4f6406b9a9bfb155c16b58fc52dbae9265abe1dfedaa",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_CLP",
+          "group": "CURRENCY",
+          "product": "CLP",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/CNH.json",
+      "sha256": "3d22c77b1af681df0bd610d90cac71f394a274ee4c3d083f3dd91d87a480a7ce",
+      "series": 1,
+      "points": 523,
+      "start": "2017-04-24",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_CNH",
+          "group": "CURRENCY",
+          "product": "CNH",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 523,
+          "start": "2017-04-24",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/CNY.json",
+      "sha256": "a5c076c266ed4aeb1c923016c416f049df6ee775f0584a7a746afce12d1322c1",
+      "series": 1,
+      "points": 472,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_CNY",
+          "group": "CURRENCY",
+          "product": "CNY",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 472,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/COP.json",
+      "sha256": "2159e374d0d50f9919218639fe8db4c73dfa12dea1f8ccf8cb0f587e0c1dbe2c",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_COP",
+          "group": "CURRENCY",
+          "product": "COP",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/EUR.json",
+      "sha256": "343e696b76494e974286def6113d6c72190bdea9a5596ee07dc14cc077613cba",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_EUR",
+          "group": "CURRENCY",
+          "product": "EUR",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/GBP.json",
+      "sha256": "44297ded4fa484543ca0d841fc1b759067f5e60e5d829daed9a8f2f7f702b9cc",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_GBP",
+          "group": "CURRENCY",
+          "product": "GBP",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/HKD.json",
+      "sha256": "51cafdabd2197992df7857dd6d5921c8bb108e999b0195f046915af37e8406e0",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_HKD",
+          "group": "CURRENCY",
+          "product": "HKD",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/INR.json",
+      "sha256": "63a8fc06ebbdd21b97b20eeb0efe4ed7bb8e8a2f46b8846256b8ef6fbc598f9d",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_INR",
+          "group": "CURRENCY",
+          "product": "INR",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/JPY.json",
+      "sha256": "de4ace3284163b519061ad4eeed7f33c986171998758e8f7c36741af8216cee7",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_JPY",
+          "group": "CURRENCY",
+          "product": "JPY",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/KRW.json",
+      "sha256": "fb3cae0c2f3f3829d28a71aa6965c3087f815d65d373a4638411e2e9daa4fcf6",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_KRW",
+          "group": "CURRENCY",
+          "product": "KRW",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/MXN.json",
+      "sha256": "f0221d984138b397b66159569ab600dcacf5420f0b932b0fd0ff88c88bf0c5c1",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_MXN",
+          "group": "CURRENCY",
+          "product": "MXN",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/NOK.json",
+      "sha256": "c91a8677b571f0126001b7821a95c9571ec54e3c122429198f4f73f0eae87846",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_NOK",
+          "group": "CURRENCY",
+          "product": "NOK",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/PEN.json",
+      "sha256": "1ef4c22357e5e06d7a2334d467d83e53dd63792740e2add76acdd25b5ca3e191",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_PEN",
+          "group": "CURRENCY",
+          "product": "PEN",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/PYG.json",
+      "sha256": "2eb2dae2e2930ceaf739c2cc282146dbb33ca6c77379c8ff02cf7077b3904b11",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_PYG",
+          "group": "CURRENCY",
+          "product": "PYG",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/SEK.json",
+      "sha256": "020b94bef799e5e76937be9344c35aaadd85e5d88b022654bb859234f923972a",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_SEK",
+          "group": "CURRENCY",
+          "product": "SEK",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/USD.json",
+      "sha256": "74c69c4aced790287ad002c634c182d5fa30c8f44751623e6a37b680d467884a",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_USD",
+          "group": "CURRENCY",
+          "product": "USD",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    },
+    {
+      "file": "exogenous-currencies/UYU.json",
+      "sha256": "9a955359fb809ded957ec2aaa2a59fd2113eaeec6a3d1099f7b1afcc8bcf7070",
+      "series": 1,
+      "points": 917,
+      "start": "2010-01-04",
+      "end": "2026-10-05",
+      "groups": {
+        "CURRENCY": 1
+      },
+      "scopes": {
+        "BCB_OFFICIAL": 1
+      },
+      "pointsDatedAfterCutoff": 1,
+      "detail": [
+        {
+          "code": "EXO_FX_UYU",
+          "group": "CURRENCY",
+          "product": "UYU",
+          "kind": "PRICE",
+          "scope": "BCB_OFFICIAL",
+          "frequency": "DAILY",
+          "points": 917,
+          "start": "2010-01-04",
+          "end": "2026-10-05",
+          "duplicatePeriods": 0
+        }
+      ]
+    }
+  ]
+}

@@ -289,6 +289,12 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/exogenous-customs.json',
     'boot/exogenous-currencies/',
   ]),
+  {
+    ...historical('exogenous-factors', 'Factores económicos con disponibilidad y revisiones', [
+      'boot/exogenous-factors.json',
+    ]),
+    minimumSchemaVersion: '0102',
+  },
   historical('ine-trade', 'Comercio exterior del INE, registro por registro', ['boot/ine-trade/']),
   historical('bank-virtual-assets', 'Servicios de dólar digital de los bancos bolivianos', [
     'boot/bank-virtual-assets.json',
