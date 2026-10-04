@@ -6,6 +6,7 @@ import {
   unitSeedSchema,
 } from '../schemas/seed.schemas';
 import { readSeed } from './seed.utils';
+import { exogenousFactorsSchema } from '../schemas/exogenous-factors.schema';
 
 /** Validates both permitted persistent seed catalogs without connecting to PostgreSQL. */
 export async function validateSeedFiles(): Promise<void> {
@@ -15,6 +16,7 @@ export async function validateSeedFiles(): Promise<void> {
     readSeed('boot/units.json', unitSeedSchema),
     readSeed('boot/agent-bootstrap.json', agentBootstrapSeedSchema),
     readSeed('mock/observatory-demo.json', mockSeedSchema),
+    readSeed('boot/exogenous-factors.json', exogenousFactorsSchema),
   ]);
 }
 

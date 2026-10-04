@@ -1,3 +1,4 @@
+import { reconcileExogenousFactors } from '../../database/seeds/runners/boot-seed.exogenous-factors';
 import type { Transaction } from 'sequelize';
 import { reconcileAgentBootstrap } from '../../database/seeds/runners/boot-seed.agent-bootstrap';
 import { reconcileBbvYields } from '../../database/seeds/runners/boot-seed.bbv-yields';
@@ -127,6 +128,7 @@ export const SEED_UNITS: Readonly<Record<string, readonly SeedUnit[]>> = {
   'core-catalogues': CORE_UNITS,
   'collector-identities': IDENTITY_UNITS,
   'source-schedules': SCHEDULE_UNITS,
+  'exogenous-factors': single('exogenous-factors', reconcileExogenousFactors),
   'exchange-rate-history': single('exchange-rate-history', reconcileExchangeRateHistory),
   'macro-annual-history': single('macro-annual-history', reconcileMacroAnnualHistory),
   'market-prices': single('market-prices', reconcileMarketPrices),

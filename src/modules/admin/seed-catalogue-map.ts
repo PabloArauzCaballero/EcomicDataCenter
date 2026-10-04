@@ -208,6 +208,8 @@ export const MANAGED_CATALOGUES: Readonly<Record<string, readonly ManagedCatalog
  * carries.
  */
 export const PACKAGE_SNAPSHOTS: Readonly<Record<string, readonly string[]>> = {
+  // Factors use ordinary version views, not a materialized economic snapshot.
+  'exogenous-factors': [],
   'press-coverage': ['press_article_snapshot', 'press_term_mention_snapshot'],
   'press-archive': ['press_article_snapshot', 'press_term_mention_snapshot'],
   'social-readings': ['social_reading_snapshot'],
