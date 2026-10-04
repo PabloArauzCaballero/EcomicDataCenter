@@ -302,7 +302,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   {
     ...historical('automotive-study', 'Estudio empresarial del mercado automotor', [
       'boot/automotive-study.json',
-    ]),
+    ], '1.0.1'),
     minimumSchemaVersion: '0101',
   },
   {

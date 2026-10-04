@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-04.1",
+  "version": "2026-10-04.2",
   "observedAt": "2026-10-04",
   "title": "Mercado automotor boliviano · estudio empresarial",
   "sources": [
@@ -101,7 +101,7 @@
     },
     {
       "id": "hyundai",
-      "title": "Carmax ? Hyundai Creta",
+      "title": "Carmax · Hyundai Creta",
       "url": "https://www.hyundai.com.bo/wp-content/uploads/2026/03/FT-CRETA-IMPRENTA_compressed.pdf",
       "capturedAt": "2026-10-04T19:07:01.364025+00:00",
       "httpStatus": 403,
@@ -161,7 +161,7 @@
     },
     {
       "id": "duster-bo",
-      "title": "Renault Bolivia ? New Duster",
+      "title": "Renault Bolivia · New Duster",
       "url": "https://www.renault.com.bo/auto/new-duster/versiones",
       "capturedAt": "2026-10-04T19:07:01.363547+00:00",
       "httpStatus": 200,
@@ -173,7 +173,7 @@
     },
     {
       "id": "oroch-bo",
-      "title": "Renault Bolivia ? New Oroch",
+      "title": "Renault Bolivia · New Oroch",
       "url": "https://www.renault.com.bo/auto/new-oroch/versiones",
       "capturedAt": "2026-10-04T19:07:01.363831+00:00",
       "httpStatus": 200,
@@ -353,7 +353,7 @@
     },
     {
       "id": "kia-brochure",
-      "title": "Autosud ? Kia K3 ficha 2026",
+      "title": "Autosud · Kia K3 ficha 2026",
       "url": "https://www.kia.com.bo/wp-content/uploads/2026/03/FT-KIA-K3-SEDAN_.pdf",
       "capturedAt": "2026-10-04T19:07:01.364192+00:00",
       "httpStatus": 200,
@@ -365,7 +365,7 @@
     },
     {
       "id": "ds5653",
-      "title": "Aduana ? DS5653 ICE el?ctricos e h?bridos",
+      "title": "Aduana · DS5653 ICE eléctricos e híbridos",
       "url": "https://www.aduana.gob.bo/sites/default/files/archivos/circular199%20D.S.5653.pdf",
       "capturedAt": "2026-10-04T19:07:01.364387+00:00",
       "httpStatus": 200,
@@ -377,7 +377,7 @@
     },
     {
       "id": "nissan-bo-frontier",
-      "title": "Nissan Bolivia ? Frontier",
+      "title": "Nissan Bolivia · Frontier",
       "url": "https://www.nissan.com.bo/vehiculos/nuevos-vehiculos/23-frontier.html",
       "capturedAt": "2026-10-04T19:07:02.445874+00:00",
       "httpStatus": 200,
@@ -389,7 +389,7 @@
     },
     {
       "id": "nissan-bo-frontier-cs",
-      "title": "Nissan Bolivia ? Frontier CS",
+      "title": "Nissan Bolivia · Frontier CS",
       "url": "https://www.nissan.com.bo/vehiculos/nuevos-vehiculos/25-frontier-gasolina.html",
       "capturedAt": "2026-10-04T19:07:02.631022+00:00",
       "httpStatus": 200,
@@ -401,7 +401,7 @@
     },
     {
       "id": "nissan-bo-kicks",
-      "title": "Nissan Bolivia ? Kicks",
+      "title": "Nissan Bolivia · Kicks",
       "url": "https://www.nissan.com.bo/vehiculos/nuevos-vehiculos/25-kicks-new.html",
       "capturedAt": "2026-10-04T19:07:02.885673+00:00",
       "httpStatus": 200,
@@ -413,7 +413,7 @@
     },
     {
       "id": "nissan-bo-kicks-play",
-      "title": "Nissan Bolivia ? Kicks Play",
+      "title": "Nissan Bolivia · Kicks Play",
       "url": "https://www.nissan.com.bo/vehiculos/nuevos-vehiculos/kicks-play.html",
       "capturedAt": "2026-10-04T19:07:03.051369+00:00",
       "httpStatus": 200,
@@ -425,7 +425,7 @@
     },
     {
       "id": "nissan-bo-pathfinder",
-      "title": "Nissan Bolivia ? Pathfinder",
+      "title": "Nissan Bolivia · Pathfinder",
       "url": "https://www.nissan.com.bo/vehiculos/nuevos-vehiculos/pathfinder.html",
       "capturedAt": "2026-10-04T19:07:03.271257+00:00",
       "httpStatus": 200,
@@ -437,7 +437,7 @@
     },
     {
       "id": "nissan-bo-sentra",
-      "title": "Nissan Bolivia ? Sentra",
+      "title": "Nissan Bolivia · Sentra",
       "url": "https://www.nissan.com.bo/vehiculos/nuevos-vehiculos/sentra.html",
       "capturedAt": "2026-10-04T19:07:03.469623+00:00",
       "httpStatus": 200,
@@ -449,7 +449,7 @@
     },
     {
       "id": "nissan-bo-versa",
-      "title": "Nissan Bolivia ? Versa",
+      "title": "Nissan Bolivia · Versa",
       "url": "https://www.nissan.com.bo/vehiculos/nuevos-vehiculos/versa.html",
       "capturedAt": "2026-10-04T19:07:03.702039+00:00",
       "httpStatus": 200,
@@ -461,7 +461,7 @@
     },
     {
       "id": "nissan-bo-x-trail-e-power",
-      "title": "Nissan Bolivia ? X-Trail e-POWER",
+      "title": "Nissan Bolivia · X-Trail e-POWER",
       "url": "https://www.nissan.com.bo/vehiculos/nuevos-vehiculos/x-trail-e-power.html",
       "capturedAt": "2026-10-04T19:07:03.895465+00:00",
       "httpStatus": 200,
@@ -473,7 +473,7 @@
     },
     {
       "id": "nissan-bo-x-trail",
-      "title": "Nissan Bolivia ? X-Trail",
+      "title": "Nissan Bolivia · X-Trail",
       "url": "https://www.nissan.com.bo/vehiculos/nuevos-vehiculos/x-trail.html",
       "capturedAt": "2026-10-04T19:07:03.897360+00:00",
       "httpStatus": 200,
