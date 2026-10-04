@@ -299,6 +299,13 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('company-social', 'Redes sociales de empresas (ADR 0027)', [
     'boot/company-social.json',
   ]),
+  {
+    ...historical('vehicle-prices', 'Ofertas públicas de vehículos nuevos', [
+      'boot/vehicle-prices.json',
+      'boot/vehicle-price-sources.json',
+    ]),
+    minimumSchemaVersion: '0099',
+  },
   historical(
     'public-accounts',
     'Cuentas públicas: recaudación, ingresos y gastos del Estado, deuda y subsidios',

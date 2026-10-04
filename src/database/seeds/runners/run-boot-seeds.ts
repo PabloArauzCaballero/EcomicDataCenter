@@ -39,6 +39,7 @@ import { reconcileIneTrade } from './boot-seed.ine-trade';
 import { reconcileBankVirtualAssets } from './boot-seed.bank-virtual-assets';
 import { reconcileBcbStatistics } from './boot-seed.bcb-statistics';
 import { reconcileCompanySocial } from './boot-seed.company-social';
+import { reconcileVehiclePrices } from './boot-seed.vehicle-prices';
 import { reconcilePublicAccounts } from './boot-seed.public-accounts';
 import { refreshAfterLoad } from './boot-seed.refresh';
 
@@ -90,6 +91,7 @@ const SELECTABLE = [
   'public-accounts',
   'bolivia-transport-network',
   'company-social',
+  'vehicle-prices',
 ] as const;
 
 export type Catalogue = (typeof SELECTABLE)[number];
@@ -130,6 +132,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bcb-statistics', reconcileBcbStatistics],
   // Unas dos mil filas por corrida: va delante de las cargas largas, como los bancos.
   ['company-social', reconcileCompanySocial],
+  ['vehicle-prices', reconcileVehiclePrices],
   // Quinientas series y pocos miles de puntos: se siembran en segundos y van delante de las
   // cargas largas por la misma razón que los bancos y las estadisticas del Banco Central.
   ['public-accounts', reconcilePublicAccounts],

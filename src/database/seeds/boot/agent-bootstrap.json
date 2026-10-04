@@ -359,6 +359,17 @@
       "specialty": "Cuanto recauda el Estado por impuesto, cuanto ingresa y gasta, cuanto debe y a quien",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000027",
+      "code": "VEHICLE_PRICES",
+      "name": "Ofertas publicas de vehiculos nuevos en Bolivia",
+      "agentType": "SECTOR",
+      "provider": "Representantes oficiales de marca",
+      "modelIdentifier": "official-version-price-snapshot",
+      "specialty": "Precios anunciados por marca, modelo, version y ano modelo",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }
