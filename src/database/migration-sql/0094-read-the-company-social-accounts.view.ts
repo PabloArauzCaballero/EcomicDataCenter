@@ -69,8 +69,8 @@ ORDER BY
 `;
 
 export const companySocialPostView = `
-CREATE VIEW read_models.company_social_post AS
-SELECT DISTINCT ON (post ->> 'platform', post ->> 'postId')
+CREATE OR REPLACE VIEW read_models.company_social_post AS
+SELECT DISTINCT ON (post ->> 'slug', post ->> 'platform', post ->> 'postId')
   post ->> 'slug'                          AS slug,
   post ->> 'platform'                      AS platform,
   post ->> 'postId'                        AS post_id,
@@ -93,6 +93,7 @@ CROSS JOIN LATERAL jsonb_array_elements(ro.payload_json -> 'posts') AS post
 WHERE ro.payload_json ->> 'dataCategory' = 'COMPANY_SOCIAL_POSTS'
 ${live}
 ORDER BY
+  post ->> 'slug',
   post ->> 'platform',
   post ->> 'postId',
   ro.payload_json ->> 'date' DESC,
