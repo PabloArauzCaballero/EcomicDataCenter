@@ -108,7 +108,10 @@ export async function refreshAfterLoad(
       for (const name of TRADE_COPIES) await refreshOneSnapshot(database, name, true);
     });
   }
-  if (wanted('press-coverage') || wanted('press-archive')) {
+  if (wanted('abi-news')) {
+    await attempt('abi-news', failures, async () => { await database.query('SELECT read_models.refresh_abi_news()'); });
+  }
+  if (wanted('press-coverage') || wanted('press-archive') || wanted('abi-news')) {
     await attempt('press', failures, async () => {
       // Each note is read once and stored (0093); this pays only for the new ones.
       await readPressNotesOn(database);

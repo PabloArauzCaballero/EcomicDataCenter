@@ -2,7 +2,7 @@
   "name": "observatorio-economico-core-backend",
   "version": "1.0.0",
   "private": true,
-  "description": "Core de datos del Observatorio Económico y de Mercados de Bolivia",
+  "description": "Core de datos del Observatorio EconÃƒÆ’Ã‚Â³mico y de Mercados de Bolivia",
   "license": "UNLICENSED",
   "packageManager": "yarn@1.22.22",
   "engines": {
@@ -123,7 +123,10 @@
     "banks:quote": "tsx scripts/banks/record-bank-quote.ts",
     "test:exogenous": "jest --runInBand --roots src/database/seeds/tests scripts/exogenous/factors --runTestsByPath src/database/seeds/tests/exogenous-factors.spec.ts src/database/seeds/tests/exogenous-factors-runner.spec.ts scripts/exogenous/factors/factor-parsers.spec.ts",
     "exogenous:factors": "tsx scripts/exogenous/factors/collect-factors.ts",
-    "exogenous:catalogue": "tsx scripts/exogenous/build-factor-catalogue.mjs"
+    "exogenous:catalogue": "tsx scripts/exogenous/build-factor-catalogue.mjs",
+    "press:abi": "tsx scripts/press/collect-abi-news.ts",
+    "press:abi:historical": "tsx scripts/press/abi/collect-legacy.ts",
+    "test:abi": "jest --runInBand --roots scripts/press/abi --runTestsByPath scripts/press/abi/abi.spec.ts"
   },
   "dependencies": {
     "@fastify/helmet": "13.0.1",

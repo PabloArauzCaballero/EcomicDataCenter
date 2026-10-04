@@ -10,6 +10,7 @@ import { reconcileExchangeRateHistory } from './boot-seed.exchange-rate-history'
 import { reconcileCompanyFilings } from './boot-seed.company-filings';
 import { reconcileCompanyFilingArchive } from './boot-seed.company-filings-archive';
 import { reconcileCompanyFilingTexts } from './boot-seed.company-filing-texts';
+import { reconcileAbiNews } from './boot-seed.abi-news';
 import { reconcilePressCoverage } from './boot-seed.press-coverage';
 import { reconcilePressArchive } from './boot-seed.press-archive';
 import { reconcileSocialReadings } from './boot-seed.social-readings';
@@ -79,6 +80,7 @@ const SELECTABLE = [
   'company-filings',
   'company-filings-archive',
   'company-filing-texts',
+  'abi-news',
   'press-coverage',
   'press-archive',
   'social-readings',
@@ -148,6 +150,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   // antes de los históricos largos evita que una actualización empresarial espere decenas de
   // minutos detrás de series que no cambiaron.
   ['business-registry', reconcileBusinessRegistry],
+  ['abi-news', reconcileAbiNews],
   ['exchange-rate-history', reconcileExchangeRateHistory],
   ['macro-annual-history', reconcileMacroAnnualHistory],
   ['market-prices', reconcileMarketPrices],
@@ -266,6 +269,7 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
           await database.transaction((transaction) => load(identities.sourceId, transaction)),
         );
         await recordBootApplication(database, environmentId, target, name);
+        if (name === 'abi-news') await database.query('SELECT read_models.refresh_abi_news()');
       } catch (error) {
         failed.push(name);
         process.stderr.write(

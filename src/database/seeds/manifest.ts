@@ -179,6 +179,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('company-filing-texts', 'Textos de hechos relevantes', [
     'boot/company-filing-texts.json',
   ]),
+  { ...historical('abi-news', 'Noticias ABI y menciones de emisores BBV', ['boot/abi-news/']), minimumSchemaVersion: '0103' },
   historical('press-coverage', 'Cobertura de prensa corriente', ['boot/press-coverage.json']),
   historical('press-archive', 'Archivo de prensa 2020-2026', [
     'boot/press-archive-2020.json',

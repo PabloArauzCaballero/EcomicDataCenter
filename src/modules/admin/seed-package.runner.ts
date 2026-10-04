@@ -19,6 +19,7 @@ import {
   PRESS_ARCHIVE_YEARS,
   reconcilePressArchiveYear,
 } from '../../database/seeds/runners/boot-seed.press-archive';
+import { reconcileAbiNews } from '../../database/seeds/runners/boot-seed.abi-news';
 import { reconcilePressCoverage } from '../../database/seeds/runners/boot-seed.press-coverage';
 import { reconcileSourceSchedules } from '../../database/seeds/runners/boot-seed.source-schedules';
 import { reconcileSocialReadings } from '../../database/seeds/runners/boot-seed.social-readings';
@@ -140,6 +141,7 @@ export const SEED_UNITS: Readonly<Record<string, readonly SeedUnit[]>> = {
   'company-filings': single('company-filings', reconcileCompanyFilings),
   'company-filings-archive': single('company-filings-archive', reconcileCompanyFilingArchive),
   'company-filing-texts': single('company-filing-texts', reconcileCompanyFilingTexts),
+  'abi-news': single('abi-news', reconcileAbiNews),
   'press-coverage': single('press-coverage', reconcilePressCoverage),
   'press-archive': PRESS_ARCHIVE_UNITS,
   'social-readings': single('social-readings', reconcileSocialReadings),

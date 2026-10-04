@@ -178,6 +178,7 @@ const registry = new Map<string, VerifiedSource>([
   // News outlets. Registered so an article carries the masthead that published
   // it rather than a name scraped from the page, which is what makes coverage
   // attributable — not so that anything they report is treated as measured.
+  ['abi.bo', { publisher: 'ABI', tier: 'PRESS' }],
   ['eldeber.com.bo', { publisher: 'EL DEBER', tier: 'PRESS' }],
   ['unitel.bo', { publisher: 'UNITEL', tier: 'PRESS' }],
   ['reduno.com.bo', { publisher: 'RED UNO', tier: 'PRESS' }],
