@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { agentBootstrapSeedSchema } from '../schemas/seed.schemas';
 import {
   validateVehicleSnapshot,
   vehicleOffersSeedSchema,
@@ -12,6 +13,11 @@ async function seed<T>(name: string, schema: { parse(value: unknown): T }): Prom
 }
 
 describe('ofertas de vehículos nuevos', () => {
+  it('registra su agente sin exceder el catálogo de identidades del arranque', async () => {
+    const bootstrap = await seed('agent-bootstrap.json', agentBootstrapSeedSchema);
+    expect(bootstrap.backfillAgents.some((agent) => agent.code === 'VEHICLE_PRICES')).toBe(true);
+  });
+
   it('conserva precio, versión, año y huella de la página oficial en cada oferta', async () => {
     const offers = await seed('vehicle-prices.json', vehicleOffersSeedSchema);
     const sources = await seed('vehicle-price-sources.json', vehicleSourcesSeedSchema);
