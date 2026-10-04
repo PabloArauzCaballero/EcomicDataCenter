@@ -3,7 +3,7 @@ FROM node:22.16.0-bookworm-slim AS dependencies
 WORKDIR /app
 RUN corepack enable
 COPY package.json yarn.lock* ./
-RUN yarn install --frozen-lockfile --non-interactive
+RUN yarn install --frozen-lockfile --non-interactive --network-timeout 180000 --network-concurrency 4
 
 FROM dependencies AS build
 COPY tsconfig*.json nest-cli.json ./
@@ -15,7 +15,7 @@ FROM node:22.16.0-bookworm-slim AS production-dependencies
 WORKDIR /app
 RUN corepack enable
 COPY package.json yarn.lock* ./
-RUN yarn install --frozen-lockfile --production=true --non-interactive && yarn cache clean
+RUN yarn install --frozen-lockfile --production=true --non-interactive --network-timeout 180000 --network-concurrency 4 && yarn cache clean
 
 FROM node:22.16.0-bookworm-slim AS runtime
 ENV NODE_ENV=production
