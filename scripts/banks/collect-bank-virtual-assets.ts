@@ -9,7 +9,7 @@ import { laPazDate, mergeSeed, readPage, readQuoteFeed, type Reading } from './b
  * punto del día a su serie.
  *
  * También lee la cotización de los bancos que la publican en un archivo
- * público (hoy BISA, `QUOTE_FEEDS`).
+ * público (hoy BISA y el BCP, `QUOTE_FEEDS`).
  *
  * Fusiona con la semilla que encuentra y solo agrega: ningún día se borra. Una
  * página que no responde, o que responde otra cosa que la del banco, no
@@ -42,7 +42,7 @@ async function main(): Promise<void> {
       console.warn(`${page.bank}: sin lectura hoy (${(error as Error).message})`);
     }
   }
-  // La cotización de los bancos que la publican en un archivo (hoy BISA).
+  // La cotización de los bancos que la publican en su sitio (hoy BISA y el BCP).
   for (const feed of QUOTE_FEEDS) {
     try {
       const one = readQuoteFeed(feed, await download(feed.url), today, now);

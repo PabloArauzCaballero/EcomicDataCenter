@@ -283,3 +283,62 @@ describe('a quotation the bank publishes in its own file', () => {
     expect(() => bankVirtualAssetsSchema.parse({ series: [feedOnService] })).toThrow();
   });
 });
+
+describe('a quotation the bank writes in the ticker of its home page', () => {
+  const feed = QUOTE_FEEDS.find((one) => one.bank === 'BCP');
+  if (!feed) throw new Error('falta la cinta del BCP');
+  const now = new Date('2026-10-04T00:14:00Z');
+  /* La cinta de verdad, www.bcp.com.bo el 2026-10-04 00:14 GMT; el relleno lleva la página por encima del umbral. */
+  const page = (ticker: string) =>
+    Buffer.from(
+      `<html><body><div class="marquee-container"><div class="marquee-content">` +
+        `<span>Dólar Compra: 11.50</span>\r\n | <span>Dólar Venta: 12.30</span>\r\n | <span>UFV: 3.35273</span>\r\n | ` +
+        ticker +
+        `</div></div>${'<p>Banco de Crédito de Bolivia</p>'.repeat(200)}</body></html>`,
+    );
+  const both = '<span>USDT Venta: 12.20</span>\r\n | <span>USDT Compra: 11.90</span>';
+
+  it('puts what the bank sells on the side the client pays, and quotes the ticker as it reads', () => {
+    const byCode = new Map(
+      readQuoteFeed(feed, page(both), '2026-10-03', now).map((one) => [one.indicatorCode, one.point]),
+    );
+    expect(byCode.get('VASP_BCP_USDT_QUOTE_CLIENT_BUYS')?.value).toBe('12.20');
+    expect(byCode.get('VASP_BCP_USDT_QUOTE_CLIENT_SELLS')?.value).toBe('11.90');
+    for (const point of byCode.values()) {
+      expect(point.basis).toBe('OFFICIAL_FEED');
+      expect(point.sourceUrl).toBe('https://www.bcp.com.bo/');
+      expect(point.excerpt).toBe('USDT Venta: 12.20 | USDT Compra: 11.90');
+    }
+  });
+
+  it('does not take the dollar of the same ticker for the token', () => {
+    const values = readQuoteFeed(feed, page(both), '2026-10-03', now).map((one) => one.point.value);
+    expect(values).not.toContain('12.30');
+    expect(values).not.toContain('11.50');
+  });
+
+  it('writes only the side an older ticker carried', () => {
+    const [only, ...rest] = readQuoteFeed(feed, page('<span>USDT Venta: 17.4</span>'), '2025-06-05', now);
+    expect(rest).toHaveLength(0);
+    expect(only?.indicatorCode).toBe('VASP_BCP_USDT_QUOTE_CLIENT_BUYS');
+    expect(only?.point.value).toBe('17.4');
+  });
+
+  it('keeps the archived copy it was read from as the source', () => {
+    const archived = 'https://web.archive.org/web/20250605000000/https://www.bcp.com.bo/';
+    const [one] = readQuoteFeed(feed, page(both), '2025-06-05', now, archived);
+    expect(one?.point.sourceUrl).toBe(archived);
+  });
+
+  it('refuses a page without the ticker, or a figure that is not a price', () => {
+    expect(() => readQuoteFeed(feed, page(''), '2026-10-03', now)).toThrow(/no trae la cotización/u);
+    expect(() =>
+      readQuoteFeed(feed, page('<span>USDT Venta: 0</span>'), '2026-10-03', now),
+    ).toThrow(/no es un precio/u);
+  });
+
+  it('enters the seed as a valid quotation', () => {
+    const merged = mergeSeed([], readQuoteFeed(feed, page(both), '2026-10-03', now));
+    expect(() => bankVirtualAssetsSchema.parse({ series: merged })).not.toThrow();
+  });
+});

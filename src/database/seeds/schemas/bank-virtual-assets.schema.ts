@@ -5,8 +5,10 @@ import { z } from 'zod';
  * clientes, y las condiciones que publican.
  *
  * Casi ningún banco publica el precio al que compra o vende: la cotización se
- * ve dentro de la aplicación, ya autenticado. La excepción es Banco BISA, que la
- * sirve en un XML público (`OFFICIAL_FEED`). Lo demás que es público y cambia
+ * ve dentro de la aplicación, ya autenticado. Las excepciones son Banco BISA,
+ * que la sirve en un XML público, y el BCP, que la escribe en la cinta de su
+ * portada (`OFFICIAL_FEED`); la historia del BCP sale de las copias de esa
+ * portada en web.archive.org, y cada punto cita la copia exacta. Lo demás que es público y cambia
  * con el tiempo es SI el servicio existe y con qué límites. Por eso hay tres
  * clases de serie:
  *
@@ -16,7 +18,7 @@ import { z } from 'zod';
  * - `LIMIT`: una cifra que la página oficial declara (mínimo o máximo por
  *   operación, por día).
  * - `QUOTE`: lo que el banco cobra o paga por cada USDT o USDC, en bolivianos.
- *   Si el banco la publica (BISA) se lee cada día de su archivo y su `basis` es
+ *   Si el banco la publica (BISA, BCP) se lee cada día de su sitio y su `basis` es
  *   `OFFICIAL_FEED`; si no, llega a mano, de una captura de la app, y su
  *   `basis` es `USER_CAPTURE`. El lado se dice desde el cliente y no desde el
  *   banco (`CLIENT_BUYS` es lo que el cliente paga por cada ficha), porque

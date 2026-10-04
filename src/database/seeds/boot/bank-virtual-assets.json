@@ -207,6 +207,15 @@
           "sourceUrl": "https://cuentacripto.bancofie.com.bo/apertura-cripto",
           "upstreamSha256": "edf44fee7eaa0ac5be2640b607eca3bbc56fe034b4ab0d14bf3c935ea378c77c",
           "retrievedAt": "2026-10-01T20:54:54Z"
+        },
+        {
+          "date": "2026-10-03",
+          "value": "1",
+          "basis": "OFFICIAL_PAGE",
+          "excerpt": "-> --> --> Términos y Condiciones Abre tu cuenta Cripto FIE Compra, vende, recibe y envía USDT en minutos 100% en línea Comenzar Tu Cuenta Cripto en minutos, desde la palma de tu mano. Apertura Inmediata Banca móvi",
+          "sourceUrl": "https://cuentacripto.bancofie.com.bo/apertura-cripto",
+          "upstreamSha256": "9e2af809d388cdbb740d53ae30aeb940fbd3b9c3528491e39ea23459c3f7ee68",
+          "retrievedAt": "2026-10-04T00:21:38Z"
         }
       ]
     },
@@ -561,6 +570,410 @@
           "sourceUrl": "https://sjoven.bisa.com/assets/cotizaciones.xml",
           "upstreamSha256": "a299f0be0e3a337e75bb09f8092a05a9af03a3f14aa4d49c9eb814157aa150bd",
           "retrievedAt": "2026-10-03T15:08:26Z"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "VASP_BCP_USDT_QUOTE_CLIENT_BUYS",
+      "bank": "BCP",
+      "bankName": "Banco de Crédito de Bolivia (BCP)",
+      "product": "USDT en la aplicación del BCP",
+      "asset": "USDT",
+      "kind": "QUOTE",
+      "side": "CLIENT_BUYS",
+      "unit": "BOB",
+      "note": "Bolivianos que el cliente paga por cada USDT en Banco de Crédito de Bolivia (BCP).",
+      "points": [
+        {
+          "date": "2025-05-24",
+          "value": "18.05",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 18.05",
+          "sourceUrl": "https://web.archive.org/web/20250524043213/https://bcp.com.bo/",
+          "upstreamSha256": "df0d87e06c1506b8c4d849eab6f630e3e9c117ba2b88bba7012c7f1c151fb80d",
+          "retrievedAt": "2026-10-04T00:18:48Z"
+        },
+        {
+          "date": "2025-06-04",
+          "value": "17.4",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 17.4",
+          "sourceUrl": "https://web.archive.org/web/20250605010256/https://www.bcp.com.bo/",
+          "upstreamSha256": "d2328c26feec10fa07f6043286e8aff7a4ed019c64b445639239212d525dc0b8",
+          "retrievedAt": "2026-10-04T00:18:51Z"
+        },
+        {
+          "date": "2025-06-09",
+          "value": "17.4",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 17.4",
+          "sourceUrl": "https://web.archive.org/web/20250610025136/https://bcp.com.bo/",
+          "upstreamSha256": "864e9c3276232bc5091905add5ea258ee63321cd7c58a212c8fc17ec488dc242",
+          "retrievedAt": "2026-10-04T00:18:58Z"
+        },
+        {
+          "date": "2025-06-15",
+          "value": "17.7",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 17.7",
+          "sourceUrl": "https://web.archive.org/web/20250615052209/https://bcp.com.bo/",
+          "upstreamSha256": "a8cdca5a19406cbda901d2079829009b2e0994a8d5880420d02aedc21b3c6bf0",
+          "retrievedAt": "2026-10-04T00:19:01Z"
+        },
+        {
+          "date": "2025-06-16",
+          "value": "17.55",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 17.55",
+          "sourceUrl": "https://web.archive.org/web/20250617032116/https://www.bcp.com.bo/",
+          "upstreamSha256": "9724ad2e7655601cf6a4c6d417d123cf0e9ca4fc5af9ba69ec034674eceef1c2",
+          "retrievedAt": "2026-10-04T00:19:06Z"
+        },
+        {
+          "date": "2025-07-08",
+          "value": "15.50",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 15.50",
+          "sourceUrl": "https://web.archive.org/web/20250708080232/https://www.bcp.com.bo/",
+          "upstreamSha256": "d9a97cb5deb45fed1882ca31e04f2a68ad9f34050419c50e95f49dc9a369f6f8",
+          "retrievedAt": "2026-10-04T00:19:09Z"
+        },
+        {
+          "date": "2025-07-09",
+          "value": "15.50",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 15.50",
+          "sourceUrl": "https://web.archive.org/web/20250710003836/https://bcp.com.bo/",
+          "upstreamSha256": "e9fe5a48bbc19f6faf0f1f167dc5a9911bbb06ee8261127d10d43c16102e48a6",
+          "retrievedAt": "2026-10-04T00:19:12Z"
+        },
+        {
+          "date": "2025-07-11",
+          "value": "15.50",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 15.50",
+          "sourceUrl": "https://web.archive.org/web/20250711184809/https://bcp.com.bo/",
+          "upstreamSha256": "e0caf34ccfa0ea0237077620c7aef0a6d39e5132fc551b86f487b61ca558c14f",
+          "retrievedAt": "2026-10-04T00:19:15Z"
+        },
+        {
+          "date": "2025-07-28",
+          "value": "13.50",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 13.50",
+          "sourceUrl": "https://web.archive.org/web/20250728155605/https://www.bcp.com.bo/",
+          "upstreamSha256": "81861e9bdb9277c6c7db09d6a01194c93d14034f7fd3955ef7a7814bac86ad3c",
+          "retrievedAt": "2026-10-04T00:19:18Z"
+        },
+        {
+          "date": "2025-08-04",
+          "value": "13.90",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 13.90",
+          "sourceUrl": "https://web.archive.org/web/20250804122610/https://bcp.com.bo/",
+          "upstreamSha256": "5453cdae2d5e9032e457ca10f7004b0539bab1e54d75d2e0f1d7b0570f2892d2",
+          "retrievedAt": "2026-10-04T00:19:21Z"
+        },
+        {
+          "date": "2025-08-08",
+          "value": "13.90",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 13.90",
+          "sourceUrl": "https://web.archive.org/web/20250808164132/https://bcp.com.bo/",
+          "upstreamSha256": "4ed036f9cc231a86296098b75f535c53391726302c18b9f2904531db6e434ecd",
+          "retrievedAt": "2026-10-04T00:19:31Z"
+        },
+        {
+          "date": "2025-08-11",
+          "value": "13.70",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 13.70",
+          "sourceUrl": "https://web.archive.org/web/20250812030002/https://www.bcp.com.bo/",
+          "upstreamSha256": "12fb123bae66e4812903b66743036c03c8e694d5c680c7e542d90b7708c8b6a4",
+          "retrievedAt": "2026-10-04T00:19:34Z"
+        },
+        {
+          "date": "2025-09-10",
+          "value": "12.40",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.40",
+          "sourceUrl": "https://web.archive.org/web/20250910075656/https://bcp.com.bo/",
+          "upstreamSha256": "1a2bdf4c8c05594a012e715d0674118513c3b4d6c341f9abb83ecd1609e364c2",
+          "retrievedAt": "2026-10-04T00:19:38Z"
+        },
+        {
+          "date": "2025-09-16",
+          "value": "12.60",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.60",
+          "sourceUrl": "https://web.archive.org/web/20250916130433/https://bcp.com.bo/",
+          "upstreamSha256": "41e1c41a404dc9bd01ceff95f8fd0ba1537ef141ce6d9cbb3e0b59ead8a9cf40",
+          "retrievedAt": "2026-10-04T00:19:41Z"
+        },
+        {
+          "date": "2025-09-18",
+          "value": "12.50",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.50",
+          "sourceUrl": "https://web.archive.org/web/20250919003353/https://www.bcp.com.bo/",
+          "upstreamSha256": "045f113f4e46dc4c433d3d71ee6e2797a5547cdc74d5da5866307b8520b265fe",
+          "retrievedAt": "2026-10-04T00:19:47Z"
+        },
+        {
+          "date": "2025-10-07",
+          "value": "12.30",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.30",
+          "sourceUrl": "https://web.archive.org/web/20251007212550/https://www.bcp.com.bo/",
+          "upstreamSha256": "7813146254dee42027fb00c5043dd71bcc9d8f79e572212528424238516c3123",
+          "retrievedAt": "2026-10-04T00:19:53Z"
+        },
+        {
+          "date": "2025-10-10",
+          "value": "12.55",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.55",
+          "sourceUrl": "https://web.archive.org/web/20251010052716/https://bcp.com.bo/",
+          "upstreamSha256": "2a61c5f9f5733cbc59619240f4f64c34d47fbbc0ccc732401a5858017410f95e",
+          "retrievedAt": "2026-10-04T00:19:57Z"
+        },
+        {
+          "date": "2025-11-08",
+          "value": "11.15",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 11.15",
+          "sourceUrl": "https://web.archive.org/web/20251108091300/https://bcp.com.bo/",
+          "upstreamSha256": "29885da942ad6d2edd185663b752e98c135c23c8f9006d74fe2fa766a66163de",
+          "retrievedAt": "2026-10-04T00:20:01Z"
+        },
+        {
+          "date": "2025-11-27",
+          "value": "10.35",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 10.35",
+          "sourceUrl": "https://web.archive.org/web/20251127044924/https://www.bcp.com.bo/",
+          "upstreamSha256": "bab74c1b843bc15949e191a504e87554c0500a12bf80f1fa1b0c9b25967c6ec6",
+          "retrievedAt": "2026-10-04T00:20:04Z"
+        },
+        {
+          "date": "2025-12-01",
+          "value": "10.10",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 10.10",
+          "sourceUrl": "https://web.archive.org/web/20251201111647/https://www.bcp.com.bo/",
+          "upstreamSha256": "d3e70b773de3996e50e51f7f0702bac396972785fe403853cc6678fd977f881a",
+          "retrievedAt": "2026-10-04T00:20:07Z"
+        },
+        {
+          "date": "2025-12-05",
+          "value": "9.70",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 9.70",
+          "sourceUrl": "https://web.archive.org/web/20251205080408/https://bcp.com.bo/",
+          "upstreamSha256": "96c68169a1d7f0f54abde4e2340a9bbe2559b2d5052934c87ace4f755f2d9c97",
+          "retrievedAt": "2026-10-04T00:20:15Z"
+        },
+        {
+          "date": "2025-12-07",
+          "value": "9.50",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 9.50",
+          "sourceUrl": "https://web.archive.org/web/20251208014418/https://www.bcp.com.bo/",
+          "upstreamSha256": "fe46cd33533f5f9b5ab1ccc0079aa4b8d9f5a5fab4dd42090d2e5b43d180742d",
+          "retrievedAt": "2026-10-04T00:20:18Z"
+        },
+        {
+          "date": "2026-01-13",
+          "value": "9.45",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 9.45",
+          "sourceUrl": "https://web.archive.org/web/20260114001426/https://bcp.com.bo/",
+          "upstreamSha256": "bdbe3b702b91ff02c2fa372300a4097a9bf926ba03a97e45cde755e7b4a69c26",
+          "retrievedAt": "2026-10-04T00:20:24Z"
+        },
+        {
+          "date": "2026-02-10",
+          "value": "9.25",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 9.25",
+          "sourceUrl": "https://web.archive.org/web/20260211033000/https://www.bcp.com.bo/",
+          "upstreamSha256": "ecc59dd88d5eb71c7e2de1dc5fb9e0912d1c66fd8f5db9cba6090871d949dab5",
+          "retrievedAt": "2026-10-04T00:20:28Z"
+        },
+        {
+          "date": "2026-03-20",
+          "value": "9.25",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 9.25",
+          "sourceUrl": "https://web.archive.org/web/20260320081050/https://www.bcp.com.bo/",
+          "upstreamSha256": "096628ea6e7e4c5f9e5990d91ccbca8007362820222844994a348990bf772528",
+          "retrievedAt": "2026-10-04T00:20:31Z"
+        },
+        {
+          "date": "2026-04-10",
+          "value": "9.45",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 9.45",
+          "sourceUrl": "https://web.archive.org/web/20260410083918/https://bcp.com.bo/",
+          "upstreamSha256": "d7a53acf818b45613a51f3390531e4f0ab5216524e7b6ee064841becc4c4f588",
+          "retrievedAt": "2026-10-04T00:20:33Z"
+        },
+        {
+          "date": "2026-05-13",
+          "value": "10.25",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 10.25 | USDT Compra: 10.00",
+          "sourceUrl": "https://web.archive.org/web/20260513062052/https://bcp.com.bo/",
+          "upstreamSha256": "7c0e3ecc7f528e9ca576b353e7e11a588ae980b0f2f4ab5822af917f5d9c9e06",
+          "retrievedAt": "2026-10-04T00:20:37Z"
+        },
+        {
+          "date": "2026-05-26",
+          "value": "10.11",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 10.11 | USDT Compra: 9.95",
+          "sourceUrl": "https://web.archive.org/web/20260526144211/https://www.bcp.com.bo/",
+          "upstreamSha256": "a7614507bebca40c6a91420c46122c2e9b7a277dc465146451451f6191a0804d",
+          "retrievedAt": "2026-10-04T00:20:42Z"
+        },
+        {
+          "date": "2026-06-12",
+          "value": "10.07",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 10.07 | USDT Compra: 9.86",
+          "sourceUrl": "https://web.archive.org/web/20260612135320/https://bcp.com.bo/",
+          "upstreamSha256": "9209e9f8dd78fe7f13b1cb81e48883ca9cf51a6659cc9874ed1bf5f3f0d0f44d",
+          "retrievedAt": "2026-10-04T00:20:45Z"
+        },
+        {
+          "date": "2026-07-17",
+          "value": "11.08",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 11.08 | USDT Compra: 10.80",
+          "sourceUrl": "https://web.archive.org/web/20260718033155/https://www.bcp.com.bo/",
+          "upstreamSha256": "7243d54dafe72b9317ca1070db86f25275bbdf7cfb89f84fbe56435daca250b2",
+          "retrievedAt": "2026-10-04T00:20:47Z"
+        },
+        {
+          "date": "2026-08-05",
+          "value": "12.12",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.12 | USDT Compra: 11.50",
+          "sourceUrl": "https://web.archive.org/web/20260805224430/https://www.bcp.com.bo/",
+          "upstreamSha256": "91ae2a405a3f3d97bab32044d90ca49a89a9f72a8ec5dbe7b71fda1f69a4c22c",
+          "retrievedAt": "2026-10-04T00:20:52Z"
+        },
+        {
+          "date": "2026-08-26",
+          "value": "12.00",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.00 | USDT Compra: 11.60",
+          "sourceUrl": "https://web.archive.org/web/20260826171049/https://www.bcp.com.bo/",
+          "upstreamSha256": "022bb851850c96660d30887a70ea8e0a58509b1b44facf1fbaa4fc7d7f886402",
+          "retrievedAt": "2026-10-04T00:20:55Z"
+        },
+        {
+          "date": "2026-09-14",
+          "value": "11.63",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 11.63 | USDT Compra: 10.50",
+          "sourceUrl": "https://web.archive.org/web/20260915032907/https://www.bcp.com.bo/",
+          "upstreamSha256": "43309e6584d18ae320a199f05031a67d3e6fb59896a925396407829ef450bd0a",
+          "retrievedAt": "2026-10-04T00:20:59Z"
+        },
+        {
+          "date": "2026-10-03",
+          "value": "12.20",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.20 | USDT Compra: 11.90",
+          "sourceUrl": "https://www.bcp.com.bo/",
+          "upstreamSha256": "1ee20f21da051917021d9ee3391682befdddc818f071f5db9d8568972d79cb7e",
+          "retrievedAt": "2026-10-04T00:21:38Z"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "VASP_BCP_USDT_QUOTE_CLIENT_SELLS",
+      "bank": "BCP",
+      "bankName": "Banco de Crédito de Bolivia (BCP)",
+      "product": "USDT en la aplicación del BCP",
+      "asset": "USDT",
+      "kind": "QUOTE",
+      "side": "CLIENT_SELLS",
+      "unit": "BOB",
+      "note": "Bolivianos que el cliente recibe por cada USDT en Banco de Crédito de Bolivia (BCP).",
+      "points": [
+        {
+          "date": "2026-05-13",
+          "value": "10.00",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 10.25 | USDT Compra: 10.00",
+          "sourceUrl": "https://web.archive.org/web/20260513062052/https://bcp.com.bo/",
+          "upstreamSha256": "7c0e3ecc7f528e9ca576b353e7e11a588ae980b0f2f4ab5822af917f5d9c9e06",
+          "retrievedAt": "2026-10-04T00:20:37Z"
+        },
+        {
+          "date": "2026-05-26",
+          "value": "9.95",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 10.11 | USDT Compra: 9.95",
+          "sourceUrl": "https://web.archive.org/web/20260526144211/https://www.bcp.com.bo/",
+          "upstreamSha256": "a7614507bebca40c6a91420c46122c2e9b7a277dc465146451451f6191a0804d",
+          "retrievedAt": "2026-10-04T00:20:42Z"
+        },
+        {
+          "date": "2026-06-12",
+          "value": "9.86",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 10.07 | USDT Compra: 9.86",
+          "sourceUrl": "https://web.archive.org/web/20260612135320/https://bcp.com.bo/",
+          "upstreamSha256": "9209e9f8dd78fe7f13b1cb81e48883ca9cf51a6659cc9874ed1bf5f3f0d0f44d",
+          "retrievedAt": "2026-10-04T00:20:45Z"
+        },
+        {
+          "date": "2026-07-17",
+          "value": "10.80",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 11.08 | USDT Compra: 10.80",
+          "sourceUrl": "https://web.archive.org/web/20260718033155/https://www.bcp.com.bo/",
+          "upstreamSha256": "7243d54dafe72b9317ca1070db86f25275bbdf7cfb89f84fbe56435daca250b2",
+          "retrievedAt": "2026-10-04T00:20:47Z"
+        },
+        {
+          "date": "2026-08-05",
+          "value": "11.50",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.12 | USDT Compra: 11.50",
+          "sourceUrl": "https://web.archive.org/web/20260805224430/https://www.bcp.com.bo/",
+          "upstreamSha256": "91ae2a405a3f3d97bab32044d90ca49a89a9f72a8ec5dbe7b71fda1f69a4c22c",
+          "retrievedAt": "2026-10-04T00:20:52Z"
+        },
+        {
+          "date": "2026-08-26",
+          "value": "11.60",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.00 | USDT Compra: 11.60",
+          "sourceUrl": "https://web.archive.org/web/20260826171049/https://www.bcp.com.bo/",
+          "upstreamSha256": "022bb851850c96660d30887a70ea8e0a58509b1b44facf1fbaa4fc7d7f886402",
+          "retrievedAt": "2026-10-04T00:20:55Z"
+        },
+        {
+          "date": "2026-09-14",
+          "value": "10.50",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 11.63 | USDT Compra: 10.50",
+          "sourceUrl": "https://web.archive.org/web/20260915032907/https://www.bcp.com.bo/",
+          "upstreamSha256": "43309e6584d18ae320a199f05031a67d3e6fb59896a925396407829ef450bd0a",
+          "retrievedAt": "2026-10-04T00:20:59Z"
+        },
+        {
+          "date": "2026-10-03",
+          "value": "11.90",
+          "basis": "OFFICIAL_FEED",
+          "excerpt": "USDT Venta: 12.20 | USDT Compra: 11.90",
+          "sourceUrl": "https://www.bcp.com.bo/",
+          "upstreamSha256": "1ee20f21da051917021d9ee3391682befdddc818f071f5db9d8568972d79cb7e",
+          "retrievedAt": "2026-10-04T00:21:38Z"
         }
       ]
     }

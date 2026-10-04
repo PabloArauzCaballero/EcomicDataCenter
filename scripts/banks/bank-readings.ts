@@ -144,7 +144,9 @@ export function readQuoteFeed(
   bytes: Buffer,
   today: string,
   now: Date,
+  sourceUrl: string = feed.url,
 ): Reading[] {
+  if (feed.format === 'TICKER') return readQuoteTicker(feed, bytes, today, now, sourceUrl);
   const xml = decodePage(bytes);
   const blocks = xml.match(/<(?:\w+:)?Cotizacion>[\s\S]*?<\/(?:\w+:)?Cotizacion>/gu) ?? [];
   const block = blocks.find(
@@ -159,27 +161,81 @@ export function readQuoteFeed(
       `${feed.currency}/${feed.against} no trae una compra y una venta en bolivianos`,
     );
   }
-  const offered = OFFERED_SERIES.find((spec) => spec.bank === feed.bank);
-  const provenance = {
+  return quoteReadings(
+    feed.bank,
+    [
+      ['CLIENT_BUYS', bankSells],
+      ['CLIENT_SELLS', bankBuys],
+    ],
+    {
+      date: today,
+      basis: 'OFFICIAL_FEED',
+      excerpt: block.replace(/\s+/gu, ' '),
+      sourceUrl,
+      upstreamSha256: sha256(bytes),
+      retrievedAt: now.toISOString().replace(/\.\d{3}Z$/u, 'Z'),
+    },
+  );
+}
+
+/** Los dos lados de la cotización de un banco, ya dichos desde el cliente. */
+function quoteReadings(
+  bank: string,
+  sides: ReadonlyArray<readonly ['CLIENT_BUYS' | 'CLIENT_SELLS', string]>,
+  provenance: Omit<BankPoint, 'value'>,
+): Reading[] {
+  const offered = OFFERED_SERIES.find((spec) => spec.bank === bank);
+  return sides.map(([side, value]) => {
+    const series = QUOTE_SERIES.find(
+      (spec) => spec.bank === bank && spec.asset === offered?.asset && spec.side === side,
+    );
+    if (!series) throw new Error(`no hay serie de cotización para ${bank}`);
+    return { indicatorCode: series.indicatorCode, point: { ...provenance, value } };
+  });
+}
+
+/**
+ * La cotización que un banco escribe en la cinta de su portada.
+ *
+ * Se lee del texto visible, que junta «USDT Venta: 12.20 | USDT Compra: 11.90»
+ * aunque el marcado los separe en etiquetas; la cita es ese tramo, tal cual. Una
+ * página que no trae la cinta —un error, un cartel de mantenimiento, una
+ * captura vieja que no la tenía— no escribe nada.
+ */
+function readQuoteTicker(
+  feed: Extract<QuoteFeed, { format: 'TICKER' }>,
+  bytes: Buffer,
+  today: string,
+  now: Date,
+  sourceUrl: string,
+): Reading[] {
+  const text = visibleText(decodePage(bytes));
+  const pattern = new RegExp(`${feed.label} (Venta|Compra):\\s*(\\d+(?:[.,]\\d+)?)`, 'gu');
+  const found = [...text.matchAll(pattern)];
+  const sides: Array<readonly ['CLIENT_BUYS' | 'CLIENT_SELLS', string]> = [];
+  for (const [bankSide, side] of [
+    ['Venta', 'CLIENT_BUYS'],
+    ['Compra', 'CLIENT_SELLS'],
+  ] as const) {
+    const match = found.find((one) => one[1] === bankSide);
+    if (!match) continue;
+    const value = plainAmount(match[2] ?? '');
+    if (!value || Number(value) < 1 || Number(value) > 100) {
+      throw new Error(`${feed.label} ${bankSide} no es un precio en bolivianos: «${match[0]}»`);
+    }
+    sides.push([side, value]);
+  }
+  if (!sides.length) throw new Error(`la página no trae la cotización de ${feed.label}`);
+  const start = Math.min(...found.map((one) => one.index ?? 0));
+  const end = Math.max(...found.map((one) => (one.index ?? 0) + one[0].length));
+  return quoteReadings(feed.bank, sides, {
     date: today,
-    basis: 'OFFICIAL_FEED' as const,
-    excerpt: block.replace(/\s+/gu, ' '),
-    sourceUrl: feed.url,
+    basis: 'OFFICIAL_FEED',
+    excerpt: text.slice(start, end),
+    sourceUrl,
     upstreamSha256: sha256(bytes),
     retrievedAt: now.toISOString().replace(/\.\d{3}Z$/u, 'Z'),
-  };
-  const readings: Reading[] = [];
-  for (const [side, value] of [
-    ['CLIENT_BUYS', bankSells],
-    ['CLIENT_SELLS', bankBuys],
-  ] as const) {
-    const series = QUOTE_SERIES.find(
-      (spec) => spec.bank === feed.bank && spec.asset === offered?.asset && spec.side === side,
-    );
-    if (!series) throw new Error(`no hay serie de cotización para ${feed.bank}`);
-    readings.push({ indicatorCode: series.indicatorCode, point: { ...provenance, value } });
-  }
-  return readings;
+  });
 }
 
 function emptySeed(): BankSeries[] {
