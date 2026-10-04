@@ -119,7 +119,7 @@ const quote = (spec: SeriesSpec, side: 'CLIENT_BUYS' | 'CLIENT_SELLS'): SeriesSp
 });
 
 /**
- * Lo que cada banco cobra y paga por ficha. Solo BISA lo publica (`QUOTE_FEEDS`);
+ * Lo que cada banco cobra y paga por ficha. BISA y el BCP lo publican (`QUOTE_FEEDS`);
  * en los demás estas series se cargan a mano desde una captura de la aplicación,
  * y quedan sin puntos —y por tanto fuera de la semilla— hasta que llega la primera.
  */
@@ -129,27 +129,53 @@ export const QUOTE_SERIES: readonly SeriesSpec[] = OFFERED_SERIES.flatMap((spec)
 ]);
 
 /**
- * Un banco que publica su cotización de la ficha en un archivo público.
+ * Un banco que publica su cotización de la ficha en su sitio, sin sesión.
  *
- * El XML de BISA es el mismo que lee la portada de bisa.com (CORS abierto, sin
- * cookie ni token). `ValorCompra` es lo que el BANCO compra y `ValorVenta` lo que
- * VENDE; el lector los invierte a los lados del cliente. El archivo se
- * actualiza varias veces al día y la semilla guarda el último valor de cada día.
+ * Dos formas:
+ *
+ * - `XML`: el archivo de BISA, el mismo que lee la portada de bisa.com (CORS
+ *   abierto, sin cookie ni token). `ValorCompra` es lo que el BANCO compra y
+ *   `ValorVenta` lo que VENDE; el lector los invierte a los lados del cliente.
+ * - `TICKER`: la cinta «Cotizaciones» de la portada del BCP, que viene en el
+ *   HTML del servidor («USDT Venta: 12.20 | USDT Compra: 11.90»). La página del
+ *   servicio (`/USDtCuenta`) dice que el precio «es visible dentro de la app» y
+ *   no trae la cinta: hay que leer la portada. «Venta» es lo que el banco vende,
+ *   o sea lo que el cliente paga. Hasta mayo de 2026 la cinta sólo traía la
+ *   venta; un lado que falta no se escribe.
+ *
+ * Los dos se actualizan durante el día y la semilla guarda el último valor de
+ * cada día.
  */
-export interface QuoteFeed {
-  readonly bank: string;
-  readonly url: string;
-  /** La moneda y contra qué se cotiza, como las nombra el archivo: `UST` contra `BOB`. */
-  readonly currency: string;
-  readonly against: string;
-}
+export type QuoteFeed =
+  | {
+      readonly bank: string;
+      readonly url: string;
+      readonly format: 'XML';
+      /** La moneda y contra qué se cotiza, como las nombra el archivo: `UST` contra `BOB`. */
+      readonly currency: string;
+      readonly against: string;
+    }
+  | {
+      readonly bank: string;
+      readonly url: string;
+      readonly format: 'TICKER';
+      /** Cómo nombra la cinta a la ficha: «USDT Venta», «USDT Compra». */
+      readonly label: string;
+    };
 
 export const QUOTE_FEEDS: readonly QuoteFeed[] = [
   {
     bank: 'BISA',
     url: 'https://sjoven.bisa.com/assets/cotizaciones.xml',
+    format: 'XML',
     currency: 'UST',
     against: 'BOB',
+  },
+  {
+    bank: 'BCP',
+    url: 'https://www.bcp.com.bo/',
+    format: 'TICKER',
+    label: 'USDT',
   },
 ];
 
