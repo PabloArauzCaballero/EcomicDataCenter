@@ -1,0 +1,2339 @@
+{
+  "status": "EXPLORATORY_THREE_CHANNEL_PILOT",
+  "generatedAt": "2026-10-04T19:46:16.070560+00:00",
+  "windowStart": "2025-10-04",
+  "windowEnd": "2026-10-04",
+  "method": {
+    "source": "Public YouTube channel pages and visible comments",
+    "selection": "Selected recent videos from three corroborated adult Bolivian creators; comments are not a random or complete sample",
+    "language": "Spanish detection probability at least 0.7 and four or more words",
+    "sentimentModel": "pysentimiento/robertuito en ONNX: sentiment, emotion, irony",
+    "minimumForDisplay": 30,
+    "interpretation": "Automated labels describe captured comments only; they do not represent all followers or Bolivian public opinion",
+    "privacy": "No commenter names, identifiers or comment text are published"
+  },
+  "coverage": {
+    "researchPeople": 300,
+    "peopleWithPilotSentiment": 3,
+    "commentsCaptured": 854,
+    "commentsAnalyzedSpanish": 610
+  },
+  "people": [
+    {
+      "slug": "P_ALBERTINA_SACACA",
+      "name": "Albertina Sacaca",
+      "platform": "youtube",
+      "accountUrl": "https://www.youtube.com/channel/UCmJLNo4bkEi-8pD3YUsiMlQ",
+      "identityStatus": "CORROBORATED_NOT_PLATFORM_VERIFIED",
+      "accountEvidence": [
+        "https://ipdrs.org/wp-content/uploads/2024/12/IPDRS-Investigacion-influencers-Bolivia.pdf#page=7",
+        "https://hemeroteca.larazon.bo/escape/2021/08/22/influencers-de-raiz-agraria-y-con-orgullo/",
+        "https://www.youtube.com/channel/UCmJLNo4bkEi-8pD3YUsiMlQ"
+      ],
+      "identityReviewRationale": "Channel name and first-person Bolivia travel/cooking videos match the creator and topic in the IPDRS study; a 2021 profile identified her as 21 years old.",
+      "followersApprox": 292000,
+      "retrievedAt": "2026-10-04T19:28:37.989Z",
+      "postsInWindow": 30,
+      "commentsCaptured": 341,
+      "commentsAnalyzedSpanish": 239,
+      "commentsExcluded": 102,
+      "sentiment": {
+        "analyzed": 239,
+        "positivePct": 62.8,
+        "negativePct": 21.8,
+        "neutralPct": 15.5,
+        "ironyPct": 26.4,
+        "netScore": 41.0,
+        "topEmotion": "joy",
+        "emotionPct": {
+          "joy": 58.2,
+          "sadness": 0.0,
+          "anger": 3.8,
+          "surprise": 2.1,
+          "disgust": 0.0,
+          "fear": 0.0
+        }
+      },
+      "wordCloud": [
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "felicidades",
+          "count": 56,
+          "rank": 1
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "mereces",
+          "count": 20,
+          "rank": 2
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "saludos",
+          "count": 20,
+          "rank": 3
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "auto",
+          "count": 18,
+          "rank": 4
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "india",
+          "count": 15,
+          "rank": 5
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "vida",
+          "count": 15,
+          "rank": 6
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "chuño",
+          "count": 13,
+          "rank": 7
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "dios",
+          "count": 12,
+          "rank": 8
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "familia",
+          "count": 12,
+          "rank": 9
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "zumba",
+          "count": 11,
+          "rank": 10
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "hermosa",
+          "count": 11,
+          "rank": 11
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "bueno",
+          "count": 10,
+          "rank": 12
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "feliz",
+          "count": 10,
+          "rank": 13
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "adelante",
+          "count": 10,
+          "rank": 14
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "logro",
+          "count": 10,
+          "rank": 15
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "abrazo",
+          "count": 9,
+          "rank": 16
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "lindo",
+          "count": 9,
+          "rank": 17
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "alegría",
+          "count": 9,
+          "rank": 18
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "felicitaciones",
+          "count": 9,
+          "rank": 19
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "argentina",
+          "count": 8,
+          "rank": 20
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "cambies",
+          "count": 8,
+          "rank": 21
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "cumpleaños",
+          "count": 8,
+          "rank": 22
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "gente",
+          "count": 7,
+          "rank": 23
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "soy",
+          "count": 7,
+          "rank": 24
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "viaje",
+          "count": 7,
+          "rank": 25
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "trabajo",
+          "count": 7,
+          "rank": 26
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "siga",
+          "count": 7,
+          "rank": 27
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "bendiciones",
+          "count": 7,
+          "rank": 28
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "grande",
+          "count": 7,
+          "rank": 29
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "WORD",
+          "term": "mundo",
+          "count": 6,
+          "rank": 30
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "feliz cumpleanos",
+          "count": 6,
+          "rank": 1
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "dios siga",
+          "count": 5,
+          "rank": 2
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "siga bendiciendo",
+          "count": 4,
+          "rank": 3
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "primer auto",
+          "count": 3,
+          "rank": 4
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "dios bendiga",
+          "count": 3,
+          "rank": 5
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "abrazo grande",
+          "count": 3,
+          "rank": 6
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "felicidades mereces",
+          "count": 2,
+          "rank": 7
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "india saludos",
+          "count": 2,
+          "rank": 8
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "cultura costumbres",
+          "count": 2,
+          "rank": 9
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "sao paulo",
+          "count": 2,
+          "rank": 10
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "bendiciones abrazo",
+          "count": 2,
+          "rank": 11
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "mil bendiciones",
+          "count": 2,
+          "rank": 12
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "felicidades hermosa",
+          "count": 2,
+          "rank": 13
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "bonito auto",
+          "count": 2,
+          "rank": 14
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "BIGRAM",
+          "term": "mil felicidades",
+          "count": 2,
+          "rank": 15
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "EMOJI",
+          "term": "🥹",
+          "count": 5,
+          "rank": 1
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "EMOJI",
+          "term": "🇵🇪",
+          "count": 2,
+          "rank": 2
+        },
+        {
+          "slug": "P_ALBERTINA_SACACA",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 239,
+          "kind": "EMOJI",
+          "term": "🇦🇷",
+          "count": 2,
+          "rank": 3
+        }
+      ],
+      "posts": [
+        {
+          "url": "https://www.youtube.com/watch?v=qOdNg0t9-pI",
+          "publishedAt": "2026-09-27",
+          "title": "La India que nadie te muestra: Discotecas, comida callejera, ¿realmente es seguro?😱🇮🇳",
+          "likes": 253,
+          "comments": 25,
+          "views": 13116,
+          "commentsAnalyzedSpanish": 14,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=h91bbBi9Toc",
+          "publishedAt": "2026-08-12",
+          "title": "La POLICÍA se LLEVO a mi amigo po bailar en el TAJ MAHAL (no sabíamos que estaba prohibido)😱🇮🇳",
+          "likes": 587,
+          "comments": 48,
+          "views": 21272,
+          "commentsAnalyzedSpanish": 27,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=H1cyVwzB8dc",
+          "publishedAt": "2026-08-07",
+          "title": "Así es un hotel 5 estrellas en la India 🇮🇳 ✨😱",
+          "likes": 800,
+          "comments": 77,
+          "views": 22414,
+          "commentsAnalyzedSpanish": 40,
+          "commentSentiment": {
+            "analyzed": 40,
+            "positivePct": 37.5,
+            "negativePct": 32.5,
+            "neutralPct": 30.0,
+            "ironyPct": 35.0,
+            "netScore": 5.0,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 42.5,
+              "sadness": 0.0,
+              "anger": 2.5,
+              "surprise": 5.0,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=HqfXYkRrkuI",
+          "publishedAt": "2026-07-27",
+          "title": "Me compré un AUTO por mi CUMPLEAÑOS🥳🚘",
+          "likes": 2451,
+          "comments": 232,
+          "views": 46231,
+          "commentsAnalyzedSpanish": 102,
+          "commentSentiment": {
+            "analyzed": 102,
+            "positivePct": 86.3,
+            "negativePct": 7.8,
+            "neutralPct": 5.9,
+            "ironyPct": 14.7,
+            "netScore": 78.5,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 84.3,
+              "sadness": 0.0,
+              "anger": 0.0,
+              "surprise": 0.0,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=oQtBI5YtSGA",
+          "publishedAt": "2026-07-13",
+          "title": "Así se hace CH’UÑU en uno de los lugares más fríos de Bolivia 🇧🇴🥶🥔",
+          "likes": 925,
+          "comments": 80,
+          "views": 43617,
+          "commentsAnalyzedSpanish": 32,
+          "commentSentiment": {
+            "analyzed": 32,
+            "positivePct": 56.2,
+            "negativePct": 21.9,
+            "neutralPct": 21.9,
+            "ironyPct": 37.5,
+            "netScore": 34.3,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 50.0,
+              "sadness": 0.0,
+              "anger": 3.1,
+              "surprise": 3.1,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=e8baZVanpaE",
+          "publishedAt": "2026-06-06",
+          "title": "🔥Casi termino en el hospital preparando esta receta 😱 “Empanadas de lacayote”",
+          "likes": 886,
+          "comments": 46,
+          "views": 41308,
+          "commentsAnalyzedSpanish": 24,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=69Mvk-jNcdY",
+          "publishedAt": "2026-05-07",
+          "title": "El precio REAL de vestirse de cholita paceña (no lo vas a creer)😱🇧🇴💵",
+          "likes": null,
+          "comments": null,
+          "views": 33000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=tcXgy9wJkVI",
+          "publishedAt": "2026-03-08",
+          "title": "Mi primera vez en Rio de Janeiro 🇧🇷 y pasó esto 😱😩",
+          "likes": null,
+          "comments": null,
+          "views": 54000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=sxpeFxBGB04",
+          "publishedAt": "2026-03-08",
+          "title": "COMPRÉ TODO lo que me ofrecieron en la playa de RÍO.. y pasó esto 😱😨",
+          "likes": null,
+          "comments": null,
+          "views": 102000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=YNlSjtcslD4",
+          "publishedAt": "2026-03-08",
+          "title": "Casi me besan en Brasil🇧🇷 🫢😱",
+          "likes": null,
+          "comments": null,
+          "views": 51000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=WIa20T4Fqqs",
+          "publishedAt": "2026-03-08",
+          "title": "Comprando mi primer bikini en Brasil 😩😱",
+          "likes": null,
+          "comments": null,
+          "views": 71000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=-BYUQsIVlec",
+          "publishedAt": "2026-03-08",
+          "title": "Así Ch’allamos  en CARNAVALES (casa y moto)🥳🎉👹",
+          "likes": null,
+          "comments": null,
+          "views": 24000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ztVgV5C8WqM",
+          "publishedAt": "2026-01-07",
+          "title": "Acompáñenme a armar mi primer arbolito de Navidad 🎄(con alguien especial)",
+          "likes": null,
+          "comments": null,
+          "views": 16000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=z1Ouy_K2Q24",
+          "publishedAt": "2026-01-07",
+          "title": "Jajajaja🤣🤣🤣🤣🤣 @juniormavity7 @Fabru_Blacutt ​@andreblacutt_ ",
+          "likes": null,
+          "comments": null,
+          "views": 6700,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ePKtC_CoJJI",
+          "publishedAt": "2025-11-08",
+          "title": "Así fue el proceso de las fotos para VOGUE 🥰🥹",
+          "likes": null,
+          "comments": null,
+          "views": 33000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=vNOk9FUQd2g",
+          "publishedAt": "2025-10-04",
+          "title": "Torta de pelota 😱 para Cristiano Ronaldo Siu⚽️",
+          "likes": null,
+          "comments": null,
+          "views": 13000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=uakXQTYPetU",
+          "publishedAt": "2025-10-04",
+          "title": "Hice Ch’uñu en el lugar más frío de Bolivia 🇧🇴🥶🥶❄️",
+          "likes": null,
+          "comments": null,
+          "views": 49000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=qLYEL68dSkI",
+          "publishedAt": "2025-10-04",
+          "title": "Sorprendí con un chicharrón a mi abuelita 😱",
+          "likes": null,
+          "comments": null,
+          "views": 41000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=mNjHwntcM-s",
+          "publishedAt": "2025-10-04",
+          "title": "¡Me transformé en Pocahontas y el resultado es mágico!😱🥰",
+          "likes": null,
+          "comments": null,
+          "views": 31000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=lbEcXNzs7Dk",
+          "publishedAt": "2025-10-04",
+          "title": "Acompáñenme en mi primer viaje del año ✈️🤗",
+          "likes": null,
+          "comments": null,
+          "views": 11000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=fx9TrPqitkc",
+          "publishedAt": "2025-10-04",
+          "title": "Nos transformamos en otra persona😱😁",
+          "likes": null,
+          "comments": null,
+          "views": 9400,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=cc0kNT6bpuY",
+          "publishedAt": "2025-10-04",
+          "title": "HUMINTAS al horno (fácil de preparar y deliciosas)😋",
+          "likes": null,
+          "comments": null,
+          "views": 31000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=baH9dsd119Y",
+          "publishedAt": "2025-10-04",
+          "title": "Adiós 2024 😭♥️",
+          "likes": null,
+          "comments": null,
+          "views": 5400,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=G6laYx1_ucg",
+          "publishedAt": "2025-10-04",
+          "title": "Así pasé mi año nuevo 🎊😱",
+          "likes": null,
+          "comments": null,
+          "views": 12000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=EH8yJ_UU-_8",
+          "publishedAt": "2025-10-04",
+          "title": "REDUCIR CINTURA en 5 minutos 😱",
+          "likes": null,
+          "comments": null,
+          "views": 17000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=6w65f-HVwJg",
+          "publishedAt": "2025-10-04",
+          "title": "Regalamos más de 10.000 juguetes en esta navidad 🎁😱",
+          "likes": null,
+          "comments": null,
+          "views": 13000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=6EWvucP4b2s",
+          "publishedAt": "2025-10-04",
+          "title": "Me dijeron que no podía ser modelo por mi color y mi origen y aquí estoy 🌟💃👩‍🌾",
+          "likes": null,
+          "comments": null,
+          "views": 33000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=5EsHq9ef-N0",
+          "publishedAt": "2025-10-04",
+          "title": "Les presento a mi COLÁGENO que me ayuda a estar joven 🫢",
+          "likes": null,
+          "comments": null,
+          "views": 9700,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=3ZlEW2I693k",
+          "publishedAt": "2025-10-04",
+          "title": "Cruzamos un río caudaloso para cosechar fruta 🍉🍋y comer picante de gallina 🌶️🐔",
+          "likes": null,
+          "comments": null,
+          "views": 50000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=1sokqKmCaig",
+          "publishedAt": "2025-10-04",
+          "title": "Buñuelos Bolivianos🇧🇴😋 la mejor receta",
+          "likes": null,
+          "comments": null,
+          "views": 73000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        }
+      ]
+    },
+    {
+      "slug": "P_DANIEL_DUENAS",
+      "name": "Daniel Dueñas",
+      "platform": "youtube",
+      "accountUrl": "https://www.youtube.com/channel/UC5uQyk3wJv6nZDpAhUkorrw",
+      "identityStatus": "CORROBORATED_NOT_PLATFORM_VERIFIED",
+      "accountEvidence": [
+        "https://ipdrs.org/wp-content/uploads/2024/12/IPDRS-Investigacion-influencers-Bolivia.pdf#page=7",
+        "https://www.reduno.com.bo/deportes/con-42-anos-daniel-duenas-se-lanza-al-mundo-fitness-fotos--202562918570",
+        "https://www.youtube.com/channel/UC5uQyk3wJv6nZDpAhUkorrw"
+      ],
+      "identityReviewRationale": "Channel name and motivational videos match the autoayuda topic in the IPDRS study; Red Uno reported his age as 42 in 2025.",
+      "followersApprox": 336000,
+      "retrievedAt": "2026-10-04T19:30:22.072Z",
+      "postsInWindow": 30,
+      "commentsCaptured": 399,
+      "commentsAnalyzedSpanish": 301,
+      "commentsExcluded": 98,
+      "sentiment": {
+        "analyzed": 301,
+        "positivePct": 52.2,
+        "negativePct": 28.6,
+        "neutralPct": 19.3,
+        "ironyPct": 4.7,
+        "netScore": 23.6,
+        "topEmotion": "joy",
+        "emotionPct": {
+          "joy": 35.5,
+          "sadness": 8.0,
+          "anger": 7.3,
+          "surprise": 0.0,
+          "disgust": 0.0,
+          "fear": 0.0
+        }
+      },
+      "wordCloud": [
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "dios",
+          "count": 48,
+          "rank": 1
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "cierto",
+          "count": 31,
+          "rank": 2
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "palabras",
+          "count": 30,
+          "rank": 3
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "amor",
+          "count": 28,
+          "rank": 4
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "bendiga",
+          "count": 28,
+          "rank": 5
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "bendiciones",
+          "count": 26,
+          "rank": 6
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "verdad",
+          "count": 23,
+          "rank": 7
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "amén",
+          "count": 23,
+          "rank": 8
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "sola",
+          "count": 20,
+          "rank": 9
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "acuerdo",
+          "count": 20,
+          "rank": 10
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "razón",
+          "count": 19,
+          "rank": 11
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "totalmente",
+          "count": 19,
+          "rank": 12
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "reflexión",
+          "count": 19,
+          "rank": 13
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "hombre",
+          "count": 19,
+          "rank": 14
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "matrimonio",
+          "count": 19,
+          "rank": 15
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "vida",
+          "count": 18,
+          "rank": 16
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "consejos",
+          "count": 17,
+          "rank": 17
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "años",
+          "count": 17,
+          "rank": 18
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "excelente",
+          "count": 16,
+          "rank": 19
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "persona",
+          "count": 15,
+          "rank": 20
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "hombres",
+          "count": 14,
+          "rank": 21
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "soy",
+          "count": 13,
+          "rank": 22
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "mensaje",
+          "count": 13,
+          "rank": 23
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "relación",
+          "count": 13,
+          "rank": 24
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "feliz",
+          "count": 12,
+          "rank": 25
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "celos",
+          "count": 12,
+          "rank": 26
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "mujer",
+          "count": 11,
+          "rank": 27
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "debe",
+          "count": 11,
+          "rank": 28
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "personas",
+          "count": 11,
+          "rank": 29
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "WORD",
+          "term": "pareja",
+          "count": 11,
+          "rank": 30
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "dios bendiga",
+          "count": 24,
+          "rank": 1
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "totalmente acuerdo",
+          "count": 10,
+          "rank": 2
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "excelente reflexion",
+          "count": 8,
+          "rank": 3
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "acuerdo contigo",
+          "count": 7,
+          "rank": 4
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "totalmente cierto",
+          "count": 6,
+          "rank": 5
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "bendiga proteja",
+          "count": 5,
+          "rank": 6
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "hermosas palabras",
+          "count": 4,
+          "rank": 7
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "fuerte abrazo",
+          "count": 4,
+          "rank": 8
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "querido amigo",
+          "count": 4,
+          "rank": 9
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "mal acompanada",
+          "count": 3,
+          "rank": 10
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "anos matrimonio",
+          "count": 3,
+          "rank": 11
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "bendiga amen",
+          "count": 3,
+          "rank": 12
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "mando fuerte",
+          "count": 3,
+          "rank": 13
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "palabras dios",
+          "count": 2,
+          "rank": 14
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "BIGRAM",
+          "term": "bendiciones amen",
+          "count": 2,
+          "rank": 15
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "EMOJI",
+          "term": "🫶",
+          "count": 5,
+          "rank": 1
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "EMOJI",
+          "term": "🇦🇷",
+          "count": 4,
+          "rank": 2
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "EMOJI",
+          "term": "🪷",
+          "count": 2,
+          "rank": 3
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "EMOJI",
+          "term": "🇻🇪",
+          "count": 2,
+          "rank": 4
+        },
+        {
+          "slug": "P_DANIEL_DUENAS",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 300,
+          "kind": "EMOJI",
+          "term": "🩷",
+          "count": 2,
+          "rank": 5
+        }
+      ],
+      "posts": [
+        {
+          "url": "https://www.youtube.com/watch?v=oGNUDmmW8Wg",
+          "publishedAt": "2026-10-04",
+          "title": "IDENTIFICA A UN HOMBRE MANIPULADOR.",
+          "likes": null,
+          "comments": null,
+          "views": 3900,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=fHRZYWcl-kQ",
+          "publishedAt": "2026-10-01",
+          "title": "NO VUELVAS CON ALGUIEN QUE YA TE TUVO Y NO SUPO VALORARTE.",
+          "likes": 533,
+          "comments": 96,
+          "views": 13615,
+          "commentsAnalyzedSpanish": 66,
+          "commentSentiment": {
+            "analyzed": 66,
+            "positivePct": 45.5,
+            "negativePct": 31.8,
+            "neutralPct": 22.7,
+            "ironyPct": 3.0,
+            "netScore": 13.7,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 21.2,
+              "sadness": 13.6,
+              "anger": 7.6,
+              "surprise": 0.0,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=HdsRIub8cQc",
+          "publishedAt": "2026-09-28",
+          "title": "El Amor Sano es Real  No Te Conformes con Menos.",
+          "likes": null,
+          "comments": null,
+          "views": 8900,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=AytXr3kxCqM",
+          "publishedAt": "2026-09-27",
+          "title": "¿POR QUÉ UNA MUJER AMA LAS PLANTAS",
+          "likes": null,
+          "comments": null,
+          "views": 11000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=7_A6T49EYJ8",
+          "publishedAt": "2026-09-26",
+          "title": "7 formas de aumentar tu autoestima.",
+          "likes": 472,
+          "comments": 59,
+          "views": 16231,
+          "commentsAnalyzedSpanish": 42,
+          "commentSentiment": {
+            "analyzed": 42,
+            "positivePct": 83.3,
+            "negativePct": 11.9,
+            "neutralPct": 4.8,
+            "ironyPct": 4.8,
+            "netScore": 71.4,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 83.3,
+              "sadness": 2.4,
+              "anger": 2.4,
+              "surprise": 0.0,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=BL-D-9DMlYo",
+          "publishedAt": "2026-09-24",
+          "title": "NO TE CASES SIN ANTES SABER ESTO",
+          "likes": 639,
+          "comments": 69,
+          "views": 28008,
+          "commentsAnalyzedSpanish": 45,
+          "commentSentiment": {
+            "analyzed": 45,
+            "positivePct": 35.6,
+            "negativePct": 35.6,
+            "neutralPct": 28.9,
+            "ironyPct": 11.1,
+            "netScore": 0.0,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 20.0,
+              "sadness": 15.6,
+              "anger": 6.7,
+              "surprise": 0.0,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=QAcuFqmu88w",
+          "publishedAt": "2026-09-23",
+          "title": "Tu no naciste para andar cuidando a alguien que no te valora",
+          "likes": 517,
+          "comments": 62,
+          "views": 14258,
+          "commentsAnalyzedSpanish": 42,
+          "commentSentiment": {
+            "analyzed": 42,
+            "positivePct": 52.4,
+            "negativePct": 26.2,
+            "neutralPct": 21.4,
+            "ironyPct": 4.8,
+            "netScore": 26.2,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 31.0,
+              "sadness": 4.8,
+              "anger": 7.1,
+              "surprise": 0.0,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=1X5oxERAXDQ",
+          "publishedAt": "2026-09-22",
+          "title": "Si eres una mujer trabajadora.",
+          "likes": null,
+          "comments": null,
+          "views": 2900,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=uXbltNoKV0Y",
+          "publishedAt": "2026-09-21",
+          "title": "DEJA DE PROCRASTINAR AHORA.",
+          "likes": null,
+          "comments": null,
+          "views": 3800,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=jnajYNwqI70",
+          "publishedAt": "2026-09-14",
+          "title": "TU PAREJA ES TU ESPEJO  RECIBES LO QUE DAS.",
+          "likes": 1444,
+          "comments": 109,
+          "views": 63878,
+          "commentsAnalyzedSpanish": 75,
+          "commentSentiment": {
+            "analyzed": 75,
+            "positivePct": 54.7,
+            "negativePct": 28.0,
+            "neutralPct": 17.3,
+            "ironyPct": 2.7,
+            "netScore": 26.7,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 41.3,
+              "sadness": 5.3,
+              "anger": 10.7,
+              "surprise": 0.0,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=u5oLna1MqZc",
+          "publishedAt": "2026-09-13",
+          "title": "Enamórate de un hombre así.",
+          "likes": null,
+          "comments": null,
+          "views": 4100,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=T127bz74RVQ",
+          "publishedAt": "2026-09-13",
+          "title": "Dios te va a bendecir.",
+          "likes": null,
+          "comments": null,
+          "views": 3100,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=wLxMIvqVnUY",
+          "publishedAt": "2026-09-06",
+          "title": "Si te tocó ser mamá y papá a la vez.",
+          "likes": null,
+          "comments": null,
+          "views": 2700,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=KV6UxCum1JM",
+          "publishedAt": "2026-09-06",
+          "title": "Dile a tu hijo que no escuche los consejos de la calle.",
+          "likes": null,
+          "comments": null,
+          "views": 5100,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=yUr3p73XFPY",
+          "publishedAt": "2026-09-04",
+          "title": "ESCUCHA ESTO SI TIENES MÁS DE 40 AÑOS.",
+          "likes": null,
+          "comments": null,
+          "views": 9300,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=urezd5wTHhw",
+          "publishedAt": "2026-09-04",
+          "title": "No te vuelvas a sentir insuficiente.",
+          "likes": null,
+          "comments": null,
+          "views": 3900,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=tN6VK0oiULQ",
+          "publishedAt": "2026-09-04",
+          "title": "RECUERDA QUE TUS HIJOS, TUS REGLAS.",
+          "likes": null,
+          "comments": null,
+          "views": 1700,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=qB6DNz6IudQ",
+          "publishedAt": "2026-09-04",
+          "title": "Deja de buscar a quien decidió irse.",
+          "likes": null,
+          "comments": null,
+          "views": 1700,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=pCkSNZbhljI",
+          "publishedAt": "2026-09-04",
+          "title": "IDENTIFICA A UN HOMBRE MANIPULADOR.",
+          "likes": null,
+          "comments": null,
+          "views": 4500,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=l-SR_7vQwgo",
+          "publishedAt": "2026-09-04",
+          "title": "Aprende a agradecer siempre",
+          "likes": null,
+          "comments": null,
+          "views": 1500,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=fASyf_MCZv8",
+          "publishedAt": "2026-09-04",
+          "title": "UNA MUJER TODO TERRENO !NADA LA DETIENE!",
+          "likes": null,
+          "comments": null,
+          "views": 4600,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=bJFQYHE5AUE",
+          "publishedAt": "2026-09-04",
+          "title": "ROMPE TUS BARRERAS MENTALES: Supera las Creencias Limitantes.",
+          "likes": null,
+          "comments": null,
+          "views": 2300,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ShWP9S8eh0w",
+          "publishedAt": "2026-09-04",
+          "title": "APRENDE A DEJAR IR.",
+          "likes": null,
+          "comments": null,
+          "views": 8000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=QkkqvNeU-dU",
+          "publishedAt": "2026-09-04",
+          "title": "Esto también es infidelidad.",
+          "likes": null,
+          "comments": null,
+          "views": 2400,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=GnFHkJUmzv4",
+          "publishedAt": "2026-09-04",
+          "title": "Señales de que Dios está en tu casa.",
+          "likes": null,
+          "comments": null,
+          "views": 2100,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=6Tu6PhOPLmA",
+          "publishedAt": "2026-09-04",
+          "title": "¿Quién te va a cuidar cuando seas viejo? debes pensarlo.",
+          "likes": null,
+          "comments": null,
+          "views": 1800,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=5DmttdQN8Qg",
+          "publishedAt": "2026-09-04",
+          "title": "Si eres una mujer trabajadora, escucha esto",
+          "likes": null,
+          "comments": null,
+          "views": 2500,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=1lzwGW-UM08",
+          "publishedAt": "2026-09-04",
+          "title": "No te vuelvas a sentir insuficiente.",
+          "likes": null,
+          "comments": null,
+          "views": 1200,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=-DheE-vhGjA",
+          "publishedAt": "2026-09-04",
+          "title": "¿POR QUÉ UNA MUJER AMA LAS PLANTAS",
+          "likes": null,
+          "comments": null,
+          "views": 8000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=oS8esn1QHxA",
+          "publishedAt": "2026-08-27",
+          "title": "NO TE CASES SIN ANTES SABER ESTO.",
+          "likes": 369,
+          "comments": 40,
+          "views": 15478,
+          "commentsAnalyzedSpanish": 31,
+          "commentSentiment": {
+            "analyzed": 31,
+            "positivePct": 41.9,
+            "negativePct": 38.7,
+            "neutralPct": 19.4,
+            "ironyPct": 3.2,
+            "netScore": 3.2,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 16.1,
+              "sadness": 3.2,
+              "anger": 6.5,
+              "surprise": 0.0,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "P_ELIAS_AYAVIRI",
+      "name": "Elias Ayaviri",
+      "platform": "youtube",
+      "accountUrl": "https://www.youtube.com/channel/UCLBmLEAIdnTb5I5IZfJr-eQ",
+      "identityStatus": "CORROBORATED_NOT_PLATFORM_VERIFIED",
+      "accountEvidence": [
+        "https://ipdrs.org/wp-content/uploads/2024/12/IPDRS-Investigacion-influencers-Bolivia.pdf#page=7",
+        "https://www.noticiasfides.com/cultura-y-farandula/bolivia-en-tu-dia-conozca-la-historia-del-boliviano-que-logro-30-millones-de-visitas-en-youtube--368866",
+        "https://starngage.pro/ranking/youtube/Bolivia/All",
+        "https://www.youtube.com/channel/UCLBmLEAIdnTb5I5IZfJr-eQ"
+      ],
+      "identityReviewRationale": "Channel name and music videos match the music topic in the IPDRS study; ANF reported his birth year as 1997 and an independent channel directory links the exact channel ID.",
+      "followersApprox": 2800000,
+      "retrievedAt": "2026-10-04T19:31:12.856Z",
+      "postsInWindow": 13,
+      "commentsCaptured": 114,
+      "commentsAnalyzedSpanish": 70,
+      "commentsExcluded": 44,
+      "sentiment": {
+        "analyzed": 70,
+        "positivePct": 67.1,
+        "negativePct": 15.7,
+        "neutralPct": 17.1,
+        "ironyPct": 14.3,
+        "netScore": 51.4,
+        "topEmotion": "joy",
+        "emotionPct": {
+          "joy": 61.4,
+          "sadness": 10.0,
+          "anger": 0.0,
+          "surprise": 1.4,
+          "disgust": 0.0,
+          "fear": 0.0
+        }
+      },
+      "wordCloud": [
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "canción",
+          "count": 12,
+          "rank": 1
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "música",
+          "count": 11,
+          "rank": 2
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "tema",
+          "count": 6,
+          "rank": 3
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "bro",
+          "count": 5,
+          "rank": 4
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "romántico",
+          "count": 5,
+          "rank": 5
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "canciones",
+          "count": 5,
+          "rank": 6
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "corazon",
+          "count": 5,
+          "rank": 7
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "saludos",
+          "count": 5,
+          "rank": 8
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "encanta",
+          "count": 5,
+          "rank": 9
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "bonita",
+          "count": 5,
+          "rank": 10
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "alguien",
+          "count": 4,
+          "rank": 11
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "rap",
+          "count": 4,
+          "rank": 12
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "quiero",
+          "count": 4,
+          "rank": 13
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "éxito",
+          "count": 4,
+          "rank": 14
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "músicas",
+          "count": 4,
+          "rank": 15
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "soy",
+          "count": 4,
+          "rank": 16
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "bonito",
+          "count": 4,
+          "rank": 17
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "llegando",
+          "count": 3,
+          "rank": 18
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "super",
+          "count": 3,
+          "rank": 19
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "tipo",
+          "count": 3,
+          "rank": 20
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "hermoso",
+          "count": 3,
+          "rank": 21
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "wow",
+          "count": 3,
+          "rank": 22
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "gusta",
+          "count": 3,
+          "rank": 23
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "puedo",
+          "count": 3,
+          "rank": 24
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "fan",
+          "count": 3,
+          "rank": 25
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "amo",
+          "count": 3,
+          "rank": 26
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "temas",
+          "count": 3,
+          "rank": 27
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "contigo",
+          "count": 3,
+          "rank": 28
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "amar",
+          "count": 3,
+          "rank": 29
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "WORD",
+          "term": "llorar",
+          "count": 3,
+          "rank": 30
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "rap romantico",
+          "count": 4,
+          "rank": 1
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "bonita cancion",
+          "count": 3,
+          "rank": 2
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "roto herido",
+          "count": 2,
+          "rank": 3
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "fan saludos",
+          "count": 2,
+          "rank": 4
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "bonita musica",
+          "count": 2,
+          "rank": 5
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "siga esperando",
+          "count": 2,
+          "rank": 6
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "esperando mensaje",
+          "count": 2,
+          "rank": 7
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "mensaje llegando",
+          "count": 2,
+          "rank": 8
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "vas alejando",
+          "count": 2,
+          "rank": 9
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "hagas llorar",
+          "count": 2,
+          "rank": 10
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "llorar puedo",
+          "count": 2,
+          "rank": 11
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "puedo retenerte",
+          "count": 2,
+          "rank": 12
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "retenerte rindo",
+          "count": 2,
+          "rank": 13
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "rindo feliz",
+          "count": 2,
+          "rank": 14
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "BIGRAM",
+          "term": "feliz voy",
+          "count": 2,
+          "rank": 15
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "EMOJI",
+          "term": "🫶",
+          "count": 2,
+          "rank": 1
+        },
+        {
+          "slug": "P_ELIAS_AYAVIRI",
+          "scope": "AUDIENCE_SPANISH",
+          "texts": 70,
+          "kind": "EMOJI",
+          "term": "🇪🇨",
+          "count": 2,
+          "rank": 2
+        }
+      ],
+      "posts": [
+        {
+          "url": "https://www.youtube.com/watch?v=p464nNpcDUE",
+          "publishedAt": "2026-09-25",
+          "title": "Si No Ibas A Quedarte - La Cumbia Mas Triste 💔🍺Elías Ayaviri",
+          "likes": 493,
+          "comments": 27,
+          "views": 20323,
+          "commentsAnalyzedSpanish": 14,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=eh2aHv8qtwM",
+          "publishedAt": "2026-07-29",
+          "title": "Elias Ayaviri - A Quien Le Quiero Engañar 💔🍺",
+          "likes": 848,
+          "comments": 44,
+          "views": 43791,
+          "commentsAnalyzedSpanish": 17,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ZjQHpdO0Za0",
+          "publishedAt": "2026-06-06",
+          "title": "Elias Ayaviri - Salud Por Lo Que Fuimos 💔🍺Letra",
+          "likes": null,
+          "comments": null,
+          "views": 171000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=rXviGA4lhWM",
+          "publishedAt": "2026-06-04",
+          "title": "Ya No Voy A Insistir💔 El Rap Mas Triste 2026 Elias Ayaviri",
+          "likes": 1312,
+          "comments": 76,
+          "views": 72109,
+          "commentsAnalyzedSpanish": 39,
+          "commentSentiment": {
+            "analyzed": 39,
+            "positivePct": 69.2,
+            "negativePct": 20.5,
+            "neutralPct": 10.3,
+            "ironyPct": 10.3,
+            "netScore": 48.7,
+            "topEmotion": "joy",
+            "emotionPct": {
+              "joy": 61.5,
+              "sadness": 12.8,
+              "anger": 0.0,
+              "surprise": 0.0,
+              "disgust": 0.0,
+              "fear": 0.0
+            }
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=zRIHWKWVBa4",
+          "publishedAt": "2026-03-08",
+          "title": "Calzon de Seda - Elias Ayaviri - Video Oficial",
+          "likes": null,
+          "comments": null,
+          "views": 17000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=nR9w8HFsyuY",
+          "publishedAt": "2025-12-08",
+          "title": "Elias Ayaviri Si Alguna Vez - Video Oficial ( Cover Arthur )",
+          "likes": null,
+          "comments": null,
+          "views": 93000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=yWkWoLxEJKs",
+          "publishedAt": "2025-10-04",
+          "title": "Elias Ayaviri En Vivo Mix Cumbias para Tomar 🍺💔",
+          "likes": null,
+          "comments": null,
+          "views": 874000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=smfWbt2ZtM4",
+          "publishedAt": "2025-10-04",
+          "title": "Elias Ayaviri - Tu Poeta Feat Pala (Version Cumbia )",
+          "likes": null,
+          "comments": null,
+          "views": 40000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=maPVgThm4ws",
+          "publishedAt": "2025-10-04",
+          "title": "Elias Ayaviri - Amor Platónico (Video Oficial)",
+          "likes": null,
+          "comments": null,
+          "views": 114000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=kZKI9UQ2H_g",
+          "publishedAt": "2025-10-04",
+          "title": "Elias Ayaviri - Roto 💔 Video Oficial",
+          "likes": null,
+          "comments": null,
+          "views": 371000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=gw-ldp0PxIk",
+          "publishedAt": "2025-10-04",
+          "title": "Elias Ayaviri - Mix Cumbia Villera - En Vivo",
+          "likes": null,
+          "comments": null,
+          "views": 155000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=IHwuYkPrHDA",
+          "publishedAt": "2025-10-04",
+          "title": "Elias Ayaviri - Contigo Aprendi 💔 (Version Cumbia)",
+          "likes": null,
+          "comments": null,
+          "views": 68000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9a_isuqmYqk",
+          "publishedAt": "2025-10-04",
+          "title": "Elias Ayaviri Mix Desamor 💔🍺Cumbias 2025 En Vivo",
+          "likes": null,
+          "comments": null,
+          "views": 168000,
+          "commentsAnalyzedSpanish": 0,
+          "commentSentiment": null
+        }
+      ]
+    }
+  ]
+}
