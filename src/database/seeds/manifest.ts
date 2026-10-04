@@ -300,6 +300,12 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/company-social.json',
   ]),
   {
+    ...historical('automotive-study', 'Estudio empresarial del mercado automotor', [
+      'boot/automotive-study.json',
+    ]),
+    minimumSchemaVersion: '0101',
+  },
+  {
     ...historical('vehicle-prices', 'Ofertas públicas de vehículos nuevos', [
       'boot/vehicle-prices.json',
       'boot/vehicle-price-sources.json',

@@ -40,6 +40,7 @@ import { reconcileBankVirtualAssets } from './boot-seed.bank-virtual-assets';
 import { reconcileBcbStatistics } from './boot-seed.bcb-statistics';
 import { reconcileCompanySocial } from './boot-seed.company-social';
 import { reconcileVehiclePrices } from './boot-seed.vehicle-prices';
+import { reconcileAutomotiveStudy } from './boot-seed.automotive-study';
 import { reconcilePublicAccounts } from './boot-seed.public-accounts';
 import { refreshAfterLoad } from './boot-seed.refresh';
 
@@ -92,6 +93,7 @@ const SELECTABLE = [
   'bolivia-transport-network',
   'company-social',
   'vehicle-prices',
+  'automotive-study',
 ] as const;
 
 export type Catalogue = (typeof SELECTABLE)[number];
@@ -105,8 +107,8 @@ export type Catalogue = (typeof SELECTABLE)[number];
  */
 function requestedCatalogue(argv: readonly string[]): Catalogue | undefined {
   const flag = argv.find((argument) => argument.startsWith('--only='));
-  if (!flag) return undefined;
-  const name = flag.slice('--only='.length);
+  const name = flag?.slice('--only='.length) ?? process.env['SEED_ONLY'] ?? 'all';
+  if (name === 'all') return undefined;
   if (!SELECTABLE.includes(name as Catalogue)) {
     throw new Error(`Catálogo desconocido: ${name}. Opciones: ${SELECTABLE.join(', ')}`);
   }
@@ -133,6 +135,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   // Unas dos mil filas por corrida: va delante de las cargas largas, como los bancos.
   ['company-social', reconcileCompanySocial],
   ['vehicle-prices', reconcileVehiclePrices],
+  ['automotive-study', reconcileAutomotiveStudy],
   // Quinientas series y pocos miles de puntos: se siembran en segundos y van delante de las
   // cargas largas por la misma razón que los bancos y las estadisticas del Banco Central.
   ['public-accounts', reconcilePublicAccounts],

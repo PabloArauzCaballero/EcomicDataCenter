@@ -89,6 +89,9 @@ services:
       # Mas holgado que el resto: una conciliacion recorre tablas enteras, y el
       # limite pensado para una consulta de la API la cortaria a media faena.
       DATABASE_STATEMENT_TIMEOUT_MS: ${SEED_STATEMENT_TIMEOUT_MS:-120000}
+      # A targeted automotive deployment can load only its catalogue. Restore
+      # all after the one-off run so later daily deployments keep their scope.
+      SEED_ONLY: ${SEED_ONLY:-all}
       AUTH_MODE: ${AUTH_MODE:-disabled}
       SWAGGER_ENABLED: 'false'
       METRICS_ENABLED: 'false'
