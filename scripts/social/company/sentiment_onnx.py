@@ -135,3 +135,10 @@ class Classifier:
             {"polarity": p, "emotion": e, "ironic": None if i is None else i.lower() == "ironic"}
             for p, e, i in zip(polarity, emotion, irony)
         ]
+
+    def classify_polarity(self, texts: list[str]) -> list[dict]:
+        """Las leyendas de los posts sólo usan polaridad; omite emoción e ironía."""
+        if not texts:
+            return []
+        clipped = [text[:600] or "." for text in texts]
+        return [{"polarity": polarity} for polarity in self.sentiment.predict(clipped)]
