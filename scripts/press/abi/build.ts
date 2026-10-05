@@ -98,6 +98,8 @@ export function buildAbi(): void {
     currentIds: latest.size,
     articles: articles.length,
     rejected: rejected.length,
+    authorsNamed: articles.filter((a) => a.author.name).length,
+    articlesWithImages: articles.filter((a) => a.images.length).length,
     companyArticles: articles.filter((a) => a.mentions.length).length,
     issuerCount: new Set(articles.flatMap((a) => a.mentions.map((m) => m.filerCode))).size,
     dateConflicts: articles.filter((a) => a.dateQuality === 'CONFLICT').length,
@@ -110,7 +112,9 @@ export function buildAbi(): void {
     sitemapMissing: missing,
     outsideSitemap: [...held].filter((u) => !urls.has(u)),
     files,
-    complete: rejected.length === 0 && missing.length === 0,
+    currentComplete: rejected.length === 0 && missing.length === 0,
+    historicalInventoryComplete: false,
+    complete: false,
   };
   atomicJson(join(ROOT, 'rejected.json'), rejected);
   atomicJson(join(ROOT, 'manifest.json'), report);
