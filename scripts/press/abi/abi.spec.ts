@@ -1,10 +1,20 @@
 import { buildIssuers, matchIssuers } from './issuers';
 import { dates } from './normalize';
+import { assertEmbeddedResponse } from './collect-wordpress';
 import { legacyEntries, normalizeLegacy } from './legacy';
 import { plain, safeLink, quantities } from './text';
 import { sha, type Capture } from './http';
 
 describe('ABI evidence and company attribution', () => {
+  it('rejects a transport response that silently lost requested author and image metadata', () => {
+    expect(() => assertEmbeddedResponse([{ id: 1, author: 3, featured_media: 7 }])).toThrow();
+    expect(() => assertEmbeddedResponse([{ id: 1, author: 3, _links: {} }])).toThrow();
+    expect(() =>
+      assertEmbeddedResponse([
+        { id: 1, author: 3, _links: {}, _embedded: { author: [{ id: 3, name: 'ABI' }] } },
+      ]),
+    ).not.toThrow();
+  });
   const issuers = buildIssuers();
   it('does not attach a parent company or a surname to an issuer', () => {
     const codes = matchIssuers(

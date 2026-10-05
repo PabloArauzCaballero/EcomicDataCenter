@@ -4,24 +4,26 @@ Implementación y corte inicial: 4 de octubre de 2026. ABI es una fuente period�
 
 ## Cobertura comprobada
 
-| Conjunto | Resultado inicial |
+| Conjunto | Resultado al corte |
 | --- | ---: |
-| Publicaciones de WordPress descargadas | 8.674 |
-| URLs de noticias en los sitemaps | 8.674 |
+| Publicaciones de WordPress descargadas | 8.681 |
+| URLs de noticias en los sitemaps | 8.681 |
 | URLs del sitemap sin publicación descargada | 0 |
 | Publicaciones rechazadas al normalizar | 0 |
-| Publicaciones históricas completas | 212 |
+| Publicaciones históricas completas | 1.080 |
 | URLs históricas inventariadas | 1.080 |
-| Total de publicaciones normalizadas | 8.886 |
-| Publicaciones con menciones de emisores | 414 |
-| Códigos de emisores encontrados | 38 |
+| Total de publicaciones normalizadas | 9.761 |
+| Publicaciones con autor o cuenta editorial indicada | 9.761 |
+| Publicaciones con imagen catalogada | 8.675 |
+| Publicaciones con menciones de emisores | 457 |
+| Códigos de emisores encontrados | 44 |
 | Fechas locales/GMT incompatibles en la fuente | 85 |
 
-El sitio actual está reconciliado con sus sitemaps al corte. **La hemeroteca histórica todavía no está completa.** `legacy-coverage.json` informa los documentos descargados, los pendientes entre los ya descubiertos y las categorías cuya paginación falta terminar. Los pendientes descubiertos no equivalen al tamaño total de la hemeroteca.
+El sitio actual está reconciliado con sus sitemaps al corte. Las 1.080 fichas históricas descubiertas tienen cuerpo descargado. **La hemeroteca histórica todavía no está completa:** continúa la paginación de categorías y el descubrimiento de rutas por alias. `legacy-coverage.json` informa los documentos descargados, los pendientes entre los ya descubiertos y las categorías cuya paginación falta terminar. Los pendientes descubiertos no equivalen al tamaño total de la hemeroteca.
 
 ## Radiografía técnica
 
-- Actual: WordPress, API pública `https://abi.bo/wp-json/wp/v2/posts`, páginas de hasta 100 publicaciones, cabeceras `X-WP-Total` y `X-WP-TotalPages`. Se consulta contenido completo y metadatos, no solamente el RSS.
+- Actual: WordPress, API pública `https://abi.bo/wp-json/wp/v2/posts`, páginas de hasta 100 publicaciones, cabeceras `X-WP-Total` y `X-WP-TotalPages`. Se consulta contenido completo y metadatos, no solamente el RSS. La selección `_fields` incluye `_links` y `_embedded` para que WordPress entregue el autor y la imagen destacada; el recolector aborta si faltan las relaciones solicitadas.
 - Taxonomías: endpoints `categories` y `tags`, con paginación completa. Se preservan identificador, nombre y slug normalizados; las respuestas originales conservan además descripciones, padres y enlaces.
 - Descubrimiento alternativo: `https://abi.bo/sitemap_index.xml` y sus nueve sitemaps de publicaciones en el corte inicial. RSS `https://abi.bo/feed/` como evidencia adicional de actualidad.
 - Histórico: Joomla en `https://historico.abi.bo`, índice público de categorías y fichas de artículos. Se leen `articleBody`, `datePublished`, firma y categoría.
@@ -32,6 +34,8 @@ El sitio actual está reconciliado con sus sitemaps al corte. **La hemeroteca hi
 ## Datos granulares
 
 Cada publicación conserva identidad estable (`abi:wp:id` o `abi:legacy:id`), URL original y canónica, título, resumen, HTML y texto, disponibilidad del cuerpo, fecha declarada/local/GMT, fecha de modificación, categorías, etiquetas, autor, imágenes con texto alternativo, enlaces y documentos referenciados, lugar/fecha del encabezamiento, temas, cantidades textuales con contexto, menciones de empresas con posición y fragmento, versión del parser, fecha de consulta y huellas SHA-256.
+
+El campo `autor` reproduce el usuario editorial o la firma que la propia ABI expone. Por ejemplo, el usuario `admin` de WordPress no identifica por sí mismo a la persona que redactó una noticia. No debe presentarse como atribución periodística verificada.
 
 Las cantidades permanecen como expresiones de la fuente; no se convierten automáticamente en indicadores económicos verificados. Las imágenes y documentos se catalogan por URL; no se han descargado todos los archivos binarios enlazados ni realizado OCR. El HTML original se conserva para futuros extractores.
 
@@ -84,7 +88,7 @@ API: `/api/noticias-empresas?emisor=BUN&desde=2026-01-01&hasta=2026-10-04&rol=HE
 
 El lote `abi` queda incorporado a `daily-source-batches.yml`, separado del lote general de prensa. Conserva el último corpus si falla la captura. Ese workflow existente opera sobre `dev`; publicar únicamente en TEST no activa por sí solo el cron de la rama por defecto. La captura histórica se ejecuta por tandas explícitas.
 
-Verificaciones realizadas antes de publicar: cinco pruebas del núcleo (atribución, límites de palabra, fechas, cantidades, parser histórico), tres pruebas de filtros/exportación, TypeScript del núcleo y tablero, build del núcleo con evidencias gzip, migraciones y carga en PostgreSQL 17 aislado, recarga sin duplicados. Los resultados del despliegue y pruebas de navegador se consignan en la entrega.
+Verificaciones realizadas antes de publicar: seis pruebas del núcleo (atribución, límites de palabra, fechas, cantidades, parser histórico y metadatos embebidos), tres pruebas de filtros/exportación, TypeScript del núcleo y tablero, build del núcleo con evidencias gzip, migraciones y carga en PostgreSQL 17 aislado, recarga sin duplicados. La carga final local confirmó 9.761 artículos, 457 con empresas, 9.761 con autor/cuenta y 8.675 con imagen. Los resultados del despliegue y pruebas de navegador se consignan en la entrega.
 
 Para comprobar la base tras cargar:
 

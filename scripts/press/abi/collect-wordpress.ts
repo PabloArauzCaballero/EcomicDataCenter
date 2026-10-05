@@ -9,7 +9,23 @@ export interface WpInventory {
   expected: number;
 }
 const fields =
-  'id,date,date_gmt,modified,modified_gmt,slug,status,type,link,title,content,excerpt,author,featured_media,categories,tags,meta,acf,yoast_head_json,_embedded';
+  'id,date,date_gmt,modified,modified_gmt,slug,status,type,link,title,content,excerpt,author,featured_media,categories,tags,meta,acf,yoast_head_json,_links,_embedded';
+
+/** Detect filtered-out embedding before publishing an apparently complete capture. */
+export function assertEmbeddedResponse(records: unknown[]): void {
+  for (const record of records) {
+    if (!record || typeof record !== 'object' || !('_links' in record))
+      throw new Error('ABI response lacks link metadata required for embedded resources');
+    const post = record as {
+      id?: number;
+      author?: number;
+      featured_media?: number;
+      _embedded?: unknown;
+    };
+    if (((post.author ?? 0) > 0 || (post.featured_media ?? 0) > 0) && !post._embedded)
+      throw new Error(`ABI post ${post.id} lacks requested embedded metadata`);
+  }
+}
 
 /** A bounded modified window prevents new posts shifting pages during a run. */
 async function collectPosts(full: boolean): Promise<void> {
@@ -42,6 +58,7 @@ async function collectPosts(full: boolean): Promise<void> {
     const records: unknown = JSON.parse(capturedText(result));
     if (!Array.isArray(records) || result.total === null || result.pages === null)
       throw new Error('ABI posts response lacks array/pagination headers');
+    assertEmbeddedResponse(records);
     if (page === 1) {
       pending.expected = result.total;
       pages = result.pages;
