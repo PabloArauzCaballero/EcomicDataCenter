@@ -4,7 +4,7 @@
   "runs": [
    "2026-10-05"
   ],
-  "retrievedAt": "2026-10-06T12:31:00.000Z",
+  "retrievedAt": "2026-10-06T13:31:30.000Z",
   "collector": "scripts/social/live/collect-live.ts",
   "method": "Lives públicos de TikTok vistos sin sesión desde una conexión residencial en Bolivia; chat leído de la página, voz transcrita completa y texto en pantalla leído del stream; solo agregados.",
   "speechModel": "faster-whisper small (CTranslate2)",
@@ -303,8 +303,8 @@
    "signals": {
     "COMPRA": 1,
     "VARIANTE": 2,
-    "PRODUCTO": 1,
-    "DISPONIBILIDAD": 1
+    "DISPONIBILIDAD": 1,
+    "PRODUCTO": 1
    },
    "payments": {},
    "destinations": {},
@@ -548,9 +548,9 @@
    "authors": 11,
    "buyers": 4,
    "signals": {
-    "PAGO": 1,
-    "COMPRA": 6,
     "VARIANTE": 4,
+    "COMPRA": 6,
+    "PAGO": 1,
     "PRODUCTO": 3,
     "DISPONIBILIDAD": 2,
     "ENVIO": 1
@@ -649,8 +649,8 @@
    "buyers": 3,
    "signals": {
     "COMPRA": 6,
-    "PRODUCTO": 3,
     "DISPONIBILIDAD": 1,
+    "PRODUCTO": 3,
     "VARIANTE": 2,
     "CONTACTO": 1,
     "MUESTRA": 1,
@@ -760,8 +760,8 @@
    "buyers": 1,
    "signals": {
     "DISPONIBILIDAD": 1,
-    "COMPRA": 1,
-    "VARIANTE": 2
+    "VARIANTE": 2,
+    "COMPRA": 1
    },
    "payments": {},
    "destinations": {},
@@ -847,8 +847,8 @@
     "ENVIO": 1,
     "UBICACION": 1,
     "PRECIO": 7,
-    "PAGO": 1,
     "COMPRA": 6,
+    "PAGO": 1,
     "VARIANTE": 2,
     "REGATEO": 2,
     "SALUDO": 1
@@ -975,16 +975,16 @@
    "signals": {
     "COMPRA": 40,
     "ENVIO": 2,
-    "PRODUCTO": 27,
     "VARIANTE": 3,
+    "PRODUCTO": 27,
     "DISPONIBILIDAD": 8,
-    "DESCONFIANZA": 1,
     "PRECIO": 4,
     "CONFIANZA": 1,
+    "DESCONFIANZA": 1,
     "MUESTRA": 5,
     "QUE_ES": 4,
-    "FRICCION": 1,
     "PRECIO_JUICIO": 1,
+    "FRICCION": 1,
     "CONTACTO": 1
    },
    "payments": {},
