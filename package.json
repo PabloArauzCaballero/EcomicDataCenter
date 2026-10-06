@@ -119,6 +119,8 @@
     "business:owners": "tsx scripts/business/collect-ownership.ts",
     "social:accounts": "tsx scripts/social/company/discover-company-accounts.ts",
     "social:collect": "tsx scripts/social/company/collect-company-social.ts",
+    "live:collect": "tsx scripts/social/live/collect-live.ts",
+    "live:probe": "tsx scripts/social/live/probe-live.ts",
     "banks:collect": "tsx scripts/banks/collect-bank-virtual-assets.ts",
     "banks:quote": "tsx scripts/banks/record-bank-quote.ts"
   },

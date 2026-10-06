@@ -160,9 +160,10 @@ export const agentBootstrapSeedSchema = z
      * con los servicios de dólar digital de los bancos, a 28 con las
      * estadísticas del Banco Central, y a 29 con las cuentas de las empresas
      * en redes sociales (ADR 0027), a 30 con las cuentas públicas y a 31
-     * con las ofertas de vehículos nuevos.
+     * con las ofertas de vehículos nuevos. A 32 con las ventas en vivo de
+     * TikTok (ADR 0030).
      */
-    backfillAgents: z.array(agentSeedSchema).min(1).max(31),
+    backfillAgents: z.array(agentSeedSchema).min(1).max(32),
   })
   .strict();
 
