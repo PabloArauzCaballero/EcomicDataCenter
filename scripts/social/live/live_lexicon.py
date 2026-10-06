@@ -31,7 +31,7 @@ LEXICON_VERSION = "2026-10-06.1"
 SIGNALS: dict[str, re.Pattern[str]] = {
     # «yo» suelto se resuelve aparte (`is_bare_yes`): solo cuenta si el vendedor acaba de ofrecer algo.
     "COMPRA": re.compile(
-        r"(^|\s)(mi[o0] ?\d+|mia ?\d+|escribi primero|yo primero|yo primera|mio|mia|mios|mias|lo quiero|la quiero|los quiero|las quiero|yo quiero|quiero \d|quiero uno|quiero una|"
+        r"(^|\s)(mi[o0]+ ?\d+|mia+ ?\d+|escribi prime+ro+|yo primero|esos? llevo|esas? llevo|lo llevo|la llevo|los llevo|las llevo|yo primera|mi[o0]+|mia+|mios|mias|lo quiero|la quiero|los quiero|las quiero|yo quiero|quiero \d|quiero uno|quiero una|"
         r"separame|separa|apartame|aparta|anotame|anota|me lo llevo|me la llevo|reservame|reserva|para mi|"
         r"yo \d|\d+ (unidades|pares|docenas)|x ?\d+\b|me apunto|lo compro|la compro|ya pague|ya le pague|pago ya|damelo|damela|me lo das)(\s|$|[!.?,])"
     ),
@@ -44,10 +44,13 @@ SIGNALS: dict[str, re.Pattern[str]] = {
         r"celeste|lila|amarillo|amarilla|fucsia|nude|dorado|plateado|oscuro|clarito|claro)\b)"
     ),
     "CONTACTO": re.compile(r"\b(ya le escribo|te escribo|le escribo|al privado|privado|whatsapp|wsp|wasap|watsap|inbox|dm|tu numero|su numero|escribeme|escribame)\b"),
-    "QUE_ES": re.compile(r"\b(que son|que es|de que es|para que sirve|como se usa|que material|de que material|como funciona)\b"),
+    "QUE_ES": re.compile(
+        r"(^(y |de )?(que|q) (son|es)\b|\b(que|q) (son|es)[\s.?!]*$|para que sirve|como se usa|que material|"
+        r"de que material|como funciona)"
+    ),
     "PAGO": re.compile(r"\b(qr|transferencia|transfiero|deposito|efectivo|ya le pague|le pague|pagado|ya pague|contra entrega|contraentrega|tigo money|billetera movil|dolares|usdt|binance|tarjeta|yape)\b"),
     "CONFIANZA": re.compile(r"\b(original|originales|replica|imitacion|garantia|estafa|estafadora|no llego|no me llego|seguro|confiable|calidad|fallado)\b"),
-    "PRECIO_JUICIO": re.compile(r"\b(caro|cara|carisimo|barato|barata|baratito|oferta|rebaja|descuento|regalado|subio|muy caro|economico)\b"),
+    "PRECIO_JUICIO": re.compile(r"\b(caro|carisimo|barato|barata|baratito|oferta|rebaja|descuento|regalado|subio|muy caro|economico)\b"),
     "REGATEO": re.compile(
         r"\b(dame en|damelo en|damela en|dejamelo en|dejame en|deja en|dejelo en|rebajame|rebajeme|una rebajita|"
         r"ultimo precio|en cuanto me (lo )?deja|mas barato|mas baratito|descuentito|yapa|yapita)\b"
