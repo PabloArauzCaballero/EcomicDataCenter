@@ -1,6 +1,6 @@
 # Investigación de personalidades públicas de Bolivia
 
-Este flujo prepara un padrón de 300 personas para revisión y un piloto de sentimientos de comentarios públicos. El padrón no es un ranking definitivo. Las cuentas halladas por buscador, directorio o Wikidata son pistas hasta corroborar identidad y mayoría de edad.
+Este flujo mantiene dos productos separados: (1) el padrón de 300 personas como marco de descubrimiento, no ordenado por importancia, y (2) el ranking final medido para 2025, basado en la pregunta y resultados publicados por Ipsos CIESMORI. El padrón no sustituye al ranking y las cuentas halladas por buscador, directorio o Wikidata siguen siendo pistas hasta corroborar identidad y mayoría de edad. El ranking y sus límites se documentan en `docs/research/ranking-figuras-impacto-bolivia-2025.md`.
 
 ## Preparar el entorno
 

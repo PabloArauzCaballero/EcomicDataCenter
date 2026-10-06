@@ -15,6 +15,7 @@ class CandidateQualityTest(unittest.TestCase):
         self.shortlist = json.loads((HERE / "shortlist.json").read_text(encoding="utf-8"))
         self.research = json.loads((HERE / "research-300.json").read_text(encoding="utf-8"))
         self.pilot = json.loads((HERE / "pilot-3.json").read_text(encoding="utf-8"))
+        self.ranking = json.loads((HERE / "ranking-impacto-2025.json").read_text(encoding="utf-8"))
 
     def test_every_person_has_traceable_public_evidence(self):
         for person in self.pool["people"]:
@@ -72,6 +73,18 @@ class CandidateQualityTest(unittest.TestCase):
         self.assertNotIn('"author"', serialized)
         self.assertNotIn('"commenttext"', serialized)
         self.assertNotIn('"commenter"', serialized)
+
+    def test_final_impact_ranking_reproduces_only_the_published_top_five(self):
+        self.assertEqual(self.ranking["status"], "FINAL_MEASURED_TOP_5")
+        self.assertEqual(self.ranking["source"]["sampleSize"], 600)
+        people = self.ranking["people"]
+        self.assertEqual([person["rank"] for person in people], [1, 2, 3, 4, 5])
+        self.assertEqual([person["impactSharePercent"] for person in people], [24, 20, 8, 7, 5])
+        self.assertEqual([person["name"] for person in people], [
+            "Rodrigo Paz", "Edmand Lara", "Jorge ‘Tuto’ Quiroga", "Luis Arce", "Jaime Dunn"
+        ])
+        self.assertIn("Ipsos CIESMORI", self.ranking["source"]["publisher"])
+        self.assertIn("No se inventan", self.ranking["interpretation"]["cutoffLimit"])
 
 
 if __name__ == "__main__":
