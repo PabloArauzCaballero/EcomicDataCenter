@@ -266,3 +266,14 @@ def outliers_out(prices: list[dict]) -> list[dict]:
         if (price["product"] or "") not in bounds
         or bounds[price["product"] or ""][0] <= price["priceBs"] <= bounds[price["product"] or ""][1]
     ]
+
+
+def top_terms(tables: dict[str, dict[str, Counter]]) -> list[dict]:
+    """Los 30 términos más repetidos por ámbito y rubro, con al menos tres apariciones."""
+    return [
+        {"rubro": rubro, "scope": scope, "term": term, "count": count, "rank": rank}
+        for scope, table in tables.items()
+        for rubro, counter in table.items()
+        for rank, (term, count) in enumerate(counter.most_common(30), start=1)
+        if count >= 3
+    ]
