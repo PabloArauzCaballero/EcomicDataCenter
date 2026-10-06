@@ -4,7 +4,7 @@
   "runs": [
    "2026-10-05"
   ],
-  "retrievedAt": "2026-10-06T13:31:30.000Z",
+  "retrievedAt": "2026-10-06T20:46:06.000Z",
   "collector": "scripts/social/live/collect-live.ts",
   "method": "Lives públicos de TikTok vistos sin sesión desde una conexión residencial en Bolivia; chat leído de la página, voz transcrita completa y texto en pantalla leído del stream; solo agregados.",
   "speechModel": "faster-whisper small (CTranslate2)",
@@ -210,8 +210,8 @@
    "authors": 12,
    "buyers": 0,
    "signals": {
-    "PRODUCTO": 1,
     "UBICACION": 5,
+    "PRODUCTO": 1,
     "PRECIO": 7,
     "QUE_ES": 1
    },
@@ -548,9 +548,9 @@
    "authors": 11,
    "buyers": 4,
    "signals": {
-    "VARIANTE": 4,
-    "COMPRA": 6,
     "PAGO": 1,
+    "COMPRA": 6,
+    "VARIANTE": 4,
     "PRODUCTO": 3,
     "DISPONIBILIDAD": 2,
     "ENVIO": 1
@@ -760,8 +760,8 @@
    "buyers": 1,
    "signals": {
     "DISPONIBILIDAD": 1,
-    "VARIANTE": 2,
-    "COMPRA": 1
+    "COMPRA": 1,
+    "VARIANTE": 2
    },
    "payments": {},
    "destinations": {},
@@ -975,16 +975,16 @@
    "signals": {
     "COMPRA": 40,
     "ENVIO": 2,
-    "VARIANTE": 3,
     "PRODUCTO": 27,
+    "VARIANTE": 3,
     "DISPONIBILIDAD": 8,
-    "PRECIO": 4,
-    "CONFIANZA": 1,
     "DESCONFIANZA": 1,
+    "CONFIANZA": 1,
+    "PRECIO": 4,
     "MUESTRA": 5,
     "QUE_ES": 4,
-    "PRECIO_JUICIO": 1,
     "FRICCION": 1,
+    "PRECIO_JUICIO": 1,
     "CONTACTO": 1
    },
    "payments": {},
