@@ -79,6 +79,12 @@ jobs:
               # asi que no hay sembrador de `test` que deba entenderlos.
               case "$(basename "$file")" in _*) continue ;; esac
 
+              # Una semilla que existe solo en `test` (el estudio automotor, los
+              # factores exogenos versionados) no es algo que `dev` tenga que
+              # llevar: ya esta alli con su codigo. Antes se la marcaba como
+              # «retenida» y el job quedaba en rojo sin motivo.
+              if ! git cat-file -e "origin/dev:$file" 2>/dev/null; then continue; fi
+
               # Un archivo suelto es su propia semilla; los de una carpeta
               # (bcb-statistics/, ine-trade/) los lee el sembrador de la carpeta.
               name=$(basename "$file" .json)
