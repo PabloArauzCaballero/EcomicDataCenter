@@ -108,3 +108,26 @@ def test_second_night_residue():
     assert "REGATEO" not in tags("más o menos")
     assert products_in(norm("soldaditos porfa")) == ["soldadito"]
     assert emoji_emotion("🤍🤍🤍") == "joy"
+
+
+def test_the_virtual_list_does_not_count_a_message_twice():
+    from live_load import dedupe_chat
+
+    rows = [
+        {"t": 0, "author": "a", "text": "precio"},
+        {"t": 3_000, "author": "a", "text": "precio"},
+        {"t": 3_000, "author": "b", "text": "precio"},
+        {"t": 200_000, "author": "a", "text": "precio"},
+    ]
+    assert [(row["author"], row["t"]) for row in dedupe_chat(rows)] == [("a", 0), ("b", 3_000), ("a", 200_000)]
+
+
+def test_first_gold_measurement():
+    assert "COMPRA" in tags("mioo 16")
+    assert "COMPRA" in tags("esos llevo yo")
+    assert "COMPRA" in tags("yo igual escribí primeeroo paaraa lo dell baarril")
+    assert "PRECIO_JUICIO" not in tags("no.veo su cara amiga w")
+    assert "QUE_ES" not in tags("Pcreo que es un músico pero no estoy segura")
+    assert "QUE_ES" in tags("esa manzana que es")
+    assert "QUE_ES" in tags("Y DEMI QUE ES.????")
+    assert "QUE_ES" in tags("que son?")

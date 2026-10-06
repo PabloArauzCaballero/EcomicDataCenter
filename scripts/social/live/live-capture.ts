@@ -6,6 +6,8 @@ import { commerceScore, pseudonym, type RoomState } from './live-room';
 import { RUN, log, saveSellers, say, type SellerRecord } from './live-run';
 import type { Media } from './live-media';
 
+const DEDUPE_MS = 60_000;
+
 /**
  * Una sala abierta: se abre, se lee su chat sin pausa y se cierra con su balance.
  */
@@ -17,7 +19,8 @@ export interface Capture {
   roomId: string;
   page: Page;
   startedAt: number;
-  keys: Set<string>;
+  /** Última vez que se vio cada autor+texto: la lista virtual re-renderiza y cambia `data-index`. */
+  seen: Map<string, number>;
   nickname: string;
   counts: { chat: number; events: number };
   lastStats: number;
@@ -91,7 +94,7 @@ export async function openRoom(
     roomId,
     page,
     startedAt: Date.now(),
-    keys: new Set(),
+    seen: new Map(),
     nickname: state.nickname,
     counts: { chat: 0, events: 0 },
     lastStats: Date.now(),
@@ -104,9 +107,14 @@ export async function openRoom(
 export async function drainChat(capture: Capture, salt: Buffer): Promise<void> {
   const items = await readChat(capture.page);
   for (const item of items) {
-    const keyText = `${item.idx}|${item.author}|${item.full}`;
-    if (capture.keys.has(keyText)) continue;
-    capture.keys.add(keyText);
+    // Sin el índice: al re-renderizar, el mismo mensaje vuelve con otro `data-index` (medido el
+    // 6-oct-2026: 16 % de duplicados a ~3 s). El mismo autor con el mismo texto dentro de 60 s
+    // cuenta una vez.
+    const keyText = `${item.author}|${item.full}`;
+    const now = Date.now();
+    const last = capture.seen.get(keyText);
+    capture.seen.set(keyText, now);
+    if (last !== undefined && now - last < DEDUPE_MS) continue;
     const author = item.author ? pseudonym(item.author, salt) : null;
     const t = Date.now();
     if (item.chat) {
@@ -133,7 +141,10 @@ export async function drainChat(capture: Capture, salt: Buffer): Promise<void> {
       log(`events/${capture.roomId}.jsonl`, { t, author, ...event });
     }
   }
-  if (capture.keys.size > 20_000) capture.keys = new Set([...capture.keys].slice(-5_000));
+  if (capture.seen.size > 20_000) {
+    const cutoff = Date.now() - DEDUPE_MS;
+    for (const [key, at] of capture.seen) if (at < cutoff) capture.seen.delete(key);
+  }
 }
 
 /**

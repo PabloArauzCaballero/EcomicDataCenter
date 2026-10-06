@@ -88,6 +88,27 @@ def parallel_rate(attempts: int = 3) -> float | None:
 # ------------------------------------------------------------------ carga
 
 
+DEDUPE_MS = 60_000
+
+
+def dedupe_chat(rows: list[dict]) -> list[dict]:
+    """El mismo autor con el mismo texto dentro de 60 s cuenta una vez.
+
+    La lista virtual del chat re-renderiza y devuelve un mensaje ya leído con otro índice: el
+    6-oct-2026 eso eran el 16 % de las líneas, casi todas a ~3 s de la original.
+    """
+    last: dict[tuple, int] = {}
+    kept: list[dict] = []
+    for row in rows:
+        key = (row.get("author"), row.get("text"))
+        seen = last.get(key)
+        last[key] = row.get("t", 0)
+        if seen is not None and row.get("t", 0) - seen < DEDUPE_MS:
+            continue
+        kept.append(row)
+    return kept
+
+
 def load_run(run_dir: Path) -> dict[str, dict]:
     rooms: dict[str, dict] = {}
     for row in read_jsonl(run_dir / "rooms.jsonl"):
@@ -97,7 +118,7 @@ def load_run(run_dir: Path) -> dict[str, dict]:
         elif row.get("phase") == "end":
             room["end"] = row
     for room_id, room in rooms.items():
-        room["chat"] = read_jsonl(run_dir / "chat" / f"{room_id}.jsonl")
+        room["chat"] = dedupe_chat(read_jsonl(run_dir / "chat" / f"{room_id}.jsonl"))
         room["events"] = read_jsonl(run_dir / "events" / f"{room_id}.jsonl")
         room["stats"] = read_jsonl(run_dir / "stats" / f"{room_id}.jsonl")
         room["speech"] = read_jsonl(run_dir / "speech" / f"{room_id}.jsonl")

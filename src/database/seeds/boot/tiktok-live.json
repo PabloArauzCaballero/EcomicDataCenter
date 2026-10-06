@@ -4,7 +4,7 @@
   "runs": [
    "2026-10-05"
   ],
-  "retrievedAt": "2026-10-06T06:10:50.000Z",
+  "retrievedAt": "2026-10-06T06:24:02.000Z",
   "collector": "scripts/social/live/collect-live.ts",
   "method": "Lives públicos de TikTok vistos sin sesión desde una conexión residencial en Bolivia; chat leído de la página, voz transcrita completa y texto en pantalla leído del stream; solo agregados.",
   "speechModel": "faster-whisper small (CTranslate2)",
@@ -268,8 +268,8 @@
    "signals": {
     "COMPRA": 1,
     "VARIANTE": 2,
-    "DISPONIBILIDAD": 1,
-    "PRODUCTO": 1
+    "PRODUCTO": 1,
+    "DISPONIBILIDAD": 1
    },
    "payments": {},
    "destinations": {},
@@ -383,7 +383,7 @@
     },
     {
      "product": "body",
-     "weight": 6,
+     "weight": 4,
      "rubro": "ROPA_GENERAL"
     },
     {
@@ -398,7 +398,7 @@
     },
     {
      "product": "cafe",
-     "weight": 2,
+     "weight": 1,
      "rubro": "ALIMENTOS"
     }
    ],
@@ -411,27 +411,27 @@
    "viewersPeak": 60,
    "viewersMedian": 53,
    "entries": 2650,
-   "messages": 37,
+   "messages": 28,
    "authors": 11,
    "buyers": 4,
    "signals": {
-    "PAGO": 2,
+    "PAGO": 1,
+    "VARIANTE": 4,
     "COMPRA": 6,
-    "VARIANTE": 7,
-    "PRODUCTO": 5,
-    "DISPONIBILIDAD": 3,
+    "PRODUCTO": 3,
+    "DISPONIBILIDAD": 2,
     "ENVIO": 1
    },
    "payments": {},
    "destinations": {},
    "emotions": {
     "sadness": 1,
-    "others": 17,
-    "apt": 18,
-    "ironic": 7
+    "others": 12,
+    "apt": 13,
+    "ironic": 6
    },
    "polarity": {
-    "NEU": 15,
+    "NEU": 10,
     "NEG": 3
    },
    "gifts": 0,
@@ -493,13 +493,12 @@
    "buyers": 3,
    "signals": {
     "COMPRA": 6,
-    "DISPONIBILIDAD": 1,
     "PRODUCTO": 3,
+    "DISPONIBILIDAD": 1,
     "VARIANTE": 2,
     "CONTACTO": 1,
     "MUESTRA": 1,
-    "PRECIO": 2,
-    "QUE_ES": 1
+    "PRECIO": 2
    },
    "payments": {},
    "destinations": {},
@@ -546,8 +545,8 @@
    "buyers": 1,
    "signals": {
     "DISPONIBILIDAD": 1,
-    "COMPRA": 1,
-    "VARIANTE": 2
+    "VARIANTE": 2,
+    "COMPRA": 1
    },
    "payments": {},
    "destinations": {},
@@ -579,12 +578,12 @@
    "products": [
     {
      "product": "soldadito",
-     "weight": 9,
+     "weight": 8,
      "rubro": "JUGUETES"
     },
     {
      "product": "robot",
-     "weight": 8,
+     "weight": 7,
      "rubro": "JUGUETES"
     },
     {
@@ -607,21 +606,21 @@
    "citySource": "PERFIL",
    "bolivia": true,
    "size": "MICRO",
-   "minutes": 10,
-   "endReason": "SIN_CIERRE",
+   "minutes": 11,
+   "endReason": "ENDED",
    "viewersPeak": 15,
    "viewersMedian": 10,
-   "entries": 1124,
-   "messages": 46,
+   "entries": 1125,
+   "messages": 37,
    "authors": 11,
    "buyers": 4,
    "signals": {
-    "PRODUCTO": 19,
-    "MUESTRA": 6,
-    "DISPONIBILIDAD": 5,
-    "ENVIO": 2,
-    "UBICACION": 2,
-    "PRECIO": 8,
+    "PRODUCTO": 15,
+    "MUESTRA": 4,
+    "DISPONIBILIDAD": 4,
+    "ENVIO": 1,
+    "UBICACION": 1,
+    "PRECIO": 7,
     "PAGO": 1,
     "COMPRA": 6,
     "VARIANTE": 2,
@@ -631,14 +630,13 @@
    "payments": {},
    "destinations": {},
    "emotions": {
-    "others": 30,
-    "apt": 30,
-    "ironic": 17
+    "others": 22,
+    "apt": 22,
+    "ironic": 12
    },
    "polarity": {
-    "NEU": 26,
-    "NEG": 3,
-    "POS": 1
+    "NEU": 19,
+    "NEG": 3
    },
    "gifts": 0,
    "follows": 0,
@@ -657,80 +655,161 @@
    "sellerId": "469d45582d523009",
    "status": "VENTA",
    "rubro": "MIXTO",
-   "product": "camioneta",
+   "product": "figura",
    "products": [
+    {
+     "product": "figura",
+     "weight": 16,
+     "rubro": "JUGUETES"
+    },
+    {
+     "product": "juguete",
+     "weight": 14,
+     "rubro": "JUGUETES"
+    },
+    {
+     "product": "dije",
+     "weight": 8,
+     "rubro": "BISUTERIA"
+    },
+    {
+     "product": "auto",
+     "weight": 8,
+     "rubro": "VEHICULOS"
+    },
     {
      "product": "camioneta",
      "weight": 7,
      "rubro": "VEHICULOS"
-    },
-    {
-     "product": "juguete",
-     "weight": 3,
-     "rubro": "JUGUETES"
-    },
-    {
-     "product": "tela",
-     "weight": 3,
-     "rubro": "ROPA_GENERAL"
-    },
-    {
-     "product": "mario bros",
-     "weight": 3,
-     "rubro": "JUGUETES"
-    },
-    {
-     "product": "didactico",
-     "weight": 2,
-     "rubro": "JUGUETES"
     }
    ],
    "city": "SCZ",
    "citySource": "PERFIL",
    "bolivia": true,
    "size": "CHICO",
-   "minutes": 4,
+   "minutes": 17,
    "endReason": "SIN_CIERRE",
-   "viewersPeak": 60,
-   "viewersMedian": 60,
-   "entries": 2260,
-   "messages": 97,
-   "authors": 17,
-   "buyers": 4,
+   "viewersPeak": 78,
+   "viewersMedian": 65,
+   "entries": 2486,
+   "messages": 245,
+   "authors": 25,
+   "buyers": 13,
    "signals": {
-    "COMPRA": 8,
+    "COMPRA": 40,
     "ENVIO": 2,
-    "PRODUCTO": 8,
+    "PRODUCTO": 27,
     "VARIANTE": 3,
-    "DISPONIBILIDAD": 1,
-    "CONFIANZA": 1,
+    "DISPONIBILIDAD": 8,
     "DESCONFIANZA": 1,
-    "PRECIO": 1,
-    "MUESTRA": 2,
-    "QUE_ES": 2
+    "PRECIO": 4,
+    "CONFIANZA": 1,
+    "MUESTRA": 5,
+    "QUE_ES": 4,
+    "PRECIO_JUICIO": 1,
+    "FRICCION": 1,
+    "CONTACTO": 1
    },
    "payments": {},
-   "destinations": {},
+   "destinations": {
+    "BEN": 1
+   },
    "emotions": {
-    "joy": 24,
-    "anger": 2,
-    "surprise": 2,
-    "others": 33,
-    "apt": 61,
-    "ironic": 14
+    "joy": 17,
+    "sadness": 1,
+    "anger": 3,
+    "surprise": 6,
+    "others": 88,
+    "apt": 115,
+    "ironic": 38
    },
    "polarity": {
-    "NEU": 28,
-    "NEG": 9,
-    "POS": 4
+    "NEG": 25,
+    "NEU": 73,
+    "POS": 6
    },
    "gifts": 0,
    "follows": 0,
    "shares": 0,
    "likes": 0,
-   "speechSegments": 37,
-   "screenReads": 0,
-   "prices": 0
+   "speechSegments": 180,
+   "screenReads": 4,
+   "prices": 10
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 2,
+   "weekday": 2,
+   "sellerId": "62eee88dfe045723",
+   "status": "VENTA",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "products": [
+    {
+     "product": "cocina",
+     "weight": 9,
+     "rubro": "HOGAR"
+    },
+    {
+     "product": "chocolate",
+     "weight": 6,
+     "rubro": "ALIMENTOS"
+    },
+    {
+     "product": "pinza",
+     "weight": 4,
+     "rubro": "BISUTERIA"
+    },
+    {
+     "product": "dinamica",
+     "weight": 4,
+     "rubro": "SORTEOS"
+    },
+    {
+     "product": "gelatina",
+     "weight": 4,
+     "rubro": "ALIMENTOS"
+    }
+   ],
+   "city": "LPZ",
+   "citySource": "PERFIL",
+   "bolivia": true,
+   "size": "CHICO",
+   "minutes": 11,
+   "endReason": "SIN_CIERRE",
+   "viewersPeak": 54,
+   "viewersMedian": 38,
+   "entries": 3021,
+   "messages": 44,
+   "authors": 8,
+   "buyers": 3,
+   "signals": {
+    "COMPRA": 3,
+    "VARIANTE": 3
+   },
+   "payments": {},
+   "destinations": {},
+   "emotions": {
+    "joy": 1,
+    "sadness": 1,
+    "others": 14,
+    "apt": 16,
+    "ironic": 7
+   },
+   "polarity": {
+    "NEU": 9,
+    "POS": 2,
+    "NEG": 4
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "speechSegments": 103,
+   "screenReads": 43,
+   "prices": 6
   }
  ],
  "prices": [
@@ -1349,9 +1428,241 @@
    "source": "SPEECH",
    "explicit": true,
    "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 8.0,
+   "currency": "BOB",
+   "priceBs": 8.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "pelota",
+   "productSource": "TEXTO",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 3.0,
+   "currency": "BOB",
+   "priceBs": 3.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": true,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "BISUTERIA",
+   "product": "dije",
+   "productSource": "TEXTO",
+   "amount": 18.0,
+   "currency": "BOB",
+   "priceBs": 18.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "BISUTERIA",
+   "product": "dije",
+   "productSource": "TEXTO",
+   "amount": 15.0,
+   "currency": "BOB",
+   "priceBs": 15.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 8.0,
+   "currency": "BOB",
+   "priceBs": 8.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 8.0,
+   "currency": "BOB",
+   "priceBs": 8.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "BISUTERIA",
+   "product": "dije",
+   "productSource": "TEXTO",
+   "amount": 8.0,
+   "currency": "BOB",
+   "priceBs": 8.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 5.0,
+   "currency": "BOB",
+   "priceBs": 5.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 12.0,
+   "currency": "BOB",
+   "priceBs": 12.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": "cada una",
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": "cada una",
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 28.0,
+   "currency": "BOB",
+   "priceBs": 28.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": "cada uno",
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
   }
  ],
  "phrases": [
+  {
+   "phrase": "mio #",
+   "people": 18,
+   "lives": 6,
+   "rubro": "MIXTO",
+   "emotion": null,
+   "signal": "COMPRA"
+  },
   {
    "phrase": "precio",
    "people": 12,
@@ -1361,12 +1672,12 @@
    "signal": "PRECIO"
   },
   {
-   "phrase": "mio #",
-   "people": 9,
-   "lives": 5,
-   "rubro": "ROPA_MUJER",
+   "phrase": "listo",
+   "people": 7,
+   "lives": 4,
+   "rubro": "MIXTO",
    "emotion": null,
-   "signal": "COMPRA"
+   "signal": null
   }
  ],
  "terms": [
@@ -1408,177 +1719,212 @@
   {
    "rubro": "ROPA_MUJER",
    "scope": "AUDIENCE",
-   "term": "case",
-   "count": 10,
+   "term": "mio",
+   "count": 9,
    "rank": 1
   },
   {
    "rubro": "ROPA_MUJER",
    "scope": "AUDIENCE",
-   "term": "mio",
-   "count": 9,
+   "term": "case",
+   "count": 8,
    "rank": 2
-  },
-  {
-   "rubro": "ROPA_MUJER",
-   "scope": "AUDIENCE",
-   "term": "body",
-   "count": 4,
-   "rank": 3
   },
   {
    "rubro": "ROPA_MUJER",
    "scope": "AUDIENCE",
    "term": "mangas",
-   "count": 4,
-   "rank": 4
-  },
-  {
-   "rubro": "ROPA_MUJER",
-   "scope": "AUDIENCE",
-   "term": "azul",
    "count": 3,
-   "rank": 5
-  },
-  {
-   "rubro": "ROPA_MUJER",
-   "scope": "AUDIENCE",
-   "term": "talla",
-   "count": 3,
-   "rank": 6
+   "rank": 3
   },
   {
    "rubro": "JUGUETES",
    "scope": "AUDIENCE",
    "term": "case",
-   "count": 8,
+   "count": 7,
    "rank": 1
-  },
-  {
-   "rubro": "JUGUETES",
-   "scope": "AUDIENCE",
-   "term": "disculpe",
-   "count": 6,
-   "rank": 2
   },
   {
    "rubro": "JUGUETES",
    "scope": "AUDIENCE",
    "term": "soldaditos",
-   "count": 5,
-   "rank": 3
+   "count": 4,
+   "rank": 2
   },
   {
    "rubro": "JUGUETES",
    "scope": "AUDIENCE",
-   "term": "polly",
-   "count": 4,
-   "rank": 4
+   "term": "disculpe",
+   "count": 3,
+   "rank": 3
   },
   {
    "rubro": "JUGUETES",
    "scope": "AUDIENCE",
    "term": "mio",
    "count": 3,
-   "rank": 5
+   "rank": 4
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
    "term": "case",
-   "count": 14,
+   "count": 41,
    "rank": 1
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "bubu",
-   "count": 10,
+   "term": "mio",
+   "count": 35,
    "rank": 2
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "mio",
-   "count": 6,
+   "term": "listo",
+   "count": 14,
    "rank": 3
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "rapido",
-   "count": 5,
+   "term": "pony",
+   "count": 10,
    "rank": 4
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "coneja",
-   "count": 4,
+   "term": "rapido",
+   "count": 9,
    "rank": 5
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "tenia",
-   "count": 4,
+   "term": "figuras",
+   "count": 9,
    "rank": 6
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "gusta",
-   "count": 4,
+   "term": "bubu",
+   "count": 8,
    "rank": 7
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "listo",
-   "count": 4,
+   "term": "ley",
+   "count": 7,
    "rank": 8
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "azul",
-   "count": 3,
+   "term": "autos",
+   "count": 6,
    "rank": 9
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "fijese",
-   "count": 3,
+   "term": "popis",
+   "count": 4,
    "rank": 10
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "manzana",
-   "count": 3,
+   "term": "oye",
+   "count": 4,
    "rank": 11
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "salio",
+   "term": "azul",
    "count": 3,
    "rank": 12
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "mario",
+   "term": "fijese",
    "count": 3,
    "rank": 13
   },
   {
    "rubro": "MIXTO",
    "scope": "AUDIENCE",
-   "term": "bros",
+   "term": "quiero",
    "count": 3,
    "rank": 14
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "manzana",
+   "count": 3,
+   "rank": 15
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "sueno",
+   "count": 3,
+   "rank": 16
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "muestre",
+   "count": 3,
+   "rank": 17
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "pizarra",
+   "count": 3,
+   "rank": 18
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "dijo",
+   "count": 3,
+   "rank": 19
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "soy",
+   "count": 3,
+   "rank": 20
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "casera",
+   "count": 3,
+   "rank": 21
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "figura",
+   "count": 3,
+   "rank": 22
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "carino",
+   "count": 3,
+   "rank": 23
   },
   {
    "rubro": "COSMETICOS",
@@ -2410,78 +2756,211 @@
    "rubro": "MIXTO",
    "scope": "SELLER",
    "term": "kase",
-   "count": 7,
+   "count": 15,
    "rank": 1
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "caserita",
+   "count": 14,
+   "rank": 2
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "toma",
+   "count": 13,
+   "rank": 3
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "dice",
+   "count": 13,
+   "rank": 4
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "case",
+   "count": 13,
+   "rank": 5
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "casa",
+   "count": 12,
+   "rank": 6
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "capturita",
+   "count": 10,
+   "rank": 7
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "cases",
+   "count": 10,
+   "rank": 8
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "casero",
+   "count": 9,
+   "rank": 9
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "cuchara",
+   "count": 9,
+   "rank": 10
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "suprakin",
+   "count": 8,
+   "rank": 11
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "casera",
+   "count": 8,
+   "rank": 12
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "creo",
+   "count": 7,
+   "rank": 13
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "pues",
+   "count": 7,
+   "rank": 14
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "rapido",
+   "count": 7,
+   "rank": 15
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "compritas",
+   "count": 7,
+   "rank": 16
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
    "term": "cierto",
    "count": 6,
-   "rank": 2
+   "rank": 17
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
-   "term": "suprakin",
+   "term": "captura",
+   "count": 6,
+   "rank": 18
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "nomas",
+   "count": 6,
+   "rank": 19
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "llevense",
+   "count": 6,
+   "rank": 20
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "miren",
+   "count": 6,
+   "rank": 21
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "favor",
    "count": 5,
-   "rank": 3
+   "rank": 22
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
-   "term": "toma",
+   "term": "lleven",
    "count": 5,
-   "rank": 4
+   "rank": 23
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
-   "term": "capturita",
-   "count": 4,
-   "rank": 5
+   "term": "pasa",
+   "count": 5,
+   "rank": 24
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
-   "term": "cazer",
-   "count": 4,
-   "rank": 6
+   "term": "palabra",
+   "count": 5,
+   "rank": 25
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
-   "term": "dice",
-   "count": 4,
-   "rank": 7
+   "term": "incentivo",
+   "count": 5,
+   "rank": 26
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
-   "term": "flotadores",
-   "count": 3,
-   "rank": 8
+   "term": "poppies",
+   "count": 5,
+   "rank": 27
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
-   "term": "camioneta",
-   "count": 3,
-   "rank": 9
+   "term": "juguetes",
+   "count": 5,
+   "rank": 28
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
-   "term": "tipo",
-   "count": 3,
-   "rank": 10
+   "term": "poni",
+   "count": 5,
+   "rank": 29
   },
   {
    "rubro": "MIXTO",
    "scope": "SELLER",
-   "term": "casa",
-   "count": 3,
-   "rank": 11
+   "term": "brazo",
+   "count": 5,
+   "rank": 30
   }
  ],
  "coverage": [
@@ -2489,19 +2968,19 @@
    "run": "2026-10-05",
    "candidatesSeen": 178,
    "candidatesLive": 169,
-   "roomsOpened": 8,
+   "roomsOpened": 9,
    "roomsBlocked": 0,
-   "roomsCommerce": 7,
+   "roomsCommerce": 8,
    "roomsNoCommerce": 1,
    "roomsForeign": 0,
    "roomsUnidentified": 1,
-   "messages": 258,
-   "messagesWithSignal": 136,
-   "messagesApt": 147,
-   "speechSegments": 570,
-   "screenReads": 69,
-   "prices": 44,
-   "minutes": 64
+   "messages": 432,
+   "messagesWithSignal": 191,
+   "messagesApt": 204,
+   "speechSegments": 816,
+   "screenReads": 116,
+   "prices": 60,
+   "minutes": 89
   }
  ]
 }

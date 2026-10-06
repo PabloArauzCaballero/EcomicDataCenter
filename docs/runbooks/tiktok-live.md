@@ -50,13 +50,25 @@ node node_modules/jest/bin/jest.js --config jest.config.cjs src/database/seeds/t
 El análisis imprime la cobertura: lives, de venta, sin rubro, mensajes, con señal, **residuo %**, aptos para
 emoción, precios y frases. Si el residuo sube, mirar los mensajes sin señal antes de ampliar el léxico.
 
+## Validar (conjunto de oro)
+
+```bash
+~/.observatorio-social/venv/Scripts/python -I scripts/social/live/gold_sample.py sample --size=300
+# Etiquetar a mano artifacts/live-raw/gold/muestra-<fecha>.csv: columna humano_senales con las
+# señales separadas por «|» (COMPRA|PRECIO|VARIANTE|ENVIO|PAGO|REGATEO|...) o «-» si no hay ninguna.
+~/.observatorio-social/venv/Scripts/python -I scripts/social/live/gold_sample.py score artifacts/live-raw/gold/muestra-<fecha>.csv
+```
+
+Mínimos para publicar una señal: compra con precisión ≥ 0,85 y recuperación ≥ 0,70; preguntas con
+precisión ≥ 0,80. Lo que no pase se corrige en `live_lexicon.py` (con su prueba) o se retira del tablero.
+
 ## Publicar
 
 La semilla `src/database/seeds/boot/tiktok-live.json` se commitea a `dev` y se lleva a `test` con el mismo
 runner y esquema (si difieren, `seeds-to-test` la retiene). Cada servidor la siembra al arrancar.
 
 ```bash
-curl -s https://test.datosbolivia.com/api/ventas-en-vivo | jq '.board.readingDate, (.board.rooms | length)'
+curl -s https://test.datosbolivia.com/api/ventas-en-vivo | jq '.board.analyzedAt, (.board.rooms | length)'
 ```
 
 ## Lo que se sabe de TikTok LIVE sin sesión (6-oct-2026)

@@ -27,7 +27,7 @@ from live_lexicon import (
 )
 
 EMOTIONS = ("joy", "sadness", "anger", "surprise", "disgust", "fear", "others")
-FRICTION = re.compile(r"\b(caro|cara|carisimo|carisima|muy caro|subio|exagerado|abuso)\b")
+FRICTION = re.compile(r"\b(caro|carisimo|carisima|muy caro|subio|exagerado|abuso)\b")
 DISTRUST = re.compile(r"\b(estafa|estafadora|estafador|no llego|no me llego|replica|imitacion|fallado|mentira|truchos?)\b")
 
 
