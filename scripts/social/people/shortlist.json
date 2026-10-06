@@ -1,6 +1,6 @@
 {
   "status": "DISCOVERY_SHORTLIST_NOT_TOP_300",
-  "generatedAt": "2026-10-04T19:13:10.744997+00:00",
+  "generatedAt": "2026-10-06T04:02:19.478214+00:00",
   "pressWindowStart": "2025-10-04",
   "pressHeadlineCount": 3667,
   "people": [
@@ -590,7 +590,7 @@
         {
           "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
           "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
-          "rank": 34,
+          "rank": 35,
           "accountUrl": "https://www.instagram.com/luishaquin4",
           "reportedFollowers": null
         }
@@ -610,7 +610,7 @@
       "recentHeadlineMentions": 0,
       "recentHeadlineOutlets": 0,
       "primarySector": "SPORTS",
-      "discoveryPriority": 5.499,
+      "discoveryPriority": 5.479,
       "slug": "P_LUIS_HAQUIN"
     },
     {
@@ -2021,7 +2021,7 @@
         {
           "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
           "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
-          "rank": 43,
+          "rank": 44,
           "accountUrl": "https://www.instagram.com/eliasayavirioficial",
           "reportedFollowers": null
         }
@@ -3194,7 +3194,7 @@
         {
           "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
           "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
-          "rank": 36,
+          "rank": 37,
           "accountUrl": "https://www.instagram.com/fabru_blacutt",
           "reportedFollowers": null
         }
@@ -3210,7 +3210,7 @@
       "recentHeadlineMentions": 0,
       "recentHeadlineOutlets": 0,
       "primarySector": "MEDIA",
-      "discoveryPriority": 3.8,
+      "discoveryPriority": 3.78,
       "slug": "P_FABRICIO_BLACUTT"
     },
     {
@@ -9650,43 +9650,6 @@
       "slug": "P_JOSESINLZ"
     },
     {
-      "name": "Mama Lucy",
-      "aliases": [
-        "Mamá Lucy"
-      ],
-      "sectors": [
-        "MEDIA",
-        "CREATOR_DISCOVERY"
-      ],
-      "evidence": [
-        {
-          "source": "IPDRS_CREATOR_STUDY_2024",
-          "url": "https://ipdrs.org/wp-content/uploads/2024/12/IPDRS-Investigacion-influencers-Bolivia.pdf#page=8",
-          "rank": 22
-        },
-        {
-          "source": "HAFI_TIKTOK_BOLIVIA",
-          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
-          "rank": 57,
-          "accountUrl": "https://www.tiktok.com/@la_dulce_mama_lucy",
-          "reportedFollowers": "1.1M"
-        }
-      ],
-      "accountLeads": [
-        {
-          "platform": "tiktok",
-          "url": "https://www.tiktok.com/@la_dulce_mama_lucy",
-          "confidence": "UNVERIFIED_DIRECTORY",
-          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia"
-        }
-      ],
-      "recentHeadlineMentions": 0,
-      "recentHeadlineOutlets": 0,
-      "primarySector": "MEDIA",
-      "discoveryPriority": 1.78,
-      "slug": "P_MAMA_LUCY"
-    },
-    {
       "name": "Veronica Gavilanes",
       "aliases": [],
       "sectors": [
@@ -9705,6 +9668,43 @@
       "primarySector": "BUSINESS",
       "discoveryPriority": 1.77,
       "slug": "P_VERONICA_GAVILANES"
+    },
+    {
+      "name": "Mama Lucy",
+      "aliases": [
+        "Mamá Lucy"
+      ],
+      "sectors": [
+        "MEDIA",
+        "CREATOR_DISCOVERY"
+      ],
+      "evidence": [
+        {
+          "source": "IPDRS_CREATOR_STUDY_2024",
+          "url": "https://ipdrs.org/wp-content/uploads/2024/12/IPDRS-Investigacion-influencers-Bolivia.pdf#page=8",
+          "rank": 22
+        },
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 58,
+          "accountUrl": "https://www.tiktok.com/@la_dulce_mama_lucy",
+          "reportedFollowers": "1.1M"
+        }
+      ],
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@la_dulce_mama_lucy",
+          "confidence": "UNVERIFIED_DIRECTORY",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia"
+        }
+      ],
+      "recentHeadlineMentions": 0,
+      "recentHeadlineOutlets": 0,
+      "primarySector": "MEDIA",
+      "discoveryPriority": 1.76,
+      "slug": "P_MAMA_LUCY"
     },
     {
       "name": "Roberto Magaña",
