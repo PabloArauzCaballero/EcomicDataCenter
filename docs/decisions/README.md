@@ -34,3 +34,4 @@ Los ADR son inmutables después de aceptarse. Una decisión nueva reemplaza a la
 | 0028 | Los dueños se leen en documentos públicos, y su fortuna se calcula al dibujar | Aceptado |
 | 0029 | Las personalidades públicas se investigan con cuentas corroboradas | Aceptado para piloto |
 | 0030 | Las ventas en vivo se leen como mercado, no como personas | Aceptado |
+| 0031 | Los videos de los vendedores son un catálogo aparte de los lives | Aceptado |

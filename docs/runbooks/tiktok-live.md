@@ -50,6 +50,23 @@ node node_modules/jest/bin/jest.js --config jest.config.cjs src/database/seeds/t
 El análisis imprime la cobertura: lives, de venta, sin rubro, mensajes, con señal, **residuo %**, aptos para
 emoción, precios y frases. Si el residuo sube, mirar los mensajes sin señal antes de ampliar el léxico.
 
+## Videos de los vendedores (catálogo aparte, ADR 0031)
+
+```bash
+node node_modules/tsx/dist/cli.mjs scripts/social/live/collect-videos.ts --max-accounts=400
+~/.observatorio-social/venv/Scripts/python -I scripts/social/live/analyze_videos.py
+```
+
+Sin sesión: cada perfil da sus ~16-35 videos más recientes por `api/post/item_list` y después pide iniciar
+sesión (no se esquiva). Las cuentas sugeridas por cada perfil entran a la cola como «parecidas». El análisis
+excluye las que no son de Bolivia o no venden ni entretienen, y lo cuenta en `coverage`.
+
+## Todo automático
+
+La tarea «Observatorio - ventas en vivo» captura lives en noches alternas. La tarea «Observatorio - publicar
+lives» (lunes 08:00) corre `~/.observatorio-social/publish-live-week.ps1`: lee videos, analiza lives y
+videos, prueba las semillas y las publica en `test` y `dev` desde worktrees limpios.
+
 ## Validar (conjunto de oro)
 
 ```bash

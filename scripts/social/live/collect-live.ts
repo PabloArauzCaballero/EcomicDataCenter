@@ -4,7 +4,16 @@ import { openContext, pause, sleep } from '../company/social-browser';
 import { closeRoom, openRoom, pumpChat, type Capture } from './live-capture';
 import { Media } from './live-media';
 import { discoverFromFeed, launch, liveLinks, wall } from './live-page';
-import { commerceScore, roomState, runSalt, sellerKey, type RoomState } from './live-room';
+import {
+  KIND_TARGET,
+  commerceScore,
+  kindOf,
+  roomState,
+  runSalt,
+  sellerKey,
+  type LiveKind,
+  type RoomState,
+} from './live-room';
 import {
   MINUTES,
   MIN_FREE_MB,
@@ -59,6 +68,12 @@ async function main(): Promise<void> {
   const candidates = new Map<string, RoomState>();
   const capturedThisRun = new Set<string>();
   let lastDiscovery = 0;
+  // Cuántas salas de cada clase se abrieron: la que más se aleja de su cuota va primero.
+  const opened: Record<LiveKind, number> = { VENTA: 0, GASTRONOMIA: 0, ENTRETENIMIENTO: 0 };
+  const kindNeed = (kind: LiveKind): number => {
+    const total = opened.VENTA + opened.GASTRONOMIA + opened.ENTRETENIMIENTO;
+    return KIND_TARGET[kind] - (total ? opened[kind] / total : 0);
+  };
   let lapStarted = Date.now();
   let captchas = 0;
   say('run-start', { run: RUN, minutes: MINUTES, rooms: ROOMS, media: MEDIA, freeMb: freeMb() });
@@ -112,13 +127,20 @@ async function main(): Promise<void> {
         .filter((state) => (state.viewers ?? 0) >= MIN_VIEWERS)
         .filter((state) => capturesThisWeek(sellers[state.handle]) < WEEKLY_CAP)
         .map((state) => ({ state, score: commerceScore(state) }))
-        .filter(({ score }) => score.commerce >= 1)
+        .map((item) => ({ ...item, kind: kindOf(item.score) }))
+        .filter((item): item is typeof item & { kind: LiveKind } => item.kind !== null)
         .sort(
           (a, b) =>
-            b.score.commerce + b.score.bolivia - (a.score.commerce + a.score.bolivia) ||
+            kindNeed(b.kind) - kindNeed(a.kind) ||
+            b.score.commerce +
+              b.score.food +
+              b.score.fun +
+              b.score.bolivia -
+              (a.score.commerce + a.score.food + a.score.fun + a.score.bolivia) ||
             Math.random() - 0.5,
         )[0];
       if (!choice) break;
+      opened[choice.kind] += 1;
       capturedThisRun.add(choice.state.handle);
       const fresh = await roomState(choice.state.handle);
       if (!fresh.live) continue;
