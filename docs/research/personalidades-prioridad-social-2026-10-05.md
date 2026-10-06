@@ -1,7 +1,7 @@
 # Revisión de personalidades prioritarias para análisis social
 
 **Corte documental:** 5 de octubre de 2026; regeneración y validación final: 6 de octubre de 2026  
-**Estado:** ciclo cerrado según el alcance aprobado: padrón trazable de 300, descubrimiento sectorial, revisión priorizada de diez figuras y piloto agregado de tres canales. El padrón no es un ranking ni afirma que las 300 cuentas estén verificadas.
+**Estado:** informe de descubrimiento histórico. Su conclusión de que no había ranking fue reemplazada el 6 de octubre de 2026 por el ranking final medido de impacto percibido en 2025: [`ranking-figuras-impacto-bolivia-2025.md`](ranking-figuras-impacto-bolivia-2025.md). El padrón trazable de 300 continúa siendo un marco de descubrimiento, no un ranking ni una afirmación de que las 300 cuentas estén verificadas.
 
 ## Punto de partida
 

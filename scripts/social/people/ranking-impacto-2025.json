@@ -1,0 +1,34 @@
+{
+  "status": "FINAL_MEASURED_TOP_5",
+  "title": "Figuras bolivianas con mayor impacto percibido en 2025",
+  "generatedAt": "2026-10-06T11:57:35Z",
+  "measurementPeriod": "2025",
+  "metric": "Porcentaje de personas encuestadas que nombró a cada figura como la más influyente o de mayor impacto en Bolivia durante 2025",
+  "rankingRule": "Orden y porcentajes reproducidos directamente de la publicación de Ipsos CIESMORI; no se recalculan ni se asignan puestos a respuestas no publicadas.",
+  "question": "Pensando en 2025, ¿Quién considera que fue el personaje boliviano más influyente o que generó el mayor impacto en el país este 2025?",
+  "source": {
+    "publisher": "Ipsos CIESMORI",
+    "publication": "Radiografía Boliviana: Los datos que movieron el 2025",
+    "publishedAt": "2025-12",
+    "url": "https://ipsosciesmori.com/wp-content/uploads/2025/12/ICM-25-DIC-PRES-ANUARIO_vf.pdf",
+    "sampleSize": 600,
+    "population": "Personas de 18 años o más con acceso a internet; público activo en redes sociales",
+    "geographicCoverage": ["La Paz", "El Alto", "Cochabamba", "Santa Cruz"],
+    "fieldworkStart": "2025-11-15",
+    "fieldworkEnd": "2025-11-30",
+    "referenceMarginOfErrorPercentagePoints": 2.83
+  },
+  "interpretation": {
+    "scope": "Este es el Top 5 efectivamente publicado para impacto percibido en 2025. No es un ranking de popularidad actual, aprobación, seguidores, calidad o mérito.",
+    "coverageLimit": "La muestra representa personas conectadas de las cuatro ciudades indicadas; no cubre todo el territorio rural ni a personas sin acceso a internet.",
+    "cutoffLimit": "Ipsos CIESMORI publica cinco posiciones en esta visualización. No se inventan los puestos posteriores ni se mezclan métricas de sectores distintos.",
+    "currentness": "La medición es de 2025. Para actualidad política, consultar por separado el Monitor de Opinión Pública de septiembre de 2026: https://www.ipsosciesmori.com/direccion-del-pais-evaluacion-de-autoridades-y-lideres-de-oposicion-septiembre-2026/"
+  },
+  "people": [
+    {"rank": 1, "slug": "P_RODRIGO_PAZ_PEREIRA", "name": "Rodrigo Paz", "impactSharePercent": 24, "sector": "POLITICS"},
+    {"rank": 2, "slug": "P_EDMAND_LARA", "name": "Edmand Lara", "impactSharePercent": 20, "sector": "POLITICS"},
+    {"rank": 3, "slug": "P_JORGE_QUIROGA_RAMIREZ", "name": "Jorge ‘Tuto’ Quiroga", "impactSharePercent": 8, "sector": "POLITICS"},
+    {"rank": 4, "slug": "P_LUIS_ARCE", "name": "Luis Arce", "impactSharePercent": 7, "sector": "POLITICS"},
+    {"rank": 5, "slug": "P_JAIME_DUNN", "name": "Jaime Dunn", "impactSharePercent": 5, "sector": "POLITICS"}
+  ]
+}
