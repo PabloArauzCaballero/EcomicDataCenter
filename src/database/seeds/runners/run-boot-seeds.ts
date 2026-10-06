@@ -41,6 +41,7 @@ import { reconcileIneTrade } from './boot-seed.ine-trade';
 import { reconcileBankVirtualAssets } from './boot-seed.bank-virtual-assets';
 import { reconcileBcbStatistics } from './boot-seed.bcb-statistics';
 import { reconcileCompanySocial } from './boot-seed.company-social';
+import { reconcileTiktokLive } from './boot-seed.tiktok-live';
 import { reconcileVehiclePrices } from './boot-seed.vehicle-prices';
 import { reconcileAutomotiveStudy } from './boot-seed.automotive-study';
 import { reconcilePublicAccounts } from './boot-seed.public-accounts';
@@ -96,6 +97,7 @@ const SELECTABLE = [
   'public-accounts',
   'bolivia-transport-network',
   'company-social',
+  'tiktok-live',
   'vehicle-prices',
   'automotive-study',
 ] as const;
@@ -138,6 +140,8 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bcb-statistics', reconcileBcbStatistics],
   // Unas dos mil filas por corrida: va delante de las cargas largas, como los bancos.
   ['company-social', reconcileCompanySocial],
+  // Cientos de lives por mes, agregados: segundos, y va delante de las cargas largas.
+  ['tiktok-live', reconcileTiktokLive],
   ['vehicle-prices', reconcileVehiclePrices],
   ['automotive-study', reconcileAutomotiveStudy],
   // Quinientas series y pocos miles de puntos: se siembran en segundos y van delante de las

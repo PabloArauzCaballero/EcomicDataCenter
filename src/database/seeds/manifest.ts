@@ -309,6 +309,9 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('company-social', 'Redes sociales de empresas (ADR 0027)', [
     'boot/company-social.json',
   ]),
+  historical('tiktok-live', 'Ventas en vivo de TikTok en Bolivia (ADR 0030)', [
+    'boot/tiktok-live.json',
+  ]),
   {
     ...historical(
       'automotive-study',

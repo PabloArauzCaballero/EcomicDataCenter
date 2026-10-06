@@ -350,6 +350,17 @@
       "schemaVersion": "1.0.0"
     },
     {
+      "aiAgentId": "92000000-0000-4000-8000-000000000041",
+      "code": "LIVE_COMMERCE",
+      "name": "Ventas en vivo de TikTok observadas en Bolivia",
+      "agentType": "CORPORATE",
+      "provider": "Lives publicos de TikTok vistos sin sesion desde una conexion residencial",
+      "modelIdentifier": "playwright-chrome-faster-whisper-rapidocr",
+      "specialty": "Rubros, precios, intencion de compra, preguntas, pagos, ciudades, emociones y frases repetidas del chat (ADR 0030)",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
       "aiAgentId": "92000000-0000-4000-8000-000000000040",
       "code": "PUBLIC_ACCOUNTS",
       "name": "Cuentas publicas de Bolivia: recaudacion, ingresos y gastos del Estado, deuda y subsidios",
