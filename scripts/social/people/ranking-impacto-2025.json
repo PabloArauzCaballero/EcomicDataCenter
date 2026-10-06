@@ -25,10 +25,40 @@
     "currentness": "La medición es de 2025. Para actualidad política, consultar por separado el Monitor de Opinión Pública de septiembre de 2026: https://www.ipsosciesmori.com/direccion-del-pais-evaluacion-de-autoridades-y-lideres-de-oposicion-septiembre-2026/"
   },
   "people": [
-    {"rank": 1, "slug": "P_RODRIGO_PAZ_PEREIRA", "name": "Rodrigo Paz", "impactSharePercent": 24, "sector": "POLITICS"},
-    {"rank": 2, "slug": "P_EDMAND_LARA", "name": "Edmand Lara", "impactSharePercent": 20, "sector": "POLITICS"},
-    {"rank": 3, "slug": "P_JORGE_QUIROGA_RAMIREZ", "name": "Jorge ‘Tuto’ Quiroga", "impactSharePercent": 8, "sector": "POLITICS"},
-    {"rank": 4, "slug": "P_LUIS_ARCE", "name": "Luis Arce", "impactSharePercent": 7, "sector": "POLITICS"},
-    {"rank": 5, "slug": "P_JAIME_DUNN", "name": "Jaime Dunn", "impactSharePercent": 5, "sector": "POLITICS"}
+    {
+      "rank": 1,
+      "slug": "P_RODRIGO_PAZ_PEREIRA",
+      "name": "Rodrigo Paz",
+      "impactSharePercent": 24,
+      "sector": "POLITICS"
+    },
+    {
+      "rank": 2,
+      "slug": "P_EDMAND_LARA",
+      "name": "Edmand Lara",
+      "impactSharePercent": 20,
+      "sector": "POLITICS"
+    },
+    {
+      "rank": 3,
+      "slug": "P_JORGE_QUIROGA_RAMIREZ",
+      "name": "Jorge ‘Tuto’ Quiroga",
+      "impactSharePercent": 8,
+      "sector": "POLITICS"
+    },
+    {
+      "rank": 4,
+      "slug": "P_LUIS_ARCE",
+      "name": "Luis Arce",
+      "impactSharePercent": 7,
+      "sector": "POLITICS"
+    },
+    {
+      "rank": 5,
+      "slug": "P_JAIME_DUNN",
+      "name": "Jaime Dunn",
+      "impactSharePercent": 5,
+      "sector": "POLITICS"
+    }
   ]
 }
