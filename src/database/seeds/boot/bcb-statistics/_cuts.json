@@ -95,6 +95,7 @@
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_01%2006%202026.xlsx": "99a0aa2ccb47050c0c1f78fd50a2374fff6d393ef85a308556fcedbd46595aa1",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_01%2007%202026.xlsx": "d920cb7174d82d4b9d046f6014d6f2a2fd9d0df075ac37aa285839ebfeca9355",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_01%2009%202026.xlsx": "7607d981c161d87dc8d016674a7308b2af10b77584cba09f6a267dfa1d0a4c05",
+  "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_01%2010%202026.xlsx": "d83b6dfc150b41fdb335e0e5932d43f1c051a74b56ea6ede218843975852401f",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_01_07_2025.XLSX": "f623676897c0b1fb38ec7285956084de00218a0a0cd61c49015ff9e52b4a6469",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_01_08_2025.XLSX": "80551eaf4781f30ac67ff139b8a07eb4eda0cbe6f06823d51a1a312a8b7af0ce",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_01_09_2025.XLSX": "2ed95e30d6b84c2a3c301e4055d7b3dc5dff618e34b1f78ff4d76b33155fdb37",
@@ -473,6 +474,7 @@
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_29%2005%202026.xlsx": "0d431a4caeb0070e5d3e88d67d225167e0eeaa7e7f67ca08ca19fd4c5ac154ff",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_29%2006%202026.xlsx": "76a5145464f0116fe475bd3e90c1a8ebd3915c4b0e1c4aef040658f64c53603b",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_29%2007%202026.xlsx": "a1067cbf96c2cde036235b71d89c378bd3fb1d502ab7cca38528e6c798712390",
+  "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_29%2009%202026.xlsx": "24e10c4e8c018bd849b98f6bdf94ce855a8e6c31499259a2d6095b43d97f7298",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_29%2012%202025.xlsx": "50f54dbe7162e8ac243d024e2a922a94f13086148e6063d1de7475c5e16b81b4",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_29_01_2025.XLSX": "0c40cfeb324cec7065d931989a4f02c924a32f4a91b4e5053ad8118818d8b020",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_29_04_2025.XLSX": "361e3820c346f79a103c37f531b98a7fb01fc624665c19ccc6b6a75705246dcb",
@@ -487,6 +489,7 @@
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_30%2004%202026.xlsx": "238065d8885a088fc7ecb1bb67be8def500714054c9ef25cd6daab7766b7b8a1",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_30%2006%202026.xlsx": "1ad06db8cded45d8b0f0e958bedda23f7749279993def7c16b50883c817aef31",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_30%2007%202026.xlsx": "d8fbe2a3b69d1968546ca2052e74a8b92aa0a49bdbd70232a9215345bee6c470",
+  "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_30%2009%202026.xlsx": "d01b3d62eae24eb47c0f20eec6d1437b28968e0371fdeb4bbba7965c914b5beb",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_30%2012%202025.xlsx": "c82d27d331bae5a782aabde3330f9c6997a1297fc559dcb0806e1bb3f6dd4931",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_30_01_2025.XLSX": "7c1f4f1351e3a0279cdd29efa6f832bf249915584e5055579ebde9eee87b186d",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_30_04_2025.XLSX": "a1e232d5912dc2124786c1b070988913a7aba54ad43e6c5eb3785a155effb859",
@@ -549,14 +552,6 @@
    "Moneda extranjera | PYME",
    "2025-04-17",
    8.9027
-  ],
-  [
-   "ACT",
-   "DAILY",
-   "FATIMA",
-   "Moneda nacional | PYME",
-   "2026-09-28",
-   13.0736
   ],
   [
    "ACT",
@@ -1197,6 +1192,14 @@
    "Moneda extranjera | Dep\u00f3sito a plazo fijo | 720 d\u00edas",
    "2026-07-03",
    0.1502
+  ],
+  [
+   "PAS",
+   "DAILY",
+   "SAN PEDRO",
+   "Moneda extranjera | Dep\u00f3sito a plazo fijo | 60 d\u00edas",
+   "2026-10-01",
+   0.3004
   ],
   [
    "PAS",
