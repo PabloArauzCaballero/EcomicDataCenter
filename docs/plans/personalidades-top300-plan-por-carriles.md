@@ -62,7 +62,7 @@ independiente de la fuente Ipsos.
 8. **Cupo de búsqueda web.** `WebSearch` tiene un tope compartido (200 por sesión); diez agentes en paralelo lo agotaron a mitad de tarea y casi no devuelve nombres de usuario. Úsalo solo para confirmar, no para descubrir. Para descubrir usa sitios oficiales, enlaces de Wikipedia/Wikidata, Linktree, bios públicas de TikTok/YouTube y páginas institucionales.
 9. **Verificar en vivo, no en verde.** «Mergeado» y «la API devuelve el dato» no prueban que el tablero lo muestre. Toda entrega termina con una captura o lectura del texto renderizado en `test.datosbolivia.com` (ver carril H).
 10. **Commits.** Solo rutas propias. Mensajes en español, cortos, con la línea `Co-Authored-By` que corresponda. No amends. No `--no-verify`.
-11. **Cuando algo sea decisión del usuario, pregunta una vez y avanza con lo reversible.** No frenes por cosas que se pueden deshacer.
+11. **No preguntes.** Toda decisión previsible ya está tomada en la sección 5 («Decisiones ya tomadas») y la tabla de situaciones de la sección 6 dice qué hacer en cada bloqueo. Si surge algo que no está ahí, elige la opción más conservadora y reversible, regístrala en `docs/plans/personalidades-progreso.md` y sigue.
 
 ## 3. Mapa de archivos (`scripts/social/people/`)
 
@@ -206,6 +206,8 @@ Rechazar: coincidencia solo por nombre, fan pages, cuentas con <1.000 seguidores
 
 **Hoy:** índice = 55 % visitas Wikipedia (log) + 25 % audiencia verificada (log, suma de plataformas) + 20 % puesto Merco; prensa se publica pero no puntúa (homónimos). Problemas conocidos: (a) el puesto Merco de empresarios infla a quien aparece en dos listas (Doria Medina quedó #1 sobre Rodrigo Paz al fusionar su ficha de Merco con la de político); (b) sectores con pocas fuentes quedan abajo; (c) la suma de plataformas sobrecuenta.
 
+**Punto de partida de los pesos: 60 % visitas · 30 % audiencia · 10 % Merco** (decisión de la sección 5; el procedimiento de validación y la rejilla también están ahí).
+
 **Pasos**
 1. **ADR del índice** (`docs/decisions/…`): qué mide («atención pública observable», no importancia ni mérito), componentes, pesos, escala, tratamiento de datos faltantes.
 2. **Validación externa:** calcular correlación de rangos (Spearman) del índice contra (i) el Top 5 de Ipsos (impacto) y (ii) la aprobación del Monitor de Opinión Pública (carril J3) **solo para políticos**. Meta: Paz, Lara, Quiroga, Arce entre los 10 primeros del índice general (hoy: 2, 7, 9, 5). Registrar la tabla.
@@ -255,7 +257,7 @@ Rechazar: coincidencia solo por nombre, fan pages, cuentas con <1.000 seguidores
 9. Los 5 de Ipsos están en el ranking.
 10. El JSON público no contiene `author`, `text`, `comment` ni nombres de comentaristas.
 
-**Pasos:** (a) ampliar `test_candidate_quality.py` o dividir en `test_identity.py`, `test_social.py`, `test_conversation.py`, `test_ranking.py`; (b) esquema JSON (`jsonschema`) para `ranking-top300.json`, `conversation-sentiment.json`, `social-audience.json`; (c) un script `scripts/social/people/audit_all.py` que corra todo y devuelva un informe `docs/research/auditoria-AAAA-MM-DD.md` (conteos, hallazgos, qué cambió desde la última); (d) **muestreo humano**: cada entrega incluye 30 fichas al azar con captura y veredicto; (e) agregar el workflow `.github/workflows` solo si Actions está operativo (hoy el CI de GitHub puede estar bloqueado por facturación: CI rojo en 3 s con aviso de saldo = pago, no código); (f) Prettier: el dashboard **no** lo tiene instalado y los archivos originales ya fallaban con su `.prettierrc`; no reformatear todo. Decidir con el usuario si se instala y se formatea aparte.
+**Pasos:** (a) ampliar `test_candidate_quality.py` o dividir en `test_identity.py`, `test_social.py`, `test_conversation.py`, `test_ranking.py`; (b) esquema JSON (`jsonschema`) para `ranking-top300.json`, `conversation-sentiment.json`, `social-audience.json`; (c) un script `scripts/social/people/audit_all.py` que corra todo y devuelva un informe `docs/research/auditoria-AAAA-MM-DD.md` (conteos, hallazgos, qué cambió desde la última); (d) **muestreo manual hecho por Codex**: cada entrega incluye 30 fichas al azar con captura y veredicto; (e) agregar el workflow `.github/workflows` solo si Actions está operativo (hoy el CI de GitHub puede estar bloqueado por facturación: CI rojo en 3 s con aviso de saldo = pago, no código); (f) Prettier: el dashboard **no** lo tiene instalado y los archivos originales ya fallaban con su `.prettierrc`; no reformatear todo y no instalarlo (decisión ya tomada, sección 5). 
 
 **Aceptación:** `audit_all.py` en verde; informe de auditoría publicado; cada hallazgo corregido tiene su prueba.
 
@@ -270,7 +272,7 @@ Rechazar: coincidencia solo por nombre, fan pages, cuentas con <1.000 seguidores
 4. Comparar el JSON de `/api/personalidades` con el archivo del core (mismo `generatedAt` y mismos conteos).
 5. Reportar en una línea: commit, `status`, URL, qué se comprobó y qué no.
 
-**Si algo se rompe:** revertir con un commit nuevo (no force-push), volver a desplegar y avisar.
+**Si algo se rompe:** revertir con un commit nuevo (no force-push), volver a desplegar y anotarlo en `personalidades-progreso.md`.
 **`dev`:** no tocar salvo que el usuario lo pida. Recordar que `dev` no contiene esta pestaña.
 **Aceptación:** captura en vivo de cada entrega y el hash de commit desplegado.
 
@@ -286,7 +288,67 @@ Rechazar: coincidencia solo por nombre, fan pages, cuentas con <1.000 seguidores
 
 ---
 
-## 5. Entregables por hito
+## 5. Decisiones ya tomadas (no se vuelven a consultar)
+
+**Autorización del dueño (Pablo, 7-oct-2026):** hacer todo este plan sin pedir confirmaciones. Queda autorizado, sin preguntar:
+commitear y empujar a `test` en core y tablero (solo rutas propias); disparar o relanzar el despliegue de la app del tablero en Coolify de Contabo por su API;
+entrar por SSH a Contabo (`root@161.97.85.216`, clave `~/.ssh/id_ed25519_contabo`) **solo para leer** el estado/logs de despliegues y relanzar un despliegue;
+crear, borrar y regenerar archivos de `scripts/social/people/`, `docs/` y `artifacts/` (fuera de Git); correr scripts, reintentar APIs, abrir páginas públicas con `playwright-core`;
+usar `WebSearch`/`WebFetch` mientras haya cupo. **No autorizado nunca:** tocar `dev`; `git push --force`; `git add -A`/`commit -a`; cambiar el HEAD del checkout principal;
+iniciar sesión en redes, resolver captchas, usar cuentas o cookies del usuario; tocar bases de datos de producción, secretos de Coolify o de otros proyectos del servidor; instalar servicios en Contabo.
+
+| Tema | Decisión final |
+| --- | --- |
+| Dónde se publica | Solo `test` (core + tablero). `dev` no se toca ni se menciona. |
+| Prettier | **No** se instala ni se reformatea. Los archivos originales ya fallaban con su `.prettierrc`; se escribe con el estilo del archivo vecino y se valida con `tsc --noEmit` y las pruebas. |
+| Cupos de padrón por sector (Top 300) | política ≥ 60 · empresas ≥ 45 · deporte ≥ 40 · cultura ≥ 30 · medios y creadores ≥ 40 · ciencia ≥ 20 · sociedad civil ≥ 25 (suman 260; los 40 restantes por puntaje libre). Si un sector no llega a su cupo con candidatos vigentes, se publica con los que haya y se dice cuántos faltan. |
+| Vigencia | Se incluye a quien tuvo actividad pública vigente en 2025–2026. Fallecidos y retirados sin vigencia quedan fuera, **salvo** expresidentes y figuras históricas con ≥ 5.000 visitas mensuales sostenidas, que entran etiquetados «histórica» y no ocupan cupo sectorial. |
+| Menores | Quien tenga menos de 18 años queda **fuera** del Top 300 y de toda lectura de comentarios. Sin fecha de nacimiento: adulto solo si es político o empresario con cargo vigente o si hay nota de prensa con su edad; si no, queda fuera del sentimiento (puede seguir en el ranking). |
+| Pesos del índice general | **visitas Wikipedia 60 % · audiencia verificada 30 % · puesto Merco 10 %**, escala logarítmica respecto al máximo (antes 55/25/20: Merco inflaba a empresarios). Prensa no puntúa. |
+| Cómo se valida el índice | Spearman contra las 5 posiciones de Ipsos. Si da < 0,6: probar la rejilla de pesos visitas ∈ {50,55,60,65,70} × audiencia ∈ {20,25,30,35} (Merco = resto, mínimo 5) y quedarse con la combinación de mayor Spearman cuyo Top 10 comparta ≥ 7 personas con el Top 10 de pesos 60/30/10. Registrar la rejilla en `docs/research/`. Si aun así < 0,6, publicar igual con la cifra real y una advertencia. |
+| Índice por sector | Percentil de la persona dentro de su sector con los mismos componentes. Es adicional, no sustituye al general. |
+| Suma de plataformas | `audiencia_conservadora = máximo entre plataformas + 25 % de la suma del resto`. Se muestran siempre las cifras por plataforma. |
+| Instagram exacto | No se puede legítimamente: se queda redondeado, con `followersIsLowerBound` y «≥». No insistir. |
+| X (Twitter) | Probar 20 cuentas conocidas en dos días distintos. Si ≥ 80 % devuelve el conteo y coincide entre días (±2 %), se implementa; si no, **X no se mide** y se documenta. No usar sesión, ni Nitter inestable en producción. |
+| Sentimiento: umbrales | ≥ 30 comentarios en español clasificados **y** ≥ 2 videos con ≥ 5 cada uno (como hoy). Prensa (tono de titulares): ≥ 15 titulares de ≥ 4 medios. Se publican por separado. |
+| Si el modelo valida mal | Si la precisión de «negativo» sobre los 200 comentarios etiquetados es < 70 %: publicar solo polaridad (positivo/neutro/negativo) con la advertencia y **sin** emoción ni ironía; si la precisión de polaridad global < 60 %, no publicar porcentajes y mostrar solo palabras frecuentes. |
+| Tamaño del lote de sentimiento | ≤ 40 personas por proceso, liberar el modelo entre lotes, ≤ 2 hilos de red. |
+| Memoria | Con < 3 GB libres no se lanza nada pesado (ONNX, Chromium, `next dev`); se hace trabajo liviano de otro carril y se vuelve a comprobar cada 10 minutos. Con < 1,5 GB se pausa todo lo pesado. No se cierran procesos del usuario. |
+| Cupo de búsqueda web agotado | Seguir con métodos de descubrimiento sin búsqueda (carril A, métodos 1–4 y 6). Lo que quede sin cuenta se marca «no encontrada con los métodos X, Y, Z» y se sigue. |
+| Captcha, login o bloqueo | Se detiene **esa plataforma**, se documenta el síntoma y la fecha, se deja `null` y se sigue con las demás. |
+| Despliegue fallido | Relanzar hasta 3 veces (el fallo típico es `npm ci` intermitente). Si sigue fallando, leer el log de Coolify, corregir si es del código, y si no es del código dejarlo anotado en el progreso y continuar con otro carril. Si un despliegue deja el tablero roto: revertir con un commit nuevo y volver a desplegar. |
+| Cambia todo el Top 10 al recalibrar | Se publica igual, con un registro de cambios (quién subió/bajó y por qué) en `docs/research/`. No se consulta. |
+| Ipsos sin PDF recuperable | Se conserva el extracto del transcript como evidencia fechada y la nota de 404 en pantalla. No se vuelve a intentar más de dos veces (una a Wayback con pausa, una al sitemap). |
+| Fichas sin medición alguna | Quedan al final como «sin medición» y no cuentan para los cupos. |
+| Repetir lecturas | Cuentas: cada semana; visitas: cada mes; sentimiento: cada mes. Guardar historial con fecha. |
+
+## 6. Qué hacer ante cada situación (para no preguntar)
+
+| Situación | Acción |
+| --- | --- |
+| `push` rechazado | `git fetch origin && git rebase origin/test`, reintentar. Si hay conflicto en archivos ajenos, no resolverlos: abortar el rebase y rehacer los cambios propios sobre el nuevo `origin/test`. |
+| Otra sesión modificó el mismo archivo | Rehacer sobre `origin/test`. Nunca sobrescribir trabajo ajeno. |
+| API (Wikipedia/Wikidata/YouTube/TikTok) devuelve 429/5xx | Pausa con retroceso (2, 4, 8 s…), máx. 4 intentos, luego dejar el hueco contado y repetir con `--retry-*`. |
+| Una cuenta candidata coincide solo por nombre | No suma. Se guarda en `unverifiedAccounts` con motivo. |
+| Una coincidencia de Wikidata parece de otra persona | Entra en `identity-overrides.json` como `REJECT` con razón; si es la misma con otra nacionalidad, `ACCEPT` con razón. |
+| Dos fichas son la misma persona | `duplicateOf` con `carryEvidence: true`. |
+| Un video del sentimiento es de un homónimo | `conversation-overrides.json` con `exclude` y razón. |
+| Una prueba falla por un error mío | Corregir el código, no la prueba. Si la prueba estaba mal, cambiarla y explicarlo en el commit. |
+| Una prueba falla por datos nuevos legítimos | Actualizar el dato esperado con justificación en el commit. |
+| No hay Wikipedia ni cuentas verificadas | Puntaje 0, «sin medición». No estimar. |
+| El tablero local no tiene base | Probar con `page.route('**/api/personalidades**')` sirviendo el JSON real; la pestaña no necesita base. |
+| `next dev` y `next build` en el mismo checkout | Se pisan (HTML sin JavaScript): no correr ambos; usar un solo worktree por vez. |
+| `git` avisa de CRLF/LF | Ignorar el aviso; no convertir archivos enteros. |
+| Un comando en segundo plano se mata por memoria | No relanzarlo de inmediato: esperar a ≥ 3 GB libres y relanzarlo una vez. |
+| Duda sobre si algo es público/legítimo | Si requiere sesión, captcha o evadir un bloqueo: no. Si es una página abierta que cualquier visitante ve: sí, con pausas y sin saturar. |
+
+## 7. Registro de progreso (obligatorio)
+
+Crear y mantener `docs/plans/personalidades-progreso.md` (se versiona en `test`). Al terminar cada paso relevante agregar una línea con fecha y hora, carril, qué se hizo,
+conteos antes→después, commit y estado de despliegue. Es lo que el dueño leerá para saber cómo va; no se le pide nada más. Al cerrar cada hito, una sección corta
+«Qué cambió / Qué falta / Riesgos» con enlaces a los informes de `docs/research/`.
+
+## 8. Entregables por hito
 
 | Hito | Contenido | Criterio de cierre |
 | --- | --- | --- |
@@ -298,11 +360,26 @@ Rechazar: coincidencia solo por nombre, fan pages, cuentas con <1.000 seguidores
 
 Cada hito se publica en `test` y se verifica en vivo antes de pasar al siguiente. No acumular un solo despliegue grande.
 
-## 6. Condiciones de parada y de consulta
+## 9. Frentes que se detienen solos (sin consultar a nadie)
 
-**Detenerse y consultar al usuario si:** (1) una fuente exige sesión, captcha o pago; (2) hay que instalar un servicio nuevo en Contabo; (3) el índice cambia de manera que el Top 10 cambie por completo; (4) se van a incluir menores; (5) se quiere llevar algo a `dev`; (6) la memoria de la laptop baja de 1,5 GB libres; (7) se agotan los cupos de búsqueda y no hay otro método de descubrimiento.
-**Seguir sin preguntar:** correr scripts, reintentar APIs, regenerar datos, commitear a `test`, relanzar un despliegue fallido una vez, escribir pruebas y documentación.
+Nunca se detiene todo el plan. Si un frente se bloquea, se **marca como bloqueado en el progreso con el motivo y la fecha y se sigue con el siguiente carril**:
+(1) una fuente exige sesión, captcha o pago → esa plataforma queda `null`; (2) haría falta instalar un servicio nuevo en Contabo → se omite esa mejora; (3) se necesitaría llevar algo a `dev` → no se hace;
+(4) la memoria baja de 1,5 GB → se pausa solo lo pesado y se sigue con lo liviano; (5) se agotan los cupos de búsqueda → se pasa a los métodos de descubrimiento sin búsqueda.
+Al final, el informe lista los frentes bloqueados y qué se necesitaría para destrabarlos. Eso es todo lo que se le entrega al dueño; no se le hacen preguntas durante la ejecución.
 
-## 7. Definición de «terminado»
+## 10. Secuencia de arranque (copiar y ejecutar en este orden)
+
+1. Worktree limpio desde `origin/test` de core y de tablero (sección 1). Comprobar que `python -m unittest scripts/social/people/test_candidate_quality.py` da 11 pruebas OK y `tsc --noEmit` del tablero sale limpio (enlazar `node_modules` del checkout principal con una unión de carpetas y quitarla al terminar).
+2. Crear `docs/plans/personalidades-progreso.md` con la línea de arranque y el estado inicial (conteos de la sección 0).
+3. Lanzar en paralelo los carriles que no compiten por memoria: **J** y **B** (solo lectura de web y archivos). **G** (regresiones) en paralelo.
+4. Cuando B fije `padron-v2.json`: **A** (cuentas, por lotes de 30) y **E** (cifras). Después **D** (sentimiento, ≤40 personas por lote, solo con ≥3 GB libres).
+5. Con A, D y E cerrados: **C** (índice, validación, sensibilidad) y regenerar `ranking-top300.json`.
+6. **F** (pantalla) sobre los datos finales; copiar los JSON al tablero; `tsc`; prueba local con `page.route`; commit; push a `test`.
+7. **H** en cada entrega: despliegue en Contabo, lectura en vivo, captura, línea en el progreso.
+8. **I** y el informe final.
+
+Cada hito termina con: pruebas en verde, commit en `test` (core + tablero), despliegue verificado en vivo y una línea en `personalidades-progreso.md`.
+
+## 11. Definición de «terminado»
 
 La pestaña `https://test.datosbolivia.com/?pestana=personalidades`, en escritorio y móvil, muestra un Top 300 con criterio escrito, ≥200 personas con cuenta verificada y cifra con fecha, sentimiento publicado para ≥120 con método validado, el Top 5 de Ipsos con su procedencia verificable, filtros que se cruzan, panel de calidad honesto, y existe un comando único (`audit_all.py`) que reproduce y audita todo con las pruebas en verde. Todo está en `test` (core y tablero), desplegado y verificado en vivo con captura.
