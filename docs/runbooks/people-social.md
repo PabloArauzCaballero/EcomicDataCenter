@@ -34,6 +34,18 @@ o su usuario coincide con una cuenta declarada en Wikidata y el nombre mostrado 
 entregan cifras sin sesión. La prensa se publica pero no puntúa (homónimos). Para publicar, copiar
 `ranking-top300.json` a `src/data/people-top300.json` del dashboard.
 
+## Sentimiento sobre cada persona (comentarios de YouTube)
+
+```powershell
+python scripts/social/people/collect_conversation.py            # videos recientes que nombran a la persona y sus comentarios; se puede repetir
+~/.observatorio-social/venv/Scripts/python scripts/social/people/analyze_conversation.py   # escribe conversation-sentiment.json
+```
+
+Mide lo que se comenta SOBRE la persona, no su propio canal, así que no necesita verificar cuentas. Solo adultos
+(nacimiento en Wikidata o cargo político/empresarial). Los textos quedan en `artifacts/` (fuera de Git); la salida
+solo lleva porcentajes, palabras frecuentes y los videos leídos, y exige 30 comentarios en español clasificados.
+Copiar `conversation-sentiment.json` a `src/data/people-conversation.json` del dashboard.
+
 ## Leer un canal para un piloto privado
 
 ```powershell

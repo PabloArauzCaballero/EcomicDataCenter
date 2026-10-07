@@ -104,6 +104,19 @@ class CandidateQualityTest(unittest.TestCase):
             if not person["measured"]:
                 self.assertEqual(person["score"], 0, person["name"])
 
+    def test_conversation_sentiment_publishes_only_aggregates(self):
+        talk = json.loads((HERE / "conversation-sentiment.json").read_text(encoding="utf-8"))
+        slugs = {person["slug"] for person in self.research["people"]}
+        self.assertTrue(set(talk["people"]) <= slugs)
+        for slug, entry in talk["people"].items():
+            self.assertEqual(set(entry), {"videosRead", "commentsRead", "commentsAnalyzed", "videos", "sentiment", "words"}, slug)
+            for video in entry["videos"]:
+                self.assertEqual(set(video), {"videoId", "title", "published", "url", "commentsRead", "commentsSpanish"}, slug)
+            if entry["sentiment"]:
+                self.assertGreaterEqual(entry["commentsAnalyzed"], 30, slug)
+            else:
+                self.assertIsNone(entry["words"], slug)
+
 
 if __name__ == "__main__":
     unittest.main()
