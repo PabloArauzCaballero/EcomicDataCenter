@@ -19,6 +19,21 @@ python -m unittest scripts/social/people/test_candidate_quality.py
 
 `collect_news_relevance.py` y `discover_youtube.py` guardan avances y se pueden ejecutar otra vez. Google News RSS devuelve como máximo 100 resultados por consulta y los homónimos pueden contaminar la búsqueda. El archivo `research-300.json` marca las cuentas como pendientes, no atribuye sus cifras a nadie y no otorga puestos.
 
+## Ordenar las 300 por atención medible
+
+```powershell
+python scripts/social/people/measure_attention.py   # Wikidata + visitas a Wikipedia (es/en, 12 meses)
+python scripts/social/people/measure_social.py      # TikTok y YouTube de cuentas con identidad respaldada
+python scripts/social/people/rank_people.py         # escribe ranking-top300.json
+python -m unittest scripts/social/people/test_candidate_quality.py
+```
+
+El índice es 55 % visitas a Wikipedia, 25 % audiencia verificada y 20 % puesto en Merco Líderes, en escala
+logarítmica. Una cuenta solo suma si Wikidata la declara oficial, TikTok la verifica con el nombre de la persona,
+o su usuario coincide con una cuenta declarada en Wikidata y el nombre mostrado coincide. Instagram, X y Facebook no
+entregan cifras sin sesión. La prensa se publica pero no puntúa (homónimos). Para publicar, copiar
+`ranking-top300.json` a `src/data/people-top300.json` del dashboard.
+
 ## Leer un canal para un piloto privado
 
 ```powershell

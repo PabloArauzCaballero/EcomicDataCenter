@@ -86,6 +86,24 @@ class CandidateQualityTest(unittest.TestCase):
         self.assertIn("Ipsos CIESMORI", self.ranking["source"]["publisher"])
         self.assertIn("No se inventan", self.ranking["interpretation"]["cutoffLimit"])
 
+    def test_top_300_ranks_every_card_once_and_counts_only_backed_accounts(self):
+        top = json.loads((HERE / "ranking-top300.json").read_text(encoding="utf-8"))
+        people = top["people"]
+        self.assertEqual(len(people), 300)
+        self.assertEqual([person["rank"] for person in people], list(range(1, 301)))
+        self.assertEqual({person["slug"] for person in people}, {person["slug"] for person in self.research["people"]})
+        scores = [person["score"] for person in people]
+        self.assertEqual(scores, sorted(scores, reverse=True))
+        counted = {"WIKIDATA_DECLARED", "PLATFORM_VERIFIED", "HANDLE_MATCHES_WIKIDATA"}
+        for person in people:
+            for account in person["verifiedAccounts"]:
+                self.assertIn(account["verification"], counted, person["name"])
+            for account in person["unverifiedAccounts"]:
+                self.assertNotIn(account["verification"], counted, person["name"])
+            self.assertNotEqual(person["adultReview"], "MINOR_OR_UNDER_18", person["name"])
+            if not person["measured"]:
+                self.assertEqual(person["score"], 0, person["name"])
+
 
 if __name__ == "__main__":
     unittest.main()
