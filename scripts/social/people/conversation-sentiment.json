@@ -1,6 +1,6 @@
 {
  "status": "YOUTUBE_CONVERSATION_ABOUT_PERSON",
- "generatedAt": "2026-10-07T18:25:35Z",
+ "generatedAt": "2026-10-07T20:07:04Z",
  "method": {
   "source": "Comentarios públicos de YouTube en videos de los últimos 12 meses cuyo título nombra a la persona",
   "model": "pysentimiento/robertuito en ONNX: sentiment, emotion, irony",
@@ -13,8 +13,8 @@
  },
  "coverage": {
   "peopleRead": 250,
-  "peoplePublishable": 27,
-  "commentsAnalyzed": 2240
+  "peoplePublishable": 23,
+  "commentsAnalyzed": 2594
  },
  "people": {
   "P_RODRIGO_PAZ_PEREIRA": {
@@ -1299,7 +1299,7 @@
    ]
   },
   "P_IVO_KULJIS": {
-   "videosRead": 4,
+   "videosRead": 12,
    "commentsRead": 1,
    "commentsAnalyzed": 1,
    "videos": [
@@ -1332,6 +1332,70 @@
      "title": "El Choco Ivo Kuljis - Belen Ortiz  (En Vivo) Mediad Bolivia - Acústico",
      "published": "hace 5 m",
      "url": "https://www.youtube.com/watch?v=w1t-jTJ1fGs",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "aFbjx8Jifdo",
+     "title": "IVO KULJIS RECONOCIDO POR MERCO",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=aFbjx8Jifdo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "o7IJfOVNo64",
+     "title": "Ivo Kuljis es distinguido por su trayectoria durante el reconocimiento a empresarios y productores p",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=o7IJfOVNo64",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "4iFSEmKLexI",
+     "title": "Palabras Ivo Kuljis Füchtner, Ex Presidente FEXPOCRUZ 1986-1987 - Homenaje Ex Presidentes FEXPOCRUZ",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=4iFSEmKLexI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "Je9krxPq8Yg",
+     "title": "Ivo Kuljis hizo un buen trabajo de ser político y ser empresario - Jean Pierre Antelo",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=Je9krxPq8Yg",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "BRnLLWs0_hM",
+     "title": "La apuesta de Ivo Kuljis por la industria nacional",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=BRnLLWs0_hM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "HYKlt0OK6gA",
+     "title": "Palabras de Ivo Kuljis Presidente de Red Uno,  durante el cóctel #xns  #xona #santacruz   #bolivia",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=HYKlt0OK6gA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "pqB7m1uOOXU",
+     "title": "RECONOCIMIENTO DE FEXPOCRUZ A IVO KULJIS",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=pqB7m1uOOXU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "uscvZPnJ2FE",
+     "title": "El homenaje a Ivo Kuljis que emocionó a Santa Cruz | Emblema de Oro 2026",
+     "published": "hace 12 días",
+     "url": "https://www.youtube.com/watch?v=uscvZPnJ2FE",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -2388,8 +2452,8 @@
    ]
   },
   "P_GONZALO_SANCHEZ_DE_LOZADA": {
-   "videosRead": 4,
-   "commentsRead": 4,
+   "videosRead": 9,
+   "commentsRead": 6,
    "commentsAnalyzed": 3,
    "videos": [
     {
@@ -2423,6 +2487,46 @@
      "url": "https://www.youtube.com/watch?v=4GZw9YLK13I",
      "commentsRead": 1,
      "commentsSpanish": 1
+    },
+    {
+     "videoId": "XzOZlVhCg4I",
+     "title": "Gonzalo Sánchez de Lozada (GONI) #gonzalosanchez #tutoquiroga #bolivia #lara",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=XzOZlVhCg4I",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "fXV9Au1IeRo",
+     "title": "Gonzalo Sánchez de Lozada: Llamado al MNR ante la crisis boliviana",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=fXV9Au1IeRo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ER4hPmlQPZg",
+     "title": "Gonzalo Sánchez de Lozada pide unidad del MNR ante crisis boliviana",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=ER4hPmlQPZg",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "134u0SPxu0o",
+     "title": "La renuncia de Gonzalo Sanchez de Lozada 📰📺#bolivia #renuncia #calidad #periodismo",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=134u0SPxu0o",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "hY8Pfzb1eoE",
+     "title": "\"ESTA PASANDO LO MISMO QUE EN 2003 CON GONZALO SÁNCHEZ DE LOZADA\"",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=hY8Pfzb1eoE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
@@ -2645,9 +2749,9 @@
    "words": null
   },
   "P_MOISES_PANIAGUA": {
-   "videosRead": 4,
-   "commentsRead": 28,
-   "commentsAnalyzed": 22,
+   "videosRead": 10,
+   "commentsRead": 67,
+   "commentsAnalyzed": 50,
    "videos": [
     {
      "videoId": "3W6L1ake55M",
@@ -2656,14 +2760,6 @@
      "url": "https://www.youtube.com/watch?v=3W6L1ake55M",
      "commentsRead": 4,
      "commentsSpanish": 4
-    },
-    {
-     "videoId": "qTZWdv4EvnY",
-     "title": "¡GOOOOL! de la Verde, 72’ Moisés PaniaguaRELATO GONZALO COBOBolivia - Surinam",
-     "published": "hace 6 m",
-     "url": "https://www.youtube.com/watch?v=qTZWdv4EvnY",
-     "commentsRead": 6,
-     "commentsSpanish": 5
     },
     {
      "videoId": "lrKXKBgbXYk",
@@ -2680,10 +2776,233 @@
      "url": "https://www.youtube.com/watch?v=6q95H7nqIp0",
      "commentsRead": 16,
      "commentsSpanish": 11
+    },
+    {
+     "videoId": "sstYl_36F8c",
+     "title": "LA LECCIÓN DE OSCAR LOPEZ PARA MOISES PANIAGUA 🏆 FUTBOLISTA ZURDO",
+     "published": "hace 12 días",
+     "url": "https://www.youtube.com/watch?v=sstYl_36F8c",
+     "commentsRead": 5,
+     "commentsSpanish": 5
+    },
+    {
+     "videoId": "svC6D83kVZE",
+     "title": "Moisés Paniagua (Club Always Ready) - Goles, Habilidades y Asistencias 2025 | HD",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=svC6D83kVZE",
+     "commentsRead": 7,
+     "commentsSpanish": 2
+    },
+    {
+     "videoId": "RS2XGDCRuuY",
+     "title": "📍 ✈️ Moisés Paniagua viaja a Marruecos con maletas llenas de ilusión",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=RS2XGDCRuuY",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "-3h0vNZJrZI",
+     "title": "Gooooool de Moises Paniagua para el empate de la verde",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=-3h0vNZJrZI",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "-8J9w9CImLY",
+     "title": "Relator argentino EMOCIONADO con el gol de Moisés Paniagua | Bolivia 2-1 Surinam ",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=-8J9w9CImLY",
+     "commentsRead": 1,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "RSEqjKJ7NW8",
+     "title": "Moisés Paniagua es el mejor jugador joven de Bolivia, según Tigo Sports",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=RSEqjKJ7NW8",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "YpqV2PEGdaI",
+     "title": "MOISES PANIAGUA, REVELACIÓN TARIJEÑA, YA ESTÁ EN LA VERDE",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=YpqV2PEGdaI",
+     "commentsRead": 31,
+     "commentsSpanish": 25
     }
    ],
-   "sentiment": null,
-   "words": null
+   "sentiment": {
+    "analyzed": 50,
+    "positivePct": 18.0,
+    "negativePct": 36.0,
+    "neutralPct": 46.0,
+    "ironyPct": 38.0,
+    "netScore": -18.0,
+    "topEmotion": "joy",
+    "emotionPct": {
+     "joy": 26.0,
+     "sadness": 4.0,
+     "anger": 8.0,
+     "surprise": 2.0,
+     "disgust": 0.0,
+     "fear": 0.0
+    }
+   },
+   "words": [
+    {
+     "kind": "WORD",
+     "term": "primer",
+     "count": 9,
+     "rank": 1
+    },
+    {
+     "kind": "WORD",
+     "term": "gol",
+     "count": 7,
+     "rank": 2
+    },
+    {
+     "kind": "WORD",
+     "term": "bolivia",
+     "count": 7,
+     "rank": 3
+    },
+    {
+     "kind": "WORD",
+     "term": "ganar",
+     "count": 6,
+     "rank": 4
+    },
+    {
+     "kind": "WORD",
+     "term": "abuelita",
+     "count": 6,
+     "rank": 5
+    },
+    {
+     "kind": "WORD",
+     "term": "jugador",
+     "count": 4,
+     "rank": 6
+    },
+    {
+     "kind": "WORD",
+     "term": "paso",
+     "count": 4,
+     "rank": 7
+    },
+    {
+     "kind": "WORD",
+     "term": "selección",
+     "count": 4,
+     "rank": 8
+    },
+    {
+     "kind": "WORD",
+     "term": "años",
+     "count": 4,
+     "rank": 9
+    },
+    {
+     "kind": "WORD",
+     "term": "representante",
+     "count": 3,
+     "rank": 10
+    },
+    {
+     "kind": "WORD",
+     "term": "fontana",
+     "count": 3,
+     "rank": 11
+    },
+    {
+     "kind": "WORD",
+     "term": "club",
+     "count": 3,
+     "rank": 12
+    },
+    {
+     "kind": "WORD",
+     "term": "surinam",
+     "count": 3,
+     "rank": 13
+    },
+    {
+     "kind": "WORD",
+     "term": "suerte",
+     "count": 3,
+     "rank": 14
+    },
+    {
+     "kind": "WORD",
+     "term": "equipos",
+     "count": 3,
+     "rank": 15
+    },
+    {
+     "kind": "WORD",
+     "term": "mejores",
+     "count": 3,
+     "rank": 16
+    },
+    {
+     "kind": "WORD",
+     "term": "fútbol",
+     "count": 3,
+     "rank": 17
+    },
+    {
+     "kind": "WORD",
+     "term": "ganó",
+     "count": 3,
+     "rank": 18
+    },
+    {
+     "kind": "WORD",
+     "term": "dios",
+     "count": 3,
+     "rank": 19
+    },
+    {
+     "kind": "WORD",
+     "term": "papá",
+     "count": 3,
+     "rank": 20
+    },
+    {
+     "kind": "WORD",
+     "term": "resultado",
+     "count": 3,
+     "rank": 21
+    },
+    {
+     "kind": "WORD",
+     "term": "humildad",
+     "count": 3,
+     "rank": 22
+    },
+    {
+     "kind": "WORD",
+     "term": "abuela",
+     "count": 3,
+     "rank": 23
+    },
+    {
+     "kind": "WORD",
+     "term": "error",
+     "count": 2,
+     "rank": 24
+    },
+    {
+     "kind": "WORD",
+     "term": "maraude",
+     "count": 2,
+     "rank": 25
+    }
+   ]
   },
   "P_LEONEL_FRANSEZZE": {
    "videosRead": 1,
@@ -2748,175 +3067,8 @@
      "commentsSpanish": 1
     }
    ],
-   "sentiment": {
-    "analyzed": 58,
-    "positivePct": 32.8,
-    "negativePct": 50.0,
-    "neutralPct": 17.2,
-    "ironyPct": 20.7,
-    "netScore": -17.2,
-    "topEmotion": "joy",
-    "emotionPct": {
-     "joy": 31.0,
-     "sadness": 1.7,
-     "anger": 19.0,
-     "surprise": 0.0,
-     "disgust": 0.0,
-     "fear": 0.0
-    }
-   },
-   "words": [
-    {
-     "kind": "WORD",
-     "term": "clase",
-     "count": 9,
-     "rank": 1
-    },
-    {
-     "kind": "WORD",
-     "term": "evo",
-     "count": 7,
-     "rank": 2
-    },
-    {
-     "kind": "WORD",
-     "term": "bolivia",
-     "count": 7,
-     "rank": 3
-    },
-    {
-     "kind": "WORD",
-     "term": "jesús",
-     "count": 7,
-     "rank": 4
-    },
-    {
-     "kind": "WORD",
-     "term": "marx",
-     "count": 7,
-     "rank": 5
-    },
-    {
-     "kind": "WORD",
-     "term": "proceso",
-     "count": 6,
-     "rank": 6
-    },
-    {
-     "kind": "WORD",
-     "term": "pueblo",
-     "count": 6,
-     "rank": 7
-    },
-    {
-     "kind": "WORD",
-     "term": "izquierda",
-     "count": 6,
-     "rank": 8
-    },
-    {
-     "kind": "WORD",
-     "term": "mundo",
-     "count": 5,
-     "rank": 9
-    },
-    {
-     "kind": "WORD",
-     "term": "falta",
-     "count": 5,
-     "rank": 10
-    },
-    {
-     "kind": "WORD",
-     "term": "producción",
-     "count": 5,
-     "rank": 11
-    },
-    {
-     "kind": "WORD",
-     "term": "saludos",
-     "count": 4,
-     "rank": 12
-    },
-    {
-     "kind": "WORD",
-     "term": "canal",
-     "count": 4,
-     "rank": 13
-    },
-    {
-     "kind": "WORD",
-     "term": "contenido",
-     "count": 4,
-     "rank": 14
-    },
-    {
-     "kind": "WORD",
-     "term": "texto",
-     "count": 4,
-     "rank": 15
-    },
-    {
-     "kind": "WORD",
-     "term": "parece",
-     "count": 4,
-     "rank": 16
-    },
-    {
-     "kind": "WORD",
-     "term": "dice",
-     "count": 4,
-     "rank": 17
-    },
-    {
-     "kind": "WORD",
-     "term": "grandes",
-     "count": 4,
-     "rank": 18
-    },
-    {
-     "kind": "WORD",
-     "term": "movimiento",
-     "count": 4,
-     "rank": 19
-    },
-    {
-     "kind": "WORD",
-     "term": "país",
-     "count": 4,
-     "rank": 20
-    },
-    {
-     "kind": "WORD",
-     "term": "poder",
-     "count": 4,
-     "rank": 21
-    },
-    {
-     "kind": "WORD",
-     "term": "democracia",
-     "count": 4,
-     "rank": 22
-    },
-    {
-     "kind": "WORD",
-     "term": "años",
-     "count": 4,
-     "rank": 23
-    },
-    {
-     "kind": "WORD",
-     "term": "élite",
-     "count": 4,
-     "rank": 24
-    },
-    {
-     "kind": "WORD",
-     "term": "proyectos",
-     "count": 4,
-     "rank": 25
-    }
-   ]
+   "sentiment": null,
+   "words": null
   },
   "P_CARLOS_LAMPE": {
    "videosRead": 4,
@@ -2956,175 +3108,8 @@
      "commentsSpanish": 0
     }
    ],
-   "sentiment": {
-    "analyzed": 33,
-    "positivePct": 45.5,
-    "negativePct": 39.4,
-    "neutralPct": 15.2,
-    "ironyPct": 33.3,
-    "netScore": 6.1,
-    "topEmotion": "joy",
-    "emotionPct": {
-     "joy": 42.4,
-     "sadness": 3.0,
-     "anger": 3.0,
-     "surprise": 0.0,
-     "disgust": 0.0,
-     "fear": 0.0
-    }
-   },
-   "words": [
-    {
-     "kind": "WORD",
-     "term": "argelia",
-     "count": 7,
-     "rank": 1
-    },
-    {
-     "kind": "WORD",
-     "term": "argentina",
-     "count": 6,
-     "rank": 2
-    },
-    {
-     "kind": "WORD",
-     "term": "grande",
-     "count": 4,
-     "rank": 3
-    },
-    {
-     "kind": "WORD",
-     "term": "boca",
-     "count": 3,
-     "rank": 4
-    },
-    {
-     "kind": "WORD",
-     "term": "excelente",
-     "count": 3,
-     "rank": 5
-    },
-    {
-     "kind": "WORD",
-     "term": "equipo",
-     "count": 3,
-     "rank": 6
-    },
-    {
-     "kind": "WORD",
-     "term": "bolivia",
-     "count": 3,
-     "rank": 7
-    },
-    {
-     "kind": "WORD",
-     "term": "jugar",
-     "count": 3,
-     "rank": 8
-    },
-    {
-     "kind": "WORD",
-     "term": "seria",
-     "count": 2,
-     "rank": 9
-    },
-    {
-     "kind": "WORD",
-     "term": "comentarista",
-     "count": 2,
-     "rank": 10
-    },
-    {
-     "kind": "WORD",
-     "term": "mundial",
-     "count": 2,
-     "rank": 11
-    },
-    {
-     "kind": "WORD",
-     "term": "tipazo",
-     "count": 2,
-     "rank": 12
-    },
-    {
-     "kind": "WORD",
-     "term": "logro",
-     "count": 2,
-     "rank": 13
-    },
-    {
-     "kind": "WORD",
-     "term": "arquero",
-     "count": 2,
-     "rank": 14
-    },
-    {
-     "kind": "WORD",
-     "term": "futbol",
-     "count": 2,
-     "rank": 15
-    },
-    {
-     "kind": "WORD",
-     "term": "onda",
-     "count": 2,
-     "rank": 16
-    },
-    {
-     "kind": "WORD",
-     "term": "chico",
-     "count": 2,
-     "rank": 17
-    },
-    {
-     "kind": "WORD",
-     "term": "verguenza",
-     "count": 2,
-     "rank": 18
-    },
-    {
-     "kind": "WORD",
-     "term": "vota",
-     "count": 2,
-     "rank": 19
-    },
-    {
-     "kind": "WORD",
-     "term": "viva",
-     "count": 2,
-     "rank": 20
-    },
-    {
-     "kind": "WORD",
-     "term": "hermano",
-     "count": 2,
-     "rank": 21
-    },
-    {
-     "kind": "WORD",
-     "term": "argelino",
-     "count": 2,
-     "rank": 22
-    },
-    {
-     "kind": "WORD",
-     "term": "salir",
-     "count": 2,
-     "rank": 23
-    },
-    {
-     "kind": "WORD",
-     "term": "igual",
-     "count": 2,
-     "rank": 24
-    },
-    {
-     "kind": "WORD",
-     "term": "ayer",
-     "count": 2,
-     "rank": 25
-    }
-   ]
+   "sentiment": null,
+   "words": null
   },
   "P_SAMUEL_DORIA_MEDINA": {
    "videosRead": 4,
@@ -3335,9 +3320,9 @@
    ]
   },
   "P_DAVID_CHOQUEHUANCA": {
-   "videosRead": 3,
-   "commentsRead": 25,
-   "commentsAnalyzed": 18,
+   "videosRead": 8,
+   "commentsRead": 26,
+   "commentsAnalyzed": 19,
    "videos": [
     {
      "videoId": "0G5VMRuWjLM",
@@ -3362,6 +3347,46 @@
      "url": "https://www.youtube.com/watch?v=-eJu2MLSaSI",
      "commentsRead": 1,
      "commentsSpanish": 1
+    },
+    {
+     "videoId": "KedSpOTclvA",
+     "title": "DAVID CHOQUEHUANCA REFLEXIONÓ SOBRE LOS DESAFÍOS QUE ENFRENTA BOLIVIA Y SOBRE LA TRANSICIÓN POLÍTICA",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=KedSpOTclvA",
+     "commentsRead": 1,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "oHKFMid5JEc",
+     "title": "David Choquehuanca pide igualdad ante la ley para todos los involucrados en casos de corrupción",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=oHKFMid5JEc",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "-EnuzBk3nFA",
+     "title": "David Choquehuanca culpa a los exlegisladores por la falta de divisas y combustible",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=-EnuzBk3nFA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "Bl031CWDtTQ",
+     "title": "Presentación de libro David Choquehuanca | 01/2023 | Canal Caribe",
+     "published": "hace 5 m",
+     "url": "https://www.youtube.com/watch?v=Bl031CWDtTQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "V0WwdDwZzvg",
+     "title": "Disertación David Choquehuanca",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=V0WwdDwZzvg",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
@@ -3576,9 +3601,9 @@
    ]
   },
   "P_MANFRED_REYES_VILLA": {
-   "videosRead": 4,
-   "commentsRead": 65,
-   "commentsAnalyzed": 52,
+   "videosRead": 3,
+   "commentsRead": 5,
+   "commentsAnalyzed": 4,
    "videos": [
     {
      "videoId": "Dbqv9xa_bas",
@@ -3597,14 +3622,6 @@
      "commentsSpanish": 2
     },
     {
-     "videoId": "KZc51ysa_0I",
-     "title": "🟠  El alcalde #ManfredReyesVilla afirmó que #EdmandLara faltó el respeto al uniforme",
-     "published": "hace 4 sem.",
-     "url": "https://www.youtube.com/watch?v=KZc51ysa_0I",
-     "commentsRead": 60,
-     "commentsSpanish": 48
-    },
-    {
      "videoId": "mzsjqpUU-Ds",
      "title": "Manfred Reyes Villa: El llamado a la UNIDAD que Bolivia necesitaba | Acuerdo Nacional",
      "published": "hace 4 m",
@@ -3613,180 +3630,13 @@
      "commentsSpanish": 2
     }
    ],
-   "sentiment": {
-    "analyzed": 52,
-    "positivePct": 7.7,
-    "negativePct": 67.3,
-    "neutralPct": 25.0,
-    "ironyPct": 17.3,
-    "netScore": -59.6,
-    "topEmotion": "anger",
-    "emotionPct": {
-     "joy": 3.8,
-     "sadness": 0.0,
-     "anger": 46.2,
-     "surprise": 0.0,
-     "disgust": 0.0,
-     "fear": 0.0
-    }
-   },
-   "words": [
-    {
-     "kind": "WORD",
-     "term": "respeto",
-     "count": 12,
-     "rank": 1
-    },
-    {
-     "kind": "WORD",
-     "term": "lara",
-     "count": 10,
-     "rank": 2
-    },
-    {
-     "kind": "WORD",
-     "term": "respeta",
-     "count": 7,
-     "rank": 3
-    },
-    {
-     "kind": "WORD",
-     "term": "nadie",
-     "count": 6,
-     "rank": 4
-    },
-    {
-     "kind": "WORD",
-     "term": "presidente",
-     "count": 6,
-     "rank": 5
-    },
-    {
-     "kind": "WORD",
-     "term": "uniforme",
-     "count": 6,
-     "rank": 6
-    },
-    {
-     "kind": "WORD",
-     "term": "pais",
-     "count": 6,
-     "rank": 7
-    },
-    {
-     "kind": "WORD",
-     "term": "dice",
-     "count": 5,
-     "rank": 8
-    },
-    {
-     "kind": "WORD",
-     "term": "vicepresidente",
-     "count": 5,
-     "rank": 9
-    },
-    {
-     "kind": "WORD",
-     "term": "creo",
-     "count": 5,
-     "rank": 10
-    },
-    {
-     "kind": "WORD",
-     "term": "peor",
-     "count": 4,
-     "rank": 11
-    },
-    {
-     "kind": "WORD",
-     "term": "militares",
-     "count": 4,
-     "rank": 12
-    },
-    {
-     "kind": "WORD",
-     "term": "bolivia",
-     "count": 4,
-     "rank": 13
-    },
-    {
-     "kind": "WORD",
-     "term": "militar",
-     "count": 4,
-     "rank": 14
-    },
-    {
-     "kind": "WORD",
-     "term": "señor",
-     "count": 4,
-     "rank": 15
-    },
-    {
-     "kind": "WORD",
-     "term": "ejemplo",
-     "count": 4,
-     "rank": 16
-    },
-    {
-     "kind": "WORD",
-     "term": "habla",
-     "count": 4,
-     "rank": 17
-    },
-    {
-     "kind": "WORD",
-     "term": "vida",
-     "count": 4,
-     "rank": 18
-    },
-    {
-     "kind": "WORD",
-     "term": "decir",
-     "count": 3,
-     "rank": 19
-    },
-    {
-     "kind": "WORD",
-     "term": "cree",
-     "count": 3,
-     "rank": 20
-    },
-    {
-     "kind": "WORD",
-     "term": "mal",
-     "count": 3,
-     "rank": 21
-    },
-    {
-     "kind": "WORD",
-     "term": "policías",
-     "count": 3,
-     "rank": 22
-    },
-    {
-     "kind": "WORD",
-     "term": "trabajo",
-     "count": 3,
-     "rank": 23
-    },
-    {
-     "kind": "WORD",
-     "term": "alcalde",
-     "count": 3,
-     "rank": 24
-    },
-    {
-     "kind": "WORD",
-     "term": "capitán",
-     "count": 3,
-     "rank": 25
-    }
-   ]
+   "sentiment": null,
+   "words": null
   },
   "P_ERWIN_SANCHEZ": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 13,
+   "commentsRead": 5,
+   "commentsAnalyzed": 5,
    "videos": [
     {
      "videoId": "iLlxT_Yk_bA",
@@ -3819,6 +3669,78 @@
      "url": "https://www.youtube.com/watch?v=5gNeRBr4-40",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "Mey1T_vgNio",
+     "title": "\"Tengo vergüenza de nuestro fútbol\" Erwin Sánchez (Guabirá 1-1 Blooming) | 𝗠𝗮𝗰 𝗗𝗲𝗽𝗼𝗿𝘁𝗲𝘀",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=Mey1T_vgNio",
+     "commentsRead": 3,
+     "commentsSpanish": 3
+    },
+    {
+     "videoId": "6CJSZUUJ0hE",
+     "title": "“NO ES JUSTO LO QUE LE PASÓ A ERWIN SÁNCHEZ”",
+     "published": "hace 13 días",
+     "url": "https://www.youtube.com/watch?v=6CJSZUUJ0hE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "dliJTJGK5W0",
+     "title": "“TENGO VERGUENZA DE NUESTRO FÚTBOL”-ERWIN SÁNCHEZ-DT. BLOOMING",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=dliJTJGK5W0",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "XHei4wtPyn0",
+     "title": "ERWIN SÁNCHEZ, CLÁSICO CRUCEÑO",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=XHei4wtPyn0",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "0w89CdzdPtc",
+     "title": "“EL RESPONSABLE POR LA DERROTA SOY YO”-ERWIN SÁNCHEZ-D.T. BLOOMING",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=0w89CdzdPtc",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "worGqOGnKYk",
+     "title": "⚽🚨 ¡Erwin Sánchez deja Blooming! Cristian Paulucci será el nuevo técnico",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=worGqOGnKYk",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "pxa_YS7rOR0",
+     "title": "\"Ya basta de hablar de eso (altura)\" Erwin Sánchez, dt de Blooming | 𝗠𝗮𝗰 𝗗𝗲𝗽𝗼𝗿𝘁𝗲𝘀",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=pxa_YS7rOR0",
+     "commentsRead": 1,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "cCO9x05U2Tk",
+     "title": "“LA CAPRICHOSA NO QUISO ENTRAR”-ERWIN SÁNCHEZ-D.T. BLOOMING",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=cCO9x05U2Tk",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "R6yip38M3GI",
+     "title": "ERWIN SÁNCHEZ nuevo DT de BLOOMING",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=R6yip38M3GI",
+     "commentsRead": 1,
+     "commentsSpanish": 1
     }
    ],
    "sentiment": null,
@@ -4058,19 +3980,10 @@
    ]
   },
   "P_MAURICIO_BALDIVIESO": {
-   "videosRead": 1,
-   "commentsRead": 1,
+   "videosRead": 0,
+   "commentsRead": 0,
    "commentsAnalyzed": 0,
-   "videos": [
-    {
-     "videoId": "zUPFx9Yg0Ss",
-     "title": "EN PELOTAS | ¿SE VA O NO BALDIVIESO? | MAURICIO PANOZO, JAIME GALARZA, POLLO PINTO, JOSUÉ SALAZAR",
-     "published": "Transmitido hace 5 m",
-     "url": "https://www.youtube.com/watch?v=zUPFx9Yg0Ss",
-     "commentsRead": 1,
-     "commentsSpanish": 0
-    }
-   ],
+   "videos": [],
    "sentiment": null,
    "words": null
   },
@@ -4083,17 +3996,17 @@
    "words": null
   },
   "P_EDUARDO_RODRIGUEZ_VELTZE": {
-   "videosRead": 4,
-   "commentsRead": 1,
-   "commentsAnalyzed": 1,
+   "videosRead": 7,
+   "commentsRead": 80,
+   "commentsAnalyzed": 64,
    "videos": [
     {
      "videoId": "nyOmanZ1oig",
      "title": "Eduardo Rodríguez Veltzé: “Bolivia destruyó su justicia”| Palabras Mayores| Episodio 15",
      "published": "hace 4 m",
      "url": "https://www.youtube.com/watch?v=nyOmanZ1oig",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 76,
+     "commentsSpanish": 62
     },
     {
      "videoId": "RAa-HRl7-Bo",
@@ -4118,6 +4031,30 @@
      "url": "https://www.youtube.com/watch?v=h2ovdgSrJxw",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "JXgZS5HAx7A",
+     "title": "Presidente Eduardo Rodríguez Veltzé | Haciendo Historia con Ángel Careaga | 11-10-2025",
+     "published": "Transmitido hace 11 m",
+     "url": "https://www.youtube.com/watch?v=JXgZS5HAx7A",
+     "commentsRead": 2,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "Mal2Waz0zrg",
+     "title": "Ex Presidente Eduardo Rodríguez Veltzé. El tema de las \" reformas a la justicia\", es \" impresindible",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=Mal2Waz0zrg",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "4-2WakHNkOg",
+     "title": "Eduardo Rodríguez Veltzé",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=4-2WakHNkOg",
+     "commentsRead": 1,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
@@ -4132,7 +4069,7 @@
    "words": null
   },
   "P_CHI_HYUN_CHUNG": {
-   "videosRead": 4,
+   "videosRead": 12,
    "commentsRead": 6,
    "commentsAnalyzed": 4,
    "videos": [
@@ -4167,13 +4104,77 @@
      "url": "https://www.youtube.com/watch?v=HF-1h1UnAQk",
      "commentsRead": 1,
      "commentsSpanish": 1
+    },
+    {
+     "videoId": "6Szj5ugH-ks",
+     "title": "Chi Hyun Chung",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=6Szj5ugH-ks",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "4tY3yAzAosY",
+     "title": "Entrevista con el cirujano y político Chi Hyun Chung",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=4tY3yAzAosY",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "wNW7FJ_i6Ns",
+     "title": "Entrevista candidato a gobernador CHI HYUN CHUNG - OTRO ENFOQUE",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=wNW7FJ_i6Ns",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "xqyMSAeTn6I",
+     "title": "Chi Hyun Chung cuestiona la situación del combustible en el país",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=xqyMSAeTn6I",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "i1GpcfCqZyc",
+     "title": "Debate Santa Cruz: Chi Hyun Chung, exposición y respuestas",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=i1GpcfCqZyc",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "sVGj7YGa6eo",
+     "title": "Chi Hyun Chung candidato por MTS",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=sVGj7YGa6eo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "-M63OJcRBwc",
+     "title": "Camacho analiza empresas públicas y Chi Hyun Chung detalla propuesta rumbo a la Gobernación cruceña.",
+     "published": "Transmitido hace 9 m",
+     "url": "https://www.youtube.com/watch?v=-M63OJcRBwc",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "vvQMvszJsj0",
+     "title": "Asambleístas piden agilizar justicia tras apr3hensión de Chi Hyun Chung",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=vvQMvszJsj0",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_JULIO_CESAR_BALDIVIESO": {
-   "videosRead": 4,
+   "videosRead": 10,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -4208,15 +4209,63 @@
      "url": "https://www.youtube.com/watch?v=DgN4ubv1l64",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "fBUMyAfG0Sc",
+     "title": "Conferencia Always Ready -Julio Cesar Baldivieso 05-03-2026 #zoomdeportivo ",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=fBUMyAfG0Sc",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "iE2i3SCtkwQ",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Julio Baldivieso  esta preocupado por la situación del país .",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=iE2i3SCtkwQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "h9pjUA3WTNk",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Julio Baldivieso del GV Club Deportivo San José de Oruro",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=h9pjUA3WTNk",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "8aVBU31i-M8",
+     "title": " Julio Baldivieso D.T. de G.V. San José afirmó que vienen trabajando de cara al clásico orureño.",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=8aVBU31i-M8",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "7NgCve7UZes",
+     "title": "Julio César Baldivieso DT de Always Ready | Polémica sobre el cambio de estadio 🏟 ",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=7NgCve7UZes",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "UgU1tD8epNQ",
+     "title": "📍¿QUE TE PARECE LAS DECLARACIONES DE JULIO BALDIVIESO? DEBATE EL ALARGUE 02_03",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=UgU1tD8epNQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_CARLA_ORTIZ": {
-   "videosRead": 4,
-   "commentsRead": 10,
-   "commentsAnalyzed": 9,
+   "videosRead": 12,
+   "commentsRead": 14,
+   "commentsAnalyzed": 10,
    "videos": [
     {
      "videoId": "fyYxHuoQEUw",
@@ -4249,13 +4298,77 @@
      "url": "https://www.youtube.com/watch?v=yC5EolByoWU",
      "commentsRead": 2,
      "commentsSpanish": 2
+    },
+    {
+     "videoId": "J97uZcVNiGY",
+     "title": "🟢 Carla Ortiz, actriz y productora de cine |17.11.25|",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=J97uZcVNiGY",
+     "commentsRead": 2,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "ePgj8VxPmRc",
+     "title": "Carla Ortíz nos habla de su nueva película “UN MILAGRO DE NAVIDAD EN LA PAZ”",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=ePgj8VxPmRc",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "4u9kDUNpe4o",
+     "title": "Carla Ortiz revela la esencia de Un Milagro de Navidad en La Paz en el programa juvenil La Otra Voz",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=4u9kDUNpe4o",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "AUwlJSSPcJI",
+     "title": "La actriz y productora boliviana Carla Ortiz anunció el estreno de “Un milagro de Navidad en La Paz”",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=AUwlJSSPcJI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "sDv7Vg7Omwo",
+     "title": "Carla Ortiz - Un milagro de Navidad en La Paz",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=sDv7Vg7Omwo",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "EJr88AiOc_Y",
+     "title": "#EnVivo Carla Ortiz presenta su nueva película \"Un Milagro de Navidad en La Paz\"",
+     "published": "Transmitido hace 10 m",
+     "url": "https://www.youtube.com/watch?v=EJr88AiOc_Y",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "RsN1N0sPuk0",
+     "title": "#EnVivo Carla Ortiz estrena su nueva película \"Un milagro de Navidad en La Paz\"",
+     "published": "Transmitido hace 11 m",
+     "url": "https://www.youtube.com/watch?v=RsN1N0sPuk0",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "uupO3uKt_v4",
+     "title": "Carla Ortiz, actriz y productora boliviana presenta la película “Un milagro de Navidad en La Paz”",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=uupO3uKt_v4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_ALEJANDRO_CHUMACERO": {
-   "videosRead": 4,
+   "videosRead": 7,
    "commentsRead": 1,
    "commentsAnalyzed": 1,
    "videos": [
@@ -4290,13 +4403,37 @@
      "url": "https://www.youtube.com/watch?v=z3J-6IEtxP0",
      "commentsRead": 1,
      "commentsSpanish": 1
+    },
+    {
+     "videoId": "mfcXSbq-qSA",
+     "title": "La actualidad de Alejandro Chumacero",
+     "published": "hace 3 m",
+     "url": "https://www.youtube.com/watch?v=mfcXSbq-qSA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ffkXqVWDQAY",
+     "title": "41 ALEJANDRO CHUMACERO VOLANTE ABB  ZONA MIXTA 15_09",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=ffkXqVWDQAY",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "0gZjw0tdgxU",
+     "title": "Alejandro CHUMACERO y Adrián JUSINO conversan con la PRENSA",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=0gZjw0tdgxU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_ROBERTO_MAMANI_MAMANI": {
-   "videosRead": 4,
+   "videosRead": 6,
    "commentsRead": 1,
    "commentsAnalyzed": 0,
    "videos": [
@@ -4329,6 +4466,22 @@
      "title": "El Color de los Andes: Entrevista exclusiva con Roberto Mamani Mamani | Podcast UPDS",
      "published": "hace 3 m",
      "url": "https://www.youtube.com/watch?v=9MYS_2KhTGs",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "pqc8-MjWZXs",
+     "title": "🎨 “RAÍCES”, EL NUEVO EMPRENDIMIENTO DE LA HIJA DE ROBERTO MAMANI MAMANI",
+     "published": "hace 3 m",
+     "url": "https://www.youtube.com/watch?v=pqc8-MjWZXs",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ncfnTrNOlx8",
+     "title": "Hablemos con Roberto Mamani Mamani | Choleadita | Episodio 17",
+     "published": "Transmitido hace 3 m",
+     "url": "https://www.youtube.com/watch?v=ncfnTrNOlx8",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -4561,7 +4714,7 @@
    ]
   },
   "P_LUIS_HAQUIN": {
-   "videosRead": 4,
+   "videosRead": 8,
    "commentsRead": 7,
    "commentsAnalyzed": 6,
    "videos": [
@@ -4596,15 +4749,47 @@
      "url": "https://www.youtube.com/watch?v=km-KLqqhawo",
      "commentsRead": 7,
      "commentsSpanish": 6
+    },
+    {
+     "videoId": "h6JBJN6eaPw",
+     "title": "15 APOYOS ASISTENCIA DE LUIS HAQUIN EN LA LIGA DE LOS EMIRATOS ÁRABES  31_08",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=h6JBJN6eaPw",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "L0PiA3pzk4U",
+     "title": "\"TENEMOS QUE ESTAR A LA ALTURA DE ESTOS DESAFÍOS\" Luis Haquin, defensa de Bolivia | ONCE Diario",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=L0PiA3pzk4U",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "FBIlaJMu1SQ",
+     "title": "Luis Haquin jugador Selección Bolivia",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=FBIlaJMu1SQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "fsr4sdj9CtA",
+     "title": "LUIS HAQUIN: \"NOS HEMOS PUESTO COMO OBJETIVO SOLIDIFICAR UN PROYECTO\"",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=fsr4sdj9CtA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_FREDDY_MAMANI": {
-   "videosRead": 4,
-   "commentsRead": 4,
-   "commentsAnalyzed": 4,
+   "videosRead": 13,
+   "commentsRead": 31,
+   "commentsAnalyzed": 24,
    "videos": [
     {
      "videoId": "p0n_6KtXmPQ",
@@ -4637,6 +4822,78 @@
      "url": "https://www.youtube.com/watch?v=0ts5N8JgxVg",
      "commentsRead": 2,
      "commentsSpanish": 2
+    },
+    {
+     "videoId": "fKX-irE52Ps",
+     "title": "Aprehenden al exdiputado evista Freddy Mamani, acusado de impulsar bloqueos",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=fKX-irE52Ps",
+     "commentsRead": 8,
+     "commentsSpanish": 4
+    },
+    {
+     "videoId": "v3pRqXhRiLs",
+     "title": "Freddy Mamani en Bolivia Decide 2026 – La Paz",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=v3pRqXhRiLs",
+     "commentsRead": 3,
+     "commentsSpanish": 3
+    },
+    {
+     "videoId": "shWeLz5kpO8",
+     "title": "🔴INVESTIGADO POR 53 DÍAS DE BLOQUEOS APREHENDEN A EXPRESIDENTE DE CĂMARA DE DIPUTADO FREDDY MAMANI .",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=shWeLz5kpO8",
+     "commentsRead": 10,
+     "commentsSpanish": 8
+    },
+    {
+     "videoId": "zrtJnJHNphw",
+     "title": "Freddy Mamani es apr3hend1do en el marco de la investigación por los bloqueos de 53 días",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=zrtJnJHNphw",
+     "commentsRead": 1,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "TnrfkvVM1Qo",
+     "title": "Fides en las Ánforas: Entrevista a Freddy Mamani, candidato a la alcaldía de El Alto",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=TnrfkvVM1Qo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ymZTvNLYt40",
+     "title": "Detención domiciliaria para el evista Freddy Mamani, aunque no podrá salir a trabajar ​",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=ymZTvNLYt40",
+     "commentsRead": 1,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "QVdG3Do8ZGA",
+     "title": "APREHENDEN FREDDY MAMANI, EXPDTE. CÁMARA DE DIPUTADOS",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=QVdG3Do8ZGA",
+     "commentsRead": 2,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "muKF1iOk2pU",
+     "title": "El exdiputado Freddy Mamani indicó que Gobierno repite el pasado N4rc0 del modelo neoliberal de PAZ",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=muKF1iOk2pU",
+     "commentsRead": 2,
+     "commentsSpanish": 2
+    },
+    {
+     "videoId": "QLpYaIP7JUE",
+     "title": "preguntas y respuestas Freddy Mamani",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=QLpYaIP7JUE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
@@ -4659,7 +4916,7 @@
    "words": null
   },
   "P_RONALD_RALDES": {
-   "videosRead": 4,
+   "videosRead": 9,
    "commentsRead": 2,
    "commentsAnalyzed": 1,
    "videos": [
@@ -4694,15 +4951,55 @@
      "url": "https://www.youtube.com/watch?v=ci7A51aIxtU",
      "commentsRead": 2,
      "commentsSpanish": 1
+    },
+    {
+     "videoId": "4lphD5fbSVU",
+     "title": "RONALD RALDES: “EMOTIVO VER TANTOS CHICOS QUE BUSCAN SU OPORTUNIDAD”",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=4lphD5fbSVU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "VsWG3E4OS4Q",
+     "title": "RONALD RALDES VUELVE A ORIENTE",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=VsWG3E4OS4Q",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "BbwxWFXcQe4",
+     "title": "RONALD RALDES RESPONDIÓ SOBRE UN SUPUESTO HECHO DE 3ST4F4 EN ORIENTE!!!",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=BbwxWFXcQe4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "SPewwziA_2U",
+     "title": "“HEMOS ESTADO PAGANDO BASTANTES DEUDAS”-RONALD RALDES-PTE. ORIENTE PETROLERO",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=SPewwziA_2U",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "O796X_-ItJE",
+     "title": "\"KEKO ÁLVAREZ A RONALD RALDES-\"VOS SOS UN COBARDE\"",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=O796X_-ItJE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_EDMUNDO_PAZ_SOLDAN": {
-   "videosRead": 4,
-   "commentsRead": 1,
-   "commentsAnalyzed": 0,
+   "videosRead": 12,
+   "commentsRead": 9,
+   "commentsAnalyzed": 4,
    "videos": [
     {
      "videoId": "objyGSY7sYI",
@@ -4735,15 +5032,79 @@
      "url": "https://www.youtube.com/watch?v=_AJItMXSjyI",
      "commentsRead": 1,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "1FSzd9Ykia8",
+     "title": "Análisis: Los días de la peste – Edmundo Paz Soldán | poder, aislamiento y control social",
+     "published": "hace 5 m",
+     "url": "https://www.youtube.com/watch?v=1FSzd9Ykia8",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "l4fZr4KwZTQ",
+     "title": "La Vicepresidencia del Estado presenta el Libro titulado: RÍO FUGITIVO de Edmundo Paz Soldán",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=l4fZr4KwZTQ",
+     "commentsRead": 1,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "77P4t1r18rE",
+     "title": "EL LADRÓN DE NAVIDAD - Cuento de Edmundo Paz Soldán",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=77P4t1r18rE",
+     "commentsRead": 7,
+     "commentsSpanish": 3
+    },
+    {
+     "videoId": "HxhzKyX9h6o",
+     "title": "Iris Audio Libro por Edmundo Paz Soldán",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=HxhzKyX9h6o",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "8DxEIJ_EMaA",
+     "title": "Desapariciones Audio Libro por Edmundo Paz Soldán",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=8DxEIJ_EMaA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "7X6sZ374c5c",
+     "title": "Los días de la peste Audio Libro por Edmundo Paz Soldán",
+     "published": "hace 4 sem.",
+     "url": "https://www.youtube.com/watch?v=7X6sZ374c5c",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "BZtDa0p_0TU",
+     "title": "Billie Ruth - Edmundo Paz Soldán",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=BZtDa0p_0TU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "0febZ54MR94",
+     "title": "Los vivos y los muertos Audio Libro por Edmundo Paz Soldán",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=0febZ54MR94",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_JAIME_LAREDO": {
-   "videosRead": 4,
-   "commentsRead": 9,
-   "commentsAnalyzed": 6,
+   "videosRead": 12,
+   "commentsRead": 16,
+   "commentsAnalyzed": 7,
    "videos": [
     {
      "videoId": "JNex_S_izgU",
@@ -4775,6 +5136,70 @@
      "published": "hace 8 m",
      "url": "https://www.youtube.com/watch?v=2x1YRgQ--ss",
      "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "RNYAhj2OSuU",
+     "title": "Dr. Jet - Teloneros en el concierto de Juanes - La Paz, Bolivia - Teatro al aire libre Jaime Laredo",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=RNYAhj2OSuU",
+     "commentsRead": 4,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "PEuatn8_qiU",
+     "title": "Teatro al Aire Libre Jaime Laredo * Teleférico Linea Morada *La Paz, Bolivia🇧🇴",
+     "published": "hace 3 días",
+     "url": "https://www.youtube.com/watch?v=PEuatn8_qiU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "2FTSPqlBXM4",
+     "title": "Kuntur - Intro - Teatro al Aire Libre Jaime Laredo - La Paz Bolivia 07 Nov 2025",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=2FTSPqlBXM4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "clFGayUaNLs",
+     "title": "Kuntur - Saya Afro Boliviana - Teatro al Aire Libre Jaime Laredo 07 Nov 2025",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=clFGayUaNLs",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "jA16rI7A0RM",
+     "title": "Maestro Jaime Laredo cierra 33 años de liderazgo musical en Estados Unidos // Noticias.lat",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=jA16rI7A0RM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "UQjD-zyw5mc",
+     "title": "Kuntur - Tinkus - Teatro al Aire Libre Jaime Laredo -  La Paz 07Nov25",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=UQjD-zyw5mc",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "biT1sdX9Esc",
+     "title": "Kuntur - Tobas - Teatro al Aire Libre Jaime Laredo - La Paz 07Nov25",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=biT1sdX9Esc",
+     "commentsRead": 2,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ZKMFbkVOwiU",
+     "title": "EVACUACION EN UN CONCIERTO TEATRO AL AIRE LIBRE JAIME LAREDO LA PAZ-AUTOMATA CELULAR",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=ZKMFbkVOwiU",
+     "commentsRead": 0,
      "commentsSpanish": 0
     }
    ],
@@ -4815,9 +5240,9 @@
    "words": null
   },
   "P_BRUNO_MIRANDA": {
-   "videosRead": 4,
-   "commentsRead": 19,
-   "commentsAnalyzed": 14,
+   "videosRead": 12,
+   "commentsRead": 57,
+   "commentsAnalyzed": 47,
    "videos": [
     {
      "videoId": "JXd9x-YbXQg",
@@ -4850,15 +5275,246 @@
      "url": "https://www.youtube.com/watch?v=hcyDIPntKXw",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "uAd8ZFVdsz4",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Bruno Miranda de Club Bolívar llegó hoy a La Paz.",
+     "published": "hace 2 días",
+     "url": "https://www.youtube.com/watch?v=uAd8ZFVdsz4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ngnF2hh88j4",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Bruno Miranda de Club Bolívar llegó hoy a La Paz y habló de la La Verde - FBF.",
+     "published": "hace 2 días",
+     "url": "https://www.youtube.com/watch?v=ngnF2hh88j4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "MbQe5Kczz10",
+     "title": "11 POLEMICA 4 GOL ANULADO A BRUNO MIRANDA POR MANO BOLIVAR GV SAN JOSE 02_09",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=MbQe5Kczz10",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "n4RCuOPylIA",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒  | Bruno Miranda de La Verde - FBF  antes de partir a Tarija.",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=n4RCuOPylIA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "JeQKu3olnGA",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Así fue la presentación de Leo Zabala y Bruno Miranda en Club Bolívar.",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=JeQKu3olnGA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "kdce_7giOj4",
+     "title": "Así avanzó Bruno Miranda en 2025 ⚽🔥",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=kdce_7giOj4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "BTmvly0vTFo",
+     "title": "BOLIVIA 0 - 1 MÉXICO: ESCUCHEN A BRUNO MIRANDA EN ZONA MIXTA",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=BTmvly0vTFo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "9qMmvNUS2jc",
+     "title": "CARLOS LAMPE CASTIGADO POR VILLEGAS? 😡 GUILLERMO VISCARRA TITULAR 😡 BRUNO MIRANDA BOLIVIA VS SURINAM",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=9qMmvNUS2jc",
+     "commentsRead": 38,
+     "commentsSpanish": 33
     }
    ],
-   "sentiment": null,
-   "words": null
+   "sentiment": {
+    "analyzed": 47,
+    "positivePct": 4.3,
+    "negativePct": 72.3,
+    "neutralPct": 23.4,
+    "ironyPct": 4.3,
+    "netScore": -68.0,
+    "topEmotion": "anger",
+    "emotionPct": {
+     "joy": 2.1,
+     "sadness": 2.1,
+     "anger": 21.3,
+     "surprise": 0.0,
+     "disgust": 0.0,
+     "fear": 0.0
+    }
+   },
+   "words": [
+    {
+     "kind": "WORD",
+     "term": "lampe",
+     "count": 20,
+     "rank": 1
+    },
+    {
+     "kind": "WORD",
+     "term": "viscarra",
+     "count": 10,
+     "rank": 2
+    },
+    {
+     "kind": "WORD",
+     "term": "bolivar",
+     "count": 9,
+     "rank": 3
+    },
+    {
+     "kind": "WORD",
+     "term": "selección",
+     "count": 9,
+     "rank": 4
+    },
+    {
+     "kind": "WORD",
+     "term": "partido",
+     "count": 6,
+     "rank": 5
+    },
+    {
+     "kind": "WORD",
+     "term": "vizcarra",
+     "count": 6,
+     "rank": 6
+    },
+    {
+     "kind": "WORD",
+     "term": "hizo",
+     "count": 5,
+     "rank": 7
+    },
+    {
+     "kind": "WORD",
+     "term": "goles",
+     "count": 4,
+     "rank": 8
+    },
+    {
+     "kind": "WORD",
+     "term": "villegas",
+     "count": 4,
+     "rank": 9
+    },
+    {
+     "kind": "WORD",
+     "term": "zurdo",
+     "count": 4,
+     "rank": 10
+    },
+    {
+     "kind": "WORD",
+     "term": "ojalá",
+     "count": 4,
+     "rank": 11
+    },
+    {
+     "kind": "WORD",
+     "term": "jugador",
+     "count": 4,
+     "rank": 12
+    },
+    {
+     "kind": "WORD",
+     "term": "partidos",
+     "count": 4,
+     "rank": 13
+    },
+    {
+     "kind": "WORD",
+     "term": "titular",
+     "count": 4,
+     "rank": 14
+    },
+    {
+     "kind": "WORD",
+     "term": "ganó",
+     "count": 4,
+     "rank": 15
+    },
+    {
+     "kind": "WORD",
+     "term": "falla",
+     "count": 3,
+     "rank": 16
+    },
+    {
+     "kind": "WORD",
+     "term": "arquero",
+     "count": 3,
+     "rank": 17
+    },
+    {
+     "kind": "WORD",
+     "term": "mamani",
+     "count": 3,
+     "rank": 18
+    },
+    {
+     "kind": "WORD",
+     "term": "llegue",
+     "count": 3,
+     "rank": 19
+    },
+    {
+     "kind": "WORD",
+     "term": "nivel",
+     "count": 3,
+     "rank": 20
+    },
+    {
+     "kind": "WORD",
+     "term": "gol",
+     "count": 3,
+     "rank": 21
+    },
+    {
+     "kind": "WORD",
+     "term": "demostró",
+     "count": 3,
+     "rank": 22
+    },
+    {
+     "kind": "WORD",
+     "term": "errores",
+     "count": 3,
+     "rank": 23
+    },
+    {
+     "kind": "WORD",
+     "term": "ritmo",
+     "count": 3,
+     "rank": 24
+    },
+    {
+     "kind": "WORD",
+     "term": "bolivia",
+     "count": 3,
+     "rank": 25
+    }
+   ]
   },
   "P_HENRY_VACA": {
-   "videosRead": 4,
-   "commentsRead": 26,
-   "commentsAnalyzed": 23,
+   "videosRead": 12,
+   "commentsRead": 47,
+   "commentsAnalyzed": 37,
    "videos": [
     {
      "videoId": "GejAaz7W-BE",
@@ -4891,10 +5547,241 @@
      "url": "https://www.youtube.com/watch?v=SjQMtTCffYU",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "pvVAAI51dXE",
+     "title": "CUANDO NADIE ESPERABA NADA… HENRY VACA HIZO MAGIA",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=pvVAAI51dXE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "_kM7U5nRUus",
+     "title": "RESUMEN COMPLETO: Oriente Petrolero 3 – 1 Blooming | Golazo de Chilena de Henry Vaca, Fecha 26",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=_kM7U5nRUus",
+     "commentsRead": 4,
+     "commentsSpanish": 2
+    },
+    {
+     "videoId": "te9NpzG8D4s",
+     "title": "HENRY VACA 😡 EL MESSI BOLIVIANO QUE DESTRUYO SU CARRERA POR LA NOCHE 😡 FUTBOLISTA ZURDO",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=te9NpzG8D4s",
+     "commentsRead": 15,
+     "commentsSpanish": 10
+    },
+    {
+     "videoId": "KCQM3WYCdrw",
+     "title": "GOLAZO DE CHILENA DE HENRY VACA EN EL CLÁSICO CRUCEÑO",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=KCQM3WYCdrw",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "LfR8s3kQu-g",
+     "title": "¿Dónde estabas, Henry Vaca? El extremo reforzará al Equipo del Pueblo",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=LfR8s3kQu-g",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "UTNX10mNKbk",
+     "title": "🚨💙 ¡OFICIAL! HENRY VACA ES NUEVO JUGADOR DE AURORA 😱🔥 EL EQUIPO DEL PUEBLO ROMPE EL MERCADO DE PASES",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=UTNX10mNKbk",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "mhYHP2GDd14",
+     "title": "Golazo de Chilena de Henry Vaca en el Clásico Cruceño (Oriente Petrolero 1 - 0 Blooming)",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=mhYHP2GDd14",
+     "commentsRead": 2,
+     "commentsSpanish": 2
+    },
+    {
+     "videoId": "oQn04QCyVVw",
+     "title": "Golazo de Henry Vaca en el clásico cruceño 206 | 𝗠𝗮𝗰 𝗗𝗲𝗽𝗼𝗿𝘁𝗲𝘀",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=oQn04QCyVVw",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
-   "sentiment": null,
-   "words": null
+   "sentiment": {
+    "analyzed": 37,
+    "positivePct": 5.4,
+    "negativePct": 73.0,
+    "neutralPct": 21.6,
+    "ironyPct": 21.6,
+    "netScore": -67.6,
+    "topEmotion": "anger",
+    "emotionPct": {
+     "joy": 10.8,
+     "sadness": 16.2,
+     "anger": 18.9,
+     "surprise": 0.0,
+     "disgust": 0.0,
+     "fear": 0.0
+    }
+   },
+   "words": [
+    {
+     "kind": "WORD",
+     "term": "jugador",
+     "count": 14,
+     "rank": 1
+    },
+    {
+     "kind": "WORD",
+     "term": "talento",
+     "count": 11,
+     "rank": 2
+    },
+    {
+     "kind": "WORD",
+     "term": "fracaso",
+     "count": 5,
+     "rank": 3
+    },
+    {
+     "kind": "WORD",
+     "term": "jugar",
+     "count": 4,
+     "rank": 4
+    },
+    {
+     "kind": "WORD",
+     "term": "disciplina",
+     "count": 4,
+     "rank": 5
+    },
+    {
+     "kind": "WORD",
+     "term": "terceros",
+     "count": 4,
+     "rank": 6
+    },
+    {
+     "kind": "WORD",
+     "term": "equipos",
+     "count": 4,
+     "rank": 7
+    },
+    {
+     "kind": "WORD",
+     "term": "carrera",
+     "count": 4,
+     "rank": 8
+    },
+    {
+     "kind": "WORD",
+     "term": "pena",
+     "count": 3,
+     "rank": 9
+    },
+    {
+     "kind": "WORD",
+     "term": "ejemplo",
+     "count": 3,
+     "rank": 10
+    },
+    {
+     "kind": "WORD",
+     "term": "tenía",
+     "count": 3,
+     "rank": 11
+    },
+    {
+     "kind": "WORD",
+     "term": "jamás",
+     "count": 3,
+     "rank": 12
+    },
+    {
+     "kind": "WORD",
+     "term": "jugadores",
+     "count": 3,
+     "rank": 13
+    },
+    {
+     "kind": "WORD",
+     "term": "henrry",
+     "count": 3,
+     "rank": 14
+    },
+    {
+     "kind": "WORD",
+     "term": "tampoco",
+     "count": 3,
+     "rank": 15
+    },
+    {
+     "kind": "WORD",
+     "term": "indisciplina",
+     "count": 3,
+     "rank": 16
+    },
+    {
+     "kind": "WORD",
+     "term": "tuvo",
+     "count": 3,
+     "rank": 17
+    },
+    {
+     "kind": "WORD",
+     "term": "oriente",
+     "count": 3,
+     "rank": 18
+    },
+    {
+     "kind": "WORD",
+     "term": "propio",
+     "count": 3,
+     "rank": 19
+    },
+    {
+     "kind": "WORD",
+     "term": "parece",
+     "count": 2,
+     "rank": 20
+    },
+    {
+     "kind": "WORD",
+     "term": "claro",
+     "count": 2,
+     "rank": 21
+    },
+    {
+     "kind": "WORD",
+     "term": "mucha",
+     "count": 2,
+     "rank": 22
+    },
+    {
+     "kind": "WORD",
+     "term": "gente",
+     "count": 2,
+     "rank": 23
+    },
+    {
+     "kind": "WORD",
+     "term": "etc",
+     "count": 2,
+     "rank": 24
+    },
+    {
+     "kind": "WORD",
+     "term": "pesar",
+     "count": 2,
+     "rank": 25
+    }
+   ]
   },
   "P_JOSE_MILTON_MELGAR": {
    "videosRead": 0,
@@ -4906,8 +5793,8 @@
   },
   "P_JUAN_CARLOS_ARCE": {
    "videosRead": 4,
-   "commentsRead": 14,
-   "commentsAnalyzed": 11,
+   "commentsRead": 11,
+   "commentsAnalyzed": 8,
    "videos": [
     {
      "videoId": "sxCpoGQrubs",
@@ -4926,19 +5813,19 @@
      "commentsSpanish": 1
     },
     {
-     "videoId": "F4V1I6tcZuU",
-     "title": "💯 ⚽ Entrevista exclusiva con #JuanCarlosArce desde #Monterrey,",
-     "published": "Transmitido hace 6 m",
-     "url": "https://www.youtube.com/watch?v=F4V1I6tcZuU",
-     "commentsRead": 3,
-     "commentsSpanish": 3
-    },
-    {
      "videoId": "46slBm0r7kc",
      "title": "Juan Carlos Arce - Todos los goles en el Bolívar",
      "published": "hace 11 m",
      "url": "https://www.youtube.com/watch?v=46slBm0r7kc",
      "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "gPlb7zTdgEo",
+     "title": "Juan Carlos ‘Conejo’ Arce recuerda con cariño a Xabier Azkargorta tras su fallecimiento",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=gPlb7zTdgEo",
+     "commentsRead": 0,
      "commentsSpanish": 0
     }
    ],
@@ -5191,175 +6078,8 @@
      "commentsSpanish": 0
     }
    ],
-   "sentiment": {
-    "analyzed": 37,
-    "positivePct": 5.4,
-    "negativePct": 86.5,
-    "neutralPct": 8.1,
-    "ironyPct": 8.1,
-    "netScore": -81.1,
-    "topEmotion": "anger",
-    "emotionPct": {
-     "joy": 0.0,
-     "sadness": 0.0,
-     "anger": 45.9,
-     "surprise": 0.0,
-     "disgust": 0.0,
-     "fear": 0.0
-    }
-   },
-   "words": [
-    {
-     "kind": "WORD",
-     "term": "técnico",
-     "count": 11,
-     "rank": 1
-    },
-    {
-     "kind": "WORD",
-     "term": "villegas",
-     "count": 11,
-     "rank": 2
-    },
-    {
-     "kind": "WORD",
-     "term": "zurdo",
-     "count": 9,
-     "rank": 3
-    },
-    {
-     "kind": "WORD",
-     "term": "jugadores",
-     "count": 8,
-     "rank": 4
-    },
-    {
-     "kind": "WORD",
-     "term": "selección",
-     "count": 7,
-     "rank": 5
-    },
-    {
-     "kind": "WORD",
-     "term": "entrenador",
-     "count": 6,
-     "rank": 6
-    },
-    {
-     "kind": "WORD",
-     "term": "fútbol",
-     "count": 6,
-     "rank": 7
-    },
-    {
-     "kind": "WORD",
-     "term": "problema",
-     "count": 6,
-     "rank": 8
-    },
-    {
-     "kind": "WORD",
-     "term": "boliviano",
-     "count": 5,
-     "rank": 9
-    },
-    {
-     "kind": "WORD",
-     "term": "técnicos",
-     "count": 5,
-     "rank": 10
-    },
-    {
-     "kind": "WORD",
-     "term": "traer",
-     "count": 4,
-     "rank": 11
-    },
-    {
-     "kind": "WORD",
-     "term": "opción",
-     "count": 4,
-     "rank": 12
-    },
-    {
-     "kind": "WORD",
-     "term": "vaya",
-     "count": 4,
-     "rank": 13
-    },
-    {
-     "kind": "WORD",
-     "term": "altura",
-     "count": 4,
-     "rank": 14
-    },
-    {
-     "kind": "WORD",
-     "term": "será",
-     "count": 3,
-     "rank": 15
-    },
-    {
-     "kind": "WORD",
-     "term": "nivel",
-     "count": 3,
-     "rank": 16
-    },
-    {
-     "kind": "WORD",
-     "term": "tuvo",
-     "count": 3,
-     "rank": 17
-    },
-    {
-     "kind": "WORD",
-     "term": "oportunidad",
-     "count": 3,
-     "rank": 18
-    },
-    {
-     "kind": "WORD",
-     "term": "extranjero",
-     "count": 3,
-     "rank": 19
-    },
-    {
-     "kind": "WORD",
-     "term": "cambiar",
-     "count": 3,
-     "rank": 20
-    },
-    {
-     "kind": "WORD",
-     "term": "loco",
-     "count": 3,
-     "rank": 21
-    },
-    {
-     "kind": "WORD",
-     "term": "peor",
-     "count": 3,
-     "rank": 22
-    },
-    {
-     "kind": "WORD",
-     "term": "federación",
-     "count": 3,
-     "rank": 23
-    },
-    {
-     "kind": "WORD",
-     "term": "dirigentes",
-     "count": 3,
-     "rank": 24
-    },
-    {
-     "kind": "WORD",
-     "term": "misma",
-     "count": 3,
-     "rank": 25
-    }
-   ]
+   "sentiment": null,
+   "words": null
   },
   "P_GRACIELA_RODO_BOULANGER": {
    "videosRead": 0,
@@ -5694,7 +6414,7 @@
    "words": null
   },
   "P_RUDY_CARDOZO": {
-   "videosRead": 4,
+   "videosRead": 6,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -5729,13 +6449,29 @@
      "url": "https://www.youtube.com/watch?v=EeT963QP3A8",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "njXyWoAdaOY",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒  |Rudy Cardozo de Club Independiente listo para jugar hoy en La Paz.",
+     "published": "hace 5 m",
+     "url": "https://www.youtube.com/watch?v=njXyWoAdaOY",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "Xr0bUEqeNwA",
+     "title": "Rudy Cardozo - Independiente",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=Xr0bUEqeNwA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_JUAN_DEL_GRANADO": {
-   "videosRead": 4,
+   "videosRead": 5,
    "commentsRead": 5,
    "commentsAnalyzed": 4,
    "videos": [
@@ -5770,6 +6506,14 @@
      "url": "https://www.youtube.com/watch?v=JygLIIbTXO0",
      "commentsRead": 3,
      "commentsSpanish": 3
+    },
+    {
+     "videoId": "TOW3acot74k",
+     "title": "Juan Del Granado: El camino legal ante la situación del Fiscal General Roger Mariaca",
+     "published": "hace 4 días",
+     "url": "https://www.youtube.com/watch?v=TOW3acot74k",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
@@ -5797,180 +6541,13 @@
      "commentsSpanish": 87
     }
    ],
-   "sentiment": {
-    "analyzed": 87,
-    "positivePct": 48.3,
-    "negativePct": 8.0,
-    "neutralPct": 43.7,
-    "ironyPct": 37.9,
-    "netScore": 40.3,
-    "topEmotion": "joy",
-    "emotionPct": {
-     "joy": 77.0,
-     "sadness": 2.3,
-     "anger": 0.0,
-     "surprise": 1.1,
-     "disgust": 0.0,
-     "fear": 0.0
-    }
-   },
-   "words": [
-    {
-     "kind": "WORD",
-     "term": "vine",
-     "count": 23,
-     "rank": 1
-    },
-    {
-     "kind": "WORD",
-     "term": "grupo",
-     "count": 23,
-     "rank": 2
-    },
-    {
-     "kind": "WORD",
-     "term": "hermosa",
-     "count": 20,
-     "rank": 3
-    },
-    {
-     "kind": "WORD",
-     "term": "felicidades",
-     "count": 19,
-     "rank": 4
-    },
-    {
-     "kind": "WORD",
-     "term": "música",
-     "count": 18,
-     "rank": 5
-    },
-    {
-     "kind": "WORD",
-     "term": "jiyawa",
-     "count": 16,
-     "rank": 6
-    },
-    {
-     "kind": "WORD",
-     "term": "soy",
-     "count": 15,
-     "rank": 7
-    },
-    {
-     "kind": "WORD",
-     "term": "canción",
-     "count": 12,
-     "rank": 8
-    },
-    {
-     "kind": "WORD",
-     "term": "saludos",
-     "count": 11,
-     "rank": 9
-    },
-    {
-     "kind": "WORD",
-     "term": "argentina",
-     "count": 10,
-     "rank": 10
-    },
-    {
-     "kind": "WORD",
-     "term": "vengo",
-     "count": 9,
-     "rank": 11
-    },
-    {
-     "kind": "WORD",
-     "term": "encantó",
-     "count": 7,
-     "rank": 12
-    },
-    {
-     "kind": "WORD",
-     "term": "excelente",
-     "count": 7,
-     "rank": 13
-    },
-    {
-     "kind": "WORD",
-     "term": "tema",
-     "count": 7,
-     "rank": 14
-    },
-    {
-     "kind": "WORD",
-     "term": "ritmo",
-     "count": 6,
-     "rank": 15
-    },
-    {
-     "kind": "WORD",
-     "term": "méxico",
-     "count": 6,
-     "rank": 16
-    },
-    {
-     "kind": "WORD",
-     "term": "hermoso",
-     "count": 6,
-     "rank": 17
-    },
-    {
-     "kind": "WORD",
-     "term": "bonita",
-     "count": 6,
-     "rank": 18
-    },
-    {
-     "kind": "WORD",
-     "term": "chile",
-     "count": 5,
-     "rank": 19
-    },
-    {
-     "kind": "WORD",
-     "term": "linda",
-     "count": 5,
-     "rank": 20
-    },
-    {
-     "kind": "WORD",
-     "term": "boliviana",
-     "count": 5,
-     "rank": 21
-    },
-    {
-     "kind": "WORD",
-     "term": "éxitos",
-     "count": 5,
-     "rank": 22
-    },
-    {
-     "kind": "WORD",
-     "term": "bella",
-     "count": 5,
-     "rank": 23
-    },
-    {
-     "kind": "WORD",
-     "term": "gustó",
-     "count": 4,
-     "rank": 24
-    },
-    {
-     "kind": "WORD",
-     "term": "sorprendió",
-     "count": 3,
-     "rank": 25
-    }
-   ]
+   "sentiment": null,
+   "words": null
   },
   "P_DANNY_BEJARANO": {
-   "videosRead": 4,
-   "commentsRead": 2,
-   "commentsAnalyzed": 1,
+   "videosRead": 5,
+   "commentsRead": 5,
+   "commentsAnalyzed": 4,
    "videos": [
     {
      "videoId": "08iHJ25E4-0",
@@ -5985,8 +6562,8 @@
      "title": "Danny Bejarano nuevo refuerzo de Blooming, el futbolista nacional retorna al país luego de varias te",
      "published": "hace 8 m",
      "url": "https://www.youtube.com/watch?v=41Sf-MaDIAY",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 1,
+     "commentsSpanish": 1
     },
     {
      "videoId": "z58yqOWNFuY",
@@ -6001,17 +6578,25 @@
      "title": "MERCADO FICHAJES |  DANNY BEJARANO A BLOOMING | LAUTARO PASTRÁN A BOLIVAR |DANCO RETORNA A ORIENTE",
      "published": "hace 8 m",
      "url": "https://www.youtube.com/watch?v=XpLDr91evUc",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 1,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "LNpgA4jTVwQ",
+     "title": "MERCADO FICHAJES | LLEGÓ DANNY BEJARANO | GOL DE MACAZAGA | MOISÉS PANIAGUA DEBUTÓ EN WYDAD",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=LNpgA4jTVwQ",
+     "commentsRead": 1,
+     "commentsSpanish": 1
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_JORGE_SANJINES": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 11,
+   "commentsRead": 22,
+   "commentsAnalyzed": 16,
    "videos": [
     {
      "videoId": "BFT6TaEdhlo",
@@ -6026,16 +6611,16 @@
      "title": "El coraje del pueblo | Jorge Sanjinés | Cine Boliviano",
      "published": "hace 2 m",
      "url": "https://www.youtube.com/watch?v=1xAA6ROlHyk",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 8,
+     "commentsSpanish": 7
     },
     {
      "videoId": "VnfNwMdwSTM",
      "title": "Juana Azurduy, guerrillera de la patria grande | Jorge Sanjinés | Bolivia",
      "published": "hace 1 m",
      "url": "https://www.youtube.com/watch?v=VnfNwMdwSTM",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 5,
+     "commentsSpanish": 4
     },
     {
      "videoId": "qoq2X-1V3V0",
@@ -6044,15 +6629,71 @@
      "url": "https://www.youtube.com/watch?v=qoq2X-1V3V0",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "YhwUB2zFQ78",
+     "title": "Ukamau - Jorge Sanjinés (Bolivia 1966)",
+     "published": "hace 3 m",
+     "url": "https://www.youtube.com/watch?v=YhwUB2zFQ78",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "WLFESFHokrI",
+     "title": "Jorge Sanjinés en La Mejor Película del Mundo.",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=WLFESFHokrI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "n_DHmKfcpNM",
+     "title": "La Mejor Película del Mundo de Jorge Sanjinés!",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=n_DHmKfcpNM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "_gbJyYp3RPM",
+     "title": "Reynaldo Yujra, protagonista de La Nación Clandestina, de Jorge Sanjinés",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=_gbJyYp3RPM",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "1IzvG-HQsIE",
+     "title": "Entrevistas a Reynaldo Yujra (protagonista de \"La nación clandestina\", de Jorge Sanjinés) y Manue...",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=1IzvG-HQsIE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "9lJjC38tF7M",
+     "title": "El Director que Cambió el CINE BOLIVIANO - Análisis del Cine de Jorge Sanjinés",
+     "published": "hace 3 m",
+     "url": "https://www.youtube.com/watch?v=9lJjC38tF7M",
+     "commentsRead": 7,
+     "commentsSpanish": 4
+    },
+    {
+     "videoId": "bLYlwtcjSM8",
+     "title": "Democracia en Pantalla - Hoy la pelicula \"La Nación Clandestina\" (Jorge Sanjinés, 1989) - TEPJF",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=bLYlwtcjSM8",
+     "commentsRead": 1,
+     "commentsSpanish": 1
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_LEONEL_JUSTINIANO": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 12,
+   "commentsRead": 5,
+   "commentsAnalyzed": 2,
    "videos": [
     {
      "videoId": "OcTHhxrw6SU",
@@ -6083,6 +6724,70 @@
      "title": "25 LEONEL JUSTINIANO VOLANTE BOLÍVAR  16_09",
      "published": "hace 2 sem.",
      "url": "https://www.youtube.com/watch?v=2iXWvBkGuV8",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "Y--isrMcGK8",
+     "title": "🟥❌🔵 La expulsión de Leonel Justiniano por una falta ante Guilmar Centella",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=Y--isrMcGK8",
+     "commentsRead": 1,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "MC-U9on5P5E",
+     "title": "13 LEONEL JUSTINIANO VOLANTE BOLIVAR 06_09",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=MC-U9on5P5E",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "nCg31AXoftI",
+     "title": "🔥EL CAPITÁN LEONEL JUSTINIANO SEÑALA QUE QUIERE QUEDARSE EN EL CLUB DE SUS AMORES BOLÍVAR ⚽💪💙#",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=nCg31AXoftI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "1lJ792yCVU8",
+     "title": "\"Respetamos mucho a Blooming, va a ser un partido difícil\" Leonel Justiniano | 𝗠𝗮𝗰 𝗗𝗲𝗽𝗼𝗿𝘁𝗲𝘀",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=1lJ792yCVU8",
+     "commentsRead": 3,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "8l8I7G7OUkE",
+     "title": "🔴🔴🔴LEONEL JUSTINIANO SEÑALA QUE ESTAN ESPERANDO QUE SALGA LA SANCIÓN DE UNA VEZ🔥🔥🙄 ",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=8l8I7G7OUkE",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "h1BR1Gs14aA",
+     "title": "Leonel Justiniano Club Bolívar",
+     "published": "hace 5 m",
+     "url": "https://www.youtube.com/watch?v=h1BR1Gs14aA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "tFsuVopMdMQ",
+     "title": "03 POLEMICA 1 EXPULSION A LEONEL JUSTINIANO  ALWAYS VS BOLIVRA  26_08",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=tFsuVopMdMQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "O0qs6l_QVYI",
+     "title": "Expulsión de Leonel Justiniano en el Always Ready 3   2 Bolivar",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=O0qs6l_QVYI",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -6124,9 +6829,9 @@
    "words": null
   },
   "P_ALVARO_PENA": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 12,
+   "commentsRead": 5,
+   "commentsAnalyzed": 5,
    "videos": [
     {
      "videoId": "jGbyj_dBcKk",
@@ -6157,6 +6862,70 @@
      "title": "🎙️ Hoy Álvaro Peña, mano a mano en #Astro, #AdriánMoll, pregunta. EN VIVO y DIRECTO",
      "published": "Transmitido hace 7 m",
      "url": "https://www.youtube.com/watch?v=1NLoFUjKrHc",
+     "commentsRead": 1,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "9XbLoDEc858",
+     "title": "BOLIVIA cerró prácticas | POSIBLE alineación de la 'Verde' | ¡Álvaro Peña DESPEDIDO!",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=9XbLoDEc858",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "0tSerCOIeQI",
+     "title": "\"Tenemos para pelear los dos torneos\" Álvaro Peña (Oriente Petrolero 4-0 Guabirá) | 𝗠𝗮𝗰 𝗗𝗲𝗽𝗼𝗿𝘁𝗲𝘀",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=0tSerCOIeQI",
+     "commentsRead": 2,
+     "commentsSpanish": 2
+    },
+    {
+     "videoId": "bnHDFIx1pf8",
+     "title": "Álvaro Peña sobre Blooming y el clásico cruceño del domingo | 𝗠𝗮𝗰 𝗗𝗲𝗽𝗼𝗿𝘁𝗲𝘀",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=bnHDFIx1pf8",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "jj4sDHSMVZU",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒  | Álvaro Peña de Club Deportivo Oriente Petrolero",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=jj4sDHSMVZU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "58XF9Ug_0XM",
+     "title": "🔥El abogado de Oriente Petrolero habla sobre la salida de Guillermo Álvaro Peña del Club refinero.",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=58XF9Ug_0XM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "CbEY3HjB_gQ",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Alvaro Peña de Club Deportivo Oriente Petrolero orgulloso",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=CbEY3HjB_gQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "3Kep-aiuo6I",
+     "title": "\"El segundo tiempo el equipo despertó\" Álvaro Peña, Dt Oriente Petrolero | 𝗠𝗮𝗰 𝗗𝗲𝗽𝗼𝗿𝘁𝗲𝘀",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=3Kep-aiuo6I",
+     "commentsRead": 2,
+     "commentsSpanish": 2
+    },
+    {
+     "videoId": "g6IMER6doSQ",
+     "title": "NO PERMITEN EL INGRESO DEL CUERPO TÉCNICO DE ÁLVARO PEÑA A LA SEDE DE SAN ANTONIO😱",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=g6IMER6doSQ",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -6182,9 +6951,9 @@
    "words": null
   },
   "P_CARLOS_ARAGONES": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 12,
+   "commentsRead": 14,
+   "commentsAnalyzed": 9,
    "videos": [
     {
      "videoId": "j2SBb7s0Nms",
@@ -6199,22 +6968,86 @@
      "title": "El FÚTBOL NUNCA MÁS será el MISMO | Carlos Aragonés",
      "published": "hace 3 m",
      "url": "https://www.youtube.com/watch?v=wF-f6JhSDYU",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 10,
+     "commentsSpanish": 7
     },
     {
      "videoId": "0YptTlul2n0",
      "title": "“El rival es mucho más fuerte”: Carlos Aragones",
      "published": "hace 6 m",
      "url": "https://www.youtube.com/watch?v=0YptTlul2n0",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 1,
+     "commentsSpanish": 1
     },
     {
      "videoId": "2lLlujrtEck",
      "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒  | Carlos Aragonés es el nuevo director Deportivo de Club Blooming",
      "published": "hace 3 m",
      "url": "https://www.youtube.com/watch?v=2lLlujrtEck",
+     "commentsRead": 3,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "RNg3C7LVfR8",
+     "title": "🎙️(REPRIS) Carlos Aragonés, mano a mano en Astro. #JaimeVega, pregunta.",
+     "published": "Transmitido hace 8 m",
+     "url": "https://www.youtube.com/watch?v=RNg3C7LVfR8",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "b1jPWfWpaZA",
+     "title": "🎙️ (REPRIS) Carlos Aragonés, mano a mano en Astro. #JaimeVega, pregunta.",
+     "published": "Transmitido hace 8 m",
+     "url": "https://www.youtube.com/watch?v=b1jPWfWpaZA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "sJVZOIVTzrg",
+     "title": "“Bolivia está bien, pero le falta gol”: Carlos Aragones",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=sJVZOIVTzrg",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "h9WaR7FvJg4",
+     "title": "“Villegas debe seguir, este proceso recién comienza”: Carlos Aragonés",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=h9WaR7FvJg4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "QoWDoYaxQSM",
+     "title": "✅ (REPRIS) Carlos Aragonés se sienta a conversar en #Astro, #JaimeVega, Pregunta:",
+     "published": "Transmitido hace 9 m",
+     "url": "https://www.youtube.com/watch?v=QoWDoYaxQSM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "1d0rhD0bZKI",
+     "title": "✅ Carlos Aragonés se sienta a conversar en #Astro, #JaimeVega, Pregunta:",
+     "published": "Transmitido hace 9 m",
+     "url": "https://www.youtube.com/watch?v=1d0rhD0bZKI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "XfBTmPGVE70",
+     "title": "CRITERIOS DEPORTIVOS PARTE 1 CON CARLOS ARAGONÉS Y DAVID PANIAGUA ",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=XfBTmPGVE70",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "qUg_1dYoafM",
+     "title": "POPUSPORTS #018 | EL PLAN MAESTRO DE CARLOS ARAGONÉS PARA REFLOTAR A BLOOMING",
+     "published": "Transmitido hace 2 m",
+     "url": "https://www.youtube.com/watch?v=qUg_1dYoafM",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -6223,9 +7056,9 @@
    "words": null
   },
   "P_JHASMANI_CAMPOS": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 5,
+   "commentsRead": 4,
+   "commentsAnalyzed": 3,
    "videos": [
     {
      "videoId": "8fmSxO7RDDU",
@@ -6248,14 +7081,22 @@
      "title": "#ManoAManoVIVO | Entrevista a Jhasmani Campos ⚽🔥",
      "published": "Transmitido hace 3 m",
      "url": "https://www.youtube.com/watch?v=K3DTBMP9Gd4",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 2,
+     "commentsSpanish": 1
     },
     {
      "videoId": "-HGSIxRG-kU",
      "title": "CHARLAS DE ESCRITORIO CON JHASMANI CAMPOS",
      "published": "hace 8 m",
      "url": "https://www.youtube.com/watch?v=-HGSIxRG-kU",
+     "commentsRead": 2,
+     "commentsSpanish": 2
+    },
+    {
+     "videoId": "sbO-qqVPL30",
+     "title": "Zona de Hinchas - Ep.60 - Jhasmani Campos \"Me fui de Tailandia, por la Selección Boliviana\"",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=sbO-qqVPL30",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -6264,9 +7105,9 @@
    "words": null
   },
   "P_FERNANDO_SAUCEDO": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 12,
+   "commentsRead": 22,
+   "commentsAnalyzed": 20,
    "videos": [
     {
      "videoId": "F6M8YS0wy4E",
@@ -6297,6 +7138,70 @@
      "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 |Fernando Saucedo aunia que volvera a Club Always Ready",
      "published": "hace 3 días",
      "url": "https://www.youtube.com/watch?v=IoZTpHr73pg",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "5l1eTKPVJkQ",
+     "title": "Elegido Fernando Saucedo",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=5l1eTKPVJkQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ghFmfaYlfeM",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Fernando Saucedo de  Club Always Ready ya en la final del Torneo de Verano",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=ghFmfaYlfeM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "VNM_jTotWT0",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Fernando Saucedo de Club Always Ready listo para la primera final del Verano",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=VNM_jTotWT0",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "6afk80n9Ruw",
+     "title": "🚨¡DEYVERSON SE BURLÓ de FERNANDO SAUCEDO! | FEDERICO PAZ a BOLIVAR! | INDIRECTA de MARTINS a ORIENTE",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=6afk80n9Ruw",
+     "commentsRead": 17,
+     "commentsSpanish": 16
+    },
+    {
+     "videoId": "zmY4iX60iDQ",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Fernando Saucedo listo para viajar a la Argentina con Club Always Ready",
+     "published": "hace 5 m",
+     "url": "https://www.youtube.com/watch?v=zmY4iX60iDQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "M2j_VKS8J0s",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 |Para Andrés Costa del futuro de Fernando Saucedo en Club Always Ready.",
+     "published": "hace 3 sem.",
+     "url": "https://www.youtube.com/watch?v=M2j_VKS8J0s",
+     "commentsRead": 2,
+     "commentsSpanish": 1
+    },
+    {
+     "videoId": "l4VXivL5b5I",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄S | Andrés Costa aclara el caso Fernando Saucedo en Club Always Ready.",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=l4VXivL5b5I",
+     "commentsRead": 3,
+     "commentsSpanish": 3
+    },
+    {
+     "videoId": "6yiyUZaACkg",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒  | Fernando Saucedo ya comienza hablar de la CONMEBOL Libertadores",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=6yiyUZaACkg",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -6338,17 +7243,17 @@
    "words": null
   },
   "P_LUIS_CRISTALDO": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 12,
+   "commentsRead": 4,
+   "commentsAnalyzed": 1,
    "videos": [
     {
      "videoId": "U6NpWwR5lmY",
      "title": "Luis Cristaldo: El mundialista boliviano que fue dirigido por Maradona | Su XI ideal de Bolivia",
      "published": "hace 3 sem.",
      "url": "https://www.youtube.com/watch?v=U6NpWwR5lmY",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 2,
+     "commentsSpanish": 1
     },
     {
      "videoId": "jJFBXFHTtm4",
@@ -6373,6 +7278,70 @@
      "url": "https://www.youtube.com/watch?v=FWtd3Jp5Mew",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "8X1zq3Hx8x4",
+     "title": "MARCAS PODCAST #1 | Luis Héctor Cristaldo: historias inéditas",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=8X1zq3Hx8x4",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "Fr22biBrcUE",
+     "title": "Luis Cristaldo arma su XI ideal y vuelve al equipo que llevó a Bolivia al Mundial",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=Fr22biBrcUE",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "m5xNruvbiII",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 |  Luis Cristaldo habló del repechaje que le tocó a Bolivia",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=m5xNruvbiII",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "51e_UrRhRQg",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | El mundialista Luis Cristaldo le da un mensaje",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=51e_UrRhRQg",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "vedjoUiBID0",
+     "title": "EN PELOTAS - EP 12: LUIS CRISTALDO SIN FILTRO EN EL MUNDIAL 😬",
+     "published": "Transmitido hace 3 m",
+     "url": "https://www.youtube.com/watch?v=vedjoUiBID0",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "yzPcRyxtuqE",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Víctor Bedoya estuvo hablando de varios temas con Luis Cristaldo",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=yzPcRyxtuqE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "JDbjy8g-Kek",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Víctor Bedoya habló con el profesor Luis Héctor Cristaldo",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=JDbjy8g-Kek",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "GJo5bve6lCk",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | El mundialista Luis Cristaldo ya es director técnico pro.",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=GJo5bve6lCk",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
@@ -6380,33 +7349,33 @@
   },
   "P_MIGUEL_RIMBA": {
    "videosRead": 1,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "commentsRead": 1,
+   "commentsAnalyzed": 1,
    "videos": [
     {
      "videoId": "DpqsZSg-VIE",
      "title": "Miguel Angel Rimba histórico jugador de Bolivia/YAPE-PLIN 962992451 apoya miserables ja ja ja ",
      "published": "hace 6 m",
      "url": "https://www.youtube.com/watch?v=DpqsZSg-VIE",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 1,
+     "commentsSpanish": 1
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_DIEGO_BEJARANO": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 6,
+   "commentsRead": 17,
+   "commentsAnalyzed": 11,
    "videos": [
     {
      "videoId": "uMz5xjpnqZM",
      "title": "HOY NOS VISITA DIEGO BEJARANO PARA COMPARTIR ANÉCDOTAS DE SU PASO EN LA VERDE | ATD 14",
      "published": "Transmitido hace 6 m",
      "url": "https://www.youtube.com/watch?v=uMz5xjpnqZM",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 1,
+     "commentsSpanish": 1
     },
     {
      "videoId": "THGOjEWQR_4",
@@ -6431,23 +7400,39 @@
      "url": "https://www.youtube.com/watch?v=3ni6BOr9Dvk",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "fQV1Z1s7dXg",
+     "title": "FICHAJES | DIEGO BEJARANO SE DESPIDIÓ DE ORIENTE PETROLERO | ATENCION, SANCIONAN A CLAURE Y BOLÍVAR",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=fQV1Z1s7dXg",
+     "commentsRead": 15,
+     "commentsSpanish": 9
+    },
+    {
+     "videoId": "UkVbKkvpfbo",
+     "title": "FICHAJES |TURNEROS FC FICHA A DIEGO BEJARANO |ALCALDE ALWAYS READY NO ES DEL ALTO |CAICEDO NO VA MÁS",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=UkVbKkvpfbo",
+     "commentsRead": 1,
+     "commentsSpanish": 1
     }
    ],
    "sentiment": null,
    "words": null
   },
   "P_XIMENA_GALARZA": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 12,
+   "commentsRead": 67,
+   "commentsAnalyzed": 48,
    "videos": [
     {
      "videoId": "XM-Vd7Tlnl0",
      "title": "Ximena Galarza: “No hay ningún tipo de relación con Cerimedo”",
      "published": "hace 1 m",
      "url": "https://www.youtube.com/watch?v=XM-Vd7Tlnl0",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 11,
+     "commentsSpanish": 9
     },
     {
      "videoId": "JJi35ZJV574",
@@ -6470,47 +7455,326 @@
      "title": "POSESIONARON A XIMENA GALARZA",
      "published": "hace 10 m",
      "url": "https://www.youtube.com/watch?v=rxZ42Byrhkc",
+     "commentsRead": 9,
+     "commentsSpanish": 5
+    },
+    {
+     "videoId": "YTDVcWiCrRg",
+     "title": "Exclusiva: Ximena Galarza revela su visión al frente de la nueva Comunicación Estratégica del Estado",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=YTDVcWiCrRg",
+     "commentsRead": 12,
+     "commentsSpanish": 10
+    },
+    {
+     "videoId": "KIhkr2JgSG4",
+     "title": "Directora Comunicación del Gobierno Ximena Galarza, Llega a Fiscalía a declarar en calidad .",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=KIhkr2JgSG4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "nEe03P9BP2o",
+     "title": "🟢  Ximena Galarza, directora general de Comunicación Estratégica del Estado |01.12.25|",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=nEe03P9BP2o",
+     "commentsRead": 35,
+     "commentsSpanish": 24
+    },
+    {
+     "videoId": "TozGv7549NQ",
+     "title": "La integridad no se negocia | Ximena Galarza – Mujeres Sin Filtro La Paz",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=TozGv7549NQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "cgB0subit78",
+     "title": "\"Cerimedo no fue ni es funcionario del gobierno\" señala Ximena Galarza",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=cgB0subit78",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "oRtFE8XJTrE",
+     "title": "Ximena Galarza declara ante la Fiscalía y niega vínculos de Cerimedo con el Gobierno.",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=oRtFE8XJTrE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "NLYg8OzReEM",
+     "title": "Posesionan a Ximena Galarza y otras tres autoridades clave en comunicación gubernamental",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=NLYg8OzReEM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "zIUPe8yp1TE",
+     "title": "XIMENA GALARZA NUEVA DIRECTORA DE COMUNICACIÓN ESTRATÉGICA DEL ESTADO",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=zIUPe8yp1TE",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
    ],
-   "sentiment": null,
-   "words": null
+   "sentiment": {
+    "analyzed": 48,
+    "positivePct": 27.1,
+    "negativePct": 62.5,
+    "neutralPct": 10.4,
+    "ironyPct": 18.8,
+    "netScore": -35.4,
+    "topEmotion": "joy",
+    "emotionPct": {
+     "joy": 29.2,
+     "sadness": 0.0,
+     "anger": 27.1,
+     "surprise": 0.0,
+     "disgust": 0.0,
+     "fear": 0.0
+    }
+   },
+   "words": [
+    {
+     "kind": "WORD",
+     "term": "felicidades",
+     "count": 8,
+     "rank": 1
+    },
+    {
+     "kind": "WORD",
+     "term": "gobierno",
+     "count": 7,
+     "rank": 2
+    },
+    {
+     "kind": "WORD",
+     "term": "comunicación",
+     "count": 6,
+     "rank": 3
+    },
+    {
+     "kind": "WORD",
+     "term": "periodista",
+     "count": 6,
+     "rank": 4
+    },
+    {
+     "kind": "WORD",
+     "term": "dios",
+     "count": 5,
+     "rank": 5
+    },
+    {
+     "kind": "WORD",
+     "term": "señora",
+     "count": 4,
+     "rank": 6
+    },
+    {
+     "kind": "WORD",
+     "term": "paz",
+     "count": 4,
+     "rank": 7
+    },
+    {
+     "kind": "WORD",
+     "term": "cargo",
+     "count": 4,
+     "rank": 8
+    },
+    {
+     "kind": "WORD",
+     "term": "bueno",
+     "count": 4,
+     "rank": 9
+    },
+    {
+     "kind": "WORD",
+     "term": "mujer",
+     "count": 3,
+     "rank": 10
+    },
+    {
+     "kind": "WORD",
+     "term": "gente",
+     "count": 3,
+     "rank": 11
+    },
+    {
+     "kind": "WORD",
+     "term": "ninguna",
+     "count": 3,
+     "rank": 12
+    },
+    {
+     "kind": "WORD",
+     "term": "relación",
+     "count": 3,
+     "rank": 13
+    },
+    {
+     "kind": "WORD",
+     "term": "país",
+     "count": 3,
+     "rank": 14
+    },
+    {
+     "kind": "WORD",
+     "term": "merece",
+     "count": 3,
+     "rank": 15
+    },
+    {
+     "kind": "WORD",
+     "term": "favor",
+     "count": 3,
+     "rank": 16
+    },
+    {
+     "kind": "WORD",
+     "term": "medios",
+     "count": 3,
+     "rank": 17
+    },
+    {
+     "kind": "WORD",
+     "term": "periodismo",
+     "count": 3,
+     "rank": 18
+    },
+    {
+     "kind": "WORD",
+     "term": "profesional",
+     "count": 3,
+     "rank": 19
+    },
+    {
+     "kind": "WORD",
+     "term": "verdad",
+     "count": 3,
+     "rank": 20
+    },
+    {
+     "kind": "WORD",
+     "term": "excelente",
+     "count": 3,
+     "rank": 21
+    },
+    {
+     "kind": "WORD",
+     "term": "periodistas",
+     "count": 3,
+     "rank": 22
+    },
+    {
+     "kind": "WORD",
+     "term": "valor",
+     "count": 2,
+     "rank": 23
+    },
+    {
+     "kind": "WORD",
+     "term": "hablando",
+     "count": 2,
+     "rank": 24
+    },
+    {
+     "kind": "WORD",
+     "term": "pena",
+     "count": 2,
+     "rank": 25
+    }
+   ]
   },
   "P_GABRIELA_MONTANO": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 10,
+   "commentsRead": 149,
+   "commentsAnalyzed": 119,
    "videos": [
     {
      "videoId": "mhDa1Tn8Ol8",
      "title": "Reaparece exministra Gabriela Montaño exige Movilización para habilitar a Evo candidato!",
      "published": "hace 9 días",
      "url": "https://www.youtube.com/watch?v=mhDa1Tn8Ol8",
-     "commentsRead": 0,
-     "commentsSpanish": 0
-    },
-    {
-     "videoId": "XmuAfSFl414",
-     "title": "🟠 Reapareció la exministra de #EvoMorales #GabrielaMontaño",
-     "published": "hace 11 días",
-     "url": "https://www.youtube.com/watch?v=XmuAfSFl414",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 2,
+     "commentsSpanish": 1
     },
     {
      "videoId": "q9CB3EQbM9A",
      "title": "Gabriela Montaño asegura que detener a Evo Morales sería un error político",
      "published": "hace 3 m",
      "url": "https://www.youtube.com/watch?v=q9CB3EQbM9A",
+     "commentsRead": 141,
+     "commentsSpanish": 112
+    },
+    {
+     "videoId": "CDkEShhE_wI",
+     "title": "Entrevista a Gabriela Montaño, sobre situación en #Bolivia y la resistencia de su pueblo.",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=CDkEShhE_wI",
+     "commentsRead": 2,
+     "commentsSpanish": 2
+    },
+    {
+     "videoId": "U5-skllkYek",
+     "title": "GABRIELA MONTAÑO ADMITE EN \"NO MENTIRÁS\" QUE LA RELECCIÓN DE EVO MORALES TRAS EL 21F FUE UN ERROR 📢",
+     "published": "hace 3 m",
+     "url": "https://www.youtube.com/watch?v=U5-skllkYek",
      "commentsRead": 0,
      "commentsSpanish": 0
     },
     {
-     "videoId": "161RL3WNMSg",
-     "title": "🟠 La exministra de Evo #GabrielaMontaño reconoció el error",
-     "published": "hace 3 m",
-     "url": "https://www.youtube.com/watch?v=161RL3WNMSg",
+     "videoId": "By7xM0AJq8Q",
+     "title": "REAPARECIÓ GABRIELA MONTAÑO EX MINISTRA DE EVO MORALES Y LLAMA A MOBILIZACIONES",
+     "published": "hace 9 días",
+     "url": "https://www.youtube.com/watch?v=By7xM0AJq8Q",
+     "commentsRead": 4,
+     "commentsSpanish": 4
+    },
+    {
+     "videoId": "t8eANJrgy28",
+     "title": "Gabriela Montaño explica el SUS: financiamiento, hospitales y arranque",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=t8eANJrgy28",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "Fq3w4oHO1KI",
+     "title": "\"La legitimidad de Rodrigo Paz se ha erosionado en tiempo récord\" | Gabriela Montaño en Sinsonte",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=Fq3w4oHO1KI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "-bxPsbaoltA",
+     "title": "ENTREVISTA GABRIELA MONTAÑO    GUARIDA",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=-bxPsbaoltA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "VA4G9I9Ptgc",
+     "title": "Gabriela Montaño explica el SUS: “prepago”, ítems y deudas | Entrevista",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=VA4G9I9Ptgc",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "J10Ek1sZ-24",
+     "title": "Claudia Bilbao cuestiona a Gabriela Montaño tras ampliado",
+     "published": "hace 8 días",
+     "url": "https://www.youtube.com/watch?v=J10Ek1sZ-24",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -6520,8 +7784,8 @@
   },
   "P_FREDDY_MAMANI_LAURA": {
    "videosRead": 2,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "commentsRead": 2,
+   "commentsAnalyzed": 2,
    "videos": [
     {
      "videoId": "foQARJNYMpE",
@@ -6536,8 +7800,8 @@
      "title": "#RadioDelPueblo #urgente #Bolivia Ex diputado Freddy Mamani Laura, denuncia inhabilitacion politica",
      "published": "hace 9 m",
      "url": "https://www.youtube.com/watch?v=0ts5N8JgxVg",
-     "commentsRead": 0,
-     "commentsSpanish": 0
+     "commentsRead": 2,
+     "commentsSpanish": 2
     }
    ],
    "sentiment": null,
@@ -6552,8 +7816,8 @@
    "words": null
   },
   "P_RODRIGO_RAMALLO": {
-   "videosRead": 4,
-   "commentsRead": 0,
+   "videosRead": 9,
+   "commentsRead": 2,
    "commentsAnalyzed": 0,
    "videos": [
     {
@@ -6569,7 +7833,7 @@
      "title": "Salí adelante con mi carrera después de dar positivo a Doping  | Rodrigo Ramallo",
      "published": "hace 3 m",
      "url": "https://www.youtube.com/watch?v=b7YFOMtdEW4",
-     "commentsRead": 0,
+     "commentsRead": 2,
      "commentsSpanish": 0
     },
     {
@@ -6585,6 +7849,46 @@
      "title": "RODRIGO RAMALLO JUGADOR DE AURORA",
      "published": "hace 8 m",
      "url": "https://www.youtube.com/watch?v=i7mLrvCCmKo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "cLGS5XGD_TU",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 |Rodrigo Ramallo de Club Aurora feliz por llegar al tercer puesto de la tabla.",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=cLGS5XGD_TU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "twOMMqbg_lI",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒  | Rodrigo Ramallo de Club Aurora cuenta su versión de lo ocurrido en Villa Ingenio",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=twOMMqbg_lI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "XMvPQrk62U4",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Rodrigo Ramallo de Club Aurora, el equipo sacó un buen punto de Villa Ingenio.",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=XMvPQrk62U4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "L7nLx2-biv4",
+     "title": "🎥Conferencia de prensa completa GIANCARLO UMAÑA - RODRIGO RAMALLO (AURORA).",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=L7nLx2-biv4",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "n7NRjRq-RLE",
+     "title": "🎥Conferencia de prensa completa AURORA (DAVID DIAZ - RODRIGO RAMALLO).",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=n7NRjRq-RLE",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -6635,7 +7939,7 @@
    "words": null
   },
   "P_EDWARD_ZENTENO": {
-   "videosRead": 4,
+   "videosRead": 10,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -6668,6 +7972,54 @@
      "title": "🎥Conferencia de prensa completa EDWARD ZENTENO - DIDÍ TORRICO (AURORA).",
      "published": "hace 9 m",
      "url": "https://www.youtube.com/watch?v=ycuiYMZLlpA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "7GOJ42gp0X0",
+     "title": "🎥Conferencia de prensa completa EDWARD ZENTENO - JOEL TERRAZAS (AURORA).",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=7GOJ42gp0X0",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "b6XymOCuPfU",
+     "title": "🎥Conferencia de prensa completa EDWARD ZENTENO - JOEL TERRAZAS (AURORA).",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=b6XymOCuPfU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "4YD1mgYS7LQ",
+     "title": "🎥Conferencia de prensa completa EDWARD ZENTENO - SEBASTIÁN VIVIANI (AURORA).",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=4YD1mgYS7LQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "xV748jcxpbU",
+     "title": "CURVA RADIO EN VIVO CON EDWARD ZENTENO JR Y LEONEL POZO",
+     "published": "Transmitido hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=xV748jcxpbU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "bq1yq_QUZwc",
+     "title": "🎥Conferencia de prensa completa Edward Zenteno - Alfredo Amarilla (AURORA)",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=bq1yq_QUZwc",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "vte4upkWEiM",
+     "title": "🎥Conferencia de prensa completa EDWARD ZENTENO - CARLOS SEJAS (AURORA).",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=vte4upkWEiM",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -6759,7 +8111,7 @@
    "words": null
   },
   "P_BRUNO_ROJAS": {
-   "videosRead": 4,
+   "videosRead": 6,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -6792,6 +8144,22 @@
      "title": "Bruno Rojas denuncia que atletas deben PAGAR para representar a Bolivia",
      "published": "hace 1 m",
      "url": "https://www.youtube.com/watch?v=5XFszQRdNik",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "pODBi0ACHqw",
+     "title": "BRUNO ROJAS EN LUNES DE METANOIA- STREAM 243 - LUNES 29 DE DICIEMBRE",
+     "published": "Transmitido hace 9 m",
+     "url": "https://www.youtube.com/watch?v=pODBi0ACHqw",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "beM_QrfuEMw",
+     "title": "BRUNO ROJAS NO VA A LOS JUEGOS SUDAMERICANOS 2026 - MANO A MANO CON DEPORTE TOTAL",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=beM_QrfuEMw",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -6858,7 +8226,7 @@
    "words": null
   },
   "P_MARVIN_BEJARANO": {
-   "videosRead": 4,
+   "videosRead": 8,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -6891,6 +8259,38 @@
      "title": "MARVIN BEJARANO DEFENSOR DE REAL TOMAYAPO ",
      "published": "hace 6 m",
      "url": "https://www.youtube.com/watch?v=gHKAvBXogBU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "izbLKSUVqRo",
+     "title": "MARVIN BEJARANO - TOMAYAPO",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=izbLKSUVqRo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "bxu7vgrHQpk",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒  | Marvin Bejarano de Club Deportivo Real Tomayapo al comenzar la semana de trabajo",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=bxu7vgrHQpk",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ZxW-qCpw_fA",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Marvin Bejarano de Club Deportivo Real Tomayapo preocupado.",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=ZxW-qCpw_fA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "rrCspfgs5Xw",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒 | Marvin Bejarano de Club Deportivo Real Tomayapo , ayer en La Paz",
+     "published": "hace 4 sem.",
+     "url": "https://www.youtube.com/watch?v=rrCspfgs5Xw",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -7022,7 +8422,7 @@
    "words": null
   },
   "P_MAURICIO_SAUCEDO": {
-   "videosRead": 4,
+   "videosRead": 5,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -7055,6 +8455,14 @@
      "title": "[Repris] Mauricio Saucedo se sienta a conversar en #Astro, Adrián Moll Pregunta.",
      "published": "Transmitido hace 11 m",
      "url": "https://www.youtube.com/watch?v=I7VmbP4134Q",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "VvM2mrZTZw8",
+     "title": "✅ En Vivo y Directo Mauricio Saucedo se sienta a conversar en #Astro, Adrián Moll Pregunta.",
+     "published": "Transmitido hace 11 m",
+     "url": "https://www.youtube.com/watch?v=VvM2mrZTZw8",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -7145,7 +8553,7 @@
    "words": null
   },
   "P_MARIANELA_PACO": {
-   "videosRead": 4,
+   "videosRead": 5,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -7178,6 +8586,14 @@
      "title": "DIÁLOGO EN PANAMERICANA | 17 de Enero 2026 | Con Catherine Pinto, Marianela Paco, Cecilia Requena",
      "published": "Transmitido hace 8 m",
      "url": "https://www.youtube.com/watch?v=pf8iOChKGnU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "mad1fkGKnOk",
+     "title": "Diálogo en Panamericana – Zulema Alanea, Marianela Paco, Jose Luis Aguirre",
+     "published": "Transmitido hace 2 m",
+     "url": "https://www.youtube.com/watch?v=mad1fkGKnOk",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -7277,7 +8693,7 @@
    "words": null
   },
   "P_NILA_HEREDIA": {
-   "videosRead": 4,
+   "videosRead": 5,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -7312,6 +8728,14 @@
      "url": "https://www.youtube.com/watch?v=dYkbsmU-JE4",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "E0aJOq_br7E",
+     "title": "Derechos Humanos y democracia en América Latina | Nila Heredia - Lía Méndez",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=E0aJOq_br7E",
+     "commentsRead": 0,
+     "commentsSpanish": 0
     }
    ],
    "sentiment": null,
@@ -7342,7 +8766,7 @@
    "words": null
   },
   "P_EUGENIO_COTER": {
-   "videosRead": 4,
+   "videosRead": 13,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -7375,6 +8799,78 @@
      "title": "Animo, soy yo, no tengas miedo / Mateo 14, 22-33/ Eugenio Coter",
      "published": "hace 2 m",
      "url": "https://www.youtube.com/watch?v=6yVTYNdndTo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "-kbGrssXUrM",
+     "title": "“ Dame de beber ”Juan 4, 5-42 / Eugenio Coter",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=-kbGrssXUrM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "IUimwCDmBYs",
+     "title": "¿Quién nos apartará del amor de Cristo? / Mateo 14, 13-21 / Eugenio Coter",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=IUimwCDmBYs",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "GiEx2humJ50",
+     "title": "“ Vosotros no recapacitasteis ni le creísteis ”Mateo 21, 28-32 / Eugenio Coter",
+     "published": "hace 11 días",
+     "url": "https://www.youtube.com/watch?v=GiEx2humJ50",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "aGIxJkNB0JU",
+     "title": "“Monseñor Eugenio Coter: ‘No todo sufrimiento es desgracia, es lugar donde Dios muestra su gloria’”",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=aGIxJkNB0JU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "AmuaKupScSs",
+     "title": "Trae tu mano, métela en mi costado / Juan 20, 19-31 / Eugenio Coter",
+     "published": "hace 5 m",
+     "url": "https://www.youtube.com/watch?v=AmuaKupScSs",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "cmCDlUMq5ko",
+     "title": "“ Levantaos, no tengáis miedo ” Mateo 17, 1-9 / Eugenio Coter",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=cmCDlUMq5ko",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "Qhq9KuyL210",
+     "title": "Monseñor Eugenio Coter “¿Ves o eres ciego? Llamado a abandonar la idea de un Dios que castiga”",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=Qhq9KuyL210",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "6MPDhbbrSf0",
+     "title": "“ Tiempo de vivir con el corazón despierto ” / Mateo 24, 37-44 / Eugenio Coter",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=6MPDhbbrSf0",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "xLHVb5GFfPw",
+     "title": "“ El Señor mira el corazón ”  Juan 9, 1. 6-9. 13-17. 34-38 / Eugenio Coter",
+     "published": "hace 6 m",
+     "url": "https://www.youtube.com/watch?v=xLHVb5GFfPw",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -7588,7 +9084,7 @@
    "words": null
   },
   "P_CARLOS_LIMPIAS": {
-   "videosRead": 4,
+   "videosRead": 7,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -7621,6 +9117,30 @@
      "title": "CARLOS LIMPIAS: “TAHUICHI ES EL SEMILLERO DEL FÚTBOL NACIONAL”",
      "published": "hace 11 m",
      "url": "https://www.youtube.com/watch?v=mT6EBWIQDCM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "efJCqSMFScs",
+     "title": "Carlos Limpias, postulante a primera concejal por la agrupación ciudadana VOS.",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=efJCqSMFScs",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "Vr89FVEXFbc",
+     "title": "Cápsula Nº 17 | Los jóvenes hablan con Carlos Limpias, candidato a concejal de Santa Cruz por VOS",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=Vr89FVEXFbc",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "G4ElJJ2jJwM",
+     "title": "Ep.35 Ingenieros para la complejidad: Academia e Industria, entrevista con Carlos Limpias CEOEMPACAR",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=G4ElJJ2jJwM",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -7662,7 +9182,7 @@
    "words": null
   },
   "P_JEAN_PIERRE_ANTELO": {
-   "videosRead": 4,
+   "videosRead": 12,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -7695,6 +9215,70 @@
      "title": "20102025   JEAN PIERRE ANTELO   REACCION DE LA CAINCO POR NUEVO GOIBIERNO   UNO",
      "published": "hace 11 m",
      "url": "https://www.youtube.com/watch?v=kE-tbRFncos",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "2Qv_o_9xVqI",
+     "title": "Carlos Valverde en la red/3 - JEAN PIERRE ANTELO EN FORO CAINCO 2026. PARTE 1 - 7 septiembre 2026",
+     "published": "Transmitido hace 1 m",
+     "url": "https://www.youtube.com/watch?v=2Qv_o_9xVqI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "3bnQAxCoRlg",
+     "title": "Sesión 1: IniCEOS con Jean Pierre Antelo, Presidente de CAINCO",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=3bnQAxCoRlg",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "aBeRpNAghvc",
+     "title": "Expocruz 2026: Jean Pierre Antelo apunta a $us 100 millones en negocios este año",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=aBeRpNAghvc",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "2Bys98X9rRY",
+     "title": "Entregan cruz potenzada a Jean Pierre Antelo, Pdte. Cainco",
+     "published": "hace 2 sem.",
+     "url": "https://www.youtube.com/watch?v=2Bys98X9rRY",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "-ZKoosOIzw8",
+     "title": "¿Cómo salir de la crisis? El plan del sector privado | Jean Pierre Antelo (CAINCO)",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=-ZKoosOIzw8",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "d-CcrYrgivY",
+     "title": "Jean Pierre Antelo, presidente de CAINCO, comparte su postura #enfoquedigital #bolivia #shortvideo",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=d-CcrYrgivY",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ru9qv8VjsMQ",
+     "title": "Jean Pierre Antelo – Entrevista Exclusiva",
+     "published": "Transmitido hace 7 m",
+     "url": "https://www.youtube.com/watch?v=ru9qv8VjsMQ",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "1ujTm-xqNOQ",
+     "title": "DURANTE 20 AÑOS HUBO INFLACIÓN ALTÍSIMA, NO HUBO GAS\", JEAN PIERRE ANTELO, PRESIDENTE",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=1ujTm-xqNOQ",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -7778,10 +9362,19 @@
    "words": null
   },
   "P_JERONIMO_VAQUEIRO": {
-   "videosRead": 0,
+   "videosRead": 1,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
-   "videos": [],
+   "videos": [
+    {
+     "videoId": "ECL4KTa5snI",
+     "title": "Jerónimo Vaqueiro: impulsando el liderazgo joven y la proyección internacional",
+     "published": "hace 11 m",
+     "url": "https://www.youtube.com/watch?v=ECL4KTa5snI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    }
+   ],
    "sentiment": null,
    "words": null
   },
@@ -8036,175 +9629,8 @@
      "commentsSpanish": 47
     }
    ],
-   "sentiment": {
-    "analyzed": 47,
-    "positivePct": 12.8,
-    "negativePct": 66.0,
-    "neutralPct": 21.3,
-    "ironyPct": 10.6,
-    "netScore": -53.2,
-    "topEmotion": "anger",
-    "emotionPct": {
-     "joy": 8.5,
-     "sadness": 8.5,
-     "anger": 34.0,
-     "surprise": 0.0,
-     "disgust": 0.0,
-     "fear": 0.0
-    }
-   },
-   "words": [
-    {
-     "kind": "WORD",
-     "term": "maria",
-     "count": 29,
-     "rank": 1
-    },
-    {
-     "kind": "WORD",
-     "term": "banco",
-     "count": 26,
-     "rank": 2
-    },
-    {
-     "kind": "WORD",
-     "term": "galindo",
-     "count": 15,
-     "rank": 3
-    },
-    {
-     "kind": "WORD",
-     "term": "sol",
-     "count": 11,
-     "rank": 4
-    },
-    {
-     "kind": "WORD",
-     "term": "gente",
-     "count": 10,
-     "rank": 5
-    },
-    {
-     "kind": "WORD",
-     "term": "crédito",
-     "count": 8,
-     "rank": 6
-    },
-    {
-     "kind": "WORD",
-     "term": "asesores",
-     "count": 8,
-     "rank": 7
-    },
-    {
-     "kind": "WORD",
-     "term": "personas",
-     "count": 7,
-     "rank": 8
-    },
-    {
-     "kind": "WORD",
-     "term": "clientes",
-     "count": 7,
-     "rank": 9
-    },
-    {
-     "kind": "WORD",
-     "term": "razon",
-     "count": 7,
-     "rank": 10
-    },
-    {
-     "kind": "WORD",
-     "term": "viendo",
-     "count": 4,
-     "rank": 11
-    },
-    {
-     "kind": "WORD",
-     "term": "bancos",
-     "count": 4,
-     "rank": 12
-    },
-    {
-     "kind": "WORD",
-     "term": "haciendo",
-     "count": 4,
-     "rank": 13
-    },
-    {
-     "kind": "WORD",
-     "term": "seguro",
-     "count": 4,
-     "rank": 14
-    },
-    {
-     "kind": "WORD",
-     "term": "tendria",
-     "count": 4,
-     "rank": 15
-    },
-    {
-     "kind": "WORD",
-     "term": "abogada",
-     "count": 3,
-     "rank": 16
-    },
-    {
-     "kind": "WORD",
-     "term": "oficiales",
-     "count": 3,
-     "rank": 17
-    },
-    {
-     "kind": "WORD",
-     "term": "posible",
-     "count": 3,
-     "rank": 18
-    },
-    {
-     "kind": "WORD",
-     "term": "mujer",
-     "count": 3,
-     "rank": 19
-    },
-    {
-     "kind": "WORD",
-     "term": "ahorros",
-     "count": 3,
-     "rank": 20
-    },
-    {
-     "kind": "WORD",
-     "term": "deudas",
-     "count": 3,
-     "rank": 21
-    },
-    {
-     "kind": "WORD",
-     "term": "importante",
-     "count": 3,
-     "rank": 22
-    },
-    {
-     "kind": "WORD",
-     "term": "sra",
-     "count": 3,
-     "rank": 23
-    },
-    {
-     "kind": "WORD",
-     "term": "trabajo",
-     "count": 3,
-     "rank": 24
-    },
-    {
-     "kind": "WORD",
-     "term": "intereses",
-     "count": 3,
-     "rank": 25
-    }
-   ]
+   "sentiment": null,
+   "words": null
   },
   "P_ROBERTO_MAGANA": {
    "videosRead": 0,
@@ -8248,10 +9674,51 @@
    "words": null
   },
   "P_OSCAR_ORTIZ": {
-   "videosRead": 0,
+   "videosRead": 5,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
-   "videos": [],
+   "videos": [
+    {
+     "videoId": "7SQp-SULKRw",
+     "title": "Análisis de Óscar Ortiz sobre los cambios en el gabinete y el Gobierno",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=7SQp-SULKRw",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "25VWuec-6AY",
+     "title": "Oscar Ortiz analiza la situación de la Fiscalía General del Estado",
+     "published": "hace 2 días",
+     "url": "https://www.youtube.com/watch?v=25VWuec-6AY",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "c5OrdzS0pEk",
+     "title": "Tuffí Aré en De Frente con Oscar Ortiz: crisis, poder y conflicto en Bolivia",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=c5OrdzS0pEk",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "YoagC3E5kvo",
+     "title": "Oscar Ortiz pide auditar empresas estatales",
+     "published": "hace 2 m",
+     "url": "https://www.youtube.com/watch?v=YoagC3E5kvo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "ZAik3f3RANA",
+     "title": "Oscar Ortiz: \"Sin combustible, no hay economía\"",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=ZAik3f3RANA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    }
+   ],
    "sentiment": null,
    "words": null
   },
@@ -8362,7 +9829,7 @@
    "words": null
   },
   "P_GARY_RODRIGUEZ": {
-   "videosRead": 4,
+   "videosRead": 12,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -8395,6 +9862,70 @@
      "title": "Superávit, bloqueos y tipo de cambio - Gary Rodriguez",
      "published": "hace 1 m",
      "url": "https://www.youtube.com/watch?v=puRy9Kz14tM",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "JXJHzO6wjww",
+     "title": "Carlos Valverde en la red/3 - DIA 5. ANUARIO 2025 - 2026: GARY RODRIGUEZ. P 1 - 29 diciembre 2025",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=JXJHzO6wjww",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "i9-OxItfvt0",
+     "title": "Superávit, bloqueos y tipo de cambio - Gary Rodriguez",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=i9-OxItfvt0",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "6-PdsXgw3vA",
+     "title": "Gary Rodríguez sobre Foro Económico",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=6-PdsXgw3vA",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "WuVVKu4I5FE",
+     "title": "10082026 - GARY RODRIGUEZ - FALTA DE DIESEL EL PRINCIPAL PROBLEMA DEL PAIS - UNITEL",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=WuVVKu4I5FE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "rbCcR13dXOY",
+     "title": "“El 95% de la gente pide sanción para los bloqueadores.”: Gary Rodríguez",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=rbCcR13dXOY",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "XyfgD0psYlE",
+     "title": "Carlos Valverde en la red/4 - DIA 5. ANUARIO 2025 - 2026: GARY RODRÍGUEZ. P 2 - 29 diciembre 2025",
+     "published": "hace 9 m",
+     "url": "https://www.youtube.com/watch?v=XyfgD0psYlE",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "NNTePG0J_aI",
+     "title": "Superávit, bloqueos y tipo de cambio - Gary Rodriguez",
+     "published": "hace 1 m",
+     "url": "https://www.youtube.com/watch?v=NNTePG0J_aI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "zEFsQoFnoGM",
+     "title": "11092026 - GARY RODRIGUEZ  SEGN IBCE LOS BLQOUEOS AFECTAN LA IMAGEN INTERNACIONAL DE BOLIVIA UNITEL",
+     "published": "hace 3 sem.",
+     "url": "https://www.youtube.com/watch?v=zEFsQoFnoGM",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -8616,7 +10147,7 @@
    "words": null
   },
   "P_VERONICA_AGREDA": {
-   "videosRead": 4,
+   "videosRead": 8,
    "commentsRead": 0,
    "commentsAnalyzed": 0,
    "videos": [
@@ -8649,6 +10180,38 @@
      "title": "Unifranz | Verónica Ágreda voz clave en el libro de las 200 Mujeres del Bicentenario",
      "published": "hace 4 m",
      "url": "https://www.youtube.com/watch?v=bd4jcj9maEs",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "3R1d-IaSFbw",
+     "title": "Verónica Ágreda, rectora de Unifranz, gana el premio Innovactora 2026 (I)",
+     "published": "hace 5 m",
+     "url": "https://www.youtube.com/watch?v=3R1d-IaSFbw",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "d6RhoTuQC50",
+     "title": "Verónica Ágreda y Xiomara Zambrana, protagonistas del libro de las 200 Mujeres del Bicentenario (I)",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=d6RhoTuQC50",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "AgmpSSplBrk",
+     "title": "🟢 Verónica Ágreda, rectora de la Unifranz  |10.11.25|",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=AgmpSSplBrk",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "9eU07Bgqp2A",
+     "title": "Verónica Ágreda, rectora de Unifranz, gana el premio internacional Innovactora 2026",
+     "published": "hace 5 m",
+     "url": "https://www.youtube.com/watch?v=9eU07Bgqp2A",
      "commentsRead": 0,
      "commentsSpanish": 0
     }
@@ -8702,175 +10265,9 @@
      "commentsSpanish": 0
     }
    ],
-   "sentiment": {
-    "analyzed": 71,
-    "positivePct": 32.4,
-    "negativePct": 32.4,
-    "neutralPct": 35.2,
-    "ironyPct": 22.5,
-    "netScore": 0.0,
-    "topEmotion": "joy",
-    "emotionPct": {
-     "joy": 46.5,
-     "sadness": 2.8,
-     "anger": 15.5,
-     "surprise": 0.0,
-     "disgust": 0.0,
-     "fear": 0.0
-    }
-   },
-   "words": [
-    {
-     "kind": "WORD",
-     "term": "elian",
-     "count": 13,
-     "rank": 1
-    },
-    {
-     "kind": "WORD",
-     "term": "gante",
-     "count": 11,
-     "rank": 2
-    },
-    {
-     "kind": "WORD",
-     "term": "jugadores",
-     "count": 6,
-     "rank": 3
-    },
-    {
-     "kind": "WORD",
-     "term": "ciudad",
-     "count": 6,
-     "rank": 4
-    },
-    {
-     "kind": "WORD",
-     "term": "música",
-     "count": 6,
-     "rank": 5
-    },
-    {
-     "kind": "WORD",
-     "term": "fuera",
-     "count": 4,
-     "rank": 6
-    },
-    {
-     "kind": "WORD",
-     "term": "gente",
-     "count": 4,
-     "rank": 7
-    },
-    {
-     "kind": "WORD",
-     "term": "años",
-     "count": 4,
-     "rank": 8
-    },
-    {
-     "kind": "WORD",
-     "term": "córdoba",
-     "count": 4,
-     "rank": 9
-    },
-    {
-     "kind": "WORD",
-     "term": "conocerte",
-     "count": 4,
-     "rank": 10
-    },
-    {
-     "kind": "WORD",
-     "term": "cumbia",
-     "count": 4,
-     "rank": 11
-    },
-    {
-     "kind": "WORD",
-     "term": "robaron",
-     "count": 4,
-     "rank": 12
-    },
-    {
-     "kind": "WORD",
-     "term": "falta",
-     "count": 3,
-     "rank": 13
-    },
-    {
-     "kind": "WORD",
-     "term": "villegas",
-     "count": 3,
-     "rank": 14
-    },
-    {
-     "kind": "WORD",
-     "term": "atras",
-     "count": 3,
-     "rank": 15
-    },
-    {
-     "kind": "WORD",
-     "term": "saludos",
-     "count": 3,
-     "rank": 16
-    },
-    {
-     "kind": "WORD",
-     "term": "hermano",
-     "count": 3,
-     "rank": 17
-    },
-    {
-     "kind": "WORD",
-     "term": "aguante",
-     "count": 3,
-     "rank": 18
-    },
-    {
-     "kind": "WORD",
-     "term": "bendiciones",
-     "count": 3,
-     "rank": 19
-    },
-    {
-     "kind": "WORD",
-     "term": "éxitos",
-     "count": 3,
-     "rank": 20
-    },
-    {
-     "kind": "WORD",
-     "term": "crack",
-     "count": 3,
-     "rank": 21
-    },
-    {
-     "kind": "WORD",
-     "term": "porteño",
-     "count": 3,
-     "rank": 22
-    },
-    {
-     "kind": "WORD",
-     "term": "pagame",
-     "count": 3,
-     "rank": 23
-    },
-    {
-     "kind": "WORD",
-     "term": "nombre",
-     "count": 3,
-     "rank": 24
-    },
-    {
-     "kind": "WORD",
-     "term": "artístico",
-     "count": 3,
-     "rank": 25
-    }
-   ]
+   "sentiment": null,
+   "words": null,
+   "excluded": "Los videos que nombran «Carlos Paz» son de Villa Carlos Paz (Argentina) y de Juan Carlos Paz García: homónimos, no la persona de la ficha."
   },
   "P_IBO_BLAZICEVIC": {
    "videosRead": 0,
@@ -8963,27 +10360,10 @@
    "words": null
   },
   "P_CARLOS_CABALLERO": {
-   "videosRead": 2,
-   "commentsRead": 12,
-   "commentsAnalyzed": 6,
-   "videos": [
-    {
-     "videoId": "geK2kib_W8k",
-     "title": "Carlos Valverde en la red/1 - DIA 3. ANUARIO 2025 - 2026: TEÓFILO CABALLERO - 24 diciembre 2025",
-     "published": "hace 9 m",
-     "url": "https://www.youtube.com/watch?v=geK2kib_W8k",
-     "commentsRead": 10,
-     "commentsSpanish": 6
-    },
-    {
-     "videoId": "WGaJ-W_-fq8",
-     "title": "🔴EL VOCAL DEL TSE, CARLOS A. GOITIA CABALLERO, ANALIZA EL FRAUDE ELECTORAL DE 2019",
-     "published": "hace 2 m",
-     "url": "https://www.youtube.com/watch?v=WGaJ-W_-fq8",
-     "commentsRead": 2,
-     "commentsSpanish": 0
-    }
-   ],
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
    "sentiment": null,
    "words": null
   },
@@ -9058,175 +10438,8 @@
      "commentsSpanish": 43
     }
    ],
-   "sentiment": {
-    "analyzed": 43,
-    "positivePct": 67.4,
-    "negativePct": 18.6,
-    "neutralPct": 14.0,
-    "ironyPct": 27.9,
-    "netScore": 48.8,
-    "topEmotion": "joy",
-    "emotionPct": {
-     "joy": 69.8,
-     "sadness": 2.3,
-     "anger": 4.7,
-     "surprise": 0.0,
-     "disgust": 0.0,
-     "fear": 0.0
-    }
-   },
-   "words": [
-    {
-     "kind": "WORD",
-     "term": "señora",
-     "count": 9,
-     "rank": 1
-    },
-    {
-     "kind": "WORD",
-     "term": "vida",
-     "count": 9,
-     "rank": 2
-    },
-    {
-     "kind": "WORD",
-     "term": "felicidades",
-     "count": 7,
-     "rank": 3
-    },
-    {
-     "kind": "WORD",
-     "term": "sra",
-     "count": 7,
-     "rank": 4
-    },
-    {
-     "kind": "WORD",
-     "term": "mujer",
-     "count": 6,
-     "rank": 5
-    },
-    {
-     "kind": "WORD",
-     "term": "jimena",
-     "count": 5,
-     "rank": 6
-    },
-    {
-     "kind": "WORD",
-     "term": "bendiciones",
-     "count": 5,
-     "rank": 7
-    },
-    {
-     "kind": "WORD",
-     "term": "entrevista",
-     "count": 5,
-     "rank": 8
-    },
-    {
-     "kind": "WORD",
-     "term": "ejemplo",
-     "count": 4,
-     "rank": 9
-    },
-    {
-     "kind": "WORD",
-     "term": "seguir",
-     "count": 4,
-     "rank": 10
-    },
-    {
-     "kind": "WORD",
-     "term": "hermosa",
-     "count": 4,
-     "rank": 11
-    },
-    {
-     "kind": "WORD",
-     "term": "excelente",
-     "count": 4,
-     "rank": 12
-    },
-    {
-     "kind": "WORD",
-     "term": "valiente",
-     "count": 4,
-     "rank": 13
-    },
-    {
-     "kind": "WORD",
-     "term": "familia",
-     "count": 3,
-     "rank": 14
-    },
-    {
-     "kind": "WORD",
-     "term": "admiro",
-     "count": 3,
-     "rank": 15
-    },
-    {
-     "kind": "WORD",
-     "term": "emprendedora",
-     "count": 3,
-     "rank": 16
-    },
-    {
-     "kind": "WORD",
-     "term": "charla",
-     "count": 3,
-     "rank": 17
-    },
-    {
-     "kind": "WORD",
-     "term": "valores",
-     "count": 3,
-     "rank": 18
-    },
-    {
-     "kind": "WORD",
-     "term": "conocen",
-     "count": 2,
-     "rank": 19
-    },
-    {
-     "kind": "WORD",
-     "term": "corazón",
-     "count": 2,
-     "rank": 20
-    },
-    {
-     "kind": "WORD",
-     "term": "amor",
-     "count": 2,
-     "rank": 21
-    },
-    {
-     "kind": "WORD",
-     "term": "linda",
-     "count": 2,
-     "rank": 22
-    },
-    {
-     "kind": "WORD",
-     "term": "persona",
-     "count": 2,
-     "rank": 23
-    },
-    {
-     "kind": "WORD",
-     "term": "inteligente",
-     "count": 2,
-     "rank": 24
-    },
-    {
-     "kind": "WORD",
-     "term": "trabajadora",
-     "count": 2,
-     "rank": 25
-    }
-   ]
+   "sentiment": null,
+   "words": null
   },
   "P_NANCY_CAMPERO": {
    "videosRead": 0,
@@ -9245,9 +10458,9 @@
    "words": null
   },
   "P_JORGE_ARIAS": {
-   "videosRead": 4,
-   "commentsRead": 0,
-   "commentsAnalyzed": 0,
+   "videosRead": 9,
+   "commentsRead": 2,
+   "commentsAnalyzed": 1,
    "videos": [
     {
      "videoId": "O43P_2NVSy4",
@@ -9280,6 +10493,46 @@
      "url": "https://www.youtube.com/watch?v=XM4gWCbgxZI",
      "commentsRead": 0,
      "commentsSpanish": 0
+    },
+    {
+     "videoId": "tU7ZMEKZhJI",
+     "title": "“Santa Cruz de la Sierra decide: Branko Marinkovic en Contra el TiempoDirigido por Jorge Arias ",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=tU7ZMEKZhJI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "sM4zoEWfG5I",
+     "title": "“Santa Cruz de la Sierra decide: Chi Hyun Chung en Contra el TiempoDirigido por Jorge Arias |",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=sM4zoEWfG5I",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "IbQ4VzwIYPo",
+     "title": "“Santa Cruz de la Sierra decide: Alfredo Solares en Contra el TiempoDirigido por Jorge Arias ",
+     "published": "hace 8 m",
+     "url": "https://www.youtube.com/watch?v=IbQ4VzwIYPo",
+     "commentsRead": 1,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "oCwwkHJvrSI",
+     "title": "MILLONARIOS EXTENSIÓN DE CONTRATOS A JORGE ARIAS, DANOVIS BANGUERO, LEONARDO CASTRO, ANDRÉS LLINAS",
+     "published": "Transmitido hace 9 m",
+     "url": "https://www.youtube.com/watch?v=oCwwkHJvrSI",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "c5Hy71Qmwfk",
+     "title": "MILLONARIOS RENUEVA A JORGE ARIAS Y DANOVIS BANGUERO. PREVIA CONTRA ONCE CALDAS 28/10/2025",
+     "published": "Transmitido hace 11 m",
+     "url": "https://www.youtube.com/watch?v=c5Hy71Qmwfk",
+     "commentsRead": 1,
+     "commentsSpanish": 1
     }
    ],
    "sentiment": null,
@@ -9319,7 +10572,7 @@
    "words": null
   },
   "P_CARLOS_FERNANDO_BORJA": {
-   "videosRead": 4,
+   "videosRead": 7,
    "commentsRead": 4,
    "commentsAnalyzed": 3,
    "videos": [
@@ -9352,6 +10605,30 @@
      "title": "ENTREVISTA: CARLOS BORJA PARTE 1",
      "published": "hace 6 m",
      "url": "https://www.youtube.com/watch?v=Y8Z92oPHYWU",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "lyFr4dSpT5Y",
+     "title": "#𝐄𝐑𝐁𝐎𝐋𝐃𝐄𝐏𝐎𝐑𝐓𝐄𝐒  | Carlos Borja habla de esta nueva ley que le aporta al deporte boliviano",
+     "published": "hace 7 m",
+     "url": "https://www.youtube.com/watch?v=lyFr4dSpT5Y",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "gf2o6QZLHjo",
+     "title": "Carlos Borja elige su 11 ideal: las leyendas que marcaron el fútbol boliviano",
+     "published": "hace 4 m",
+     "url": "https://www.youtube.com/watch?v=gf2o6QZLHjo",
+     "commentsRead": 0,
+     "commentsSpanish": 0
+    },
+    {
+     "videoId": "S27d0xiI4Ts",
+     "title": "Entrevista con Carlos Borja 17/11/2025",
+     "published": "hace 10 m",
+     "url": "https://www.youtube.com/watch?v=S27d0xiI4Ts",
      "commentsRead": 0,
      "commentsSpanish": 0
     }

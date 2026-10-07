@@ -9,6 +9,8 @@ import json, re, sys, time, unicodedata, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+from people_io import load_people
+
 HERE = Path(__file__).parent
 OUT = HERE / 'attention.json'
 UA = 'ObservatorioBolivia/1.0 (https://test.datosbolivia.com; pabliarca@gmail.com)'
@@ -118,13 +120,55 @@ def measure(person):
     }
 
 
+def retry_views():
+    """Las visitas que fallaron por límite de la API quedaron en None: se piden de nuevo, más despacio."""
+    doc = json.load(open(OUT, encoding='utf8'))
+    fixed = 0
+    for r in doc['people']:
+        if r.get('status') != 'MATCHED':
+            continue
+        for key, proj, title in (('viewsEs', 'es.wikipedia', r.get('wikipediaEs')), ('viewsEn', 'en.wikipedia', r.get('wikipediaEn'))):
+            if title and r.get(key) is None:
+                for _ in range(3):
+                    time.sleep(1.0)
+                    v = views(proj, title)
+                    if v is not None:
+                        r[key] = v
+                        fixed += 1
+                        break
+    json.dump(doc, open(OUT, 'w', encoding='utf8'), ensure_ascii=False, indent=1)
+    still = sum(1 for r in doc['people'] if r.get('status') == 'MATCHED' and ((r.get('wikipediaEs') and r.get('viewsEs') is None) or (r.get('wikipediaEn') and r.get('viewsEn') is None)))
+    print(fixed, 'lecturas recuperadas;', still, 'siguen sin dato (artículo sin visitas registradas)')
+
+
+def retry_unmatched():
+    """Fichas sin entidad: se repite la búsqueda por si la API de Wikidata falló en la primera pasada."""
+    doc = json.load(open(OUT, encoding='utf8'))
+    people = {p['slug']: p for p in load_people()}
+    todo = [people[r['slug']] for r in doc['people'] if r['status'] == 'NO_WIKIDATA_MATCH']
+    with ThreadPoolExecutor(max_workers=2) as ex:
+        again = {r['slug']: r for r in ex.map(measure, todo)}
+    doc['people'] = [again.get(r['slug'], r) for r in doc['people']]
+    json.dump(doc, open(OUT, 'w', encoding='utf8'), ensure_ascii=False, indent=1)
+    print(len(todo), 'reintentadas;', sum(1 for r in again.values() if r['status'] == 'MATCHED'), 'ahora con entidad')
+
+
 def main():
-    people = json.load(open(HERE / 'research-300.json', encoding='utf8'))['people']
-    only = sys.argv[1:] 
+    if '--retry-unmatched' in sys.argv:
+        return retry_unmatched()
+    if '--retry-views' in sys.argv:
+        return retry_views()
+    people = load_people()
+    only = [a for a in sys.argv[1:] if not a.startswith('--')]
     if only:
         people = [p for p in people if p['slug'] in only]
     with ThreadPoolExecutor(max_workers=6) as ex:
         rows = list(ex.map(measure, people))
+    if only and OUT.exists():
+        # Con slugs concretos se completa el archivo existente en vez de reemplazarlo.
+        current = {r['slug']: r for r in json.load(open(OUT, encoding='utf8'))['people']}
+        current.update({r['slug']: r for r in rows})
+        rows = list(current.values())
     json.dump({'generatedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'window': WINDOW, 'people': rows},
               open(OUT, 'w', encoding='utf8'), ensure_ascii=False, indent=1)
     m = [r for r in rows if r['status'] == 'MATCHED']

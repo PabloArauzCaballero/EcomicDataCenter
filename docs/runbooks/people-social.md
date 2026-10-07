@@ -34,6 +34,24 @@ o su usuario coincide con una cuenta declarada en Wikidata y el nombre mostrado 
 entregan cifras sin sesión. La prensa se publica pero no puntúa (homónimos). Para publicar, copiar
 `ranking-top300.json` a `src/data/people-top300.json` del dashboard.
 
+## Auditar la calidad antes de publicar
+
+```powershell
+python scripts/social/people/audit_identity.py     # coincidencias de Wikidata sospechosas: otra nacionalidad, sector que no encaja, entidad repetida
+python scripts/social/people/discover_from_sites.py # cuentas enlazadas desde el sitio oficial y los enlaces externos de Wikipedia
+python scripts/social/people/measure_attention.py --retry-unmatched; python scripts/social/people/measure_attention.py --retry-views
+```
+
+- `identity-overrides.json` guarda lo revisado a mano: `REJECT` (otra persona), `ACCEPT` (confirmada, con razón), `duplicateOf`,
+  `outOfScope` y correcciones de `sector`. Manda sobre la regla automática y se aplica en `measure_social.py` y `rank_people.py`.
+- `conversation-overrides.json` retira el sentimiento de personas cuyos videos eran de homónimos.
+- La API de visitas de Wikipedia y la de Wikidata fallan por límite sin avisar: dejan `None`. Repetir con `--retry-*` hasta que no queden huecos.
+- Cifras de seguidores: `225.262` es separador de miles, no decimal (un error de lectura dejó a Facebook en 225); Instagram redondea.
+- Una cuenta con el mismo usuario que otra declarada en Wikidata solo suma si está verificada o tiene 5.000+ seguidores: sin eso puede ser alguien que se apropió del usuario.
+- Una cuenta de menos de 1.000 seguidores para una figura con 20.000+ visitas mensuales a Wikipedia se muestra pero no suma.
+- Las pistas de cuentas de los lotes de `discovery/output-*.json` las propuso una revisión asistida por buscador (cuota de búsqueda agotada a mitad):
+  «no encontrada» no significa «no tiene cuentas».
+
 ## Sentimiento sobre cada persona (comentarios de YouTube)
 
 ```powershell

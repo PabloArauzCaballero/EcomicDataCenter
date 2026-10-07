@@ -13,7 +13,12 @@
     "url": "https://ipsosciesmori.com/wp-content/uploads/2025/12/ICM-25-DIC-PRES-ANUARIO_vf.pdf",
     "sampleSize": 600,
     "population": "Personas de 18 años o más con acceso a internet; público activo en redes sociales",
-    "geographicCoverage": ["La Paz", "El Alto", "Cochabamba", "Santa Cruz"],
+    "geographicCoverage": [
+      "La Paz",
+      "El Alto",
+      "Cochabamba",
+      "Santa Cruz"
+    ],
     "fieldworkStart": "2025-11-15",
     "fieldworkEnd": "2025-11-30",
     "referenceMarginOfErrorPercentagePoints": 2.83
@@ -60,5 +65,6 @@
       "impactSharePercent": 5,
       "sector": "POLITICS"
     }
-  ]
+  ],
+  "accessNote": "Nota del 7-oct-2026: el PDF original ya no responde (error 404 en esa fecha); las cifras, la muestra y las fechas se leyeron de ese documento el 6-oct-2026 y no se pudieron volver a contrastar con otra copia."
 }

@@ -86,34 +86,55 @@ class CandidateQualityTest(unittest.TestCase):
         self.assertIn("Ipsos CIESMORI", self.ranking["source"]["publisher"])
         self.assertIn("No se inventan", self.ranking["interpretation"]["cutoffLimit"])
 
-    def test_top_300_ranks_every_card_once_and_counts_only_backed_accounts(self):
+    def test_top_ranking_covers_each_distinct_person_once_and_counts_only_backed_accounts(self):
         top = json.loads((HERE / "ranking-top300.json").read_text(encoding="utf-8"))
+        overrides = {k: v for k, v in json.loads((HERE / "identity-overrides.json").read_text(encoding="utf-8")).items() if not k.startswith("_")}
         people = top["people"]
-        self.assertEqual(len(people), 300)
-        self.assertEqual([person["rank"] for person in people], list(range(1, 301)))
-        self.assertEqual({person["slug"] for person in people}, {person["slug"] for person in self.research["people"]})
+        additions = json.loads((HERE / "padron-additions.json").read_text(encoding="utf-8"))
+        removed = {slug for slug, ov in overrides.items() if ov.get("duplicateOf") or ov.get("outOfScope")}
+        self.assertEqual({person["slug"] for person in people}, ({person["slug"] for person in self.research["people"]} | {person["slug"] for person in additions}) - removed)
+        self.assertEqual([person["rank"] for person in people], list(range(1, len(people) + 1)))
         scores = [person["score"] for person in people]
         self.assertEqual(scores, sorted(scores, reverse=True))
-        counted = {"WIKIDATA_DECLARED", "PLATFORM_VERIFIED", "HANDLE_MATCHES_WIKIDATA"}
+        counted = {"WIKIDATA_DECLARED", "PLATFORM_VERIFIED", "HANDLE_MATCHES_WIKIDATA", "SOURCE_LINKED"}
         for person in people:
             for account in person["verifiedAccounts"]:
                 self.assertIn(account["verification"], counted, person["name"])
+                if (person["components"]["wikipediaViews12m"] or 0) >= 20000:
+                    self.assertGreaterEqual(account["followers"], 1000, person["name"])
             for account in person["unverifiedAccounts"]:
                 self.assertNotIn(account["verification"], counted, person["name"])
             self.assertNotEqual(person["adultReview"], "MINOR_OR_UNDER_18", person["name"])
             if not person["measured"]:
                 self.assertEqual(person["score"], 0, person["name"])
 
+    def test_every_ipsos_top_five_person_is_in_the_ranking(self):
+        top = {person["slug"] for person in json.loads((HERE / "ranking-top300.json").read_text(encoding="utf-8"))["people"]}
+        for person in self.ranking["people"]:
+            self.assertIn(person["slug"], top, person["name"])
+
+    def test_reviewed_identity_decisions_are_applied(self):
+        top = {person["slug"]: person for person in json.loads((HERE / "ranking-top300.json").read_text(encoding="utf-8"))["people"]}
+        for slug in ("P_PERCY_ANEZ", "P_PABLO_JAVIER_PEREZ"):   # entidad de Wikidata equivocada: no puede aportar nada
+            self.assertIsNone(top[slug]["components"]["wikipediaViews12m"], slug)
+            self.assertIsNone(top[slug]["birth"], slug)
+        for slug in ("P_CLARA_ANT", "P_ANDRONICO_RODRIGUEZ_LEDEZMA", "P_SAMUEL_DORIA_MEDINA_MONJE"):
+            self.assertNotIn(slug, top)
+        self.assertEqual(top["P_SAMUEL_DORIA_MEDINA"]["components"]["mercoRank"], 3)
+        self.assertEqual(top["P_JAIME_LAREDO"]["sector"], "CULTURE")
+
     def test_conversation_sentiment_publishes_only_aggregates(self):
         talk = json.loads((HERE / "conversation-sentiment.json").read_text(encoding="utf-8"))
         slugs = {person["slug"] for person in self.research["people"]}
         self.assertTrue(set(talk["people"]) <= slugs)
         for slug, entry in talk["people"].items():
-            self.assertEqual(set(entry), {"videosRead", "commentsRead", "commentsAnalyzed", "videos", "sentiment", "words"}, slug)
+            self.assertTrue({"videosRead", "commentsRead", "commentsAnalyzed", "videos", "sentiment", "words"} <= set(entry) <= {"videosRead", "commentsRead", "commentsAnalyzed", "videos", "sentiment", "words", "excluded"}, slug)
             for video in entry["videos"]:
                 self.assertEqual(set(video), {"videoId", "title", "published", "url", "commentsRead", "commentsSpanish"}, slug)
             if entry["sentiment"]:
                 self.assertGreaterEqual(entry["commentsAnalyzed"], 30, slug)
+                self.assertGreaterEqual(sum(video["commentsSpanish"] >= 5 for video in entry["videos"]), 2, slug)
+                self.assertNotIn("excluded", entry, slug)
             else:
                 self.assertIsNone(entry["words"], slug)
 

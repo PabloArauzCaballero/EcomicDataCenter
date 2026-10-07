@@ -10,8 +10,10 @@ import json, math, time
 from datetime import date
 from pathlib import Path
 
+from people_io import load_people
+
 HERE = Path(__file__).parent
-COUNTED = ('WIKIDATA_DECLARED', 'PLATFORM_VERIFIED', 'HANDLE_MATCHES_WIKIDATA')
+COUNTED = ('WIKIDATA_DECLARED', 'PLATFORM_VERIFIED', 'HANDLE_MATCHES_WIKIDATA', 'SOURCE_LINKED')
 WEIGHTS = {'views': 0.55, 'social': 0.25, 'merco': 0.20}
 
 
@@ -22,9 +24,19 @@ def logscale(top, v):
 
 
 def main():
-    people = json.load(open(HERE / 'research-300.json', encoding='utf8'))['people']
+    people = load_people()
     att = {r['slug']: r for r in json.load(open(HERE / 'attention.json', encoding='utf8'))['people']}
     soc = {r['slug']: r['accounts'] for r in json.load(open(HERE / 'social-audience.json', encoding='utf8'))['people']}
+    overrides = {k: v for k, v in json.load(open(HERE / 'identity-overrides.json', encoding='utf8')).items() if not k.startswith('_')}
+    by_slug = {p['slug']: p for p in people}
+    for slug, ov in overrides.items():
+        if ov.get('duplicateOf') and ov.get('carryEvidence') and slug in by_slug and ov['duplicateOf'] in by_slug:
+            by_slug[ov['duplicateOf']]['evidence'] = by_slug[ov['duplicateOf']]['evidence'] + by_slug[slug]['evidence']
+    people = [p for p in people if not overrides.get(p['slug'], {}).get('outOfScope') and not overrides.get(p['slug'], {}).get('duplicateOf')]
+    for slug, ov in overrides.items():
+        if ov.get('identity') == 'REJECT':
+            att[slug] = {'slug': slug, 'status': 'REJECTED'}
+            soc[slug] = [x for x in soc.get(slug, []) if x['verification'] == 'SOURCE_LINKED']
     raw = {}
     for p in people:
         a = att.get(p['slug'], {})
@@ -33,6 +45,11 @@ def main():
         for x in soc.get(p['slug'], []):
             if x['verification'] == 'NAME_MATCH' and x['platform'] == 'tiktok' and (x['handle'] or '').lower() in declared:
                 x['verification'] = 'HANDLE_MATCHES_WIKIDATA'
+        for x in soc.get(p['slug'], []):
+            # Una figura con decenas de miles de visitas a Wikipedia y una cuenta de menos de 1.000 seguidores:
+            # casi seguro es otra cuenta o una cuenta abandonada. No suma, pero se muestra.
+            if x['verification'] in COUNTED and views >= 20000 and (x['followers'] or 0) < 1000:
+                x['verification'] = 'IMPLAUSIBLY_SMALL'
         counted = [x for x in soc.get(p['slug'], []) if x['verification'] in COUNTED]
         by_plat = {}
         for x in counted:
@@ -60,7 +77,9 @@ def main():
             except ValueError:
                 adult = None
         out.append({
-            'slug': p['slug'], 'name': p['name'], 'sector': p['sector'], 'score': score,
+            'slug': p['slug'], 'name': p['name'], 'sector': overrides.get(p['slug'], {}).get('sector', p['sector']), 'score': score,
+            'evidence': p['evidence'],
+            'identity': overrides.get(p['slug'], {}).get('identity', 'AUTO'), 'identityNote': overrides.get(p['slug'], {}).get('reason'),
             'measured': any(r[k] for k in ('views', 'social', 'merco')),
             'components': {
                 'wikipediaViews12m': r['views'] or None, 'wikipediaViewsEs': r['viewsEs'], 'wikipediaViewsEn': r['viewsEn'],
@@ -70,7 +89,7 @@ def main():
             },
             'wikidata': a.get('wikidata'), 'wikipediaEs': a.get('wikipediaEs'), 'birth': birth,
             'adultReview': 'ADULT_BY_WIKIDATA_BIRTH' if adult else ('MINOR_OR_UNDER_18' if adult is False else 'UNKNOWN'),
-            'verifiedAccounts': [{k: x[k] for k in ('platform', 'url', 'followers', 'verification')} for x in r['counted']],
+            'verifiedAccounts': [{k: x.get(k) for k in ('platform', 'url', 'followers', 'verification', 'evidence')} for x in r['counted']],
             'unverifiedAccounts': [{k: x[k] for k in ('platform', 'url', 'followers', 'verification')} for x in soc.get(p['slug'], [])
                                    if x['verification'] not in COUNTED],
         })
@@ -80,16 +99,33 @@ def main():
         x['rank'] = i
         sector_seen[x['sector']] = sector_seen.get(x['sector'], 0) + 1
         x['sectorRank'] = sector_seen[x['sector']]
+    from collections import Counter
+    original = json.load(open(HERE / 'research-300.json', encoding='utf8'))['people']
+    quality = {
+        'padron': {'fichasOriginales': len(original), 'fichasEnElRanking': len(out),
+                   'porFuente': dict(Counter(src for p in people for src in {e['source'] for e in p['evidence']}))},
+        'identidad': {'coincidenciasWikidata': sum(1 for p in people if att.get(p['slug'], {}).get('status') == 'MATCHED'),
+                      'revisadasYAceptadas': sum(1 for o in overrides.values() if o.get('identity') == 'ACCEPT'),
+                      'descartadas': sum(1 for o in overrides.values() if o.get('identity') == 'REJECT'),
+                      'duplicadasFusionadas': sum(1 for o in overrides.values() if o.get('duplicateOf')),
+                      'fueraDeAlcance': sum(1 for o in overrides.values() if o.get('outOfScope'))},
+        'cuentas': {'suman': dict(Counter(a['verification'] for x in out for a in x['verifiedAccounts'])),
+                    'noSuman': dict(Counter(a['verification'] for x in out for a in x['unverifiedAccounts']))},
+        'conVisitasWikipedia': sum(1 for x in out if x['components']['wikipediaViews12m']),
+        'conAudienciaVerificada': sum(1 for x in out if x['components']['verifiedFollowers']),
+        'conPuestoMerco': sum(1 for x in out if x['components']['mercoRank']),
+    }
     doc = {
-        'status': 'MEASURED_ATTENTION_INDEX_300', 'generatedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+        'status': 'MEASURED_ATTENTION_INDEX', 'generatedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
         'method': {
             'weights': WEIGHTS,
-            'summary': 'Índice de atención medible (0–100): 55 % visitas a Wikipedia (es+en, oct-2025 a sep-2026), 25 % audiencia de cuentas verificadas (TikTok/YouTube), 20 % puesto en Merco Líderes 2025/26. Visitas y audiencia en escala logarítmica respecto al máximo; sin dato aporta 0. La prensa se publica pero no puntúa (homónimos).',
+            'summary': 'Índice de atención medible (0–100): 55 % visitas a Wikipedia (es+en, oct-2025 a sep-2026), 25 % audiencia de cuentas verificadas (TikTok, YouTube, Instagram y Facebook), 20 % puesto en Merco Líderes 2025/26. Visitas y audiencia en escala logarítmica respecto al máximo; sin dato aporta 0. La prensa se publica pero no puntúa (homónimos).',
             'limits': ['Mide atención pública observable, no importancia, aprobación ni mérito.',
                        'Sectores con menos cobertura en las fuentes (empresas, ciencia, medios) quedan abajo en el orden general; el puesto por sector corrige parte de ese sesgo.',
-                       'Instagram, X y Facebook no entregan cifras sin sesión: sus cuentas no suman.',
-                       'Una cuenta suma solo si Wikidata la declara oficial, TikTok la marca verificada con el nombre de la persona, o su usuario coincide con una cuenta declarada en Wikidata; las que solo coinciden por nombre no suman.'],
+                       'X no entrega cifras sin sesión: sus cuentas no suman. Instagram y Facebook se leen de la vista pública de la página (cifra redondeada en Instagram).',
+                       'Una cuenta suma solo si Wikidata la declara oficial, TikTok la marca verificada con el nombre de la persona, una fuente oficial o de prensa seria la enlaza, o su usuario coincide con una cuenta declarada en Wikidata; las que solo coinciden por nombre no suman.'],
             'measuredPeople': sum(1 for x in out if x['measured']),
+            'quality': quality,
         },
         'people': out,
     }

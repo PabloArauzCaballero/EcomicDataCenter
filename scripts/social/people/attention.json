@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-07T16:24:27Z",
+ "generatedAt": "2026-10-07T20:14:14Z",
  "window": [
   "20251001",
   "20260930"
@@ -171,7 +171,7 @@
    "sitelinks": 2,
    "wikipediaEs": "Ivo Kuljis",
    "wikipediaEn": "Ivo Kuljis",
-   "viewsEs": null,
+   "viewsEs": 5547,
    "viewsEn": 2869,
    "accounts": {}
   },
@@ -491,7 +491,7 @@
    "sitelinks": 17,
    "wikipediaEs": "María Galindo",
    "wikipediaEn": "María Galindo",
-   "viewsEs": null,
+   "viewsEs": 12835,
    "viewsEn": 4638,
    "accounts": {
     "youtube": "UCFD31b4_uRhMJrZ6sBInMJw"
@@ -536,7 +536,7 @@
    "wikipediaEs": "Óscar Olivera",
    "wikipediaEn": "Oscar Olivera",
    "viewsEs": 909,
-   "viewsEn": null,
+   "viewsEn": 945,
    "accounts": {}
   },
   {
@@ -564,7 +564,7 @@
    "wikipediaEs": "Robert Herman Flock",
    "wikipediaEn": "Robert Herman Flock",
    "viewsEs": 285,
-   "viewsEn": null,
+   "viewsEn": 1018,
    "accounts": {}
   },
   {
@@ -577,13 +577,23 @@
    "sitelinks": 11,
    "wikipediaEs": "Sergio Alfredo Gualberti Calandrina",
    "wikipediaEn": "Sergio Alfredo Gualberti Calandrina",
-   "viewsEs": null,
+   "viewsEs": 536,
    "viewsEn": 312,
    "accounts": {}
   },
   {
    "slug": "P_TITO_SOLARI_CAPELLARI",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q2437011",
+   "label": "Tito Solari Capellari",
+   "description": "arzobispo italiano",
+   "birth": "1939-09-02",
+   "sitelinks": 7,
+   "wikipediaEs": null,
+   "wikipediaEn": null,
+   "viewsEs": null,
+   "viewsEn": null,
+   "accounts": {}
   },
   {
    "slug": "P_TORIBIO_TICONA_PORCO",
@@ -694,7 +704,7 @@
    "wikipediaEs": "Jorge Sanjinés",
    "wikipediaEn": "Jorge Sanjinés",
    "viewsEs": 3897,
-   "viewsEn": null,
+   "viewsEn": 3272,
    "accounts": {}
   },
   {
@@ -708,7 +718,7 @@
    "wikipediaEs": "Julieta Paredes",
    "wikipediaEn": "Julieta Paredes",
    "viewsEs": 2693,
-   "viewsEn": null,
+   "viewsEn": 1567,
    "accounts": {}
   },
   {
@@ -721,7 +731,7 @@
    "sitelinks": 17,
    "wikipediaEs": "Luzmila Carpio",
    "wikipediaEn": "Luzmila Carpio",
-   "viewsEs": null,
+   "viewsEs": 5615,
    "viewsEn": 4028,
    "accounts": {
     "twitter": "luzmilacarpio",
@@ -738,7 +748,7 @@
    "sitelinks": 14,
    "wikipediaEs": "Olga Paredes",
    "wikipediaEn": "Olga Paredes",
-   "viewsEs": null,
+   "viewsEs": 224,
    "viewsEn": 664,
    "accounts": {}
   },
@@ -1124,7 +1134,17 @@
   },
   {
    "slug": "P_CARLOS_FERNANDO_BORJA",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q2714525",
+   "label": "Carlos Fernando Borja",
+   "description": "futbolista boliviano",
+   "birth": "1956-12-25",
+   "sitelinks": 18,
+   "wikipediaEs": "Carlos Fernando Borja",
+   "wikipediaEn": "Carlos Borja (footballer, born 1956)",
+   "viewsEs": 1981,
+   "viewsEn": 2217,
+   "accounts": {}
   },
   {
    "slug": "P_CARLOS_MESA",
@@ -1232,7 +1252,7 @@
    "wikipediaEs": "Eduardo Rodríguez Veltzé",
    "wikipediaEn": "Eduardo Rodríguez Veltzé",
    "viewsEs": 20473,
-   "viewsEn": null,
+   "viewsEn": 12790,
    "accounts": {}
   },
   {
@@ -1249,8 +1269,8 @@
    "sitelinks": 15,
    "wikipediaEs": "Eva Copa",
    "wikipediaEn": "Eva Copa",
-   "viewsEs": null,
-   "viewsEn": null,
+   "viewsEs": 9019,
+   "viewsEn": 6609,
    "accounts": {}
   },
   {
@@ -1273,7 +1293,19 @@
   },
   {
    "slug": "P_FERNANDO_HUANACUNI_MAMANI",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q23907183",
+   "label": "Fernando Huanacuni Mamani",
+   "description": "político boliviano",
+   "birth": "1966-05-29",
+   "sitelinks": 7,
+   "wikipediaEs": "Fernando Huanacuni",
+   "wikipediaEn": "Fernando Huanacuni",
+   "viewsEs": 1200,
+   "viewsEn": 670,
+   "accounts": {
+    "twitter": "huanacuni_m"
+   }
   },
   {
    "slug": "P_FIDEL_TAPIA_ZAMBRANA",
@@ -1675,13 +1707,23 @@
    "sitelinks": 10,
    "wikipediaEs": "Julieta Montaño",
    "wikipediaEn": "Julieta Montaño",
-   "viewsEs": null,
+   "viewsEs": 320,
    "viewsEn": 297,
    "accounts": {}
   },
   {
    "slug": "P_SABINA_ORELLANA",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q104019011",
+   "label": "Sabina Orellana",
+   "description": "sindicalista y política boliviana",
+   "birth": "1970-07-11",
+   "sitelinks": 8,
+   "wikipediaEs": "Sabina Orellana",
+   "wikipediaEn": "Sabina Orellana",
+   "viewsEs": 675,
+   "viewsEn": 608,
+   "accounts": {}
   },
   {
    "slug": "P_SAMUEL_DORIA_MEDINA",
@@ -1776,7 +1818,7 @@
    "sitelinks": 11,
    "wikipediaEs": "Jaime Laredo",
    "wikipediaEn": "Jaime Laredo",
-   "viewsEs": null,
+   "viewsEs": 1573,
    "viewsEn": 10333,
    "accounts": {}
   },
@@ -1790,7 +1832,7 @@
    "sitelinks": 7,
    "wikipediaEs": "Juan Carlos Aduviri",
    "wikipediaEn": "Juan Carlos Aduviri",
-   "viewsEs": null,
+   "viewsEs": 2239,
    "viewsEn": 1919,
    "accounts": {}
   },
@@ -1816,7 +1858,19 @@
   },
   {
    "slug": "P_SILVIA_RIVERA_CUSICANQUI",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q7517038",
+   "label": "Silvia Rivera Cusicanqui",
+   "description": "socióloga e historiadora boliviana",
+   "birth": "1949-04-17",
+   "sitelinks": 11,
+   "wikipediaEs": "Silvia Rivera Cusicanqui",
+   "wikipediaEn": "Silvia Rivera Cusicanqui",
+   "viewsEs": 9925,
+   "viewsEn": 4885,
+   "accounts": {
+    "twitter": "botchixi"
+   }
   },
   {
    "slug": "P_YURAN_CALANCHA",
@@ -2171,14 +2225,24 @@
    "wikipediaEs": "José Torres Gil",
    "wikipediaEn": "José Torres (cyclist)",
    "viewsEs": 7451,
-   "viewsEn": null,
+   "viewsEn": 3704,
    "accounts": {
     "instagram": "malignobmx"
    }
   },
   {
    "slug": "P_JOSE_SAGREDO",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q20164411",
+   "label": "José Sagredo",
+   "description": "futbolista boliviano",
+   "birth": "1994-03-10",
+   "sitelinks": 12,
+   "wikipediaEs": "José Sagredo",
+   "wikipediaEn": "José Sagredo",
+   "viewsEs": 2131,
+   "viewsEn": 2060,
+   "accounts": {}
   },
   {
    "slug": "P_JOSELITO_VACA",
@@ -2302,7 +2366,7 @@
    "sitelinks": 20,
    "wikipediaEs": "Luis Cristaldo",
    "wikipediaEn": "Luis Cristaldo",
-   "viewsEs": null,
+   "viewsEs": 4329,
    "viewsEn": 2877,
    "accounts": {}
   },
@@ -2316,13 +2380,26 @@
    "sitelinks": 15,
    "wikipediaEs": "Luis Haquín",
    "wikipediaEn": "Luis Haquín",
-   "viewsEs": null,
+   "viewsEs": 12288,
    "viewsEn": 14087,
    "accounts": {}
   },
   {
    "slug": "P_MARCELO_MARTINS_MORENO",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q370507",
+   "label": "Marcelo Martins Moreno",
+   "description": "futbolista boliviano",
+   "birth": "1987-06-18",
+   "sitelinks": 35,
+   "wikipediaEs": "Marcelo Martins",
+   "wikipediaEn": "Marcelo Martins Moreno",
+   "viewsEs": 97454,
+   "viewsEn": 43513,
+   "accounts": {
+    "twitter": "marcelo_moreno",
+    "instagram": "marcelo_moreno"
+   }
   },
   {
    "slug": "P_MARCELO_TORRICO",
@@ -2689,20 +2766,50 @@
    "wikipediaEs": "Vicente Arze",
    "wikipediaEn": "Vicente Arze",
    "viewsEs": 303,
-   "viewsEn": null,
+   "viewsEn": 603,
    "accounts": {}
   },
   {
    "slug": "P_VLADIMIR_SORIA",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q2562284",
+   "label": "Vladimir Soria",
+   "description": "futbolista boliviano",
+   "birth": "1964-07-15",
+   "sitelinks": 16,
+   "wikipediaEs": "Vladimir Soria",
+   "wikipediaEn": "Vladimir Soria",
+   "viewsEs": 2782,
+   "viewsEn": 2230,
+   "accounts": {}
   },
   {
    "slug": "P_WILLIAM_RAMALLO",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q2439639",
+   "label": "William Ramallo",
+   "description": "futbolista boliviano",
+   "birth": "1963-07-04",
+   "sitelinks": 16,
+   "wikipediaEs": "William Ramallo",
+   "wikipediaEn": "William Ramallo",
+   "viewsEs": 2123,
+   "viewsEn": 1030,
+   "accounts": {}
   },
   {
    "slug": "P_JOSH_REAVES",
-   "status": "NO_WIKIDATA_MATCH"
+   "status": "MATCHED",
+   "wikidata": "Q66006732",
+   "label": "Josh Reaves",
+   "description": "baloncestista americanoboliviano",
+   "birth": "1997-06-04",
+   "sitelinks": 8,
+   "wikipediaEs": "Josh Reaves",
+   "wikipediaEn": "Josh Reaves",
+   "viewsEs": 2965,
+   "viewsEn": 5566,
+   "accounts": {}
   },
   {
    "slug": "P_JUAN_JOSE_ZUNIGA",
@@ -2746,6 +2853,20 @@
    "wikipediaEn": "Marco Bulacia",
    "viewsEs": 807,
    "viewsEn": 1231,
+   "accounts": {}
+  },
+  {
+   "slug": "P_JAIME_DUNN",
+   "status": "MATCHED",
+   "wikidata": "Q133331548",
+   "label": "Jaime Dunn",
+   "description": "analista financiero boliviano",
+   "birth": null,
+   "sitelinks": 0,
+   "wikipediaEs": null,
+   "wikipediaEn": null,
+   "viewsEs": null,
+   "viewsEn": null,
    "accounts": {}
   }
  ]
