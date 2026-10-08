@@ -1,5 +1,6 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import { join } from 'node:path';
+import { snapshotViewWithTrends } from '../../migration-sql/0106-read-the-video-trends.view';
 import { tiktokVideosSchema } from '../schemas/tiktok-videos.schema';
 
 /**
@@ -54,5 +55,37 @@ describe('tiktok seller videos', () => {
     const badTactic = { ...seed, videos: [{ ...first, tactics: ['INVENTADA'] }] };
     expect(tiktokVideosSchema.safeParse(badKind).success).toBe(false);
     expect(tiktokVideosSchema.safeParse(badTactic).success).toBe(false);
+  });
+
+  it('publishes the monthly trends and says why each year has what it has', async () => {
+    const seed = tiktokVideosSchema.parse(await load());
+    const { months, minN } = seed.trends;
+    expect(months.length).toBeGreaterThan(0);
+    // A month with fewer than minN videos carries its count and no statistic at all.
+    for (const month of months.filter((m) => m.n < minN)) {
+      expect([month.median, month.p95, month.trendN, month.shareRatio]).toEqual([
+        null,
+        null,
+        null,
+        null,
+      ]);
+    }
+    for (const month of months.filter((m) => m.n >= minN)) {
+      expect(month.p95).not.toBeNull();
+      expect(month.p95 as number).toBeGreaterThanOrEqual(month.median as number);
+    }
+    expect(Object.keys(seed.coverage.por_anio)).toEqual(
+      expect.arrayContaining(['2021', '2022', '2023', '2024', '2025', '2026']),
+    );
+  });
+
+  it('keeps the seed under 6 MB', async () => {
+    const { size } = await stat(seedPath);
+    expect(size).toBeLessThan(6 * 1024 * 1024);
+  });
+
+  it('adds the trends as the last column of the snapshot view', () => {
+    expect(snapshotViewWithTrends).toContain('CREATE OR REPLACE VIEW read_models.tiktok_video_snapshot');
+    expect(snapshotViewWithTrends).toMatch(/AS analyzed_at,\s+ro\.payload_json -> 'trends'\s+AS trends\s+FROM/u);
   });
 });

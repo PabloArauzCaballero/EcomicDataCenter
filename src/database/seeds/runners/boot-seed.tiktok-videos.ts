@@ -65,6 +65,7 @@ function pendingOf(seed: TiktokVideos): Pending[] {
     rubros: seed.rubros,
     departments: seed.departments,
     terms: seed.terms,
+    trends: seed.trends,
     coverage: seed.coverage,
   };
   entries.push({
