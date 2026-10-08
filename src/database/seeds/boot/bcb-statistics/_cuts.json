@@ -84,6 +84,7 @@
   "https://www.bcb.gob.bo/webdocs/tasas_interes/PUBLICACION%202026%2009%2014%20TASAS%20ACT%20Y%20PAS.xlsx": "4f0ba0b2ad965efa0f6574246fa2c7b8ad89caec93d8816426b3a77b34b88990",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/PUBLICACION%202026%2009%2014%20TASAS%20EMP.%20ACT.%20INF%20%281%29.xlsx": "e48b520f23181956bb9c987966e2a237eb4a7799cb4546b2385129e643938041",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/PUBLICACION%202026%2009%2021%20TASAS%20ACT%20Y%20PAS.xlsx": "a655979ea141074edb7bece8744b5d46d348c461baa2edb7415c1f1ab3240173",
+  "https://www.bcb.gob.bo/webdocs/tasas_interes/PUBLICACION%202026%2009%2028%20TASAS%20ACT%20Y%20PAS.xlsx": "22f087c2c6140eed2c3b63ade1e36aaea62f57d934c7923318933009e0e03150",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TASAS%20ACT%20Y%20PAS.xlsx": "3a6b96408cd33f6168f142a2dc7f47ed3392cd840404440bdc62beedbf724901",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TASAS%20ACT%20Y%20PAS_0.xlsx": "b29bfae96998e594707f33cee2fb9b354f1d2b17f90e1534743b7954228ef476",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TASAS%20ACT%20Y%20PAS_1.xlsx": "64a7666f72bdcd98f72a606d18a8d1bd234588182f11ad8b0316f02d0a628873",
@@ -107,6 +108,7 @@
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_02%2006%202026.xlsx": "401777f33dfea297d3bfc1bcd2d9bc653cb841eb1e7c6f04a996c0eff71e69fd",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_02%2006%202026_0.xlsx": "401777f33dfea297d3bfc1bcd2d9bc653cb841eb1e7c6f04a996c0eff71e69fd",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_02%2009%202026.xlsx": "066e6c5aafe0f44d05db03203a8811e4e58748bb2558d6210565ab980f07e00d",
+  "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_02%2010%202026.xlsx": "585464f177acd21955c8e0aaa47c66b2a7cdaa1153dc132514d8337b8dcef95f",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_02_05_2025.XLSX": "6451bd953e0808b40b020598b3269bb9f208b249758506571ffec338d96ea303",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_02_06_2025_0.XLSX": "e73eb38bb948fef9e0c619fd1ea04f5bc78bf331331f489a394909740c3ec253",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_02_07_2025.XLSX": "4a00a5045c26d1214b5898d6764ce2d54d87998002bf7153aa5a43305366b97f",
@@ -140,6 +142,7 @@
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_05%2003%202026.xlsx": "c306579b67414f074b4c7b697dc223a9216c33dfaadf6ac83453fb62fe45cff5",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_05%2005%202026.xlsx": "a3cf8a09abac5d93c1c8e63f655e2df8383506afc2ab8aad1dd37607fb1e304f",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_05%2008%202026.xlsx": "7fc7579fe515ecc4758b29702833baebabafc3fd63c4553251e78ec39144b68c",
+  "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_05%2010%202026.xlsx": "856c939fc6dbe422b8ea8847199b1964c156a77027cd116e49cad7127b3d91ef",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_05_05_2025.XLSX": "91d45c623e72dae064d334872f3df6c575d30861234746c777449babed8ba927",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_05_06_2025.XLSX": "972cbbd1ee3792ff89bc1f43ad8209a29f85d33e1d73a5bf69cdee43b202e5a4",
   "https://www.bcb.gob.bo/webdocs/tasas_interes/TD_05_08_2025.XLSX": "1a97b773adf055a5195382264e6af38d19db460694609f2b5a801ea5890782c4",
@@ -708,6 +711,14 @@
   [
    "ACT",
    "WEEKLY",
+   "FATIMA",
+   "Moneda nacional | PYME",
+   "2026-10-04",
+   12.92840119760479
+  ],
+  [
+   "ACT",
+   "WEEKLY",
    "FORTALEZA",
    "Moneda extranjera | Consumo",
    "2025-02-23",
@@ -1109,14 +1120,6 @@
    "PAS",
    "DAILY",
    "IFD FUBODE",
-   "Moneda extranjera | Dep\u00f3sito a plazo fijo | 30 d\u00edas",
-   "2026-08-28",
-   2.0183999999999997
-  ],
-  [
-   "PAS",
-   "DAILY",
-   "IFD FUBODE",
    "Moneda extranjera | Dep\u00f3sito a plazo fijo | 720 d\u00edas",
    "2026-09-28",
    0.6
@@ -1216,14 +1219,6 @@
    "Moneda extranjera | Dep\u00f3sito a plazo fijo | 1080 d\u00edas",
    "2026-04-15",
    1.8326
-  ],
-  [
-   "PAS",
-   "DAILY",
-   "SAN PEDRO DE AIQUILE",
-   "Moneda extranjera | Dep\u00f3sito a plazo fijo | 360 d\u00edas",
-   "2026-01-29",
-   1.6565999999999999
   ],
   [
    "PAS",
@@ -1452,6 +1447,14 @@
   [
    "PAS",
    "WEEKLY",
+   "CRISTO REY COCHABAMBA",
+   "Moneda extranjera | Dep\u00f3sito a plazo fijo | 360 d\u00edas",
+   "2026-10-04",
+   0.7526
+  ],
+  [
+   "PAS",
+   "WEEKLY",
    "E. G. CHACO",
    "Moneda extranjera | Caja de ahorro",
    "2026-03-08",
@@ -1605,9 +1608,9 @@
    "PAS",
    "WEEKLY",
    "IFD FUBODE",
-   "Moneda extranjera | Dep\u00f3sito a plazo fijo | 30 d\u00edas",
-   "2026-08-30",
-   2.0183999999999997
+   "Moneda extranjera | Dep\u00f3sito a plazo fijo | 720 d\u00edas",
+   "2026-10-04",
+   0.6
   ],
   [
    "PAS",
@@ -1725,17 +1728,17 @@
    "PAS",
    "WEEKLY",
    "SAN PEDRO",
-   "Moneda nacional | Dep\u00f3sito a plazo fijo | 60 d\u00edas",
-   "2025-02-16",
-   0.6015
+   "Moneda extranjera | Dep\u00f3sito a plazo fijo | 60 d\u00edas",
+   "2026-10-04",
+   0.3004
   ],
   [
    "PAS",
    "WEEKLY",
-   "SAN PEDRO DE AIQUILE",
-   "Moneda extranjera | Dep\u00f3sito a plazo fijo | 360 d\u00edas",
-   "2026-02-01",
-   1.6565999999999999
+   "SAN PEDRO",
+   "Moneda nacional | Dep\u00f3sito a plazo fijo | 60 d\u00edas",
+   "2025-02-16",
+   0.6015
   ],
   [
    "PAS",
