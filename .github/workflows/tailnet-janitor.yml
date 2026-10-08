@@ -1,0 +1,49 @@
+name: tailnet-janitor
+
+# Borra de la tailnet los nodos `github-*` que dejan los runners y falla si la
+# tailnet pasa de 800 dispositivos. El tope es 1000: al llegar, ningun runner
+# puede entrar y el recolector y el despliegue dejan de alcanzar pablo-h310.
+# Asi estuvo cortada la ingesta del 25 al 27 de septiembre de 2026, con 991
+# nodos muertos. `deploy-to-coolify` y `daily-economic-research` corren la
+# misma limpieza antes de entrar; este workflow es la red cuando no corren.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo contar, sin borrar'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '15 */6 * * *'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: tailnet-janitor
+  cancel-in-progress: false
+
+jobs:
+  janitor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: dev
+          sparse-checkout: scripts/ops
+          persist-credentials: false
+      - name: Clear dead CI nodes and check the device quota
+        env:
+          TS_API_CLIENT_ID: ${{ secrets.TS_API_CLIENT_ID }}
+          TS_API_CLIENT_SECRET: ${{ secrets.TS_API_CLIENT_SECRET }}
+          TS_JANITOR_DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: node scripts/ops/tailnet-janitor.mjs
+      - name: Report the failure where someone will see it
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: bash scripts/ops/avisar-ingesta-caida.sh "tailnet-janitor"
