@@ -9,8 +9,13 @@ import { z } from 'zod';
  * - `videos`: un video, en seudónimo, con fecha y hora de La Paz, rubro, producto, precios de la
  *   descripción, cifras y marcas de cómo vende. Nunca la descripción ni un identificador real.
  * - `terms`: hashtags más usados por rubro.
+ * - `trends`: la retrospectiva por rubro y mes de las cuentas comerciales: cantidad, mediana y percentil 95
+ *   de vistas, compartidos por vista, productos y precios, hashtags nuevos y marcas de venta. Un mes con menos
+ *   de `minN` videos lleva su cantidad y ninguna estadística. El umbral de trend (5 % superior de vistas) es
+ *   por mes y rubro, nunca global.
  * - `coverage`: cuentas leídas, incluidas y excluidas, y videos por año (sin sesión, cada perfil da
- *   sus videos más recientes: la serie larga está cargada hacia lo reciente).
+ *   sus videos más recientes: la serie larga está cargada hacia lo reciente). `por_anio` dice, para 2021-2026,
+ *   por qué cada año tiene lo que tiene.
  */
 
 export const VIDEO_KINDS = ['VENTA', 'GASTRONOMIA', 'ENTRETENIMIENTO'] as const;
@@ -74,6 +79,56 @@ const video = z
   })
   .strict();
 
+const year = z.string().regex(/^20\d{2}$/u);
+const month = z.string().regex(/^20\d{2}-(?:0[1-9]|1[0-2])$/u);
+const stat = z.number().nonnegative().nullable();
+
+const trendMonth = z
+  .object({
+    rubro: code,
+    month,
+    n: z.number().int().positive(),
+    accounts: z.number().int().positive(),
+    median: stat,
+    p95: stat,
+    trendN: z.number().int().nonnegative().nullable(),
+    shareRatio: stat,
+    priced: count,
+    priceMedian: stat,
+    products: z.array(z.object({ product: z.string().min(1).max(40), n: z.number().int().positive() }).strict()).max(5),
+    newTags: z.array(z.object({ tag: z.string().min(1).max(40), n: z.number().int().positive() }).strict()).max(6),
+    baseline: z.boolean(),
+    tactics: z
+      .array(z.object({ tactic: z.enum(VIDEO_TACTICS), share: z.number().positive().max(100) }).strict())
+      .max(3),
+  })
+  .strict();
+
+const trendProduct = z
+  .object({
+    year,
+    rubro: code,
+    product: z.string().min(1).max(40),
+    n: z.number().int().positive(),
+    prices: count,
+    p25: stat,
+    median: stat,
+    p75: stat,
+  })
+  .strict();
+
+const yearCoverage = z
+  .object({
+    videos: count,
+    accountsWithVideos: count,
+    accountsFull: count,
+    accountsPartial: count,
+    accountsNone: count,
+    cause: z.enum(['COMPLETO', 'PARCIAL', 'SIN_ALCANCE', 'SIN_CUENTAS']),
+    why: z.string().min(1).max(600),
+  })
+  .strict();
+
 export const tiktokVideosSchema = z
   .object({
     provenance: z
@@ -102,6 +157,14 @@ export const tiktokVideosSchema = z
         })
         .strict(),
     ),
+    trends: z
+      .object({
+        minN: z.number().int().positive(),
+        trendShare: z.number().positive().max(1),
+        months: z.array(trendMonth),
+        products: z.array(trendProduct),
+      })
+      .strict(),
     coverage: z
       .object({
         accountsRead: count,
@@ -109,7 +172,13 @@ export const tiktokVideosSchema = z
         excludedNotBolivia: count,
         excludedNoActivity: count,
         videos: count,
-        videosByYear: z.record(z.string().regex(/^20\d{2}$/u), count),
+        videosByYear: z.record(year, count),
+        videosAnalyzed: count,
+        videosTrimmed: count,
+        videosFromHistory: count,
+        historyAccounts: count,
+        historyWithoutProfile: count,
+        por_anio: z.record(year, yearCoverage),
       })
       .strict(),
   })

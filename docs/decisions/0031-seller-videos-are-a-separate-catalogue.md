@@ -49,3 +49,20 @@ y se descartó por decisión del responsable: se sigue sin sesión, como el rest
 Recolector `scripts/social/live/collect-videos.ts`, análisis `analyze_videos.py`, esquema
 `tiktok-videos.schema.ts`, cargador `boot-seed.tiktok-videos.ts`, vistas de la migración
 `read-the-live-videos` (0102 en `dev`, 0105 en `test`), prueba `tiktok-videos.spec.ts`.
+
+## Actualización 2026-10-08 — retrospectiva por rubro y mes
+
+La segunda lectura (`scripts/social/live/collect_video_history.py`, `yt-dlp` con suplantación de navegador, sin
+sesión) trae historia por ventanas; `analyze_videos.py` la une con `video-raw/` sin repetir ids y añade a la
+semilla un bloque `trends` y `coverage.por_anio` (migración `read-the-video-trends`, columna `trends` al final de
+`tiktok_video_snapshot`).
+
+1. **Unidad:** rubro × mes de cuentas comerciales (venta y gastronomía; el entretenimiento queda fuera).
+2. **Trend:** el 5 % superior de vistas dentro de su propio mes y rubro, nunca global (las vistas se inflan con la
+   antigüedad). Un mes con menos de 5 videos se publica con su cantidad y sin mediana, percentil ni razón.
+3. **Hashtag nuevo:** aparece en el mes y no antes en ese rubro, en al menos dos cuentas; el primer mes de un rubro
+   no tiene «antes» y no declara nuevos.
+4. **Cobertura:** para 2021-2026, cuántas cuentas tienen el año entero leído, a medias o nada, y la causa. Los años
+   viejos son un piso, no un total; las cuentas borradas no aparecen (sesgo de supervivencia).
+5. **Tamaño:** la semilla pesa menos de 6 MB; si la historia crece, `videos` conserva primero los trend y los que
+   dicen producto o precio, y `trends` y la cobertura se calculan siempre sobre todos (`videosTrimmed`).
