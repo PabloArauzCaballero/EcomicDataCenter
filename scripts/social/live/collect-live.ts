@@ -15,6 +15,7 @@ import {
   type RoomState,
 } from './live-room';
 import {
+  FIRST_ROOM_FREE_MB,
   MINUTES,
   MIN_FREE_MB,
   MIN_VIEWERS,
@@ -119,7 +120,8 @@ async function main(): Promise<void> {
     }
 
     // 2. Abrir salas nuevas si hay lugar y memoria.
-    while (active.size < ROOMS && freeMb() >= MIN_FREE_MB && captchas < 3) {
+    const roomFloor = (): number => (active.size === 0 ? FIRST_ROOM_FREE_MB : MIN_FREE_MB);
+    while (active.size < ROOMS && freeMb() >= roomFloor() && captchas < 3) {
       const choice = [...candidates.values()]
         .filter(
           (state) => state.live && !capturedThisRun.has(state.handle) && !active.has(state.handle),

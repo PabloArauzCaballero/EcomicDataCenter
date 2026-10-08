@@ -10,11 +10,22 @@ import { MEDIA, ROOT, RUN_DIR, flag, log, option, say, type Json } from './live-
 
 // ----------------------------------------------------------------- medios
 
+/**
+ * Smart App Control de Windows bloquea a veces un `.pyd` de PyAV al importarlo (evento 3077 de
+ * CodeIntegrity, 7-oct-2026 19:00) y el proceso muere a los 3 s; minutos después el mismo import
+ * funciona. Por eso el arranque se reintenta en vez de dejar la noche sin voz ni pantalla.
+ */
+const MAX_STARTS = 6;
+const RESTART_WAIT_MS = 45_000;
+
 export class Media {
   private child: ChildProcessWithoutNullStreams | null = null;
+  private starts = 0;
+  private stopping = false;
 
   start(): void {
     if (!MEDIA) return;
+    this.starts += 1;
     const python = join(homedir(), '.observatorio-social', 'venv', 'Scripts', 'python.exe');
     this.child = spawn(
       python,
@@ -46,9 +57,21 @@ export class Media {
         log('media.jsonl', { t: Date.now(), stderr: data.slice(0, 300) });
     });
     this.child.on('exit', (code) => {
-      say('media-exit', { code });
+      say('media-exit', { code, start: this.starts });
       this.child = null;
+      if (this.stopping || code === 0) return;
+      if (this.starts >= MAX_STARTS) {
+        say('media-gave-up', { starts: this.starts });
+        return;
+      }
+      setTimeout(() => {
+        if (!this.stopping && !this.child) this.start();
+      }, RESTART_WAIT_MS * this.starts);
     });
+  }
+
+  get alive(): boolean {
+    return this.child !== null;
   }
 
   send(order: Json): void {
@@ -56,6 +79,7 @@ export class Media {
   }
 
   async stop(): Promise<void> {
+    this.stopping = true;
     if (!this.child) return;
     this.send({ cmd: 'quit' });
     const started = Date.now();

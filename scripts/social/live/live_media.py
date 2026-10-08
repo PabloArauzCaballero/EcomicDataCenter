@@ -174,11 +174,24 @@ def load_model(name: str):
     from faster_whisper import WhisperModel
 
     root = str(Path.home() / ".observatorio-social" / "whisper")
-    try:
-        return WhisperModel(name, device="cuda", compute_type="float16", download_root=root), "cuda"
-    except Exception as error:
-        emit(event="gpu-unavailable", error=str(error)[:200])
-        return WhisperModel(name, device="cpu", compute_type="int8", download_root=root), "cpu"
+    # Primero solo desde disco: sin eso faster-whisper consulta Hugging Face y, con el filtro de red
+    # de la casa (certificado no confiable), falla aunque el modelo ya esté descargado (8-oct-2026).
+    for offline in (True, False):
+        try:
+            return (
+                WhisperModel(name, device="cuda", compute_type="float16", download_root=root, local_files_only=offline),
+                "cuda",
+            )
+        except Exception as error:
+            emit(event="gpu-unavailable", offline=offline, error=str(error)[:200])
+        try:
+            return (
+                WhisperModel(name, device="cpu", compute_type="int8", download_root=root, local_files_only=offline),
+                "cpu",
+            )
+        except Exception as error:
+            emit(event="model-unavailable", offline=offline, error=str(error)[:200])
+    raise SystemExit("no se pudo cargar el modelo de voz")
 
 
 def main() -> None:
