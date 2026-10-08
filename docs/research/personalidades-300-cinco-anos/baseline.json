@@ -1,0 +1,67 @@
+{
+  "inspection_date": "2026-10-08",
+  "roster_generated_at": "2026-10-06T04:02:29.291560+00:00",
+  "roster_status": "RESEARCH_SET_300_NOT_FINAL_RANKING",
+  "people": 300,
+  "unique_ids": 300,
+  "sectors": {
+    "BUSINESS": 100,
+    "CIVIC": 13,
+    "CULTURE": 16,
+    "MEDIA": 33,
+    "POLITICS": 54,
+    "SCIENCE": 15,
+    "SPORTS": 65,
+    "UNCLASSIFIED": 4
+  },
+  "status_counts": {
+    "identityReview": {
+      "PENDING": 300
+    },
+    "ageReview": {
+      "PENDING": 300
+    },
+    "accountVerification": {
+      "PENDING": 300
+    }
+  },
+  "people_with_account_leads": 94,
+  "people_without_account_leads": 206,
+  "account_leads": 130,
+  "separately_reviewed_pilot_accounts": 3,
+  "pilot": {
+    "people": 3,
+    "posts": 73,
+    "window_start": "2025-10-04",
+    "window_end": "2026-10-04",
+    "coverage": {
+      "researchPeople": 300,
+      "peopleWithPilotSentiment": 3,
+      "commentsCaptured": 854,
+      "commentsAnalyzedSpanish": 610
+    }
+  },
+  "company_local_snapshot": {
+    "profiles": 473,
+    "posts": 11330,
+    "deployment_verified": false
+  },
+  "source_files": [
+    {
+      "path": "_publish_people_core/scripts/social/people/research-300.json",
+      "sha256": "a828a5c0cd251d2b4079794a76174614ac8d46bf8cae24ac897f8df55ce9556e"
+    },
+    {
+      "path": "_publish_people_core/scripts/social/people/pilot-3.json",
+      "sha256": "62e1a01658c9fc992bc51be4cd5b04147a2f2aae3b7ef4e4f7e202fe40b9328c"
+    },
+    {
+      "path": "_publish_people_core/scripts/social/people/reviewed-pilot-accounts.json",
+      "sha256": "e02816102c327c78053d825b160c08ed6ccf1de254bb63bcffa9b80706826e9c"
+    },
+    {
+      "path": "EcomicDataCenter/src/database/seeds/boot/company-social.json",
+      "sha256": "4e0aa05bc8030cbe163c0404dd655ae7ee464ea11b8b07b6f57cc0d9db705089"
+    }
+  ]
+}

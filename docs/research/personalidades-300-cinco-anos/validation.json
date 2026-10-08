@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "planning_only": true,
+  "new_posts_collected": 0,
+  "checks": [
+    "300 unique people",
+    "130 existing leads",
+    "1800 unique discovery tasks",
+    "60 adjacent windows covering exactly 1826 days",
+    "108000 unique pending coverage cells",
+    "unknown counts remain empty",
+    "pilot total is 73 posts"
+  ],
+  "outputs": [
+    {
+      "file": "roster.csv",
+      "bytes": 63945,
+      "sha256": "446ce238d097b8a099273385b3b2ee40cab454ea97d389d58c50717dd474c1a8"
+    },
+    {
+      "file": "account-leads.csv",
+      "bytes": 24475,
+      "sha256": "3433ff3235972867331b3f743156e692400c3c496c086885c59a4964daad4fdd"
+    },
+    {
+      "file": "discovery-tasks.csv",
+      "bytes": 119972,
+      "sha256": "adfc1d6cbf5016a9128fcd9e4988093876bd892bbcf94230f02c704ef959d572"
+    },
+    {
+      "file": "windows.csv",
+      "bytes": 4497,
+      "sha256": "cfc4efc1e345cbd704aced0476d196e91b42025d08d3016514954342168048f5"
+    },
+    {
+      "file": "coverage-initial.csv.gz",
+      "bytes": 721671,
+      "sha256": "e44caab3297ab2d91cdd268871a65441795c8fb43d13bfcc0d23e1449447c141"
+    },
+    {
+      "file": "scope.json",
+      "bytes": 1236,
+      "sha256": "7cdc7358fe29e1a485685b5ebcfc7f505c475cdda0feee082c5c5d56e7b1e0c6"
+    },
+    {
+      "file": "baseline.json",
+      "bytes": 1867,
+      "sha256": "180c5a8f6df3b512111dc0217a3c314a5b98283f4eb3dfe658402f069a3bcb24"
+    }
+  ]
+}
