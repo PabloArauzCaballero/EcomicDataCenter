@@ -10,6 +10,7 @@ import { reconcileExchangeRateHistory } from './boot-seed.exchange-rate-history'
 import { reconcileCompanyFilings } from './boot-seed.company-filings';
 import { reconcileCompanyFilingArchive } from './boot-seed.company-filings-archive';
 import { reconcileCompanyFilingTexts } from './boot-seed.company-filing-texts';
+import { reconcileAbiNews } from './boot-seed.abi-news';
 import { reconcilePressCoverage } from './boot-seed.press-coverage';
 import { reconcilePressArchive } from './boot-seed.press-archive';
 import { reconcileSocialReadings } from './boot-seed.social-readings';
@@ -35,6 +36,7 @@ import { reconcileWorldBankPanel } from './boot-seed.worldbank-panel';
 import { reconcileBoliviaRoadNetwork } from './boot-seed.bolivia-road-network';
 import { reconcileBoliviaTransportNetwork } from './boot-seed.bolivia-transport-network';
 import { reconcileExogenousPrices } from './boot-seed.exogenous-prices';
+import { reconcileExogenousFactors } from './boot-seed.exogenous-factors';
 import { reconcileIneTrade } from './boot-seed.ine-trade';
 import { reconcileBankVirtualAssets } from './boot-seed.bank-virtual-assets';
 import { reconcileBcbStatistics } from './boot-seed.bcb-statistics';
@@ -42,6 +44,7 @@ import { reconcileCompanySocial } from './boot-seed.company-social';
 import { reconcileTiktokLive } from './boot-seed.tiktok-live';
 import { reconcileTiktokVideos } from './boot-seed.tiktok-videos';
 import { reconcileVehiclePrices } from './boot-seed.vehicle-prices';
+import { reconcileAutomotiveStudy } from './boot-seed.automotive-study';
 import { reconcilePublicAccounts } from './boot-seed.public-accounts';
 import { refreshAfterLoad } from './boot-seed.refresh';
 
@@ -79,6 +82,7 @@ const SELECTABLE = [
   'company-filings',
   'company-filings-archive',
   'company-filing-texts',
+  'abi-news',
   'press-coverage',
   'press-archive',
   'social-readings',
@@ -87,6 +91,7 @@ const SELECTABLE = [
   'worldbank-panel',
   'bolivia-road-network',
   'exogenous-prices',
+  'exogenous-factors',
   'ine-trade',
   'bank-virtual-assets',
   'bcb-statistics',
@@ -96,6 +101,7 @@ const SELECTABLE = [
   'tiktok-live',
   'tiktok-videos',
   'vehicle-prices',
+  'automotive-study',
 ] as const;
 
 export type Catalogue = (typeof SELECTABLE)[number];
@@ -109,8 +115,8 @@ export type Catalogue = (typeof SELECTABLE)[number];
  */
 function requestedCatalogue(argv: readonly string[]): Catalogue | undefined {
   const flag = argv.find((argument) => argument.startsWith('--only='));
-  if (!flag) return undefined;
-  const name = flag.slice('--only='.length);
+  const name = flag?.slice('--only='.length) ?? process.env['SEED_ONLY'] ?? 'all';
+  if (name === 'all') return undefined;
   if (!SELECTABLE.includes(name as Catalogue)) {
     throw new Error(`Catálogo desconocido: ${name}. Opciones: ${SELECTABLE.join(', ')}`);
   }
@@ -141,9 +147,18 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   // Miles de videos en pocas cientos de observaciones: segundos, delante de las cargas largas.
   ['tiktok-videos', reconcileTiktokVideos],
   ['vehicle-prices', reconcileVehiclePrices],
+  ['automotive-study', reconcileAutomotiveStudy],
   // Quinientas series y pocos miles de puntos: se siembran en segundos y van delante de las
   // cargas largas por la misma razón que los bancos y las estadisticas del Banco Central.
   ['public-accounts', reconcilePublicAccounts],
+  // El tablero abre transporte como primera página del capítulo. No debe esperar a que el
+  // replay atraviese el panel mundial y los corpus de comercio para recibir sus datos.
+  ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
+  // El directorio y los cierres son datos públicos de primera pantalla. Conciliar este paquete
+  // antes de los históricos largos evita que una actualización empresarial espere decenas de
+  // minutos detrás de series que no cambiaron.
+  ['business-registry', reconcileBusinessRegistry],
+  ['abi-news', reconcileAbiNews],
   ['exchange-rate-history', reconcileExchangeRateHistory],
   ['macro-annual-history', reconcileMacroAnnualHistory],
   ['market-prices', reconcileMarketPrices],
@@ -157,7 +172,6 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['foreign-trade-detail', reconcileForeignTradeDetail],
   ['annual-registers', reconcileAnnualRegisters],
   ['annual-activities', reconcileAnnualActivities],
-  ['business-registry', reconcileBusinessRegistry],
   ['business-rankings', reconcileBusinessRankings],
   ['business-wealth', reconcileBusinessWealth],
   ['company-filings', reconcileCompanyFilings],
@@ -171,8 +185,8 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bolivia-national-poi', reconcileBoliviaNationalPoi],
   ['bolivia-road-network', reconcileBoliviaRoadNetwork],
   ['exogenous-prices', reconcileExogenousPrices],
+  ['exogenous-factors', reconcileExogenousFactors],
   ['ine-trade', reconcileIneTrade],
-  ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
 ];
 
 /**
@@ -263,6 +277,7 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
           await database.transaction((transaction) => load(identities.sourceId, transaction)),
         );
         await recordBootApplication(database, environmentId, target, name);
+        if (name === 'abi-news') await database.query('SELECT read_models.refresh_abi_news()');
       } catch (error) {
         failed.push(name);
         process.stderr.write(

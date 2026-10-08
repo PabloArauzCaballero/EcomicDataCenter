@@ -154,12 +154,17 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
    * el registro y el padrón, los ránkings, y los dueños con sus fortunas. Cada
    * uno se carga o no por su cuenta (`boot-seed.business-fabric.ts`).
    */
-  historical('business-registry', 'Base empresarial, tamaño y padrón de Impuestos', [
-    'boot/business-registry.json',
-    'boot/business-registry-flows.json',
-    'boot/business-size.json',
-    'boot/tax-roll.json',
-  ]),
+  historical(
+    'business-registry',
+    'Base empresarial, tamaño y padrón de Impuestos',
+    [
+      'boot/business-registry.json',
+      'boot/business-registry-flows.json',
+      'boot/business-size.json',
+      'boot/tax-roll.json',
+    ],
+    '1.1.0',
+  ),
   historical('business-rankings', 'Principales empresas: Impuestos y Las 500', [
     'boot/tax-top-payers.json',
   ]),
@@ -174,6 +179,10 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('company-filing-texts', 'Textos de hechos relevantes', [
     'boot/company-filing-texts.json',
   ]),
+  {
+    ...historical('abi-news', 'Noticias ABI y menciones de emisores BBV', ['boot/abi-news/']),
+    minimumSchemaVersion: '0103',
+  },
   historical('press-coverage', 'Cobertura de prensa corriente', ['boot/press-coverage.json']),
   historical('press-archive', 'Archivo de prensa 2020-2026', [
     'boot/press-archive-2020.json',
@@ -284,6 +293,12 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/exogenous-customs.json',
     'boot/exogenous-currencies/',
   ]),
+  {
+    ...historical('exogenous-factors', 'Factores económicos con disponibilidad y revisiones', [
+      'boot/exogenous-factors.json',
+    ]),
+    minimumSchemaVersion: '0102',
+  },
   historical('ine-trade', 'Comercio exterior del INE, registro por registro', ['boot/ine-trade/']),
   historical('bank-virtual-assets', 'Servicios de dólar digital de los bancos bolivianos', [
     'boot/bank-virtual-assets.json',
@@ -301,20 +316,37 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/tiktok-videos.json',
   ]),
   {
+    ...historical(
+      'automotive-study',
+      'Estudio empresarial del mercado automotor',
+      ['boot/automotive-study.json'],
+      '1.0.1',
+    ),
+    minimumSchemaVersion: '0101',
+  },
+  {
     ...historical('vehicle-prices', 'Ofertas públicas de vehículos nuevos', [
       'boot/vehicle-prices.json',
       'boot/vehicle-price-sources.json',
     ]),
     minimumSchemaVersion: '0099',
   },
-  historical('public-accounts', 'Cuentas públicas: recaudación, ingresos y gastos del Estado, deuda y subsidios', [
-    'boot/public-accounts/',
-  ]),
-  historical('bolivia-transport-network', 'Red ferroviaria y red fluvial de Bolivia', [
-    'boot/bolivia-transport-network/rail-network.json',
-    'boot/bolivia-transport-network/rail-flows.json',
-    'boot/bolivia-transport-network/waterways.json',
-  ]),
+  historical(
+    'public-accounts',
+    'Cuentas públicas: recaudación, ingresos y gastos del Estado, deuda y subsidios',
+    ['boot/public-accounts/'],
+  ),
+  historical(
+    'bolivia-transport-network',
+    'Redes y economia del transporte de Bolivia',
+    [
+      'boot/bolivia-transport-network/rail-network.json',
+      'boot/bolivia-transport-network/rail-flows.json',
+      'boot/bolivia-transport-network/waterways.json',
+      'boot/bolivia-transport-network/road-transport.json',
+    ],
+    '1.1.1',
+  ),
   {
     code: 'observatory-demo',
     version: '1.0.0',

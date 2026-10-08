@@ -8,7 +8,10 @@
     "assets": [
       {
         "include": "database/seeds/**/*.json",
-        "watchAssets": true
+        "watchAssets": false
+      },
+      {
+        "include": "database/seeds/boot/abi-news/evidence/*.gz"
       }
     ]
   }

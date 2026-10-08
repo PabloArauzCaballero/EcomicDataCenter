@@ -66,18 +66,90 @@ const T = {
 
 /** El molde de los reportes de diciembre desde 2016: seis años por cuadro y la actualización del año. */
 const modernTables = (forms: { readonly new: number; readonly renewed: number; readonly cancelled: number }): FlowTable[] => [
-  { measure: 'NEW', dimension: 'DEPT', columns: 'years', title: T.newByYear('departamento'), rows: 9 },
-  { measure: 'NEW', dimension: 'FORM', columns: 'years', title: T.newByYear('tipo societario'), rows: forms.new },
-  { measure: 'NEW', dimension: 'CIIU', columns: 'years', title: T.newByYear('actividad econ\\S+mica'), rows: 18 },
-  { measure: 'NEW', dimension: 'CIIU', columns: 'departments', title: /Inscripci\S+n de empresas por departamento seg\S+n actividad/u, rows: 18 },
-  { measure: 'RENEWED', dimension: 'DEPT', columns: 'single', title: T.renewed('departamento'), rows: 9 },
-  { measure: 'RENEWED', dimension: 'FORM', columns: 'single', title: T.renewed('tipo societario'), rows: forms.renewed },
-  { measure: 'RENEWED', dimension: 'CIIU', columns: 'single', title: T.renewed('actividad econ\\S+mica'), rows: 18 },
-  { measure: 'RENEWED', dimension: 'CIIU', columns: 'departments', title: /Actualizaci\S+n de empresas por departamento seg\S+n actividad/u, rows: 18 },
-  { measure: 'CANCELLED', dimension: 'DEPT', columns: 'years', title: T.cancelledByYear('departamento'), rows: 9 },
-  { measure: 'CANCELLED', dimension: 'FORM', columns: 'years', title: T.cancelledByYear('tipo societario'), rows: forms.cancelled },
-  { measure: 'CANCELLED', dimension: 'CIIU', columns: 'years', title: T.cancelledByYear('actividad econ\\S+mica'), rows: 18 },
-  { measure: 'CANCELLED', dimension: 'CIIU', columns: 'departments', title: /Matr\S+culas canceladas por departamento seg\S+n actividad/u, rows: 18 },
+  {
+    measure: 'NEW',
+    dimension: 'DEPT',
+    columns: 'years',
+    title: T.newByYear('departamento'),
+    rows: 9,
+  },
+  {
+    measure: 'NEW',
+    dimension: 'FORM',
+    columns: 'years',
+    title: T.newByYear('tipo societario'),
+    rows: forms.new,
+  },
+  {
+    measure: 'NEW',
+    dimension: 'CIIU',
+    columns: 'years',
+    title: T.newByYear('actividad econ\\S+mica'),
+    rows: 18,
+  },
+  {
+    measure: 'NEW',
+    dimension: 'CIIU',
+    columns: 'departments',
+    title: /Inscripci\S+n de empresas por departamento seg\S+n actividad/u,
+    rows: 18,
+  },
+  {
+    measure: 'RENEWED',
+    dimension: 'DEPT',
+    columns: 'single',
+    title: T.renewed('departamento'),
+    rows: 9,
+  },
+  {
+    measure: 'RENEWED',
+    dimension: 'FORM',
+    columns: 'single',
+    title: T.renewed('tipo societario'),
+    rows: forms.renewed,
+  },
+  {
+    measure: 'RENEWED',
+    dimension: 'CIIU',
+    columns: 'single',
+    title: T.renewed('actividad econ\\S+mica'),
+    rows: 18,
+  },
+  {
+    measure: 'RENEWED',
+    dimension: 'CIIU',
+    columns: 'departments',
+    title: /Actualizaci\S+n de empresas por departamento seg\S+n actividad/u,
+    rows: 18,
+  },
+  {
+    measure: 'CANCELLED',
+    dimension: 'DEPT',
+    columns: 'years',
+    title: T.cancelledByYear('departamento'),
+    rows: 9,
+  },
+  {
+    measure: 'CANCELLED',
+    dimension: 'FORM',
+    columns: 'years',
+    title: T.cancelledByYear('tipo societario'),
+    rows: forms.cancelled,
+  },
+  {
+    measure: 'CANCELLED',
+    dimension: 'CIIU',
+    columns: 'years',
+    title: T.cancelledByYear('actividad econ\\S+mica'),
+    rows: 18,
+  },
+  {
+    measure: 'CANCELLED',
+    dimension: 'CIIU',
+    columns: 'departments',
+    title: /Matr\S+culas canceladas por departamento seg\S+n actividad/u,
+    rows: 18,
+  },
 ];
 
 /**
@@ -93,12 +165,48 @@ const report2010: FundempresaReport = {
   edition: 'Estadísticas del Registro de Comercio de Bolivia, departamento de Oruro, diciembre de 2010',
   url: 'http://www.docentes.fcefa.edu.bo/wp-content/uploads/sites/9/2013/09/ESTADISTICAS-FUNDENPRESA-ORURODerecho-Comercial-417.pdf',
   tables: [
-    { measure: 'ACTIVE', dimension: 'DEPT', columns: 'years', title: /Base Empresarial por departamento, 2002/u, rows: 9 },
-    { measure: 'ACTIVE', dimension: 'FORM', columns: 'years', title: /Base Empresarial por gesti\S+n seg\S+n tipo societario, 2002/u, rows: 7 },
-    { measure: 'ACTIVE', dimension: 'CIIU3', columns: 'years', title: /Base Empresarial por gesti\S+n seg\S+n actividad econ\S+mica, 2005/u, rows: 15 },
-    { measure: 'ACTIVE', dimension: 'CIIU3', columns: 'departments', title: /Base Empresarial por departamento seg\S+n actividad econ\S+mica, 2010/u, rows: 14 },
-    { measure: 'NEW', dimension: 'DEPT', columns: 'years', title: /Registro de nuevas empresas por gesti\S+n seg\S+n departamento, 2005/u, rows: 9 },
-    { measure: 'CANCELLED', dimension: 'DEPT', columns: 'years', title: /Matr\S+culas canceladas por gesti\S+n seg\S+n departamento, 2005/u, rows: 9 },
+    {
+      measure: 'ACTIVE',
+      dimension: 'DEPT',
+      columns: 'years',
+      title: /Base Empresarial por departamento, 2002/u,
+      rows: 9,
+    },
+    {
+      measure: 'ACTIVE',
+      dimension: 'FORM',
+      columns: 'years',
+      title: /Base Empresarial por gesti\S+n seg\S+n tipo societario, 2002/u,
+      rows: 7,
+    },
+    {
+      measure: 'ACTIVE',
+      dimension: 'CIIU3',
+      columns: 'years',
+      title: /Base Empresarial por gesti\S+n seg\S+n actividad econ\S+mica, 2005/u,
+      rows: 15,
+    },
+    {
+      measure: 'ACTIVE',
+      dimension: 'CIIU3',
+      columns: 'departments',
+      title: /Base Empresarial por departamento seg\S+n actividad econ\S+mica, 2010/u,
+      rows: 14,
+    },
+    {
+      measure: 'NEW',
+      dimension: 'DEPT',
+      columns: 'years',
+      title: /Registro de nuevas empresas por gesti\S+n seg\S+n departamento, 2005/u,
+      rows: 9,
+    },
+    {
+      measure: 'CANCELLED',
+      dimension: 'DEPT',
+      columns: 'years',
+      title: /Matr\S+culas canceladas por gesti\S+n seg\S+n departamento, 2005/u,
+      rows: 9,
+    },
   ],
 };
 
@@ -107,10 +215,7 @@ export const FUNDEMPRESA_REPORTS: readonly FundempresaReport[] = [
   {
     year: '2021',
     edition: 'Estadísticas del Registro de Comercio de Bolivia, diciembre de 2021',
-    url: wayback(
-      '20220210150944',
-      'https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf',
-    ),
+    url: wayback('20220210150944', 'https://www.fundempresa.org.bo/docs/news/es/113_reporte-estadistico-al-mes-de-diciembre-2021-1.pdf'),
     tables: modernTables({ new: 8, renewed: 9, cancelled: 8 }),
     municipalities: true,
   },
@@ -131,3 +236,19 @@ export const SEPREC_MEMORY = {
   url: 'https://www.seprec.gob.bo/wp-content/uploads/2025/12/Memoria-2022-2025_v1.pdf',
   pages: [34],
 } as const;
+
+/** Memorias oficiales con cancelaciones y el reparto completo por departamento. */
+export const SEPREC_CANCELLATION_MEMORIES = [
+  {
+    year: '2022',
+    edition: 'Memoria Anual Institucional, gestión 2022',
+    url: 'https://www.seprec.gob.bo/wp-content/uploads/2024/12/Memoria-Anual-2-2022.pdf',
+    pages: [60, 61],
+  },
+  {
+    year: '2023',
+    edition: 'Memoria Anual Institucional, gestión 2023',
+    url: 'https://www.seprec.gob.bo/wp-content/uploads/2025/10/Memoria_ANUAL-2023.pdf',
+    pages: [40, 41],
+  },
+] as const;

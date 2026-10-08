@@ -1,0 +1,118 @@
+﻿{
+    "alcance":  "Validacion estructural del catalogo de investigacion; no valida series, APIs, acceso, licencias ni cobertura historica",
+    "familias":  287,
+    "identificadoresUnicos":  287,
+    "errores":  0,
+    "fuentesPendientes":  [
+                              "MF_EXTERNAL_POLICY_SHOCK"
+                          ],
+    "rolesFiltro":  [
+                        {
+                            "rol":  "CONDICIONANTE",
+                            "familias":  70
+                        },
+                        {
+                            "rol":  "EVENTO_LOCAL_ENDOGENO",
+                            "familias":  5
+                        },
+                        {
+                            "rol":  "EXPOSICION",
+                            "familias":  29
+                        },
+                        {
+                            "rol":  "EXTERNO_CANDIDATO",
+                            "familias":  26
+                        },
+                        {
+                            "rol":  "EXTERNO_CONDICIONAL",
+                            "familias":  7
+                        },
+                        {
+                            "rol":  "POLITICA_LOCAL",
+                            "familias":  2
+                        },
+                        {
+                            "rol":  "POR_DEFINIR_SEGUN_OBJETIVO",
+                            "familias":  104
+                        },
+                        {
+                            "rol":  "RESULTADO",
+                            "familias":  44
+                        }
+                    ],
+    "urlsDistintas":  80,
+    "prioridades":  [
+                        {
+                            "prioridad":  "P0",
+                            "familias":  136
+                        },
+                        {
+                            "prioridad":  "P1",
+                            "familias":  118
+                        },
+                        {
+                            "prioridad":  "P2",
+                            "familias":  33
+                        }
+                    ],
+    "mesas":  [
+                  {
+                      "archivo":  "catalogo_macro.csv",
+                      "mesa":  "Macroeconomia y finanzas",
+                      "familias":  88,
+                      "prioridades":  [
+                                          {
+                                              "prioridad":  "P0",
+                                              "familias":  42
+                                          },
+                                          {
+                                              "prioridad":  "P1",
+                                              "familias":  39
+                                          },
+                                          {
+                                              "prioridad":  "P2",
+                                              "familias":  7
+                                          }
+                                      ]
+                  },
+                  {
+                      "archivo":  "catalogo_produccion.csv",
+                      "mesa":  "Produccion y recursos",
+                      "familias":  104,
+                      "prioridades":  [
+                                          {
+                                              "prioridad":  "P0",
+                                              "familias":  47
+                                          },
+                                          {
+                                              "prioridad":  "P1",
+                                              "familias":  51
+                                          },
+                                          {
+                                              "prioridad":  "P2",
+                                              "familias":  6
+                                          }
+                                      ]
+                  },
+                  {
+                      "archivo":  "catalogo_servicios.csv",
+                      "mesa":  "Servicios y territorio",
+                      "familias":  95,
+                      "prioridades":  [
+                                          {
+                                              "prioridad":  "P0",
+                                              "familias":  47
+                                          },
+                                          {
+                                              "prioridad":  "P1",
+                                              "familias":  28
+                                          },
+                                          {
+                                              "prioridad":  "P2",
+                                              "familias":  20
+                                          }
+                                      ]
+                  }
+              ],
+    "nota":  "No se deduplicaron conceptos automaticamente: familias amplias pueden solaparse; EXO-001 debe determinar reutilizacion, ampliacion, fusion o alta nueva."
+}

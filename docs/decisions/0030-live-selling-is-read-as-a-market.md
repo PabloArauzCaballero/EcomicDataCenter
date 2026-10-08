@@ -77,5 +77,5 @@ Lo que se midió antes de decidir (6 de octubre de 2026, conexión residencial e
 
 Plan: `PLAN-TIKTOK-LIVES.md` (fuera del repo). Runbook: `docs/runbooks/tiktok-live.md`. Código:
 `scripts/social/live/`. Semilla `src/database/seeds/boot/tiktok-live.json`, esquema `tiktok-live.schema.ts`,
-cargador `boot-seed.tiktok-live.ts`, vistas de la migración `0101-read-the-live-commerce` (0104 en `test`), pruebas
+cargador `boot-seed.tiktok-live.ts`, vistas de la migración `0104-read-the-live-commerce` (0101 en `dev`), pruebas
 `src/database/seeds/tests/tiktok-live.spec.ts` y `scripts/social/live/test_live_lexicon.py`.

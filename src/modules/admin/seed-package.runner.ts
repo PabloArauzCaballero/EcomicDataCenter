@@ -1,9 +1,11 @@
+import { reconcileExogenousFactors } from '../../database/seeds/runners/boot-seed.exogenous-factors';
 import type { Transaction } from 'sequelize';
 import { reconcileAgentBootstrap } from '../../database/seeds/runners/boot-seed.agent-bootstrap';
 import { reconcileBbvYields } from '../../database/seeds/runners/boot-seed.bbv-yields';
 import { reconcileBcbQuotes } from '../../database/seeds/runners/boot-seed.bcb-quotes';
 import { reconcileBoliviaNationalPoi } from '../../database/seeds/runners/boot-seed.bolivia-national-poi';
 import { reconcileBoliviaPoi } from '../../database/seeds/runners/boot-seed.bolivia-poi';
+import { reconcileBoliviaTransportNetwork } from '../../database/seeds/runners/boot-seed.bolivia-transport-network';
 import { reconcileCompanyFilingTexts } from '../../database/seeds/runners/boot-seed.company-filing-texts';
 import { reconcileCompanyFilings } from '../../database/seeds/runners/boot-seed.company-filings';
 import { reconcileCompanyFilingArchive } from '../../database/seeds/runners/boot-seed.company-filings-archive';
@@ -17,6 +19,7 @@ import {
   PRESS_ARCHIVE_YEARS,
   reconcilePressArchiveYear,
 } from '../../database/seeds/runners/boot-seed.press-archive';
+import { reconcileAbiNews } from '../../database/seeds/runners/boot-seed.abi-news';
 import { reconcilePressCoverage } from '../../database/seeds/runners/boot-seed.press-coverage';
 import { reconcileSourceSchedules } from '../../database/seeds/runners/boot-seed.source-schedules';
 import { reconcileSocialReadings } from '../../database/seeds/runners/boot-seed.social-readings';
@@ -126,6 +129,7 @@ export const SEED_UNITS: Readonly<Record<string, readonly SeedUnit[]>> = {
   'core-catalogues': CORE_UNITS,
   'collector-identities': IDENTITY_UNITS,
   'source-schedules': SCHEDULE_UNITS,
+  'exogenous-factors': single('exogenous-factors', reconcileExogenousFactors),
   'exchange-rate-history': single('exchange-rate-history', reconcileExchangeRateHistory),
   'macro-annual-history': single('macro-annual-history', reconcileMacroAnnualHistory),
   'market-prices': single('market-prices', reconcileMarketPrices),
@@ -137,11 +141,16 @@ export const SEED_UNITS: Readonly<Record<string, readonly SeedUnit[]>> = {
   'company-filings': single('company-filings', reconcileCompanyFilings),
   'company-filings-archive': single('company-filings-archive', reconcileCompanyFilingArchive),
   'company-filing-texts': single('company-filing-texts', reconcileCompanyFilingTexts),
+  'abi-news': single('abi-news', reconcileAbiNews),
   'press-coverage': single('press-coverage', reconcilePressCoverage),
   'press-archive': PRESS_ARCHIVE_UNITS,
   'social-readings': single('social-readings', reconcileSocialReadings),
   'worldbank-panel': single('worldbank-panel', reconcileWorldBankPanel),
   'bolivia-poi': single('bolivia-poi', reconcileBoliviaPoi),
   'bolivia-national-poi': single('bolivia-national-poi', reconcileBoliviaNationalPoi),
+  'bolivia-transport-network': single(
+    'bolivia-transport-network',
+    reconcileBoliviaTransportNetwork,
+  ),
   'observatory-demo': DEMO_UNITS,
 };

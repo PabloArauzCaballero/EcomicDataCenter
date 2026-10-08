@@ -3,6 +3,7 @@ import { textHash } from '../../../common/hashing/canonical-hash';
 import { reconcileHistoryRun } from './boot-seed.history-provenance';
 import { reconcileRoadArtifact } from './boot-seed.bolivia-road-network';
 import { loadRailFlows } from './boot-seed.bolivia-transport-network.flows';
+import { loadRoadTransport } from './boot-seed.bolivia-transport-network.road';
 import { writeTransportRows, type TransportRow } from './boot-seed.bolivia-transport-network.rows';
 import {
   railNetworkSeedSchema,
@@ -137,4 +138,5 @@ export async function reconcileBoliviaTransportNetwork(
   await loadRailNetwork(sourceId, agentRunId, transaction);
   await loadWaterways(sourceId, agentRunId, transaction);
   await loadRailFlows(sourceId, agentRunId, transaction);
+  await loadRoadTransport(sourceId, agentRunId, transaction);
 }

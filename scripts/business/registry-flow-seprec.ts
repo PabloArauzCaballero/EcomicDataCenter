@@ -10,8 +10,9 @@ import { spanishNumber } from './business-common';
  * societaria y actividad son imágenes sin texto, y lo único legible es la
  * página que resume el año en frases («De enero a diciembre de 2023 con 16.471
  * inscripciones») y un gráfico de barras de renovaciones con sus rótulos. Por
- * eso del SEPREC salen totales nacionales y, de las renovaciones, el reparto
- * por periodo de renovación; nada más se puede leer sin transcribir.
+ * eso del SEPREC salen totales nacionales, el reparto de renovaciones por
+ * periodo y las cancelaciones por departamento que sus memorias rotulan como
+ * texto; los demás desgloses no se transcriben a mano.
  */
 
 /** Una cifra del SEPREC: de qué año, de qué meses y la frase que la dice. */
@@ -22,6 +23,7 @@ export interface SeprecFigure {
   readonly key: string;
   readonly value: string;
   readonly excerpt: string;
+  readonly note?: string;
 }
 
 const MONTHS = 'enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre';
@@ -34,7 +36,15 @@ export function seprecNew(rows: readonly PdfRow[]): SeprecFigure[] {
     if (!hit) return [];
     const [, from = '', to = '', year = '', printed = ''] = hit;
     const whole = from === 'enero' && to === 'diciembre';
-    return [{ year, key: 'BOLIVIA', value: spanishNumber(printed), excerpt: row.text, ...(whole ? {} : { months: `${from} a ${to}` }) }];
+    return [
+      {
+        year,
+        key: 'BOLIVIA',
+        value: spanishNumber(printed),
+        excerpt: row.text,
+        ...(whole ? {} : { months: `${from} a ${to}` }),
+      },
+    ];
   });
 }
 
@@ -46,7 +56,15 @@ export function seprecRenewed(rows: readonly PdfRow[]): SeprecFigure[] {
     if (!hit) return [];
     const [, month = '', year = '', printed = ''] = hit;
     const whole = month === 'diciembre';
-    return [{ year, key: 'BOLIVIA', value: spanishNumber(printed), excerpt: row.text, ...(whole ? {} : { months: `enero a ${month}` }) }];
+    return [
+      {
+        year,
+        key: 'BOLIVIA',
+        value: spanishNumber(printed),
+        excerpt: row.text,
+        ...(whole ? {} : { months: `enero a ${month}` }),
+      },
+    ];
   });
 }
 
@@ -63,6 +81,84 @@ export function seprecMemoryNew(rows: readonly PdfRow[]): SeprecFigure[] {
     if (!hit) return [];
     return [{ year: hit[1] ?? '', key: 'BOLIVIA', value: spanishNumber(hit[2] ?? ''), excerpt: row.text }];
   });
+}
+
+const CANCELLATION_DEPARTMENTS: readonly {
+  readonly key: string;
+  readonly label: string;
+  readonly pattern: RegExp;
+}[] = [
+  { key: 'LA_PAZ', label: 'La Paz', pattern: /LA P\s*AZ/u },
+  { key: 'SANTA_CRUZ', label: 'Santa Cruz', pattern: /SANTA CRUZ/u },
+  { key: 'COCHABAMBA', label: 'Cochabamba', pattern: /COCHABAMBA/u },
+  { key: 'TARIJA', label: 'Tarija', pattern: /TARIJA/u },
+  { key: 'ORURO', label: 'Oruro', pattern: /ORURO/u },
+  { key: 'POTOSI', label: 'Potosí', pattern: /POTOSI/u },
+  { key: 'CHUQUISACA', label: 'Chuquisaca', pattern: /CHUQUISACA/u },
+  { key: 'BENI', label: 'Beni', pattern: /BENI/u },
+  { key: 'PANDO', label: 'Pando', pattern: /PANDO/u },
+];
+
+const printedNumbers = (text: string): string[] => text.match(/(?<![\d.,])\d{1,3}(?:\.\d{3})*(?![\d.,%])/gu) ?? [];
+
+/**
+ * Cancelaciones anuales y su reparto departamental en las memorias del SEPREC.
+ *
+ * La memoria 2022 contiene una errata interna: la frase introductoria imprime
+ * 2.491, pero el gráfico nacional imprime 3.339 y sus nueve departamentos
+ * también suman 3.339. Sólo se acepta una discrepancia si el gráfico de la
+ * misma memoria confirma exactamente la suma completa del reparto.
+ */
+export function seprecCancelled(rows: readonly PdfRow[], year: string): SeprecFigure[] {
+  const title = rows.find((row) => {
+    const text = plain(row.text);
+    return text.startsWith('BOLIVIA CANCELACION') && text.includes('DEPARTAMENTO');
+  });
+  const datedTitle = title && rows.some((row) => row.page === title.page && Math.abs(row.y - title.y) <= 20 && plain(row.text).includes(year));
+  if (!title || !datedTitle) {
+    throw new Error(`Memoria SEPREC ${year}: no se encontró el gráfico de cancelaciones por departamento`);
+  }
+
+  const source = rows.find((row) => row.page === title.page && /^FUENTE/u.test(plain(row.text)));
+  const chartRows = rows.filter((row) => row.page === title.page && row.y < title.y && (!source || row.y > source.y));
+  const departments = CANCELLATION_DEPARTMENTS.map((department) => {
+    const named = chartRows.find((row) => department.pattern.test(plain(row.text)));
+    if (!named) throw new Error(`Memoria SEPREC ${year}: falta ${department.label} en cancelaciones`);
+    const nearby = chartRows.filter((row) => Math.abs(row.y - named.y) <= 7).sort((left, right) => Math.abs(left.y - named.y) - Math.abs(right.y - named.y));
+    const printed = nearby.flatMap((row) => printedNumbers(row.text))[0];
+    if (!printed) throw new Error(`Memoria SEPREC ${year}: falta la cifra de ${department.label}`);
+    return {
+      year,
+      key: department.key,
+      value: spanishNumber(printed),
+      excerpt: named.text,
+    } satisfies SeprecFigure;
+  });
+
+  const sum = departments.reduce((total, figure) => total + Number(figure.value), 0);
+  const sentence = rows.find((row) => {
+    const text = plain(row.text);
+    return text.includes(year) && text.includes('CANCELARON') && text.includes('UNIDADES ECONOMICAS');
+  });
+  const sentenceValue = sentence
+    ? printedNumbers(sentence.text)
+        .map(spanishNumber)
+        .find((value) => value !== year)
+    : undefined;
+  if (!sentenceValue) throw new Error(`Memoria SEPREC ${year}: falta el total narrado de cancelaciones`);
+
+  let excerpt = sentence?.text ?? '';
+  let note: string | undefined;
+  if (Number(sentenceValue) !== sum) {
+    const chartConfirmsSum = rows.some((row) => row.page !== title.page && row.text.trim() === sum.toLocaleString('es-BO'));
+    if (!chartConfirmsSum) {
+      throw new Error(`Memoria SEPREC ${year}: los departamentos suman ${sum}, no ${sentenceValue}`);
+    }
+    excerpt = JSON.stringify({ frase: sentence?.text, totalGrafico: sum, sumaDepartamentos: sum });
+    note = `La frase introductoria de ${year} imprime ${Number(sentenceValue).toLocaleString('es-BO')}, pero el gráfico nacional y los nueve departamentos coinciden en ${sum.toLocaleString('es-BO')}; se usa la cifra internamente consistente`;
+  }
+
+  return [{ year, key: 'BOLIVIA', value: String(sum), excerpt, ...(note ? { note } : {}) }, ...departments];
 }
 
 const RENEWAL_GROUPS: readonly (readonly [string, string])[] = [
@@ -82,11 +178,7 @@ const RENEWAL_GROUPS: readonly (readonly [string, string])[] = [
  * ese orden. La prueba de que el reparto está bien atado es que las cuatro
  * cifras de cada año suman el total que la misma página escribe en una frase.
  */
-export function seprecRenewalGroups(
-  rows: readonly PdfRow[],
-  totals: readonly SeprecFigure[],
-  where: string,
-): SeprecFigure[] {
+export function seprecRenewalGroups(rows: readonly PdfRow[], totals: readonly SeprecFigure[], where: string): SeprecFigure[] {
   const legend = rows.find((row) => /MINERAS .*AGROINDUSTRIALES/u.test(plain(row.text)));
   const axis = rows.find((row) => row.glyphs.length === 4 && row.glyphs.every((g) => /^20\d{2}$/u.test(g.text)));
   const title = rows.find((row) => /^Bolivia: Unidades econ\S+micas con su matr\S+cula/u.test(row.text));

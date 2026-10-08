@@ -95,13 +95,12 @@ def _merge(readings: list[dict]) -> dict:
 
 
 def load_run(run_dir: Path) -> list[dict]:
-    """Une las lecturas de la corrida y su segunda pasada, por cuenta."""
+    """Las lecturas de la corrida y de su segunda pasada (`<corrida>-deep`), unidas por cuenta."""
     by_account: dict[tuple[str, str], list[dict]] = defaultdict(list)
     for directory in (run_dir, run_dir.with_name(run_dir.name + "-deep")):
         for platform in PLATFORMS:
             for reading in _read_jsonl(directory / f"{platform}.jsonl"):
-                profile = reading["profile"]
-                by_account[(platform, profile["slug"])].append(reading)
+                by_account[(platform, reading["profile"]["slug"])].append(reading)
     return [_merge(readings) for readings in by_account.values()]
 
 
@@ -167,7 +166,7 @@ def main() -> None:
     comments_by_post: dict[tuple, list[str]] = defaultdict(list)
     for reading in readings:
         for comment in reading["comments"]:
-            comments_by_post[(comment["slug"], comment["platform"], comment["postId"])].append(comment["text"])
+            comments_by_post[(comment["platform"], comment["postId"])].append(comment["text"])
 
     all_comments = [(key, text) for key, texts in comments_by_post.items() for text in texts]
     labels = classifier.classify([text for _, text in all_comments]) if classifier else []
@@ -175,12 +174,9 @@ def main() -> None:
     for (key, _), label in zip(all_comments, labels):
         labels_by_post[key].append(label)
 
-    captions = [post for reading in readings for post in reading["posts"]]
-    caption_labels = classifier.classify_polarity([post["text"] or "" for post in captions]) if classifier else []
-    caption_by_post = {
-        (post["slug"], post["platform"], post["postId"]): label
-        for post, label in zip(captions, caption_labels)
-    }
+    captions = [(reading["profile"]["platform"], post) for reading in readings for post in reading["posts"]]
+    caption_labels = classifier.classify([post["text"] or "" for _, post in captions]) if classifier else []
+    caption_by_post = {(platform, post["postId"]): label for (platform, post), label in zip(captions, caption_labels)}
 
     handles: dict[str, set[str]] = defaultdict(set)
     for reading in readings:
@@ -195,7 +191,7 @@ def main() -> None:
         since = run_day - timedelta(days=WINDOW_DAYS)
         rates, account_labels = [], []
         for post in reading["posts"]:
-            key = (slug, platform, post["postId"])
+            key = (platform, post["postId"])
             company_terms[slug].add(post["text"])
             for text in comments_by_post.get(key, []):
                 audience_terms[slug].add(text)
