@@ -65,7 +65,7 @@ MIN_PRICE_BS, MAX_PRICE_BS = 0.5, 50_000
 COMMERCIAL = {"VENTA", "GASTRONOMIA"}
 # La semilla debe pesar menos de 6 MB. Con la historia profunda (decenas de miles de videos) se recortan de
 # `videos` los menos informativos; `trends` y la cobertura se calculan siempre sobre todos.
-MAX_SEED_VIDEOS = 22_000
+MAX_SEED_VIDEOS = 16_000
 MAX_SEED_BYTES = 5_800_000
 
 
