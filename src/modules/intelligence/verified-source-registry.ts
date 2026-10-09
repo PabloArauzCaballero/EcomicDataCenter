@@ -179,6 +179,7 @@ const registry = new Map<string, VerifiedSource>([
   // it rather than a name scraped from the page, which is what makes coverage
   // attributable — not so that anything they report is treated as measured.
   ['eldeber.com.bo', { publisher: 'EL DEBER', tier: 'PRESS' }],
+  ['abi.bo', { publisher: 'ABI', tier: 'PRESS' }],
   ['unitel.bo', { publisher: 'UNITEL', tier: 'PRESS' }],
   ['reduno.com.bo', { publisher: 'RED UNO', tier: 'PRESS' }],
   ['larazon.bo', { publisher: 'LA RAZON', tier: 'PRESS' }],

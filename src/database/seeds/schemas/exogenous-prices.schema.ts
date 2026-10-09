@@ -54,6 +54,7 @@ export const EXOGENOUS_GROUPS = [
   'LIVESTOCK',
   'INDUSTRY',
   'CONSTRUCTION',
+  'FREIGHT',
 ] as const;
 
 const series = z
@@ -108,3 +109,50 @@ export const exogenousPricesSchema = z.object({
 export type ExogenousPrices = z.infer<typeof exogenousPricesSchema>;
 export type ExogenousSeries = ExogenousPrices['series'][number];
 export type ExogenousPoint = ExogenousSeries['points'][number];
+
+/**
+ * El boliviano frente a otras monedas, una lectura por moneda y día.
+ *
+ * Misma forma de serie y mismo sembrador que los precios mensuales, y por eso
+ * la misma vista (`read_models.exogenous_price`): lo que cambia es el periodo,
+ * que aquí es una fecha, y el tope de puntos, porque son quince años. Cada
+ * punto lleva su procedencia —la tabla del BCB de ese día—, como en
+ * `exogenous-customs.json`, donde cada año es otra descarga.
+ *
+ * El grupo `CURRENCY` queda fuera de `EXOGENOUS_GROUPS`: es el capítulo de tipo
+ * de cambio, no una pestaña de precios del mundo, y el tablero de exógenas no
+ * lo pide.
+ */
+const currencyPoint = z
+  .object({
+    period: z.string().regex(/^(?:19|20)\d{2}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])$/u),
+    value: measured,
+    excerpt: z.string().min(8).max(400),
+    sourceUrl: z.url(),
+    upstreamSha256: z.string().regex(/^[a-f0-9]{64}$/u),
+    retrievedAt: z.iso.datetime({ offset: false }),
+  })
+  .strict();
+
+const currencySeries = z
+  .object({
+    indicatorCode: z.string().regex(/^EXO_FX_[A-Z]{3}$/u),
+    group: z.literal('CURRENCY'),
+    product: z.string().regex(/^[A-Z]{3}$/u),
+    productLabel: z.string().trim().min(2).max(80),
+    name: z.string().trim().min(3).max(200),
+    scope: z.literal('BCB_OFFICIAL'),
+    market: z.string().trim().min(2).max(120),
+    unit: z.string().trim().min(2).max(40),
+    kind: z.literal('PRICE'),
+    note: z.string().trim().min(5).max(400),
+    publisher: z.string().trim().min(2).max(200),
+    frequency: z.literal('DAILY'),
+    points: z.array(currencyPoint).min(1).max(8_000),
+  })
+  .strict();
+
+export const currencyRatesSchema = z.object({ series: z.array(currencySeries).min(1).max(30) });
+
+export type CurrencyRates = z.infer<typeof currencyRatesSchema>;
+export type CurrencySeries = CurrencyRates['series'][number];

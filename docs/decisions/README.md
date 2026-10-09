@@ -30,3 +30,4 @@ Los ADR son inmutables después de aceptarse. Una decisión nueva reemplaza a la
 | 0024 | El panel mundial entra completo, no como lista de lectura | Aceptado |
 | 0025 | El registro lee comercio, no plataformas | Aceptado |
 | 0026 | El tablero mundial lee el mundo, no a los vecinos | Aceptado |
+| 0027 | Las cuentas oficiales de las empresas se leen en su perfil | Aceptado |

@@ -11,6 +11,7 @@ import { reconcileCompanyFilings } from './boot-seed.company-filings';
 import { reconcileCompanyFilingArchive } from './boot-seed.company-filings-archive';
 import { reconcileCompanyFilingTexts } from './boot-seed.company-filing-texts';
 import { reconcilePressCoverage } from './boot-seed.press-coverage';
+import { reconcileAbiNews } from './boot-seed.abi-news';
 import { reconcilePressArchive } from './boot-seed.press-archive';
 import { reconcileSocialReadings } from './boot-seed.social-readings';
 import { reconcileMacroAnnualHistory } from './boot-seed.macro-annual-history';
@@ -30,9 +31,12 @@ import { reconcileWorldBankPanel } from './boot-seed.worldbank-panel';
 import { reconcileBoliviaRoadNetwork } from './boot-seed.bolivia-road-network';
 import { reconcileBoliviaTransportNetwork } from './boot-seed.bolivia-transport-network';
 import { reconcileExogenousPrices } from './boot-seed.exogenous-prices';
+import { reconcileExogenousFactors } from './boot-seed.exogenous-factors';
 import { reconcileIneTrade } from './boot-seed.ine-trade';
 import { reconcileBankVirtualAssets } from './boot-seed.bank-virtual-assets';
 import { reconcileBcbStatistics } from './boot-seed.bcb-statistics';
+import { reconcileCompanySocial } from './boot-seed.company-social';
+import { reconcileVehiclePrices } from './boot-seed.vehicle-prices';
 import { refreshAfterLoad } from './boot-seed.refresh';
 
 /**
@@ -67,6 +71,7 @@ const SELECTABLE = [
   'company-filings-archive',
   'company-filing-texts',
   'press-coverage',
+  'abi-news',
   'press-archive',
   'social-readings',
   'bolivia-poi',
@@ -74,10 +79,13 @@ const SELECTABLE = [
   'worldbank-panel',
   'bolivia-road-network',
   'exogenous-prices',
+  'exogenous-factors',
   'ine-trade',
   'bank-virtual-assets',
   'bcb-statistics',
   'bolivia-transport-network',
+  'company-social',
+  'vehicle-prices',
 ] as const;
 
 export type Catalogue = (typeof SELECTABLE)[number];
@@ -116,6 +124,10 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   // Doce mil series que se siembran en doce segundos: por la misma razón que los bancos van
   // delante de las cargas que tardan veinte minutos.
   ['bcb-statistics', reconcileBcbStatistics],
+  // Unas dos mil filas por corrida: va delante de las cargas largas, como los bancos.
+  ['company-social', reconcileCompanySocial],
+  ['vehicle-prices', reconcileVehiclePrices],
+  ['abi-news', reconcileAbiNews],
   ['exchange-rate-history', reconcileExchangeRateHistory],
   ['macro-annual-history', reconcileMacroAnnualHistory],
   ['market-prices', reconcileMarketPrices],
@@ -140,6 +152,7 @@ const LOADERS: ReadonlyArray<readonly [Catalogue, Loader]> = [
   ['bolivia-national-poi', reconcileBoliviaNationalPoi],
   ['bolivia-road-network', reconcileBoliviaRoadNetwork],
   ['exogenous-prices', reconcileExogenousPrices],
+  ['exogenous-factors', reconcileExogenousFactors],
   ['ine-trade', reconcileIneTrade],
   ['bolivia-transport-network', reconcileBoliviaTransportNetwork],
 ];
@@ -232,6 +245,7 @@ export async function runBootSeeds(only?: Catalogue): Promise<void> {
           await database.transaction((transaction) => load(identities.sourceId, transaction)),
         );
         await recordBootApplication(database, environmentId, target, name);
+        if (name === 'abi-news') await database.query('SELECT read_models.refresh_abi_news()');
       } catch (error) {
         failed.push(name);
         process.stderr.write(

@@ -1,8 +1,8 @@
 /**
  * Los precios que Bolivia no fija y que le mueven la economía.
  *
- * Seis familias, en el orden en que se piden: energía, minerales, agro,
- * ganadería, insumos industriales y construcción. Cada producto puede tener
+ * Siete familias, en el orden en que se piden: energía, minerales, agro,
+ * ganadería, insumos industriales, construcción y fletes. Cada producto puede tener
  * varias lecturas y no es redundancia: el crudo Brent y lo que Bolivia pagó por
  * kilo de diésel importado son dos preguntas distintas sobre el mismo producto,
  * y la segunda es la que llega a la balanza de pagos.
@@ -24,7 +24,13 @@
  */
 
 export type ExogenousGroup =
-  'ENERGY' | 'MINERALS' | 'AGRICULTURE' | 'LIVESTOCK' | 'INDUSTRY' | 'CONSTRUCTION';
+  | 'ENERGY'
+  | 'MINERALS'
+  | 'AGRICULTURE'
+  | 'LIVESTOCK'
+  | 'INDUSTRY'
+  | 'CONSTRUCTION'
+  | 'FREIGHT';
 
 export type ExogenousScope =
   'WORLD' | 'REGIONAL' | 'US_PRODUCER_INDEX' | 'BOLIVIA_MARKET' | 'BOLIVIA_CUSTOMS';
@@ -32,7 +38,9 @@ export type ExogenousScope =
 export type ExogenousOrigin =
   | { readonly kind: 'WORLD_BANK'; readonly column: string }
   | { readonly kind: 'FRED'; readonly id: string }
-  | { readonly kind: 'FAO'; readonly uuid: string };
+  | { readonly kind: 'FAO'; readonly uuid: string }
+  /** Freightos: `ticker` es FBX (contenedor, global), FBXnn (una ruta) o FAX (aéreo global). */
+  | { readonly kind: 'FREIGHTOS'; readonly ticker: string };
 
 export interface ExogenousSpec {
   readonly code: string;

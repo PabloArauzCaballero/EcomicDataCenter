@@ -337,6 +337,28 @@
       "specialty": "Reservas, agregados monetarios, precios, tasas, sector externo y sistema de pagos",
       "promptVersion": "n/a",
       "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000026",
+      "code": "COMPANY_SOCIAL",
+      "name": "Cuentas oficiales de las empresas del ranking Merco en redes sociales",
+      "agentType": "CORPORATE",
+      "provider": "Perfiles publicos de Facebook, Instagram, TikTok, YouTube y LinkedIn",
+      "modelIdentifier": "playwright-public-profiles",
+      "specialty": "Seguidores, posts, interaccion, sentimiento de comentarios y terminos frecuentes por empresa (ADR 0027)",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
+    },
+    {
+      "aiAgentId": "92000000-0000-4000-8000-000000000027",
+      "code": "VEHICLE_PRICES",
+      "name": "Ofertas publicas de vehiculos nuevos en Bolivia",
+      "agentType": "SECTOR",
+      "provider": "Representantes oficiales de marca",
+      "modelIdentifier": "official-version-price-snapshot",
+      "specialty": "Precios anunciados por marca, modelo, version y ano modelo",
+      "promptVersion": "n/a",
+      "schemaVersion": "1.0.0"
     }
   ]
 }

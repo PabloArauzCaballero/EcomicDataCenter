@@ -21,7 +21,7 @@ on:
         required: false
         default: todas
         type: choice
-        options: [todas, mercados, bcb, dolar, fichas, exogenas, aduana, bancos, bcb-estadisticas, prensa]
+        options: [todas, mercados, bcb, dolar, fichas, exogenas, factores, aduana, bancos, bcb-estadisticas, prensa, abi]
   schedule:
     # America/La_Paz is UTC-4 year-round: 07:10, 13:10 and 19:10 local.
     - cron: '10 11,17,23 * * *'
@@ -125,6 +125,36 @@ jobs:
           path: src/database/seeds/boot/fx-daily.json
           retention-days: 14
 
+  # El boliviano frente a otras 22 monedas, de la tabla de cotizaciones del BCB.
+  # Una semilla por moneda: llega a las dos bases como el dolar. Un lote aparte
+  # para que una tabla ilegible no frene la semilla del dolar. Falla si el BCB
+  # deja de publicar mas de cinco dias.
+  monedas:
+    if: >-
+      github.event_name == 'schedule' ||
+      contains(fromJSON('["todas","dolar"]'), inputs.batch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Solo anade dias nuevos a lo que encuentra: tiene que ser `dev`.
+          ref: dev
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Collect the boliviano against other currencies
+        run: yarn fx:currencies
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: exogenous-currencies-${{ github.run_id }}
+          path: src/database/seeds/boot/exogenous-currencies
+          retention-days: 14
+
   # El unico lote que existe para que un dato llegue a DOS bases.
   #
   # Las lecturas por ficha estable ya las recoge el colector de investigacion y
@@ -194,8 +224,52 @@ jobs:
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: exogenous-prices-${{ github.run_id }}
-          path: src/database/seeds/boot/exogenous-prices.json
+          path: |
+            src/database/seeds/boot/exogenous-prices.json
+            src/database/seeds/boot/exogenous-freight-weeks.json
           retention-days: 14
+
+  # Series de factores con licencia y disponibilidad temporal verificables.
+  factores:
+    if: >-
+      github.event_name == 'schedule' ||
+      contains(fromJSON('["todas","factores"]'), inputs.batch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: dev
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Test factor contracts, revisions and parsers
+        run: yarn test:exogenous
+      - name: Collect versioned economic factors
+        id: collect
+        continue-on-error: true
+        run: yarn exogenous:factors
+      - name: Validate last good and new series
+        id: validate
+        run: yarn db:seed:validate
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: exogenous-factors-${{ github.run_id }}
+          path: src/database/seeds/boot/exogenous-factors.json
+          retention-days: 14
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: exogenous-factor-evidence-${{ github.run_id }}
+          path: artifacts/exogenous-factors
+          retention-days: 90
+      - name: Report partial source failure
+        if: steps.collect.outcome == 'failure'
+        run: echo '::warning::Some factor sources failed. Valid previous series were retained; inspect the source status artifact.'
 
   # La base de comercio exterior del INE, declaracion por declaracion.
   #
@@ -316,6 +390,32 @@ jobs:
 
   # Last and longest: two of the seven outlets need a browser, which is why this
   # batch alone installs one. See ADR-0019.
+  abi:
+    if: >-
+      github.event_name == 'schedule' ||
+      contains(fromJSON('["todas","abi"]'), inputs.batch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: dev
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: 22.16.0
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --frozen-lockfile --non-interactive
+      - run: yarn test:abi
+      - name: Collect ABI publications and revisions
+        run: yarn press:abi
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: abi-news-${{ github.run_id }}
+          path: src/database/seeds/boot/abi-news
+          retention-days: 14
+
   prensa:
     if: >-
       github.event_name == 'schedule' ||
@@ -367,7 +467,7 @@ jobs:
   # el repositorio sin llegar jamas al servidor, que es la misma clase de final
   # silencioso que este trabajo viene a corregir.
   publicar:
-    needs: [mercados, bcb, dolar, fichas, exogenas, aduana, bancos, bcb-estadisticas, prensa]
+    needs: [mercados, bcb, dolar, monedas, fichas, exogenas, factores, aduana, bancos, bcb-estadisticas, prensa, abi]
     # Un lote caido cuesta sus fuentes y no las de los otros dos, igual que
     # arriba. `always()` publicaria tambien lo cancelado a mano.
     if: ${{ !cancelled() }}
@@ -390,7 +490,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           FAILED: >-
-            ${{ needs.mercados.result == 'failure' && 'mercados ' || '' }}${{ needs.bcb.result == 'failure' && 'bcb ' || '' }}${{ needs.dolar.result == 'failure' && 'dolar ' || '' }}${{ needs.fichas.result == 'failure' && 'fichas ' || '' }}${{ needs.exogenas.result == 'failure' && 'exogenas ' || '' }}${{ needs.aduana.result == 'failure' && 'aduana ' || '' }}${{ needs.bancos.result == 'failure' && 'bancos ' || '' }}${{ needs['bcb-estadisticas'].result == 'failure' && 'bcb-estadisticas ' || '' }}${{ needs.prensa.result == 'failure' && 'prensa' || '' }}
+            ${{ needs.mercados.result == 'failure' && 'mercados ' || '' }}${{ needs.bcb.result == 'failure' && 'bcb ' || '' }}${{ needs.dolar.result == 'failure' && 'dolar ' || '' }}${{ needs.monedas.result == 'failure' && 'monedas ' || '' }}${{ needs.fichas.result == 'failure' && 'fichas ' || '' }}${{ needs.exogenas.result == 'failure' && 'exogenas ' || '' }}${{ needs.factores.result == 'failure' && 'factores ' || '' }}${{ needs.aduana.result == 'failure' && 'aduana ' || '' }}${{ needs.bancos.result == 'failure' && 'bancos ' || '' }}${{ needs['bcb-estadisticas'].result == 'failure' && 'bcb-estadisticas ' || '' }}${{ needs.prensa.result == 'failure' && 'prensa' || '' }}
         run: bash scripts/ops/avisar-ingesta-caida.sh "daily-source-batches, lotes caidos $FAILED"
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         if: needs.mercados.result == 'success'
@@ -408,6 +508,11 @@ jobs:
           name: fx-daily-${{ github.run_id }}
           path: src/database/seeds/boot
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        if: needs.monedas.result == 'success'
+        with:
+          name: exogenous-currencies-${{ github.run_id }}
+          path: src/database/seeds/boot/exogenous-currencies
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         if: needs.fichas.result == 'success'
         with:
           name: stablecoin-books-${{ github.run_id }}
@@ -416,6 +521,11 @@ jobs:
         if: needs.exogenas.result == 'success'
         with:
           name: exogenous-prices-${{ github.run_id }}
+          path: src/database/seeds/boot
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        if: needs.factores.result == 'success'
+        with:
+          name: exogenous-factors-${{ github.run_id }}
           path: src/database/seeds/boot
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
         if: needs.aduana.result == 'success' && needs.aduana.outputs.changed != '0'
@@ -437,12 +547,22 @@ jobs:
         with:
           name: press-coverage-${{ github.run_id }}
           path: src/database/seeds/boot
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        if: needs.abi.result == 'success'
+        with:
+          name: abi-news-${{ github.run_id }}
+          path: src/database/seeds/boot/abi-news
+      - name: Report ABI collection failure
+        if: needs.abi.result == 'failure'
+        run: echo '::warning::ABI collection failed; the last committed corpus is retained.'
       - name: Commit the readings that came back
         run: |
           set -euo pipefail
           git config user.name 'observatorio-recolector'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/fx-daily.json                   src/database/seeds/boot/stablecoin-books.json                   src/database/seeds/boot/exogenous-prices.json                   src/database/seeds/boot/bank-virtual-assets.json                   src/database/seeds/boot/bcb-statistics                   src/database/seeds/boot/press-coverage.json                   src/database/seeds/boot/ine-trade
+          git add src/database/seeds/boot/exogenous-factors.json
+          git add src/database/seeds/boot/abi-news
+          git add src/database/seeds/boot/market-prices.json                   src/database/seeds/boot/bcb-quotes.json                   src/database/seeds/boot/fx-daily.json                   src/database/seeds/boot/stablecoin-books.json                   src/database/seeds/boot/exogenous-prices.json                   src/database/seeds/boot/exogenous-freight-weeks.json                   src/database/seeds/boot/exogenous-currencies                   src/database/seeds/boot/bank-virtual-assets.json                   src/database/seeds/boot/bcb-statistics                   src/database/seeds/boot/press-coverage.json                   src/database/seeds/boot/ine-trade
           # Una fuente que no publico nada hoy deja su semilla igual que ayer, y
           # eso no es un fallo: es un dia sin novedades. Un commit vacio si lo
           # seria, porque desplegaria por nada.

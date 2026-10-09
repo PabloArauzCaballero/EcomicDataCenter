@@ -15,8 +15,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -1618,6 +1618,11 @@
           "period": "2026-08",
           "value": "90.9",
           "excerpt": "2026M08 | Crude oil, Brent ($/bbl) | 90.9"
+        },
+        {
+          "period": "2026-09",
+          "value": "116.8",
+          "excerpt": "2026M09 | Crude oil, Brent ($/bbl) | 116.8"
         }
       ]
     },
@@ -1636,8 +1641,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -3239,6 +3244,11 @@
           "period": "2026-08",
           "value": "82.7",
           "excerpt": "2026M08 | Crude oil, WTI ($/bbl) | 82.7"
+        },
+        {
+          "period": "2026-09",
+          "value": "96.9",
+          "excerpt": "2026M09 | Crude oil, WTI ($/bbl) | 96.9"
         }
       ]
     },
@@ -3258,7 +3268,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGASUSGULF&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "51468559d895d1243e95fce0430302922df180c7de0235050f692b96edaeff4a",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -4879,7 +4889,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DDFUELUSGULF&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "6ed1eb76e96174b4fcb3d7e5c927fa5b1c46b08114f85f0d26f4751cf12dec5a",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -6114,8 +6124,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -7717,6 +7727,11 @@
           "period": "2026-08",
           "value": "2.77",
           "excerpt": "2026M08 | Natural gas, US ($/mmbtu) | 2.77"
+        },
+        {
+          "period": "2026-09",
+          "value": "2.95",
+          "excerpt": "2026M09 | Natural gas, US ($/mmbtu) | 2.95"
         }
       ]
     },
@@ -7735,8 +7750,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -9338,6 +9353,11 @@
           "period": "2026-08",
           "value": "21.11",
           "excerpt": "2026M08 | Natural gas, Europe ($/mmbtu) | 21.11"
+        },
+        {
+          "period": "2026-09",
+          "value": "25.42",
+          "excerpt": "2026M09 | Natural gas, Europe ($/mmbtu) | 25.42"
         }
       ]
     },
@@ -9356,8 +9376,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -10957,8 +10977,13 @@
         },
         {
           "period": "2026-08",
-          "value": "13.94",
-          "excerpt": "2026M08 | Liquefied natural gas, Japan ($/mmbtu) | 13.94"
+          "value": "15.27",
+          "excerpt": "2026M08 | Liquefied natural gas, Japan ($/mmbtu) | 15.27"
+        },
+        {
+          "period": "2026-09",
+          "value": "14.25",
+          "excerpt": "2026M09 | Liquefied natural gas, Japan ($/mmbtu) | 14.25"
         }
       ]
     },
@@ -10978,7 +11003,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DPROPANEMBTX&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "4a641bb29eed70896ed05024d455017911504afeddb4258546ed7f9cf13486ca",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -12603,8 +12628,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -14206,6 +14231,11 @@
           "period": "2026-08",
           "value": "135.2",
           "excerpt": "2026M08 | Coal, Australian ($/mt) | 135.19999999999999"
+        },
+        {
+          "period": "2026-09",
+          "value": "147.1",
+          "excerpt": "2026M09 | Coal, Australian ($/mt) | 147.1"
         }
       ]
     },
@@ -14224,8 +14254,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -15827,6 +15857,11 @@
           "period": "2026-08",
           "value": "4411",
           "excerpt": "2026M08 | Gold ($/troy oz) | 4411"
+        },
+        {
+          "period": "2026-09",
+          "value": "4319",
+          "excerpt": "2026M09 | Gold ($/troy oz) | 4319"
         }
       ]
     },
@@ -15845,8 +15880,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -17448,6 +17483,11 @@
           "period": "2026-08",
           "value": "65.4",
           "excerpt": "2026M08 | Silver ($/troy oz) | 65.400000000000006"
+        },
+        {
+          "period": "2026-09",
+          "value": "64.6",
+          "excerpt": "2026M09 | Silver ($/troy oz) | 64.599999999999994"
         }
       ]
     },
@@ -17466,8 +17506,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -19069,6 +19109,11 @@
           "period": "2026-08",
           "value": "3875",
           "excerpt": "2026M08 | Zinc ($/mt) | 3875"
+        },
+        {
+          "period": "2026-09",
+          "value": "4021",
+          "excerpt": "2026M09 | Zinc ($/mt) | 4021"
         }
       ]
     },
@@ -19087,8 +19132,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -20690,6 +20735,11 @@
           "period": "2026-08",
           "value": "1855",
           "excerpt": "2026M08 | Lead ($/mt) | 1855"
+        },
+        {
+          "period": "2026-09",
+          "value": "1873",
+          "excerpt": "2026M09 | Lead ($/mt) | 1873"
         }
       ]
     },
@@ -20708,8 +20758,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -22311,6 +22361,11 @@
           "period": "2026-08",
           "value": "55385",
           "excerpt": "2026M08 | Tin ($/mt) | 55385"
+        },
+        {
+          "period": "2026-09",
+          "value": "53712",
+          "excerpt": "2026M09 | Tin ($/mt) | 53712"
         }
       ]
     },
@@ -22329,8 +22384,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -23932,6 +23987,11 @@
           "period": "2026-08",
           "value": "14326",
           "excerpt": "2026M08 | Copper ($/mt) | 14326"
+        },
+        {
+          "period": "2026-09",
+          "value": "14474",
+          "excerpt": "2026M09 | Copper ($/mt) | 14474"
         }
       ]
     },
@@ -23950,8 +24010,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -25553,6 +25613,11 @@
           "period": "2026-08",
           "value": "96.3",
           "excerpt": "2026M08 | Iron ore, cfr spot ($/dmtu) | 96.3"
+        },
+        {
+          "period": "2026-09",
+          "value": "97.7",
+          "excerpt": "2026M09 | Iron ore, cfr spot ($/dmtu) | 97.7"
         }
       ]
     },
@@ -25571,8 +25636,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -27174,6 +27239,11 @@
           "period": "2026-08",
           "value": "3251",
           "excerpt": "2026M08 | Aluminum ($/mt) | 3251"
+        },
+        {
+          "period": "2026-09",
+          "value": "3283",
+          "excerpt": "2026M09 | Aluminum ($/mt) | 3283"
         }
       ]
     },
@@ -27193,7 +27263,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1017&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "1676ae39962bfa77f538ff47a13e2ce3840fe617166f232b95a659023af085ae",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -28813,8 +28883,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -30416,6 +30486,11 @@
           "period": "2026-08",
           "value": "482",
           "excerpt": "2026M08 | Soybeans ($/mt) | 482"
+        },
+        {
+          "period": "2026-09",
+          "value": "524",
+          "excerpt": "2026M09 | Soybeans ($/mt) | 524"
         }
       ]
     },
@@ -30434,8 +30509,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -32035,8 +32110,13 @@
         },
         {
           "period": "2026-08",
-          "value": "403",
-          "excerpt": "2026M08 | Soybean meal ($/mt) | 403"
+          "value": "406",
+          "excerpt": "2026M08 | Soybean meal ($/mt) | 406"
+        },
+        {
+          "period": "2026-09",
+          "value": "447",
+          "excerpt": "2026M09 | Soybean meal ($/mt) | 447"
         }
       ]
     },
@@ -32055,8 +32135,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -33656,8 +33736,13 @@
         },
         {
           "period": "2026-08",
-          "value": "1638",
-          "excerpt": "2026M08 | Soybean oil ($/mt) | 1638"
+          "value": "1639",
+          "excerpt": "2026M08 | Soybean oil ($/mt) | 1639"
+        },
+        {
+          "period": "2026-09",
+          "value": "1615",
+          "excerpt": "2026M09 | Soybean oil ($/mt) | 1615"
         }
       ]
     },
@@ -33676,8 +33761,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -35127,8 +35212,13 @@
         },
         {
           "period": "2026-08",
-          "value": "1492",
-          "excerpt": "2026M08 | Sunflower oil ($/mt) | 1492"
+          "value": "1484",
+          "excerpt": "2026M08 | Sunflower oil ($/mt) | 1484"
+        },
+        {
+          "period": "2026-09",
+          "value": "1390",
+          "excerpt": "2026M09 | Sunflower oil ($/mt) | 1390"
         }
       ]
     },
@@ -35147,8 +35237,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -36750,6 +36840,11 @@
           "period": "2026-08",
           "value": "224",
           "excerpt": "2026M08 | Maize ($/mt) | 224"
+        },
+        {
+          "period": "2026-09",
+          "value": "239.6",
+          "excerpt": "2026M09 | Maize ($/mt) | 239.6"
         }
       ]
     },
@@ -36768,8 +36863,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -38371,6 +38466,11 @@
           "period": "2026-08",
           "value": "471",
           "excerpt": "2026M08 | Rice, Thai 5% ($/mt) | 471"
+        },
+        {
+          "period": "2026-09",
+          "value": "482",
+          "excerpt": "2026M09 | Rice, Thai 5% ($/mt) | 482"
         }
       ]
     },
@@ -38389,8 +38489,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -39992,6 +40092,11 @@
           "period": "2026-08",
           "value": "330",
           "excerpt": "2026M08 | Wheat, US HRW ($/mt) | 330"
+        },
+        {
+          "period": "2026-09",
+          "value": "347",
+          "excerpt": "2026M09 | Wheat, US HRW ($/mt) | 347"
         }
       ]
     },
@@ -40010,8 +40115,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -41613,6 +41718,11 @@
           "period": "2026-08",
           "value": "0.38",
           "excerpt": "2026M08 | Sugar, world ($/kg) | 0.38"
+        },
+        {
+          "period": "2026-09",
+          "value": "0.41",
+          "excerpt": "2026M09 | Sugar, world ($/kg) | 0.41"
         }
       ]
     },
@@ -41631,8 +41741,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -43234,6 +43344,11 @@
           "period": "2026-08",
           "value": "7.97",
           "excerpt": "2026M08 | Coffee, Arabica ($/kg) | 7.97"
+        },
+        {
+          "period": "2026-09",
+          "value": "7.26",
+          "excerpt": "2026M09 | Coffee, Arabica ($/kg) | 7.26"
         }
       ]
     },
@@ -43252,8 +43367,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -44855,6 +44970,11 @@
           "period": "2026-08",
           "value": "5.95",
           "excerpt": "2026M08 | Cocoa ($/kg) | 5.95"
+        },
+        {
+          "period": "2026-09",
+          "value": "5.92",
+          "excerpt": "2026M09 | Cocoa ($/kg) | 5.92"
         }
       ]
     },
@@ -44873,8 +44993,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -46476,6 +46596,11 @@
           "period": "2026-08",
           "value": "1.1",
           "excerpt": "2026M08 | Banana, US ($/kg) | 1.1000000000000001"
+        },
+        {
+          "period": "2026-09",
+          "value": "1.12",
+          "excerpt": "2026M09 | Banana, US ($/kg) | 1.1200000000000001"
         }
       ]
     },
@@ -46494,8 +46619,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -48097,6 +48222,11 @@
           "period": "2026-08",
           "value": "7.28",
           "excerpt": "2026M08 | Beef ** ($/kg) | 7.28"
+        },
+        {
+          "period": "2026-09",
+          "value": "6.86",
+          "excerpt": "2026M09 | Beef ** ($/kg) | 6.86"
         }
       ]
     },
@@ -48115,8 +48245,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -49718,6 +49848,11 @@
           "period": "2026-08",
           "value": "1.69",
           "excerpt": "2026M08 | Chicken ** ($/kg) | 1.69"
+        },
+        {
+          "period": "2026-09",
+          "value": "1.81",
+          "excerpt": "2026M09 | Chicken ** ($/kg) | 1.81"
         }
       ]
     },
@@ -49736,8 +49871,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -51337,8 +51472,13 @@
         },
         {
           "period": "2026-08",
-          "value": "2500",
-          "excerpt": "2026M08 | Fish meal ($/mt) | 2500"
+          "value": "2605",
+          "excerpt": "2026M08 | Fish meal ($/mt) | 2605"
+        },
+        {
+          "period": "2026-09",
+          "value": "2916",
+          "excerpt": "2026M09 | Fish meal ($/mt) | 2916"
         }
       ]
     },
@@ -51357,8 +51497,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -52960,6 +53100,11 @@
           "period": "2026-08",
           "value": "390",
           "excerpt": "2026M08 | Urea ($/mt) | 390"
+        },
+        {
+          "period": "2026-09",
+          "value": "407.5",
+          "excerpt": "2026M09 | Urea ($/mt) | 407.5"
         }
       ]
     },
@@ -52978,8 +53123,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -54581,6 +54726,11 @@
           "period": "2026-08",
           "value": "793.5",
           "excerpt": "2026M08 | DAP ($/mt) | 793.5"
+        },
+        {
+          "period": "2026-09",
+          "value": "800.6",
+          "excerpt": "2026M09 | DAP ($/mt) | 800.6"
         }
       ]
     },
@@ -54599,8 +54749,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -56202,6 +56352,11 @@
           "period": "2026-08",
           "value": "704.4",
           "excerpt": "2026M08 | TSP ($/mt) | 704.4"
+        },
+        {
+          "period": "2026-09",
+          "value": "690",
+          "excerpt": "2026M09 | TSP ($/mt) | 690"
         }
       ]
     },
@@ -56220,8 +56375,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "9fdcfa8a2aed9a1bb545a10c1a5ce036c6a0acd4766f450424ca800b4b5a0225",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -57823,6 +57978,11 @@
           "period": "2026-08",
           "value": "386.9",
           "excerpt": "2026M08 | Potassium chloride ** ($/mt) | 386.9"
+        },
+        {
+          "period": "2026-09",
+          "value": "367.5",
+          "excerpt": "2026M09 | Potassium chloride ** ($/mt) | 367.5"
         }
       ]
     },
@@ -57842,7 +58002,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU066&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "c6c7d805e3f836443bd52326b2c15ef61b3be78eb9db62ac256d74817602f3eb",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -59463,7 +59623,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0662&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "78c5234f0a69c73303304670dc13079bdfe3291e1ddd395ca1fd19b9313d442d",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -61084,7 +61244,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU06530109&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "7e41febeee7f9221f2276c7e1692f51e4375455622e784147f36923aa9cd6128",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -62500,7 +62660,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU065201&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "ee9e1b3f5d65861ed434ef64035aad25a3559ba4c9b7085ae576faeb4267150e",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -64121,7 +64281,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0613020T1&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "a4b9a6af9d4ff14e52d77cd298618ee94a395248b750aecd623c0f3eb04f71c7",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -65622,7 +65782,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0614&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "0ab18a8cacbf66a5aa673fc96518d7f44bfdf072ea661f195d06b230b03b6aee",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -67243,7 +67403,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1322&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "c1cfb34e42f1bdebb7b35bb0150eae3363f19ae2ce5e7aa8f4bd518630a27a01",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -68864,7 +69024,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU133501&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "59480be10560badeaddbe8055a56d9330c3ae2f11b7bbcd5f2cd0eb4178265ed",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -70485,7 +70645,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU101705&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "0d40afb45ec5b56d53ab5739e23ac4d7cdd76342464e57fef0abbd4097d19c7a",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -72076,7 +72236,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU101704&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "ff997b3ce10e8b4cdfcd91b477017efc366ffd029c8ce2476d1d434085230cfa",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -73697,7 +73857,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1333&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "98527acd2f5afa32dba11fddf654dc1db0d671f2f12824f466d7de9bf15f8419",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -75318,7 +75478,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1321&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "cd38e5d4499dc5a9a568e52129e0fe5d4c2c2d6c527e12bcd02c372b2597490b",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -76939,7 +77099,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1342&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "d7c879f6f4a3d3b9771d7abc7cfd5f1b81042e35ee225eb4987ba84e884bacdd",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -78560,7 +78720,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU081&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "789aa7398ba23fec42b10d2bb6564282743fedd5c6bcfbc8ef08b32fb6179732",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -80166,6 +80326,5018 @@
       ]
     },
     {
+      "indicatorCode": "EXO_FREIGHT_FBX",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "Contenedor de 40 pies, promedio mundial",
+      "scope": "WORLD",
+      "market": "Mundo",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-07",
+          "value": "3767.84",
+          "excerpt": "5 sem. (2026-07-03: 3714.6; 2026-07-10: 3979.6; 2026-07-17: 3852.8; 2026-07-24: 3664.6; 2026-07-31: 3627.6) US$/contenedor 40 pies | promedio 3767.84"
+        },
+        {
+          "period": "2026-08",
+          "value": "3614.4",
+          "excerpt": "4 sem. (2026-08-07: 3607; 2026-08-14: 3689.8; 2026-08-21: 3570.8; 2026-08-28: 3590) US$/contenedor 40 pies | promedio 3614.4"
+        },
+        {
+          "period": "2026-09",
+          "value": "3451.6",
+          "excerpt": "4 sem. (2026-09-04: 3520; 2026-09-11: 3498.6; 2026-09-18: 3407.4; 2026-09-25: 3380.4) US$/contenedor 40 pies | promedio 3451.6"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX01",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "China/Asia Oriental → costa oeste de EE. UU.",
+      "scope": "WORLD",
+      "market": "China/Asia Oriental → costa oeste de EE. UU.",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "8411",
+          "excerpt": "1 sem. (2026-09-25: 8411) US$/contenedor 40 pies | promedio 8411"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX02",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "Costa oeste de EE. UU. → China/Asia Oriental",
+      "scope": "WORLD",
+      "market": "Costa oeste de EE. UU. → China/Asia Oriental",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "374",
+          "excerpt": "1 sem. (2026-09-25: 374) US$/contenedor 40 pies | promedio 374"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX03",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "China/Asia Oriental → costa este de EE. UU.",
+      "scope": "WORLD",
+      "market": "China/Asia Oriental → costa este de EE. UU.",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "9606",
+          "excerpt": "1 sem. (2026-09-25: 9606) US$/contenedor 40 pies | promedio 9606"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX04",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "Costa este de EE. UU. → China/Asia Oriental",
+      "scope": "WORLD",
+      "market": "Costa este de EE. UU. → China/Asia Oriental",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "554",
+          "excerpt": "1 sem. (2026-09-25: 554) US$/contenedor 40 pies | promedio 554"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX11",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "China/Asia Oriental → norte de Europa",
+      "scope": "WORLD",
+      "market": "China/Asia Oriental → norte de Europa",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "3376",
+          "excerpt": "1 sem. (2026-09-25: 3376) US$/contenedor 40 pies | promedio 3376"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX12",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "Norte de Europa → China/Asia Oriental",
+      "scope": "WORLD",
+      "market": "Norte de Europa → China/Asia Oriental",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "453",
+          "excerpt": "1 sem. (2026-09-25: 453) US$/contenedor 40 pies | promedio 453"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX13",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "China/Asia Oriental → Mediterráneo",
+      "scope": "WORLD",
+      "market": "China/Asia Oriental → Mediterráneo",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "3620",
+          "excerpt": "1 sem. (2026-09-25: 3620) US$/contenedor 40 pies | promedio 3620"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX14",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "Mediterráneo → China/Asia Oriental",
+      "scope": "WORLD",
+      "market": "Mediterráneo → China/Asia Oriental",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "170",
+          "excerpt": "1 sem. (2026-09-25: 170) US$/contenedor 40 pies | promedio 170"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX21",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "Costa este de EE. UU. → norte de Europa",
+      "scope": "WORLD",
+      "market": "Costa este de EE. UU. → norte de Europa",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "1005",
+          "excerpt": "1 sem. (2026-09-25: 1005) US$/contenedor 40 pies | promedio 1005"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX22",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "Norte de Europa → costa este de EE. UU.",
+      "scope": "WORLD",
+      "market": "Norte de Europa → costa este de EE. UU.",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "2666",
+          "excerpt": "1 sem. (2026-09-25: 2666) US$/contenedor 40 pies | promedio 2666"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX24",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "Europa → costa este de Sudamérica (Santos, Buenos Aires)",
+      "scope": "WORLD",
+      "market": "Europa → costa este de Sudamérica (Santos, Buenos Aires)",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "1202",
+          "excerpt": "1 sem. (2026-09-25: 1202) US$/contenedor 40 pies | promedio 1202"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FBX26",
+      "group": "FREIGHT",
+      "product": "CONTAINER",
+      "productLabel": "Contenedor",
+      "name": "Europa → costa oeste de Sudamérica (San Antonio, Callao)",
+      "scope": "WORLD",
+      "market": "Europa → costa oeste de Sudamérica (San Antonio, Callao)",
+      "unit": "US$/contenedor 40 pies",
+      "kind": "PRICE",
+      "note": "Precio de mercado de un contenedor de 40 pies, promedio del mes de las semanas publicadas (Freightos Baltic Index). El promedio mundial no es la tarifa de Bolivia; las rutas hacia Sudamérica sólo existen desde Europa.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fbx.freightos.com/",
+        "upstreamSha256": "afafefbddb7c5c8082e40417f53cf2315e75f9a6fc30ef4598339cf7d73840b6",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-09",
+          "value": "2390",
+          "excerpt": "1 sem. (2026-09-25: 2390) US$/contenedor 40 pies | promedio 2390"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_FAX",
+      "group": "FREIGHT",
+      "product": "AIR_FREIGHT",
+      "productLabel": "Flete aéreo",
+      "name": "Flete aéreo mundial por tonelada",
+      "scope": "WORLD",
+      "market": "Mundo",
+      "unit": "US$/tonelada",
+      "kind": "PRICE",
+      "note": "Tarifa aérea de carga por tonelada, promedio del mes de las semanas publicadas (Freightos Air Index). Freightos la publica en dólares por kilo; aquí se multiplica por mil.",
+      "publisher": "FREIGHTOS (BALTIC INDEX Y AIR INDEX)",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://www.freightos.com/enterprise/terminal/fax-global-freightos-air-index/",
+        "upstreamSha256": "d3d4012a1446a7f8042634ce26f594f165edd938be2bda4f660a40aa0b198a13",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2026-07",
+          "value": "2933.524",
+          "excerpt": "5 sem. (2026-07-03: 2953.333; 2026-07-10: 2930; 2026-07-17: 3062.857; 2026-07-24: 2911.429; 2026-07-31: 2810) US$/tonelada | promedio 2933.524"
+        },
+        {
+          "period": "2026-08",
+          "value": "2908.095",
+          "excerpt": "4 sem. (2026-08-07: 2870; 2026-08-14: 2966.667; 2026-08-21: 3028.571; 2026-08-28: 2767.143) US$/tonelada | promedio 2908.095"
+        },
+        {
+          "period": "2026-09",
+          "value": "2918.928",
+          "excerpt": "4 sem. (2026-09-04: 2861.429; 2026-09-11: 2860; 2026-09-18: 2905.714; 2026-09-25: 3048.571) US$/tonelada | promedio 2918.928"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_SEA_PPI",
+      "group": "FREIGHT",
+      "product": "SEA_FREIGHT",
+      "productLabel": "Flete marítimo",
+      "name": "Flete marítimo de altura (índice de productor EE. UU.)",
+      "scope": "US_PRODUCER_INDEX",
+      "market": "Estados Unidos",
+      "unit": "índice",
+      "kind": "INDEX",
+      "note": "Índice de precios al productor de EE. UU. (Oficina de Estadísticas Laborales). Mide cómo se mueve el precio, no cuánto cuesta. Transporte de carga por mar en viajes internacionales.",
+      "publisher": "FRED, BANCO DE LA RESERVA FEDERAL DE SAN LUIS",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCU483111483111&fq=Monthly&fam=avg&cosd=2000-01-01",
+        "upstreamSha256": "270b38bc7c63e4e4495584e79787a8a4daca97568f42910cbd0a93f55adc8394",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2000-01",
+          "value": "141.7",
+          "excerpt": "2000-01-01,141.700"
+        },
+        {
+          "period": "2000-02",
+          "value": "141.9",
+          "excerpt": "2000-02-01,141.900"
+        },
+        {
+          "period": "2000-03",
+          "value": "143.2",
+          "excerpt": "2000-03-01,143.200"
+        },
+        {
+          "period": "2000-04",
+          "value": "145.4",
+          "excerpt": "2000-04-01,145.400"
+        },
+        {
+          "period": "2000-05",
+          "value": "160.5",
+          "excerpt": "2000-05-01,160.500"
+        },
+        {
+          "period": "2000-06",
+          "value": "161.4",
+          "excerpt": "2000-06-01,161.400"
+        },
+        {
+          "period": "2000-07",
+          "value": "162.6",
+          "excerpt": "2000-07-01,162.600"
+        },
+        {
+          "period": "2000-08",
+          "value": "164.7",
+          "excerpt": "2000-08-01,164.700"
+        },
+        {
+          "period": "2000-09",
+          "value": "165.7",
+          "excerpt": "2000-09-01,165.700"
+        },
+        {
+          "period": "2000-10",
+          "value": "164.8",
+          "excerpt": "2000-10-01,164.800"
+        },
+        {
+          "period": "2000-11",
+          "value": "158.5",
+          "excerpt": "2000-11-01,158.500"
+        },
+        {
+          "period": "2000-12",
+          "value": "159.8",
+          "excerpt": "2000-12-01,159.800"
+        },
+        {
+          "period": "2001-01",
+          "value": "162.5",
+          "excerpt": "2001-01-01,162.500"
+        },
+        {
+          "period": "2001-02",
+          "value": "164.2",
+          "excerpt": "2001-02-01,164.200"
+        },
+        {
+          "period": "2001-03",
+          "value": "162.8",
+          "excerpt": "2001-03-01,162.800"
+        },
+        {
+          "period": "2001-04",
+          "value": "158.6",
+          "excerpt": "2001-04-01,158.600"
+        },
+        {
+          "period": "2001-05",
+          "value": "171.1",
+          "excerpt": "2001-05-01,171.100"
+        },
+        {
+          "period": "2001-06",
+          "value": "170.9",
+          "excerpt": "2001-06-01,170.900"
+        },
+        {
+          "period": "2001-07",
+          "value": "183.1",
+          "excerpt": "2001-07-01,183.100"
+        },
+        {
+          "period": "2001-08",
+          "value": "182.7",
+          "excerpt": "2001-08-01,182.700"
+        },
+        {
+          "period": "2001-09",
+          "value": "184.2",
+          "excerpt": "2001-09-01,184.200"
+        },
+        {
+          "period": "2001-10",
+          "value": "182.6",
+          "excerpt": "2001-10-01,182.600"
+        },
+        {
+          "period": "2001-11",
+          "value": "172.5",
+          "excerpt": "2001-11-01,172.500"
+        },
+        {
+          "period": "2001-12",
+          "value": "171.7",
+          "excerpt": "2001-12-01,171.700"
+        },
+        {
+          "period": "2002-01",
+          "value": "170.9",
+          "excerpt": "2002-01-01,170.900"
+        },
+        {
+          "period": "2002-02",
+          "value": "170.6",
+          "excerpt": "2002-02-01,170.600"
+        },
+        {
+          "period": "2002-03",
+          "value": "169.7",
+          "excerpt": "2002-03-01,169.700"
+        },
+        {
+          "period": "2002-04",
+          "value": "167.6",
+          "excerpt": "2002-04-01,167.600"
+        },
+        {
+          "period": "2002-05",
+          "value": "176.7",
+          "excerpt": "2002-05-01,176.700"
+        },
+        {
+          "period": "2002-06",
+          "value": "185.4",
+          "excerpt": "2002-06-01,185.400"
+        },
+        {
+          "period": "2002-07",
+          "value": "188.8",
+          "excerpt": "2002-07-01,188.800"
+        },
+        {
+          "period": "2002-08",
+          "value": "188.7",
+          "excerpt": "2002-08-01,188.700"
+        },
+        {
+          "period": "2002-09",
+          "value": "198.9",
+          "excerpt": "2002-09-01,198.900"
+        },
+        {
+          "period": "2002-10",
+          "value": "202.9",
+          "excerpt": "2002-10-01,202.900"
+        },
+        {
+          "period": "2002-11",
+          "value": "204",
+          "excerpt": "2002-11-01,204.000"
+        },
+        {
+          "period": "2002-12",
+          "value": "205.8",
+          "excerpt": "2002-12-01,205.800"
+        },
+        {
+          "period": "2003-01",
+          "value": "207.8",
+          "excerpt": "2003-01-01,207.800"
+        },
+        {
+          "period": "2003-02",
+          "value": "201",
+          "excerpt": "2003-02-01,201.000"
+        },
+        {
+          "period": "2003-03",
+          "value": "201.1",
+          "excerpt": "2003-03-01,201.100"
+        },
+        {
+          "period": "2003-04",
+          "value": "199.8",
+          "excerpt": "2003-04-01,199.800"
+        },
+        {
+          "period": "2003-05",
+          "value": "223.6",
+          "excerpt": "2003-05-01,223.600"
+        },
+        {
+          "period": "2003-06",
+          "value": "223.7",
+          "excerpt": "2003-06-01,223.700"
+        },
+        {
+          "period": "2003-07",
+          "value": "233.5",
+          "excerpt": "2003-07-01,233.500"
+        },
+        {
+          "period": "2003-08",
+          "value": "233.6",
+          "excerpt": "2003-08-01,233.600"
+        },
+        {
+          "period": "2003-09",
+          "value": "233.6",
+          "excerpt": "2003-09-01,233.600"
+        },
+        {
+          "period": "2003-10",
+          "value": "233.7",
+          "excerpt": "2003-10-01,233.700"
+        },
+        {
+          "period": "2003-11",
+          "value": "223.9",
+          "excerpt": "2003-11-01,223.900"
+        },
+        {
+          "period": "2003-12",
+          "value": "223.8",
+          "excerpt": "2003-12-01,223.800"
+        },
+        {
+          "period": "2004-01",
+          "value": "220.5",
+          "excerpt": "2004-01-01,220.500"
+        },
+        {
+          "period": "2004-02",
+          "value": "220.6",
+          "excerpt": "2004-02-01,220.600"
+        },
+        {
+          "period": "2004-03",
+          "value": "222.1",
+          "excerpt": "2004-03-01,222.100"
+        },
+        {
+          "period": "2004-04",
+          "value": "223.9",
+          "excerpt": "2004-04-01,223.900"
+        },
+        {
+          "period": "2004-05",
+          "value": "224.3",
+          "excerpt": "2004-05-01,224.300"
+        },
+        {
+          "period": "2004-06",
+          "value": "224",
+          "excerpt": "2004-06-01,224.000"
+        },
+        {
+          "period": "2004-07",
+          "value": "226.8",
+          "excerpt": "2004-07-01,226.800"
+        },
+        {
+          "period": "2004-08",
+          "value": "227.7",
+          "excerpt": "2004-08-01,227.700"
+        },
+        {
+          "period": "2004-09",
+          "value": "229.8",
+          "excerpt": "2004-09-01,229.800"
+        },
+        {
+          "period": "2004-10",
+          "value": "229.9",
+          "excerpt": "2004-10-01,229.900"
+        },
+        {
+          "period": "2004-11",
+          "value": "230.7",
+          "excerpt": "2004-11-01,230.700"
+        },
+        {
+          "period": "2004-12",
+          "value": "230.7",
+          "excerpt": "2004-12-01,230.700"
+        },
+        {
+          "period": "2005-01",
+          "value": "230.9",
+          "excerpt": "2005-01-01,230.900"
+        },
+        {
+          "period": "2005-02",
+          "value": "230.6",
+          "excerpt": "2005-02-01,230.600"
+        },
+        {
+          "period": "2005-03",
+          "value": "232",
+          "excerpt": "2005-03-01,232.000"
+        },
+        {
+          "period": "2005-04",
+          "value": "233.3",
+          "excerpt": "2005-04-01,233.300"
+        },
+        {
+          "period": "2005-05",
+          "value": "229.6",
+          "excerpt": "2005-05-01,229.600"
+        },
+        {
+          "period": "2005-06",
+          "value": "231.4",
+          "excerpt": "2005-06-01,231.400"
+        },
+        {
+          "period": "2005-07",
+          "value": "232.2",
+          "excerpt": "2005-07-01,232.200"
+        },
+        {
+          "period": "2005-08",
+          "value": "232.6",
+          "excerpt": "2005-08-01,232.600"
+        },
+        {
+          "period": "2005-09",
+          "value": "232.9",
+          "excerpt": "2005-09-01,232.900"
+        },
+        {
+          "period": "2005-10",
+          "value": "233",
+          "excerpt": "2005-10-01,233.000"
+        },
+        {
+          "period": "2005-11",
+          "value": "233.1",
+          "excerpt": "2005-11-01,233.100"
+        },
+        {
+          "period": "2005-12",
+          "value": "231.3",
+          "excerpt": "2005-12-01,231.300"
+        },
+        {
+          "period": "2006-01",
+          "value": "231.3",
+          "excerpt": "2006-01-01,231.300"
+        },
+        {
+          "period": "2006-02",
+          "value": "231.4",
+          "excerpt": "2006-02-01,231.400"
+        },
+        {
+          "period": "2006-03",
+          "value": "235.1",
+          "excerpt": "2006-03-01,235.100"
+        },
+        {
+          "period": "2006-04",
+          "value": "234.5",
+          "excerpt": "2006-04-01,234.500"
+        },
+        {
+          "period": "2006-05",
+          "value": "235.9",
+          "excerpt": "2006-05-01,235.900"
+        },
+        {
+          "period": "2006-06",
+          "value": "233.7",
+          "excerpt": "2006-06-01,233.700"
+        },
+        {
+          "period": "2006-07",
+          "value": "233.1",
+          "excerpt": "2006-07-01,233.100"
+        },
+        {
+          "period": "2006-08",
+          "value": "233.1",
+          "excerpt": "2006-08-01,233.100"
+        },
+        {
+          "period": "2006-09",
+          "value": "233.1",
+          "excerpt": "2006-09-01,233.100"
+        },
+        {
+          "period": "2006-10",
+          "value": "233.5",
+          "excerpt": "2006-10-01,233.500"
+        },
+        {
+          "period": "2006-11",
+          "value": "232.8",
+          "excerpt": "2006-11-01,232.800"
+        },
+        {
+          "period": "2006-12",
+          "value": "231.8",
+          "excerpt": "2006-12-01,231.800"
+        },
+        {
+          "period": "2007-01",
+          "value": "231.8",
+          "excerpt": "2007-01-01,231.800"
+        },
+        {
+          "period": "2007-02",
+          "value": "227.8",
+          "excerpt": "2007-02-01,227.800"
+        },
+        {
+          "period": "2007-03",
+          "value": "228",
+          "excerpt": "2007-03-01,228.000"
+        },
+        {
+          "period": "2007-04",
+          "value": "228",
+          "excerpt": "2007-04-01,228.000"
+        },
+        {
+          "period": "2007-05",
+          "value": "227.5",
+          "excerpt": "2007-05-01,227.500"
+        },
+        {
+          "period": "2007-06",
+          "value": "226.6",
+          "excerpt": "2007-06-01,226.600"
+        },
+        {
+          "period": "2007-07",
+          "value": "231.4",
+          "excerpt": "2007-07-01,231.400"
+        },
+        {
+          "period": "2007-08",
+          "value": "231.4",
+          "excerpt": "2007-08-01,231.400"
+        },
+        {
+          "period": "2007-09",
+          "value": "231.4",
+          "excerpt": "2007-09-01,231.400"
+        },
+        {
+          "period": "2007-10",
+          "value": "233.2",
+          "excerpt": "2007-10-01,233.200"
+        },
+        {
+          "period": "2007-11",
+          "value": "231.3",
+          "excerpt": "2007-11-01,231.300"
+        },
+        {
+          "period": "2007-12",
+          "value": "231.3",
+          "excerpt": "2007-12-01,231.300"
+        },
+        {
+          "period": "2008-01",
+          "value": "234",
+          "excerpt": "2008-01-01,234.000"
+        },
+        {
+          "period": "2008-02",
+          "value": "234.1",
+          "excerpt": "2008-02-01,234.100"
+        },
+        {
+          "period": "2008-03",
+          "value": "237.7",
+          "excerpt": "2008-03-01,237.700"
+        },
+        {
+          "period": "2008-04",
+          "value": "241.2",
+          "excerpt": "2008-04-01,241.200"
+        },
+        {
+          "period": "2008-05",
+          "value": "256.5",
+          "excerpt": "2008-05-01,256.500"
+        },
+        {
+          "period": "2008-06",
+          "value": "262.2",
+          "excerpt": "2008-06-01,262.200"
+        },
+        {
+          "period": "2008-07",
+          "value": "267",
+          "excerpt": "2008-07-01,267.000"
+        },
+        {
+          "period": "2008-08",
+          "value": "281.1",
+          "excerpt": "2008-08-01,281.100"
+        },
+        {
+          "period": "2008-09",
+          "value": "284.4",
+          "excerpt": "2008-09-01,284.400"
+        },
+        {
+          "period": "2008-10",
+          "value": "279.6",
+          "excerpt": "2008-10-01,279.600"
+        },
+        {
+          "period": "2008-11",
+          "value": "263.8",
+          "excerpt": "2008-11-01,263.800"
+        },
+        {
+          "period": "2008-12",
+          "value": "258.2",
+          "excerpt": "2008-12-01,258.200"
+        },
+        {
+          "period": "2009-01",
+          "value": "234.5",
+          "excerpt": "2009-01-01,234.500"
+        },
+        {
+          "period": "2009-02",
+          "value": "225.2",
+          "excerpt": "2009-02-01,225.200"
+        },
+        {
+          "period": "2009-03",
+          "value": "225.7",
+          "excerpt": "2009-03-01,225.700"
+        },
+        {
+          "period": "2009-04",
+          "value": "226.8",
+          "excerpt": "2009-04-01,226.800"
+        },
+        {
+          "period": "2009-05",
+          "value": "208.8",
+          "excerpt": "2009-05-01,208.800"
+        },
+        {
+          "period": "2009-06",
+          "value": "209",
+          "excerpt": "2009-06-01,209.000"
+        },
+        {
+          "period": "2009-07",
+          "value": "210.2",
+          "excerpt": "2009-07-01,210.200"
+        },
+        {
+          "period": "2009-08",
+          "value": "212.2",
+          "excerpt": "2009-08-01,212.200"
+        },
+        {
+          "period": "2009-09",
+          "value": "215.6",
+          "excerpt": "2009-09-01,215.600"
+        },
+        {
+          "period": "2009-10",
+          "value": "217.9",
+          "excerpt": "2009-10-01,217.900"
+        },
+        {
+          "period": "2009-11",
+          "value": "219",
+          "excerpt": "2009-11-01,219.000"
+        },
+        {
+          "period": "2009-12",
+          "value": "221.2",
+          "excerpt": "2009-12-01,221.200"
+        },
+        {
+          "period": "2010-01",
+          "value": "227.2",
+          "excerpt": "2010-01-01,227.200"
+        },
+        {
+          "period": "2010-02",
+          "value": "229.5",
+          "excerpt": "2010-02-01,229.500"
+        },
+        {
+          "period": "2010-03",
+          "value": "229.5",
+          "excerpt": "2010-03-01,229.500"
+        },
+        {
+          "period": "2010-04",
+          "value": "236.9",
+          "excerpt": "2010-04-01,236.900"
+        },
+        {
+          "period": "2010-05",
+          "value": "244.2",
+          "excerpt": "2010-05-01,244.200"
+        },
+        {
+          "period": "2010-06",
+          "value": "247.8",
+          "excerpt": "2010-06-01,247.800"
+        },
+        {
+          "period": "2010-07",
+          "value": "254.6",
+          "excerpt": "2010-07-01,254.600"
+        },
+        {
+          "period": "2010-08",
+          "value": "254.6",
+          "excerpt": "2010-08-01,254.600"
+        },
+        {
+          "period": "2010-09",
+          "value": "254.7",
+          "excerpt": "2010-09-01,254.700"
+        },
+        {
+          "period": "2010-10",
+          "value": "252.8",
+          "excerpt": "2010-10-01,252.800"
+        },
+        {
+          "period": "2010-11",
+          "value": "252.8",
+          "excerpt": "2010-11-01,252.800"
+        },
+        {
+          "period": "2010-12",
+          "value": "252.8",
+          "excerpt": "2010-12-01,252.800"
+        },
+        {
+          "period": "2011-01",
+          "value": "253.8",
+          "excerpt": "2011-01-01,253.800"
+        },
+        {
+          "period": "2011-02",
+          "value": "256.8",
+          "excerpt": "2011-02-01,256.800"
+        },
+        {
+          "period": "2011-03",
+          "value": "263.5",
+          "excerpt": "2011-03-01,263.500"
+        },
+        {
+          "period": "2011-04",
+          "value": "265.4",
+          "excerpt": "2011-04-01,265.400"
+        },
+        {
+          "period": "2011-05",
+          "value": "267.6",
+          "excerpt": "2011-05-01,267.600"
+        },
+        {
+          "period": "2011-06",
+          "value": "265.9",
+          "excerpt": "2011-06-01,265.900"
+        },
+        {
+          "period": "2011-07",
+          "value": "254.5",
+          "excerpt": "2011-07-01,254.500"
+        },
+        {
+          "period": "2011-08",
+          "value": "247.8",
+          "excerpt": "2011-08-01,247.800"
+        },
+        {
+          "period": "2011-09",
+          "value": "247",
+          "excerpt": "2011-09-01,247.000"
+        },
+        {
+          "period": "2011-10",
+          "value": "239.9",
+          "excerpt": "2011-10-01,239.900"
+        },
+        {
+          "period": "2011-11",
+          "value": "244.1",
+          "excerpt": "2011-11-01,244.100"
+        },
+        {
+          "period": "2011-12",
+          "value": "239.4",
+          "excerpt": "2011-12-01,239.400"
+        },
+        {
+          "period": "2012-01",
+          "value": "239.6",
+          "excerpt": "2012-01-01,239.600"
+        },
+        {
+          "period": "2012-02",
+          "value": "242.7",
+          "excerpt": "2012-02-01,242.700"
+        },
+        {
+          "period": "2012-03",
+          "value": "251.7",
+          "excerpt": "2012-03-01,251.700"
+        },
+        {
+          "period": "2012-04",
+          "value": "253.4",
+          "excerpt": "2012-04-01,253.400"
+        },
+        {
+          "period": "2012-05",
+          "value": "253.6",
+          "excerpt": "2012-05-01,253.600"
+        },
+        {
+          "period": "2012-06",
+          "value": "252.3",
+          "excerpt": "2012-06-01,252.300"
+        },
+        {
+          "period": "2012-07",
+          "value": "252",
+          "excerpt": "2012-07-01,252.000"
+        },
+        {
+          "period": "2012-08",
+          "value": "252.9",
+          "excerpt": "2012-08-01,252.900"
+        },
+        {
+          "period": "2012-09",
+          "value": "252",
+          "excerpt": "2012-09-01,252.000"
+        },
+        {
+          "period": "2012-10",
+          "value": "248.8",
+          "excerpt": "2012-10-01,248.800"
+        },
+        {
+          "period": "2012-11",
+          "value": "249.3",
+          "excerpt": "2012-11-01,249.300"
+        },
+        {
+          "period": "2012-12",
+          "value": "250.4",
+          "excerpt": "2012-12-01,250.400"
+        },
+        {
+          "period": "2013-01",
+          "value": "250.7",
+          "excerpt": "2013-01-01,250.700"
+        },
+        {
+          "period": "2013-02",
+          "value": "249.5",
+          "excerpt": "2013-02-01,249.500"
+        },
+        {
+          "period": "2013-03",
+          "value": "249.9",
+          "excerpt": "2013-03-01,249.900"
+        },
+        {
+          "period": "2013-04",
+          "value": "244.2",
+          "excerpt": "2013-04-01,244.200"
+        },
+        {
+          "period": "2013-05",
+          "value": "248.5",
+          "excerpt": "2013-05-01,248.500"
+        },
+        {
+          "period": "2013-06",
+          "value": "247",
+          "excerpt": "2013-06-01,247.000"
+        },
+        {
+          "period": "2013-07",
+          "value": "248.4",
+          "excerpt": "2013-07-01,248.400"
+        },
+        {
+          "period": "2013-08",
+          "value": "248.3",
+          "excerpt": "2013-08-01,248.300"
+        },
+        {
+          "period": "2013-09",
+          "value": "249.4",
+          "excerpt": "2013-09-01,249.400"
+        },
+        {
+          "period": "2013-10",
+          "value": "249.2",
+          "excerpt": "2013-10-01,249.200"
+        },
+        {
+          "period": "2013-11",
+          "value": "247.2",
+          "excerpt": "2013-11-01,247.200"
+        },
+        {
+          "period": "2013-12",
+          "value": "257.6",
+          "excerpt": "2013-12-01,257.600"
+        },
+        {
+          "period": "2014-01",
+          "value": "263",
+          "excerpt": "2014-01-01,263.000"
+        },
+        {
+          "period": "2014-02",
+          "value": "262.2",
+          "excerpt": "2014-02-01,262.200"
+        },
+        {
+          "period": "2014-03",
+          "value": "262.1",
+          "excerpt": "2014-03-01,262.100"
+        },
+        {
+          "period": "2014-04",
+          "value": "263.3",
+          "excerpt": "2014-04-01,263.300"
+        },
+        {
+          "period": "2014-05",
+          "value": "264",
+          "excerpt": "2014-05-01,264.000"
+        },
+        {
+          "period": "2014-06",
+          "value": "264.9",
+          "excerpt": "2014-06-01,264.900"
+        },
+        {
+          "period": "2014-07",
+          "value": "262.6",
+          "excerpt": "2014-07-01,262.600"
+        },
+        {
+          "period": "2014-08",
+          "value": "262.5",
+          "excerpt": "2014-08-01,262.500"
+        },
+        {
+          "period": "2014-09",
+          "value": "262.3",
+          "excerpt": "2014-09-01,262.300"
+        },
+        {
+          "period": "2014-10",
+          "value": "261.5",
+          "excerpt": "2014-10-01,261.500"
+        },
+        {
+          "period": "2014-11",
+          "value": "261.1",
+          "excerpt": "2014-11-01,261.100"
+        },
+        {
+          "period": "2014-12",
+          "value": "260.9",
+          "excerpt": "2014-12-01,260.900"
+        },
+        {
+          "period": "2015-01",
+          "value": "259.9",
+          "excerpt": "2015-01-01,259.900"
+        },
+        {
+          "period": "2015-02",
+          "value": "267.4",
+          "excerpt": "2015-02-01,267.400"
+        },
+        {
+          "period": "2015-03",
+          "value": "268.1",
+          "excerpt": "2015-03-01,268.100"
+        },
+        {
+          "period": "2015-04",
+          "value": "269.2",
+          "excerpt": "2015-04-01,269.200"
+        },
+        {
+          "period": "2015-05",
+          "value": "269.1",
+          "excerpt": "2015-05-01,269.100"
+        },
+        {
+          "period": "2015-06",
+          "value": "263.2",
+          "excerpt": "2015-06-01,263.200"
+        },
+        {
+          "period": "2015-07",
+          "value": "258.9",
+          "excerpt": "2015-07-01,258.900"
+        },
+        {
+          "period": "2015-08",
+          "value": "257.9",
+          "excerpt": "2015-08-01,257.900"
+        },
+        {
+          "period": "2015-09",
+          "value": "252.6",
+          "excerpt": "2015-09-01,252.600"
+        },
+        {
+          "period": "2015-10",
+          "value": "252.7",
+          "excerpt": "2015-10-01,252.700"
+        },
+        {
+          "period": "2015-11",
+          "value": "249.2",
+          "excerpt": "2015-11-01,249.200"
+        },
+        {
+          "period": "2015-12",
+          "value": "242.6",
+          "excerpt": "2015-12-01,242.600"
+        },
+        {
+          "period": "2016-01",
+          "value": "240",
+          "excerpt": "2016-01-01,240.000"
+        },
+        {
+          "period": "2016-02",
+          "value": "236",
+          "excerpt": "2016-02-01,236.000"
+        },
+        {
+          "period": "2016-03",
+          "value": "238.4",
+          "excerpt": "2016-03-01,238.400"
+        },
+        {
+          "period": "2016-04",
+          "value": "237.1",
+          "excerpt": "2016-04-01,237.100"
+        },
+        {
+          "period": "2016-05",
+          "value": "237.7",
+          "excerpt": "2016-05-01,237.700"
+        },
+        {
+          "period": "2016-06",
+          "value": "239.3",
+          "excerpt": "2016-06-01,239.300"
+        },
+        {
+          "period": "2016-07",
+          "value": "237",
+          "excerpt": "2016-07-01,237.000"
+        },
+        {
+          "period": "2016-08",
+          "value": "240.9",
+          "excerpt": "2016-08-01,240.900"
+        },
+        {
+          "period": "2016-09",
+          "value": "240.9",
+          "excerpt": "2016-09-01,240.900"
+        },
+        {
+          "period": "2016-10",
+          "value": "249.1",
+          "excerpt": "2016-10-01,249.100"
+        },
+        {
+          "period": "2016-11",
+          "value": "249.7",
+          "excerpt": "2016-11-01,249.700"
+        },
+        {
+          "period": "2016-12",
+          "value": "252.8",
+          "excerpt": "2016-12-01,252.800"
+        },
+        {
+          "period": "2017-01",
+          "value": "254.9",
+          "excerpt": "2017-01-01,254.900"
+        },
+        {
+          "period": "2017-02",
+          "value": "258.2",
+          "excerpt": "2017-02-01,258.200"
+        },
+        {
+          "period": "2017-03",
+          "value": "256.8",
+          "excerpt": "2017-03-01,256.800"
+        },
+        {
+          "period": "2017-04",
+          "value": "259.4",
+          "excerpt": "2017-04-01,259.400"
+        },
+        {
+          "period": "2017-05",
+          "value": "262.2",
+          "excerpt": "2017-05-01,262.200"
+        },
+        {
+          "period": "2017-06",
+          "value": "262.2",
+          "excerpt": "2017-06-01,262.200"
+        },
+        {
+          "period": "2017-07",
+          "value": "264.1",
+          "excerpt": "2017-07-01,264.100"
+        },
+        {
+          "period": "2017-08",
+          "value": "264.3",
+          "excerpt": "2017-08-01,264.300"
+        },
+        {
+          "period": "2017-09",
+          "value": "264.7",
+          "excerpt": "2017-09-01,264.700"
+        },
+        {
+          "period": "2017-10",
+          "value": "263.1",
+          "excerpt": "2017-10-01,263.100"
+        },
+        {
+          "period": "2017-11",
+          "value": "272.5",
+          "excerpt": "2017-11-01,272.500"
+        },
+        {
+          "period": "2017-12",
+          "value": "270.8",
+          "excerpt": "2017-12-01,270.800"
+        },
+        {
+          "period": "2018-01",
+          "value": "275.1",
+          "excerpt": "2018-01-01,275.100"
+        },
+        {
+          "period": "2018-02",
+          "value": "275.4",
+          "excerpt": "2018-02-01,275.400"
+        },
+        {
+          "period": "2018-03",
+          "value": "275.6",
+          "excerpt": "2018-03-01,275.600"
+        },
+        {
+          "period": "2018-04",
+          "value": "278.3",
+          "excerpt": "2018-04-01,278.300"
+        },
+        {
+          "period": "2018-05",
+          "value": "286.6",
+          "excerpt": "2018-05-01,286.600"
+        },
+        {
+          "period": "2018-06",
+          "value": "294.1",
+          "excerpt": "2018-06-01,294.100"
+        },
+        {
+          "period": "2018-07",
+          "value": "300.8",
+          "excerpt": "2018-07-01,300.800"
+        },
+        {
+          "period": "2018-08",
+          "value": "300.5",
+          "excerpt": "2018-08-01,300.500"
+        },
+        {
+          "period": "2018-09",
+          "value": "301.1",
+          "excerpt": "2018-09-01,301.100"
+        },
+        {
+          "period": "2018-10",
+          "value": "304.5",
+          "excerpt": "2018-10-01,304.500"
+        },
+        {
+          "period": "2018-11",
+          "value": "305.2",
+          "excerpt": "2018-11-01,305.200"
+        },
+        {
+          "period": "2018-12",
+          "value": "304.5",
+          "excerpt": "2018-12-01,304.500"
+        },
+        {
+          "period": "2019-01",
+          "value": "307.2",
+          "excerpt": "2019-01-01,307.200"
+        },
+        {
+          "period": "2019-02",
+          "value": "306.5",
+          "excerpt": "2019-02-01,306.500"
+        },
+        {
+          "period": "2019-03",
+          "value": "308.2",
+          "excerpt": "2019-03-01,308.200"
+        },
+        {
+          "period": "2019-04",
+          "value": "309.5",
+          "excerpt": "2019-04-01,309.500"
+        },
+        {
+          "period": "2019-05",
+          "value": "310.2",
+          "excerpt": "2019-05-01,310.200"
+        },
+        {
+          "period": "2019-06",
+          "value": "309.3",
+          "excerpt": "2019-06-01,309.300"
+        },
+        {
+          "period": "2019-07",
+          "value": "313.7",
+          "excerpt": "2019-07-01,313.700"
+        },
+        {
+          "period": "2019-08",
+          "value": "304.2",
+          "excerpt": "2019-08-01,304.200"
+        },
+        {
+          "period": "2019-09",
+          "value": "305",
+          "excerpt": "2019-09-01,305.000"
+        },
+        {
+          "period": "2019-10",
+          "value": "302.9",
+          "excerpt": "2019-10-01,302.900"
+        },
+        {
+          "period": "2019-11",
+          "value": "316.9",
+          "excerpt": "2019-11-01,316.900"
+        },
+        {
+          "period": "2019-12",
+          "value": "320.6",
+          "excerpt": "2019-12-01,320.600"
+        },
+        {
+          "period": "2020-01",
+          "value": "320.8",
+          "excerpt": "2020-01-01,320.800"
+        },
+        {
+          "period": "2020-02",
+          "value": "304.1",
+          "excerpt": "2020-02-01,304.100"
+        },
+        {
+          "period": "2020-03",
+          "value": "302.1",
+          "excerpt": "2020-03-01,302.100"
+        },
+        {
+          "period": "2020-04",
+          "value": "286.9",
+          "excerpt": "2020-04-01,286.900"
+        },
+        {
+          "period": "2020-05",
+          "value": "287",
+          "excerpt": "2020-05-01,287.000"
+        },
+        {
+          "period": "2020-06",
+          "value": "287.8",
+          "excerpt": "2020-06-01,287.800"
+        },
+        {
+          "period": "2020-07",
+          "value": "288.6",
+          "excerpt": "2020-07-01,288.600"
+        },
+        {
+          "period": "2020-08",
+          "value": "288.8",
+          "excerpt": "2020-08-01,288.800"
+        },
+        {
+          "period": "2020-09",
+          "value": "288.2",
+          "excerpt": "2020-09-01,288.200"
+        },
+        {
+          "period": "2020-10",
+          "value": "284.3",
+          "excerpt": "2020-10-01,284.300"
+        },
+        {
+          "period": "2020-11",
+          "value": "281.1",
+          "excerpt": "2020-11-01,281.100"
+        },
+        {
+          "period": "2020-12",
+          "value": "284",
+          "excerpt": "2020-12-01,284.000"
+        },
+        {
+          "period": "2021-01",
+          "value": "286.3",
+          "excerpt": "2021-01-01,286.300"
+        },
+        {
+          "period": "2021-02",
+          "value": "294.3",
+          "excerpt": "2021-02-01,294.300"
+        },
+        {
+          "period": "2021-03",
+          "value": "299.9",
+          "excerpt": "2021-03-01,299.900"
+        },
+        {
+          "period": "2021-04",
+          "value": "309.5",
+          "excerpt": "2021-04-01,309.500"
+        },
+        {
+          "period": "2021-05",
+          "value": "322.9",
+          "excerpt": "2021-05-01,322.900"
+        },
+        {
+          "period": "2021-06",
+          "value": "336.9",
+          "excerpt": "2021-06-01,336.900"
+        },
+        {
+          "period": "2021-07",
+          "value": "340.299",
+          "excerpt": "2021-07-01,340.299"
+        },
+        {
+          "period": "2021-08",
+          "value": "334.857",
+          "excerpt": "2021-08-01,334.857"
+        },
+        {
+          "period": "2021-09",
+          "value": "346.891",
+          "excerpt": "2021-09-01,346.891"
+        },
+        {
+          "period": "2021-10",
+          "value": "356.86",
+          "excerpt": "2021-10-01,356.860"
+        },
+        {
+          "period": "2021-11",
+          "value": "353.44",
+          "excerpt": "2021-11-01,353.440"
+        },
+        {
+          "period": "2021-12",
+          "value": "365.693",
+          "excerpt": "2021-12-01,365.693"
+        },
+        {
+          "period": "2022-01",
+          "value": "367.044",
+          "excerpt": "2022-01-01,367.044"
+        },
+        {
+          "period": "2022-02",
+          "value": "367.258",
+          "excerpt": "2022-02-01,367.258"
+        },
+        {
+          "period": "2022-03",
+          "value": "356.471",
+          "excerpt": "2022-03-01,356.471"
+        },
+        {
+          "period": "2022-04",
+          "value": "386.914",
+          "excerpt": "2022-04-01,386.914"
+        },
+        {
+          "period": "2022-05",
+          "value": "437.537",
+          "excerpt": "2022-05-01,437.537"
+        },
+        {
+          "period": "2022-06",
+          "value": "429.9",
+          "excerpt": "2022-06-01,429.900"
+        },
+        {
+          "period": "2022-07",
+          "value": "444.804",
+          "excerpt": "2022-07-01,444.804"
+        },
+        {
+          "period": "2022-08",
+          "value": "458.815",
+          "excerpt": "2022-08-01,458.815"
+        },
+        {
+          "period": "2022-09",
+          "value": "468.156",
+          "excerpt": "2022-09-01,468.156"
+        },
+        {
+          "period": "2022-10",
+          "value": "468.11",
+          "excerpt": "2022-10-01,468.110"
+        },
+        {
+          "period": "2022-11",
+          "value": "461.904",
+          "excerpt": "2022-11-01,461.904"
+        },
+        {
+          "period": "2022-12",
+          "value": "459.372",
+          "excerpt": "2022-12-01,459.372"
+        },
+        {
+          "period": "2023-01",
+          "value": "433.237",
+          "excerpt": "2023-01-01,433.237"
+        },
+        {
+          "period": "2023-02",
+          "value": "446.935",
+          "excerpt": "2023-02-01,446.935"
+        },
+        {
+          "period": "2023-03",
+          "value": "403.374",
+          "excerpt": "2023-03-01,403.374"
+        },
+        {
+          "period": "2023-04",
+          "value": "400.943",
+          "excerpt": "2023-04-01,400.943"
+        },
+        {
+          "period": "2023-05",
+          "value": "434.42",
+          "excerpt": "2023-05-01,434.420"
+        },
+        {
+          "period": "2023-06",
+          "value": "411.803",
+          "excerpt": "2023-06-01,411.803"
+        },
+        {
+          "period": "2023-07",
+          "value": "436.784",
+          "excerpt": "2023-07-01,436.784"
+        },
+        {
+          "period": "2023-08",
+          "value": "452.689",
+          "excerpt": "2023-08-01,452.689"
+        },
+        {
+          "period": "2023-09",
+          "value": "432.525",
+          "excerpt": "2023-09-01,432.525"
+        },
+        {
+          "period": "2023-10",
+          "value": "408.92",
+          "excerpt": "2023-10-01,408.920"
+        },
+        {
+          "period": "2023-11",
+          "value": "396.223",
+          "excerpt": "2023-11-01,396.223"
+        },
+        {
+          "period": "2023-12",
+          "value": "408.436",
+          "excerpt": "2023-12-01,408.436"
+        },
+        {
+          "period": "2024-01",
+          "value": "420.196",
+          "excerpt": "2024-01-01,420.196"
+        },
+        {
+          "period": "2024-02",
+          "value": "410.193",
+          "excerpt": "2024-02-01,410.193"
+        },
+        {
+          "period": "2024-03",
+          "value": "398.465",
+          "excerpt": "2024-03-01,398.465"
+        },
+        {
+          "period": "2024-04",
+          "value": "400.708",
+          "excerpt": "2024-04-01,400.708"
+        },
+        {
+          "period": "2024-05",
+          "value": "414.552",
+          "excerpt": "2024-05-01,414.552"
+        },
+        {
+          "period": "2024-06",
+          "value": "434.674",
+          "excerpt": "2024-06-01,434.674"
+        },
+        {
+          "period": "2024-07",
+          "value": "439.668",
+          "excerpt": "2024-07-01,439.668"
+        },
+        {
+          "period": "2024-08",
+          "value": "432.687",
+          "excerpt": "2024-08-01,432.687"
+        },
+        {
+          "period": "2024-09",
+          "value": "414.282",
+          "excerpt": "2024-09-01,414.282"
+        },
+        {
+          "period": "2024-10",
+          "value": "409.49",
+          "excerpt": "2024-10-01,409.490"
+        },
+        {
+          "period": "2024-11",
+          "value": "396.571",
+          "excerpt": "2024-11-01,396.571"
+        },
+        {
+          "period": "2024-12",
+          "value": "394.191",
+          "excerpt": "2024-12-01,394.191"
+        },
+        {
+          "period": "2025-01",
+          "value": "428.44",
+          "excerpt": "2025-01-01,428.440"
+        },
+        {
+          "period": "2025-02",
+          "value": "437.603",
+          "excerpt": "2025-02-01,437.603"
+        },
+        {
+          "period": "2025-03",
+          "value": "415.837",
+          "excerpt": "2025-03-01,415.837"
+        },
+        {
+          "period": "2025-04",
+          "value": "410.34",
+          "excerpt": "2025-04-01,410.340"
+        },
+        {
+          "period": "2025-05",
+          "value": "399.524",
+          "excerpt": "2025-05-01,399.524"
+        },
+        {
+          "period": "2025-06",
+          "value": "404.766",
+          "excerpt": "2025-06-01,404.766"
+        },
+        {
+          "period": "2025-07",
+          "value": "392.604",
+          "excerpt": "2025-07-01,392.604"
+        },
+        {
+          "period": "2025-08",
+          "value": "392.827",
+          "excerpt": "2025-08-01,392.827"
+        },
+        {
+          "period": "2025-09",
+          "value": "390.95",
+          "excerpt": "2025-09-01,390.950"
+        },
+        {
+          "period": "2025-10",
+          "value": "420.696",
+          "excerpt": "2025-10-01,420.696"
+        },
+        {
+          "period": "2025-11",
+          "value": "402.725",
+          "excerpt": "2025-11-01,402.725"
+        },
+        {
+          "period": "2025-12",
+          "value": "415.302",
+          "excerpt": "2025-12-01,415.302"
+        },
+        {
+          "period": "2026-01",
+          "value": "445.272",
+          "excerpt": "2026-01-01,445.272"
+        },
+        {
+          "period": "2026-02",
+          "value": "441.81",
+          "excerpt": "2026-02-01,441.810"
+        },
+        {
+          "period": "2026-03",
+          "value": "451.353",
+          "excerpt": "2026-03-01,451.353"
+        },
+        {
+          "period": "2026-04",
+          "value": "462.08",
+          "excerpt": "2026-04-01,462.080"
+        },
+        {
+          "period": "2026-05",
+          "value": "475.059",
+          "excerpt": "2026-05-01,475.059"
+        },
+        {
+          "period": "2026-06",
+          "value": "504.328",
+          "excerpt": "2026-06-01,504.328"
+        },
+        {
+          "period": "2026-07",
+          "value": "521.184",
+          "excerpt": "2026-07-01,521.184"
+        },
+        {
+          "period": "2026-08",
+          "value": "518.617",
+          "excerpt": "2026-08-01,518.617"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_AIR_PPI",
+      "group": "FREIGHT",
+      "product": "AIR_FREIGHT",
+      "productLabel": "Flete aéreo",
+      "name": "Carga aérea regular (índice de productor EE. UU.)",
+      "scope": "US_PRODUCER_INDEX",
+      "market": "Estados Unidos",
+      "unit": "índice",
+      "kind": "INDEX",
+      "note": "Índice de precios al productor de EE. UU. (Oficina de Estadísticas Laborales). Mide cómo se mueve el precio, no cuánto cuesta. Tarifa de la carga aérea regular. Historia larga del flete aéreo mientras el precio por tonelada acumula la suya.",
+      "publisher": "FRED, BANCO DE LA RESERVA FEDERAL DE SAN LUIS",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCU481112481112&fq=Monthly&fam=avg&cosd=2000-01-01",
+        "upstreamSha256": "e9c95bed1c67e3b2e131b3e3e581a269ac44749f76895fcad30e36673f2a01e3",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2003-12",
+          "value": "100",
+          "excerpt": "2003-12-01,100.000"
+        },
+        {
+          "period": "2004-01",
+          "value": "101.5",
+          "excerpt": "2004-01-01,101.500"
+        },
+        {
+          "period": "2004-02",
+          "value": "100.5",
+          "excerpt": "2004-02-01,100.500"
+        },
+        {
+          "period": "2004-03",
+          "value": "97.6",
+          "excerpt": "2004-03-01,97.600"
+        },
+        {
+          "period": "2004-04",
+          "value": "97.5",
+          "excerpt": "2004-04-01,97.500"
+        },
+        {
+          "period": "2004-05",
+          "value": "97.5",
+          "excerpt": "2004-05-01,97.500"
+        },
+        {
+          "period": "2004-06",
+          "value": "98.4",
+          "excerpt": "2004-06-01,98.400"
+        },
+        {
+          "period": "2004-07",
+          "value": "101.8",
+          "excerpt": "2004-07-01,101.800"
+        },
+        {
+          "period": "2004-08",
+          "value": "101.8",
+          "excerpt": "2004-08-01,101.800"
+        },
+        {
+          "period": "2004-09",
+          "value": "101.8",
+          "excerpt": "2004-09-01,101.800"
+        },
+        {
+          "period": "2004-10",
+          "value": "100.8",
+          "excerpt": "2004-10-01,100.800"
+        },
+        {
+          "period": "2004-11",
+          "value": "100.8",
+          "excerpt": "2004-11-01,100.800"
+        },
+        {
+          "period": "2004-12",
+          "value": "102.3",
+          "excerpt": "2004-12-01,102.300"
+        },
+        {
+          "period": "2005-01",
+          "value": "101.7",
+          "excerpt": "2005-01-01,101.700"
+        },
+        {
+          "period": "2005-02",
+          "value": "101.7",
+          "excerpt": "2005-02-01,101.700"
+        },
+        {
+          "period": "2005-03",
+          "value": "102.2",
+          "excerpt": "2005-03-01,102.200"
+        },
+        {
+          "period": "2005-04",
+          "value": "103",
+          "excerpt": "2005-04-01,103.000"
+        },
+        {
+          "period": "2005-05",
+          "value": "103.6",
+          "excerpt": "2005-05-01,103.600"
+        },
+        {
+          "period": "2005-06",
+          "value": "104.2",
+          "excerpt": "2005-06-01,104.200"
+        },
+        {
+          "period": "2005-07",
+          "value": "105.3",
+          "excerpt": "2005-07-01,105.300"
+        },
+        {
+          "period": "2005-08",
+          "value": "105.8",
+          "excerpt": "2005-08-01,105.800"
+        },
+        {
+          "period": "2005-09",
+          "value": "106.9",
+          "excerpt": "2005-09-01,106.900"
+        },
+        {
+          "period": "2005-10",
+          "value": "108.4",
+          "excerpt": "2005-10-01,108.400"
+        },
+        {
+          "period": "2005-11",
+          "value": "108.5",
+          "excerpt": "2005-11-01,108.500"
+        },
+        {
+          "period": "2005-12",
+          "value": "107.9",
+          "excerpt": "2005-12-01,107.900"
+        },
+        {
+          "period": "2006-01",
+          "value": "107.8",
+          "excerpt": "2006-01-01,107.800"
+        },
+        {
+          "period": "2006-02",
+          "value": "108.6",
+          "excerpt": "2006-02-01,108.600"
+        },
+        {
+          "period": "2006-03",
+          "value": "110.8",
+          "excerpt": "2006-03-01,110.800"
+        },
+        {
+          "period": "2006-04",
+          "value": "106.9",
+          "excerpt": "2006-04-01,106.900"
+        },
+        {
+          "period": "2006-05",
+          "value": "109.1",
+          "excerpt": "2006-05-01,109.100"
+        },
+        {
+          "period": "2006-06",
+          "value": "110.1",
+          "excerpt": "2006-06-01,110.100"
+        },
+        {
+          "period": "2006-07",
+          "value": "111.3",
+          "excerpt": "2006-07-01,111.300"
+        },
+        {
+          "period": "2006-08",
+          "value": "107.8",
+          "excerpt": "2006-08-01,107.800"
+        },
+        {
+          "period": "2006-09",
+          "value": "107.9",
+          "excerpt": "2006-09-01,107.900"
+        },
+        {
+          "period": "2006-10",
+          "value": "107.3",
+          "excerpt": "2006-10-01,107.300"
+        },
+        {
+          "period": "2006-11",
+          "value": "106.7",
+          "excerpt": "2006-11-01,106.700"
+        },
+        {
+          "period": "2006-12",
+          "value": "106.7",
+          "excerpt": "2006-12-01,106.700"
+        },
+        {
+          "period": "2007-01",
+          "value": "106.9",
+          "excerpt": "2007-01-01,106.900"
+        },
+        {
+          "period": "2007-02",
+          "value": "106",
+          "excerpt": "2007-02-01,106.000"
+        },
+        {
+          "period": "2007-03",
+          "value": "106",
+          "excerpt": "2007-03-01,106.000"
+        },
+        {
+          "period": "2007-04",
+          "value": "106.2",
+          "excerpt": "2007-04-01,106.200"
+        },
+        {
+          "period": "2007-05",
+          "value": "109.4",
+          "excerpt": "2007-05-01,109.400"
+        },
+        {
+          "period": "2007-06",
+          "value": "109.4",
+          "excerpt": "2007-06-01,109.400"
+        },
+        {
+          "period": "2007-07",
+          "value": "109.4",
+          "excerpt": "2007-07-01,109.400"
+        },
+        {
+          "period": "2007-08",
+          "value": "109.4",
+          "excerpt": "2007-08-01,109.400"
+        },
+        {
+          "period": "2007-09",
+          "value": "109.6",
+          "excerpt": "2007-09-01,109.600"
+        },
+        {
+          "period": "2007-10",
+          "value": "111.2",
+          "excerpt": "2007-10-01,111.200"
+        },
+        {
+          "period": "2007-11",
+          "value": "109.5",
+          "excerpt": "2007-11-01,109.500"
+        },
+        {
+          "period": "2007-12",
+          "value": "115.4",
+          "excerpt": "2007-12-01,115.400"
+        },
+        {
+          "period": "2008-01",
+          "value": "116.3",
+          "excerpt": "2008-01-01,116.300"
+        },
+        {
+          "period": "2008-02",
+          "value": "116.4",
+          "excerpt": "2008-02-01,116.400"
+        },
+        {
+          "period": "2008-03",
+          "value": "119.3",
+          "excerpt": "2008-03-01,119.300"
+        },
+        {
+          "period": "2008-04",
+          "value": "126.8",
+          "excerpt": "2008-04-01,126.800"
+        },
+        {
+          "period": "2008-05",
+          "value": "129.1",
+          "excerpt": "2008-05-01,129.100"
+        },
+        {
+          "period": "2008-06",
+          "value": "132.6",
+          "excerpt": "2008-06-01,132.600"
+        },
+        {
+          "period": "2008-07",
+          "value": "132.7",
+          "excerpt": "2008-07-01,132.700"
+        },
+        {
+          "period": "2008-08",
+          "value": "136.2",
+          "excerpt": "2008-08-01,136.200"
+        },
+        {
+          "period": "2008-09",
+          "value": "133.6",
+          "excerpt": "2008-09-01,133.600"
+        },
+        {
+          "period": "2008-10",
+          "value": "131.3",
+          "excerpt": "2008-10-01,131.300"
+        },
+        {
+          "period": "2008-11",
+          "value": "129.5",
+          "excerpt": "2008-11-01,129.500"
+        },
+        {
+          "period": "2008-12",
+          "value": "129.6",
+          "excerpt": "2008-12-01,129.600"
+        },
+        {
+          "period": "2009-01",
+          "value": "127.6",
+          "excerpt": "2009-01-01,127.600"
+        },
+        {
+          "period": "2009-02",
+          "value": "123.6",
+          "excerpt": "2009-02-01,123.600"
+        },
+        {
+          "period": "2009-03",
+          "value": "119",
+          "excerpt": "2009-03-01,119.000"
+        },
+        {
+          "period": "2009-04",
+          "value": "117.7",
+          "excerpt": "2009-04-01,117.700"
+        },
+        {
+          "period": "2009-05",
+          "value": "118.6",
+          "excerpt": "2009-05-01,118.600"
+        },
+        {
+          "period": "2009-06",
+          "value": "116",
+          "excerpt": "2009-06-01,116.000"
+        },
+        {
+          "period": "2009-07",
+          "value": "116.4",
+          "excerpt": "2009-07-01,116.400"
+        },
+        {
+          "period": "2009-08",
+          "value": "116.5",
+          "excerpt": "2009-08-01,116.500"
+        },
+        {
+          "period": "2009-09",
+          "value": "116.7",
+          "excerpt": "2009-09-01,116.700"
+        },
+        {
+          "period": "2009-10",
+          "value": "116.7",
+          "excerpt": "2009-10-01,116.700"
+        },
+        {
+          "period": "2009-11",
+          "value": "120.2",
+          "excerpt": "2009-11-01,120.200"
+        },
+        {
+          "period": "2009-12",
+          "value": "120.3",
+          "excerpt": "2009-12-01,120.300"
+        },
+        {
+          "period": "2010-01",
+          "value": "125.7",
+          "excerpt": "2010-01-01,125.700"
+        },
+        {
+          "period": "2010-02",
+          "value": "129.5",
+          "excerpt": "2010-02-01,129.500"
+        },
+        {
+          "period": "2010-03",
+          "value": "129.4",
+          "excerpt": "2010-03-01,129.400"
+        },
+        {
+          "period": "2010-04",
+          "value": "129.5",
+          "excerpt": "2010-04-01,129.500"
+        },
+        {
+          "period": "2010-05",
+          "value": "129.9",
+          "excerpt": "2010-05-01,129.900"
+        },
+        {
+          "period": "2010-06",
+          "value": "129.9",
+          "excerpt": "2010-06-01,129.900"
+        },
+        {
+          "period": "2010-07",
+          "value": "129.8",
+          "excerpt": "2010-07-01,129.800"
+        },
+        {
+          "period": "2010-08",
+          "value": "129.9",
+          "excerpt": "2010-08-01,129.900"
+        },
+        {
+          "period": "2010-09",
+          "value": "129.9",
+          "excerpt": "2010-09-01,129.900"
+        },
+        {
+          "period": "2010-10",
+          "value": "132.4",
+          "excerpt": "2010-10-01,132.400"
+        },
+        {
+          "period": "2010-11",
+          "value": "132.4",
+          "excerpt": "2010-11-01,132.400"
+        },
+        {
+          "period": "2010-12",
+          "value": "134.1",
+          "excerpt": "2010-12-01,134.100"
+        },
+        {
+          "period": "2011-01",
+          "value": "134.8",
+          "excerpt": "2011-01-01,134.800"
+        },
+        {
+          "period": "2011-02",
+          "value": "135.8",
+          "excerpt": "2011-02-01,135.800"
+        },
+        {
+          "period": "2011-03",
+          "value": "140.5",
+          "excerpt": "2011-03-01,140.500"
+        },
+        {
+          "period": "2011-04",
+          "value": "143.9",
+          "excerpt": "2011-04-01,143.900"
+        },
+        {
+          "period": "2011-05",
+          "value": "146.2",
+          "excerpt": "2011-05-01,146.200"
+        },
+        {
+          "period": "2011-06",
+          "value": "149.5",
+          "excerpt": "2011-06-01,149.500"
+        },
+        {
+          "period": "2011-07",
+          "value": "148.8",
+          "excerpt": "2011-07-01,148.800"
+        },
+        {
+          "period": "2011-08",
+          "value": "148.6",
+          "excerpt": "2011-08-01,148.600"
+        },
+        {
+          "period": "2011-09",
+          "value": "149.3",
+          "excerpt": "2011-09-01,149.300"
+        },
+        {
+          "period": "2011-10",
+          "value": "149.4",
+          "excerpt": "2011-10-01,149.400"
+        },
+        {
+          "period": "2011-11",
+          "value": "149.4",
+          "excerpt": "2011-11-01,149.400"
+        },
+        {
+          "period": "2011-12",
+          "value": "154.8",
+          "excerpt": "2011-12-01,154.800"
+        },
+        {
+          "period": "2012-01",
+          "value": "155.3",
+          "excerpt": "2012-01-01,155.300"
+        },
+        {
+          "period": "2012-02",
+          "value": "155.8",
+          "excerpt": "2012-02-01,155.800"
+        },
+        {
+          "period": "2012-03",
+          "value": "156.2",
+          "excerpt": "2012-03-01,156.200"
+        },
+        {
+          "period": "2012-04",
+          "value": "156.7",
+          "excerpt": "2012-04-01,156.700"
+        },
+        {
+          "period": "2012-05",
+          "value": "156.3",
+          "excerpt": "2012-05-01,156.300"
+        },
+        {
+          "period": "2012-06",
+          "value": "155.8",
+          "excerpt": "2012-06-01,155.800"
+        },
+        {
+          "period": "2012-07",
+          "value": "155.3",
+          "excerpt": "2012-07-01,155.300"
+        },
+        {
+          "period": "2012-08",
+          "value": "155.3",
+          "excerpt": "2012-08-01,155.300"
+        },
+        {
+          "period": "2012-09",
+          "value": "155.8",
+          "excerpt": "2012-09-01,155.800"
+        },
+        {
+          "period": "2012-10",
+          "value": "156.1",
+          "excerpt": "2012-10-01,156.100"
+        },
+        {
+          "period": "2012-11",
+          "value": "155.9",
+          "excerpt": "2012-11-01,155.900"
+        },
+        {
+          "period": "2012-12",
+          "value": "155.6",
+          "excerpt": "2012-12-01,155.600"
+        },
+        {
+          "period": "2013-01",
+          "value": "156.3",
+          "excerpt": "2013-01-01,156.300"
+        },
+        {
+          "period": "2013-02",
+          "value": "156.4",
+          "excerpt": "2013-02-01,156.400"
+        },
+        {
+          "period": "2013-03",
+          "value": "156.9",
+          "excerpt": "2013-03-01,156.900"
+        },
+        {
+          "period": "2013-04",
+          "value": "156.6",
+          "excerpt": "2013-04-01,156.600"
+        },
+        {
+          "period": "2013-05",
+          "value": "156.3",
+          "excerpt": "2013-05-01,156.300"
+        },
+        {
+          "period": "2013-06",
+          "value": "156",
+          "excerpt": "2013-06-01,156.000"
+        },
+        {
+          "period": "2013-07",
+          "value": "156.5",
+          "excerpt": "2013-07-01,156.500"
+        },
+        {
+          "period": "2013-08",
+          "value": "156.8",
+          "excerpt": "2013-08-01,156.800"
+        },
+        {
+          "period": "2013-09",
+          "value": "157.2",
+          "excerpt": "2013-09-01,157.200"
+        },
+        {
+          "period": "2013-10",
+          "value": "157.3",
+          "excerpt": "2013-10-01,157.300"
+        },
+        {
+          "period": "2013-11",
+          "value": "157.3",
+          "excerpt": "2013-11-01,157.300"
+        },
+        {
+          "period": "2013-12",
+          "value": "157.2",
+          "excerpt": "2013-12-01,157.200"
+        },
+        {
+          "period": "2014-01",
+          "value": "157.3",
+          "excerpt": "2014-01-01,157.300"
+        },
+        {
+          "period": "2014-02",
+          "value": "157.1",
+          "excerpt": "2014-02-01,157.100"
+        },
+        {
+          "period": "2014-03",
+          "value": "158.1",
+          "excerpt": "2014-03-01,158.100"
+        },
+        {
+          "period": "2014-04",
+          "value": "157.3",
+          "excerpt": "2014-04-01,157.300"
+        },
+        {
+          "period": "2014-05",
+          "value": "157.6",
+          "excerpt": "2014-05-01,157.600"
+        },
+        {
+          "period": "2014-06",
+          "value": "157.7",
+          "excerpt": "2014-06-01,157.700"
+        },
+        {
+          "period": "2014-07",
+          "value": "157.5",
+          "excerpt": "2014-07-01,157.500"
+        },
+        {
+          "period": "2014-08",
+          "value": "157.3",
+          "excerpt": "2014-08-01,157.300"
+        },
+        {
+          "period": "2014-09",
+          "value": "157.4",
+          "excerpt": "2014-09-01,157.400"
+        },
+        {
+          "period": "2014-10",
+          "value": "156.8",
+          "excerpt": "2014-10-01,156.800"
+        },
+        {
+          "period": "2014-11",
+          "value": "155.5",
+          "excerpt": "2014-11-01,155.500"
+        },
+        {
+          "period": "2014-12",
+          "value": "154.8",
+          "excerpt": "2014-12-01,154.800"
+        },
+        {
+          "period": "2015-01",
+          "value": "150.7",
+          "excerpt": "2015-01-01,150.700"
+        },
+        {
+          "period": "2015-02",
+          "value": "150.7",
+          "excerpt": "2015-02-01,150.700"
+        },
+        {
+          "period": "2015-03",
+          "value": "150.9",
+          "excerpt": "2015-03-01,150.900"
+        },
+        {
+          "period": "2015-04",
+          "value": "154.2",
+          "excerpt": "2015-04-01,154.200"
+        },
+        {
+          "period": "2015-05",
+          "value": "155.4",
+          "excerpt": "2015-05-01,155.400"
+        },
+        {
+          "period": "2015-06",
+          "value": "154.7",
+          "excerpt": "2015-06-01,154.700"
+        },
+        {
+          "period": "2015-07",
+          "value": "149.2",
+          "excerpt": "2015-07-01,149.200"
+        },
+        {
+          "period": "2015-08",
+          "value": "148.7",
+          "excerpt": "2015-08-01,148.700"
+        },
+        {
+          "period": "2015-09",
+          "value": "145.3",
+          "excerpt": "2015-09-01,145.300"
+        },
+        {
+          "period": "2015-10",
+          "value": "152.5",
+          "excerpt": "2015-10-01,152.500"
+        },
+        {
+          "period": "2015-11",
+          "value": "151.4",
+          "excerpt": "2015-11-01,151.400"
+        },
+        {
+          "period": "2015-12",
+          "value": "153.3",
+          "excerpt": "2015-12-01,153.300"
+        },
+        {
+          "period": "2016-01",
+          "value": "155.3",
+          "excerpt": "2016-01-01,155.300"
+        },
+        {
+          "period": "2016-02",
+          "value": "153.5",
+          "excerpt": "2016-02-01,153.500"
+        },
+        {
+          "period": "2016-03",
+          "value": "152.7",
+          "excerpt": "2016-03-01,152.700"
+        },
+        {
+          "period": "2016-04",
+          "value": "151.9",
+          "excerpt": "2016-04-01,151.900"
+        },
+        {
+          "period": "2016-05",
+          "value": "154.1",
+          "excerpt": "2016-05-01,154.100"
+        },
+        {
+          "period": "2016-06",
+          "value": "148.2",
+          "excerpt": "2016-06-01,148.200"
+        },
+        {
+          "period": "2016-07",
+          "value": "153.5",
+          "excerpt": "2016-07-01,153.500"
+        },
+        {
+          "period": "2016-08",
+          "value": "151.1",
+          "excerpt": "2016-08-01,151.100"
+        },
+        {
+          "period": "2016-09",
+          "value": "148.8",
+          "excerpt": "2016-09-01,148.800"
+        },
+        {
+          "period": "2016-10",
+          "value": "147.9",
+          "excerpt": "2016-10-01,147.900"
+        },
+        {
+          "period": "2016-11",
+          "value": "148.7",
+          "excerpt": "2016-11-01,148.700"
+        },
+        {
+          "period": "2016-12",
+          "value": "151.8",
+          "excerpt": "2016-12-01,151.800"
+        },
+        {
+          "period": "2017-01",
+          "value": "151.7",
+          "excerpt": "2017-01-01,151.700"
+        },
+        {
+          "period": "2017-02",
+          "value": "148.8",
+          "excerpt": "2017-02-01,148.800"
+        },
+        {
+          "period": "2017-03",
+          "value": "150.6",
+          "excerpt": "2017-03-01,150.600"
+        },
+        {
+          "period": "2017-04",
+          "value": "149.7",
+          "excerpt": "2017-04-01,149.700"
+        },
+        {
+          "period": "2017-05",
+          "value": "147.3",
+          "excerpt": "2017-05-01,147.300"
+        },
+        {
+          "period": "2017-06",
+          "value": "152",
+          "excerpt": "2017-06-01,152.000"
+        },
+        {
+          "period": "2017-07",
+          "value": "149.6",
+          "excerpt": "2017-07-01,149.600"
+        },
+        {
+          "period": "2017-08",
+          "value": "150.4",
+          "excerpt": "2017-08-01,150.400"
+        },
+        {
+          "period": "2017-09",
+          "value": "151.2",
+          "excerpt": "2017-09-01,151.200"
+        },
+        {
+          "period": "2017-10",
+          "value": "150.4",
+          "excerpt": "2017-10-01,150.400"
+        },
+        {
+          "period": "2017-11",
+          "value": "151.2",
+          "excerpt": "2017-11-01,151.200"
+        },
+        {
+          "period": "2017-12",
+          "value": "151.9",
+          "excerpt": "2017-12-01,151.900"
+        },
+        {
+          "period": "2018-01",
+          "value": "152",
+          "excerpt": "2018-01-01,152.000"
+        },
+        {
+          "period": "2018-02",
+          "value": "152.5",
+          "excerpt": "2018-02-01,152.500"
+        },
+        {
+          "period": "2018-03",
+          "value": "154.9",
+          "excerpt": "2018-03-01,154.900"
+        },
+        {
+          "period": "2018-04",
+          "value": "151.7",
+          "excerpt": "2018-04-01,151.700"
+        },
+        {
+          "period": "2018-05",
+          "value": "156.9",
+          "excerpt": "2018-05-01,156.900"
+        },
+        {
+          "period": "2018-06",
+          "value": "154.1",
+          "excerpt": "2018-06-01,154.100"
+        },
+        {
+          "period": "2018-07",
+          "value": "153.9",
+          "excerpt": "2018-07-01,153.900"
+        },
+        {
+          "period": "2018-08",
+          "value": "153.1",
+          "excerpt": "2018-08-01,153.100"
+        },
+        {
+          "period": "2018-09",
+          "value": "153.6",
+          "excerpt": "2018-09-01,153.600"
+        },
+        {
+          "period": "2018-10",
+          "value": "155.3",
+          "excerpt": "2018-10-01,155.300"
+        },
+        {
+          "period": "2018-11",
+          "value": "156.3",
+          "excerpt": "2018-11-01,156.300"
+        },
+        {
+          "period": "2018-12",
+          "value": "154.9",
+          "excerpt": "2018-12-01,154.900"
+        },
+        {
+          "period": "2019-01",
+          "value": "150.9",
+          "excerpt": "2019-01-01,150.900"
+        },
+        {
+          "period": "2019-02",
+          "value": "151",
+          "excerpt": "2019-02-01,151.000"
+        },
+        {
+          "period": "2019-03",
+          "value": "151.4",
+          "excerpt": "2019-03-01,151.400"
+        },
+        {
+          "period": "2019-04",
+          "value": "152.1",
+          "excerpt": "2019-04-01,152.100"
+        },
+        {
+          "period": "2019-05",
+          "value": "154.1",
+          "excerpt": "2019-05-01,154.100"
+        },
+        {
+          "period": "2019-06",
+          "value": "155.1",
+          "excerpt": "2019-06-01,155.100"
+        },
+        {
+          "period": "2019-07",
+          "value": "155.2",
+          "excerpt": "2019-07-01,155.200"
+        },
+        {
+          "period": "2019-08",
+          "value": "154.4",
+          "excerpt": "2019-08-01,154.400"
+        },
+        {
+          "period": "2019-09",
+          "value": "153.8",
+          "excerpt": "2019-09-01,153.800"
+        },
+        {
+          "period": "2019-10",
+          "value": "154.3",
+          "excerpt": "2019-10-01,154.300"
+        },
+        {
+          "period": "2019-11",
+          "value": "156.2",
+          "excerpt": "2019-11-01,156.200"
+        },
+        {
+          "period": "2019-12",
+          "value": "157.1",
+          "excerpt": "2019-12-01,157.100"
+        },
+        {
+          "period": "2020-01",
+          "value": "156",
+          "excerpt": "2020-01-01,156.000"
+        },
+        {
+          "period": "2020-02",
+          "value": "155.5",
+          "excerpt": "2020-02-01,155.500"
+        },
+        {
+          "period": "2020-03",
+          "value": "152.3",
+          "excerpt": "2020-03-01,152.300"
+        },
+        {
+          "period": "2020-04",
+          "value": "152.4",
+          "excerpt": "2020-04-01,152.400"
+        },
+        {
+          "period": "2020-05",
+          "value": "155.8",
+          "excerpt": "2020-05-01,155.800"
+        },
+        {
+          "period": "2020-06",
+          "value": "156.2",
+          "excerpt": "2020-06-01,156.200"
+        },
+        {
+          "period": "2020-07",
+          "value": "157.4",
+          "excerpt": "2020-07-01,157.400"
+        },
+        {
+          "period": "2020-08",
+          "value": "157.9",
+          "excerpt": "2020-08-01,157.900"
+        },
+        {
+          "period": "2020-09",
+          "value": "154.6",
+          "excerpt": "2020-09-01,154.600"
+        },
+        {
+          "period": "2020-10",
+          "value": "153.2",
+          "excerpt": "2020-10-01,153.200"
+        },
+        {
+          "period": "2020-11",
+          "value": "151.5",
+          "excerpt": "2020-11-01,151.500"
+        },
+        {
+          "period": "2020-12",
+          "value": "156.9",
+          "excerpt": "2020-12-01,156.900"
+        },
+        {
+          "period": "2021-01",
+          "value": "157.7",
+          "excerpt": "2021-01-01,157.700"
+        },
+        {
+          "period": "2021-02",
+          "value": "157.8",
+          "excerpt": "2021-02-01,157.800"
+        },
+        {
+          "period": "2021-03",
+          "value": "157.6",
+          "excerpt": "2021-03-01,157.600"
+        },
+        {
+          "period": "2021-04",
+          "value": "155.4",
+          "excerpt": "2021-04-01,155.400"
+        },
+        {
+          "period": "2021-05",
+          "value": "159.3",
+          "excerpt": "2021-05-01,159.300"
+        },
+        {
+          "period": "2021-06",
+          "value": "163.5",
+          "excerpt": "2021-06-01,163.500"
+        },
+        {
+          "period": "2021-07",
+          "value": "158.92",
+          "excerpt": "2021-07-01,158.920"
+        },
+        {
+          "period": "2021-08",
+          "value": "162.443",
+          "excerpt": "2021-08-01,162.443"
+        },
+        {
+          "period": "2021-09",
+          "value": "165.766",
+          "excerpt": "2021-09-01,165.766"
+        },
+        {
+          "period": "2021-10",
+          "value": "172.332",
+          "excerpt": "2021-10-01,172.332"
+        },
+        {
+          "period": "2021-11",
+          "value": "177.304",
+          "excerpt": "2021-11-01,177.304"
+        },
+        {
+          "period": "2021-12",
+          "value": "179.689",
+          "excerpt": "2021-12-01,179.689"
+        },
+        {
+          "period": "2022-01",
+          "value": "178.868",
+          "excerpt": "2022-01-01,178.868"
+        },
+        {
+          "period": "2022-02",
+          "value": "176.416",
+          "excerpt": "2022-02-01,176.416"
+        },
+        {
+          "period": "2022-03",
+          "value": "176.424",
+          "excerpt": "2022-03-01,176.424"
+        },
+        {
+          "period": "2022-04",
+          "value": "188.603",
+          "excerpt": "2022-04-01,188.603"
+        },
+        {
+          "period": "2022-05",
+          "value": "182.035",
+          "excerpt": "2022-05-01,182.035"
+        },
+        {
+          "period": "2022-06",
+          "value": "184.743",
+          "excerpt": "2022-06-01,184.743"
+        },
+        {
+          "period": "2022-07",
+          "value": "184.914",
+          "excerpt": "2022-07-01,184.914"
+        },
+        {
+          "period": "2022-08",
+          "value": "185.834",
+          "excerpt": "2022-08-01,185.834"
+        },
+        {
+          "period": "2022-09",
+          "value": "185.422",
+          "excerpt": "2022-09-01,185.422"
+        },
+        {
+          "period": "2022-10",
+          "value": "179.501",
+          "excerpt": "2022-10-01,179.501"
+        },
+        {
+          "period": "2022-11",
+          "value": "176.659",
+          "excerpt": "2022-11-01,176.659"
+        },
+        {
+          "period": "2022-12",
+          "value": "175.528",
+          "excerpt": "2022-12-01,175.528"
+        },
+        {
+          "period": "2023-01",
+          "value": "179.408",
+          "excerpt": "2023-01-01,179.408"
+        },
+        {
+          "period": "2023-02",
+          "value": "186.62",
+          "excerpt": "2023-02-01,186.620"
+        },
+        {
+          "period": "2023-03",
+          "value": "179.074",
+          "excerpt": "2023-03-01,179.074"
+        },
+        {
+          "period": "2023-04",
+          "value": "173.813",
+          "excerpt": "2023-04-01,173.813"
+        },
+        {
+          "period": "2023-05",
+          "value": "170.859",
+          "excerpt": "2023-05-01,170.859"
+        },
+        {
+          "period": "2023-06",
+          "value": "163.294",
+          "excerpt": "2023-06-01,163.294"
+        },
+        {
+          "period": "2023-07",
+          "value": "166.124",
+          "excerpt": "2023-07-01,166.124"
+        },
+        {
+          "period": "2023-08",
+          "value": "167.246",
+          "excerpt": "2023-08-01,167.246"
+        },
+        {
+          "period": "2023-09",
+          "value": "169.812",
+          "excerpt": "2023-09-01,169.812"
+        },
+        {
+          "period": "2023-10",
+          "value": "177.403",
+          "excerpt": "2023-10-01,177.403"
+        },
+        {
+          "period": "2023-11",
+          "value": "178.266",
+          "excerpt": "2023-11-01,178.266"
+        },
+        {
+          "period": "2023-12",
+          "value": "177.145",
+          "excerpt": "2023-12-01,177.145"
+        },
+        {
+          "period": "2024-01",
+          "value": "169.259",
+          "excerpt": "2024-01-01,169.259"
+        },
+        {
+          "period": "2024-02",
+          "value": "169.442",
+          "excerpt": "2024-02-01,169.442"
+        },
+        {
+          "period": "2024-03",
+          "value": "165.366",
+          "excerpt": "2024-03-01,165.366"
+        },
+        {
+          "period": "2024-04",
+          "value": "166.854",
+          "excerpt": "2024-04-01,166.854"
+        },
+        {
+          "period": "2024-05",
+          "value": "165.018",
+          "excerpt": "2024-05-01,165.018"
+        },
+        {
+          "period": "2024-06",
+          "value": "164.649",
+          "excerpt": "2024-06-01,164.649"
+        },
+        {
+          "period": "2024-07",
+          "value": "167.297",
+          "excerpt": "2024-07-01,167.297"
+        },
+        {
+          "period": "2024-08",
+          "value": "161.415",
+          "excerpt": "2024-08-01,161.415"
+        },
+        {
+          "period": "2024-09",
+          "value": "163.818",
+          "excerpt": "2024-09-01,163.818"
+        },
+        {
+          "period": "2024-10",
+          "value": "168.84",
+          "excerpt": "2024-10-01,168.840"
+        },
+        {
+          "period": "2024-11",
+          "value": "170.597",
+          "excerpt": "2024-11-01,170.597"
+        },
+        {
+          "period": "2024-12",
+          "value": "172.789",
+          "excerpt": "2024-12-01,172.789"
+        },
+        {
+          "period": "2025-01",
+          "value": "170.2",
+          "excerpt": "2025-01-01,170.200"
+        },
+        {
+          "period": "2025-02",
+          "value": "168.888",
+          "excerpt": "2025-02-01,168.888"
+        },
+        {
+          "period": "2025-03",
+          "value": "168.904",
+          "excerpt": "2025-03-01,168.904"
+        },
+        {
+          "period": "2025-04",
+          "value": "171.833",
+          "excerpt": "2025-04-01,171.833"
+        },
+        {
+          "period": "2025-05",
+          "value": "165.564",
+          "excerpt": "2025-05-01,165.564"
+        },
+        {
+          "period": "2025-06",
+          "value": "167.323",
+          "excerpt": "2025-06-01,167.323"
+        },
+        {
+          "period": "2025-07",
+          "value": "173.776",
+          "excerpt": "2025-07-01,173.776"
+        },
+        {
+          "period": "2025-08",
+          "value": "171.327",
+          "excerpt": "2025-08-01,171.327"
+        },
+        {
+          "period": "2025-09",
+          "value": "171.846",
+          "excerpt": "2025-09-01,171.846"
+        },
+        {
+          "period": "2025-10",
+          "value": "173.555",
+          "excerpt": "2025-10-01,173.555"
+        },
+        {
+          "period": "2025-11",
+          "value": "172.694",
+          "excerpt": "2025-11-01,172.694"
+        },
+        {
+          "period": "2025-12",
+          "value": "177.924",
+          "excerpt": "2025-12-01,177.924"
+        },
+        {
+          "period": "2026-01",
+          "value": "176.821",
+          "excerpt": "2026-01-01,176.821"
+        },
+        {
+          "period": "2026-02",
+          "value": "175.14",
+          "excerpt": "2026-02-01,175.140"
+        },
+        {
+          "period": "2026-03",
+          "value": "174.726",
+          "excerpt": "2026-03-01,174.726"
+        },
+        {
+          "period": "2026-04",
+          "value": "194.837",
+          "excerpt": "2026-04-01,194.837"
+        },
+        {
+          "period": "2026-05",
+          "value": "204.189",
+          "excerpt": "2026-05-01,204.189"
+        },
+        {
+          "period": "2026-06",
+          "value": "202.016",
+          "excerpt": "2026-06-01,202.016"
+        },
+        {
+          "period": "2026-07",
+          "value": "176.3",
+          "excerpt": "2026-07-01,176.300"
+        },
+        {
+          "period": "2026-08",
+          "value": "187.374",
+          "excerpt": "2026-08-01,187.374"
+        }
+      ]
+    },
+    {
+      "indicatorCode": "EXO_FREIGHT_LOGISTICS_PPI",
+      "group": "FREIGHT",
+      "product": "LOGISTICS",
+      "productLabel": "Agentes de carga",
+      "name": "Agentes de carga y logística (índice de productor EE. UU.)",
+      "scope": "US_PRODUCER_INDEX",
+      "market": "Estados Unidos",
+      "unit": "índice",
+      "kind": "INDEX",
+      "note": "Índice de precios al productor de EE. UU. (Oficina de Estadísticas Laborales). Mide cómo se mueve el precio, no cuánto cuesta. Lo que cobran los agentes que arreglan el transporte de la carga.",
+      "publisher": "FRED, BANCO DE LA RESERVA FEDERAL DE SAN LUIS",
+      "frequency": "MONTHLY",
+      "provenance": {
+        "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCU488510488510&fq=Monthly&fam=avg&cosd=2000-01-01",
+        "upstreamSha256": "05c053a37cb31e7493fea6b500db68a5323e77a1dfeff30fc892d3f99a5d2dc7",
+        "retrievedAt": "2026-10-04T01:29:31Z"
+      },
+      "points": [
+        {
+          "period": "2000-01",
+          "value": "97.5",
+          "excerpt": "2000-01-01,97.500"
+        },
+        {
+          "period": "2000-02",
+          "value": "98.4",
+          "excerpt": "2000-02-01,98.400"
+        },
+        {
+          "period": "2000-03",
+          "value": "101.2",
+          "excerpt": "2000-03-01,101.200"
+        },
+        {
+          "period": "2000-04",
+          "value": "101.5",
+          "excerpt": "2000-04-01,101.500"
+        },
+        {
+          "period": "2000-05",
+          "value": "100.2",
+          "excerpt": "2000-05-01,100.200"
+        },
+        {
+          "period": "2000-06",
+          "value": "98.2",
+          "excerpt": "2000-06-01,98.200"
+        },
+        {
+          "period": "2000-07",
+          "value": "97.9",
+          "excerpt": "2000-07-01,97.900"
+        },
+        {
+          "period": "2000-08",
+          "value": "100.9",
+          "excerpt": "2000-08-01,100.900"
+        },
+        {
+          "period": "2000-09",
+          "value": "101.1",
+          "excerpt": "2000-09-01,101.100"
+        },
+        {
+          "period": "2000-10",
+          "value": "103",
+          "excerpt": "2000-10-01,103.000"
+        },
+        {
+          "period": "2000-11",
+          "value": "101.6",
+          "excerpt": "2000-11-01,101.600"
+        },
+        {
+          "period": "2000-12",
+          "value": "101.6",
+          "excerpt": "2000-12-01,101.600"
+        },
+        {
+          "period": "2001-01",
+          "value": "101.6",
+          "excerpt": "2001-01-01,101.600"
+        },
+        {
+          "period": "2001-02",
+          "value": "101.7",
+          "excerpt": "2001-02-01,101.700"
+        },
+        {
+          "period": "2001-03",
+          "value": "101.9",
+          "excerpt": "2001-03-01,101.900"
+        },
+        {
+          "period": "2001-04",
+          "value": "99.6",
+          "excerpt": "2001-04-01,99.600"
+        },
+        {
+          "period": "2001-05",
+          "value": "98.5",
+          "excerpt": "2001-05-01,98.500"
+        },
+        {
+          "period": "2001-06",
+          "value": "100.9",
+          "excerpt": "2001-06-01,100.900"
+        },
+        {
+          "period": "2001-07",
+          "value": "100.8",
+          "excerpt": "2001-07-01,100.800"
+        },
+        {
+          "period": "2001-08",
+          "value": "101",
+          "excerpt": "2001-08-01,101.000"
+        },
+        {
+          "period": "2001-09",
+          "value": "100.2",
+          "excerpt": "2001-09-01,100.200"
+        },
+        {
+          "period": "2001-10",
+          "value": "98.6",
+          "excerpt": "2001-10-01,98.600"
+        },
+        {
+          "period": "2001-11",
+          "value": "99.3",
+          "excerpt": "2001-11-01,99.300"
+        },
+        {
+          "period": "2001-12",
+          "value": "98.9",
+          "excerpt": "2001-12-01,98.900"
+        },
+        {
+          "period": "2002-01",
+          "value": "99",
+          "excerpt": "2002-01-01,99.000"
+        },
+        {
+          "period": "2002-02",
+          "value": "98.9",
+          "excerpt": "2002-02-01,98.900"
+        },
+        {
+          "period": "2002-03",
+          "value": "98.9",
+          "excerpt": "2002-03-01,98.900"
+        },
+        {
+          "period": "2002-04",
+          "value": "99",
+          "excerpt": "2002-04-01,99.000"
+        },
+        {
+          "period": "2002-05",
+          "value": "99.1",
+          "excerpt": "2002-05-01,99.100"
+        },
+        {
+          "period": "2002-06",
+          "value": "99.8",
+          "excerpt": "2002-06-01,99.800"
+        },
+        {
+          "period": "2002-07",
+          "value": "99.4",
+          "excerpt": "2002-07-01,99.400"
+        },
+        {
+          "period": "2002-08",
+          "value": "99.3",
+          "excerpt": "2002-08-01,99.300"
+        },
+        {
+          "period": "2002-09",
+          "value": "99.9",
+          "excerpt": "2002-09-01,99.900"
+        },
+        {
+          "period": "2002-10",
+          "value": "99.9",
+          "excerpt": "2002-10-01,99.900"
+        },
+        {
+          "period": "2002-11",
+          "value": "100.1",
+          "excerpt": "2002-11-01,100.100"
+        },
+        {
+          "period": "2002-12",
+          "value": "100.2",
+          "excerpt": "2002-12-01,100.200"
+        },
+        {
+          "period": "2003-01",
+          "value": "99.7",
+          "excerpt": "2003-01-01,99.700"
+        },
+        {
+          "period": "2003-02",
+          "value": "99.3",
+          "excerpt": "2003-02-01,99.300"
+        },
+        {
+          "period": "2003-03",
+          "value": "99.4",
+          "excerpt": "2003-03-01,99.400"
+        },
+        {
+          "period": "2003-04",
+          "value": "99.4",
+          "excerpt": "2003-04-01,99.400"
+        },
+        {
+          "period": "2003-05",
+          "value": "99.5",
+          "excerpt": "2003-05-01,99.500"
+        },
+        {
+          "period": "2003-06",
+          "value": "99.7",
+          "excerpt": "2003-06-01,99.700"
+        },
+        {
+          "period": "2003-07",
+          "value": "100.3",
+          "excerpt": "2003-07-01,100.300"
+        },
+        {
+          "period": "2003-08",
+          "value": "100",
+          "excerpt": "2003-08-01,100.000"
+        },
+        {
+          "period": "2003-09",
+          "value": "99.8",
+          "excerpt": "2003-09-01,99.800"
+        },
+        {
+          "period": "2003-10",
+          "value": "100.9",
+          "excerpt": "2003-10-01,100.900"
+        },
+        {
+          "period": "2003-11",
+          "value": "100.5",
+          "excerpt": "2003-11-01,100.500"
+        },
+        {
+          "period": "2003-12",
+          "value": "100.5",
+          "excerpt": "2003-12-01,100.500"
+        },
+        {
+          "period": "2004-01",
+          "value": "100.8",
+          "excerpt": "2004-01-01,100.800"
+        },
+        {
+          "period": "2004-02",
+          "value": "100.6",
+          "excerpt": "2004-02-01,100.600"
+        },
+        {
+          "period": "2004-03",
+          "value": "100.5",
+          "excerpt": "2004-03-01,100.500"
+        },
+        {
+          "period": "2004-04",
+          "value": "101.1",
+          "excerpt": "2004-04-01,101.100"
+        },
+        {
+          "period": "2004-05",
+          "value": "101",
+          "excerpt": "2004-05-01,101.000"
+        },
+        {
+          "period": "2004-06",
+          "value": "101.2",
+          "excerpt": "2004-06-01,101.200"
+        },
+        {
+          "period": "2004-07",
+          "value": "100.7",
+          "excerpt": "2004-07-01,100.700"
+        },
+        {
+          "period": "2004-08",
+          "value": "101.2",
+          "excerpt": "2004-08-01,101.200"
+        },
+        {
+          "period": "2004-09",
+          "value": "101.1",
+          "excerpt": "2004-09-01,101.100"
+        },
+        {
+          "period": "2004-10",
+          "value": "101.1",
+          "excerpt": "2004-10-01,101.100"
+        },
+        {
+          "period": "2004-11",
+          "value": "100.8",
+          "excerpt": "2004-11-01,100.800"
+        },
+        {
+          "period": "2004-12",
+          "value": "101.4",
+          "excerpt": "2004-12-01,101.400"
+        },
+        {
+          "period": "2005-01",
+          "value": "100.9",
+          "excerpt": "2005-01-01,100.900"
+        },
+        {
+          "period": "2005-02",
+          "value": "101",
+          "excerpt": "2005-02-01,101.000"
+        },
+        {
+          "period": "2005-03",
+          "value": "101.2",
+          "excerpt": "2005-03-01,101.200"
+        },
+        {
+          "period": "2005-04",
+          "value": "100.9",
+          "excerpt": "2005-04-01,100.900"
+        },
+        {
+          "period": "2005-05",
+          "value": "101.3",
+          "excerpt": "2005-05-01,101.300"
+        },
+        {
+          "period": "2005-06",
+          "value": "100.8",
+          "excerpt": "2005-06-01,100.800"
+        },
+        {
+          "period": "2005-07",
+          "value": "100.8",
+          "excerpt": "2005-07-01,100.800"
+        },
+        {
+          "period": "2005-08",
+          "value": "100.8",
+          "excerpt": "2005-08-01,100.800"
+        },
+        {
+          "period": "2005-09",
+          "value": "100.3",
+          "excerpt": "2005-09-01,100.300"
+        },
+        {
+          "period": "2005-10",
+          "value": "101.3",
+          "excerpt": "2005-10-01,101.300"
+        },
+        {
+          "period": "2005-11",
+          "value": "102.1",
+          "excerpt": "2005-11-01,102.100"
+        },
+        {
+          "period": "2005-12",
+          "value": "102.2",
+          "excerpt": "2005-12-01,102.200"
+        },
+        {
+          "period": "2006-01",
+          "value": "101.8",
+          "excerpt": "2006-01-01,101.800"
+        },
+        {
+          "period": "2006-02",
+          "value": "101.4",
+          "excerpt": "2006-02-01,101.400"
+        },
+        {
+          "period": "2006-03",
+          "value": "101.2",
+          "excerpt": "2006-03-01,101.200"
+        },
+        {
+          "period": "2006-04",
+          "value": "101.2",
+          "excerpt": "2006-04-01,101.200"
+        },
+        {
+          "period": "2006-05",
+          "value": "100.8",
+          "excerpt": "2006-05-01,100.800"
+        },
+        {
+          "period": "2006-06",
+          "value": "100.2",
+          "excerpt": "2006-06-01,100.200"
+        },
+        {
+          "period": "2006-07",
+          "value": "100.5",
+          "excerpt": "2006-07-01,100.500"
+        },
+        {
+          "period": "2006-08",
+          "value": "100.7",
+          "excerpt": "2006-08-01,100.700"
+        },
+        {
+          "period": "2006-09",
+          "value": "101.2",
+          "excerpt": "2006-09-01,101.200"
+        },
+        {
+          "period": "2006-10",
+          "value": "100.2",
+          "excerpt": "2006-10-01,100.200"
+        },
+        {
+          "period": "2006-11",
+          "value": "100.8",
+          "excerpt": "2006-11-01,100.800"
+        },
+        {
+          "period": "2006-12",
+          "value": "100.4",
+          "excerpt": "2006-12-01,100.400"
+        },
+        {
+          "period": "2007-01",
+          "value": "100.6",
+          "excerpt": "2007-01-01,100.600"
+        },
+        {
+          "period": "2007-02",
+          "value": "102",
+          "excerpt": "2007-02-01,102.000"
+        },
+        {
+          "period": "2007-03",
+          "value": "103.1",
+          "excerpt": "2007-03-01,103.100"
+        },
+        {
+          "period": "2007-04",
+          "value": "103.2",
+          "excerpt": "2007-04-01,103.200"
+        },
+        {
+          "period": "2007-05",
+          "value": "103.3",
+          "excerpt": "2007-05-01,103.300"
+        },
+        {
+          "period": "2007-06",
+          "value": "103",
+          "excerpt": "2007-06-01,103.000"
+        },
+        {
+          "period": "2007-07",
+          "value": "103.7",
+          "excerpt": "2007-07-01,103.700"
+        },
+        {
+          "period": "2007-08",
+          "value": "104",
+          "excerpt": "2007-08-01,104.000"
+        },
+        {
+          "period": "2007-09",
+          "value": "99.7",
+          "excerpt": "2007-09-01,99.700"
+        },
+        {
+          "period": "2007-10",
+          "value": "100.1",
+          "excerpt": "2007-10-01,100.100"
+        },
+        {
+          "period": "2007-11",
+          "value": "101.8",
+          "excerpt": "2007-11-01,101.800"
+        },
+        {
+          "period": "2007-12",
+          "value": "102.3",
+          "excerpt": "2007-12-01,102.300"
+        },
+        {
+          "period": "2008-01",
+          "value": "102.1",
+          "excerpt": "2008-01-01,102.100"
+        },
+        {
+          "period": "2008-02",
+          "value": "101.4",
+          "excerpt": "2008-02-01,101.400"
+        },
+        {
+          "period": "2008-03",
+          "value": "105.3",
+          "excerpt": "2008-03-01,105.300"
+        },
+        {
+          "period": "2008-04",
+          "value": "106",
+          "excerpt": "2008-04-01,106.000"
+        },
+        {
+          "period": "2008-05",
+          "value": "106.8",
+          "excerpt": "2008-05-01,106.800"
+        },
+        {
+          "period": "2008-06",
+          "value": "107.5",
+          "excerpt": "2008-06-01,107.500"
+        },
+        {
+          "period": "2008-07",
+          "value": "107.6",
+          "excerpt": "2008-07-01,107.600"
+        },
+        {
+          "period": "2008-08",
+          "value": "106.1",
+          "excerpt": "2008-08-01,106.100"
+        },
+        {
+          "period": "2008-09",
+          "value": "105.4",
+          "excerpt": "2008-09-01,105.400"
+        },
+        {
+          "period": "2008-10",
+          "value": "102.4",
+          "excerpt": "2008-10-01,102.400"
+        },
+        {
+          "period": "2008-11",
+          "value": "102.1",
+          "excerpt": "2008-11-01,102.100"
+        },
+        {
+          "period": "2008-12",
+          "value": "102.1",
+          "excerpt": "2008-12-01,102.100"
+        },
+        {
+          "period": "2009-01",
+          "value": "100",
+          "excerpt": "2009-01-01,100.000"
+        },
+        {
+          "period": "2009-02",
+          "value": "98.8",
+          "excerpt": "2009-02-01,98.800"
+        },
+        {
+          "period": "2009-03",
+          "value": "97.3",
+          "excerpt": "2009-03-01,97.300"
+        },
+        {
+          "period": "2009-04",
+          "value": "98.2",
+          "excerpt": "2009-04-01,98.200"
+        },
+        {
+          "period": "2009-05",
+          "value": "97",
+          "excerpt": "2009-05-01,97.000"
+        },
+        {
+          "period": "2009-06",
+          "value": "97.2",
+          "excerpt": "2009-06-01,97.200"
+        },
+        {
+          "period": "2009-07",
+          "value": "97.5",
+          "excerpt": "2009-07-01,97.500"
+        },
+        {
+          "period": "2009-08",
+          "value": "94.9",
+          "excerpt": "2009-08-01,94.900"
+        },
+        {
+          "period": "2009-09",
+          "value": "95.1",
+          "excerpt": "2009-09-01,95.100"
+        },
+        {
+          "period": "2009-10",
+          "value": "95",
+          "excerpt": "2009-10-01,95.000"
+        },
+        {
+          "period": "2009-11",
+          "value": "95",
+          "excerpt": "2009-11-01,95.000"
+        },
+        {
+          "period": "2009-12",
+          "value": "95",
+          "excerpt": "2009-12-01,95.000"
+        },
+        {
+          "period": "2010-01",
+          "value": "95.2",
+          "excerpt": "2010-01-01,95.200"
+        },
+        {
+          "period": "2010-02",
+          "value": "95",
+          "excerpt": "2010-02-01,95.000"
+        },
+        {
+          "period": "2010-03",
+          "value": "95.3",
+          "excerpt": "2010-03-01,95.300"
+        },
+        {
+          "period": "2010-04",
+          "value": "96",
+          "excerpt": "2010-04-01,96.000"
+        },
+        {
+          "period": "2010-05",
+          "value": "97.7",
+          "excerpt": "2010-05-01,97.700"
+        },
+        {
+          "period": "2010-06",
+          "value": "98",
+          "excerpt": "2010-06-01,98.000"
+        },
+        {
+          "period": "2010-07",
+          "value": "98",
+          "excerpt": "2010-07-01,98.000"
+        },
+        {
+          "period": "2010-08",
+          "value": "96.8",
+          "excerpt": "2010-08-01,96.800"
+        },
+        {
+          "period": "2010-09",
+          "value": "97.6",
+          "excerpt": "2010-09-01,97.600"
+        },
+        {
+          "period": "2010-10",
+          "value": "99.2",
+          "excerpt": "2010-10-01,99.200"
+        },
+        {
+          "period": "2010-11",
+          "value": "98.7",
+          "excerpt": "2010-11-01,98.700"
+        },
+        {
+          "period": "2010-12",
+          "value": "98.3",
+          "excerpt": "2010-12-01,98.300"
+        },
+        {
+          "period": "2011-01",
+          "value": "98.8",
+          "excerpt": "2011-01-01,98.800"
+        },
+        {
+          "period": "2011-02",
+          "value": "99.3",
+          "excerpt": "2011-02-01,99.300"
+        },
+        {
+          "period": "2011-03",
+          "value": "100",
+          "excerpt": "2011-03-01,100.000"
+        },
+        {
+          "period": "2011-04",
+          "value": "101.6",
+          "excerpt": "2011-04-01,101.600"
+        },
+        {
+          "period": "2011-05",
+          "value": "101.7",
+          "excerpt": "2011-05-01,101.700"
+        },
+        {
+          "period": "2011-06",
+          "value": "101.7",
+          "excerpt": "2011-06-01,101.700"
+        },
+        {
+          "period": "2011-07",
+          "value": "100.7",
+          "excerpt": "2011-07-01,100.700"
+        },
+        {
+          "period": "2011-08",
+          "value": "101.2",
+          "excerpt": "2011-08-01,101.200"
+        },
+        {
+          "period": "2011-09",
+          "value": "100.8",
+          "excerpt": "2011-09-01,100.800"
+        },
+        {
+          "period": "2011-10",
+          "value": "100.6",
+          "excerpt": "2011-10-01,100.600"
+        },
+        {
+          "period": "2011-11",
+          "value": "101.3",
+          "excerpt": "2011-11-01,101.300"
+        },
+        {
+          "period": "2011-12",
+          "value": "101.4",
+          "excerpt": "2011-12-01,101.400"
+        },
+        {
+          "period": "2012-01",
+          "value": "101.4",
+          "excerpt": "2012-01-01,101.400"
+        },
+        {
+          "period": "2012-02",
+          "value": "101",
+          "excerpt": "2012-02-01,101.000"
+        },
+        {
+          "period": "2012-03",
+          "value": "101.5",
+          "excerpt": "2012-03-01,101.500"
+        },
+        {
+          "period": "2012-04",
+          "value": "101.5",
+          "excerpt": "2012-04-01,101.500"
+        },
+        {
+          "period": "2012-05",
+          "value": "102.9",
+          "excerpt": "2012-05-01,102.900"
+        },
+        {
+          "period": "2012-06",
+          "value": "102.3",
+          "excerpt": "2012-06-01,102.300"
+        },
+        {
+          "period": "2012-07",
+          "value": "101.5",
+          "excerpt": "2012-07-01,101.500"
+        },
+        {
+          "period": "2012-08",
+          "value": "102",
+          "excerpt": "2012-08-01,102.000"
+        },
+        {
+          "period": "2012-09",
+          "value": "102.5",
+          "excerpt": "2012-09-01,102.500"
+        },
+        {
+          "period": "2012-10",
+          "value": "102.6",
+          "excerpt": "2012-10-01,102.600"
+        },
+        {
+          "period": "2012-11",
+          "value": "102.3",
+          "excerpt": "2012-11-01,102.300"
+        },
+        {
+          "period": "2012-12",
+          "value": "102.3",
+          "excerpt": "2012-12-01,102.300"
+        },
+        {
+          "period": "2013-01",
+          "value": "102.3",
+          "excerpt": "2013-01-01,102.300"
+        },
+        {
+          "period": "2013-02",
+          "value": "102.9",
+          "excerpt": "2013-02-01,102.900"
+        },
+        {
+          "period": "2013-03",
+          "value": "103.5",
+          "excerpt": "2013-03-01,103.500"
+        },
+        {
+          "period": "2013-04",
+          "value": "103.9",
+          "excerpt": "2013-04-01,103.900"
+        },
+        {
+          "period": "2013-05",
+          "value": "103.9",
+          "excerpt": "2013-05-01,103.900"
+        },
+        {
+          "period": "2013-06",
+          "value": "104",
+          "excerpt": "2013-06-01,104.000"
+        },
+        {
+          "period": "2013-07",
+          "value": "104",
+          "excerpt": "2013-07-01,104.000"
+        },
+        {
+          "period": "2013-08",
+          "value": "104",
+          "excerpt": "2013-08-01,104.000"
+        },
+        {
+          "period": "2013-09",
+          "value": "104",
+          "excerpt": "2013-09-01,104.000"
+        },
+        {
+          "period": "2013-10",
+          "value": "104",
+          "excerpt": "2013-10-01,104.000"
+        },
+        {
+          "period": "2013-11",
+          "value": "104",
+          "excerpt": "2013-11-01,104.000"
+        },
+        {
+          "period": "2013-12",
+          "value": "103.9",
+          "excerpt": "2013-12-01,103.900"
+        },
+        {
+          "period": "2014-01",
+          "value": "104.2",
+          "excerpt": "2014-01-01,104.200"
+        },
+        {
+          "period": "2014-02",
+          "value": "104.3",
+          "excerpt": "2014-02-01,104.300"
+        },
+        {
+          "period": "2014-03",
+          "value": "105.2",
+          "excerpt": "2014-03-01,105.200"
+        },
+        {
+          "period": "2014-04",
+          "value": "105.1",
+          "excerpt": "2014-04-01,105.100"
+        },
+        {
+          "period": "2014-05",
+          "value": "105",
+          "excerpt": "2014-05-01,105.000"
+        },
+        {
+          "period": "2014-06",
+          "value": "105.5",
+          "excerpt": "2014-06-01,105.500"
+        },
+        {
+          "period": "2014-07",
+          "value": "105.2",
+          "excerpt": "2014-07-01,105.200"
+        },
+        {
+          "period": "2014-08",
+          "value": "105.1",
+          "excerpt": "2014-08-01,105.100"
+        },
+        {
+          "period": "2014-09",
+          "value": "105.1",
+          "excerpt": "2014-09-01,105.100"
+        },
+        {
+          "period": "2014-10",
+          "value": "105",
+          "excerpt": "2014-10-01,105.000"
+        },
+        {
+          "period": "2014-11",
+          "value": "104.6",
+          "excerpt": "2014-11-01,104.600"
+        },
+        {
+          "period": "2014-12",
+          "value": "104.4",
+          "excerpt": "2014-12-01,104.400"
+        },
+        {
+          "period": "2015-01",
+          "value": "104",
+          "excerpt": "2015-01-01,104.000"
+        },
+        {
+          "period": "2015-02",
+          "value": "103.5",
+          "excerpt": "2015-02-01,103.500"
+        },
+        {
+          "period": "2015-03",
+          "value": "103.6",
+          "excerpt": "2015-03-01,103.600"
+        },
+        {
+          "period": "2015-04",
+          "value": "103.4",
+          "excerpt": "2015-04-01,103.400"
+        },
+        {
+          "period": "2015-05",
+          "value": "103.6",
+          "excerpt": "2015-05-01,103.600"
+        },
+        {
+          "period": "2015-06",
+          "value": "103.7",
+          "excerpt": "2015-06-01,103.700"
+        },
+        {
+          "period": "2015-07",
+          "value": "103.6",
+          "excerpt": "2015-07-01,103.600"
+        },
+        {
+          "period": "2015-08",
+          "value": "103.4",
+          "excerpt": "2015-08-01,103.400"
+        },
+        {
+          "period": "2015-09",
+          "value": "102.4",
+          "excerpt": "2015-09-01,102.400"
+        },
+        {
+          "period": "2015-10",
+          "value": "102.4",
+          "excerpt": "2015-10-01,102.400"
+        },
+        {
+          "period": "2015-11",
+          "value": "101.9",
+          "excerpt": "2015-11-01,101.900"
+        },
+        {
+          "period": "2015-12",
+          "value": "101.9",
+          "excerpt": "2015-12-01,101.900"
+        },
+        {
+          "period": "2016-01",
+          "value": "101.8",
+          "excerpt": "2016-01-01,101.800"
+        },
+        {
+          "period": "2016-02",
+          "value": "101.7",
+          "excerpt": "2016-02-01,101.700"
+        },
+        {
+          "period": "2016-03",
+          "value": "101.7",
+          "excerpt": "2016-03-01,101.700"
+        },
+        {
+          "period": "2016-04",
+          "value": "101.8",
+          "excerpt": "2016-04-01,101.800"
+        },
+        {
+          "period": "2016-05",
+          "value": "101.9",
+          "excerpt": "2016-05-01,101.900"
+        },
+        {
+          "period": "2016-06",
+          "value": "102.2",
+          "excerpt": "2016-06-01,102.200"
+        },
+        {
+          "period": "2016-07",
+          "value": "102.2",
+          "excerpt": "2016-07-01,102.200"
+        },
+        {
+          "period": "2016-08",
+          "value": "101.8",
+          "excerpt": "2016-08-01,101.800"
+        },
+        {
+          "period": "2016-09",
+          "value": "101.6",
+          "excerpt": "2016-09-01,101.600"
+        },
+        {
+          "period": "2016-10",
+          "value": "101.6",
+          "excerpt": "2016-10-01,101.600"
+        },
+        {
+          "period": "2016-11",
+          "value": "102.1",
+          "excerpt": "2016-11-01,102.100"
+        },
+        {
+          "period": "2016-12",
+          "value": "102.1",
+          "excerpt": "2016-12-01,102.100"
+        },
+        {
+          "period": "2017-01",
+          "value": "102.3",
+          "excerpt": "2017-01-01,102.300"
+        },
+        {
+          "period": "2017-02",
+          "value": "102.2",
+          "excerpt": "2017-02-01,102.200"
+        },
+        {
+          "period": "2017-03",
+          "value": "102.3",
+          "excerpt": "2017-03-01,102.300"
+        },
+        {
+          "period": "2017-04",
+          "value": "102.3",
+          "excerpt": "2017-04-01,102.300"
+        },
+        {
+          "period": "2017-05",
+          "value": "102.5",
+          "excerpt": "2017-05-01,102.500"
+        },
+        {
+          "period": "2017-06",
+          "value": "102.5",
+          "excerpt": "2017-06-01,102.500"
+        },
+        {
+          "period": "2017-07",
+          "value": "102.4",
+          "excerpt": "2017-07-01,102.400"
+        },
+        {
+          "period": "2017-08",
+          "value": "102.4",
+          "excerpt": "2017-08-01,102.400"
+        },
+        {
+          "period": "2017-09",
+          "value": "102.9",
+          "excerpt": "2017-09-01,102.900"
+        },
+        {
+          "period": "2017-10",
+          "value": "103.3",
+          "excerpt": "2017-10-01,103.300"
+        },
+        {
+          "period": "2017-11",
+          "value": "104",
+          "excerpt": "2017-11-01,104.000"
+        },
+        {
+          "period": "2017-12",
+          "value": "103.8",
+          "excerpt": "2017-12-01,103.800"
+        },
+        {
+          "period": "2018-01",
+          "value": "104.2",
+          "excerpt": "2018-01-01,104.200"
+        },
+        {
+          "period": "2018-02",
+          "value": "104.2",
+          "excerpt": "2018-02-01,104.200"
+        },
+        {
+          "period": "2018-03",
+          "value": "104.2",
+          "excerpt": "2018-03-01,104.200"
+        },
+        {
+          "period": "2018-04",
+          "value": "104.9",
+          "excerpt": "2018-04-01,104.900"
+        },
+        {
+          "period": "2018-05",
+          "value": "104.9",
+          "excerpt": "2018-05-01,104.900"
+        },
+        {
+          "period": "2018-06",
+          "value": "104.9",
+          "excerpt": "2018-06-01,104.900"
+        },
+        {
+          "period": "2018-07",
+          "value": "104.9",
+          "excerpt": "2018-07-01,104.900"
+        },
+        {
+          "period": "2018-08",
+          "value": "104.9",
+          "excerpt": "2018-08-01,104.900"
+        },
+        {
+          "period": "2018-09",
+          "value": "104.9",
+          "excerpt": "2018-09-01,104.900"
+        },
+        {
+          "period": "2018-10",
+          "value": "104.9",
+          "excerpt": "2018-10-01,104.900"
+        },
+        {
+          "period": "2018-11",
+          "value": "104.9",
+          "excerpt": "2018-11-01,104.900"
+        },
+        {
+          "period": "2018-12",
+          "value": "104.9",
+          "excerpt": "2018-12-01,104.900"
+        },
+        {
+          "period": "2019-01",
+          "value": "104.9",
+          "excerpt": "2019-01-01,104.900"
+        },
+        {
+          "period": "2019-02",
+          "value": "104.9",
+          "excerpt": "2019-02-01,104.900"
+        },
+        {
+          "period": "2019-03",
+          "value": "104.9",
+          "excerpt": "2019-03-01,104.900"
+        },
+        {
+          "period": "2019-04",
+          "value": "104.9",
+          "excerpt": "2019-04-01,104.900"
+        },
+        {
+          "period": "2019-05",
+          "value": "104.9",
+          "excerpt": "2019-05-01,104.900"
+        },
+        {
+          "period": "2019-06",
+          "value": "105.5",
+          "excerpt": "2019-06-01,105.500"
+        },
+        {
+          "period": "2019-07",
+          "value": "105",
+          "excerpt": "2019-07-01,105.000"
+        },
+        {
+          "period": "2019-08",
+          "value": "107.8",
+          "excerpt": "2019-08-01,107.800"
+        },
+        {
+          "period": "2019-09",
+          "value": "109.8",
+          "excerpt": "2019-09-01,109.800"
+        },
+        {
+          "period": "2019-10",
+          "value": "108",
+          "excerpt": "2019-10-01,108.000"
+        },
+        {
+          "period": "2019-11",
+          "value": "106.8",
+          "excerpt": "2019-11-01,106.800"
+        },
+        {
+          "period": "2019-12",
+          "value": "106.5",
+          "excerpt": "2019-12-01,106.500"
+        },
+        {
+          "period": "2020-01",
+          "value": "105",
+          "excerpt": "2020-01-01,105.000"
+        },
+        {
+          "period": "2020-02",
+          "value": "103.8",
+          "excerpt": "2020-02-01,103.800"
+        },
+        {
+          "period": "2020-03",
+          "value": "103.4",
+          "excerpt": "2020-03-01,103.400"
+        },
+        {
+          "period": "2020-04",
+          "value": "104.5",
+          "excerpt": "2020-04-01,104.500"
+        },
+        {
+          "period": "2020-05",
+          "value": "108.5",
+          "excerpt": "2020-05-01,108.500"
+        },
+        {
+          "period": "2020-06",
+          "value": "101.8",
+          "excerpt": "2020-06-01,101.800"
+        },
+        {
+          "period": "2020-07",
+          "value": "96.4",
+          "excerpt": "2020-07-01,96.400"
+        },
+        {
+          "period": "2020-08",
+          "value": "95.8",
+          "excerpt": "2020-08-01,95.800"
+        },
+        {
+          "period": "2020-09",
+          "value": "100.3",
+          "excerpt": "2020-09-01,100.300"
+        },
+        {
+          "period": "2020-10",
+          "value": "107.2",
+          "excerpt": "2020-10-01,107.200"
+        },
+        {
+          "period": "2020-11",
+          "value": "104.6",
+          "excerpt": "2020-11-01,104.600"
+        },
+        {
+          "period": "2020-12",
+          "value": "101.3",
+          "excerpt": "2020-12-01,101.300"
+        },
+        {
+          "period": "2021-01",
+          "value": "100.4",
+          "excerpt": "2021-01-01,100.400"
+        },
+        {
+          "period": "2021-02",
+          "value": "106.7",
+          "excerpt": "2021-02-01,106.700"
+        },
+        {
+          "period": "2021-03",
+          "value": "107.6",
+          "excerpt": "2021-03-01,107.600"
+        },
+        {
+          "period": "2021-04",
+          "value": "115.7",
+          "excerpt": "2021-04-01,115.700"
+        },
+        {
+          "period": "2021-05",
+          "value": "120.5",
+          "excerpt": "2021-05-01,120.500"
+        },
+        {
+          "period": "2021-06",
+          "value": "133.5",
+          "excerpt": "2021-06-01,133.500"
+        },
+        {
+          "period": "2021-07",
+          "value": "131.884",
+          "excerpt": "2021-07-01,131.884"
+        },
+        {
+          "period": "2021-08",
+          "value": "134.917",
+          "excerpt": "2021-08-01,134.917"
+        },
+        {
+          "period": "2021-09",
+          "value": "154.788",
+          "excerpt": "2021-09-01,154.788"
+        },
+        {
+          "period": "2021-10",
+          "value": "152.11",
+          "excerpt": "2021-10-01,152.110"
+        },
+        {
+          "period": "2021-11",
+          "value": "151.266",
+          "excerpt": "2021-11-01,151.266"
+        },
+        {
+          "period": "2021-12",
+          "value": "158.781",
+          "excerpt": "2021-12-01,158.781"
+        },
+        {
+          "period": "2022-01",
+          "value": "156.417",
+          "excerpt": "2022-01-01,156.417"
+        },
+        {
+          "period": "2022-02",
+          "value": "157.757",
+          "excerpt": "2022-02-01,157.757"
+        },
+        {
+          "period": "2022-03",
+          "value": "156.354",
+          "excerpt": "2022-03-01,156.354"
+        },
+        {
+          "period": "2022-04",
+          "value": "156.397",
+          "excerpt": "2022-04-01,156.397"
+        },
+        {
+          "period": "2022-05",
+          "value": "150.554",
+          "excerpt": "2022-05-01,150.554"
+        },
+        {
+          "period": "2022-06",
+          "value": "144.483",
+          "excerpt": "2022-06-01,144.483"
+        },
+        {
+          "period": "2022-07",
+          "value": "146.509",
+          "excerpt": "2022-07-01,146.509"
+        },
+        {
+          "period": "2022-08",
+          "value": "150.219",
+          "excerpt": "2022-08-01,150.219"
+        },
+        {
+          "period": "2022-09",
+          "value": "136.919",
+          "excerpt": "2022-09-01,136.919"
+        },
+        {
+          "period": "2022-10",
+          "value": "143.233",
+          "excerpt": "2022-10-01,143.233"
+        },
+        {
+          "period": "2022-11",
+          "value": "127.815",
+          "excerpt": "2022-11-01,127.815"
+        },
+        {
+          "period": "2022-12",
+          "value": "129.476",
+          "excerpt": "2022-12-01,129.476"
+        },
+        {
+          "period": "2023-01",
+          "value": "125.914",
+          "excerpt": "2023-01-01,125.914"
+        },
+        {
+          "period": "2023-02",
+          "value": "123.946",
+          "excerpt": "2023-02-01,123.946"
+        },
+        {
+          "period": "2023-03",
+          "value": "118.843",
+          "excerpt": "2023-03-01,118.843"
+        },
+        {
+          "period": "2023-04",
+          "value": "116.075",
+          "excerpt": "2023-04-01,116.075"
+        },
+        {
+          "period": "2023-05",
+          "value": "115.567",
+          "excerpt": "2023-05-01,115.567"
+        },
+        {
+          "period": "2023-06",
+          "value": "117.157",
+          "excerpt": "2023-06-01,117.157"
+        },
+        {
+          "period": "2023-07",
+          "value": "115.712",
+          "excerpt": "2023-07-01,115.712"
+        },
+        {
+          "period": "2023-08",
+          "value": "106.789",
+          "excerpt": "2023-08-01,106.789"
+        },
+        {
+          "period": "2023-09",
+          "value": "110.244",
+          "excerpt": "2023-09-01,110.244"
+        },
+        {
+          "period": "2023-10",
+          "value": "111.255",
+          "excerpt": "2023-10-01,111.255"
+        },
+        {
+          "period": "2023-11",
+          "value": "111.048",
+          "excerpt": "2023-11-01,111.048"
+        },
+        {
+          "period": "2023-12",
+          "value": "120.68",
+          "excerpt": "2023-12-01,120.680"
+        },
+        {
+          "period": "2024-01",
+          "value": "118.908",
+          "excerpt": "2024-01-01,118.908"
+        },
+        {
+          "period": "2024-02",
+          "value": "120.212",
+          "excerpt": "2024-02-01,120.212"
+        },
+        {
+          "period": "2024-03",
+          "value": "117.176",
+          "excerpt": "2024-03-01,117.176"
+        },
+        {
+          "period": "2024-04",
+          "value": "120.026",
+          "excerpt": "2024-04-01,120.026"
+        },
+        {
+          "period": "2024-05",
+          "value": "126.058",
+          "excerpt": "2024-05-01,126.058"
+        },
+        {
+          "period": "2024-06",
+          "value": "125.444",
+          "excerpt": "2024-06-01,125.444"
+        },
+        {
+          "period": "2024-07",
+          "value": "124.916",
+          "excerpt": "2024-07-01,124.916"
+        },
+        {
+          "period": "2024-08",
+          "value": "120.499",
+          "excerpt": "2024-08-01,120.499"
+        },
+        {
+          "period": "2024-09",
+          "value": "120.207",
+          "excerpt": "2024-09-01,120.207"
+        },
+        {
+          "period": "2024-10",
+          "value": "120.857",
+          "excerpt": "2024-10-01,120.857"
+        },
+        {
+          "period": "2024-11",
+          "value": "120.08",
+          "excerpt": "2024-11-01,120.080"
+        },
+        {
+          "period": "2024-12",
+          "value": "120.835",
+          "excerpt": "2024-12-01,120.835"
+        },
+        {
+          "period": "2025-01",
+          "value": "121.033",
+          "excerpt": "2025-01-01,121.033"
+        },
+        {
+          "period": "2025-02",
+          "value": "121.058",
+          "excerpt": "2025-02-01,121.058"
+        },
+        {
+          "period": "2025-03",
+          "value": "121.475",
+          "excerpt": "2025-03-01,121.475"
+        },
+        {
+          "period": "2025-04",
+          "value": "121.395",
+          "excerpt": "2025-04-01,121.395"
+        },
+        {
+          "period": "2025-05",
+          "value": "120.163",
+          "excerpt": "2025-05-01,120.163"
+        },
+        {
+          "period": "2025-06",
+          "value": "124.604",
+          "excerpt": "2025-06-01,124.604"
+        },
+        {
+          "period": "2025-07",
+          "value": "122.581",
+          "excerpt": "2025-07-01,122.581"
+        },
+        {
+          "period": "2025-08",
+          "value": "122.602",
+          "excerpt": "2025-08-01,122.602"
+        },
+        {
+          "period": "2025-09",
+          "value": "123.768",
+          "excerpt": "2025-09-01,123.768"
+        },
+        {
+          "period": "2025-10",
+          "value": "122.914",
+          "excerpt": "2025-10-01,122.914"
+        },
+        {
+          "period": "2025-11",
+          "value": "124.006",
+          "excerpt": "2025-11-01,124.006"
+        },
+        {
+          "period": "2025-12",
+          "value": "125.251",
+          "excerpt": "2025-12-01,125.251"
+        },
+        {
+          "period": "2026-01",
+          "value": "123.26",
+          "excerpt": "2026-01-01,123.260"
+        },
+        {
+          "period": "2026-02",
+          "value": "128.096",
+          "excerpt": "2026-02-01,128.096"
+        },
+        {
+          "period": "2026-03",
+          "value": "122.682",
+          "excerpt": "2026-03-01,122.682"
+        },
+        {
+          "period": "2026-04",
+          "value": "133.537",
+          "excerpt": "2026-04-01,133.537"
+        },
+        {
+          "period": "2026-05",
+          "value": "134.642",
+          "excerpt": "2026-05-01,134.642"
+        },
+        {
+          "period": "2026-06",
+          "value": "136.404",
+          "excerpt": "2026-06-01,136.404"
+        },
+        {
+          "period": "2026-07",
+          "value": "136.404",
+          "excerpt": "2026-07-01,136.404"
+        },
+        {
+          "period": "2026-08",
+          "value": "136.404",
+          "excerpt": "2026-08-01,136.404"
+        }
+      ]
+    },
+    {
       "indicatorCode": "EXO_WHEAT_ARGENTINA",
       "group": "AGRICULTURE",
       "product": "WHEAT",
@@ -80180,8 +85352,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/e23b83a7-7cf7-40b0-87f7-6c03a2d3b2bc/",
-        "upstreamSha256": "8bba8d7ea4c8b6c4bb1b689af99447253bb17bfbe0d2b7037b3ad17ef6083c58",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "d50a7e2220400c092e7a0caec056e821386c5dc2ac944414b0cff9cef49e073f",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -81773,6 +86945,11 @@
           "period": "2026-08",
           "value": "243.9",
           "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":243.9}"
+        },
+        {
+          "period": "2026-09",
+          "value": "261.4",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":261.4}"
         }
       ]
     },
@@ -81791,8 +86968,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/3fefffb8-a60a-43f6-9f70-b71479f44a04/",
-        "upstreamSha256": "cb7e9c1a81524116b1744fa34f154e177c2068401ed724d608bb789e9b54f43a",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "4cebe9d30e951abf81c9f7a201bee2d35927abd2af6fddcfb97e46442e734658",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -83394,6 +88571,11 @@
           "period": "2026-08",
           "value": "213.3",
           "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":213.3}"
+        },
+        {
+          "period": "2026-09",
+          "value": "223.05",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":223.05}"
         }
       ]
     },
@@ -83412,8 +88594,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/d471f6ae-21d2-4c05-a910-55f042fdebf1/",
-        "upstreamSha256": "732f6e71bd8610480f83db45b220751a143161ca6abe385c011533deae6d5865",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "85e785f615c449dbb889f247ffd3a4a4553351f64a60d4eedcf19026e1fa2c19",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -84415,6 +89597,11 @@
           "period": "2026-08",
           "value": "230.86",
           "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":230.86}"
+        },
+        {
+          "period": "2026-09",
+          "value": "238",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":238}"
         }
       ]
     },
@@ -84433,8 +89620,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/16bc8be4-6b15-4551-a9d8-7084ddee3a1c/",
-        "upstreamSha256": "cf2c684bd3c6e990426b0f1f455914a26845a0244c5b38b309e8b6265d8e3c1a",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "47dcddeb0183629741a81a512d484c4aad20cade9bf0015d5194d62c7497e12b",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -85951,6 +91138,11 @@
           "period": "2026-08",
           "value": "233.95",
           "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":233.95}"
+        },
+        {
+          "period": "2026-09",
+          "value": "265.55",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":265.55}"
         }
       ]
     },
@@ -85969,8 +91161,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/897688ad-9181-4c54-a7fd-abd48684797a/",
-        "upstreamSha256": "fabc9a4f21cce1eff85748ef11e9d7bfd11e46e16bec04383bd9ae07ac996376",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "e3eb3429c8ad813adc27fc465b5dbfed11eecc89a82002e002b3c7ca6a0cab29",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -87565,13 +92757,18 @@
         },
         {
           "period": "2026-07",
-          "value": "6350.55",
-          "excerpt": "{\"date\":\"2026-07-01\",\"price_value\":6350.55}"
+          "value": "6350.54",
+          "excerpt": "{\"date\":\"2026-07-01\",\"price_value\":6350.54}"
         },
         {
           "period": "2026-08",
-          "value": "6192.45",
-          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":6192.45}"
+          "value": "6165.75",
+          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":6165.75}"
+        },
+        {
+          "period": "2026-09",
+          "value": "6286.42",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":6286.42}"
         }
       ]
     },
@@ -87590,8 +92787,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/ab4ef0f6-aa61-4fd2-ad26-29f6b82a8311/",
-        "upstreamSha256": "fca5ab347928600d34669eafeb5061c45d013b3af935008636d503d8fda57255",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "6022ded67ee6e4fba91c54782cfd9e0cff4ac7e39131284243e3edf0a52d689c",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -89181,18 +94378,23 @@
         },
         {
           "period": "2026-06",
-          "value": "2017.31",
-          "excerpt": "{\"date\":\"2026-06-01\",\"price_value\":2017.31}"
+          "value": "2017.24",
+          "excerpt": "{\"date\":\"2026-06-01\",\"price_value\":2017.24}"
         },
         {
           "period": "2026-07",
-          "value": "1862.93",
-          "excerpt": "{\"date\":\"2026-07-01\",\"price_value\":1862.93}"
+          "value": "1973.15",
+          "excerpt": "{\"date\":\"2026-07-01\",\"price_value\":1973.15}"
         },
         {
           "period": "2026-08",
-          "value": "1993.98",
-          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":1993.98}"
+          "value": "2008.19",
+          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":2008.19}"
+        },
+        {
+          "period": "2026-09",
+          "value": "1941.37",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":1941.37}"
         }
       ]
     },
@@ -89211,8 +94413,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/223de48c-f284-486a-8bb6-fdbdaf81a4ba/",
-        "upstreamSha256": "3f807bb47b3c543e8c7cd2cbb494326173cf4061d2d26d3992ac0affc55b18a9",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "11cc641d136a2b67ef9c761ca6bef9969a7751162ab05331f635d13579f50fee",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -90802,18 +96004,23 @@
         },
         {
           "period": "2026-06",
-          "value": "2504.14",
-          "excerpt": "{\"date\":\"2026-06-01\",\"price_value\":2504.14}"
+          "value": "2504.27",
+          "excerpt": "{\"date\":\"2026-06-01\",\"price_value\":2504.27}"
         },
         {
           "period": "2026-07",
-          "value": "2408.26",
-          "excerpt": "{\"date\":\"2026-07-01\",\"price_value\":2408.26}"
+          "value": "2408.39",
+          "excerpt": "{\"date\":\"2026-07-01\",\"price_value\":2408.39}"
         },
         {
           "period": "2026-08",
-          "value": "2341.88",
-          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":2341.88}"
+          "value": "2336.01",
+          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":2336.01}"
+        },
+        {
+          "period": "2026-09",
+          "value": "2275.16",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":2275.16}"
         }
       ]
     },
@@ -90832,8 +96039,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/70d0099b-3cda-4997-9bf1-dfc86ed1927c/",
-        "upstreamSha256": "aa8fd9e29770a9dd8ce9b58d376643ffe769de79f56c7e6d967a079080b9744c",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "bd169abeed3b9266b5cb98412c120eae01eb58126c521594f1a9fb8926fae877",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -92433,8 +97640,13 @@
         },
         {
           "period": "2026-08",
-          "value": "3675.24",
-          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":3675.24}"
+          "value": "3675.36",
+          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":3675.36}"
+        },
+        {
+          "period": "2026-09",
+          "value": "3816.14",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":3816.14}"
         }
       ]
     },
@@ -92453,8 +97665,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/050a093f-268a-415b-8e1a-a87033d1908f/",
-        "upstreamSha256": "8a4cb8e4f5929605f99a15bc21ad4d09dbf8de0fc00d3b2423805e25275fec21",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "ced89648aad1cc470daa256e1e5a1958ee6f822d5ef24b83cebf40efe4ad9905",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -94054,8 +99266,13 @@
         },
         {
           "period": "2026-08",
-          "value": "3312.22",
-          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":3312.22}"
+          "value": "3312.42",
+          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":3312.42}"
+        },
+        {
+          "period": "2026-09",
+          "value": "3566.91",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":3566.91}"
         }
       ]
     },
@@ -94074,8 +99291,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/23397429-69b2-472f-bfed-19d0bd943937/",
-        "upstreamSha256": "cff487967c9e49d1602391bcf1476b1086a2bff560e2e4bf1da71cd4f552da87",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "3f155d9a750211bd530218ba8ce65e67c3bad89609fc341bc94610115d0de550",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -95675,8 +100892,13 @@
         },
         {
           "period": "2026-08",
-          "value": "3876.74",
-          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":3876.74}"
+          "value": "3877.05",
+          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":3877.05}"
+        },
+        {
+          "period": "2026-09",
+          "value": "3717.59",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":3717.59}"
         }
       ]
     },
@@ -95695,8 +100917,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/a2d52862-666a-45d6-8887-2f6a56205000/",
-        "upstreamSha256": "d58789060585c02afda4bd8f152a1c209d7fef07476b7520a146376151ffa879",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "upstreamSha256": "0d2a36bd02936f855d85521efdcbcaa5242f664f15ee4035341258e153a2fd65",
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -97296,8 +102518,13 @@
         },
         {
           "period": "2026-08",
-          "value": "4865.88",
-          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":4865.88}"
+          "value": "4866.15",
+          "excerpt": "{\"date\":\"2026-08-01\",\"price_value\":4866.15}"
+        },
+        {
+          "period": "2026-09",
+          "value": "4851.59",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":4851.59}"
         }
       ]
     },
@@ -97317,7 +102544,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/3418d905-0fcc-4cdf-85d5-2a3c0de6c484/",
         "upstreamSha256": "b8380a1a005ec022bdafc6f962b963bded132bed5548728cf0a21d02d95cf9b3",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -98278,7 +103505,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/8aab93c3-b940-44c7-89a4-e88cdf34aad0/",
         "upstreamSha256": "d005e96e240d29c3d9802fdc27056807d03951c8ec4e90b7ad609482e86e1c6c",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -99004,7 +104231,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/ee40cfe4-8069-4211-a149-c56d4851883d/",
         "upstreamSha256": "d6113e5343bc6c9b81c0ad864d1eda8260b6425429ce9fbdd84bcdc346856167",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -99940,7 +105167,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/21a5e40b-605f-436c-80df-2c44f4bac0b4/",
         "upstreamSha256": "9547f99d6539b8ce5a449ba903546fc835cd58b710aae45e06dd748e9fc42910",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -100731,7 +105958,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/6ed43cda-91e9-435c-9c63-76dde9c3903c/",
         "upstreamSha256": "7f09817e64e03526ea42ecafdf0fcda44d62aaf4674e27af6838772a331eb26b",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -101672,7 +106899,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/0e96d94d-0e31-41b1-ba2d-6f5bf34bed65/",
         "upstreamSha256": "a4dcc2c5d67369f8db0ce5134a942610f3fb97583078fe1502047b6f2d4e0d80",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -102433,7 +107660,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/0bf18386-4f8f-4c69-a17a-9a530c945976/",
         "upstreamSha256": "a5e74aa603d987a680705a756fb583c7f29dec37da2459ed453e0e5f1910fe01",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -102849,7 +108076,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/6365c28c-3790-466c-92c9-c83c44c7b3e8/",
         "upstreamSha256": "39ec41684a2bf1e0ff0c52d59ad0ef59a0723e57ca2677ae5d241150ce1f2dc7",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -103755,7 +108982,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/72f3baa1-6e68-44d8-9840-7fef195bd3f4/",
         "upstreamSha256": "c3628918d7ba773d62f90c37f281ec8e870cf15bbcb2ad7a51c564c9d8468f8f",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -104881,7 +110108,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/77b36eee-4579-4aac-a40b-2d4e5c198e27/",
         "upstreamSha256": "a7a3b163e5abf5ed34a45e201bd2cc4fc1859df0a5fa249b54c26f63cc77b935",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -105967,7 +111194,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/172d7372-7cde-4fcd-841e-7d3cd58569ff/",
         "upstreamSha256": "d4d679eb5841f0e60339474835a5ab3c801d740e8ccbcc3bf97354e1161f1846",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -107033,7 +112260,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/073aa226-3629-4bec-99c1-9f450a280262/",
         "upstreamSha256": "a5d1e1f141d56959509773faa253b55ea9536e4fd656b08b192a477849d403fa",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -108099,7 +113326,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/d0c53b28-d380-481b-a19c-ffd8233cdd30/",
         "upstreamSha256": "50b285fb284bd04ae796769479e98de3924ccabf48b42b93f2a53493d5c69eb8",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -109210,7 +114437,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/ad042b5d-5013-463c-95ea-6986c79eff80/",
         "upstreamSha256": "f597ef9ef4388e4e2c6f0c33bd7a7fad4ff3e833127cf65c4d7f148d63dec3df",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -110306,7 +115533,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/6c9683dd-73b0-4298-86b5-ba42c413cbed/",
         "upstreamSha256": "5f88527960e811da453e2f2f686e3381711e4a7ba941a6536d39c0acc6ee2859",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -111377,7 +116604,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/d07783c8-cff4-4220-b39a-3ef40a6b8cb3/",
         "upstreamSha256": "16e72d8a6cbfff31e49439fe7e71185912c768b60277513cf92d796c307bd16c",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -112453,7 +117680,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/45ef01a5-e664-4299-8c19-3c737cf9bb17/",
         "upstreamSha256": "fbc568a6b7f6758cb54f71088faebfd755efe1e48722e0ee2f3795c0a72630a7",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -113384,7 +118611,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/7d725895-1aa2-4b1c-af08-c61ea51b92b4/",
         "upstreamSha256": "6f87c410ab07826f762768d99335bc8f5ee172dc58039adb4b778c27120db30c",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -114300,7 +119527,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/c061e903-0c64-4e53-afe2-988cdbdab45e/",
         "upstreamSha256": "705f3a5eee28ef7d3fd0938a79d2da84d3b9ab125d9549a5b9858f82cbf29c4a",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -115211,7 +120438,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/cd8576e4-e902-454b-abea-46ab179fb811/",
         "upstreamSha256": "0c4737f5924893405e4bd52221198eec348f88bc1102508a78011442c939d582",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -116107,7 +121334,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/f9d49e62-4ae2-48ce-bf41-62ca1a9813d3/",
         "upstreamSha256": "6bcd9129d8d4d32801c17f0f53c478209bfe56525a58d30c7e0e39f2e2dee8ba",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -117233,7 +122460,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/3867f9c8-1d37-4e9a-94ae-1f6d24b4c730/",
         "upstreamSha256": "0c7771d29027451feeb40fb188861a235e50dbf7b2d7897a4dd4ae9161d1f26b",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -118329,7 +123556,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/06664ade-2f8f-40ea-962f-f44d31e35b68/",
         "upstreamSha256": "25bbde9ca744d7f5e1ee8315e401c29fa5ebbcf5c55606554e97f2c48dd1669e",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -119400,7 +124627,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/0b16549f-afc0-4b78-92a3-04deacc85c5c/",
         "upstreamSha256": "2aff59e6604a9cfcbff0728d3144bdd83690ecdc259f62e8ed81ff13ff0c51f7",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -120476,7 +125703,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/658b3fc6-350f-4630-9c62-eb61026f2cd8/",
         "upstreamSha256": "b3aca840e9492568da37f9457e88016a19d6d601303ce9903278f3ddf3779721",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -121017,7 +126244,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/da3df29d-58f6-4453-9b1a-3ed24c4f73b7/",
         "upstreamSha256": "a1ff6ce495cfb26d0fab686bd3a3665d519f981c6bb703e889d1e9ee149f74d4",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -121558,7 +126785,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/53463e30-c254-4698-8c18-2ec7906a7b5d/",
         "upstreamSha256": "17c5b30dbb53ce0bff498e1c1f030f282e8df8728c435b1ad99593f2c5db1cee",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -122639,7 +127866,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/372ac15a-2ed1-4904-8d94-1058885ffc7e/",
         "upstreamSha256": "8c036fc0cdbc0b00633fde3994e30fe1c7c48070698e6ceba9d39fd9028ec61d",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -123720,7 +128947,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/2d79f438-7772-49c5-a68e-bc308d379b96/",
         "upstreamSha256": "f33473c6fa777b3005aa257846f4bbff622a416e19faeb80cead9a946fe076dd",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -124261,7 +129488,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/f406c9e1-f3ba-4631-9062-cec1cab81ff7/",
         "upstreamSha256": "c22d4b21540859358d2bd3ef8a3c7a76da7ac8d120b26362eaabfa01844a8aaa",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -124802,7 +130029,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/48c8e355-85a8-4dd5-ae17-cc9a19a38a15/",
         "upstreamSha256": "fb79d35e910ed537d2612482c66a32f3bb01075711618151ad615d92cc8b0154",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -125343,7 +130570,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/cd22c0a3-9bf7-41c1-9f5a-86a749c684cd/",
         "upstreamSha256": "52fc6ad2cae827bf7677fffdcf0fab0944ee60fd1b7575bc39e561ddc4e69cae",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -125884,7 +131111,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/55253f8e-d22b-4f62-a123-8b94ab215510/",
         "upstreamSha256": "1b020c9f6e61ac140f4bd463557fcb7a507d0667663506046fcdfcad2880fc1b",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {
@@ -126965,7 +132192,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/4b93359e-c4e1-49cb-86d8-b210c8d52555/",
         "upstreamSha256": "656ebddd835086d7995476be13415e84c842aa1cc371f25bce17427cde314a4f",
-        "retrievedAt": "2026-10-01T02:05:10Z"
+        "retrievedAt": "2026-10-04T01:29:31Z"
       },
       "points": [
         {

@@ -1,0 +1,3378 @@
+{
+ "provenance": {
+  "runId": "2026-10-05",
+  "runs": [
+   "2026-10-05"
+  ],
+  "retrievedAt": "2026-10-06T20:46:06.000Z",
+  "collector": "scripts/social/live/collect-live.ts",
+  "method": "Lives públicos de TikTok vistos sin sesión desde una conexión residencial en Bolivia; chat leído de la página, voz transcrita completa y texto en pantalla leído del stream; solo agregados.",
+  "speechModel": "faster-whisper small (CTranslate2)",
+  "sentimentModel": "pysentimiento RoBERTuito (ONNX)",
+  "ocrModel": "RapidOCR (ONNX)",
+  "lexiconVersion": "2026-10-06.1",
+  "usdRate": 12.0181,
+  "phraseThreshold": {
+   "people": 5,
+   "lives": 3
+  }
+ },
+ "rubros": [
+  {
+   "code": "ROPA_MUJER",
+   "label": "Ropa de mujer"
+  },
+  {
+   "code": "ROPA_VARON",
+   "label": "Ropa de varón"
+  },
+  {
+   "code": "ROPA_INFANTIL",
+   "label": "Ropa infantil"
+  },
+  {
+   "code": "ROPA_GENERAL",
+   "label": "Ropa (sin género declarado)"
+  },
+  {
+   "code": "ROPA_USADA",
+   "label": "Ropa usada y fardos"
+  },
+  {
+   "code": "CALZADO",
+   "label": "Calzado"
+  },
+  {
+   "code": "COSMETICOS",
+   "label": "Cosméticos y cuidado personal"
+  },
+  {
+   "code": "PERFUMES",
+   "label": "Perfumes"
+  },
+  {
+   "code": "BISUTERIA",
+   "label": "Bisutería y accesorios"
+  },
+  {
+   "code": "CARTERAS",
+   "label": "Carteras, mochilas y bolsos"
+  },
+  {
+   "code": "CELULARES",
+   "label": "Celulares y sus accesorios"
+  },
+  {
+   "code": "ELECTRONICA",
+   "label": "Electrónica y electrodomésticos"
+  },
+  {
+   "code": "HOGAR",
+   "label": "Hogar y cocina"
+  },
+  {
+   "code": "JUGUETES",
+   "label": "Juguetes y peluches"
+  },
+  {
+   "code": "BEBES",
+   "label": "Bebés"
+  },
+  {
+   "code": "ALIMENTOS",
+   "label": "Alimentos y abarrotes"
+  },
+  {
+   "code": "GASTRONOMIA",
+   "label": "Gastronomía (comida preparada, restaurantes, repostería)"
+  },
+  {
+   "code": "SUPLEMENTOS",
+   "label": "Suplementos y productos naturales"
+  },
+  {
+   "code": "MASCOTAS",
+   "label": "Mascotas"
+  },
+  {
+   "code": "VEHICULOS",
+   "label": "Vehículos, motos y repuestos"
+  },
+  {
+   "code": "INMUEBLES",
+   "label": "Inmuebles y lotes"
+  },
+  {
+   "code": "SERVICIOS",
+   "label": "Servicios"
+  },
+  {
+   "code": "BELLEZA_SERVICIOS",
+   "label": "Servicios de belleza (uñas, cejas, spa, peluquería)"
+  },
+  {
+   "code": "ENTRETENIMIENTO",
+   "label": "Entretenimiento (música, juegos, eventos, entradas)"
+  },
+  {
+   "code": "TURISMO",
+   "label": "Viajes y turismo"
+  },
+  {
+   "code": "SORTEOS",
+   "label": "Sorteos y rifas"
+  },
+  {
+   "code": "PLANTAS",
+   "label": "Plantas y jardín"
+  },
+  {
+   "code": "PAPELERIA",
+   "label": "Papelería y útiles"
+  }
+ ],
+ "departments": [
+  {
+   "code": "LPZ",
+   "label": "La Paz"
+  },
+  {
+   "code": "SCZ",
+   "label": "Santa Cruz"
+  },
+  {
+   "code": "CBB",
+   "label": "Cochabamba"
+  },
+  {
+   "code": "ORU",
+   "label": "Oruro"
+  },
+  {
+   "code": "PTS",
+   "label": "Potosí"
+  },
+  {
+   "code": "CHQ",
+   "label": "Chuquisaca"
+  },
+  {
+   "code": "TJA",
+   "label": "Tarija"
+  },
+  {
+   "code": "BEN",
+   "label": "Beni"
+  },
+  {
+   "code": "PND",
+   "label": "Pando"
+  }
+ ],
+ "rooms": [
+  {
+   "roomKey": "fd9d7ebb84b5482d",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 1,
+   "weekday": 2,
+   "sellerId": "8c7aeaff2204fc44",
+   "status": "VENTA",
+   "rubro": "COSMETICOS",
+   "product": "unas",
+   "products": [
+    {
+     "product": "unas",
+     "weight": 2,
+     "rubro": "COSMETICOS"
+    },
+    {
+     "product": "fardo",
+     "weight": 2,
+     "rubro": "ROPA_USADA"
+    },
+    {
+     "product": "departamento",
+     "weight": 1,
+     "rubro": "INMUEBLES"
+    }
+   ],
+   "city": null,
+   "citySource": null,
+   "bolivia": false,
+   "size": "MEDIANO",
+   "minutes": 4,
+   "endReason": "SIN_CIERRE",
+   "viewersPeak": 194,
+   "viewersMedian": 161,
+   "entries": 12493,
+   "messages": 14,
+   "authors": 12,
+   "buyers": 0,
+   "signals": {
+    "UBICACION": 5,
+    "PRODUCTO": 1,
+    "PRECIO": 7,
+    "QUE_ES": 1
+   },
+   "payments": {},
+   "destinations": {},
+   "emotions": {
+    "others": 6,
+    "apt": 6
+   },
+   "polarity": {
+    "NEU": 6
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "curve": [
+    [
+     120,
+     168
+    ],
+    [
+     121,
+     159
+    ],
+    [
+     122,
+     161
+    ],
+    [
+     123,
+     158
+    ]
+   ],
+   "dollarTalk": 0,
+   "speechSegments": 34,
+   "screenReads": 2,
+   "prices": 4
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 1,
+   "weekday": 2,
+   "sellerId": "d9efb4dd7acaf6f5",
+   "status": "VENTA",
+   "rubro": "COSMETICOS",
+   "product": "crema",
+   "products": [
+    {
+     "product": "dinamica",
+     "weight": 16,
+     "rubro": "SORTEOS"
+    },
+    {
+     "product": "crema",
+     "weight": 7,
+     "rubro": "COSMETICOS"
+    },
+    {
+     "product": "rubor",
+     "weight": 7,
+     "rubro": "COSMETICOS"
+    },
+    {
+     "product": "gloss",
+     "weight": 4,
+     "rubro": "COSMETICOS"
+    },
+    {
+     "product": "maquillaje",
+     "weight": 3,
+     "rubro": "COSMETICOS"
+    }
+   ],
+   "city": "SCZ",
+   "citySource": "PERFIL",
+   "bolivia": true,
+   "size": "MICRO",
+   "minutes": 4,
+   "endReason": "SIN_CIERRE",
+   "viewersPeak": 10,
+   "viewersMedian": 8,
+   "entries": 668,
+   "messages": 8,
+   "authors": 3,
+   "buyers": 1,
+   "signals": {
+    "COMPRA": 1,
+    "VARIANTE": 2,
+    "DISPONIBILIDAD": 1,
+    "PRODUCTO": 1
+   },
+   "payments": {},
+   "destinations": {},
+   "emotions": {
+    "others": 2,
+    "apt": 2,
+    "ironic": 1
+   },
+   "polarity": {
+    "NEU": 2
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "curve": [
+    [
+     195,
+     8
+    ],
+    [
+     196,
+     10
+    ],
+    [
+     198,
+     9
+    ],
+    [
+     199,
+     6
+    ]
+   ],
+   "dollarTalk": 0,
+   "speechSegments": 29,
+   "screenReads": 19,
+   "prices": 9
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 1,
+   "weekday": 2,
+   "sellerId": "f9e4eb59d41dfcbf",
+   "status": "VENTA",
+   "rubro": "CARTERAS",
+   "product": "mochila",
+   "products": [
+    {
+     "product": "mochila",
+     "weight": 26,
+     "rubro": "CARTERAS"
+    },
+    {
+     "product": "crema",
+     "weight": 5,
+     "rubro": "COSMETICOS"
+    },
+    {
+     "product": "ropa",
+     "weight": 4,
+     "rubro": "ROPA_GENERAL"
+    },
+    {
+     "product": "rompevientos",
+     "weight": 3,
+     "rubro": "ROPA_GENERAL"
+    },
+    {
+     "product": "bota",
+     "weight": 3,
+     "rubro": "CALZADO"
+    }
+   ],
+   "city": "LPZ",
+   "citySource": "PERFIL",
+   "bolivia": true,
+   "size": "MICRO",
+   "minutes": 21,
+   "endReason": "ROTATED",
+   "viewersPeak": 12,
+   "viewersMedian": 10,
+   "entries": 1181,
+   "messages": 27,
+   "authors": 12,
+   "buyers": 0,
+   "signals": {
+    "MUESTRA": 2,
+    "PRODUCTO": 10,
+    "PRECIO": 10,
+    "VARIANTE": 8,
+    "DISPONIBILIDAD": 1
+   },
+   "payments": {},
+   "destinations": {},
+   "emotions": {
+    "others": 19,
+    "apt": 19,
+    "ironic": 7
+   },
+   "polarity": {
+    "NEG": 2,
+    "NEU": 16,
+    "POS": 1
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "curve": [
+    [
+     52,
+     10
+    ],
+    [
+     53,
+     8
+    ],
+    [
+     54,
+     11
+    ],
+    [
+     55,
+     10
+    ],
+    [
+     56,
+     9
+    ],
+    [
+     57,
+     11
+    ],
+    [
+     58,
+     11
+    ],
+    [
+     59,
+     10
+    ],
+    [
+     60,
+     11
+    ],
+    [
+     61,
+     10
+    ],
+    [
+     65,
+     11
+    ],
+    [
+     66,
+     12
+    ],
+    [
+     67,
+     8
+    ],
+    [
+     68,
+     8
+    ],
+    [
+     69,
+     11
+    ],
+    [
+     70,
+     9
+    ],
+    [
+     71,
+     11
+    ],
+    [
+     72,
+     12
+    ],
+    [
+     73,
+     9
+    ]
+   ],
+   "dollarTalk": 0,
+   "speechSegments": 179,
+   "screenReads": 40,
+   "prices": 9
+  },
+  {
+   "roomKey": "92c57dbdfbdde790",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 1,
+   "weekday": 2,
+   "sellerId": "a51d8bd81f95308c",
+   "status": "VENTA",
+   "rubro": "ROPA_MUJER",
+   "product": "top",
+   "products": [
+    {
+     "product": "top",
+     "weight": 7,
+     "rubro": "ROPA_GENERAL"
+    },
+    {
+     "product": "body",
+     "weight": 4,
+     "rubro": "ROPA_GENERAL"
+    },
+    {
+     "product": "muneca",
+     "weight": 2,
+     "rubro": "JUGUETES"
+    },
+    {
+     "product": "ropa",
+     "weight": 2,
+     "rubro": "ROPA_GENERAL"
+    },
+    {
+     "product": "cafe",
+     "weight": 1,
+     "rubro": "ALIMENTOS"
+    }
+   ],
+   "city": "CHQ",
+   "citySource": "PERFIL",
+   "bolivia": true,
+   "size": "CHICO",
+   "minutes": 4,
+   "endReason": "ENDED",
+   "viewersPeak": 60,
+   "viewersMedian": 53,
+   "entries": 2650,
+   "messages": 28,
+   "authors": 11,
+   "buyers": 4,
+   "signals": {
+    "PAGO": 1,
+    "COMPRA": 6,
+    "VARIANTE": 4,
+    "PRODUCTO": 3,
+    "DISPONIBILIDAD": 2,
+    "ENVIO": 1
+   },
+   "payments": {},
+   "destinations": {},
+   "emotions": {
+    "sadness": 1,
+    "others": 12,
+    "apt": 13,
+    "ironic": 6
+   },
+   "polarity": {
+    "NEU": 10,
+    "NEG": 3
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "curve": [
+    [
+     63,
+     60
+    ],
+    [
+     64,
+     59
+    ],
+    [
+     65,
+     48
+    ],
+    [
+     66,
+     32
+    ],
+    [
+     67,
+     6
+    ]
+   ],
+   "dollarTalk": 0,
+   "speechSegments": 24,
+   "screenReads": 0,
+   "prices": 3
+  },
+  {
+   "roomKey": "23bcf08dd06ebb8a",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 1,
+   "weekday": 2,
+   "sellerId": "bfba59e8a1e973ba",
+   "status": "VENTA",
+   "rubro": "ROPA_MUJER",
+   "product": "canguro",
+   "products": [
+    {
+     "product": "canguro",
+     "weight": 13,
+     "rubro": "ROPA_GENERAL"
+    },
+    {
+     "product": "prenda",
+     "weight": 12,
+     "rubro": "ROPA_GENERAL"
+    },
+    {
+     "product": "pantalon",
+     "weight": 6,
+     "rubro": "ROPA_GENERAL"
+    },
+    {
+     "product": "chaleco",
+     "weight": 5,
+     "rubro": "ROPA_GENERAL"
+    },
+    {
+     "product": "tela",
+     "weight": 4,
+     "rubro": "ROPA_GENERAL"
+    }
+   ],
+   "city": null,
+   "citySource": null,
+   "bolivia": true,
+   "size": "MICRO",
+   "minutes": 16,
+   "endReason": "LOW_MEMORY",
+   "viewersPeak": 13,
+   "viewersMedian": 9,
+   "entries": 1027,
+   "messages": 23,
+   "authors": 7,
+   "buyers": 3,
+   "signals": {
+    "COMPRA": 6,
+    "DISPONIBILIDAD": 1,
+    "PRODUCTO": 3,
+    "VARIANTE": 2,
+    "CONTACTO": 1,
+    "MUESTRA": 1,
+    "PRECIO": 2
+   },
+   "payments": {},
+   "destinations": {},
+   "emotions": {
+    "others": 9,
+    "apt": 9,
+    "ironic": 3
+   },
+   "polarity": {
+    "NEU": 7,
+    "POS": 1,
+    "NEG": 1
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "curve": [
+    [
+     96,
+     12
+    ],
+    [
+     97,
+     12
+    ],
+    [
+     98,
+     11
+    ],
+    [
+     99,
+     12
+    ],
+    [
+     100,
+     13
+    ],
+    [
+     104,
+     10
+    ],
+    [
+     105,
+     9
+    ],
+    [
+     106,
+     9
+    ],
+    [
+     107,
+     9
+    ],
+    [
+     108,
+     7
+    ],
+    [
+     109,
+     7
+    ],
+    [
+     110,
+     9
+    ],
+    [
+     111,
+     8
+    ],
+    [
+     112,
+     9
+    ]
+   ],
+   "dollarTalk": 0,
+   "speechSegments": 175,
+   "screenReads": 3,
+   "prices": 7
+  },
+  {
+   "roomKey": "7bc2354d3745c278",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 2,
+   "weekday": 2,
+   "sellerId": "aa797c6e88c23dd2",
+   "status": "SIN_VENTA",
+   "rubro": "SIN_IDENTIFICAR",
+   "product": null,
+   "products": [],
+   "city": "SCZ",
+   "citySource": "PERFIL",
+   "bolivia": true,
+   "size": "MICRO",
+   "minutes": 1,
+   "endReason": "ENDED",
+   "viewersPeak": 11,
+   "viewersMedian": 4,
+   "entries": 1084,
+   "messages": 6,
+   "authors": 4,
+   "buyers": 1,
+   "signals": {
+    "DISPONIBILIDAD": 1,
+    "COMPRA": 1,
+    "VARIANTE": 2
+   },
+   "payments": {},
+   "destinations": {},
+   "emotions": {
+    "others": 2,
+    "apt": 2
+   },
+   "polarity": {
+    "NEU": 2
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "curve": [
+    [
+     301,
+     4
+    ],
+    [
+     302,
+     4
+    ]
+   ],
+   "dollarTalk": 0,
+   "speechSegments": 0,
+   "screenReads": 0,
+   "prices": 0
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 2,
+   "weekday": 2,
+   "sellerId": "3dcd7b18ed8b8f87",
+   "status": "VENTA",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "products": [
+    {
+     "product": "soldadito",
+     "weight": 8,
+     "rubro": "JUGUETES"
+    },
+    {
+     "product": "robot",
+     "weight": 7,
+     "rubro": "JUGUETES"
+    },
+    {
+     "product": "planta",
+     "weight": 3,
+     "rubro": "PLANTAS"
+    },
+    {
+     "product": "anillo",
+     "weight": 2,
+     "rubro": "BISUTERIA"
+    },
+    {
+     "product": "bebe",
+     "weight": 2,
+     "rubro": "BEBES"
+    }
+   ],
+   "city": "SCZ",
+   "citySource": "PERFIL",
+   "bolivia": true,
+   "size": "MICRO",
+   "minutes": 11,
+   "endReason": "ENDED",
+   "viewersPeak": 15,
+   "viewersMedian": 10,
+   "entries": 1125,
+   "messages": 37,
+   "authors": 11,
+   "buyers": 4,
+   "signals": {
+    "MUESTRA": 4,
+    "PRODUCTO": 15,
+    "DISPONIBILIDAD": 4,
+    "ENVIO": 1,
+    "UBICACION": 1,
+    "PRECIO": 7,
+    "COMPRA": 6,
+    "PAGO": 1,
+    "VARIANTE": 2,
+    "REGATEO": 2,
+    "SALUDO": 1
+   },
+   "payments": {},
+   "destinations": {},
+   "emotions": {
+    "others": 22,
+    "apt": 22,
+    "ironic": 12
+   },
+   "polarity": {
+    "NEU": 19,
+    "NEG": 3
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "curve": [
+    [
+     308,
+     10
+    ],
+    [
+     309,
+     8
+    ],
+    [
+     310,
+     10
+    ],
+    [
+     311,
+     13
+    ],
+    [
+     312,
+     15
+    ],
+    [
+     313,
+     12
+    ],
+    [
+     314,
+     11
+    ],
+    [
+     315,
+     11
+    ],
+    [
+     316,
+     10
+    ],
+    [
+     317,
+     10
+    ],
+    [
+     318,
+     1
+    ],
+    [
+     319,
+     1
+    ]
+   ],
+   "dollarTalk": 0,
+   "speechSegments": 92,
+   "screenReads": 5,
+   "prices": 12
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 2,
+   "weekday": 2,
+   "sellerId": "469d45582d523009",
+   "status": "VENTA",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "products": [
+    {
+     "product": "figura",
+     "weight": 16,
+     "rubro": "JUGUETES"
+    },
+    {
+     "product": "juguete",
+     "weight": 14,
+     "rubro": "JUGUETES"
+    },
+    {
+     "product": "dije",
+     "weight": 8,
+     "rubro": "BISUTERIA"
+    },
+    {
+     "product": "auto",
+     "weight": 8,
+     "rubro": "VEHICULOS"
+    },
+    {
+     "product": "camioneta",
+     "weight": 7,
+     "rubro": "VEHICULOS"
+    }
+   ],
+   "city": "SCZ",
+   "citySource": "PERFIL",
+   "bolivia": true,
+   "size": "CHICO",
+   "minutes": 17,
+   "endReason": "SIN_CIERRE",
+   "viewersPeak": 78,
+   "viewersMedian": 65,
+   "entries": 2486,
+   "messages": 245,
+   "authors": 25,
+   "buyers": 13,
+   "signals": {
+    "COMPRA": 40,
+    "ENVIO": 2,
+    "PRODUCTO": 27,
+    "VARIANTE": 3,
+    "DISPONIBILIDAD": 8,
+    "DESCONFIANZA": 1,
+    "CONFIANZA": 1,
+    "PRECIO": 4,
+    "MUESTRA": 5,
+    "QUE_ES": 4,
+    "FRICCION": 1,
+    "PRECIO_JUICIO": 1,
+    "CONTACTO": 1
+   },
+   "payments": {},
+   "destinations": {
+    "BEN": 1
+   },
+   "emotions": {
+    "joy": 17,
+    "sadness": 1,
+    "anger": 3,
+    "surprise": 6,
+    "others": 88,
+    "apt": 115,
+    "ironic": 38
+   },
+   "polarity": {
+    "NEG": 25,
+    "NEU": 73,
+    "POS": 6
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "curve": [
+    [
+     106,
+     60
+    ],
+    [
+     107,
+     60
+    ],
+    [
+     108,
+     60
+    ],
+    [
+     109,
+     58
+    ],
+    [
+     110,
+     59
+    ],
+    [
+     111,
+     69
+    ],
+    [
+     112,
+     63
+    ],
+    [
+     113,
+     69
+    ],
+    [
+     114,
+     63
+    ],
+    [
+     115,
+     68
+    ],
+    [
+     116,
+     63
+    ],
+    [
+     117,
+     67
+    ],
+    [
+     118,
+     74
+    ],
+    [
+     119,
+     77
+    ],
+    [
+     120,
+     76
+    ],
+    [
+     121,
+     76
+    ],
+    [
+     122,
+     78
+    ]
+   ],
+   "dollarTalk": 0,
+   "speechSegments": 180,
+   "screenReads": 4,
+   "prices": 10
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "run": "2026-10-05",
+   "date": "2026-10-06",
+   "hour": 2,
+   "weekday": 2,
+   "sellerId": "62eee88dfe045723",
+   "status": "VENTA",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "products": [
+    {
+     "product": "cocina",
+     "weight": 9,
+     "rubro": "HOGAR"
+    },
+    {
+     "product": "chocolate",
+     "weight": 6,
+     "rubro": "ALIMENTOS"
+    },
+    {
+     "product": "pinza",
+     "weight": 4,
+     "rubro": "BISUTERIA"
+    },
+    {
+     "product": "dinamica",
+     "weight": 4,
+     "rubro": "SORTEOS"
+    },
+    {
+     "product": "gelatina",
+     "weight": 4,
+     "rubro": "GASTRONOMIA"
+    }
+   ],
+   "city": "LPZ",
+   "citySource": "PERFIL",
+   "bolivia": true,
+   "size": "CHICO",
+   "minutes": 11,
+   "endReason": "SIN_CIERRE",
+   "viewersPeak": 54,
+   "viewersMedian": 38,
+   "entries": 3021,
+   "messages": 44,
+   "authors": 8,
+   "buyers": 3,
+   "signals": {
+    "COMPRA": 3,
+    "VARIANTE": 3
+   },
+   "payments": {},
+   "destinations": {},
+   "emotions": {
+    "joy": 1,
+    "sadness": 1,
+    "others": 14,
+    "apt": 16,
+    "ironic": 7
+   },
+   "polarity": {
+    "NEU": 9,
+    "POS": 2,
+    "NEG": 4
+   },
+   "gifts": 0,
+   "follows": 0,
+   "shares": 0,
+   "likes": 0,
+   "curve": [
+    [
+     163,
+     41
+    ],
+    [
+     164,
+     49
+    ],
+    [
+     165,
+     54
+    ],
+    [
+     166,
+     42
+    ],
+    [
+     167,
+     34
+    ],
+    [
+     169,
+     34
+    ],
+    [
+     170,
+     38
+    ],
+    [
+     171,
+     39
+    ],
+    [
+     172,
+     39
+    ],
+    [
+     173,
+     35
+    ]
+   ],
+   "dollarTalk": 0,
+   "speechSegments": 103,
+   "screenReads": 43,
+   "prices": 6
+  }
+ ],
+ "prices": [
+  {
+   "roomKey": "fd9d7ebb84b5482d",
+   "date": "2026-10-06",
+   "rubro": "ROPA_USADA",
+   "product": "fardo",
+   "productSource": "TEXTO",
+   "amount": 2.0,
+   "currency": "BOB",
+   "priceBs": 2.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "fd9d7ebb84b5482d",
+   "date": "2026-10-06",
+   "rubro": "ROPA_USADA",
+   "product": "fardo",
+   "productSource": "TEXTO",
+   "amount": 220.0,
+   "currency": "BOB",
+   "priceBs": 220.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "fd9d7ebb84b5482d",
+   "date": "2026-10-06",
+   "rubro": "ROPA_USADA",
+   "product": "fardo",
+   "productSource": "TEXTO",
+   "amount": 220.0,
+   "currency": "BOB",
+   "priceBs": 220.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "fd9d7ebb84b5482d",
+   "date": "2026-10-06",
+   "rubro": "COSMETICOS",
+   "product": "unas",
+   "productSource": "SALA",
+   "amount": 22.0,
+   "currency": "BOB",
+   "priceBs": 22.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "date": "2026-10-06",
+   "rubro": "COSMETICOS",
+   "product": "gloss",
+   "productSource": "TEXTO",
+   "amount": 16.0,
+   "currency": "BOB",
+   "priceBs": 16.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "date": "2026-10-06",
+   "rubro": "COSMETICOS",
+   "product": "gloss",
+   "productSource": "TEXTO",
+   "amount": 15.0,
+   "currency": "BOB",
+   "priceBs": 15.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "date": "2026-10-06",
+   "rubro": "COSMETICOS",
+   "product": "gloss",
+   "productSource": "TEXTO",
+   "amount": 15.0,
+   "currency": "BOB",
+   "priceBs": 15.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "date": "2026-10-06",
+   "rubro": "COSMETICOS",
+   "product": "crema",
+   "productSource": "SALA",
+   "amount": 36.0,
+   "currency": "BOB",
+   "priceBs": 36.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "date": "2026-10-06",
+   "rubro": "COSMETICOS",
+   "product": "crema",
+   "productSource": "SALA",
+   "amount": 38.0,
+   "currency": "BOB",
+   "priceBs": 38.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "date": "2026-10-06",
+   "rubro": "GASTRONOMIA",
+   "product": "gelatina",
+   "productSource": "TEXTO",
+   "amount": 18.0,
+   "currency": "BOB",
+   "priceBs": 18.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "date": "2026-10-06",
+   "rubro": "GASTRONOMIA",
+   "product": "gelatina",
+   "productSource": "TEXTO",
+   "amount": 18.0,
+   "currency": "BOB",
+   "priceBs": 18.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "date": "2026-10-06",
+   "rubro": "COSMETICOS",
+   "product": "crema",
+   "productSource": "SALA",
+   "amount": 18.0,
+   "currency": "BOB",
+   "priceBs": 18.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "891bf4cc75b3b6b5",
+   "date": "2026-10-06",
+   "rubro": "COSMETICOS",
+   "product": "crema",
+   "productSource": "SALA",
+   "amount": 18.0,
+   "currency": "BOB",
+   "priceBs": 18.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "date": "2026-10-06",
+   "rubro": "TURISMO",
+   "product": "viaje",
+   "productSource": "TEXTO",
+   "amount": 200.0,
+   "currency": "BOB",
+   "priceBs": 200.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "date": "2026-10-06",
+   "rubro": "CARTERAS",
+   "product": "mochila",
+   "productSource": "SALA",
+   "amount": 50.0,
+   "currency": "BOB",
+   "priceBs": 50.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "date": "2026-10-06",
+   "rubro": "CARTERAS",
+   "product": "mochila",
+   "productSource": "SALA",
+   "amount": 50.0,
+   "currency": "BOB",
+   "priceBs": 50.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "date": "2026-10-06",
+   "rubro": "CARTERAS",
+   "product": "mochila",
+   "productSource": "SALA",
+   "amount": 50.0,
+   "currency": "BOB",
+   "priceBs": 50.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "date": "2026-10-06",
+   "rubro": "CARTERAS",
+   "product": "mochila",
+   "productSource": "SALA",
+   "amount": 50.0,
+   "currency": "BOB",
+   "priceBs": 50.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "date": "2026-10-06",
+   "rubro": "CARTERAS",
+   "product": "mochila",
+   "productSource": "SALA",
+   "amount": 50.0,
+   "currency": "BOB",
+   "priceBs": 50.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "date": "2026-10-06",
+   "rubro": "CARTERAS",
+   "product": "mochila",
+   "productSource": "SALA",
+   "amount": 50.0,
+   "currency": "BOB",
+   "priceBs": 50.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "date": "2026-10-06",
+   "rubro": "COSMETICOS",
+   "product": "crema",
+   "productSource": "TEXTO",
+   "amount": 20.0,
+   "currency": "BOB",
+   "priceBs": 20.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": true,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "6edd624d3d076504",
+   "date": "2026-10-06",
+   "rubro": "CARTERAS",
+   "product": "mochila",
+   "productSource": "TEXTO",
+   "amount": 50.0,
+   "currency": "BOB",
+   "priceBs": 50.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "92c57dbdfbdde790",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "top",
+   "productSource": "SALA",
+   "amount": 16.0,
+   "currency": "BOB",
+   "priceBs": 16.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "CHQ"
+  },
+  {
+   "roomKey": "92c57dbdfbdde790",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "top",
+   "productSource": "SALA",
+   "amount": 40.0,
+   "currency": "BOB",
+   "priceBs": 40.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": true,
+   "city": "CHQ"
+  },
+  {
+   "roomKey": "92c57dbdfbdde790",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "top",
+   "productSource": "SALA",
+   "amount": 38.0,
+   "currency": "BOB",
+   "priceBs": 38.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "CHQ"
+  },
+  {
+   "roomKey": "23bcf08dd06ebb8a",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "canguro",
+   "productSource": "SALA",
+   "amount": 20.0,
+   "currency": "BOB",
+   "priceBs": 20.0,
+   "unit": null,
+   "source": "TITLE",
+   "explicit": true,
+   "city": null
+  },
+  {
+   "roomKey": "23bcf08dd06ebb8a",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "canguro",
+   "productSource": "SALA",
+   "amount": 30.0,
+   "currency": "BOB",
+   "priceBs": 30.0,
+   "unit": null,
+   "source": "TITLE",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "23bcf08dd06ebb8a",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "canguro",
+   "productSource": "SALA",
+   "amount": 30.0,
+   "currency": "BOB",
+   "priceBs": 30.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "23bcf08dd06ebb8a",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "canguro",
+   "productSource": "SALA",
+   "amount": 30.0,
+   "currency": "BOB",
+   "priceBs": 30.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "23bcf08dd06ebb8a",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "canguro",
+   "productSource": "SALA",
+   "amount": 3.0,
+   "currency": "BOB",
+   "priceBs": 3.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "23bcf08dd06ebb8a",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "canguro",
+   "productSource": "SALA",
+   "amount": 3.0,
+   "currency": "BOB",
+   "priceBs": 3.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "23bcf08dd06ebb8a",
+   "date": "2026-10-06",
+   "rubro": "ROPA_MUJER",
+   "product": "canguro",
+   "productSource": "SALA",
+   "amount": 3.0,
+   "currency": "BOB",
+   "priceBs": 3.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": null
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 5.0,
+   "currency": "BOB",
+   "priceBs": 5.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 15.0,
+   "currency": "BOB",
+   "priceBs": 15.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 25.0,
+   "currency": "BOB",
+   "priceBs": 25.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 25.0,
+   "currency": "BOB",
+   "priceBs": 25.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 15.0,
+   "currency": "BOB",
+   "priceBs": 15.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 170.0,
+   "currency": "BOB",
+   "priceBs": 170.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 20.0,
+   "currency": "BOB",
+   "priceBs": 20.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 15.0,
+   "currency": "BOB",
+   "priceBs": 15.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 15.0,
+   "currency": "BOB",
+   "priceBs": 15.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "PLANTAS",
+   "product": "planta",
+   "productSource": "TEXTO",
+   "amount": 20.0,
+   "currency": "BOB",
+   "priceBs": 20.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 20.0,
+   "currency": "BOB",
+   "priceBs": 20.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "7f15bffa8c1f0127",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "soldadito",
+   "productSource": "SALA",
+   "amount": 20.0,
+   "currency": "BOB",
+   "priceBs": 20.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": true,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 8.0,
+   "currency": "BOB",
+   "priceBs": 8.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "JUGUETES",
+   "product": "pelota",
+   "productSource": "TEXTO",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 3.0,
+   "currency": "BOB",
+   "priceBs": 3.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": true,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "BISUTERIA",
+   "product": "dije",
+   "productSource": "TEXTO",
+   "amount": 18.0,
+   "currency": "BOB",
+   "priceBs": 18.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "BISUTERIA",
+   "product": "dije",
+   "productSource": "TEXTO",
+   "amount": 15.0,
+   "currency": "BOB",
+   "priceBs": 15.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 8.0,
+   "currency": "BOB",
+   "priceBs": 8.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "figura",
+   "productSource": "SALA",
+   "amount": 8.0,
+   "currency": "BOB",
+   "priceBs": 8.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "0fa04ee6a52f3cee",
+   "date": "2026-10-06",
+   "rubro": "BISUTERIA",
+   "product": "dije",
+   "productSource": "TEXTO",
+   "amount": 8.0,
+   "currency": "BOB",
+   "priceBs": 8.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "SCZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 5.0,
+   "currency": "BOB",
+   "priceBs": 5.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 12.0,
+   "currency": "BOB",
+   "priceBs": 12.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": "cada una",
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": "cada una",
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 28.0,
+   "currency": "BOB",
+   "priceBs": 28.0,
+   "unit": null,
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  },
+  {
+   "roomKey": "e5e61706ba3c4dca",
+   "date": "2026-10-06",
+   "rubro": "MIXTO",
+   "product": "chocolate",
+   "productSource": "SALA",
+   "amount": 10.0,
+   "currency": "BOB",
+   "priceBs": 10.0,
+   "unit": "cada uno",
+   "source": "SPEECH",
+   "explicit": false,
+   "city": "LPZ"
+  }
+ ],
+ "phrases": [
+  {
+   "phrase": "mio #",
+   "people": 18,
+   "lives": 6,
+   "rubro": "MIXTO",
+   "emotion": null,
+   "signal": "COMPRA"
+  },
+  {
+   "phrase": "precio",
+   "people": 12,
+   "lives": 4,
+   "rubro": "COSMETICOS",
+   "emotion": null,
+   "signal": "PRECIO"
+  },
+  {
+   "phrase": "listo",
+   "people": 7,
+   "lives": 4,
+   "rubro": "MIXTO",
+   "emotion": null,
+   "signal": null
+  }
+ ],
+ "terms": [
+  {
+   "rubro": "COSMETICOS",
+   "scope": "AUDIENCE",
+   "term": "precio",
+   "count": 6,
+   "rank": 1
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "AUDIENCE",
+   "term": "precio",
+   "count": 7,
+   "rank": 1
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "AUDIENCE",
+   "term": "mochila",
+   "count": 5,
+   "rank": 2
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "AUDIENCE",
+   "term": "case",
+   "count": 3,
+   "rank": 3
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "AUDIENCE",
+   "term": "talla",
+   "count": 3,
+   "rank": 4
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "AUDIENCE",
+   "term": "mio",
+   "count": 9,
+   "rank": 1
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "AUDIENCE",
+   "term": "case",
+   "count": 8,
+   "rank": 2
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "AUDIENCE",
+   "term": "mangas",
+   "count": 3,
+   "rank": 3
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "AUDIENCE",
+   "term": "case",
+   "count": 7,
+   "rank": 1
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "AUDIENCE",
+   "term": "soldaditos",
+   "count": 4,
+   "rank": 2
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "AUDIENCE",
+   "term": "disculpe",
+   "count": 3,
+   "rank": 3
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "AUDIENCE",
+   "term": "mio",
+   "count": 3,
+   "rank": 4
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "case",
+   "count": 41,
+   "rank": 1
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "mio",
+   "count": 35,
+   "rank": 2
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "listo",
+   "count": 14,
+   "rank": 3
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "pony",
+   "count": 10,
+   "rank": 4
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "rapido",
+   "count": 9,
+   "rank": 5
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "figuras",
+   "count": 9,
+   "rank": 6
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "bubu",
+   "count": 8,
+   "rank": 7
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "ley",
+   "count": 7,
+   "rank": 8
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "autos",
+   "count": 6,
+   "rank": 9
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "popis",
+   "count": 4,
+   "rank": 10
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "oye",
+   "count": 4,
+   "rank": 11
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "azul",
+   "count": 3,
+   "rank": 12
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "fijese",
+   "count": 3,
+   "rank": 13
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "quiero",
+   "count": 3,
+   "rank": 14
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "manzana",
+   "count": 3,
+   "rank": 15
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "sueno",
+   "count": 3,
+   "rank": 16
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "muestre",
+   "count": 3,
+   "rank": 17
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "pizarra",
+   "count": 3,
+   "rank": 18
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "dijo",
+   "count": 3,
+   "rank": 19
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "soy",
+   "count": 3,
+   "rank": 20
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "casera",
+   "count": 3,
+   "rank": 21
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "figura",
+   "count": 3,
+   "rank": 22
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "AUDIENCE",
+   "term": "carino",
+   "count": 3,
+   "rank": 23
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "gris",
+   "count": 6,
+   "rank": 1
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "cuere",
+   "count": 6,
+   "rank": 2
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "fallita",
+   "count": 6,
+   "rank": 3
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "ahorita",
+   "count": 5,
+   "rank": 4
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "obviamente",
+   "count": 5,
+   "rank": 5
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "difuminar",
+   "count": 5,
+   "rank": 6
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "quedan",
+   "count": 4,
+   "rank": 7
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "precio",
+   "count": 4,
+   "rank": 8
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "llevar",
+   "count": 4,
+   "rank": 9
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "solto",
+   "count": 4,
+   "rank": 10
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "llevan",
+   "count": 4,
+   "rank": 11
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "cajita",
+   "count": 4,
+   "rank": 12
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "tonos",
+   "count": 4,
+   "rank": 13
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "queda",
+   "count": 3,
+   "rank": 14
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "quiero",
+   "count": 3,
+   "rank": 15
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "meses",
+   "count": 3,
+   "rank": 16
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "solamente",
+   "count": 3,
+   "rank": 17
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "vendemos",
+   "count": 3,
+   "rank": 18
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "mostrar",
+   "count": 3,
+   "rank": 19
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "fallas",
+   "count": 3,
+   "rank": 20
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "poner",
+   "count": 3,
+   "rank": 21
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "dormir",
+   "count": 3,
+   "rank": 22
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "cualquiera",
+   "count": 3,
+   "rank": 23
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "crema",
+   "count": 3,
+   "rank": 24
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "dinamica",
+   "count": 3,
+   "rank": 25
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "detalle",
+   "count": 3,
+   "rank": 26
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "tono",
+   "count": 3,
+   "rank": 27
+  },
+  {
+   "rubro": "COSMETICOS",
+   "scope": "SELLER",
+   "term": "rubores",
+   "count": 3,
+   "rank": 28
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "igual",
+   "count": 21,
+   "rank": 1
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "cobertor",
+   "count": 12,
+   "rank": 2
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "cuenta",
+   "count": 10,
+   "rank": 3
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "talla",
+   "count": 10,
+   "rank": 4
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "casas",
+   "count": 9,
+   "rank": 5
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "mochila",
+   "count": 9,
+   "rank": 6
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "litros",
+   "count": 8,
+   "rank": 7
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "casaca",
+   "count": 7,
+   "rank": 8
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "casa",
+   "count": 6,
+   "rank": 9
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "porta",
+   "count": 6,
+   "rank": 10
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "colon",
+   "count": 6,
+   "rank": 11
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "color",
+   "count": 6,
+   "rank": 12
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "abajo",
+   "count": 5,
+   "rank": 13
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "dice",
+   "count": 5,
+   "rank": 14
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "bastones",
+   "count": 5,
+   "rank": 15
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "precio",
+   "count": 5,
+   "rank": 16
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "interno",
+   "count": 5,
+   "rank": 17
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "espalda",
+   "count": 4,
+   "rank": 18
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "puedo",
+   "count": 4,
+   "rank": 19
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "detalles",
+   "count": 4,
+   "rank": 20
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "bolsillo",
+   "count": 4,
+   "rank": 21
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "azul",
+   "count": 4,
+   "rank": 22
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "grande",
+   "count": 4,
+   "rank": 23
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "gore",
+   "count": 4,
+   "rank": 24
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "rato",
+   "count": 3,
+   "rank": 25
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "estructurado",
+   "count": 3,
+   "rank": 26
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "duro",
+   "count": 3,
+   "rank": 27
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "cualquier",
+   "count": 3,
+   "rank": 28
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "modelo",
+   "count": 3,
+   "rank": 29
+  },
+  {
+   "rubro": "CARTERAS",
+   "scope": "SELLER",
+   "term": "poner",
+   "count": 3,
+   "rank": 30
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "talla",
+   "count": 22,
+   "rank": 1
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "chicos",
+   "count": 14,
+   "rank": 2
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "acaso",
+   "count": 13,
+   "rank": 3
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "case",
+   "count": 13,
+   "rank": 4
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "dice",
+   "count": 11,
+   "rank": 5
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "polar",
+   "count": 8,
+   "rank": 6
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "puedo",
+   "count": 6,
+   "rank": 7
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "unisex",
+   "count": 6,
+   "rank": 8
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "chica",
+   "count": 5,
+   "rank": 9
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "chicas",
+   "count": 5,
+   "rank": 10
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "igual",
+   "count": 5,
+   "rank": 11
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "doble",
+   "count": 5,
+   "rank": 12
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "hermosas",
+   "count": 4,
+   "rank": 13
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "dicho",
+   "count": 4,
+   "rank": 14
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "querida",
+   "count": 4,
+   "rank": 15
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "cintura",
+   "count": 4,
+   "rank": 16
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "medir",
+   "count": 4,
+   "rank": 17
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "gusta",
+   "count": 4,
+   "rank": 18
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "tipo",
+   "count": 4,
+   "rank": 19
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "prendas",
+   "count": 4,
+   "rank": 20
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "cacerito",
+   "count": 4,
+   "rank": 21
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "mostrar",
+   "count": 4,
+   "rank": 22
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "chalequito",
+   "count": 4,
+   "rank": 23
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "detalles",
+   "count": 4,
+   "rank": 24
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "chico",
+   "count": 3,
+   "rank": 25
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "compras",
+   "count": 3,
+   "rank": 26
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "caso",
+   "count": 3,
+   "rank": 27
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "entrega",
+   "count": 3,
+   "rank": 28
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "paqueteria",
+   "count": 3,
+   "rank": 29
+  },
+  {
+   "rubro": "ROPA_MUJER",
+   "scope": "SELLER",
+   "term": "bellas",
+   "count": 3,
+   "rank": 30
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "igual",
+   "count": 19,
+   "rank": 1
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "castillo",
+   "count": 7,
+   "rank": 2
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "virtual",
+   "count": 6,
+   "rank": 3
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "caseritos",
+   "count": 6,
+   "rank": 4
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "mario",
+   "count": 5,
+   "rank": 5
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "tiende",
+   "count": 4,
+   "rank": 6
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "cositas",
+   "count": 4,
+   "rank": 7
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "manana",
+   "count": 4,
+   "rank": 8
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "denle",
+   "count": 4,
+   "rank": 9
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "seguir",
+   "count": 4,
+   "rank": 10
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "cuenta",
+   "count": 4,
+   "rank": 11
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "mire",
+   "count": 4,
+   "rank": 12
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "cacerito",
+   "count": 4,
+   "rank": 13
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "ambos",
+   "count": 4,
+   "rank": 14
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "rato",
+   "count": 4,
+   "rank": 15
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "apartar",
+   "count": 4,
+   "rank": 16
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "coleccion",
+   "count": 4,
+   "rank": 17
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "produccion",
+   "count": 4,
+   "rank": 18
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "caserito",
+   "count": 4,
+   "rank": 19
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "ahorita",
+   "count": 3,
+   "rank": 20
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "bolsa",
+   "count": 3,
+   "rank": 21
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "caceritos",
+   "count": 3,
+   "rank": 22
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "pues",
+   "count": 3,
+   "rank": 23
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "queda",
+   "count": 3,
+   "rank": 24
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "salieron",
+   "count": 3,
+   "rank": 25
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "miren",
+   "count": 3,
+   "rank": 26
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "nintendo",
+   "count": 3,
+   "rank": 27
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "yoshi",
+   "count": 3,
+   "rank": 28
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "peach",
+   "count": 3,
+   "rank": 29
+  },
+  {
+   "rubro": "JUGUETES",
+   "scope": "SELLER",
+   "term": "mini",
+   "count": 3,
+   "rank": 30
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "kase",
+   "count": 15,
+   "rank": 1
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "caserita",
+   "count": 14,
+   "rank": 2
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "toma",
+   "count": 13,
+   "rank": 3
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "dice",
+   "count": 13,
+   "rank": 4
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "case",
+   "count": 13,
+   "rank": 5
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "casa",
+   "count": 12,
+   "rank": 6
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "capturita",
+   "count": 10,
+   "rank": 7
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "cases",
+   "count": 10,
+   "rank": 8
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "casero",
+   "count": 9,
+   "rank": 9
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "cuchara",
+   "count": 9,
+   "rank": 10
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "suprakin",
+   "count": 8,
+   "rank": 11
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "casera",
+   "count": 8,
+   "rank": 12
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "creo",
+   "count": 7,
+   "rank": 13
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "pues",
+   "count": 7,
+   "rank": 14
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "rapido",
+   "count": 7,
+   "rank": 15
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "compritas",
+   "count": 7,
+   "rank": 16
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "cierto",
+   "count": 6,
+   "rank": 17
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "captura",
+   "count": 6,
+   "rank": 18
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "nomas",
+   "count": 6,
+   "rank": 19
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "llevense",
+   "count": 6,
+   "rank": 20
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "miren",
+   "count": 6,
+   "rank": 21
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "favor",
+   "count": 5,
+   "rank": 22
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "lleven",
+   "count": 5,
+   "rank": 23
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "pasa",
+   "count": 5,
+   "rank": 24
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "palabra",
+   "count": 5,
+   "rank": 25
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "incentivo",
+   "count": 5,
+   "rank": 26
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "poppies",
+   "count": 5,
+   "rank": 27
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "juguetes",
+   "count": 5,
+   "rank": 28
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "poni",
+   "count": 5,
+   "rank": 29
+  },
+  {
+   "rubro": "MIXTO",
+   "scope": "SELLER",
+   "term": "brazo",
+   "count": 5,
+   "rank": 30
+  }
+ ],
+ "coverage": [
+  {
+   "run": "2026-10-05",
+   "candidatesSeen": 178,
+   "candidatesLive": 169,
+   "roomsOpened": 9,
+   "roomsBlocked": 0,
+   "roomsCommerce": 8,
+   "roomsNoCommerce": 1,
+   "roomsEntertainment": 0,
+   "roomsForeign": 0,
+   "roomsUnidentified": 1,
+   "messages": 432,
+   "messagesWithSignal": 191,
+   "messagesApt": 204,
+   "speechSegments": 816,
+   "screenReads": 116,
+   "prices": 60,
+   "minutes": 89
+  }
+ ]
+}

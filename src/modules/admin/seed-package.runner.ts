@@ -10,6 +10,7 @@ import { reconcileCompanyFilingArchive } from '../../database/seeds/runners/boot
 import { reconcileCompositeIndices } from '../../database/seeds/runners/boot-seed.composite-indices';
 import { CORE_CATALOGUE_UNITS } from '../../database/seeds/runners/boot-seed.core-catalogues';
 import { reconcileExchangeRateHistory } from '../../database/seeds/runners/boot-seed.exchange-rate-history';
+import { reconcileExogenousFactors } from '../../database/seeds/runners/boot-seed.exogenous-factors';
 import { reconcileForeignTrade } from '../../database/seeds/runners/boot-seed.foreign-trade';
 import { reconcileMacroAnnualHistory } from '../../database/seeds/runners/boot-seed.macro-annual-history';
 import { reconcileMarketPrices } from '../../database/seeds/runners/boot-seed.market-prices';
@@ -18,6 +19,7 @@ import {
   reconcilePressArchiveYear,
 } from '../../database/seeds/runners/boot-seed.press-archive';
 import { reconcilePressCoverage } from '../../database/seeds/runners/boot-seed.press-coverage';
+import { reconcileAbiNews } from '../../database/seeds/runners/boot-seed.abi-news';
 import { reconcileSourceSchedules } from '../../database/seeds/runners/boot-seed.source-schedules';
 import { reconcileSocialReadings } from '../../database/seeds/runners/boot-seed.social-readings';
 import { reconcileUfvHistory } from '../../database/seeds/runners/boot-seed.ufv-history';
@@ -127,6 +129,7 @@ export const SEED_UNITS: Readonly<Record<string, readonly SeedUnit[]>> = {
   'collector-identities': IDENTITY_UNITS,
   'source-schedules': SCHEDULE_UNITS,
   'exchange-rate-history': single('exchange-rate-history', reconcileExchangeRateHistory),
+  'exogenous-factors': single('exogenous-factors', reconcileExogenousFactors),
   'macro-annual-history': single('macro-annual-history', reconcileMacroAnnualHistory),
   'market-prices': single('market-prices', reconcileMarketPrices),
   'bcb-quotes': single('bcb-quotes', reconcileBcbQuotes),
@@ -138,6 +141,7 @@ export const SEED_UNITS: Readonly<Record<string, readonly SeedUnit[]>> = {
   'company-filings-archive': single('company-filings-archive', reconcileCompanyFilingArchive),
   'company-filing-texts': single('company-filing-texts', reconcileCompanyFilingTexts),
   'press-coverage': single('press-coverage', reconcilePressCoverage),
+  'abi-news': single('abi-news', reconcileAbiNews),
   'press-archive': PRESS_ARCHIVE_UNITS,
   'social-readings': single('social-readings', reconcileSocialReadings),
   'worldbank-panel': single('worldbank-panel', reconcileWorldBankPanel),

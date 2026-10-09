@@ -1,0 +1,3260 @@
+{
+  "series": [
+    {
+      "indicatorCode": "EXO_FX_AED",
+      "group": "CURRENCY",
+      "product": "AED",
+      "productLabel": "Dirham de los Emiratos",
+      "name": "Dirham de los Emiratos frente al boliviano",
+      "scope": "BCB_OFFICIAL",
+      "market": "Emiratos Árabes Unidos",
+      "unit": "Bs por unidad",
+      "kind": "PRICE",
+      "note": "Bolivianos por una unidad de la moneda, tabla de cotizaciones del Banco Central de Bolivia. Es indicativa salvo la del dólar y sale del dólar oficial por el cruce de mercado. Hasta 2026 la historia es semanal; después, diaria.",
+      "publisher": "BANCO CENTRAL DE BOLIVIA",
+      "frequency": "DAILY",
+      "points": [
+        {
+          "period": "2019-06-03",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=06&qaa=2019",
+          "upstreamSha256": "930204eafb70a1fb372bf0bb45e771f627a9ed4000eb5777bd39a79afe154e64",
+          "retrievedAt": "2026-10-02T02:09:36Z"
+        },
+        {
+          "period": "2019-06-10",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=06&qaa=2019",
+          "upstreamSha256": "7875d81d00c892266d0bd636a1640b3aef1c4cb05c8185c161397da50af9dc75",
+          "retrievedAt": "2026-10-02T02:09:37Z"
+        },
+        {
+          "period": "2019-06-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=06&qaa=2019",
+          "upstreamSha256": "455e28cde71bf641e90d72146a34881d550c0373fd6e9d00fb8e0e798c716b03",
+          "retrievedAt": "2026-10-02T02:09:38Z"
+        },
+        {
+          "period": "2019-06-24",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=06&qaa=2019",
+          "upstreamSha256": "1a1c05c0b4599a5f1c37b57f35bc320c23da729e168226ec7ca2aad228451030",
+          "retrievedAt": "2026-10-02T02:09:39Z"
+        },
+        {
+          "period": "2019-07-01",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=07&qaa=2019",
+          "upstreamSha256": "b6bb2990fb112d37f3ae264ddae1e297dcad0f9d95e4e41812adaf43e3e4ebb0",
+          "retrievedAt": "2026-10-02T02:09:40Z"
+        },
+        {
+          "period": "2019-07-08",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=07&qaa=2019",
+          "upstreamSha256": "0502d5c0cf300fedd11e51fb27070e35d8351c3ac2f4eb06b2f5985429eff9ec",
+          "retrievedAt": "2026-10-02T02:09:41Z"
+        },
+        {
+          "period": "2019-07-15",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=07&qaa=2019",
+          "upstreamSha256": "537d8f56ca9bbb3a6bd0ef7866586025503f8b94f104489aa40b1e50507e51da",
+          "retrievedAt": "2026-10-02T02:09:42Z"
+        },
+        {
+          "period": "2019-07-22",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=07&qaa=2019",
+          "upstreamSha256": "5d5e5ac92fb7f6aba57d459690628374d73fc089647c7266cdd4f6fbc5c82dff",
+          "retrievedAt": "2026-10-02T02:09:43Z"
+        },
+        {
+          "period": "2019-07-29",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=07&qaa=2019",
+          "upstreamSha256": "159fc903ce6be90dd9ba4228611ed5368bb62c01508620508de066d75e15f5e5",
+          "retrievedAt": "2026-10-02T02:09:44Z"
+        },
+        {
+          "period": "2019-08-05",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=08&qaa=2019",
+          "upstreamSha256": "33790e9aa9a217da0530c195f2cc2429e89bcd8abb989783fc2f829d79582bc1",
+          "retrievedAt": "2026-10-02T02:09:45Z"
+        },
+        {
+          "period": "2019-08-12",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=08&qaa=2019",
+          "upstreamSha256": "a3ff54ccf7fe177d93da8afdab97daaf8383f645ae9f662d5f49c4d0c28df12c",
+          "retrievedAt": "2026-10-02T02:09:46Z"
+        },
+        {
+          "period": "2019-08-19",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=08&qaa=2019",
+          "upstreamSha256": "8e39057e3da21f816e07c990d2b503c8683614e5078cc48a5f27680e63572380",
+          "retrievedAt": "2026-10-02T02:09:47Z"
+        },
+        {
+          "period": "2019-08-26",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=08&qaa=2019",
+          "upstreamSha256": "df1a1414284434af6723c466a610412c8a5c97ffc35fea67567eef9dbeb2db58",
+          "retrievedAt": "2026-10-02T02:09:48Z"
+        },
+        {
+          "period": "2019-09-02",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=09&qaa=2019",
+          "upstreamSha256": "9726b17c034f9c7e33bae2515b0ac48242aa3697e77120434e25b6a39d56e670",
+          "retrievedAt": "2026-10-02T02:09:49Z"
+        },
+        {
+          "period": "2019-09-09",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=09&qaa=2019",
+          "upstreamSha256": "2f6608c4c602fa6f75e625f45838bcbb1deb1cb23ef841deda4cb66766f4c3b6",
+          "retrievedAt": "2026-10-02T02:09:50Z"
+        },
+        {
+          "period": "2019-09-16",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=09&qaa=2019",
+          "upstreamSha256": "fde888483bb2e7f49449d5af419de87ee440824de7602453911817ee2b84bb53",
+          "retrievedAt": "2026-10-02T02:09:51Z"
+        },
+        {
+          "period": "2019-09-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=09&qaa=2019",
+          "upstreamSha256": "2bf2e8df22ba9ebf054e0469d530a635fb9361001b6516c948bc5f3ac0cd54e7",
+          "retrievedAt": "2026-10-02T02:09:52Z"
+        },
+        {
+          "period": "2019-09-30",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=09&qaa=2019",
+          "upstreamSha256": "4dc3a294ea22a4099fe08cc0f32352c73f8e0bb5e742021fbc76240320ef02b8",
+          "retrievedAt": "2026-10-02T02:09:53Z"
+        },
+        {
+          "period": "2019-10-07",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=10&qaa=2019",
+          "upstreamSha256": "88b55b29056eb036bd0dd96f4deb5eff3ed3e6b0df8896d4aad48a18221a288a",
+          "retrievedAt": "2026-10-02T02:09:55Z"
+        },
+        {
+          "period": "2019-10-14",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=10&qaa=2019",
+          "upstreamSha256": "6ff1b10ed7ead0c1a00dbb0e0d65e7d09d4f81a515303745f99b0017d4e44dd3",
+          "retrievedAt": "2026-10-02T02:09:56Z"
+        },
+        {
+          "period": "2019-10-21",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=10&qaa=2019",
+          "upstreamSha256": "c915dce1ff4511a182e10e9b0099091fe2f15c327e23b7f465ff3c8a317fe1ac",
+          "retrievedAt": "2026-10-02T02:09:57Z"
+        },
+        {
+          "period": "2019-10-28",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=10&qaa=2019",
+          "upstreamSha256": "097cc7d9f8ecd0b23ce5352081f909057ab07a64b88ec549fcff7948c82551e7",
+          "retrievedAt": "2026-10-02T02:09:58Z"
+        },
+        {
+          "period": "2019-11-04",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=11&qaa=2019",
+          "upstreamSha256": "ec7938d4ae7a0e9bba87db94cc00485493e6c32ad9fc4e087944b95c03ae7bec",
+          "retrievedAt": "2026-10-02T02:09:59Z"
+        },
+        {
+          "period": "2019-11-11",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=11&qaa=2019",
+          "upstreamSha256": "1e7e19d36ce5465d01325e5ba4b5b67ba3e09a4c477d56c45fd84c10598e34c3",
+          "retrievedAt": "2026-10-02T02:10:00Z"
+        },
+        {
+          "period": "2019-11-18",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=11&qaa=2019",
+          "upstreamSha256": "bdab23845c911901f36943aa2419d2c29bd42ddb3fc6e1a69e0d21b4585ee0b7",
+          "retrievedAt": "2026-10-02T02:10:01Z"
+        },
+        {
+          "period": "2019-11-25",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=11&qaa=2019",
+          "upstreamSha256": "c730fc57afd29af35f007daa41c25712d122173fd9a530b9608c061807b2dbd2",
+          "retrievedAt": "2026-10-02T02:10:02Z"
+        },
+        {
+          "period": "2019-12-02",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=12&qaa=2019",
+          "upstreamSha256": "2d1248cb22b7c90601829c4e6a28b2eb5602d58cebf69e276a1e777204f908d6",
+          "retrievedAt": "2026-10-02T02:10:03Z"
+        },
+        {
+          "period": "2019-12-09",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=12&qaa=2019",
+          "upstreamSha256": "ffe2d88f296ceae781279a32dccdcffe1b51ae1670984231b760cdab059f5e46",
+          "retrievedAt": "2026-10-02T02:10:04Z"
+        },
+        {
+          "period": "2019-12-16",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=12&qaa=2019",
+          "upstreamSha256": "7276fc3b2cc9cca5c10ef3f4ce2603bc69882e306b56231ee47a870a73750b1f",
+          "retrievedAt": "2026-10-02T02:10:05Z"
+        },
+        {
+          "period": "2019-12-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=12&qaa=2019",
+          "upstreamSha256": "ca975837db2b9d83d2bdc40b6e09c60bf0b35e6b6e963021376eecfc7d5b81cb",
+          "retrievedAt": "2026-10-02T02:10:06Z"
+        },
+        {
+          "period": "2019-12-30",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=12&qaa=2019",
+          "upstreamSha256": "6cf2f7970a6d0b010a45f9a303c47fd65f06df8601aed14fe127d30eab633912",
+          "retrievedAt": "2026-10-02T02:10:07Z"
+        },
+        {
+          "period": "2020-01-06",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=01&qaa=2020",
+          "upstreamSha256": "e0bfa6098b343aa813f61cf64499cf5f06849e02defd1a821d3ca03c9548b3dd",
+          "retrievedAt": "2026-10-02T02:10:08Z"
+        },
+        {
+          "period": "2020-01-13",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=01&qaa=2020",
+          "upstreamSha256": "180589338515f8bf46dfc52f380045544822669a9811743a73f44f23132bcd61",
+          "retrievedAt": "2026-10-02T02:10:09Z"
+        },
+        {
+          "period": "2020-01-20",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=01&qaa=2020",
+          "upstreamSha256": "93cfb7a93cca9e24f54a2e73417cb316227e6130d2a77d1d3b5714dadd98a357",
+          "retrievedAt": "2026-10-02T02:10:10Z"
+        },
+        {
+          "period": "2020-01-27",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=01&qaa=2020",
+          "upstreamSha256": "ad949d8794245c13fad23c9945f6384c7c5c20fdbc93220357d5763c2acf59a4",
+          "retrievedAt": "2026-10-02T02:10:11Z"
+        },
+        {
+          "period": "2020-02-03",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=02&qaa=2020",
+          "upstreamSha256": "ca9bdbf725a91762b56546386969ddfca5a33a641bad65bdee19682fbff9accb",
+          "retrievedAt": "2026-10-02T02:10:12Z"
+        },
+        {
+          "period": "2020-02-10",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=02&qaa=2020",
+          "upstreamSha256": "7f0aa4b5a378c7124f36c7c5739941a609c5cd59d8974e796adae9d000725314",
+          "retrievedAt": "2026-10-02T02:10:13Z"
+        },
+        {
+          "period": "2020-02-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=02&qaa=2020",
+          "upstreamSha256": "19166028c7c0527a74fdfcf670fe7af7e8e1405d057f3b2752bad0d8f9f1a2a9",
+          "retrievedAt": "2026-10-02T02:10:14Z"
+        },
+        {
+          "period": "2020-02-26",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=02&qaa=2020",
+          "upstreamSha256": "2fd148204742b4b074b66a594ac2c04fe8059b9a1ef553f8d0adfd728fab6a7f",
+          "retrievedAt": "2026-10-02T02:17:29Z"
+        },
+        {
+          "period": "2020-03-02",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=03&qaa=2020",
+          "upstreamSha256": "f8500108df588657c90ec74049c63de161e23d15fdb1c8be3da86e7cb83d97a0",
+          "retrievedAt": "2026-10-02T02:10:16Z"
+        },
+        {
+          "period": "2020-03-09",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=03&qaa=2020",
+          "upstreamSha256": "66f1baf64547bd07916b89fa427023bf04774227ac78fe0931b742f00a90935a",
+          "retrievedAt": "2026-10-02T02:10:17Z"
+        },
+        {
+          "period": "2020-03-16",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=03&qaa=2020",
+          "upstreamSha256": "8574c46690e349ad6a21732972820d0cef01e20050d09e119c47b0140ece41f8",
+          "retrievedAt": "2026-10-02T02:10:18Z"
+        },
+        {
+          "period": "2020-03-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=03&qaa=2020",
+          "upstreamSha256": "7557548452d4b50c7f09ae4005fafce6876b96b180fd5fdf33e873a4e948cdbc",
+          "retrievedAt": "2026-10-02T02:10:19Z"
+        },
+        {
+          "period": "2020-03-30",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=03&qaa=2020",
+          "upstreamSha256": "4a9daeb778a3f42e73799ebb205471d3c7ced2e32752f8e8d103fff44efd32a8",
+          "retrievedAt": "2026-10-02T02:10:20Z"
+        },
+        {
+          "period": "2020-04-06",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=04&qaa=2020",
+          "upstreamSha256": "9f00b08152668d7ebcc1a338e9402204b9a93f3f196b11071a4b0b3e98781794",
+          "retrievedAt": "2026-10-02T02:10:21Z"
+        },
+        {
+          "period": "2020-04-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=04&qaa=2020",
+          "upstreamSha256": "51b8eeedf53f1dd593226487bac7a31070c766e2c7b6467d55f692019037fe51",
+          "retrievedAt": "2026-10-02T02:10:22Z"
+        },
+        {
+          "period": "2020-04-20",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=04&qaa=2020",
+          "upstreamSha256": "b578b3bd6401bbc621504e1cc1b037413daac7f359c3db3e46ba9f1a6e7378d9",
+          "retrievedAt": "2026-10-02T02:10:23Z"
+        },
+        {
+          "period": "2020-04-27",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=04&qaa=2020",
+          "upstreamSha256": "173c3317e59f9353a2a9b9d0ddf00e3d34f1cbaf56ce94177f8fb2fcd1795677",
+          "retrievedAt": "2026-10-02T02:10:24Z"
+        },
+        {
+          "period": "2020-05-04",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=05&qaa=2020",
+          "upstreamSha256": "3eefffccb82faf16fd6e74e4b13bebcff456d524d73b5dd7a034ebf75cae9a01",
+          "retrievedAt": "2026-10-02T02:10:25Z"
+        },
+        {
+          "period": "2020-05-11",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=05&qaa=2020",
+          "upstreamSha256": "6cd2b4304fe00bea233e23247959996ee9b3d61e53aa3672db991b3332b90368",
+          "retrievedAt": "2026-10-02T02:10:26Z"
+        },
+        {
+          "period": "2020-05-18",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=05&qaa=2020",
+          "upstreamSha256": "bbfffd05e8be5df5f5796b80dba0fd76c699973d8c7b04893ce34dbfb599bdc7",
+          "retrievedAt": "2026-10-02T02:10:27Z"
+        },
+        {
+          "period": "2020-05-25",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=05&qaa=2020",
+          "upstreamSha256": "abb195df9a681f5139d19d4793ab11546ecc02c6f0d973075ea1521b3e726a69",
+          "retrievedAt": "2026-10-02T02:10:28Z"
+        },
+        {
+          "period": "2020-06-01",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=06&qaa=2020",
+          "upstreamSha256": "20aa01152497bba81726f76611ad0705a0e69df1a3b321ace504814f6f1e6622",
+          "retrievedAt": "2026-10-02T02:10:29Z"
+        },
+        {
+          "period": "2020-06-08",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=06&qaa=2020",
+          "upstreamSha256": "e77de0e536bde5f9d743784846a19d8063353d810cb5befa95e3e2d074d0d9fe",
+          "retrievedAt": "2026-10-02T02:10:30Z"
+        },
+        {
+          "period": "2020-06-15",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=06&qaa=2020",
+          "upstreamSha256": "b06a31d293dce8d4f1abed738dcd86086b15fb2dfb3956cdf3412dbbecd9e98b",
+          "retrievedAt": "2026-10-02T02:10:31Z"
+        },
+        {
+          "period": "2020-06-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=06&qaa=2020",
+          "upstreamSha256": "dd580c9f846e2589667c0f0e9f1584331be34b9b4628a30ae4ca8bb5f443563f",
+          "retrievedAt": "2026-10-02T02:17:30Z"
+        },
+        {
+          "period": "2020-06-24",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=06&qaa=2020",
+          "upstreamSha256": "78758ba3f2669e37d97ee5da44dfe4df1d3d8c5fe7656040f48e27f27aca5bac",
+          "retrievedAt": "2026-10-02T02:17:31Z"
+        },
+        {
+          "period": "2020-06-29",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=06&qaa=2020",
+          "upstreamSha256": "3331b9f89a47f5e87bafa4e00f4bc96a651d8c92129de94bf3aa6ba81ed2d116",
+          "retrievedAt": "2026-10-02T02:10:33Z"
+        },
+        {
+          "period": "2020-07-06",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=07&qaa=2020",
+          "upstreamSha256": "85cfdf447e534a391f625060f47fa083e6aea53178e5fb7d7d1331283407a9ba",
+          "retrievedAt": "2026-10-02T02:10:34Z"
+        },
+        {
+          "period": "2020-07-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=07&qaa=2020",
+          "upstreamSha256": "332b783ddaec3d4a92995b2b0ad6977a01015f4b350b9f87e02b76136bd28d91",
+          "retrievedAt": "2026-10-02T02:10:35Z"
+        },
+        {
+          "period": "2020-07-20",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=07&qaa=2020",
+          "upstreamSha256": "9fc5d5e6b2c4d107eb93105eee123ce061c9cfec3c7b86c28477eb9ed7b877fc",
+          "retrievedAt": "2026-10-02T02:10:36Z"
+        },
+        {
+          "period": "2020-07-27",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=07&qaa=2020",
+          "upstreamSha256": "b271d59e396e4a04d5f90096d14c1e041a6810f29ea16a3b7a2347e20a7570ef",
+          "retrievedAt": "2026-10-02T02:10:37Z"
+        },
+        {
+          "period": "2020-08-03",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=08&qaa=2020",
+          "upstreamSha256": "55a3cd4948637e17f387e65d4fa822bd311155d19d2c9fb9f5897a89a931fa33",
+          "retrievedAt": "2026-10-02T02:10:38Z"
+        },
+        {
+          "period": "2020-08-10",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=08&qaa=2020",
+          "upstreamSha256": "a3c8bdf484affb74dcc865982a11add671f2fdc260ba82defe39263ddeff5039",
+          "retrievedAt": "2026-10-02T02:10:39Z"
+        },
+        {
+          "period": "2020-08-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=08&qaa=2020",
+          "upstreamSha256": "a7da2746e119a6b100ccecafbf6587ed77c4ce8d2c49df2f65191c8f3447c2b4",
+          "retrievedAt": "2026-10-02T02:10:40Z"
+        },
+        {
+          "period": "2020-08-24",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=08&qaa=2020",
+          "upstreamSha256": "04a27898fae78f8daee512134f0e03cf198aae12c78ab8d2af78da5fd6cc6add",
+          "retrievedAt": "2026-10-02T02:10:41Z"
+        },
+        {
+          "period": "2020-08-31",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=31&qmm=08&qaa=2020",
+          "upstreamSha256": "48d84981ea938d2f1333f265cb5aa5b17cecc4c414c45696ccea1825baa051a9",
+          "retrievedAt": "2026-10-02T02:10:42Z"
+        },
+        {
+          "period": "2020-09-07",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=09&qaa=2020",
+          "upstreamSha256": "08d4abd7bdd829a4b86253713deb97ae2b6d55a74a075715c6c34cbaa4980f4b",
+          "retrievedAt": "2026-10-02T02:10:44Z"
+        },
+        {
+          "period": "2020-09-14",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=09&qaa=2020",
+          "upstreamSha256": "d0f25c3173e67ac0d084ecb4f7467c905c630596ff49b506d00ec5dc0813441e",
+          "retrievedAt": "2026-10-02T02:10:45Z"
+        },
+        {
+          "period": "2020-09-21",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=09&qaa=2020",
+          "upstreamSha256": "89ef01ddb53276b4c96f37ddbd7edd0415f232198d0553dec1ac666e8e5c4d1e",
+          "retrievedAt": "2026-10-02T02:10:46Z"
+        },
+        {
+          "period": "2020-09-28",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=09&qaa=2020",
+          "upstreamSha256": "4227c340aa0bea380a9403bf763c449d5a5d2741b10a2c91b6d23bf17e2a1209",
+          "retrievedAt": "2026-10-02T02:10:47Z"
+        },
+        {
+          "period": "2020-10-05",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=10&qaa=2020",
+          "upstreamSha256": "877783331dffa7c4ec1d06bb92d30165786d6c78db91420e55512474de9a7fe7",
+          "retrievedAt": "2026-10-02T02:10:48Z"
+        },
+        {
+          "period": "2020-10-12",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=10&qaa=2020",
+          "upstreamSha256": "fed89718436af10b5b370baf22c43ea1a52d871655c1331f2f81f595dfeaa3c1",
+          "retrievedAt": "2026-10-02T02:10:49Z"
+        },
+        {
+          "period": "2020-10-19",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=10&qaa=2020",
+          "upstreamSha256": "cb4ebd8349027d33892ec7f9635c6f3dad703ea1580247cc393454450e8a3fb3",
+          "retrievedAt": "2026-10-02T02:10:50Z"
+        },
+        {
+          "period": "2020-10-26",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=10&qaa=2020",
+          "upstreamSha256": "b9749b2a2ab532c9785fabbf4454221f7dbc119ead98431625d3016bc3bdecb4",
+          "retrievedAt": "2026-10-02T02:10:51Z"
+        },
+        {
+          "period": "2020-11-03",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=11&qaa=2020",
+          "upstreamSha256": "b06f5840b04b2cc0e82aed24f2365ff6813b614d806f54b37ec3a6057f4faee7",
+          "retrievedAt": "2026-10-02T02:17:32Z"
+        },
+        {
+          "period": "2020-11-04",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=11&qaa=2020",
+          "upstreamSha256": "cf73b991be77b81fc0fc6aeb64d434de4f2129ae97e78aca0a9df8a6ac442fd6",
+          "retrievedAt": "2026-10-02T02:17:33Z"
+        },
+        {
+          "period": "2020-11-09",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=11&qaa=2020",
+          "upstreamSha256": "b5c8e66480f59cb7ca1e50faca532091ee306160f0a4186b8fd67ad92c858a88",
+          "retrievedAt": "2026-10-02T02:10:53Z"
+        },
+        {
+          "period": "2020-11-16",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=11&qaa=2020",
+          "upstreamSha256": "c271747910a7040d2d8c81c049b16b24242a029fe8ba706f69af9304f8d1c5f3",
+          "retrievedAt": "2026-10-02T02:10:54Z"
+        },
+        {
+          "period": "2020-11-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=11&qaa=2020",
+          "upstreamSha256": "1337354189c10a293b93a9e47e4e1d8516e70b27cd19797ed06c4d4ce8e9fd39",
+          "retrievedAt": "2026-10-02T02:10:55Z"
+        },
+        {
+          "period": "2020-11-30",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=11&qaa=2020",
+          "upstreamSha256": "3194ca2ab66f07e6f863622a9ee1ffeb821d3c2fb4bf49d8cb7d8164822b48f7",
+          "retrievedAt": "2026-10-02T02:10:56Z"
+        },
+        {
+          "period": "2020-12-07",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=12&qaa=2020",
+          "upstreamSha256": "5f74ebe8379ea7c3f7101f26584fac2a8adbbfa9a8e3f2c7fba0d28a9ea66f6f",
+          "retrievedAt": "2026-10-02T02:10:57Z"
+        },
+        {
+          "period": "2020-12-14",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=12&qaa=2020",
+          "upstreamSha256": "1ac0c01003842808fde09d313a25cb45b3afb69385e2e853d00393b9860009c1",
+          "retrievedAt": "2026-10-02T02:10:58Z"
+        },
+        {
+          "period": "2020-12-21",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=12&qaa=2020",
+          "upstreamSha256": "ad0befd086f0dc1fbbb9d28cfe972b57d63fc7ba2c087edc106369eadbcb14b6",
+          "retrievedAt": "2026-10-02T02:10:59Z"
+        },
+        {
+          "period": "2020-12-28",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=12&qaa=2020",
+          "upstreamSha256": "6b46aac1174f3499b284acfc8fc056d59972b03b4992c40ce146b19bc0be2c7d",
+          "retrievedAt": "2026-10-02T02:11:00Z"
+        },
+        {
+          "period": "2021-01-04",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=01&qaa=2021",
+          "upstreamSha256": "d2191e7c30c385d1901e9faf3deaf01dfc3ae071c338bf7a8e04aad3dc83c5ce",
+          "retrievedAt": "2026-10-02T02:11:01Z"
+        },
+        {
+          "period": "2021-01-11",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=01&qaa=2021",
+          "upstreamSha256": "a15c8d0f61fc433ada561c871f55b62f7804c5b9b6335aef1fe4df438a988ab4",
+          "retrievedAt": "2026-10-02T02:11:02Z"
+        },
+        {
+          "period": "2021-01-18",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=01&qaa=2021",
+          "upstreamSha256": "84bc6e49522205942f2b4ad24f62370e3bb1eff3919dab4fbdc48df664ce5c5d",
+          "retrievedAt": "2026-10-02T02:11:03Z"
+        },
+        {
+          "period": "2021-01-25",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=01&qaa=2021",
+          "upstreamSha256": "11f1796eb4aeaeff13c89ab1289f59e5cf6ee27385c06c54ba7c8bbeb2f68fdb",
+          "retrievedAt": "2026-10-02T02:11:04Z"
+        },
+        {
+          "period": "2021-02-01",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=02&qaa=2021",
+          "upstreamSha256": "31653b28d04e6538fcdf8e575484a69e1279eac52590e4de37b9fcd33a74ae58",
+          "retrievedAt": "2026-10-02T02:11:05Z"
+        },
+        {
+          "period": "2021-02-08",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=02&qaa=2021",
+          "upstreamSha256": "6d9e887accbceea5015d4840a9acd6a00120401f758ba8b495ed5c4b62453859",
+          "retrievedAt": "2026-10-02T02:11:06Z"
+        },
+        {
+          "period": "2021-02-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=02&qaa=2021",
+          "upstreamSha256": "0f10c18ef281ebb7d51734018def9f2bf5b0f53af5e80f4de3179bad1a22cd3e",
+          "retrievedAt": "2026-10-02T02:17:36Z"
+        },
+        {
+          "period": "2021-02-22",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=02&qaa=2021",
+          "upstreamSha256": "54dbd9bb55dfccda5b8bef305a628f38afad9212a0a2f02d79fd769c50b84440",
+          "retrievedAt": "2026-10-02T02:11:08Z"
+        },
+        {
+          "period": "2021-03-01",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=03&qaa=2021",
+          "upstreamSha256": "ba0147643dd2934036a9750bc76a89a9b4f73ef50b84bc33f039653e47ad9657",
+          "retrievedAt": "2026-10-02T02:11:09Z"
+        },
+        {
+          "period": "2021-03-08",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=03&qaa=2021",
+          "upstreamSha256": "df43130c1fe3581ce9135488b14636a2348877fe40a72abfd6c710798c612f82",
+          "retrievedAt": "2026-10-02T02:11:10Z"
+        },
+        {
+          "period": "2021-03-15",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=03&qaa=2021",
+          "upstreamSha256": "0ce7a2172c9b29ea912c87db545ac6b2599b236d86a3367be21577f7e5c71458",
+          "retrievedAt": "2026-10-02T02:11:12Z"
+        },
+        {
+          "period": "2021-03-22",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=03&qaa=2021",
+          "upstreamSha256": "4456ede11c7fcd4fa7ec4ba99e7ce3601551a879e8122dcdccab2c514acbf06e",
+          "retrievedAt": "2026-10-02T02:11:13Z"
+        },
+        {
+          "period": "2021-03-29",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=03&qaa=2021",
+          "upstreamSha256": "a1985bbb0165c6114aa9030b333bc43229ea0c8075f4f04d796eccfef3df8acb",
+          "retrievedAt": "2026-10-02T02:11:14Z"
+        },
+        {
+          "period": "2021-04-05",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=04&qaa=2021",
+          "upstreamSha256": "4aff2aeb5bf91143e352305765a26a22534b019555a37ef7a9557fbc33cea9a5",
+          "retrievedAt": "2026-10-02T02:11:15Z"
+        },
+        {
+          "period": "2021-04-12",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=04&qaa=2021",
+          "upstreamSha256": "bfaa221bd79ebb1fec9088d12986b62f6e4765e0e3d2335d4faebaae407c156c",
+          "retrievedAt": "2026-10-02T02:11:16Z"
+        },
+        {
+          "period": "2021-04-19",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=04&qaa=2021",
+          "upstreamSha256": "2fdbcd3bb33df9fc811447f2f70587f50e9d6d1d26b98a8f8eaa237c91015df7",
+          "retrievedAt": "2026-10-02T02:11:17Z"
+        },
+        {
+          "period": "2021-04-26",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=04&qaa=2021",
+          "upstreamSha256": "dee936c9d068c42847bd1c28a86ae88bfa7666e149f21153e3d26e714783de55",
+          "retrievedAt": "2026-10-02T02:11:18Z"
+        },
+        {
+          "period": "2021-05-03",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=05&qaa=2021",
+          "upstreamSha256": "3007c311b7fdc78e336cfb0d49646c4a84c53dc84de1cd00eb76623aa5f006ec",
+          "retrievedAt": "2026-10-02T02:11:19Z"
+        },
+        {
+          "period": "2021-05-10",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=05&qaa=2021",
+          "upstreamSha256": "095c749bf1db2828df93d3142b69db9c0ed90c9cf4ce1258d5124fdbf4cd51e7",
+          "retrievedAt": "2026-10-02T02:11:20Z"
+        },
+        {
+          "period": "2021-05-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=05&qaa=2021",
+          "upstreamSha256": "2abf2276eef7a84c36cfd0e243bec5996336917f9761d6e1e1b6c924bddfd078",
+          "retrievedAt": "2026-10-02T02:11:21Z"
+        },
+        {
+          "period": "2021-05-24",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=05&qaa=2021",
+          "upstreamSha256": "87b04d3a1fd1ab67ca63370fe6ae6afa1e8a40dab8fc7eacfc7634f73fa995f4",
+          "retrievedAt": "2026-10-02T02:11:22Z"
+        },
+        {
+          "period": "2021-05-31",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=31&qmm=05&qaa=2021",
+          "upstreamSha256": "23a50ffbc07943264dc33badf768a4e88b4e1fda82a6ddec875256a49f6183e1",
+          "retrievedAt": "2026-10-02T02:11:23Z"
+        },
+        {
+          "period": "2021-06-07",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=06&qaa=2021",
+          "upstreamSha256": "1c628765b45ed07458769220d4427c01b8c4b766958a72f5e06aa211a8c9ce1c",
+          "retrievedAt": "2026-10-02T02:11:24Z"
+        },
+        {
+          "period": "2021-06-14",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=06&qaa=2021",
+          "upstreamSha256": "518d0fc22459501fe7d0a2852b260c86ccc463f4ff0fcac6365d204847718347",
+          "retrievedAt": "2026-10-02T02:11:25Z"
+        },
+        {
+          "period": "2021-06-22",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=06&qaa=2021",
+          "upstreamSha256": "021d1b4e925cf584c39da5b1143f1f8b5d752a0831afac424558c4d2057aa167",
+          "retrievedAt": "2026-10-02T02:17:37Z"
+        },
+        {
+          "period": "2021-06-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=06&qaa=2021",
+          "upstreamSha256": "78264205343456f72425c5009fa34954f4d60a1b8b2e05f5722be6527d139e3f",
+          "retrievedAt": "2026-10-02T02:17:38Z"
+        },
+        {
+          "period": "2021-06-28",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=06&qaa=2021",
+          "upstreamSha256": "54ecc3ca5f0bbd8073a1d0315ca36f94fe7866c60b89cef5342e536477be31c9",
+          "retrievedAt": "2026-10-02T02:11:27Z"
+        },
+        {
+          "period": "2021-07-05",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=07&qaa=2021",
+          "upstreamSha256": "50d9b5418599a246386e516eb60d08864f0fcd25e506e213a57870ab81506227",
+          "retrievedAt": "2026-10-02T02:11:28Z"
+        },
+        {
+          "period": "2021-07-12",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=07&qaa=2021",
+          "upstreamSha256": "bb7a30e4bbf8390e965275796896ce470baa79f0edf9bd66c4ac87e5d2897e0f",
+          "retrievedAt": "2026-10-02T02:11:29Z"
+        },
+        {
+          "period": "2021-07-19",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=07&qaa=2021",
+          "upstreamSha256": "e8fb12576e620f89e36459ec34ff8cd8ba817556ee764df7084576401461c7ec",
+          "retrievedAt": "2026-10-02T02:11:30Z"
+        },
+        {
+          "period": "2021-07-26",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=07&qaa=2021",
+          "upstreamSha256": "1bf6375753e9ed3be8f454e681f4da88c0e9ba902c2bcdcb71d288adf5798270",
+          "retrievedAt": "2026-10-02T02:11:31Z"
+        },
+        {
+          "period": "2021-08-02",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=08&qaa=2021",
+          "upstreamSha256": "4c796ea78d32f4ef51c49355b5446e28404247ef0d9a69736d1bc017ae540ba5",
+          "retrievedAt": "2026-10-02T02:11:32Z"
+        },
+        {
+          "period": "2021-08-09",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=08&qaa=2021",
+          "upstreamSha256": "8669b40c34b24876fd96e449ffbb83c0e2ca13d6b33ae820a4c79d0b226ad939",
+          "retrievedAt": "2026-10-02T02:11:33Z"
+        },
+        {
+          "period": "2021-08-16",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=08&qaa=2021",
+          "upstreamSha256": "fe075d18db75226fb4b66ad9af37e772016d569b392d545afbffba1d9d46b55b",
+          "retrievedAt": "2026-10-02T02:11:34Z"
+        },
+        {
+          "period": "2021-08-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=08&qaa=2021",
+          "upstreamSha256": "39f07c5e6056b31e785c80b9a4807440d9551992e5a23fdc7560cd582aae2226",
+          "retrievedAt": "2026-10-02T02:11:35Z"
+        },
+        {
+          "period": "2021-08-30",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=08&qaa=2021",
+          "upstreamSha256": "d9a412460119a7a157002bc05111bbde228addde14e50eb8d47e0b927192c2e2",
+          "retrievedAt": "2026-10-02T02:11:36Z"
+        },
+        {
+          "period": "2021-09-06",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=09&qaa=2021",
+          "upstreamSha256": "bf5fa6ab671b9f12dadb4552bc8c64ea9b2eda2525643fed883ada058f6c5be4",
+          "retrievedAt": "2026-10-02T02:11:37Z"
+        },
+        {
+          "period": "2021-09-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=09&qaa=2021",
+          "upstreamSha256": "50affb96175a29631a681be38d56326453d00eb36de9e404ed32ca387b265d52",
+          "retrievedAt": "2026-10-02T02:11:38Z"
+        },
+        {
+          "period": "2021-09-20",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=09&qaa=2021",
+          "upstreamSha256": "de0bf6bbb611f4cd20d48c6cb59a9048c41ebf8bef36a39787b6b826b109e1fa",
+          "retrievedAt": "2026-10-02T02:11:39Z"
+        },
+        {
+          "period": "2021-09-27",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=09&qaa=2021",
+          "upstreamSha256": "4f3ef1e999c6f3e34232938db562b3ea772966a87d1352f4f090d35e0347295e",
+          "retrievedAt": "2026-10-02T02:11:40Z"
+        },
+        {
+          "period": "2021-10-04",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=10&qaa=2021",
+          "upstreamSha256": "2c0cc23515d249477703da914f12605219ec85dbfabac7dfa7824f62f01973cc",
+          "retrievedAt": "2026-10-02T02:11:41Z"
+        },
+        {
+          "period": "2021-10-11",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=10&qaa=2021",
+          "upstreamSha256": "f1fbf75c43fc927c597802850ca7dba05e69b22c4f838163694ac8dd5474756e",
+          "retrievedAt": "2026-10-02T02:11:42Z"
+        },
+        {
+          "period": "2021-10-18",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=10&qaa=2021",
+          "upstreamSha256": "f1e2ab0e9e3f59d13154f31dfa107aa2911f6ba4643f9bfed04e4dbb49d4f5a8",
+          "retrievedAt": "2026-10-02T02:11:43Z"
+        },
+        {
+          "period": "2021-10-25",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=10&qaa=2021",
+          "upstreamSha256": "9a9e18dd3c34b7d2adfedb0fdfa22fde5fc1ae57a143ef2c149aa25b2142dcf5",
+          "retrievedAt": "2026-10-02T02:11:44Z"
+        },
+        {
+          "period": "2021-11-01",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=11&qaa=2021",
+          "upstreamSha256": "e11ac32eb9723d4c9ff6df8f74c94bae3ef91c00772c898bcf8376f7d890705a",
+          "retrievedAt": "2026-10-02T02:11:45Z"
+        },
+        {
+          "period": "2021-11-08",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=11&qaa=2021",
+          "upstreamSha256": "4f3dc441c5c0c0ee24d7b3c769818dc5279888a5449fcae80b304965ccb3abda",
+          "retrievedAt": "2026-10-02T02:11:46Z"
+        },
+        {
+          "period": "2021-11-15",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=11&qaa=2021",
+          "upstreamSha256": "f57bd38e53665de5b26df4c1c76dbf077d9be5126f66c16a266738ffba8a9369",
+          "retrievedAt": "2026-10-02T02:11:47Z"
+        },
+        {
+          "period": "2021-11-22",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=11&qaa=2021",
+          "upstreamSha256": "ebc0ced38022b614e674a43bf9cff11f084af2145c98e7f4bd1e20d6526fc871",
+          "retrievedAt": "2026-10-02T02:11:48Z"
+        },
+        {
+          "period": "2021-11-29",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=11&qaa=2021",
+          "upstreamSha256": "2277c4cafaf311394b072b7953ac22fbe33c84b64a6416014c2901b6da9ff53f",
+          "retrievedAt": "2026-10-02T02:11:49Z"
+        },
+        {
+          "period": "2021-12-06",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=12&qaa=2021",
+          "upstreamSha256": "4ebd6da9df2cf0d8095471fefd07528eae646c8ea7d07b768f9146bef139c35a",
+          "retrievedAt": "2026-10-02T02:11:50Z"
+        },
+        {
+          "period": "2021-12-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=12&qaa=2021",
+          "upstreamSha256": "3173533af3443d6dc9277b36cca515afbff099d75b2b4539f38daf7822b74904",
+          "retrievedAt": "2026-10-02T02:11:52Z"
+        },
+        {
+          "period": "2021-12-20",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=12&qaa=2021",
+          "upstreamSha256": "09f2638d69fa7e4b2b5d7450f853daca31a2c38a477faef2f8c947a6476fb5f5",
+          "retrievedAt": "2026-10-02T02:11:53Z"
+        },
+        {
+          "period": "2021-12-27",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=12&qaa=2021",
+          "upstreamSha256": "66e46bf36f1b82ae176233761d3f7ee2d36632d2eafc9fe7b5928ceef32fb864",
+          "retrievedAt": "2026-10-02T02:11:54Z"
+        },
+        {
+          "period": "2022-01-03",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=01&qaa=2022",
+          "upstreamSha256": "cdf4b935b0ad20551da13a9c237dde670b7623922118dbccff0719ccc472628a",
+          "retrievedAt": "2026-10-02T02:11:55Z"
+        },
+        {
+          "period": "2022-01-10",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=01&qaa=2022",
+          "upstreamSha256": "b47845b2db83265940bbce8278990e1f4b9831ea1dd91ed5df64913255c0c0d7",
+          "retrievedAt": "2026-10-02T02:11:56Z"
+        },
+        {
+          "period": "2022-01-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=01&qaa=2022",
+          "upstreamSha256": "536bba6ececf41cba69d4f446b7a47db8e2ca7f5e51dfcf33877dfd450b0482d",
+          "retrievedAt": "2026-10-02T02:11:57Z"
+        },
+        {
+          "period": "2022-01-24",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=01&qaa=2022",
+          "upstreamSha256": "68790641bd0656e1217b69c320325acec46b72890abe7db02392c3bba61e0408",
+          "retrievedAt": "2026-10-02T02:11:58Z"
+        },
+        {
+          "period": "2022-01-31",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=31&qmm=01&qaa=2022",
+          "upstreamSha256": "2ef66b427a2c6f7e09c537a5c86ead9104de485e6949ca860d507a6328f0bb56",
+          "retrievedAt": "2026-10-02T02:11:59Z"
+        },
+        {
+          "period": "2022-02-07",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=02&qaa=2022",
+          "upstreamSha256": "2d0a8ed04b5c5cbac6a4bb73d6751b15d1c65db2ec245a429f2b29b9af0ace19",
+          "retrievedAt": "2026-10-02T02:12:00Z"
+        },
+        {
+          "period": "2022-02-14",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=02&qaa=2022",
+          "upstreamSha256": "1cb0b6c67080ec346175c668822901356a9c608f458ab7865ffff8d7a36ed075",
+          "retrievedAt": "2026-10-02T02:12:01Z"
+        },
+        {
+          "period": "2022-02-21",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=02&qaa=2022",
+          "upstreamSha256": "2a19be960a0c1a80bedd0207ea6d060b73b99ce0c4cf9e70339088b6dc0d2702",
+          "retrievedAt": "2026-10-02T02:12:02Z"
+        },
+        {
+          "period": "2022-03-02",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=03&qaa=2022",
+          "upstreamSha256": "e039dee80b8db77b03cd17c6b6a85d29a96c89854ab38e4509528fb0afbac469",
+          "retrievedAt": "2026-10-02T02:17:40Z"
+        },
+        {
+          "period": "2022-03-07",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=03&qaa=2022",
+          "upstreamSha256": "dec41e93379d8de8fe4967ebdefbee6e8facb3e2bdd1300622cec0d4808ddea9",
+          "retrievedAt": "2026-10-02T02:12:04Z"
+        },
+        {
+          "period": "2022-03-14",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=03&qaa=2022",
+          "upstreamSha256": "c2fdc7f851c4816aaa27d9e993cd7f98b27f00eb3a9bdbd51230f18d84678ddf",
+          "retrievedAt": "2026-10-02T02:12:05Z"
+        },
+        {
+          "period": "2022-03-21",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=03&qaa=2022",
+          "upstreamSha256": "8a79b7b6c3a59db71db51027be2a84d34cc51cac759bbe2a13b3f8083bfd5fc8",
+          "retrievedAt": "2026-10-02T02:12:06Z"
+        },
+        {
+          "period": "2022-03-28",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=03&qaa=2022",
+          "upstreamSha256": "48c7adfb39bbf8b2f99a2200be99e5bb8ee8a81ea55c733022c39e8376dbde22",
+          "retrievedAt": "2026-10-02T02:12:07Z"
+        },
+        {
+          "period": "2022-04-04",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=04&qaa=2022",
+          "upstreamSha256": "e06dfd634e391145d65dc08294da85a2ca03727bcb685bd3fc547fd299e18c1e",
+          "retrievedAt": "2026-10-02T02:12:08Z"
+        },
+        {
+          "period": "2022-04-11",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=04&qaa=2022",
+          "upstreamSha256": "c740ce53cb11b6d3b09c6e664dc24579e92b31a72ac4a512819caed122d27076",
+          "retrievedAt": "2026-10-02T02:12:09Z"
+        },
+        {
+          "period": "2022-04-18",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=04&qaa=2022",
+          "upstreamSha256": "adb2d82b9ce64353bc32c7ad733b877d3829ac1a1db31f40aeb8d98e4b752196",
+          "retrievedAt": "2026-10-02T02:12:10Z"
+        },
+        {
+          "period": "2022-04-25",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=04&qaa=2022",
+          "upstreamSha256": "bb9a53977c6c2797f640e787bd4afd298e3e07e2f343ccaa2040e3a8da59a830",
+          "retrievedAt": "2026-10-02T02:12:11Z"
+        },
+        {
+          "period": "2022-05-03",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=05&qaa=2022",
+          "upstreamSha256": "736256fb299177f70f3a42ef28adc7435b213236ef7316505e80263b835af62b",
+          "retrievedAt": "2026-10-02T02:17:41Z"
+        },
+        {
+          "period": "2022-05-04",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=05&qaa=2022",
+          "upstreamSha256": "c6a7a1dac82e558c6925cf3b078c0cf2644e0ddbcbc618d17af928ed5792d36c",
+          "retrievedAt": "2026-10-02T02:17:42Z"
+        },
+        {
+          "period": "2022-05-09",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=05&qaa=2022",
+          "upstreamSha256": "d56a4f38149f6cc7ad5dc4c25964a262356d3416ffeba8e3700816e4c5efc38b",
+          "retrievedAt": "2026-10-02T02:12:13Z"
+        },
+        {
+          "period": "2022-05-16",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=05&qaa=2022",
+          "upstreamSha256": "64f7e08d0cc0250de123d8c5166389ca2f9c842af3198a54cb660b3f1bd9404b",
+          "retrievedAt": "2026-10-02T02:12:14Z"
+        },
+        {
+          "period": "2022-05-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=05&qaa=2022",
+          "upstreamSha256": "30d45d7b961e2e89b28f38b48430b9db477290f6bfa5a316861a581182f49713",
+          "retrievedAt": "2026-10-02T02:12:15Z"
+        },
+        {
+          "period": "2022-05-30",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=05&qaa=2022",
+          "upstreamSha256": "32773ce9893b185e479893a4a39807f777f5d333784c4b7f768368b38e149df9",
+          "retrievedAt": "2026-10-02T02:12:16Z"
+        },
+        {
+          "period": "2022-06-06",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=06&qaa=2022",
+          "upstreamSha256": "2cfffa6a67dfab5e7c4818a06f65d536da02f2a78e6c094458ae3b046281a7c0",
+          "retrievedAt": "2026-10-02T02:12:17Z"
+        },
+        {
+          "period": "2022-06-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=06&qaa=2022",
+          "upstreamSha256": "817cf942a41f47be5fb1d067664ac902bcda45270511bd23051326a11fb87e97",
+          "retrievedAt": "2026-10-02T02:12:18Z"
+        },
+        {
+          "period": "2022-06-20",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=06&qaa=2022",
+          "upstreamSha256": "9f6871ba08167138ace176bafb174aa45b38ae68e1fcdfd5a61179398f249f13",
+          "retrievedAt": "2026-10-02T02:12:19Z"
+        },
+        {
+          "period": "2022-06-27",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=06&qaa=2022",
+          "upstreamSha256": "202eedd76b74fda4064070a59279fcbdad49bf1bb686a19a755fbb30375d1d29",
+          "retrievedAt": "2026-10-02T02:12:20Z"
+        },
+        {
+          "period": "2022-07-04",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=07&qaa=2022",
+          "upstreamSha256": "592a7c9bd6526f121adf229acc9329c5068bbf3b340413e7f9b1db1b7742ea2d",
+          "retrievedAt": "2026-10-02T02:12:21Z"
+        },
+        {
+          "period": "2022-07-11",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=07&qaa=2022",
+          "upstreamSha256": "c88685eca9456de4b829c7a0f9045b2ae0b66fe2a003e7d670b3cd7860e27ca5",
+          "retrievedAt": "2026-10-02T02:12:22Z"
+        },
+        {
+          "period": "2022-07-18",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=07&qaa=2022",
+          "upstreamSha256": "b82faab2dea2405490f048bb34d6f4c4092c0c8d262e4874592650b34125560e",
+          "retrievedAt": "2026-10-02T02:12:23Z"
+        },
+        {
+          "period": "2022-07-25",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=07&qaa=2022",
+          "upstreamSha256": "686408d1c76d791632015d886adc4bb5c909a6d015521f25cdaf4dbce4830dc4",
+          "retrievedAt": "2026-10-02T02:12:24Z"
+        },
+        {
+          "period": "2022-08-01",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=08&qaa=2022",
+          "upstreamSha256": "7959e5f4d383ecd582cb9e2b8571d6ddefb306b5dda24d8b7c90e41c82161cee",
+          "retrievedAt": "2026-10-02T02:12:25Z"
+        },
+        {
+          "period": "2022-08-08",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=08&qaa=2022",
+          "upstreamSha256": "1646e694c1625d1af3c65a3e141864d1a478b363f7d7ee2d1428ee27704627c3",
+          "retrievedAt": "2026-10-02T02:12:26Z"
+        },
+        {
+          "period": "2022-08-15",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=08&qaa=2022",
+          "upstreamSha256": "eaba4d992081616e1955020d9a14ab599d5c0f9ec8da04ecb395254901225269",
+          "retrievedAt": "2026-10-02T02:12:28Z"
+        },
+        {
+          "period": "2022-08-22",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=08&qaa=2022",
+          "upstreamSha256": "50aca9131edab75a49907b8786c4033297398283b32ca3cc5d001fd339792ca0",
+          "retrievedAt": "2026-10-02T02:12:29Z"
+        },
+        {
+          "period": "2022-08-29",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=08&qaa=2022",
+          "upstreamSha256": "f74ec80905617a32d078583df4c78f9235e40e99814b1e0576ef84f1e609b0de",
+          "retrievedAt": "2026-10-02T02:12:30Z"
+        },
+        {
+          "period": "2022-09-05",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=09&qaa=2022",
+          "upstreamSha256": "4427cf32d471b4aab017693bf2a21b30ad764c4a0c80101f07694e061bfb9928",
+          "retrievedAt": "2026-10-02T02:12:31Z"
+        },
+        {
+          "period": "2022-09-12",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=09&qaa=2022",
+          "upstreamSha256": "ca739774d38579d8818ee33318fccc4b1262ff2afef80ea1d262e4b703133322",
+          "retrievedAt": "2026-10-02T02:12:32Z"
+        },
+        {
+          "period": "2022-09-19",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=09&qaa=2022",
+          "upstreamSha256": "234507e037050a247d822051ea14cf75fefd6b62ba37d2f4a4f47a91134c370c",
+          "retrievedAt": "2026-10-02T02:12:33Z"
+        },
+        {
+          "period": "2022-09-26",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=09&qaa=2022",
+          "upstreamSha256": "2a2f6f30ecae1182e24d8c214745c8c0d38e0eb62f0a76a134c7ed4d7643e4a6",
+          "retrievedAt": "2026-10-02T02:12:34Z"
+        },
+        {
+          "period": "2022-10-03",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=10&qaa=2022",
+          "upstreamSha256": "dd75fb04fd6a01d6b125e020d83f616af13377312ea9ea0f10871131e52d08d6",
+          "retrievedAt": "2026-10-02T02:12:35Z"
+        },
+        {
+          "period": "2022-10-10",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=10&qaa=2022",
+          "upstreamSha256": "ab55e10b818947b297128116e5de4dab4ecbd8919aa72801562c2026d6fec02e",
+          "retrievedAt": "2026-10-02T02:12:36Z"
+        },
+        {
+          "period": "2022-10-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=10&qaa=2022",
+          "upstreamSha256": "6eb627868d42eaa8b3d40e4b552081647f38c99f3343c1cef20e042c738d00e3",
+          "retrievedAt": "2026-10-02T02:12:37Z"
+        },
+        {
+          "period": "2022-10-24",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=10&qaa=2022",
+          "upstreamSha256": "d1fcdc40d5b1d014029a2223b0d4e60e90e202693d56ca3ecdbea3ce738d808b",
+          "retrievedAt": "2026-10-02T02:12:38Z"
+        },
+        {
+          "period": "2022-10-31",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=31&qmm=10&qaa=2022",
+          "upstreamSha256": "4162babcadb296fabb2541d9018fb80a9a0e3088c00bdad51c3af0de47d941ab",
+          "retrievedAt": "2026-10-02T02:12:39Z"
+        },
+        {
+          "period": "2022-11-07",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=11&qaa=2022",
+          "upstreamSha256": "59fbd42e0dd46e58c3879890380e7c750457c378b4b84f5df9f3343970227d8d",
+          "retrievedAt": "2026-10-02T02:12:40Z"
+        },
+        {
+          "period": "2022-11-14",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=11&qaa=2022",
+          "upstreamSha256": "d59d2b437ecd3deae9c5137d1b4060d3a9f40ad3f8ea3b2c8a97fb03cc2de265",
+          "retrievedAt": "2026-10-02T02:12:41Z"
+        },
+        {
+          "period": "2022-11-21",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=11&qaa=2022",
+          "upstreamSha256": "79785408c925e57e215cd7f78e0dc852ac486a0027d032d55fc2a84d5ca77a98",
+          "retrievedAt": "2026-10-02T02:12:42Z"
+        },
+        {
+          "period": "2022-11-28",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=11&qaa=2022",
+          "upstreamSha256": "5f8003851281596c943e3dd487037376dce201ad54259ec44906d427bbd79bd1",
+          "retrievedAt": "2026-10-02T02:12:43Z"
+        },
+        {
+          "period": "2022-12-05",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=12&qaa=2022",
+          "upstreamSha256": "108e1fef6b115741373534aa524fa3db5c52cc44de72b737976eebf892a383bf",
+          "retrievedAt": "2026-10-02T02:12:44Z"
+        },
+        {
+          "period": "2022-12-12",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=12&qaa=2022",
+          "upstreamSha256": "26ab770ceca63c7b61030ae6b2977c7e79db9400330769daf44266c7e1c0ac55",
+          "retrievedAt": "2026-10-02T02:12:45Z"
+        },
+        {
+          "period": "2022-12-19",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=12&qaa=2022",
+          "upstreamSha256": "2f997292d232dc8c650af5213cc3e5a51bf9e49d48fea54d4196563ac30b985c",
+          "retrievedAt": "2026-10-02T02:12:46Z"
+        },
+        {
+          "period": "2022-12-27",
+          "value": "1.86794",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86794 | 3.6725",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=12&qaa=2022",
+          "upstreamSha256": "36f3524064ba81ac230d3303ee02827dc50add36f28414ea6a70374597c64cd1",
+          "retrievedAt": "2026-10-02T02:17:43Z"
+        },
+        {
+          "period": "2022-12-28",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=12&qaa=2022",
+          "upstreamSha256": "980dac19888441dedd33c1497d9d1ca06638642c0ea50c25bb22a6fde4322d11",
+          "retrievedAt": "2026-10-02T02:17:44Z"
+        },
+        {
+          "period": "2023-01-03",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=01&qaa=2023",
+          "upstreamSha256": "c8114f3ad987dd6cdf8894e18ffd8c4ea4136d2c9b485023aa38b0897ce7bfb0",
+          "retrievedAt": "2026-10-02T02:17:45Z"
+        },
+        {
+          "period": "2023-01-04",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=01&qaa=2023",
+          "upstreamSha256": "ee62411af201c3628d538a52165192d6159d8ea9dd2a507f55dd93e2f73ed1d6",
+          "retrievedAt": "2026-10-02T02:17:46Z"
+        },
+        {
+          "period": "2023-01-09",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=01&qaa=2023",
+          "upstreamSha256": "8ebcaa2d178f4b4a864b129f53d0487fad12262ad67b7369421db4f7436c1864",
+          "retrievedAt": "2026-10-02T02:12:49Z"
+        },
+        {
+          "period": "2023-01-16",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=01&qaa=2023",
+          "upstreamSha256": "35b182e3c45dcd3931c51227b7a1e22f81fac1674ff26860cfa2f86fa152bf69",
+          "retrievedAt": "2026-10-02T02:12:50Z"
+        },
+        {
+          "period": "2023-01-24",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=01&qaa=2023",
+          "upstreamSha256": "f78c8577e5e6abb41f12d7cccb136a9d4a863093df645943b7f10e5986f8da7a",
+          "retrievedAt": "2026-10-02T02:17:47Z"
+        },
+        {
+          "period": "2023-01-25",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=01&qaa=2023",
+          "upstreamSha256": "c78dbd27057fa64fd32953baf52d3be23babc45cb0beaabe8e0e33a93d29c77f",
+          "retrievedAt": "2026-10-02T02:17:48Z"
+        },
+        {
+          "period": "2023-01-30",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=01&qaa=2023",
+          "upstreamSha256": "377f5b6bbb3c693459dab8c69d956e8e0a4f34185ac4e2abc3cf597ad2330a59",
+          "retrievedAt": "2026-10-02T02:12:52Z"
+        },
+        {
+          "period": "2023-02-06",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=02&qaa=2023",
+          "upstreamSha256": "78406e38cdea0ca65692a1864f13eae3b1698defd574f3266847e8d87a45cdc0",
+          "retrievedAt": "2026-10-02T02:12:53Z"
+        },
+        {
+          "period": "2023-02-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=02&qaa=2023",
+          "upstreamSha256": "11510abd74d85e1417444c1a8678500c45ab66c3800a15147fc0bfa20e877e3f",
+          "retrievedAt": "2026-10-02T02:12:54Z"
+        },
+        {
+          "period": "2023-02-22",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=02&qaa=2023",
+          "upstreamSha256": "20b50d2822598af6157a4f3b31df91304ab9b20bde9fd2603e1c72c7d40262a9",
+          "retrievedAt": "2026-10-02T02:17:50Z"
+        },
+        {
+          "period": "2023-02-27",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=02&qaa=2023",
+          "upstreamSha256": "f20946a2f76c4afbcf5036e79ca6749e5610073e183aa636eb60c1187b593c1d",
+          "retrievedAt": "2026-10-02T02:12:56Z"
+        },
+        {
+          "period": "2023-03-06",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=03&qaa=2023",
+          "upstreamSha256": "5e4063c44ab7b5bbb2cef23a36a6cdf210601f5cf12cb09c111b8b661e408f0e",
+          "retrievedAt": "2026-10-02T02:12:57Z"
+        },
+        {
+          "period": "2023-03-13",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=03&qaa=2023",
+          "upstreamSha256": "b0201b7e8aee65528afb9047c70d0cfb55a9931ca8dd4dca4afb6c193594fc0e",
+          "retrievedAt": "2026-10-02T02:12:58Z"
+        },
+        {
+          "period": "2023-03-20",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=03&qaa=2023",
+          "upstreamSha256": "7772c2ac06621dbffdcd75dd17421ab1b0715f91ebbf750c53b1c5af10a0329e",
+          "retrievedAt": "2026-10-02T02:12:59Z"
+        },
+        {
+          "period": "2023-03-27",
+          "value": "1.86789",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86789 | 3.6726",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=03&qaa=2023",
+          "upstreamSha256": "74259661bc34582768611d4a1e36b4953bf7455210f6b3ca4d7715aabd99a7f9",
+          "retrievedAt": "2026-10-02T02:13:01Z"
+        },
+        {
+          "period": "2023-04-03",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=04&qaa=2023",
+          "upstreamSha256": "4a3a9d52b2ec50effe2b93762c4f081e5560b608d61652c004142ed0224c513c",
+          "retrievedAt": "2026-10-02T02:13:02Z"
+        },
+        {
+          "period": "2023-04-10",
+          "value": "1.86789",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86789 | 3.6726",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=04&qaa=2023",
+          "upstreamSha256": "f250f47b3aac6f3d91e6837fa7180339f0116cb2bb412f90301fed1cd0a3f1d0",
+          "retrievedAt": "2026-10-02T02:13:03Z"
+        },
+        {
+          "period": "2023-04-17",
+          "value": "1.86804",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86804 | 3.6723",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=04&qaa=2023",
+          "upstreamSha256": "e4459fe064fd3c8fdcf15a68ac6114d147179c50dd7ddfc49ed0c0ee155fba35",
+          "retrievedAt": "2026-10-02T02:13:04Z"
+        },
+        {
+          "period": "2023-04-24",
+          "value": "1.86804",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86804 | 3.6723",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=04&qaa=2023",
+          "upstreamSha256": "d2b56ac7574148013cdf5449828ae3eab49042ece9092b7436e10adf95587e72",
+          "retrievedAt": "2026-10-02T02:13:05Z"
+        },
+        {
+          "period": "2023-05-02",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=05&qaa=2023",
+          "upstreamSha256": "22e71b97d5532d1be832632aec0a3270787f8ab36404a0ae63ed0531ae0aa9a7",
+          "retrievedAt": "2026-10-02T02:17:51Z"
+        },
+        {
+          "period": "2023-05-03",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=05&qaa=2023",
+          "upstreamSha256": "7f8d05ade99132182e7bef1d2a20e86b6b1796b2062dede3b5e5ebb9ff7aa3a5",
+          "retrievedAt": "2026-10-02T02:17:52Z"
+        },
+        {
+          "period": "2023-05-08",
+          "value": "1.86799",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86799 | 3.6724",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=05&qaa=2023",
+          "upstreamSha256": "a23a98fcf2dfe31bab4fb2bc4e7ad0a365bb02041c701e9b08d6d02b93908894",
+          "retrievedAt": "2026-10-02T02:13:07Z"
+        },
+        {
+          "period": "2023-05-15",
+          "value": "1.86799",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86799 | 3.6724",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=05&qaa=2023",
+          "upstreamSha256": "e832496886780b2fdaa27523c405c08443a510105b3421020bc6d2f285c324ea",
+          "retrievedAt": "2026-10-02T02:13:08Z"
+        },
+        {
+          "period": "2023-05-22",
+          "value": "1.86799",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86799 | 3.6724",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=05&qaa=2023",
+          "upstreamSha256": "20f755afe9bc8797abc6da4bdd23a66c5f94b5ef83d9fe9ce473863145f9ae13",
+          "retrievedAt": "2026-10-02T02:13:09Z"
+        },
+        {
+          "period": "2023-05-29",
+          "value": "1.86809",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86809 | 3.6722",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=05&qaa=2023",
+          "upstreamSha256": "27f0d088c694a9bfb2e32c17445005bd7b612b12b1ff02245fb28eab58d21a02",
+          "retrievedAt": "2026-10-02T02:13:10Z"
+        },
+        {
+          "period": "2023-06-05",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=06&qaa=2023",
+          "upstreamSha256": "76cc7bd3c7983b57f23ebdb7550ffd6a91c42e035706da5b91c191f8df5dda2a",
+          "retrievedAt": "2026-10-02T02:13:11Z"
+        },
+        {
+          "period": "2023-06-12",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=06&qaa=2023",
+          "upstreamSha256": "2770b23b64e1aac9a91fa91eb8edc2371834ebada9e7ef95ed66fed30b710d65",
+          "retrievedAt": "2026-10-02T02:13:12Z"
+        },
+        {
+          "period": "2023-06-19",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=06&qaa=2023",
+          "upstreamSha256": "f65c7e22862b82afec99f331a4517efbf1aca2b2000b4ff092e7b5ed2dfe962a",
+          "retrievedAt": "2026-10-02T02:13:13Z"
+        },
+        {
+          "period": "2023-06-26",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=06&qaa=2023",
+          "upstreamSha256": "ec89499a39a92c34f4f19a89fef71dd5c0613c5c8dcc2ab50778926204aa777f",
+          "retrievedAt": "2026-10-02T02:13:14Z"
+        },
+        {
+          "period": "2023-07-03",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=07&qaa=2023",
+          "upstreamSha256": "ff5c4de5613efd634d2cd0c5ddd0f29dc06cae86c064b18c0fa0ddf661cf6fca",
+          "retrievedAt": "2026-10-02T02:13:15Z"
+        },
+        {
+          "period": "2023-07-10",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=07&qaa=2023",
+          "upstreamSha256": "3028b09831d4d248c02114e7b6e7be6c538451d8890a7c45f2d9eda40c177f1b",
+          "retrievedAt": "2026-10-02T02:13:16Z"
+        },
+        {
+          "period": "2023-07-18",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=07&qaa=2023",
+          "upstreamSha256": "9cd0036bccacc7ff374b3143e7570485efb4e215f1a56445043bf52be2762043",
+          "retrievedAt": "2026-10-02T02:17:53Z"
+        },
+        {
+          "period": "2023-07-19",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=07&qaa=2023",
+          "upstreamSha256": "014b56a731ef8fbe123645663f04f6d2bc1b5baa04d922b64d2c67928e2f354e",
+          "retrievedAt": "2026-10-02T02:17:54Z"
+        },
+        {
+          "period": "2023-07-24",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=07&qaa=2023",
+          "upstreamSha256": "43af429b32268d82280b093975b5883c511d2850994666d279aef92aa160315b",
+          "retrievedAt": "2026-10-02T02:13:18Z"
+        },
+        {
+          "period": "2023-07-31",
+          "value": "1.86307",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86307 | 3.6821",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=31&qmm=07&qaa=2023",
+          "upstreamSha256": "0b727775c71c1857338de10435bcaa7565bd2359d7f760e423abd12a1be95105",
+          "retrievedAt": "2026-10-02T02:13:19Z"
+        },
+        {
+          "period": "2023-08-08",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=08&qaa=2023",
+          "upstreamSha256": "512113c4ae1ba8f3d005de444fa8a773b3b0445a139f8d6646f5e4b66351b871",
+          "retrievedAt": "2026-10-02T02:17:55Z"
+        },
+        {
+          "period": "2023-08-09",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=08&qaa=2023",
+          "upstreamSha256": "6591282c963dadf633d84134744647c82f235134d6ce0a92125b424fa077bab8",
+          "retrievedAt": "2026-10-02T02:17:56Z"
+        },
+        {
+          "period": "2023-08-14",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=08&qaa=2023",
+          "upstreamSha256": "aa9c186400dbef6f117dc444702d89b58dc9ec3dcc56a460a920bc1c52d2951c",
+          "retrievedAt": "2026-10-02T02:13:21Z"
+        },
+        {
+          "period": "2023-08-21",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=08&qaa=2023",
+          "upstreamSha256": "f3af617c998adb5991ffc4cbd6129bd884dae980f76279c390165412f2172219",
+          "retrievedAt": "2026-10-02T02:13:22Z"
+        },
+        {
+          "period": "2023-08-28",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=08&qaa=2023",
+          "upstreamSha256": "5b0215612619bdc54e42f08e9257622f746734815646dc6035b10a97650584fc",
+          "retrievedAt": "2026-10-02T02:13:23Z"
+        },
+        {
+          "period": "2023-09-04",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=09&qaa=2023",
+          "upstreamSha256": "35bb618af4dbda123590d1481f96a2cbad5fef7911c3703d7cda180c8be5afa6",
+          "retrievedAt": "2026-10-02T02:13:24Z"
+        },
+        {
+          "period": "2023-09-11",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=09&qaa=2023",
+          "upstreamSha256": "834a5639d074239140082f248577698d4bfc56f2313a8b4ab87a30b6208fafca",
+          "retrievedAt": "2026-10-02T02:13:25Z"
+        },
+        {
+          "period": "2023-09-18",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=09&qaa=2023",
+          "upstreamSha256": "627ffc6da2aab17d63fb1b93c74b3b2c3646770f183bef63f3d6e97c4582e9a3",
+          "retrievedAt": "2026-10-02T02:13:26Z"
+        },
+        {
+          "period": "2023-09-25",
+          "value": "1.86307",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86307 | 3.6821",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=09&qaa=2023",
+          "upstreamSha256": "6d503790a7d28ed6619ee128fb9565642c17887bcfa3b4a0f9e3de32ed4302ec",
+          "retrievedAt": "2026-10-02T02:13:27Z"
+        },
+        {
+          "period": "2023-10-02",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=10&qaa=2023",
+          "upstreamSha256": "758891001e6c0ae48784db1e3651271d422995e66829a615b7e91819fca41408",
+          "retrievedAt": "2026-10-02T02:13:28Z"
+        },
+        {
+          "period": "2023-10-09",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=10&qaa=2023",
+          "upstreamSha256": "06fa6b8b7051c745748ffcf7e97c9d9b365037c7e0640d88587e82d591b74041",
+          "retrievedAt": "2026-10-02T02:13:29Z"
+        },
+        {
+          "period": "2023-10-16",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=10&qaa=2023",
+          "upstreamSha256": "00d52d814e1b49a6272ff47a15bd00c0365082e7c6a4d39611d1b7fc78dc994c",
+          "retrievedAt": "2026-10-02T02:13:30Z"
+        },
+        {
+          "period": "2023-10-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=10&qaa=2023",
+          "upstreamSha256": "ae8db85f5ce6e1bb3499d9f834f0fd7e3e653da69ddb6fb920374f791dbbdce1",
+          "retrievedAt": "2026-10-02T02:13:31Z"
+        },
+        {
+          "period": "2023-10-30",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=10&qaa=2023",
+          "upstreamSha256": "72cf6b59b63fc40e7570985098ee93b2d8fe4e76d75cd1a3a12bd7bd58e7c3eb",
+          "retrievedAt": "2026-10-02T02:13:32Z"
+        },
+        {
+          "period": "2023-11-06",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=11&qaa=2023",
+          "upstreamSha256": "3ddc5e2e72e1f011487e76bc1b3cfd7e6abbed91eac93113a522b04f8f20451e",
+          "retrievedAt": "2026-10-02T02:13:33Z"
+        },
+        {
+          "period": "2023-11-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=11&qaa=2023",
+          "upstreamSha256": "7a7210be7ea9f9d7b12cc802e6c5fad2e2cfaa7bcce238900df1df8ea8eb7820",
+          "retrievedAt": "2026-10-02T02:13:34Z"
+        },
+        {
+          "period": "2023-11-20",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=11&qaa=2023",
+          "upstreamSha256": "6003a59b7b02ed7543605c0a9df50fc6abda7261d99240760ff80cb5112ebc71",
+          "retrievedAt": "2026-10-02T02:13:35Z"
+        },
+        {
+          "period": "2023-11-27",
+          "value": "1.86789",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86789 | 3.6726",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=11&qaa=2023",
+          "upstreamSha256": "fe88f043f038612b4ca7fe7d87727232ce48e608942aec8de7e0c068989bd6b0",
+          "retrievedAt": "2026-10-02T02:13:36Z"
+        },
+        {
+          "period": "2023-12-04",
+          "value": "1.86799",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86799 | 3.6724",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=12&qaa=2023",
+          "upstreamSha256": "4836d71b776542d308b3a47bd2d790d55275c458fb4c8d37382a42e79eb4d889",
+          "retrievedAt": "2026-10-02T02:13:37Z"
+        },
+        {
+          "period": "2023-12-11",
+          "value": "1.86809",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86809 | 3.6722",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=12&qaa=2023",
+          "upstreamSha256": "2ee62dbffb88a940d9c029117b2a8d5c2ed278d96280ab06169bc44c9669c0e6",
+          "retrievedAt": "2026-10-02T02:13:39Z"
+        },
+        {
+          "period": "2023-12-18",
+          "value": "1.86789",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86789 | 3.6726",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=12&qaa=2023",
+          "upstreamSha256": "725e85ef0cd7129903f9cb7a3cd8ed819703b07435a529f5e50034d458450fe4",
+          "retrievedAt": "2026-10-02T02:13:40Z"
+        },
+        {
+          "period": "2023-12-26",
+          "value": "1.86794",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86794 | 3.6725",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=12&qaa=2023",
+          "upstreamSha256": "8793dc401063610b3bc194a0d72196b30c7101f757b266c7a96b0094757c50fd",
+          "retrievedAt": "2026-10-02T02:17:57Z"
+        },
+        {
+          "period": "2023-12-27",
+          "value": "1.86789",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86789 | 3.6726",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=12&qaa=2023",
+          "upstreamSha256": "43c904f48c26aeab8dc4f8ce19f128ec35f169903b6dcc53346e3c9ae392f1aa",
+          "retrievedAt": "2026-10-02T02:17:58Z"
+        },
+        {
+          "period": "2024-01-02",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=01&qaa=2024",
+          "upstreamSha256": "fd60f0ea3c092ce3c1ee7619d746804d6fb528fab242b9111a5fc3391f93e724",
+          "retrievedAt": "2026-10-02T02:17:59Z"
+        },
+        {
+          "period": "2024-01-03",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=01&qaa=2024",
+          "upstreamSha256": "9d26d34b18670c9e14b1d775d47336190a185584298bbe3cff77d2686a15da3d",
+          "retrievedAt": "2026-10-02T02:18:00Z"
+        },
+        {
+          "period": "2024-01-08",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=01&qaa=2024",
+          "upstreamSha256": "950c12fcc77103cc7f60c4d17e22ae43c22557703f80835e4b86491f6f1a4797",
+          "retrievedAt": "2026-10-02T02:13:43Z"
+        },
+        {
+          "period": "2024-01-15",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=01&qaa=2024",
+          "upstreamSha256": "7e25d479092e18481f2578a6bd26e8829b2b7d7b5b57081f828d2d8648b56be2",
+          "retrievedAt": "2026-10-02T02:13:44Z"
+        },
+        {
+          "period": "2024-01-23",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=01&qaa=2024",
+          "upstreamSha256": "81a7372840b3b1d952968a4bf901d490d19397804e7f309c7093c4dd564b8466",
+          "retrievedAt": "2026-10-02T02:18:01Z"
+        },
+        {
+          "period": "2024-01-24",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=01&qaa=2024",
+          "upstreamSha256": "2ce7bf33efdf5dba9b3cb2c359a9cbbcfcdb33c0b3d2689e5edbb2ef79c278e1",
+          "retrievedAt": "2026-10-02T02:18:02Z"
+        },
+        {
+          "period": "2024-01-29",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=01&qaa=2024",
+          "upstreamSha256": "2da6922741ea9bb39e7aa68d7082c9f9adaf743d9dbfd82b24e300bb62acde46",
+          "retrievedAt": "2026-10-02T02:13:46Z"
+        },
+        {
+          "period": "2024-02-05",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=02&qaa=2024",
+          "upstreamSha256": "711a2169cce3de881ff6067325b54d9311cde68e02244e8162e6a6b004ce4f6a",
+          "retrievedAt": "2026-10-02T02:13:47Z"
+        },
+        {
+          "period": "2024-02-14",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=02&qaa=2024",
+          "upstreamSha256": "bfbbd7339ac9ae712830b50c867dd935a484c402c52402fbc3cee6e0bbb0476d",
+          "retrievedAt": "2026-10-02T02:18:04Z"
+        },
+        {
+          "period": "2024-02-19",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=02&qaa=2024",
+          "upstreamSha256": "d382f543ef6b05d59a1f40452d0e7a4addafb677b723d0c2827e773893bdc3c2",
+          "retrievedAt": "2026-10-02T02:13:49Z"
+        },
+        {
+          "period": "2024-02-26",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=02&qaa=2024",
+          "upstreamSha256": "01e1e8780eb4147d194e241a54bff2cc361e729446df88ebf70b953c6f56cf12",
+          "retrievedAt": "2026-10-02T02:13:50Z"
+        },
+        {
+          "period": "2024-03-04",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=03&qaa=2024",
+          "upstreamSha256": "419992026bf2dd16a6b3d6426951b8966385976c5760e4dfa76ee6ce48d8ceb2",
+          "retrievedAt": "2026-10-02T02:13:51Z"
+        },
+        {
+          "period": "2024-03-11",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=03&qaa=2024",
+          "upstreamSha256": "85be9b33a2af8b83b085ec493eca5dc5f748bff8560131bea7254977f0a7ee17",
+          "retrievedAt": "2026-10-02T02:13:52Z"
+        },
+        {
+          "period": "2024-03-18",
+          "value": "1.86789",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86789 | 3.6726",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=03&qaa=2024",
+          "upstreamSha256": "f4231c87cb3395028da702439aade5638a3099134d1040411e50166323956bc6",
+          "retrievedAt": "2026-10-02T02:13:53Z"
+        },
+        {
+          "period": "2024-03-25",
+          "value": "1.86794",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86794 | 3.6725",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=03&qaa=2024",
+          "upstreamSha256": "3d05d227681d8f0d1d4ec29840b938f757da05670340e0b39ff1c153dcca08b3",
+          "retrievedAt": "2026-10-02T02:13:54Z"
+        },
+        {
+          "period": "2024-04-01",
+          "value": "1.86804",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86804 | 3.6723",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=04&qaa=2024",
+          "upstreamSha256": "2ef8f89fabd646001921aa7f69d17da7100b00de4bb4a43474bf7dd7989d9eed",
+          "retrievedAt": "2026-10-02T02:13:55Z"
+        },
+        {
+          "period": "2024-04-08",
+          "value": "1.86794",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86794 | 3.6725",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=04&qaa=2024",
+          "upstreamSha256": "c942692bcd8f2be6f31dd2e346928b24bf0aaad03ecc82124687250c5c8ca8fd",
+          "retrievedAt": "2026-10-02T02:13:56Z"
+        },
+        {
+          "period": "2024-04-15",
+          "value": "1.86799",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86799 | 3.6724",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=04&qaa=2024",
+          "upstreamSha256": "0609ca78687f32379ebd866936a1552e358899585cedb3e679e1052c2896d7dd",
+          "retrievedAt": "2026-10-02T02:13:57Z"
+        },
+        {
+          "period": "2024-04-22",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=04&qaa=2024",
+          "upstreamSha256": "d828dc22ac7f24466b03b9d376451d60d1e4a95b4b18dde8b487f63c2583a71c",
+          "retrievedAt": "2026-10-02T02:13:58Z"
+        },
+        {
+          "period": "2024-04-29",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=04&qaa=2024",
+          "upstreamSha256": "950eab2d127be3cd8a636ae6221442c4879d051c221a790e2f10c236a4e3195e",
+          "retrievedAt": "2026-10-02T02:13:59Z"
+        },
+        {
+          "period": "2024-05-06",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=05&qaa=2024",
+          "upstreamSha256": "0129413ddd3411767f67f8c5c0fbcd349f7463e848af7356091bd3ebd8506a61",
+          "retrievedAt": "2026-10-02T02:14:00Z"
+        },
+        {
+          "period": "2024-05-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=05&qaa=2024",
+          "upstreamSha256": "0249e58f4a11946f741ac72036d12371c56d916b3b917331154175e867769378",
+          "retrievedAt": "2026-10-02T02:14:01Z"
+        },
+        {
+          "period": "2024-05-20",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=05&qaa=2024",
+          "upstreamSha256": "6e75a0348599bfa3376614c741b4eb3858bb3dbca39bfd7cef1da48a11025201",
+          "retrievedAt": "2026-10-02T02:14:02Z"
+        },
+        {
+          "period": "2024-05-27",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=05&qaa=2024",
+          "upstreamSha256": "da9236b241a38230e6c7719bceb1568f373b07f34d05eb4eab6319b8b40ab1f8",
+          "retrievedAt": "2026-10-02T02:14:03Z"
+        },
+        {
+          "period": "2024-06-03",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=06&qaa=2024",
+          "upstreamSha256": "c6fbdb54c8cb60dd7a3fb52446ebbc0de6a2b27a23755e2a544ebec8153a39f9",
+          "retrievedAt": "2026-10-02T02:14:04Z"
+        },
+        {
+          "period": "2024-06-10",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=06&qaa=2024",
+          "upstreamSha256": "fe07f686e84bfcdc77a88a9f86ba520cde2e4efcbc40237752c84a27d1cbbe96",
+          "retrievedAt": "2026-10-02T02:14:05Z"
+        },
+        {
+          "period": "2024-06-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=06&qaa=2024",
+          "upstreamSha256": "37355c4a3720598348424f083aa5273930a09009bde65e6f08275e5ff50d2d73",
+          "retrievedAt": "2026-10-02T02:14:06Z"
+        },
+        {
+          "period": "2024-06-24",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=06&qaa=2024",
+          "upstreamSha256": "e27b281b0eccb3b9815af137a8659f0ee6e0f656d02f5ce2ddeed1556f524129",
+          "retrievedAt": "2026-10-02T02:14:07Z"
+        },
+        {
+          "period": "2024-07-01",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=07&qaa=2024",
+          "upstreamSha256": "52393079abd4581994ef71252d58724ce85e5001c03214efb4a6b0b02398a033",
+          "retrievedAt": "2026-10-02T02:14:08Z"
+        },
+        {
+          "period": "2024-07-08",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=07&qaa=2024",
+          "upstreamSha256": "35484dd417ed170afe1af812e2d49df9a66e7c4d240cb385edaae84f0a6e3325",
+          "retrievedAt": "2026-10-02T02:14:09Z"
+        },
+        {
+          "period": "2024-07-15",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=07&qaa=2024",
+          "upstreamSha256": "72507499996122fbe371fffc19ad5f4c959fb32940a9a3af9a72edb3570e72b8",
+          "retrievedAt": "2026-10-02T02:14:10Z"
+        },
+        {
+          "period": "2024-07-22",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=07&qaa=2024",
+          "upstreamSha256": "b0595620735d6b519bc54c071f114be6757e0d83b008d40465ff700766bb14f1",
+          "retrievedAt": "2026-10-02T02:14:11Z"
+        },
+        {
+          "period": "2024-07-29",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=07&qaa=2024",
+          "upstreamSha256": "06fb070f13fa01c032d8ff05970725d7b1495d28250b439b7604d1959a265c7a",
+          "retrievedAt": "2026-10-02T02:14:12Z"
+        },
+        {
+          "period": "2024-08-05",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=08&qaa=2024",
+          "upstreamSha256": "1ff1dc796715a33581d7c9b5fdbb9775a31e9301cd7687fd5e2e031fe31c1e7b",
+          "retrievedAt": "2026-10-02T02:14:13Z"
+        },
+        {
+          "period": "2024-08-12",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=08&qaa=2024",
+          "upstreamSha256": "2af2d9d82f4c93f572c4b1563aace51dd766ce9774a30c47b156e602ccdcd174",
+          "retrievedAt": "2026-10-02T02:14:14Z"
+        },
+        {
+          "period": "2024-08-19",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=08&qaa=2024",
+          "upstreamSha256": "db491d1b79f4f339cfaa378482830c8b3d511d0f30a6755ec98f4ca3f7a69f70",
+          "retrievedAt": "2026-10-02T02:14:15Z"
+        },
+        {
+          "period": "2024-08-26",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=08&qaa=2024",
+          "upstreamSha256": "28afa688d722d8d09cee690e1bd6827d3c7db31ef73001736bd086e350943654",
+          "retrievedAt": "2026-10-02T02:14:17Z"
+        },
+        {
+          "period": "2024-09-02",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=09&qaa=2024",
+          "upstreamSha256": "30c5f3d229c8409e179c0615e9910b77b341ac1276c1af7db75e1cd7712c8df5",
+          "retrievedAt": "2026-10-02T02:14:18Z"
+        },
+        {
+          "period": "2024-09-09",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=09&qaa=2024",
+          "upstreamSha256": "3a412bf4b46128376584ae5ca381fdc1c9d9045f9b630907cd05781e1cd08001",
+          "retrievedAt": "2026-10-02T02:14:19Z"
+        },
+        {
+          "period": "2024-09-16",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=09&qaa=2024",
+          "upstreamSha256": "7a1b9c52c5c6203a91bab1b820bbb41bf8f814bd71fcb98c5044a729cbb12cbf",
+          "retrievedAt": "2026-10-02T02:14:20Z"
+        },
+        {
+          "period": "2024-09-23",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=09&qaa=2024",
+          "upstreamSha256": "5ea39ec7b47355a4212078341c108ca2d453147e5f2bf765787fce8207f76c23",
+          "retrievedAt": "2026-10-02T02:14:21Z"
+        },
+        {
+          "period": "2024-09-30",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=09&qaa=2024",
+          "upstreamSha256": "a03ecbccabc1e7143c25ae6d199531039e8c6f958fea0ca9980162865119a455",
+          "retrievedAt": "2026-10-02T02:14:22Z"
+        },
+        {
+          "period": "2024-10-07",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=10&qaa=2024",
+          "upstreamSha256": "8c1b76e83ed31f50db80d6f68912cd5e2df6500d13a1a55c3e6457786c4282c0",
+          "retrievedAt": "2026-10-02T02:14:23Z"
+        },
+        {
+          "period": "2024-10-14",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=10&qaa=2024",
+          "upstreamSha256": "7f2905147afd6b774548c6e3ba33b66c9c8450eb1a9a2d215df38adb3ae4a5b9",
+          "retrievedAt": "2026-10-02T02:14:24Z"
+        },
+        {
+          "period": "2024-10-21",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=10&qaa=2024",
+          "upstreamSha256": "b5b5b5fc8b8e9d8673c48f3021dd8daba20a83c66d107fdaa39618267eed0adb",
+          "retrievedAt": "2026-10-02T02:14:25Z"
+        },
+        {
+          "period": "2024-10-28",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=10&qaa=2024",
+          "upstreamSha256": "891bc595d3a5c60f402eadb4c527df972dffbe62bea3900346b98a4a86d7be4d",
+          "retrievedAt": "2026-10-02T02:14:26Z"
+        },
+        {
+          "period": "2024-11-04",
+          "value": "1.86819",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86819 | 3.672",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=11&qaa=2024",
+          "upstreamSha256": "f6036cbbff084695d4845bd91513d659fa80e5cebce8f01db1098fdea4d418b3",
+          "retrievedAt": "2026-10-02T02:14:27Z"
+        },
+        {
+          "period": "2024-11-11",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=11&qaa=2024",
+          "upstreamSha256": "f9406546e375f46839ecb093dda706ae1cc4bf7b6fee44a959772b8602c43ea9",
+          "retrievedAt": "2026-10-02T02:14:28Z"
+        },
+        {
+          "period": "2024-11-18",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=11&qaa=2024",
+          "upstreamSha256": "78ab3fb7df5aa316feeb49d45a6a63b60c957cf423841a362ab9670353672e55",
+          "retrievedAt": "2026-10-02T02:14:29Z"
+        },
+        {
+          "period": "2024-11-25",
+          "value": "1.86794",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86794 | 3.6725",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=11&qaa=2024",
+          "upstreamSha256": "4ddaaef94c7d5da691974c2afd5e87db14b81b47ca27575af29c27435cb18c8d",
+          "retrievedAt": "2026-10-02T02:14:30Z"
+        },
+        {
+          "period": "2024-12-02",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=12&qaa=2024",
+          "upstreamSha256": "004b87f26d988fa669c76af7aed217b30aaa86b32ec274ddf1dce7f75ca96f7c",
+          "retrievedAt": "2026-10-02T02:14:31Z"
+        },
+        {
+          "period": "2024-12-09",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=12&qaa=2024",
+          "upstreamSha256": "b67d667b59da1a847c4ba3ba5952c884025e8a3d7bc799491b7a6f0792070a9b",
+          "retrievedAt": "2026-10-02T02:14:32Z"
+        },
+        {
+          "period": "2024-12-16",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=12&qaa=2024",
+          "upstreamSha256": "8bd148dd13f8ed4f5d7df4530a228f40820d249b3cc722a35ae24424e429341c",
+          "retrievedAt": "2026-10-02T02:14:33Z"
+        },
+        {
+          "period": "2024-12-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=12&qaa=2024",
+          "upstreamSha256": "5bdb3e65c40aaaf5e7677fe77a76721cb9419b5fd24def80ec090204ad7efb69",
+          "retrievedAt": "2026-10-02T02:14:34Z"
+        },
+        {
+          "period": "2024-12-30",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=12&qaa=2024",
+          "upstreamSha256": "9bfae5bf9ea0d04a84fecae7f0525b38fb9c926ae637a046bab33909aa7e17c4",
+          "retrievedAt": "2026-10-02T02:14:35Z"
+        },
+        {
+          "period": "2025-01-06",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=01&qaa=2025",
+          "upstreamSha256": "2b91c99e34751e05f5ff21108db42ae3b5450c1572f278a67d55683c26c0e999",
+          "retrievedAt": "2026-10-02T02:14:36Z"
+        },
+        {
+          "period": "2025-01-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=01&qaa=2025",
+          "upstreamSha256": "9942700b71f322b9b8194f749066ece37cae0a78cf4a1e3286468dafbbba70fb",
+          "retrievedAt": "2026-10-02T02:14:37Z"
+        },
+        {
+          "period": "2025-01-20",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=01&qaa=2025",
+          "upstreamSha256": "be60bb50c1e4aed33782b3cb2ca41d8d83c30b12684bfb61b63db305fc8d1ca8",
+          "retrievedAt": "2026-10-02T02:14:38Z"
+        },
+        {
+          "period": "2025-01-27",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=01&qaa=2025",
+          "upstreamSha256": "26bdd2617c760fd3c0a1528b2c2b67724efb3b2c711ba84c49417f7ec62bbb6c",
+          "retrievedAt": "2026-10-02T02:14:39Z"
+        },
+        {
+          "period": "2025-02-03",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=02&qaa=2025",
+          "upstreamSha256": "6d02fd9da05adcfa6b5952c83c14a6faa3094a3d5f480d4b0eefcfef520c62af",
+          "retrievedAt": "2026-10-02T02:14:40Z"
+        },
+        {
+          "period": "2025-02-10",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=02&qaa=2025",
+          "upstreamSha256": "8e91fe2190f1be4f35a0d6637723e959d3f6a77010ec69a2285fdeeed6de50b9",
+          "retrievedAt": "2026-10-02T02:14:41Z"
+        },
+        {
+          "period": "2025-02-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=02&qaa=2025",
+          "upstreamSha256": "dcac5420ee978cb2e168506ea37d9fff56cace176ff695d47ce9fb6465f4a9b9",
+          "retrievedAt": "2026-10-02T02:14:42Z"
+        },
+        {
+          "period": "2025-02-24",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=02&qaa=2025",
+          "upstreamSha256": "4302a3ed676bfbddffb1f739a92ee0c5346dfe4cd32ba6228ee1152dbb165fd2",
+          "retrievedAt": "2026-10-02T02:14:43Z"
+        },
+        {
+          "period": "2025-03-05",
+          "value": "1.86794",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86794 | 3.6725",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=03&qaa=2025",
+          "upstreamSha256": "ba2b929815a2943b35c51a76420dbc217022bdc51fe29f5368a8d5059ccbf8b5",
+          "retrievedAt": "2026-10-02T02:18:06Z"
+        },
+        {
+          "period": "2025-03-10",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=03&qaa=2025",
+          "upstreamSha256": "4b8615e30b182a984c529dd7e4336e35c71bd570deaf1435b4229052389b7872",
+          "retrievedAt": "2026-10-02T02:14:45Z"
+        },
+        {
+          "period": "2025-03-17",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=03&qaa=2025",
+          "upstreamSha256": "499748f724d1624e1292940ec2d29baae6d2a3886abf5b94b3a2d21c50851149",
+          "retrievedAt": "2026-10-02T02:14:46Z"
+        },
+        {
+          "period": "2025-03-24",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=03&qaa=2025",
+          "upstreamSha256": "1f89a79f4b6debd2ab98a1ec14f3a5f91b5f0a9e4031f333cb205f39485f0060",
+          "retrievedAt": "2026-10-02T02:14:47Z"
+        },
+        {
+          "period": "2025-03-31",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=31&qmm=03&qaa=2025",
+          "upstreamSha256": "584ee906c0fe592d69e11e995e28e3a8736e6b201aafb55f73ba58615000b3d8",
+          "retrievedAt": "2026-10-02T02:14:48Z"
+        },
+        {
+          "period": "2025-04-07",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=04&qaa=2025",
+          "upstreamSha256": "8bb62feee17a31155d3f6f6ed71f9a2c81998bf502128c16db6677c75e461838",
+          "retrievedAt": "2026-10-02T02:14:49Z"
+        },
+        {
+          "period": "2025-04-14",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=04&qaa=2025",
+          "upstreamSha256": "88dd3fa839831c2c165d91d9d152866d67f948e50b8cb3c48cf1f9c1fbc44a59",
+          "retrievedAt": "2026-10-02T02:14:50Z"
+        },
+        {
+          "period": "2025-04-21",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=04&qaa=2025",
+          "upstreamSha256": "b1c0a1f87344ba0cae6a486c461adac7e0ae6f4b97a31162f66a521034dbe960",
+          "retrievedAt": "2026-10-02T02:14:51Z"
+        },
+        {
+          "period": "2025-04-28",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=04&qaa=2025",
+          "upstreamSha256": "89bc9132be855b4b80ced81b6e321a060bd1df0ccacf4e5dfa30f18879fdd30d",
+          "retrievedAt": "2026-10-02T02:14:52Z"
+        },
+        {
+          "period": "2025-05-05",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=05&qaa=2025",
+          "upstreamSha256": "cf1cef3c7aa164a73e82823f48867481e201e1f93a0dbb3f8ad5ac198d0035ec",
+          "retrievedAt": "2026-10-02T02:14:53Z"
+        },
+        {
+          "period": "2025-05-12",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=05&qaa=2025",
+          "upstreamSha256": "d845d6133f6ce1007e9d456627782333981d2f2069207502d72537780e9913ad",
+          "retrievedAt": "2026-10-02T02:14:54Z"
+        },
+        {
+          "period": "2025-05-19",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=05&qaa=2025",
+          "upstreamSha256": "82e0e0f6330fb73e328bee70bbf8f8a25b256c87c3cc0297a13d55adaaf93321",
+          "retrievedAt": "2026-10-02T02:14:55Z"
+        },
+        {
+          "period": "2025-05-26",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=05&qaa=2025",
+          "upstreamSha256": "fe89faabf5864c08a5d1772122a364480effcc10ec77c455f75908325dec13e5",
+          "retrievedAt": "2026-10-02T02:14:56Z"
+        },
+        {
+          "period": "2025-06-02",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=06&qaa=2025",
+          "upstreamSha256": "9d157418ad549aad7cebf58f13b78a8069d9a333449d93459a58edd43215ebfe",
+          "retrievedAt": "2026-10-02T02:14:58Z"
+        },
+        {
+          "period": "2025-06-09",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=06&qaa=2025",
+          "upstreamSha256": "9c89c755cee72219c2780313710c08cce12407827b80b617414a821f7ca27b00",
+          "retrievedAt": "2026-10-02T02:14:59Z"
+        },
+        {
+          "period": "2025-06-16",
+          "value": "1.86804",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86804 | 3.6723",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=06&qaa=2025",
+          "upstreamSha256": "e2b36e5ccba1dcc399c2f5bc418c73fc386b30b460ff32e09a5031691a69a979",
+          "retrievedAt": "2026-10-02T02:15:00Z"
+        },
+        {
+          "period": "2025-06-23",
+          "value": "1.86804",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86804 | 3.6723",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=06&qaa=2025",
+          "upstreamSha256": "0b944dc027bebb992157f97deea67eee0d6ff5a36520d1e517d49e968f21ff92",
+          "retrievedAt": "2026-10-02T02:15:01Z"
+        },
+        {
+          "period": "2025-06-30",
+          "value": "1.86794",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86794 | 3.6725",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=06&qaa=2025",
+          "upstreamSha256": "faa62ba731c8b9780f14dbf3e61f0a3181d0aa335ab416c17122fb29725e49e7",
+          "retrievedAt": "2026-10-02T02:15:02Z"
+        },
+        {
+          "period": "2025-07-07",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=07&qaa=2025",
+          "upstreamSha256": "a161656bee69147e7b28c45dc21cf732d97a4765aeffcc414e8daa0b6ee9f554",
+          "retrievedAt": "2026-10-02T02:15:03Z"
+        },
+        {
+          "period": "2025-07-14",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=07&qaa=2025",
+          "upstreamSha256": "dbacc27bcab7d025ad51ad61b8ed4676136e30739de2102528fb4f3758779dde",
+          "retrievedAt": "2026-10-02T02:15:04Z"
+        },
+        {
+          "period": "2025-07-21",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=07&qaa=2025",
+          "upstreamSha256": "3e718e4f8963fdac05078274d823771c1118343abdb2a29ef997e39c68b273a6",
+          "retrievedAt": "2026-10-02T02:15:05Z"
+        },
+        {
+          "period": "2025-07-28",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=28&qmm=07&qaa=2025",
+          "upstreamSha256": "71e46ddb8cdbd2f3c45d6a156fd9ae515a8351cd0412b01e88c0037f202aed1c",
+          "retrievedAt": "2026-10-02T02:15:06Z"
+        },
+        {
+          "period": "2025-08-04",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=08&qaa=2025",
+          "upstreamSha256": "4b8044ebba671ed899fed881a9ee152709527ca1828e28987a0b8cf735ae2bb7",
+          "retrievedAt": "2026-10-02T02:15:07Z"
+        },
+        {
+          "period": "2025-08-11",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=08&qaa=2025",
+          "upstreamSha256": "736dcf655c86778f68eea5a7aa3b3edd59498c6caf843187536e6d9611ec8c62",
+          "retrievedAt": "2026-10-02T02:15:08Z"
+        },
+        {
+          "period": "2025-08-18",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=08&qaa=2025",
+          "upstreamSha256": "d39aca0d93c8d19092c44cefc51247a37ef81c27524d5b82482e8909dc88393d",
+          "retrievedAt": "2026-10-02T02:15:09Z"
+        },
+        {
+          "period": "2025-08-25",
+          "value": "1.86794",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86794 | 3.6725",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=08&qaa=2025",
+          "upstreamSha256": "848c95ef4c68d9bec067b3b15156f1a253d92864323ff56d4e10c1cb45f57694",
+          "retrievedAt": "2026-10-02T02:15:10Z"
+        },
+        {
+          "period": "2025-09-01",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=09&qaa=2025",
+          "upstreamSha256": "1e991fb66a3ad26b489aed47ed0957f32f205f3fd451068b7de20752e076c7d3",
+          "retrievedAt": "2026-10-02T02:15:11Z"
+        },
+        {
+          "period": "2025-09-08",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=09&qaa=2025",
+          "upstreamSha256": "d3c67e6f6dfc79e1c3484499b3035a5d150d4843711e1f0ef829ae41cd846bd0",
+          "retrievedAt": "2026-10-02T02:15:12Z"
+        },
+        {
+          "period": "2025-09-15",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=09&qaa=2025",
+          "upstreamSha256": "b8e58f9564fcc72d5bf40739a86c0f6d627b9f55865565c631436a1b9e7b6e8e",
+          "retrievedAt": "2026-10-02T02:15:13Z"
+        },
+        {
+          "period": "2025-09-22",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=09&qaa=2025",
+          "upstreamSha256": "980b976b163b7a72678535f2dd72d96766b59919b4d6c44d5f8d1b2cd43e64cc",
+          "retrievedAt": "2026-10-02T02:15:14Z"
+        },
+        {
+          "period": "2025-09-29",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=09&qaa=2025",
+          "upstreamSha256": "48818e8688bb9cf8e949d1cad873e20cb7e6517bb38b16667dc6ea920600f778",
+          "retrievedAt": "2026-10-02T02:15:15Z"
+        },
+        {
+          "period": "2025-10-06",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=10&qaa=2025",
+          "upstreamSha256": "24b1a73f0cb3ab38cc42b908081891cccc9dc4fed70ed2468e4d722386b59b8d",
+          "retrievedAt": "2026-10-02T02:15:16Z"
+        },
+        {
+          "period": "2025-10-13",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=10&qaa=2025",
+          "upstreamSha256": "42771a3349fd17b4396bfaebc3fd70d3d270748dcc2d51f661ed8fd87497bfc3",
+          "retrievedAt": "2026-10-02T02:15:17Z"
+        },
+        {
+          "period": "2025-10-20",
+          "value": "1.86738",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86738 | 3.6736",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=10&qaa=2025",
+          "upstreamSha256": "b59ca3c3d7ecc7c790eb7af2a967a64a733c684321cdba770633943578a6efe8",
+          "retrievedAt": "2026-10-02T02:15:18Z"
+        },
+        {
+          "period": "2025-10-27",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=10&qaa=2025",
+          "upstreamSha256": "6687a9467ee2b8780545167bcd1aa83ee6fd0e27a3a9a23836ec28e8da4c7fc2",
+          "retrievedAt": "2026-10-02T02:15:19Z"
+        },
+        {
+          "period": "2025-11-04",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=11&qaa=2025",
+          "upstreamSha256": "6dce18f7335c3f1435e1fbd185d1f96236237eb7114b11f3dab7a54884135eee",
+          "retrievedAt": "2026-10-02T02:18:07Z"
+        },
+        {
+          "period": "2025-11-05",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=11&qaa=2025",
+          "upstreamSha256": "e315ffc567e82bebcb5b157c5b3daea004c80de32489cacfc30b47662717e977",
+          "retrievedAt": "2026-10-02T02:18:08Z"
+        },
+        {
+          "period": "2025-11-10",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=11&qaa=2025",
+          "upstreamSha256": "48bfe2e46f841220204e5623a10917ea63f25c5946b0ba84523e1f28405c4f9c",
+          "retrievedAt": "2026-10-02T02:15:21Z"
+        },
+        {
+          "period": "2025-11-17",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=11&qaa=2025",
+          "upstreamSha256": "08a818220f45d0b0b557ebbc17ddf06c89d019ebcd597d1ea7aad726f947d6f7",
+          "retrievedAt": "2026-10-02T02:15:22Z"
+        },
+        {
+          "period": "2025-11-24",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=11&qaa=2025",
+          "upstreamSha256": "84fb8540da095b5505c3f7672f26640abd70773d3fafb472f426bebd1f1d3163",
+          "retrievedAt": "2026-10-02T02:15:23Z"
+        },
+        {
+          "period": "2025-12-01",
+          "value": "1.86728",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86728 | 3.6738",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=12&qaa=2025",
+          "upstreamSha256": "9d64a674623e19e29a5ac08df2bc75007161335e8401f8d7e5ab43bddd7e21e7",
+          "retrievedAt": "2026-10-02T02:15:24Z"
+        },
+        {
+          "period": "2025-12-08",
+          "value": "1.86819",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86819 | 3.672",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=12&qaa=2025",
+          "upstreamSha256": "fd9a7e628f6c879b7698a4f5d9aaee25d3deefa77c92994fe1f96bf52c1263e1",
+          "retrievedAt": "2026-10-02T02:15:25Z"
+        },
+        {
+          "period": "2025-12-15",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=12&qaa=2025",
+          "upstreamSha256": "87c73f7f4c35d7395ca43f9e1678ff2f3d6cb6f047ba38637727d9b970ad9a56",
+          "retrievedAt": "2026-10-02T02:15:26Z"
+        },
+        {
+          "period": "2025-12-22",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=22&qmm=12&qaa=2025",
+          "upstreamSha256": "f23c19e17d67c4a345cae293a504ed420a5aae4853f3b943bc092927a0bf963e",
+          "retrievedAt": "2026-10-02T02:15:27Z"
+        },
+        {
+          "period": "2025-12-29",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=12&qaa=2025",
+          "upstreamSha256": "d364bc9ac2bf154719cf9cc5f74478415e0dd539215e0a7d5282f4577b021aa4",
+          "retrievedAt": "2026-10-02T02:15:28Z"
+        },
+        {
+          "period": "2026-01-05",
+          "value": "1.86773",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86773 | 3.6729",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=05&qmm=01&qaa=2026",
+          "upstreamSha256": "304635c9bacaf26014a01d49047a8efab8b245c7971322793348c5dc6fd5b352",
+          "retrievedAt": "2026-10-02T02:15:29Z"
+        },
+        {
+          "period": "2026-01-12",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=12&qmm=01&qaa=2026",
+          "upstreamSha256": "5791ede5b01c78a115d4bebbaca89af8a9af3bac840308ec7977edca141f2ae5",
+          "retrievedAt": "2026-10-02T02:15:30Z"
+        },
+        {
+          "period": "2026-01-19",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=19&qmm=01&qaa=2026",
+          "upstreamSha256": "d143dc2624e6bbc66a11607037b768f02feeea84685d3433d2357fb766617e54",
+          "retrievedAt": "2026-10-02T02:15:31Z"
+        },
+        {
+          "period": "2026-01-26",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=01&qaa=2026",
+          "upstreamSha256": "d389e97efba3ab79ca4f8c75a5d7a7bd02fe4d213561210ec55c595ab804b4df",
+          "retrievedAt": "2026-10-02T02:15:32Z"
+        },
+        {
+          "period": "2026-02-02",
+          "value": "1.86784",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86784 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=02&qaa=2026",
+          "upstreamSha256": "e725f4821a9cc3de0a89c2404bb3391661b220ca3789e085f49c47eb871e3750",
+          "retrievedAt": "2026-10-02T02:15:33Z"
+        },
+        {
+          "period": "2026-02-09",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=02&qaa=2026",
+          "upstreamSha256": "c1d81c25d08794e10567c08688f1347b1acb32323a0c4e690bc4d448ab2ee912",
+          "retrievedAt": "2026-10-02T02:15:35Z"
+        },
+        {
+          "period": "2026-02-18",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=02&qaa=2026",
+          "upstreamSha256": "96b7688157b8ebe50d5c28f049d855916e035cd5e1d1d9b238930e0695c1b4c2",
+          "retrievedAt": "2026-10-02T02:18:11Z"
+        },
+        {
+          "period": "2026-02-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=02&qaa=2026",
+          "upstreamSha256": "f74b83de786011600d94f5e66ed383c50bf52ca703efec113bee03d926a086f4",
+          "retrievedAt": "2026-10-02T02:15:37Z"
+        },
+        {
+          "period": "2026-03-02",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=03&qaa=2026",
+          "upstreamSha256": "3092effb90be2b4869a016f89fa2a6a674d7afabf73b86a1f96fb399e22f57e9",
+          "retrievedAt": "2026-10-02T02:15:38Z"
+        },
+        {
+          "period": "2026-03-09",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=09&qmm=03&qaa=2026",
+          "upstreamSha256": "f587db74d3abea81f646f59840e5fb68bfab158ff1c822ec0dde891c87d7d5d3",
+          "retrievedAt": "2026-10-02T02:15:39Z"
+        },
+        {
+          "period": "2026-03-16",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=16&qmm=03&qaa=2026",
+          "upstreamSha256": "4802a1d4657cb3699a3236001aa25c35ac43f83c95914088ef6ea3369ff5fd35",
+          "retrievedAt": "2026-10-02T02:15:40Z"
+        },
+        {
+          "period": "2026-03-23",
+          "value": "1.86753",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86753 | 3.6733",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=03&qaa=2026",
+          "upstreamSha256": "b2c2462a2b24717ed0dd284602d4911d4c589c44ba9ecde95798e6acbcc8ac7b",
+          "retrievedAt": "2026-10-02T02:15:41Z"
+        },
+        {
+          "period": "2026-03-30",
+          "value": "1.86758",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86758 | 3.6732",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=03&qaa=2026",
+          "upstreamSha256": "b9648ca4e65dee9cc7a3165034a77fa28de3bfc9ab70163537da37283b5a97e2",
+          "retrievedAt": "2026-10-02T02:15:42Z"
+        },
+        {
+          "period": "2026-04-06",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=04&qaa=2026",
+          "upstreamSha256": "5011c2106e580815b21adead9ccd8f2ae6da6cc51fcc1218db7d335c46f5dd8b",
+          "retrievedAt": "2026-10-02T02:15:43Z"
+        },
+        {
+          "period": "2026-04-13",
+          "value": "1.86758",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86758 | 3.6732",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=04&qaa=2026",
+          "upstreamSha256": "2d97e05f47d7d75124c9d8dad2f269714fe682dc020aec9a8e02246a4c3f1f18",
+          "retrievedAt": "2026-10-02T02:15:44Z"
+        },
+        {
+          "period": "2026-04-20",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=04&qaa=2026",
+          "upstreamSha256": "5705b7cbd8b8d758525ceb01eda73f804ddcf6af23dbd724302bea69593dbdf0",
+          "retrievedAt": "2026-10-02T02:15:45Z"
+        },
+        {
+          "period": "2026-04-27",
+          "value": "1.86778",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86778 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=04&qaa=2026",
+          "upstreamSha256": "ba4b25cae9f5a0f5eb5b9955d74abfad983cbb62fd516cd871bd0c9c99d37f95",
+          "retrievedAt": "2026-10-02T02:15:46Z"
+        },
+        {
+          "period": "2026-05-04",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=04&qmm=05&qaa=2026",
+          "upstreamSha256": "236585e8471911b29772bb88e2bc8d2d51b36b9a8792096e094bacf3465b4f71",
+          "retrievedAt": "2026-10-02T02:15:47Z"
+        },
+        {
+          "period": "2026-05-11",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=11&qmm=05&qaa=2026",
+          "upstreamSha256": "57ec6d496eabcc662fdb6c97a2cac8e9b1ad9c92e8df45ed3578d10f40a756ef",
+          "retrievedAt": "2026-10-02T02:15:48Z"
+        },
+        {
+          "period": "2026-05-18",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=18&qmm=05&qaa=2026",
+          "upstreamSha256": "97210ef430a60e4c8da36cd283aea6c2811fba984d8d08548c1c12b74b50f85e",
+          "retrievedAt": "2026-10-02T02:15:49Z"
+        },
+        {
+          "period": "2026-05-25",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=05&qaa=2026",
+          "upstreamSha256": "8607b8469cff217d623623fb35a8da7d4c4b9036290c58b80551a615641cdd34",
+          "retrievedAt": "2026-10-02T02:15:50Z"
+        },
+        {
+          "period": "2026-06-01",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=06&qaa=2026",
+          "upstreamSha256": "ae8e80a3dea61efa591b7141ee65d7e2f2c1e58c02ddf9fb6e2e6da031e160fb",
+          "retrievedAt": "2026-10-02T02:15:51Z"
+        },
+        {
+          "period": "2026-06-08",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=08&qmm=06&qaa=2026",
+          "upstreamSha256": "05ee97c39275ac140c8043dddded37f849a8e2feea64f98a07c649fa1053cf99",
+          "retrievedAt": "2026-10-02T02:15:52Z"
+        },
+        {
+          "period": "2026-06-15",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=15&qmm=06&qaa=2026",
+          "upstreamSha256": "bcf5a2fc4b0cc12a2dcc70641dc8d94b5b2fcc4191ddaf8ac3d24f3dfa1666c4",
+          "retrievedAt": "2026-10-02T02:15:53Z"
+        },
+        {
+          "period": "2026-06-23",
+          "value": "1.86768",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86768 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=23&qmm=06&qaa=2026",
+          "upstreamSha256": "764aa14ba1a7ffc9a7fb5c795e669a87ff13afe4009573964ae6cfce701195b1",
+          "retrievedAt": "2026-10-02T02:18:12Z"
+        },
+        {
+          "period": "2026-06-24",
+          "value": "1.86763",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 1.86763 | 3.6731",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=06&qaa=2026",
+          "upstreamSha256": "e6f46ab86c8e46399667e690db30bb5ebe96bf9df14ee657a5460fe5df0d41f6",
+          "retrievedAt": "2026-10-02T02:18:13Z"
+        },
+        {
+          "period": "2026-06-29",
+          "value": "2.6492",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 2.6492 | 3.6728",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=06&qaa=2026",
+          "upstreamSha256": "048cc847d218c600af8c2b731de6aaaab733ea6267a1ea695be61c6fa4e7580a",
+          "retrievedAt": "2026-10-02T02:15:55Z"
+        },
+        {
+          "period": "2026-07-06",
+          "value": "2.67629",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 2.67629 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=06&qmm=07&qaa=2026",
+          "upstreamSha256": "93d86342a24d85686b389c35ef5d3aa02c3ca0b2b397638905361ab9fea44b45",
+          "retrievedAt": "2026-10-02T02:15:56Z"
+        },
+        {
+          "period": "2026-07-13",
+          "value": "2.83147",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 2.83147 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=13&qmm=07&qaa=2026",
+          "upstreamSha256": "d40ecd6d137e94a1581b71e61c47f869d1c1f6da7fc5104900d4696d67095132",
+          "retrievedAt": "2026-10-02T02:15:57Z"
+        },
+        {
+          "period": "2026-07-20",
+          "value": "2.95423",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 2.95423 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=20&qmm=07&qaa=2026",
+          "upstreamSha256": "65a9ea4f8d9499f00bf1af7d20cf7323e3123a249146e37c0d5e66fce6be67da",
+          "retrievedAt": "2026-10-02T02:15:58Z"
+        },
+        {
+          "period": "2026-07-27",
+          "value": "3.09556",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.09556 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=27&qmm=07&qaa=2026",
+          "upstreamSha256": "f6100f65d3cd2619bc603314348bf0e7be487ce62e9cde28fcbd719e7e32baab",
+          "retrievedAt": "2026-10-02T02:15:59Z"
+        },
+        {
+          "period": "2026-08-03",
+          "value": "3.30248",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.30248 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=08&qaa=2026",
+          "upstreamSha256": "1f4a79bc4852b8b7069146358253f351ce7d171ae0f4990bf79ceffaa84998cc",
+          "retrievedAt": "2026-10-02T02:16:00Z"
+        },
+        {
+          "period": "2026-08-10",
+          "value": "3.22897",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.22897 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=10&qmm=08&qaa=2026",
+          "upstreamSha256": "eb632e6e0bc29a48a4dd81eed0a120339c84cd968def545bdf59011e4f7757ea",
+          "retrievedAt": "2026-10-02T02:16:01Z"
+        },
+        {
+          "period": "2026-08-17",
+          "value": "3.15299",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.15299 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=17&qmm=08&qaa=2026",
+          "upstreamSha256": "675d176a92ba8d4fa369525806223bc3f671c79dbb620dbdf1d5e2dc497d9af4",
+          "retrievedAt": "2026-10-02T02:16:02Z"
+        },
+        {
+          "period": "2026-08-24",
+          "value": "3.13096",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.13096 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=24&qmm=08&qaa=2026",
+          "upstreamSha256": "b0ea5dc50de1804268addf477e8034fc9653e5edab24c7dc74e4a9de83a52bfb",
+          "retrievedAt": "2026-10-02T02:16:03Z"
+        },
+        {
+          "period": "2026-08-31",
+          "value": "3.2453",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.2453 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=31&qmm=08&qaa=2026",
+          "upstreamSha256": "4618108ee995b1362719991c8e971a511de038d8b63c5a524a3908dd488186a4",
+          "retrievedAt": "2026-10-02T02:16:04Z"
+        },
+        {
+          "period": "2026-09-07",
+          "value": "3.42527",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.42527 | 3.6727",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=07&qmm=09&qaa=2026",
+          "upstreamSha256": "62eff069f3385766aa815219934449fe3c72e5ac4c4e1126fd0d595b02e559a6",
+          "retrievedAt": "2026-10-02T02:16:05Z"
+        },
+        {
+          "period": "2026-09-14",
+          "value": "3.13912",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.13912 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=14&qmm=09&qaa=2026",
+          "upstreamSha256": "889b4b9ff5c9ec677d0708b0c8a60ef6b659d46b2fadbe99347af93fdde37e2a",
+          "retrievedAt": "2026-10-02T02:16:06Z"
+        },
+        {
+          "period": "2026-09-21",
+          "value": "2.99483",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 2.99483 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=21&qmm=09&qaa=2026",
+          "upstreamSha256": "5c3b8d5f2781ed33638601afbd8efd950fcf92722ccb90349be6a357a72776c8",
+          "retrievedAt": "2026-10-02T02:16:07Z"
+        },
+        {
+          "period": "2026-09-25",
+          "value": "3.32698",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.32698 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=25&qmm=09&qaa=2026",
+          "upstreamSha256": "06251d705be595de0793d62dad1db75fe73206568d6f1d0a619911b60c26bb5d",
+          "retrievedAt": "2026-10-02T02:00:57Z"
+        },
+        {
+          "period": "2026-09-28",
+          "value": "3.2807",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.2807 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=26&qmm=09&qaa=2026",
+          "upstreamSha256": "d50101d2ca85c27df8f16557854214cd394d4d0928380ae8d747e41a47bb8ef2",
+          "retrievedAt": "2026-10-02T02:00:58Z"
+        },
+        {
+          "period": "2026-09-29",
+          "value": "3.27253",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.27253 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=29&qmm=09&qaa=2026",
+          "upstreamSha256": "c2cef5489b8be5f02e2efe05ba15456ec387b520f31b2cc864e98b0dfd11bef5",
+          "retrievedAt": "2026-10-02T02:01:02Z"
+        },
+        {
+          "period": "2026-09-30",
+          "value": "3.27253",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.27253 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=30&qmm=09&qaa=2026",
+          "upstreamSha256": "dcc292e92b19372f958c17522a7c702bb72694634551e87489d64e483a77e2d4",
+          "retrievedAt": "2026-10-02T02:01:03Z"
+        },
+        {
+          "period": "2026-10-01",
+          "value": "3.26708",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.26708 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=01&qmm=10&qaa=2026",
+          "upstreamSha256": "6b44578b0e1d3d605d53dc27e79961cae11a5cf8465d98fdaf1f478a38a6a157",
+          "retrievedAt": "2026-10-02T02:01:04Z"
+        },
+        {
+          "period": "2026-10-02",
+          "value": "3.23986",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.23986 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=02&qmm=10&qaa=2026",
+          "upstreamSha256": "c436a7d29a627caf5e3e2f6c72892bb69c94226acde7c7476216dd918135b5f0",
+          "retrievedAt": "2026-10-04T01:26:17Z"
+        },
+        {
+          "period": "2026-10-03",
+          "value": "3.26708",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.26708 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=10&qaa=2026",
+          "upstreamSha256": "c6ce4038fe8014b47648ff8a75dcda9425039823c1d244dd33c1be41bc2eae25",
+          "retrievedAt": "2026-10-04T01:26:25Z"
+        },
+        {
+          "period": "2026-10-05",
+          "value": "3.26708",
+          "excerpt": "EMIRATOS ÁRABES | DIRHAM | AED | 3.26708 | 3.673",
+          "sourceUrl": "https://www.bcb.gob.bo/librerias/indicadores/otras/otras_imprimir.php?qdd=03&qmm=10&qaa=2026",
+          "upstreamSha256": "17072a1f116fe75c2a68be9093592da97fa8a47533e252718e98d61f34905e45",
+          "retrievedAt": "2026-10-04T01:26:21Z"
+        }
+      ]
+    }
+  ]
+}

@@ -157,6 +157,7 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     'boot/company-filing-texts.json',
   ]),
   historical('press-coverage', 'Cobertura de prensa corriente', ['boot/press-coverage.json']),
+  { ...historical('abi-news', 'Noticias ABI y menciones de emisores BBV', ['boot/abi-news/']), minimumSchemaVersion: '0100' },
   historical('press-archive', 'Archivo de prensa 2020-2026', [
     'boot/press-archive-2020.json',
     'boot/press-archive-2021.json',
@@ -258,7 +259,14 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('exogenous-prices', 'Precios que Bolivia no fija (variables exógenas)', [
     'boot/exogenous-prices.json',
     'boot/exogenous-customs.json',
+    'boot/exogenous-currencies/',
   ]),
+  {
+    ...historical('exogenous-factors', 'Factores económicos con disponibilidad y revisiones', [
+      'boot/exogenous-factors.json',
+    ]),
+    minimumSchemaVersion: '0101',
+  },
   historical('ine-trade', 'Comercio exterior del INE, registro por registro', ['boot/ine-trade/']),
   historical('bank-virtual-assets', 'Servicios de dólar digital de los bancos bolivianos', [
     'boot/bank-virtual-assets.json',
@@ -266,6 +274,16 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('bcb-statistics', 'Estadísticas del Banco Central de Bolivia, serie por serie', [
     'boot/bcb-statistics/',
   ]),
+  historical('company-social', 'Redes sociales de empresas (ADR 0027)', [
+    'boot/company-social.json',
+  ]),
+  {
+    ...historical('vehicle-prices', 'Ofertas públicas de vehículos nuevos', [
+      'boot/vehicle-prices.json',
+      'boot/vehicle-price-sources.json',
+    ]),
+    minimumSchemaVersion: '0099',
+  },
   historical('bolivia-transport-network', 'Red ferroviaria y red fluvial de Bolivia', [
     'boot/bolivia-transport-network/rail-network.json',
     'boot/bolivia-transport-network/rail-flows.json',
