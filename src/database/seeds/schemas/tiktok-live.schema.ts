@@ -19,7 +19,7 @@ import { z } from 'zod';
  * esquema es estricto para que uno nuevo no se cuele.
  */
 
-export const LIVE_STATUSES = ['VENTA', 'ENTRETENIMIENTO', 'SIN_VENTA', 'EXTRANJERO'] as const;
+export const LIVE_STATUSES = ['VENTA', 'SIN_VENTA', 'EXTRANJERO', 'ENTRETENIMIENTO'] as const;
 export const LIVE_SIZES = ['MICRO', 'CHICO', 'MEDIANO', 'GRANDE', 'SIN_DATO'] as const;
 export const LIVE_PRICE_SOURCES = ['SPEECH', 'SCREEN', 'TITLE', 'HOST_CHAT'] as const;
 export const LIVE_TERM_SCOPES = ['AUDIENCE', 'SELLER'] as const;
@@ -77,13 +77,11 @@ const room = z
     follows: count,
     shares: count,
     likes: count,
+    curve: z.array(z.tuple([count, count])).optional(),
+    dollarTalk: count.optional(),
     speechSegments: count,
     screenReads: count,
     prices: count,
-    /** Espectadores por minuto desde que empezó el live: [minuto, espectadores]. */
-    curve: z.array(z.tuple([count, count])).max(120),
-    /** Mensajes del chat que hablan del dólar, del paralelo o del tipo de cambio. */
-    dollarTalk: count,
   })
   .strict();
 
@@ -134,7 +132,7 @@ const coverage = z
     roomsBlocked: count,
     roomsCommerce: count,
     roomsNoCommerce: count,
-    roomsEntertainment: count,
+    roomsEntertainment: count.optional(),
     roomsForeign: count,
     roomsUnidentified: count,
     messages: count,
