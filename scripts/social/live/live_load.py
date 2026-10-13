@@ -11,6 +11,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 LA_PAZ = timezone(timedelta(hours=-4))
+CACHE = Path.home() / ".observatorio-social" / "usd-rate.json"
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -80,7 +81,14 @@ def parallel_rate(attempts: int = 3) -> float | None:
             and row.get("lado") == "SELL"
             and row.get("valor") is not None
         ]
-        return sorted(values)[-1][1] if values else None
+        if values:
+            date_value = sorted(values)[-1]
+            CACHE.write_text(json.dumps({"fecha": date_value[0], "valor": date_value[1]}), encoding="utf-8")
+            return date_value[1]
+        break
+    # Sin respuesta: el último paralelo bueno, con su fecha guardada al lado.
+    if CACHE.exists():
+        return json.loads(CACHE.read_text(encoding="utf-8")).get("valor")
     return None
 
 
@@ -134,3 +142,19 @@ def run_coverage(run_dir: Path, rooms: dict[str, dict]) -> dict:
         "roomsOpened": len(rooms),
         "roomsBlocked": sum(1 for room in rooms.values() if (room.get("start") or {}).get("wall")),
     }
+
+
+def viewer_curve(stats: list[dict], live_since: int | None) -> list[list[int]]:
+    """Espectadores por minuto desde que empezó el live (no desde que se abrió la captura).
+
+    A lo sumo 120 puntos: una lectura por minuto observado. Sin hora de inicio, se cuenta desde la
+    primera lectura.
+    """
+    if not stats:
+        return []
+    origin = live_since * 1000 if live_since else stats[0]["t"]
+    points: dict[int, int] = {}
+    for row in stats:
+        minute = max(0, int((row["t"] - origin) / 60_000))
+        points[minute] = int(row["viewers"])
+    return [[minute, viewers] for minute, viewers in sorted(points.items())][:120]

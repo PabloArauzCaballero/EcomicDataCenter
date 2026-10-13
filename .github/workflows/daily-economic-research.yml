@@ -8,6 +8,8 @@ on:
 
 permissions:
   contents: read
+  # Solo para abrir el issue `ingesta-caida` cuando la corrida falla.
+  issues: write
 
 concurrency:
   group: daily-economic-research
@@ -33,16 +35,6 @@ jobs:
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
-      # El nucleo ya no vive en Render: corre en un servidor casero que no esta
-      # publicado en internet. El recolector escribe por su direccion privada, y
-      # para eso el runner tiene que estar en la tailnet. Asi la API sigue sin
-      # escuchar fuera de ella, que importa mas aqui que en otros sitios: este
-      # despliegue corre con la autenticacion desactivada sobre los datos reales.
-      - name: Join the tailnet
-        uses: tailscale/github-action@v3
-        with:
-          authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
-          args: --ssh=false
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # `dev` es la rama que se despliega, y por tanto la unica cuyo codigo
@@ -53,6 +45,44 @@ jobs:
           # Los lotes de `daily-source-batches` ya lo hacen asi.
           ref: dev
           persist-credentials: false
+      # Cada run deja un nodo `github-*` en la tailnet; al llegar a mil,
+      # Tailscale rechaza los nuevos y la ingesta se corta. Ver
+      # scripts/ops/tailnet-janitor.mjs.
+      - name: Clear dead CI nodes from the tailnet
+        continue-on-error: true
+        env:
+          TS_API_CLIENT_ID: ${{ secrets.TS_API_CLIENT_ID }}
+          TS_API_CLIENT_SECRET: ${{ secrets.TS_API_CLIENT_SECRET }}
+          TS_JANITOR_OPTIONAL: '1'
+        run: node scripts/ops/tailnet-janitor.mjs
+      # El nucleo ya no vive en Render: corre en un servidor casero que no esta
+      # publicado en internet. El recolector escribe por su direccion privada, y
+      # para eso el runner tiene que estar en la tailnet. Asi la API sigue sin
+      # escuchar fuera de ella, que importa mas aqui que en otros sitios: este
+      # despliegue corre con la autenticacion desactivada sobre los datos reales.
+      - name: Join the tailnet
+        uses: tailscale/github-action@v3
+        with:
+          # Tiene que ser una clave efimera: solo asi el `logout` del ultimo paso
+          # borra el nodo. Una clave normal lo deja en la tailnet para siempre.
+          authkey: ${{ secrets.PABLO_H310_TAILSCALE_AUTHKEY }}
+          args: --ssh=false
+      # `tailscale up` puede fallar y el paso anterior salir en verde igual. Sin
+      # esta comprobacion el recolector corre minutos a ciegas y muere con un
+      # «fetch failed» que no dice nada; asi paso seis veces seguidas en
+      # septiembre de 2026 con la tailnet llena.
+      - name: Wait for the server to answer
+        run: |
+          for attempt in $(seq 1 10); do
+            if tailscale ping --c 1 --timeout 5s 100.101.207.88 >/dev/null 2>&1; then
+              echo "servidor alcanzable"
+              exit 0
+            fi
+            echo "intento $attempt: aun sin ruta, reintentando"
+            sleep 3
+          done
+          echo "::error::no hay ruta al servidor por la tailnet. Si el paso 'Join the tailnet' dice «node quota reached», la tailnet esta llena de nodos de CI: correr tailnet-janitor."
+          exit 1
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22.16.0
@@ -69,3 +99,13 @@ jobs:
           path: artifacts/daily-economic-report.json
           if-no-files-found: warn
           retention-days: 30
+      - name: Report the failure where someone will see it
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: bash scripts/ops/avisar-ingesta-caida.sh "daily-economic-research"
+      # Con una clave efimera esto borra el nodo en el acto.
+      - name: Leave the tailnet
+        if: always()
+        run: sudo tailscale logout || true

@@ -34,6 +34,11 @@ export const ROOMS = flag('rooms', 2);
 export const ROOM_MINUTES = flag('room-minutes', 30);
 export const MIN_VIEWERS = flag('min-viewers', 8);
 export const MIN_FREE_MB = flag('min-free-mb', 900);
+/**
+ * Con el portátil en uso, la memoria libre rara vez llega a 900 MB (7-oct: 802 MB y la noche entera
+ * sin abrir una sola sala). La primera sala solo exige este piso; la segunda sigue pidiendo MIN_FREE_MB.
+ */
+export const FIRST_ROOM_FREE_MB = flag('first-room-free-mb', 450);
 export const WEEKLY_CAP = flag('weekly-cap', 2);
 export const MEDIA = !process.argv.includes('--no-media');
 

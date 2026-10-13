@@ -200,13 +200,76 @@ const BOLIVIA = [
   /\+?591/u,
 ];
 
+const FOOD = [
+  /\bsalte[ñn]as?\b/iu,
+  /\bpollo/iu,
+  /\bbroaster\b/iu,
+  /\bhamburgues/iu,
+  /\bpizza/iu,
+  /\btortas?\b/iu,
+  /\bpostres?\b/iu,
+  /\breposter/iu,
+  /\bcomida/iu,
+  /\bcocina(ndo)?\b/iu,
+  /\balmuerzo/iu,
+  /\bdelivery\b/iu,
+  /\brestaurant/iu,
+  /\banticucho/iu,
+  /\bsalchipapa/iu,
+  /\bgastronom/iu,
+  /\bcomidas?\b/iu,
+  /🍔|🍕|🍗|🍰|🧁|🍲/u,
+];
+const FUN = [
+  /\bm[uú]sica\b/iu,
+  /\bcantando\b/iu,
+  /\bkaraoke\b/iu,
+  /\bbatalla\b/iu,
+  /\bpk\b/iu,
+  /\bfree ?fire\b/iu,
+  /\bmobile legends\b|\bmlbb\b/iu,
+  /\bgaming\b|\bjugando\b/iu,
+  /\bconcierto\b/iu,
+  /\bfiesta\b/iu,
+  /\bshow\b/iu,
+  /\bdj\b/iu,
+  /\bcharla\b|\bplatica\b/iu,
+  /\bmeta de regalos\b/iu,
+  /🎤|🎮|🎧|🎶|🎵/u,
+];
+
+/**
+ * ¿Qué clase de live parece? Venta, gastronomía o entretenimiento, por título, apodo y biografía.
+ * Es el filtro de captura; la clasificación final la hace el análisis con el chat y la voz.
+ */
 export function commerceScore(state: Pick<RoomState, 'title' | 'nickname' | 'bio' | 'handle'>): {
   commerce: number;
   bolivia: number;
+  food: number;
+  fun: number;
 } {
   const haystack = `${state.title} ${state.nickname} ${state.bio} ${state.handle.replace(/[._]/gu, ' ')}`;
   return {
     commerce: COMMERCE.filter((pattern) => pattern.test(haystack)).length,
     bolivia: BOLIVIA.filter((pattern) => pattern.test(haystack)).length,
+    food: FOOD.filter((pattern) => pattern.test(haystack)).length,
+    fun: FUN.filter((pattern) => pattern.test(haystack)).length,
   };
 }
+
+export type LiveKind = 'VENTA' | 'GASTRONOMIA' | 'ENTRETENIMIENTO';
+
+/** La clase de captura de un candidato, o null si no es ninguna de las tres. */
+export function kindOf(score: ReturnType<typeof commerceScore>): LiveKind | null {
+  if (score.food > 0 && score.food >= score.commerce) return 'GASTRONOMIA';
+  if (score.commerce > 0) return 'VENTA';
+  if (score.fun > 0) return 'ENTRETENIMIENTO';
+  return null;
+}
+
+/** Reparto buscado de las salas abiertas: la venta manda, y las otras dos tienen lugar asegurado. */
+export const KIND_TARGET: Record<LiveKind, number> = {
+  VENTA: 0.6,
+  GASTRONOMIA: 0.2,
+  ENTRETENIMIENTO: 0.2,
+};

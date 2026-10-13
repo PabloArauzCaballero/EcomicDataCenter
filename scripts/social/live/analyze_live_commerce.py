@@ -37,8 +37,8 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parent / "company"))
 
 from live_lexicon import DEPARTMENTS, LEXICON_VERSION, PRODUCT_RUBRO, RUBROS  # noqa: E402
-from live_load import clip, la_paz, load_run, parallel_rate, pseudonym, run_coverage, seller_key, size_of  # noqa: E402
-from live_reading import EMOTIONS, RoomReading, emotion_pass, outliers_out  # noqa: E402
+from live_load import clip, viewer_curve, la_paz, load_run, parallel_rate, pseudonym, run_coverage, seller_key, size_of  # noqa: E402
+from live_reading import EMOTIONS, RoomReading, emotion_pass, outliers_out, top_terms  # noqa: E402
 
 ROOT = HERE.parents[2]
 RAW = ROOT / "artifacts" / "live-raw"
@@ -59,7 +59,7 @@ def main() -> None:
     )
     if not runs:
         raise SystemExit(f"no hay corridas en {RAW}")
-    usd = parallel_rate()
+    usd = parallel_rate()  # con caché del último valor bueno si Contabo no responde
 
     readings: list[RoomReading] = []
     coverage: dict[str, dict] = {}
@@ -103,7 +103,14 @@ def main() -> None:
         authors = {message["author"] for message in reading.messages if message["author"]}
         buyers = {message["author"] for message in reading.messages if message["author"] and "COMPRA" in message["tags"]}
         room_key = pseudonym(f"room:{reading.room['roomId']}", key)
-        status = "EXTRANJERO" if foreign and not bolivian else ("VENTA" if commerce else "SIN_VENTA")
+        if foreign and not bolivian:
+            status = "EXTRANJERO"
+        elif commerce:
+            status = "VENTA"
+        elif rubro == "ENTRETENIMIENTO" or (start.get("fun") or 0) > 0:
+            status = "ENTRETENIMIENTO"
+        else:
+            status = "SIN_VENTA"
         rooms_out.append(
             {
                 "roomKey": room_key,
@@ -137,6 +144,8 @@ def main() -> None:
                 "follows": events["follow"],
                 "shares": events["share"],
                 "likes": events["like"],
+                "curve": viewer_curve(stats, start.get("liveSince")),
+                "dollarTalk": reading.signals["DOLAR"],
                 "speechSegments": len(reading.room.get("speech", [])),
                 "screenReads": len(reading.room.get("screen", [])),
                 "prices": len(reading.prices),
@@ -205,12 +214,7 @@ def main() -> None:
         )
     phrases_out.sort(key=lambda row: (-row["people"], row["phrase"]))
 
-    terms_out = []
-    for scope, table in (("AUDIENCE", audience_terms), ("SELLER", seller_terms)):
-        for rubro, counter in table.items():
-            for rank, (term, count) in enumerate(counter.most_common(30), start=1):
-                if count >= 3:
-                    terms_out.append({"rubro": rubro, "scope": scope, "term": term, "count": count, "rank": rank})
+    terms_out = top_terms({"AUDIENCE": audience_terms, "SELLER": seller_terms})
 
     prices_out = outliers_out(prices_out)
     for run in coverage:
@@ -227,6 +231,7 @@ def main() -> None:
             {
                 "roomsCommerce": sum(1 for room in own if room["status"] == "VENTA"),
                 "roomsNoCommerce": sum(1 for room in own if room["status"] == "SIN_VENTA"),
+                "roomsEntertainment": sum(1 for room in own if room["status"] == "ENTRETENIMIENTO"),
                 "roomsForeign": sum(1 for room in own if room["status"] == "EXTRANJERO"),
                 "roomsUnidentified": sum(1 for room in own if room["rubro"] == "SIN_IDENTIFICAR"),
                 "messages": messages,

@@ -312,6 +312,9 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
   historical('tiktok-live', 'Ventas en vivo de TikTok en Bolivia (ADR 0030)', [
     'boot/tiktok-live.json',
   ]),
+  historical('tiktok-videos', 'Videos de vendedores de TikTok en Bolivia (ADR 0031)', [
+    'boot/tiktok-videos.json',
+  ]),
   {
     ...historical(
       'automotive-study',

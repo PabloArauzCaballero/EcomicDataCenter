@@ -68,6 +68,8 @@ export async function openRoom(
     entries: state.entries,
     liveSince: state.startedAt,
     commerce: score.commerce,
+    food: score.food,
+    fun: score.fun,
     bolivia: score.bolivia,
     wall: blocked,
     audio: Boolean(state.audioUrl),

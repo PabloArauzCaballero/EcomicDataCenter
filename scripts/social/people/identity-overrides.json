@@ -1,0 +1,90 @@
+{
+  "_note": "Revisión manual del 7-oct-2026 de las coincidencias de Wikidata marcadas por audit_identity.py. identity=REJECT descarta todo lo que venga de esa entidad; outOfScope y duplicateOf sacan la ficha del ranking; sector corrige el sector de la ficha; identity=ACCEPT deja constancia de la revisión.",
+  "P_PERCY_ANEZ": {
+    "identity": "REJECT",
+    "reason": "La ficha es del ranking Merco de empresas (puesto 35); la entidad de Wikidata es un futbolista nacido en 2005: no es la misma persona."
+  },
+  "P_PABLO_JAVIER_PEREZ": {
+    "identity": "REJECT",
+    "reason": "Wikipedia lo describe como futbolista argentino (Rosario, Newell's); la ciudadanía boliviana de Wikidata no tiene respaldo y no hay vínculo con Bolivia."
+  },
+  "P_CLARA_ANT": {
+    "outOfScope": true,
+    "reason": "Arquitecta y política brasileña nacida en La Paz; no es una figura pública boliviana."
+  },
+  "P_ANDRONICO_RODRIGUEZ_LEDEZMA": {
+    "duplicateOf": "P_ANDRONICO_RODRIGUEZ",
+    "reason": "Misma persona (misma entidad de Wikidata) con el nombre completo."
+  },
+  "P_JAIME_LAREDO": {
+    "identity": "ACCEPT",
+    "sector": "CULTURE",
+    "reason": "Violinista y director de orquesta nacido en Cochabamba; el sector CIENCIA era un error del mapeo por ocupación."
+  },
+  "P_JUAN_CARLOS_ADUVIRI": {
+    "identity": "ACCEPT",
+    "sector": "CULTURE",
+    "reason": "Actor y profesor de cine de El Alto."
+  },
+  "P_FREDDY_MAMANI_LAURA": {
+    "identity": "ACCEPT",
+    "sector": "POLITICS",
+    "reason": "Presidente de la Cámara de Diputados 2020; sindicalista y educador."
+  },
+  "P_JOSE_MILTON_MELGAR": {
+    "identity": "ACCEPT",
+    "sector": "SPORTS",
+    "reason": "Exfutbolista y entrenador; el sector política salía de una ocupación secundaria."
+  },
+  "P_CARLOS_FERNANDO_BORJA": {
+    "identity": "ACCEPT",
+    "sector": "SPORTS",
+    "reason": "Futbolista boliviano; el sector política salía de una ocupación secundaria."
+  },
+  "P_SILVIA_RIVERA_CUSICANQUI": {
+    "identity": "ACCEPT",
+    "sector": "CIVIC",
+    "reason": "Socióloga e intelectual pública."
+  },
+  "P_MICHELLE_ANDRADE": {
+    "identity": "ACCEPT",
+    "reason": "Nacida en Cochabamba, ciudadanía boliviana y ucraniana; la descripción de Wikidata dice «ucraniana» pero Wikidata y Wikipedia la ubican en Bolivia."
+  },
+  "P_JOSE_AUGUSTO_TORRES_GIL": {
+    "identity": "ACCEPT",
+    "reason": "«Maligno» Torres, ciclista BMX nacido en Santa Cruz de la Sierra, con ciudadanía boliviana."
+  },
+  "P_DAMIAN_LIZIO": {
+    "identity": "ACCEPT",
+    "reason": "Futbolista argentino nacionalizado boliviano (Bolívar)."
+  },
+  "P_LUIS_CRISTALDO": {
+    "identity": "ACCEPT",
+    "reason": "Exfutbolista y entrenador argentino nacionalizado boliviano."
+  },
+  "P_MARTIN_SMEDBERG_DALENCE": {
+    "identity": "ACCEPT",
+    "reason": "Futbolista sueco-boliviano que jugó para Bolivia."
+  },
+  "P_PAOLO_AGAZZI": {
+    "identity": "ACCEPT",
+    "reason": "Director de cine ítalo-boliviano con ciudadanía boliviana."
+  },
+  "P_EUGENIO_COTER": {
+    "identity": "ACCEPT",
+    "reason": "Obispo italiano que ejerce en Bolivia."
+  },
+  "P_SERGIO_ALFREDO_GUALBERTI": {
+    "identity": "ACCEPT",
+    "reason": "Arzobispo italiano que ejerció en Bolivia."
+  },
+  "P_TITO_SOLARI_CAPELLARI": {
+    "identity": "ACCEPT",
+    "reason": "Arzobispo italiano que ejerce en Bolivia."
+  },
+  "P_SAMUEL_DORIA_MEDINA_MONJE": {
+    "duplicateOf": "P_SAMUEL_DORIA_MEDINA",
+    "carryEvidence": true,
+    "reason": "Misma persona: «Samuel Doria Medina Monje» (Merco Líderes, puesto 3, Hotel Los Tajibos) y el político Samuel Doria Medina; se fusionan y la ficha hereda el puesto Merco."
+  }
+}

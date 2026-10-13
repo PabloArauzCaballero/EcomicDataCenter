@@ -24,6 +24,18 @@ const MIGRATION_HISTORY_TABLE = 'infrastructure.migration_history';
 const MIGRATION_EXTENSION = /\.(?:js|ts)$/;
 
 /**
+ * Migrations that `dev` recorded under one number and `test` ships under another.
+ *
+ * The two live-commerce migrations were first published as 0101 and 0102 on `dev`. `test` already
+ * used those numbers for the automotive study and the exogenous factors, so the same files live
+ * there as 0104 and 0105. A database that recorded the old name must not replay the new one.
+ */
+const RENUMBERED_MIGRATIONS: ReadonlyArray<readonly [from: string, to: string]> = [
+  ['0101-read-the-live-commerce', '0104-read-the-live-commerce'],
+  ['0102-read-the-live-videos', '0105-read-the-live-videos'],
+];
+
+/**
  * Identifies a migration by file name without its extension.
  *
  * The same migration ships as TypeScript in `src` and as JavaScript in `dist`,
@@ -71,6 +83,7 @@ export async function createMigrationRunner(environment: Environment): Promise<{
   await database.query('CREATE SCHEMA IF NOT EXISTS infrastructure');
 
   await normalizeMigrationHistoryNames(database);
+  await renameRenumberedMigrations(database);
 
   const migrator = new Umzug({
     migrations: {
@@ -119,6 +132,29 @@ export async function normalizeMigrationHistoryNames(database: Sequelize): Promi
      ON CONFLICT (name) DO NOTHING`,
   );
   await database.query(`DELETE FROM ${MIGRATION_HISTORY_TABLE} WHERE name ~ '\\.(js|ts)$'`);
+}
+
+/**
+ * Renames history rows whose migration was renumbered, so it is not run a second time.
+ *
+ * Only a row that carries the old name is touched, and only while the new name is absent. A database
+ * that never recorded the old name (`test`, a fresh install) is left exactly as it was.
+ */
+export async function renameRenumberedMigrations(database: Sequelize): Promise<void> {
+  const [table] = await database.query<{ relation: string | null }>(
+    `SELECT to_regclass('${MIGRATION_HISTORY_TABLE}')::text AS relation`,
+    { type: QueryTypes.SELECT },
+  );
+  if (!table?.relation) return;
+
+  for (const [from, to] of RENUMBERED_MIGRATIONS) {
+    await database.query(
+      `UPDATE ${MIGRATION_HISTORY_TABLE} SET name = :to
+        WHERE name = :from
+          AND NOT EXISTS (SELECT 1 FROM ${MIGRATION_HISTORY_TABLE} WHERE name = :to)`,
+      { replacements: { from, to } },
+    );
+  }
 }
 
 /**
