@@ -133,3 +133,5 @@ temp/
 # ── Herramienta independiente de extracción de POI ───────────
 # Job de Python autónomo; no forma parte del backend ni de su build.
 bolivia_poi_3cities_READY_TO_RUN/
+
+.playwright-cli/
