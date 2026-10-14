@@ -671,6 +671,30 @@
       "sourceUrl": "https://www.bcb.gob.bo/",
       "documentSha256": "dff7bbd1fcb0dd18b94d5e4ad12a0c6e51507fd1fe4dc7c8d6ca1c0ba2874734",
       "retrievedAt": "2026-10-13T03:31:17Z"
+    },
+    {
+      "indicatorCode": "GOLD_USD_OZT",
+      "indicatorName": "Oro",
+      "unit": "USD/OZT",
+      "eventDate": "2026-10-14",
+      "value": "4159.65",
+      "statedValue": "4.159,65",
+      "excerpt": "| Oro | USD./O.T.F. | 4.159,65 |",
+      "sourceUrl": "https://www.bcb.gob.bo/",
+      "documentSha256": "6809c27779e5d54c1e07ad3b596d9940d47b2d51547b117227fc5df0b6ad957d",
+      "retrievedAt": "2026-10-14T01:52:00Z"
+    },
+    {
+      "indicatorCode": "UFV_BOB",
+      "indicatorName": "Unidad de Fomento de Vivienda",
+      "unit": "BOB/UFV",
+      "eventDate": "2026-10-14",
+      "value": "3.35731",
+      "statedValue": "3,35731",
+      "excerpt": "| UFV | Bs/UFV | 3,35731 |",
+      "sourceUrl": "https://www.bcb.gob.bo/",
+      "documentSha256": "6809c27779e5d54c1e07ad3b596d9940d47b2d51547b117227fc5df0b6ad957d",
+      "retrievedAt": "2026-10-14T01:52:00Z"
     }
   ]
 }
