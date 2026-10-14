@@ -192,6 +192,10 @@ def run(person, attention, source=None):
     for lead in person.get('accountLeads', []):
         if lead['platform'] == 'tiktok' and handle_of(lead['url']):
             targets.append(('tiktok', handle_of(lead['url']), 'lead'))
+        elif lead['platform'] == 'instagram' and person.get('directoryOnly'):
+            m = re.search(r'instagram\.com/([\w.]+)', lead['url'])
+            if m:
+                targets.append(('instagram', m.group(1), 'lead'))
         elif lead['platform'] == 'youtube':
             targets.append(('youtube', lead['url'], 'lead'))
     seen, out = set(), []
@@ -202,6 +206,18 @@ def run(person, attention, source=None):
         seen.add(key)
         r = {'tiktok': tiktok, 'youtube': youtube, 'instagram': instagram, 'facebook': facebook}[plat](ref)
         time.sleep(1.2)
+        if (not r or r.get('followers') is None) and origin == 'lead' and person.get('directoryOnly'):
+            # TikTok sirve un muro de 1,4 KB cuando se le piden muchas cuentas seguidas. El directorio publica la cifra
+            # de esa misma cuenta: se usa, marcada como «reportada», hasta poder leerla en la propia plataforma.
+            hit = next((e for e in person.get('evidence', []) if e.get('reportedFollowers') and
+                        (handle_of(e.get('accountUrl') or '') or '').lower() == ref.lower()), None)
+            reported = hit and parse_count(hit['reportedFollowers'])
+            if reported:
+                out.append({'platform': plat, 'handle': ref, 'displayName': None, 'verifiedBadge': False,
+                            'followers': reported, 'url': hit['accountUrl'], 'verification': 'DIRECTORY_LISTED',
+                            'followersSource': 'DIRECTORY_REPORTED', 'directoryRank': hit.get('rank'),
+                            'evidence': [hit['url']]})
+            continue
         if not r or r.get('followers') is None:
             continue
         if origin == 'guess':
@@ -213,6 +229,14 @@ def run(person, attention, source=None):
         if origin == 'src':
             r['verification'] = 'SOURCE_LINKED' if alias_match(person['name'], r['displayName'], r['handle'] or '', lenient=True) else 'NAME_MISMATCH'
             r['evidence'] = (source or {}).get('evidence', [])
+            out.append(r)
+            continue
+        if origin == 'lead' and person.get('directoryOnly'):
+            # La ficha nace de esta cuenta (directorio «más seguidos de Bolivia», con su rango): la cuenta es la
+            # identidad, no hay otra persona que comprobar. La cifra del directorio queda a la vista para auditar.
+            r['verification'] = 'DIRECTORY_LISTED'
+            r['evidence'] = [e.get('url') for e in person.get('evidence', []) if e.get('url')]
+            r['directoryRank'] = next((e.get('rank') for e in person.get('evidence', []) if e.get('rank')), None)
             out.append(r)
             continue
         declared = origin == 'wd' or (plat == 'tiktok' and (r['handle'] or '').lower() == (wd.get('tiktok') or '').lower()) \
