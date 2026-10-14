@@ -1,6 +1,6 @@
 {
   "status": "RESEARCH_SET_300_NOT_FINAL_RANKING",
-  "generatedAt": "2026-10-06T04:02:29.291560+00:00",
+  "generatedAt": "2026-10-14T16:57:38.140049+00:00",
   "method": {
     "purpose": "Manual identity and account review; this is not a popularity ranking",
     "newsWindow": "2025-10-04/2026-10-04",
@@ -12,7 +12,7 @@
   "sectors": {
     "POLITICS": 54,
     "BUSINESS": 100,
-    "MEDIA": 33,
+    "MEDIA": 99,
     "SPORTS": 65,
     "CIVIC": 13,
     "CULTURE": 16,
@@ -3963,6 +3963,119 @@
       "discoveryPriority": 1.177
     },
     {
+      "slug": "P_ADRI_NAVID",
+      "name": "Adri Navid",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 73,
+          "accountUrl": "https://www.tiktok.com/@adrinavid",
+          "reportedFollowers": "917.7K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@adrinavid",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_AGRUPACION_MAGIOS",
+      "name": "Agrupación Magios",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 54,
+          "accountUrl": "https://www.tiktok.com/@agrupacionmagios",
+          "reportedFollowers": "1.2M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@agrupacionmagios",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_ALANA_FERNANDEZ",
+      "name": "Alana Fernandez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 46,
+          "accountUrl": "https://www.instagram.com/alanafernandezh"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/alanafernandezh",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_ALBERTINA_SACACA",
       "name": "Albertina Sacaca",
       "sector": "MEDIA",
@@ -4059,6 +4172,43 @@
       "discoveryPriority": 2.6933
     },
     {
+      "slug": "P_ALESSANDRA_ANEZ",
+      "name": "Alessandra Añez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 41,
+          "accountUrl": "https://www.instagram.com/facil_de_preparar"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/facil_de_preparar",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_ALEXIUS",
       "name": "Alexius",
       "sector": "MEDIA",
@@ -4085,6 +4235,44 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 2.64
+    },
+    {
+      "slug": "P_ALFREDO_SOLARES",
+      "name": "Alfredo Solares",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 28,
+          "accountUrl": "https://www.tiktok.com/@alfredosolares.oficial",
+          "reportedFollowers": "1.6M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@alfredosolares.oficial",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_ANABEL_ANGUS",
@@ -4166,6 +4354,43 @@
       "discoveryPriority": 3.9355
     },
     {
+      "slug": "P_ANDRES_SALVATIERRA_J",
+      "name": "Andres Salvatierra J",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 49,
+          "accountUrl": "https://www.instagram.com/andres.salvatierraj"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/andres.salvatierraj",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_ANGELSG",
       "name": "AngelSG",
       "sector": "MEDIA",
@@ -4194,6 +4419,155 @@
       "discoveryPriority": 2.2133
     },
     {
+      "slug": "P_BELEN_MENDEZ",
+      "name": "Belén Méndez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 45,
+          "accountUrl": "https://www.instagram.com/belenmendez_oficial"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/belenmendez_oficial",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_BOBY_VOP",
+      "name": "boby vop",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 98,
+          "accountUrl": "https://www.tiktok.com/@boby..vop",
+          "reportedFollowers": "749.2K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@boby..vop",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_BRUNO_FERRANTE",
+      "name": "Bruno Ferrante",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 1,
+          "accountUrl": "https://www.instagram.com/brferrante"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/brferrante",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_CAMILA_BANZER_PARDO",
+      "name": "Camila Banzer Pardo",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 39,
+          "accountUrl": "https://www.instagram.com/camilabanzer"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/camilabanzer",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_CANDRES_PEREDO",
       "name": "Candres Peredo",
       "sector": "MEDIA",
@@ -4220,6 +4594,43 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 2.2667
+    },
+    {
+      "slug": "P_CARLA_MARIANA_BRAVO",
+      "name": "Carla Mariana Bravo",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 33,
+          "accountUrl": "https://www.instagram.com/carla_mariana99"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/carla_mariana99",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_CARLOS_MARQUINA",
@@ -4266,6 +4677,81 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 2.4
+    },
+    {
+      "slug": "P_CAROLINA_RODAS_CORTEZ",
+      "name": "𝐂𝐀𝐑𝐎𝐋𝐈𝐍𝐀 𝐑𝐎𝐃𝐀𝐒 𝐂𝐎𝐑𝐓𝐄𝐙",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 40,
+          "accountUrl": "https://www.instagram.com/carotvoficial"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/carotvoficial",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_CHIRULIPA_CACERES",
+      "name": "chirulipa caceres",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 11,
+          "accountUrl": "https://www.tiktok.com/@chirulipa8",
+          "reportedFollowers": "2.4M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@chirulipa8",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_CLAUDIA_ARCE",
@@ -4446,6 +4932,234 @@
       "discoveryPriority": 2.6133
     },
     {
+      "slug": "P_DANIELA_POL",
+      "name": "Daniela Pol",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 15,
+          "accountUrl": "https://www.tiktok.com/@danielapolofi",
+          "reportedFollowers": "2.2M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@danielapolofi",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_DONA_CASILDA",
+      "name": "Doña Casilda",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 27,
+          "accountUrl": "https://www.tiktok.com/@casildabolivia",
+          "reportedFollowers": "1.6M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@casildabolivia",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_EDDER_DHA",
+      "name": "EDDER DHA",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 72,
+          "accountUrl": "https://www.tiktok.com/@edder.dha",
+          "reportedFollowers": "919K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@edder.dha",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_EIMI_MIDDAGH",
+      "name": "Eimi Middagh",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 50,
+          "accountUrl": "https://www.tiktok.com/@eimimiddagh",
+          "reportedFollowers": "1.3M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@eimimiddagh",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_EL_CAPI",
+      "name": "El Capi",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 45,
+          "accountUrl": "https://www.tiktok.com/@yosoyelcapi",
+          "reportedFollowers": "1.4M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@yosoyelcapi",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_EL_GORDO_TV",
+      "name": "El gordo Tv",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 48,
+          "accountUrl": "https://www.tiktok.com/@elgordo.tv",
+          "reportedFollowers": "1.4M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@elgordo.tv",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_ELIAS_AYAVIRI",
       "name": "Elias Ayaviri",
       "sector": "MEDIA",
@@ -4503,6 +5217,43 @@
       "discoveryPriority": 2.72
     },
     {
+      "slug": "P_ELOISA_GUTIERREZ",
+      "name": "Eloisa Gutiérrez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 18,
+          "accountUrl": "https://www.instagram.com/holasoyeloisa"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/holasoyeloisa",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_FABRICIO_BLACUTT",
       "name": "Fabricio Blacutt",
       "sector": "MEDIA",
@@ -4541,6 +5292,193 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 2.6667
+    },
+    {
+      "slug": "P_FABRIZIO_DOS_SANTOS",
+      "name": "Fabrizio Dos Santos",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 9,
+          "accountUrl": "https://www.instagram.com/fabrizio_dossantos"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/fabrizio_dossantos",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_FIORELLA_ZOE_ZAMORA_FERNANDEZ",
+      "name": "Fiorella Zoe Zamora Fernandez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 70,
+          "accountUrl": "https://www.tiktok.com/@fiorellazoezamora",
+          "reportedFollowers": "962.6K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@fiorellazoezamora",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_FLOR_LIZA1",
+      "name": "FLOR LIZA1",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 92,
+          "accountUrl": "https://www.tiktok.com/@floreliza944",
+          "reportedFollowers": "783K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@floreliza944",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_FRANCISCO_DA_COSTA",
+      "name": "Francisco Da Costa",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 25,
+          "accountUrl": "https://www.instagram.com/_franciscodacosta"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/_franciscodacosta",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_GABRIEL_APATA",
+      "name": "Gabriel Apata",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 27,
+          "accountUrl": "https://www.instagram.com/soy.nabriel"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/soy.nabriel",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_GABRIELA_ZEGARRA",
@@ -4611,6 +5549,345 @@
       "discoveryPriority": 2.2933
     },
     {
+      "slug": "P_GRISEL_QUIROGA_OFICIAL",
+      "name": "Grisel Quiroga oficial",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 64,
+          "accountUrl": "https://www.tiktok.com/@griselquirogaoficial",
+          "reportedFollowers": "1M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@griselquirogaoficial",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_GUISBERT_KALI",
+      "name": "Guisbert Kali",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 42,
+          "accountUrl": "https://www.instagram.com/guisbert_kali"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/guisbert_kali",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_HENRRY_GABRIEL",
+      "name": "Henrry Gabriel ️",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 44,
+          "accountUrl": "https://www.tiktok.com/@henrry.gabriel",
+          "reportedFollowers": "1.4M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@henrry.gabriel",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_HENRY_VACA_U",
+      "name": "Henry Vaca U",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 23,
+          "accountUrl": "https://www.instagram.com/henryvaca10"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/henryvaca10",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_ICIAR_DIAZ",
+      "name": "Icíar Díaz",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 38,
+          "accountUrl": "https://www.instagram.com/iciardiaz"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/iciardiaz",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_IISAMAR_VARGAS",
+      "name": "iisamar Vargas",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 56,
+          "accountUrl": "https://www.tiktok.com/@iisamarvg3",
+          "reportedFollowers": "1.2M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@iisamarvg3",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_IVANNA_SALDANA",
+      "name": "Ivanna Saldaña",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 80,
+          "accountUrl": "https://www.tiktok.com/@ivannar2s",
+          "reportedFollowers": "850.7K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@ivannar2s",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_JAY_JAY",
+      "name": "𝙅𝘼𝙔 𝙅𝘼𝙔",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 77,
+          "accountUrl": "https://www.tiktok.com/@...jay...jay",
+          "reportedFollowers": "882.5K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@...jay...jay",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_JOEL_RODRIGUEZ",
+      "name": "Joel Rodriguez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 95,
+          "accountUrl": "https://www.tiktok.com/@joelrodriguezvidal",
+          "reportedFollowers": "769.1K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@joelrodriguezvidal",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_JOSESINLZ",
       "name": "josesinlz",
       "sector": "MEDIA",
@@ -4637,6 +5914,44 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 2.48
+    },
+    {
+      "slug": "P_JUAN_CARLOS_MEDRANO",
+      "name": "Juan Carlos Medrano",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 18,
+          "accountUrl": "https://www.tiktok.com/@juancarlosmedranooficial",
+          "reportedFollowers": "2M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@juancarlosmedranooficial",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_JUNIOR_MAVITY",
@@ -4683,6 +5998,43 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 2.8
+    },
+    {
+      "slug": "P_KEILA_PEREZ",
+      "name": "Keila Pérez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 13,
+          "accountUrl": "https://www.instagram.com/_keilaperez_"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/_keilaperez_",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_LA_WARMI_ROSA",
@@ -4776,6 +6128,44 @@
       "discoveryPriority": 2.7467
     },
     {
+      "slug": "P_LISBETH_PERALTA",
+      "name": "Lisbeth Peralta",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 33,
+          "accountUrl": "https://www.tiktok.com/@lisbethperaltamakeup",
+          "reportedFollowers": "1.5M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@lisbethperaltamakeup",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_LIZETH_CALLIZAYA",
       "name": "Lizeth Callizaya",
       "sector": "MEDIA",
@@ -4814,6 +6204,182 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 2.5333
+    },
+    {
+      "slug": "P_LOKILLA_69",
+      "name": "lokilla 69",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 87,
+          "accountUrl": "https://www.tiktok.com/@lokilla.noemi",
+          "reportedFollowers": "799.1K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@lokilla.noemi",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_LOURDES_NATHALIA",
+      "name": "Lourdes Nathalia",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 42,
+          "accountUrl": "https://www.tiktok.com/@lourdesmiranda17",
+          "reportedFollowers": "1.4M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@lourdesmiranda17",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_LUIS_VEGA_OFICIAL",
+      "name": "Luis Vega Oficial",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 39,
+          "accountUrl": "https://www.tiktok.com/@luisvega_oficial",
+          "reportedFollowers": "1.5M"
+        },
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 50,
+          "accountUrl": "https://www.instagram.com/luisvega_oficial"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@luisvega_oficial",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/luisvega_oficial",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_LUISFER_SARABIA",
+      "name": "Luisfer Sarabia",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 51,
+          "accountUrl": "https://www.tiktok.com/@luisfer.sarabia",
+          "reportedFollowers": "1.3M"
+        },
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 47,
+          "accountUrl": "https://www.instagram.com/luisfer.sarabia"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@luisfer.sarabia",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/luisfer.sarabia",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_LUZ_CRUZ",
@@ -4953,6 +6519,43 @@
       "discoveryPriority": 2.08
     },
     {
+      "slug": "P_MARCO_ANTELO",
+      "name": "Marco Antelo",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 20,
+          "accountUrl": "https://www.instagram.com/yeyoantelo"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/yeyoantelo",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_MARIA_LEYDI",
       "name": "Maria Leydi",
       "sector": "MEDIA",
@@ -4986,6 +6589,157 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 2.56
+    },
+    {
+      "slug": "P_MARIA_RENE_LEANOS",
+      "name": "Maria Rene Leaños",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 76,
+          "accountUrl": "https://www.tiktok.com/@rene_0002",
+          "reportedFollowers": "900.7K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@rene_0002",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_MARIA_RENE_POMACUSI_ANEZ",
+      "name": "Maria Rene Pomacusi Añez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 19,
+          "accountUrl": "https://www.instagram.com/mariarenepomacusi_"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/mariarenepomacusi_",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_MARYCITA_MARYCITA",
+      "name": "marycita marycita",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 57,
+          "accountUrl": "https://www.tiktok.com/@marycitamarycita",
+          "reportedFollowers": "1.1M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@marycitamarycita",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_MAURICIO_LARA_OFICIAL",
+      "name": "MAURICIO LARA OFICIAL",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 68,
+          "accountUrl": "https://www.tiktok.com/@mauriciolaraoficial",
+          "reportedFollowers": "983.1K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@mauriciolaraoficial",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_MICHELLE_ANDRADE",
@@ -5080,6 +6834,647 @@
       "discoveryPriority": 2.1867
     },
     {
+      "slug": "P_NANDO_PEREZ",
+      "name": "Nando Perez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 37,
+          "accountUrl": "https://www.tiktok.com/@nandoperez01",
+          "reportedFollowers": "1.5M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@nandoperez01",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_ORTIZ_LIVE",
+      "name": "ortiz live",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 67,
+          "accountUrl": "https://www.tiktok.com/@ortiz_live",
+          "reportedFollowers": "989.7K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@ortiz_live",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_OY_O",
+      "name": "ՏOY ᒍᕼOᑎ",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 32,
+          "accountUrl": "https://www.tiktok.com/@jhon.gonzalo18",
+          "reportedFollowers": "1.6M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@jhon.gonzalo18",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_PEDRITO_DAZA",
+      "name": "Pedrito Daza",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 65,
+          "accountUrl": "https://www.tiktok.com/@pedrito_daza",
+          "reportedFollowers": "998.7K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@pedrito_daza",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_PERLA_POTOSINA",
+      "name": "PERLA POTOSINA",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 81,
+          "accountUrl": "https://www.tiktok.com/@marcelaugaldeasillanes",
+          "reportedFollowers": "839.2K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@marcelaugaldeasillanes",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_PIPOCA_SHOW",
+      "name": "pipoca show",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 41,
+          "accountUrl": "https://www.tiktok.com/@circopipocashow",
+          "reportedFollowers": "1.4M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@circopipocashow",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_POLLO_GUVILL",
+      "name": "POLLO GUVIll",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 61,
+          "accountUrl": "https://www.tiktok.com/@pollitos_guvi",
+          "reportedFollowers": "1.1M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@pollitos_guvi",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_RECETAS_SALUDABLES_LUCIANA",
+      "name": "Recetas saludables Luciana",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 11,
+          "accountUrl": "https://www.instagram.com/lu_fitfoodie"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/lu_fitfoodie",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_REYNALDO_PACHECO",
+      "name": "Reynaldo Pacheco",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 2,
+          "accountUrl": "https://www.instagram.com/reynaldo_pacheco"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/reynaldo_pacheco",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_SAMAEL_EL_GRAN_HECHICERO",
+      "name": "SAMAEL el gran hechicero",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 100,
+          "accountUrl": "https://www.tiktok.com/@elgranhechicerobo",
+          "reportedFollowers": "748.6K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@elgranhechicerobo",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_SANDRA_ALCAZAR",
+      "name": "Sandra Alcazar",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 59,
+          "accountUrl": "https://www.tiktok.com/@sandraalcazar",
+          "reportedFollowers": "1.1M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@sandraalcazar",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_SARAH_SANABRIA",
+      "name": "Sarah Sanabria",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 78,
+          "accountUrl": "https://www.tiktok.com/@sarahandreasanabria",
+          "reportedFollowers": "865K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@sarahandreasanabria",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_SAUL_MARTINEZ",
+      "name": "Saul Martinez",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 66,
+          "accountUrl": "https://www.tiktok.com/@saul.martiinez",
+          "reportedFollowers": "991.9K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@saul.martiinez",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_SERGIO_ABEL_MENDEZ_TITZE",
+      "name": "𝑺𝒆𝒓𝒈𝒊𝒐 𝑨𝒃𝒆𝒍 𝑴𝒆𝒏𝒅𝒆𝒛 𝑻𝒊𝒕𝒛𝒆",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 48,
+          "accountUrl": "https://www.instagram.com/baby_mendez_"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/baby_mendez_",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_SOY_CRIS_07",
+      "name": "soy cris 07 ️",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 99,
+          "accountUrl": "https://www.tiktok.com/@soy_cris_07",
+          "reportedFollowers": "749.1K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@soy_cris_07",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_VALENTINA_SALAS",
+      "name": "Valentina Salas",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 24,
+          "accountUrl": "https://www.instagram.com/valen.notes"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/valen.notes",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_VICTOR_ALONSO_ABREGO",
+      "name": "Victor Alonso Abrego",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 6,
+          "accountUrl": "https://www.instagram.com/victoralonsoabrego"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/victoralonsoabrego",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
       "slug": "P_VICTOR_MONTOYA",
       "name": "Víctor Montoya",
       "sector": "MEDIA",
@@ -5112,6 +7507,81 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 1.0995
+    },
+    {
+      "slug": "P_WENDY_CALLAU_DURAN",
+      "name": "Wendy Callaú Durán",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HYPEAUDITOR_INSTAGRAM_BOLIVIA",
+          "url": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "rank": 36,
+          "accountUrl": "https://www.instagram.com/wendycallauduran"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/wendycallauduran",
+          "sourceUrl": "https://hypeauditor.com/top-instagram-all-bolivia/",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
+    },
+    {
+      "slug": "P_XIME_ALI",
+      "name": "XIME ALI",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 52,
+          "accountUrl": "https://www.tiktok.com/@xime__ali",
+          "reportedFollowers": "1.2M"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@xime__ali",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_XIMENA_GALARZA",
@@ -5186,6 +7656,44 @@
       "identityReview": "PENDING",
       "ageReview": "PENDING",
       "discoveryPriority": 2.0267
+    },
+    {
+      "slug": "P_YHANE_VACA",
+      "name": "yhane vaca",
+      "sector": "MEDIA",
+      "evidence": [
+        {
+          "source": "HAFI_TIKTOK_BOLIVIA",
+          "url": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "rank": 89,
+          "accountUrl": "https://www.tiktok.com/@yhane_vaca",
+          "reportedFollowers": "792.9K"
+        }
+      ],
+      "recentNews": {
+        "articlesObserved": null,
+        "outletsObserved": null,
+        "searchUrl": null,
+        "resultCap": null,
+        "sample": [],
+        "status": "HOMONYM_REVIEW_REQUIRED"
+      },
+      "directoryOnly": true,
+      "accountLeads": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/@yhane_vaca",
+          "sourceUrl": "https://hafi.pro/top/most-followed-tiktok/bolivia",
+          "status": "UNVERIFIED_DIRECTORY"
+        }
+      ],
+      "accountVerification": "PENDING",
+      "socialMetrics": null,
+      "sentiment": null,
+      "wordCloud": null,
+      "identityReview": "PENDING",
+      "ageReview": "PENDING",
+      "discoveryPriority": 0.0
     },
     {
       "slug": "P_YOSSU_VALERIO",

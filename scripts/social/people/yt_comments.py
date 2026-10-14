@@ -59,6 +59,35 @@ def search_videos(name, limit=4):
     return out
 
 
+def channel_videos(channel_url, limit=8):
+    """Los últimos videos de un canal (página «Videos», más recientes primero), sin filtrar por título.
+
+    Sirve para leer lo que comenta la audiencia propia de un creador, que casi nunca nombra a la persona en el título.
+    YouTube sirve la grilla con `videoRenderer` o con `lockupViewModel`: se aceptan las dos.
+    """
+    html = http(channel_url.rstrip('/') + '/videos')
+    data = initial_data(html) if html else None
+    if not data:
+        return []
+    out, seen = [], set()
+    for v in walk(data, 'videoRenderer'):
+        vid = v.get('videoId')
+        title = ''.join(r.get('text', '') for r in v.get('title', {}).get('runs', []))
+        if vid and vid not in seen:
+            seen.add(vid)
+            out.append({'id': vid, 'title': title, 'published': v.get('publishedTimeText', {}).get('simpleText')})
+    for v in walk(data, 'lockupViewModel'):
+        vid = v.get('contentId')
+        if v.get('contentType') != 'LOCKUP_CONTENT_TYPE_VIDEO' or not vid or vid in seen:
+            continue
+        seen.add(vid)
+        meta = v.get('metadata', {}).get('lockupMetadataViewModel', {})
+        parts = [r.get('text', {}).get('content', '') for row in walk(meta, 'metadataParts') for r in row]
+        out.append({'id': vid, 'title': meta.get('title', {}).get('content', ''),
+                    'published': next((x for x in parts if re.search(r'hace|ago', x)), None)})
+    return out[:limit]
+
+
 def comments(video_id, cap=120):
     html = http(f'https://www.youtube.com/watch?v={video_id}')
     if not html:

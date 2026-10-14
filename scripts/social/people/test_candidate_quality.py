@@ -42,8 +42,14 @@ class CandidateQualityTest(unittest.TestCase):
     def test_research_300_has_evidence_and_no_unverified_metrics(self):
         self.assertEqual(self.research["status"], "RESEARCH_SET_300_NOT_FINAL_RANKING")
         people = self.research["people"]
-        self.assertEqual(len(people), 300)
-        self.assertEqual(len({person["slug"] for person in people}), 300)
+        # 300 fichas por descubrimiento + los creadores de los directorios «más seguidos de Bolivia», que se suman
+        # sin desplazar a nadie y entran con su cuenta (con rango y cifra del directorio) como evidencia.
+        directory = [person for person in people if person.get("directoryOnly")]
+        self.assertEqual(len(people) - len(directory), 300)
+        self.assertEqual(len({person["slug"] for person in people}), len(people))
+        for person in directory:
+            self.assertTrue(all(item.get("accountUrl") for item in person["evidence"]), person["name"])
+            self.assertEqual(person["sector"], "MEDIA", person["name"])
         for person in people:
             self.assertTrue(person["evidence"])
             self.assertEqual(person["accountVerification"], "PENDING")
@@ -96,10 +102,15 @@ class CandidateQualityTest(unittest.TestCase):
         self.assertEqual([person["rank"] for person in people], list(range(1, len(people) + 1)))
         scores = [person["score"] for person in people]
         self.assertEqual(scores, sorted(scores, reverse=True))
-        counted = {"WIKIDATA_DECLARED", "PLATFORM_VERIFIED", "HANDLE_MATCHES_WIKIDATA", "SOURCE_LINKED"}
+        counted = {"WIKIDATA_DECLARED", "PLATFORM_VERIFIED", "HANDLE_MATCHES_WIKIDATA", "SOURCE_LINKED", "DIRECTORY_LISTED"}
+        from_directory = {person["slug"] for person in self.research["people"] if person.get("directoryOnly")}
         for person in people:
             for account in person["verifiedAccounts"]:
                 self.assertIn(account["verification"], counted, person["name"])
+                # «Figura en el directorio» solo vale para quien nace de ese directorio: no es prueba de titularidad
+                # para una figura con otra fuente (Wikidata, prensa), que debe verificarse por esas vías.
+                if account["verification"] == "DIRECTORY_LISTED":
+                    self.assertIn(person["slug"], from_directory, person["name"])
                 if (person["components"]["wikipediaViews12m"] or 0) >= 20000:
                     self.assertGreaterEqual(account["followers"], 1000, person["name"])
             for account in person["unverifiedAccounts"]:

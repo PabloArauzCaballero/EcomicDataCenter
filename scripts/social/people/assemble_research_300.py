@@ -61,15 +61,20 @@ def assemble() -> dict:
     shortlist = json.loads((HERE / "shortlist.json").read_text(encoding="utf-8"))["people"]
     news = json.loads((HERE / "news-relevance.json").read_text(encoding="utf-8"))["people"]
     youtube = json.loads((HERE / "youtube-leads.json").read_text(encoding="utf-8"))["people"]
-    if sum(person.get("status") == "OK" for person in news.values()) < len(shortlist) - 1:
+    # Los creadores de los directorios (directoryOnly) no pasan por la lectura de prensa: la prensa se publica pero
+    # no puntúa y buscar su nombre mezcla homónimos. Entran con la prensa «por revisar», como un nombre corto.
+    named = [person for person in shortlist if not person.get("directoryOnly")]
+    if sum(news.get(person["slug"], {}).get("status") == "OK" for person in named) < len(named) - 1:
         raise RuntimeError("news discovery is incomplete")
+    no_news = {"articleCount": None, "outletCount": None, "searchUrl": None, "resultCap": None, "sample": [],
+               "status": "NOT_COLLECTED"}
     candidates = []
     for person in shortlist:
         sources = {item["source"] for item in person["evidence"]}
         if sources <= EXCLUDE_SOURCE_ONLY:
             continue
-        recent = news.get(person["slug"], {})
-        if recent.get("status") != "OK":
+        recent = no_news if person.get("directoryOnly") else news.get(person["slug"], {})
+        if not person.get("directoryOnly") and recent.get("status") != "OK":
             continue
         leads = []
         for platform, item in person.get("accounts", {}).items():
@@ -86,7 +91,10 @@ def assemble() -> dict:
         candidates.append({
             "slug": person["slug"], "name": person["name"], "sector": person["primarySector"],
             "evidence": [{"source": item["source"], "url": item["url"],
-                          **({"rank": item["rank"]} if "rank" in item else {})}
+                          **({"rank": item["rank"]} if "rank" in item else {}),
+                          # La cuenta y la cifra que publica el directorio son la prueba de un creador sin otra fuente.
+                          **({k: item[k] for k in ("accountUrl", "reportedFollowers") if item.get(k)}
+                             if person.get("directoryOnly") else {})}
                          for item in person["evidence"]],
             "recentNews": {"articlesObserved": recent["articleCount"] if news_usable(person) else None,
                            "outletsObserved": recent["outletCount"] if news_usable(person) else None,
@@ -94,6 +102,7 @@ def assemble() -> dict:
                            "sample": recent["sample"][:3] if news_usable(person) else [],
                            "status": "DISCOVERY_INDEX_NOT_COMPLETE_CENSUS" if news_usable(person)
                            else "HOMONYM_REVIEW_REQUIRED"},
+            **({"directoryOnly": True} if person.get("directoryOnly") else {}),
             "accountLeads": leads, "accountVerification": "PENDING",
             "socialMetrics": None, "sentiment": None, "wordCloud": None,
             "identityReview": "PENDING", "ageReview": "PENDING",
@@ -102,6 +111,8 @@ def assemble() -> dict:
     candidates.sort(key=lambda item: (-item["discoveryPriority"], item["name"]))
     counts: Counter[str] = Counter()
     selected = []
+    creators = [person for person in candidates if person.get("directoryOnly")]
+    candidates = [person for person in candidates if not person.get("directoryOnly")]
     for person in candidates:
         if counts[person["sector"]] >= SECTOR_LIMITS[person["sector"]]:
             continue
@@ -111,6 +122,12 @@ def assemble() -> dict:
             break
     if len(selected) != 300 or len({item["slug"] for item in selected}) != 300:
         raise RuntimeError(f"Expected 300 unique research candidates, got {len(selected)}")
+    # Los 300 de arriba quedan como estaban; los creadores de los directorios se suman sin desplazar a nadie.
+    for person in creators:
+        selected.append(person)
+        counts[person["sector"]] += 1
+    if len({item["slug"] for item in selected}) != len(selected):
+        raise RuntimeError("duplicated slugs after adding directory creators")
     selected.sort(key=lambda item: (item["sector"], fold(item["name"])))
     return {"status": "RESEARCH_SET_300_NOT_FINAL_RANKING", "generatedAt": datetime.now(timezone.utc).isoformat(),
             "method": {"purpose": "Manual identity and account review; this is not a popularity ranking",

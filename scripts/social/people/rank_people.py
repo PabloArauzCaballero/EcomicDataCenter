@@ -1,7 +1,7 @@
 """Ordena las 300 fichas por un índice de atención medible, con todas sus piezas a la vista.
 
-Índice (0–100) = 55 % visitas a Wikipedia (es+en, 12 meses) + 25 % audiencia de cuentas verificadas
-+ 20 % puesto en Merco Líderes 2025/26. Visitas y audiencia van en escala logarítmica respecto al máximo
+Índice (0–100) = 25 % visitas a Wikipedia (es+en, 12 meses) + 60 % audiencia de cuentas verificadas
++ 15 % puesto en Merco Líderes 2025/26. Visitas y audiencia van en escala logarítmica respecto al máximo
 observado; una pieza sin dato aporta 0 (el índice mide lo que se puede medir, no fama real). Las menciones
 de prensa se publican pero no entran: la búsqueda por nombre mezcla homónimos. Además se publica el puesto dentro del sector, que no depende de qué fuentes cubren a cada
 sector. Las cuentas que solo coinciden por nombre se muestran pero no suman.
@@ -13,8 +13,8 @@ from pathlib import Path
 from people_io import load_people
 
 HERE = Path(__file__).parent
-COUNTED = ('WIKIDATA_DECLARED', 'PLATFORM_VERIFIED', 'HANDLE_MATCHES_WIKIDATA', 'SOURCE_LINKED')
-WEIGHTS = {'views': 0.55, 'social': 0.25, 'merco': 0.20}
+COUNTED = ('WIKIDATA_DECLARED', 'PLATFORM_VERIFIED', 'HANDLE_MATCHES_WIKIDATA', 'SOURCE_LINKED', 'DIRECTORY_LISTED')
+WEIGHTS = {'views': 0.25, 'social': 0.60, 'merco': 0.15}
 
 
 def logscale(top, v):
@@ -119,11 +119,11 @@ def main():
         'status': 'MEASURED_ATTENTION_INDEX', 'generatedAt': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
         'method': {
             'weights': WEIGHTS,
-            'summary': 'Índice de atención medible (0–100): 55 % visitas a Wikipedia (es+en, oct-2025 a sep-2026), 25 % audiencia de cuentas verificadas (TikTok, YouTube, Instagram y Facebook), 20 % puesto en Merco Líderes 2025/26. Visitas y audiencia en escala logarítmica respecto al máximo; sin dato aporta 0. La prensa se publica pero no puntúa (homónimos).',
+            'summary': 'Índice de atención pública medible (0–100): Las redes sociales son la fuente principal de observación (60 % audiencia verificada en TikTok, Instagram, YouTube y Facebook), complementada con 25 % visitas a Wikipedia y 15 % liderazgo empresarial en Merco Líderes 2025/26.',
             'limits': ['Mide atención pública observable, no importancia, aprobación ni mérito.',
                        'Sectores con menos cobertura en las fuentes (empresas, ciencia, medios) quedan abajo en el orden general; el puesto por sector corrige parte de ese sesgo.',
                        'X no entrega cifras sin sesión: sus cuentas no suman. Instagram y Facebook se leen de la vista pública de la página (cifra redondeada en Instagram).',
-                       'Una cuenta suma solo si Wikidata la declara oficial, TikTok la marca verificada con el nombre de la persona, una fuente oficial o de prensa seria la enlaza, o su usuario coincide con una cuenta declarada en Wikidata; las que solo coinciden por nombre no suman.'],
+                       'Una cuenta suma solo si Wikidata la declara oficial, TikTok la marca verificada con el nombre de la persona, una fuente oficial o de prensa seria la enlaza, o su usuario coincide con una cuenta declarada en Wikidata; las que solo coinciden por nombre no suman. Los creadores que entran por el directorio «más seguidos de Bolivia» (TikTok, Instagram) cuentan con la cuenta del directorio, que es su identidad; si no pudo leerse en la plataforma, se usa la cifra que publica el directorio y se marca como reportada.'],
             'measuredPeople': sum(1 for x in out if x['measured']),
             'quality': quality,
         },
