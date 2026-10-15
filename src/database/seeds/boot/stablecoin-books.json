@@ -289,6 +289,22 @@
       "retrievedAt": "2026-10-14T15:49:04Z"
     },
     {
+      "indicatorCode": "FX_PARALLEL_FDUSD_BOB",
+      "asset": "FDUSD",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.47",
+      "unit": "BOB/USD",
+      "venue": "BINANCE P2P",
+      "publisher": "BINANCE P2P",
+      "advertisementsRead": 7,
+      "assertion": "Dolar paralelo asset FDUSD fiatUnit BOB tradeType BUY (compra al lector): price 11.47.",
+      "excerpt": "{\"advNo\":\"12840387073975861248\",\"classify\":\"profession\",\"tradeType\":\"BUY\",\"asset\":\"FDUSD\",\"fiatUnit\":\"BOB\",\"advStatus\":null,\"priceType\":null,\"priceFloatingRatio\":null,\"rateFloatingRatio\":null,\"currencyRate\":null,\"price\":\"11.47\",\"initAmount\":null,\"surplusAmount\":\"80000.00\",\"tradableQuantity\":\"80000.00\",\"amountAfterEditing\":null,\"maxSingleTransAmount\":\"14000\",\"minSingleTransAmount\":\"35\",\"buyerKycLimit\":null,\"buyerRegDaysLimit\":null,\"buyerBtcPositionLimit\":null,\"remarks\":null,\"autoReplyMsg\":null,\"payTimeLimit\":30,\"tradeMethods\":[{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoFIE\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoFIE\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco FIE\",\"tradeMethodShortName\":\"Banco FIE\",\"tradeMethodBgColor\":\"#DF1583\"}],\"userTradeCountFilterTime\":null,\"userBuyTradeCountMin\":null,\"userBuyTradeCountMax\":null,\"userSellTradeCountMin\":null,\"userSellTradeCountMax\":null,\"userAllTradeCountMin\":null,\"userAllTradeCountMax\":null,\"userTradeCompleteRateFilterTime\":null,\"userTradeCompleteCountMin\":null,\"userTradeCompleteRateMin\":null,\"userTradeVolumeFilterTime\":null,\"userTradeType\":null,\"userTradeVolumeMin\":null,\"userTradeVolumeMax\":null,\"userTradeVolumeAsset\":null,\"createTime\":null,\"advUpdateTime\":null,\"fiatVo\":null,\"assetVo\":null,\"advVisibleRet\":null,\"takerAdditionalKycRequired\":0,\"minFiatAmountForAdditionalKyc\":null,\"inventoryType\":null,\"offlineReason\":null,\"voucherTemplate\":null,\"assetLogo\":null,\"assetScale\":2,\"fiatScale\":2,\"priceScale\":2,\"fiatSymbol\":\"Bs.\",\"isTradable\":true,\"dynamicMaxSingleTransAmount\":\"14000\",\"minSingleTransQuantity\":\"3.05\",\"maxSingleTransQuantity\":\"1220.57\",\"dynamicMaxSingleTransQuantity\":\"1220.57\",\"commissionRate\":null,\"takerCommissionRate\":null,\"minTakerFee\":null,\"tradeMethodCommissionRates\":null,\"launchCountry\":null,\"abnormalStatusList\":null,\"closeReason\":null,\"storeInformation\":null,\"allowTradeMerchant\":null,\"adTradeInstructionTagInfoRets\":null,\"isSafePayment\":false,\"adAdditionalKycVerifyItems\":null,\"isStarTraderAdditionalKycExclusion\":null,\"isStarTraderCounterpartyConditionsExclusion\":null,\"nonTradableRegions\":null,\"invisibleType\":null,\"invisibleTitle\":null,\"invisibleReason\":null,\"privilegeType\":null,\"advSystemLabelRet\":null,\"redirectLink\":null,\"redirectDeeplink\":null}",
+      "sourceUrl": "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search",
+      "documentSha256": "443c1eb96e14bd24a04f2c97b33549c2587a805ea9c4a3ba854b0474f1baebc9",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
       "indicatorCode": "FX_PARALLEL_USDC_BOB",
       "asset": "USDC",
       "priceSide": "BUY",
@@ -595,6 +611,22 @@
     {
       "indicatorCode": "FX_PARALLEL_USDC_BOB",
       "asset": "USDC",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.76",
+      "unit": "BOB/USD",
+      "venue": "BINANCE P2P",
+      "publisher": "BINANCE P2P",
+      "advertisementsRead": 20,
+      "assertion": "Dolar paralelo asset USDC fiatUnit BOB tradeType BUY (compra al lector): price 11.76.",
+      "excerpt": "{\"advNo\":\"12869167426107146240\",\"classify\":\"profession\",\"tradeType\":\"BUY\",\"asset\":\"USDC\",\"fiatUnit\":\"BOB\",\"advStatus\":null,\"priceType\":null,\"priceFloatingRatio\":null,\"rateFloatingRatio\":null,\"currencyRate\":null,\"price\":\"11.76\",\"initAmount\":null,\"surplusAmount\":\"1309.33694090\",\"tradableQuantity\":\"1309.33694090\",\"amountAfterEditing\":null,\"maxSingleTransAmount\":\"50000\",\"minSingleTransAmount\":\"100\",\"buyerKycLimit\":null,\"buyerRegDaysLimit\":null,\"buyerBtcPositionLimit\":null,\"remarks\":null,\"autoReplyMsg\":null,\"payTimeLimit\":15,\"tradeMethods\":[{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoEconomico\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoEconomico\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Economico\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#E7142A\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"SoliPagos\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"SoliPagos\",\"iconUrlColor\":null,\"tradeMethodName\":\"SoliPagos\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#03A9D7\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BANK\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BANK\",\"iconUrlColor\":null,\"tradeMethodName\":\"Bank Transfer\",\"tradeMethodShortName\":\"Bank Transfer\",\"tradeMethodBgColor\":\"#F0B90B\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoDeBolivia\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoDeBolivia\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Nacional de Bolivia\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#26B460\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoUnion\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoUnion\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Union\",\"tradeMethodShortName\":\"Banco Union\",\"tradeMethodBgColor\":\"#00AEEF\"}],\"userTradeCountFilterTime\":null,\"userBuyTradeCountMin\":null,\"userBuyTradeCountMax\":null,\"userSellTradeCountMin\":null,\"userSellTradeCountMax\":null,\"userAllTradeCountMin\":null,\"userAllTradeCountMax\":null,\"userTradeCompleteRateFilterTime\":null,\"userTradeCompleteCountMin\":null,\"userTradeCompleteRateMin\":null,\"userTradeVolumeFilterTime\":null,\"userTradeType\":null,\"userTradeVolumeMin\":null,\"userTradeVolumeMax\":null,\"userTradeVolumeAsset\":null,\"createTime\":null,\"advUpdateTime\":null,\"fiatVo\":null,\"assetVo\":null,\"advVisibleRet\":null,\"takerAdditionalKycRequired\":0,\"minFiatAmountForAdditionalKyc\":null,\"inventoryType\":null,\"offlineReason\":null,\"voucherTemplate\":null,\"assetLogo\":null,\"assetScale\":8,\"fiatScale\":2,\"priceScale\":2,\"fiatSymbol\":\"Bs.\",\"isTradable\":true,\"dynamicMaxSingleTransAmount\":\"15397\",\"minSingleTransQuantity\":\"8.50340000\",\"maxSingleTransQuantity\":\"4251.70060000\",\"dynamicMaxSingleTransQuantity\":\"1309.33694090\",\"commissionRate\":null,\"takerCommissionRate\":null,\"minTakerFee\":null,\"tradeMethodCommissionRates\":null,\"launchCountry\":null,\"abnormalStatusList\":null,\"closeReason\":null,\"storeInformation\":null,\"allowTradeMerchant\":null,\"adTradeInstructionTagInfoRets\":null,\"isSafePayment\":false,\"adAdditionalKycVerifyItems\":null,\"isStarTraderAdditionalKycExclusion\":null,\"isStarTraderCounterpartyConditionsExclusion\":null,\"nonTradableRegions\":null,\"invisibleType\":null,\"invisibleTitle\":null,\"invisibleReason\":null,\"privilegeType\":null,\"advSystemLabelRet\":null,\"redirectLink\":null,\"redirectDeeplink\":null}",
+      "sourceUrl": "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search",
+      "documentSha256": "f22ef51b818eda857bae8e480fd1aeecc2bbdba448c8b96ed8c0afd37c1c5273",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDC_BOB",
+      "asset": "USDC",
       "priceSide": "SELL",
       "eventDate": "2026-09-22",
       "value": "12.37",
@@ -895,6 +927,22 @@
       "sourceUrl": "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search",
       "documentSha256": "aab3ce8de274d23f5f8b21ac52cebf98c8c88aa16b771bcb5587728628be750d",
       "retrievedAt": "2026-10-14T15:49:04Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDC_BOB",
+      "asset": "USDC",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.90",
+      "unit": "BOB/USD",
+      "venue": "BINANCE P2P",
+      "publisher": "BINANCE P2P",
+      "advertisementsRead": 11,
+      "assertion": "Dolar paralelo asset USDC fiatUnit BOB tradeType SELL (venta al lector): price 11.90.",
+      "excerpt": "{\"advNo\":\"12943990121760927744\",\"classify\":\"mass\",\"tradeType\":\"SELL\",\"asset\":\"USDC\",\"fiatUnit\":\"BOB\",\"advStatus\":null,\"priceType\":null,\"priceFloatingRatio\":null,\"rateFloatingRatio\":null,\"currencyRate\":null,\"price\":\"11.90\",\"initAmount\":null,\"surplusAmount\":\"440.26000000\",\"tradableQuantity\":\"440.26000000\",\"amountAfterEditing\":null,\"maxSingleTransAmount\":\"138390\",\"minSingleTransAmount\":\"1190\",\"buyerKycLimit\":null,\"buyerRegDaysLimit\":null,\"buyerBtcPositionLimit\":null,\"remarks\":null,\"autoReplyMsg\":null,\"payTimeLimit\":15,\"tradeMethods\":[{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoDeCredito\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoDeCredito\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco de Credito\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#FF7B00\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoDeBolivia\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoDeBolivia\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Nacional de Bolivia\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#26B460\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BANK\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BANK\",\"iconUrlColor\":null,\"tradeMethodName\":\"Bank Transfer\",\"tradeMethodShortName\":\"Bank Transfer\",\"tradeMethodBgColor\":\"#F0B90B\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoEconomico\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoEconomico\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Economico\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#E7142A\"}],\"userTradeCountFilterTime\":null,\"userBuyTradeCountMin\":null,\"userBuyTradeCountMax\":null,\"userSellTradeCountMin\":null,\"userSellTradeCountMax\":null,\"userAllTradeCountMin\":null,\"userAllTradeCountMax\":null,\"userTradeCompleteRateFilterTime\":null,\"userTradeCompleteCountMin\":null,\"userTradeCompleteRateMin\":null,\"userTradeVolumeFilterTime\":null,\"userTradeType\":null,\"userTradeVolumeMin\":null,\"userTradeVolumeMax\":null,\"userTradeVolumeAsset\":null,\"createTime\":null,\"advUpdateTime\":null,\"fiatVo\":null,\"assetVo\":null,\"advVisibleRet\":null,\"takerAdditionalKycRequired\":0,\"minFiatAmountForAdditionalKyc\":null,\"inventoryType\":null,\"offlineReason\":null,\"voucherTemplate\":null,\"assetLogo\":null,\"assetScale\":8,\"fiatScale\":2,\"priceScale\":2,\"fiatSymbol\":\"Bs.\",\"isTradable\":true,\"dynamicMaxSingleTransAmount\":\"5239\",\"minSingleTransQuantity\":\"100.00000000\",\"maxSingleTransQuantity\":\"11629.41170000\",\"dynamicMaxSingleTransQuantity\":\"440.26000000\",\"commissionRate\":null,\"takerCommissionRate\":null,\"minTakerFee\":null,\"tradeMethodCommissionRates\":null,\"launchCountry\":null,\"abnormalStatusList\":null,\"closeReason\":null,\"storeInformation\":null,\"allowTradeMerchant\":null,\"adTradeInstructionTagInfoRets\":null,\"isSafePayment\":false,\"adAdditionalKycVerifyItems\":null,\"isStarTraderAdditionalKycExclusion\":null,\"isStarTraderCounterpartyConditionsExclusion\":null,\"nonTradableRegions\":null,\"invisibleType\":null,\"invisibleTitle\":null,\"invisibleReason\":null,\"privilegeType\":null,\"advSystemLabelRet\":null,\"redirectLink\":null,\"redirectDeeplink\":null}",
+      "sourceUrl": "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search",
+      "documentSha256": "fe7c641bf12b048258359c9f9b743fa44fc84b62877bf7c2b8ef6707a57148c3",
+      "retrievedAt": "2026-10-15T15:35:10Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDC_BOB",
@@ -1634,6 +1682,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDC_BOB",
       "asset": "USDC",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.706",
+      "unit": "BOB/USD",
+      "venue": "VIBRANT",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDC/BOB vibrant bid 11.706 time 1792078501.",
+      "excerpt": "\"vibrant\":{\"ask\":11.935,\"totalAsk\":11.935,\"bid\":11.706,\"totalBid\":11.706,\"time\":1792078501}",
+      "sourceUrl": "https://criptoya.com/api/usdc/bob/1",
+      "documentSha256": "53f7fd33546821c925cbd7629aa7b35e33df38cc618a88220fa832b190d0321f",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDC_BOB",
+      "asset": "USDC",
       "priceSide": "SELL",
       "eventDate": "2026-09-22",
       "value": "12.667",
@@ -1915,6 +1978,21 @@
       "sourceUrl": "https://criptoya.com/api/usdc/bob/1",
       "documentSha256": "bcd48c130e384cb1b27504713bb333634305ae7affad94b33f0c8d039deb70fb",
       "retrievedAt": "2026-10-14T15:49:04Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDC_BOB",
+      "asset": "USDC",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.935",
+      "unit": "BOB/USD",
+      "venue": "VIBRANT",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDC/BOB vibrant ask 11.935 time 1792078501.",
+      "excerpt": "\"vibrant\":{\"ask\":11.935,\"totalAsk\":11.935,\"bid\":11.706,\"totalBid\":11.706,\"time\":1792078501}",
+      "sourceUrl": "https://criptoya.com/api/usdc/bob/1",
+      "documentSha256": "53f7fd33546821c925cbd7629aa7b35e33df38cc618a88220fa832b190d0321f",
+      "retrievedAt": "2026-10-15T15:35:10Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDC_BOB",
@@ -2204,6 +2282,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDC_BOB",
       "asset": "USDC",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.6901",
+      "unit": "BOB/USD",
+      "venue": "VITAWALLET",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDC/BOB vitawallet bid 11.6901 time 1792078497.",
+      "excerpt": "\"vitawallet\":{\"ask\":11.9394,\"totalAsk\":11.9394,\"bid\":11.6901,\"totalBid\":11.6901,\"time\":1792078497}",
+      "sourceUrl": "https://criptoya.com/api/usdc/bob/1",
+      "documentSha256": "53f7fd33546821c925cbd7629aa7b35e33df38cc618a88220fa832b190d0321f",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDC_BOB",
+      "asset": "USDC",
       "priceSide": "SELL",
       "eventDate": "2026-09-22",
       "value": "12.303",
@@ -2485,6 +2578,21 @@
       "sourceUrl": "https://criptoya.com/api/usdc/bob/1",
       "documentSha256": "bcd48c130e384cb1b27504713bb333634305ae7affad94b33f0c8d039deb70fb",
       "retrievedAt": "2026-10-14T15:49:04Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDC_BOB",
+      "asset": "USDC",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.9394",
+      "unit": "BOB/USD",
+      "venue": "VITAWALLET",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDC/BOB vitawallet ask 11.9394 time 1792078497.",
+      "excerpt": "\"vitawallet\":{\"ask\":11.9394,\"totalAsk\":11.9394,\"bid\":11.6901,\"totalBid\":11.6901,\"time\":1792078497}",
+      "sourceUrl": "https://criptoya.com/api/usdc/bob/1",
+      "documentSha256": "53f7fd33546821c925cbd7629aa7b35e33df38cc618a88220fa832b190d0321f",
+      "retrievedAt": "2026-10-15T15:35:10Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
@@ -2793,6 +2901,22 @@
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
       "asset": "USDT",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.80",
+      "unit": "BOB/USD",
+      "venue": "BINANCE P2P",
+      "publisher": "BINANCE P2P",
+      "advertisementsRead": 20,
+      "assertion": "Dolar paralelo asset USDT fiatUnit BOB tradeType BUY (compra al lector): price 11.80.",
+      "excerpt": "{\"advNo\":\"12934592331346984960\",\"classify\":\"mass\",\"tradeType\":\"BUY\",\"asset\":\"USDT\",\"fiatUnit\":\"BOB\",\"advStatus\":null,\"priceType\":null,\"priceFloatingRatio\":null,\"rateFloatingRatio\":null,\"currencyRate\":null,\"price\":\"11.80\",\"initAmount\":null,\"surplusAmount\":\"100.00\",\"tradableQuantity\":\"100.00\",\"amountAfterEditing\":null,\"maxSingleTransAmount\":\"500\",\"minSingleTransAmount\":\"100\",\"buyerKycLimit\":null,\"buyerRegDaysLimit\":null,\"buyerBtcPositionLimit\":null,\"remarks\":null,\"autoReplyMsg\":null,\"payTimeLimit\":15,\"tradeMethods\":[{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoGanadero\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoGanadero\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Ganadero\",\"tradeMethodShortName\":\"Banco Ganadero\",\"tradeMethodBgColor\":\"#80BF00\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BANK\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BANK\",\"iconUrlColor\":null,\"tradeMethodName\":\"Bank Transfer\",\"tradeMethodShortName\":\"Bank Transfer\",\"tradeMethodBgColor\":\"#F0B90B\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoSantaCruz\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoSantaCruz\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Mercantil Santa Cruz\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#004A2C\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoDeBolivia\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoDeBolivia\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Nacional de Bolivia\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#26B460\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoEconomico\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoEconomico\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Economico\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#E7142A\"}],\"userTradeCountFilterTime\":null,\"userBuyTradeCountMin\":null,\"userBuyTradeCountMax\":null,\"userSellTradeCountMin\":null,\"userSellTradeCountMax\":null,\"userAllTradeCountMin\":null,\"userAllTradeCountMax\":null,\"userTradeCompleteRateFilterTime\":null,\"userTradeCompleteCountMin\":null,\"userTradeCompleteRateMin\":null,\"userTradeVolumeFilterTime\":null,\"userTradeType\":null,\"userTradeVolumeMin\":null,\"userTradeVolumeMax\":null,\"userTradeVolumeAsset\":null,\"createTime\":null,\"advUpdateTime\":null,\"fiatVo\":null,\"assetVo\":null,\"advVisibleRet\":null,\"takerAdditionalKycRequired\":0,\"minFiatAmountForAdditionalKyc\":null,\"inventoryType\":null,\"offlineReason\":null,\"voucherTemplate\":null,\"assetLogo\":null,\"assetScale\":2,\"fiatScale\":2,\"priceScale\":2,\"fiatSymbol\":\"Bs.\",\"isTradable\":true,\"dynamicMaxSingleTransAmount\":\"500\",\"minSingleTransQuantity\":\"8.47\",\"maxSingleTransQuantity\":\"42.37\",\"dynamicMaxSingleTransQuantity\":\"42.37\",\"commissionRate\":null,\"takerCommissionRate\":null,\"minTakerFee\":null,\"tradeMethodCommissionRates\":null,\"launchCountry\":null,\"abnormalStatusList\":null,\"closeReason\":null,\"storeInformation\":null,\"allowTradeMerchant\":null,\"adTradeInstructionTagInfoRets\":null,\"isSafePayment\":false,\"adAdditionalKycVerifyItems\":null,\"isStarTraderAdditionalKycExclusion\":null,\"isStarTraderCounterpartyConditionsExclusion\":null,\"nonTradableRegions\":null,\"invisibleType\":null,\"invisibleTitle\":null,\"invisibleReason\":null,\"privilegeType\":null,\"advSystemLabelRet\":null,\"redirectLink\":null,\"redirectDeeplink\":null}",
+      "sourceUrl": "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search",
+      "documentSha256": "42fb368cac539bfc2cd596ee986cd42c03ed51c78425734664588a8d13ef2bb3",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
       "priceSide": "SELL",
       "eventDate": "2026-09-22",
       "value": "12.22",
@@ -3097,6 +3221,22 @@
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
       "asset": "USDT",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.83",
+      "unit": "BOB/USD",
+      "venue": "BINANCE P2P",
+      "publisher": "BINANCE P2P",
+      "advertisementsRead": 20,
+      "assertion": "Dolar paralelo asset USDT fiatUnit BOB tradeType SELL (venta al lector): price 11.83.",
+      "excerpt": "{\"advNo\":\"13935768407354884096\",\"classify\":\"profession\",\"tradeType\":\"SELL\",\"asset\":\"USDT\",\"fiatUnit\":\"BOB\",\"advStatus\":null,\"priceType\":null,\"priceFloatingRatio\":null,\"rateFloatingRatio\":null,\"currencyRate\":null,\"price\":\"11.83\",\"initAmount\":null,\"surplusAmount\":\"10138.96\",\"tradableQuantity\":\"10121.24\",\"amountAfterEditing\":null,\"maxSingleTransAmount\":\"200000\",\"minSingleTransAmount\":\"3000\",\"buyerKycLimit\":null,\"buyerRegDaysLimit\":null,\"buyerBtcPositionLimit\":null,\"remarks\":null,\"autoReplyMsg\":null,\"payTimeLimit\":15,\"tradeMethods\":[{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"SoliPagos\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"SoliPagos\",\"iconUrlColor\":null,\"tradeMethodName\":\"SoliPagos\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#03A9D7\"},{\"payId\":null,\"payMethodId\":\"\",\"payType\":\"BancoEconomico\",\"payAccount\":null,\"payBank\":null,\"paySubBank\":null,\"identifier\":\"BancoEconomico\",\"iconUrlColor\":null,\"tradeMethodName\":\"Banco Economico\",\"tradeMethodShortName\":null,\"tradeMethodBgColor\":\"#E7142A\"}],\"userTradeCountFilterTime\":null,\"userBuyTradeCountMin\":null,\"userBuyTradeCountMax\":null,\"userSellTradeCountMin\":null,\"userSellTradeCountMax\":null,\"userAllTradeCountMin\":null,\"userAllTradeCountMax\":null,\"userTradeCompleteRateFilterTime\":null,\"userTradeCompleteCountMin\":null,\"userTradeCompleteRateMin\":null,\"userTradeVolumeFilterTime\":null,\"userTradeType\":null,\"userTradeVolumeMin\":null,\"userTradeVolumeMax\":null,\"userTradeVolumeAsset\":null,\"createTime\":null,\"advUpdateTime\":null,\"fiatVo\":null,\"assetVo\":null,\"advVisibleRet\":null,\"takerAdditionalKycRequired\":0,\"minFiatAmountForAdditionalKyc\":null,\"inventoryType\":null,\"offlineReason\":null,\"voucherTemplate\":null,\"assetLogo\":null,\"assetScale\":2,\"fiatScale\":2,\"priceScale\":2,\"fiatSymbol\":\"Bs.\",\"isTradable\":true,\"dynamicMaxSingleTransAmount\":\"119734\",\"minSingleTransQuantity\":\"253.59\",\"maxSingleTransQuantity\":\"16906.17\",\"dynamicMaxSingleTransQuantity\":\"10121.24\",\"commissionRate\":null,\"takerCommissionRate\":null,\"minTakerFee\":null,\"tradeMethodCommissionRates\":null,\"launchCountry\":null,\"abnormalStatusList\":null,\"closeReason\":null,\"storeInformation\":null,\"allowTradeMerchant\":null,\"adTradeInstructionTagInfoRets\":null,\"isSafePayment\":false,\"adAdditionalKycVerifyItems\":null,\"isStarTraderAdditionalKycExclusion\":null,\"isStarTraderCounterpartyConditionsExclusion\":null,\"nonTradableRegions\":null,\"invisibleType\":null,\"invisibleTitle\":null,\"invisibleReason\":null,\"privilegeType\":null,\"advSystemLabelRet\":null,\"redirectLink\":null,\"redirectDeeplink\":null}",
+      "sourceUrl": "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search",
+      "documentSha256": "8b9607b2c95663297713ee0dd1a6971dac49c9b2602c506f77f81a32c85af13f",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
       "priceSide": "BUY",
       "eventDate": "2026-09-22",
       "value": "12.2",
@@ -3378,6 +3518,21 @@
       "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
       "documentSha256": "fb537b9e818e2ee66f41d439efaf076265af21bb7b6ac5b0282689672544539b",
       "retrievedAt": "2026-10-14T15:49:04Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.79",
+      "unit": "BOB/USD",
+      "venue": "BITGETP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB bitgetp2p bid 11.79 time 1792078471.",
+      "excerpt": "\"bitgetp2p\":{\"ask\":11.82,\"totalAsk\":11.82,\"bid\":11.79,\"totalBid\":11.79,\"time\":1792078471}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
@@ -3667,6 +3822,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
       "asset": "USDT",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.82",
+      "unit": "BOB/USD",
+      "venue": "BITGETP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB bitgetp2p ask 11.82 time 1792078471.",
+      "excerpt": "\"bitgetp2p\":{\"ask\":11.82,\"totalAsk\":11.82,\"bid\":11.79,\"totalBid\":11.79,\"time\":1792078471}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
       "priceSide": "BUY",
       "eventDate": "2026-09-22",
       "value": "12.201",
@@ -3948,6 +4118,21 @@
       "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
       "documentSha256": "fb537b9e818e2ee66f41d439efaf076265af21bb7b6ac5b0282689672544539b",
       "retrievedAt": "2026-10-14T15:49:04Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.8",
+      "unit": "BOB/USD",
+      "venue": "BYBITP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB bybitp2p bid 11.8 time 1792078484.",
+      "excerpt": "\"bybitp2p\":{\"ask\":11.8,\"totalAsk\":11.8,\"bid\":11.8,\"totalBid\":11.8,\"time\":1792078484}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
@@ -4237,6 +4422,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
       "asset": "USDT",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.8",
+      "unit": "BOB/USD",
+      "venue": "BYBITP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB bybitp2p ask 11.8 time 1792078484.",
+      "excerpt": "\"bybitp2p\":{\"ask\":11.8,\"totalAsk\":11.8,\"bid\":11.8,\"totalBid\":11.8,\"time\":1792078484}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
       "priceSide": "BUY",
       "eventDate": "2026-09-22",
       "value": "12.11",
@@ -4518,6 +4718,21 @@
       "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
       "documentSha256": "be7da185b45453a1f1f1f75a1ce910f79ed645e294db0f16967a3c413aa78a2c",
       "retrievedAt": "2026-10-14T20:42:53Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.77",
+      "unit": "BOB/USD",
+      "venue": "ELDORADOP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB eldoradop2p bid 11.77 time 1792078447.",
+      "excerpt": "\"eldoradop2p\":{\"ask\":11.863,\"totalAsk\":11.9804,\"bid\":11.77,\"totalBid\":11.6535,\"time\":1792078447}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
@@ -4807,6 +5022,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
       "asset": "USDT",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.863",
+      "unit": "BOB/USD",
+      "venue": "ELDORADOP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB eldoradop2p ask 11.863 time 1792078447.",
+      "excerpt": "\"eldoradop2p\":{\"ask\":11.863,\"totalAsk\":11.9804,\"bid\":11.77,\"totalBid\":11.6535,\"time\":1792078447}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
       "priceSide": "BUY",
       "eventDate": "2026-09-22",
       "value": "12.16",
@@ -5088,6 +5318,21 @@
       "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
       "documentSha256": "fb537b9e818e2ee66f41d439efaf076265af21bb7b6ac5b0282689672544539b",
       "retrievedAt": "2026-10-14T15:49:04Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.79",
+      "unit": "BOB/USD",
+      "venue": "MEXCP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB mexcp2p bid 11.79 time 1792078507.",
+      "excerpt": "\"mexcp2p\":{\"ask\":11.8,\"totalAsk\":11.8,\"bid\":11.79,\"totalBid\":11.79,\"time\":1792078507}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
@@ -5377,6 +5622,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
       "asset": "USDT",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.8",
+      "unit": "BOB/USD",
+      "venue": "MEXCP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB mexcp2p ask 11.8 time 1792078507.",
+      "excerpt": "\"mexcp2p\":{\"ask\":11.8,\"totalAsk\":11.8,\"bid\":11.79,\"totalBid\":11.79,\"time\":1792078507}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
       "priceSide": "BUY",
       "eventDate": "2026-09-22",
       "value": "11.978",
@@ -5658,6 +5918,21 @@
       "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
       "documentSha256": "fb537b9e818e2ee66f41d439efaf076265af21bb7b6ac5b0282689672544539b",
       "retrievedAt": "2026-10-14T15:49:04Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.6708",
+      "unit": "BOB/USD",
+      "venue": "SALDO",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB saldo bid 11.6708 time 1792078497.",
+      "excerpt": "\"saldo\":{\"ask\":11.9674,\"totalAsk\":11.9674,\"bid\":11.6708,\"totalBid\":11.6708,\"time\":1792078497}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
@@ -5947,6 +6222,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
       "asset": "USDT",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.9674",
+      "unit": "BOB/USD",
+      "venue": "SALDO",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB saldo ask 11.9674 time 1792078497.",
+      "excerpt": "\"saldo\":{\"ask\":11.9674,\"totalAsk\":11.9674,\"bid\":11.6708,\"totalBid\":11.6708,\"time\":1792078497}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
       "priceSide": "BUY",
       "eventDate": "2026-09-22",
       "value": "12.0424",
@@ -6232,6 +6522,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDT_BOB",
       "asset": "USDT",
+      "priceSide": "BUY",
+      "eventDate": "2026-10-15",
+      "value": "11.677",
+      "unit": "BOB/USD",
+      "venue": "VITAWALLET",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB vitawallet bid 11.677 time 1792078497.",
+      "excerpt": "\"vitawallet\":{\"ask\":11.926,\"totalAsk\":11.926,\"bid\":11.677,\"totalBid\":11.677,\"time\":1792078497}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
       "priceSide": "SELL",
       "eventDate": "2026-09-22",
       "value": "12.2992",
@@ -6513,6 +6818,21 @@
       "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
       "documentSha256": "fb537b9e818e2ee66f41d439efaf076265af21bb7b6ac5b0282689672544539b",
       "retrievedAt": "2026-10-14T15:49:04Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDT_BOB",
+      "asset": "USDT",
+      "priceSide": "SELL",
+      "eventDate": "2026-10-15",
+      "value": "11.926",
+      "unit": "BOB/USD",
+      "venue": "VITAWALLET",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDT/BOB vitawallet ask 11.926 time 1792078497.",
+      "excerpt": "\"vitawallet\":{\"ask\":11.926,\"totalAsk\":11.926,\"bid\":11.677,\"totalBid\":11.677,\"time\":1792078497}",
+      "sourceUrl": "https://criptoya.com/api/usdt/bob/1",
+      "documentSha256": "329a64d22a48c9ae17b2d9dfc64bbd2b66d7640b33d5dc8b4f1f7c677ed908af",
+      "retrievedAt": "2026-10-15T15:35:10Z"
     }
   ]
 }
