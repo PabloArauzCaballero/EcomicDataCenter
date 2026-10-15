@@ -1,8 +1,9 @@
 {
  "status": "YOUTUBE_CONVERSATION_ABOUT_PERSON",
- "generatedAt": "2026-10-07T20:07:04Z",
+ "generatedAt": "2026-10-15T00:49:09Z",
  "method": {
   "source": "Comentarios públicos de YouTube en videos de los últimos 12 meses cuyo título nombra a la persona",
+  "ownSource": "Comentarios públicos en los últimos videos de su propio canal de YouTube (su audiencia, no quienes hablan de ella)",
   "model": "pysentimiento/robertuito en ONNX: sentiment, emotion, irony",
   "minComments": 30,
   "limits": [
@@ -12,9 +13,10 @@
   ]
  },
  "coverage": {
-  "peopleRead": 250,
+  "peopleRead": 259,
   "peoplePublishable": 23,
-  "commentsAnalyzed": 2594
+  "ownChannelPublishable": 10,
+  "commentsAnalyzed": 4210
  },
  "people": {
   "P_RODRIGO_PAZ_PEREIRA": {
@@ -223,7 +225,81 @@
      "count": 3,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 27,
+    "commentsAnalyzed": 24,
+    "videos": [
+     {
+      "videoId": "Ly54Grm3RNE",
+      "title": "Firmamos el decreto para hacer realidad el Hub de Viru Viru #SantaCruz",
+      "published": "hace 13 días",
+      "url": "https://www.youtube.com/watch?v=Ly54Grm3RNE",
+      "commentsRead": 5,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "7FeRCSgzIac",
+      "title": "Participamos en el 81.º periodo de sesiones de la Asamblea General de las #NacionesUnidas.",
+      "published": "hace 2 sem.",
+      "url": "https://www.youtube.com/watch?v=7FeRCSgzIac",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "tX_EiCbBN6g",
+      "title": "Hemos estado con diferentes instituciones de orden mundial que cooperan con países como #Bolivia",
+      "published": "hace 2 sem.",
+      "url": "https://www.youtube.com/watch?v=tX_EiCbBN6g",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "GJ8ci0A2qJE",
+      "title": "Mensaje Presidencial",
+      "published": "hace 3 sem.",
+      "url": "https://www.youtube.com/watch?v=GJ8ci0A2qJE",
+      "commentsRead": 2,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "w0XC9dW70Y4",
+      "title": "Mensaje Presidencial",
+      "published": "hace 1 m",
+      "url": "https://www.youtube.com/watch?v=w0XC9dW70Y4",
+      "commentsRead": 15,
+      "commentsSpanish": 14
+     },
+     {
+      "videoId": "nvJuaZG4OWA",
+      "title": "Celebramos el Bicentenario del Colegio Nacional Simón Bolívar. #Oruro",
+      "published": "hace 1 m",
+      "url": "https://www.youtube.com/watch?v=nvJuaZG4OWA",
+      "commentsRead": 2,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "B1GlpRh-OT0",
+      "title": "Celebramos 200 años de nuestra Policía Boliviana al servicio de la gente. #PoliciaBoliviana",
+      "published": "hace 1 m",
+      "url": "https://www.youtube.com/watch?v=B1GlpRh-OT0",
+      "commentsRead": 2,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "8-h2hBjt0Vk",
+      "title": "Hacemos realidad la entrega del pavimento rígido de la avenida Panorámica Norte en #ElAlto.",
+      "published": "hace 1 m",
+      "url": "https://www.youtube.com/watch?v=8-h2hBjt0Vk",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/channel/UCqHhgowjCVL_jHC8dpC0How"
+   }
   },
   "P_LUIS_FERNANDO_CAMACHO": {
    "videosRead": 4,
@@ -847,7 +923,81 @@
      "count": 7,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 12,
+    "commentsAnalyzed": 5,
+    "videos": [
+     {
+      "videoId": "4PURQuJYyLA",
+      "title": "Nuestra boda en la playa Anabel Angus y Marcó Antelo",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=4PURQuJYyLA",
+      "commentsRead": 5,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "xzgB_QlsJaQ",
+      "title": "De ida a darle el si a Anabel Angus Marcó Antelo",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=xzgB_QlsJaQ",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "rFJS-MHMrok",
+      "title": "Nuestra boda Anabel Angus y Marcó Antelo",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=rFJS-MHMrok",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "dX9M_zmeLNQ",
+      "title": "Así se vive la firma de autógrafos del calendario oficial de Anabel Angus - Moda👑",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=dX9M_zmeLNQ",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "7b8l6klyMro",
+      "title": "Sábado Anabeleando Anabel Angus Moda",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=7b8l6klyMro",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "2zZw99UcSEQ",
+      "title": "Viernes Anabeleando!!\nSegunda temporada a Full 😎 Anabel Angus Moda",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=2zZw99UcSEQ",
+      "commentsRead": 4,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "htS35ZGfJcI",
+      "title": "Pronto el calendario de #AnabelAngusModa 👑",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=htS35ZGfJcI",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "LUuYzIZ0Epw",
+      "title": "\"Black Publi\" Gracias Ronico Cuéllar y Oliver  Montoya protagonistas😀 Anabel Angus Moda Friday",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=LUuYzIZ0Epw",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/channel/UC7asNp00JCQjtZX_Q-NcGCw"
+   }
   },
   "P_MICHELLE_ANDRADE": {
    "videosRead": 1,
@@ -864,7 +1014,81 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 691,
+    "commentsAnalyzed": 15,
+    "videos": [
+     {
+      "videoId": "1JCr0NHi7FA",
+      "title": "Michelle Andrade — SORRY | ПРЕМ'ЄРА 2026",
+      "published": "hace 1 m",
+      "url": "https://www.youtube.com/watch?v=1JCr0NHi7FA",
+      "commentsRead": 20,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "SGkyJTSm5J8",
+      "title": "Michelle Andrade - Гравітація [Прем'єра Official Video]",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=SGkyJTSm5J8",
+      "commentsRead": 89,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "R2VvOp5aMPo",
+      "title": "Michelle Andrade — Маргарита [Прем'єра Official Video]",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=R2VvOp5aMPo",
+      "commentsRead": 20,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "-2ly5c3wxqY",
+      "title": "Michelle Andrade — Краля [Прем'єра Dance Video]",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=-2ly5c3wxqY",
+      "commentsRead": 76,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "C12IazptvXU",
+      "title": "Michelle Andrade — В твоїх очах [Прем'єра Official Video]",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=C12IazptvXU",
+      "commentsRead": 97,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "laur0yFwvm8",
+      "title": "Michelle Andrade & NIKITAIDISYUDA — Na Samoti [Official Video]",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=laur0yFwvm8",
+      "commentsRead": 105,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "e11U7w1iRqU",
+      "title": "Michelle Andrade — Абсурд/Любов [«Неприховане»]",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=e11U7w1iRqU",
+      "commentsRead": 143,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "Azz6a4B6uDA",
+      "title": "Michelle Andrade — Світло [«Неприховане»]",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=Azz6a4B6uDA",
+      "commentsRead": 141,
+      "commentsSpanish": 2
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/channel/UCn-L2skxYwPPBGsfjLYl2rA"
+   }
   },
   "P_JEANINE_ANEZ": {
    "videosRead": 4,
@@ -1080,7 +1304,248 @@
    "commentsAnalyzed": 0,
    "videos": [],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 220,
+    "commentsAnalyzed": 117,
+    "videos": [
+     {
+      "videoId": "kizy_VtJATc",
+      "title": "Tu paraíso (Estudio) Videoclip oficial - Claudia Arce",
+      "published": "hace 1 m",
+      "url": "https://www.youtube.com/watch?v=kizy_VtJATc",
+      "commentsRead": 29,
+      "commentsSpanish": 16
+     },
+     {
+      "videoId": "dADBhrK1Q68",
+      "title": "La Boliviana - Claudia Arce & @BIW",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=dADBhrK1Q68",
+      "commentsRead": 12,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "zqlsKOP52Sg",
+      "title": "Pegajosa - Claudia Arce & Flavia Meyer @flaviameyerofficial   (Visualizer video)",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=zqlsKOP52Sg",
+      "commentsRead": 17,
+      "commentsSpanish": 11
+     },
+     {
+      "videoId": "JqIFJxfTNmg",
+      "title": "Cuéntame ❤️‍🩹",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=JqIFJxfTNmg",
+      "commentsRead": 5,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "4Q67R6ZQjVQ",
+      "title": "A medias no (videoclip oficial) - Claudia Arce & @rodrigorojas1",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=4Q67R6ZQjVQ",
+      "commentsRead": 33,
+      "commentsSpanish": 18
+     },
+     {
+      "videoId": "3i6Ho8Fpfi0",
+      "title": "La Boliviana (Liryc video) - Claudia Arce & @BIW",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=3i6Ho8Fpfi0",
+      "commentsRead": 71,
+      "commentsSpanish": 38
+     },
+     {
+      "videoId": "-hBcTfJ_1Gw",
+      "title": "La cumbia de los innombrables (Edit version) - Claudia Arce & Marco León",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=-hBcTfJ_1Gw",
+      "commentsRead": 20,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "LzJ8dMy9P-4",
+      "title": "La cumbia de los innombrables (Videoclip oficial) - Claudia Arce & Marco León @marco_leonpol",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=LzJ8dMy9P-4",
+      "commentsRead": 33,
+      "commentsSpanish": 20
+     }
+    ],
+    "sentiment": {
+     "analyzed": 117,
+     "positivePct": 71.8,
+     "negativePct": 8.5,
+     "neutralPct": 19.7,
+     "ironyPct": 22.2,
+     "netScore": 63.3,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 66.7,
+      "sadness": 0.9,
+      "anger": 0.0,
+      "surprise": 1.7,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "canción",
+      "count": 38,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "felicidades",
+      "count": 22,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "hermosa",
+      "count": 15,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "tema",
+      "count": 12,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "saludos",
+      "count": 11,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "clau",
+      "count": 11,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "linda",
+      "count": 10,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 10,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "quiero",
+      "count": 9,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "bonita",
+      "count": 9,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "éxitos",
+      "count": 9,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "letra",
+      "count": 8,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "bolivia",
+      "count": 8,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "boliviana",
+      "count": 8,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "necesitas",
+      "count": 7,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "paraíso",
+      "count": 7,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "música",
+      "count": 7,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "excelente",
+      "count": 6,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "bella",
+      "count": 6,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "ritmo",
+      "count": 6,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "canciones",
+      "count": 5,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "encanta",
+      "count": 5,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "contigo",
+      "count": 5,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "amo",
+      "count": 5,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "cantante",
+      "count": 5,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/@claudiaarcelemaitre"
+   }
   },
   "P_JOSE_AUGUSTO_TORRES_GIL": {
    "videosRead": 0,
@@ -2241,7 +2706,81 @@
      "count": 2,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 12,
+    "commentsAnalyzed": 9,
+    "videos": [
+     {
+      "videoId": "G4vw9QiJR-o",
+      "title": "REBELLE UNE HISTOIRE SOCIALE BOLIVIENNE: UNA APROXIMACION DOCUMENTAL A LAS RADIO/DOCUMENTALES",
+      "published": "hace 3 sem.",
+      "url": "https://www.youtube.com/watch?v=G4vw9QiJR-o",
+      "commentsRead": 6,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "rAnf58PdVnA",
+      "title": "¿QUE ES LA DESIDENTIFICACION COLONIAL? A propósito de la discucion alrededor del TIPOI",
+      "published": "hace 5 m",
+      "url": "https://www.youtube.com/watch?v=rAnf58PdVnA",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "5MdLSfFS6x4",
+      "title": "12 de octubre 2025. ¿Nos atrevemos a sustituir iconos coloniales?",
+      "published": "hace 11 m",
+      "url": "https://www.youtube.com/watch?v=5MdLSfFS6x4",
+      "commentsRead": 2,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "PU9UKZiIRuE",
+      "title": "DE LA PLURINACIONALIDAD A LA PLURISEXUALIDAD",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=PU9UKZiIRuE",
+      "commentsRead": 3,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "fby3UgefmJY",
+      "title": "MARIA GALINDO  \"CABALLERO DE LAS ARTES\", Ministerio de la Cultura de Francia",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=fby3UgefmJY",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "viVvzuzvKhs",
+      "title": "CUESTIONANDO LA TESIS IGUALDAD HOMBRE/MUJER",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=viVvzuzvKhs",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "_xJ44xxMPvE",
+      "title": "PATRONA DEL COLONIALISMO",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=_xJ44xxMPvE",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "JQ2YK_zhRmE",
+      "title": "IGLESIA PEDERASTA",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=JQ2YK_zhRmE",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/channel/UCFD31b4_uRhMJrZ6sBInMJw"
+   }
   },
   "P_XIMENA_HERRERA": {
    "videosRead": 4,
@@ -3019,7 +3558,49 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 4,
+    "commentsRead": 6,
+    "commentsAnalyzed": 2,
+    "videos": [
+     {
+      "videoId": "yN2y3QBMoiE",
+      "title": "Amor en tiempos de crisis Cap 4. se acabo el misterio ",
+      "published": "hace 9 m",
+      "url": "https://www.youtube.com/watch?v=yN2y3QBMoiE",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "Oj0FhU86UQU",
+      "title": "Genio Pol Deportes. Me emociona, me hace feliz está historia bonita ",
+      "published": "hace 10 m",
+      "url": "https://www.youtube.com/watch?v=Oj0FhU86UQU",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "X-RcuXQV-9A",
+      "title": "Cap 3  El amante de doña luisa ",
+      "published": "hace 10 m",
+      "url": "https://www.youtube.com/watch?v=X-RcuXQV-9A",
+      "commentsRead": 3,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "O_qOJ5ISBEE",
+      "title": "Doña luisa sorprende por su cumpleaños a leonel",
+      "published": "hace 10 m",
+      "url": "https://www.youtube.com/watch?v=O_qOJ5ISBEE",
+      "commentsRead": 2,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/channel/UCXiZKQjNx86DgJFknNBVDxw"
+   }
   },
   "P_MAX_JHONNY_FERNANDEZ_SAUCEDO": {
    "videosRead": 0,
@@ -3317,7 +3898,49 @@
      "count": 2,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 4,
+    "commentsRead": 27,
+    "commentsAnalyzed": 14,
+    "videos": [
+     {
+      "videoId": "dcyDdQm4whQ",
+      "title": "Gracias Fátima y gracias Luis Fernando por confiar en la propuesta que tenemos",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=dcyDdQm4whQ",
+      "commentsRead": 27,
+      "commentsSpanish": 14
+     },
+     {
+      "videoId": "CsZqAqvh6E8",
+      "title": "¡Bolivia está en tus manos!",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=CsZqAqvh6E8",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "q11zPSXrfis",
+      "title": "¡La edad mínima de jubilación se mantiene!",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=q11zPSXrfis",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "_QR75ctlRgQ",
+      "title": "¡Mantendremos y aumentaremos la Renta Dignidad!",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=_QR75ctlRgQ",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/channel/UCrhf2wJsnULiChN9o9l9imw"
+   }
   },
   "P_DAVID_CHOQUEHUANCA": {
    "videosRead": 8,
@@ -6542,7 +7165,248 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 404,
+    "commentsAnalyzed": 276,
+    "videos": [
+     {
+      "videoId": "k8NFY8yDSzI",
+      "title": "Preparé más de 100 DONAS 🍩 con MENOS de 50 bs 💵😱😋🍩",
+      "published": "hace 7 días",
+      "url": "https://www.youtube.com/watch?v=k8NFY8yDSzI",
+      "commentsRead": 11,
+      "commentsSpanish": 7
+     },
+     {
+      "videoId": "qOdNg0t9-pI",
+      "title": "La India que nadie te muestra: Discotecas, comida callejera, ¿realmente es seguro?😱🇮🇳",
+      "published": "hace 2 sem.",
+      "url": "https://www.youtube.com/watch?v=qOdNg0t9-pI",
+      "commentsRead": 25,
+      "commentsSpanish": 19
+     },
+     {
+      "videoId": "h91bbBi9Toc",
+      "title": "La POLICÍA se LLEVO a mi amigo po bailar en el TAJ MAHAL (no sabíamos que estaba prohibido)😱🇮🇳",
+      "published": "hace 2 m",
+      "url": "https://www.youtube.com/watch?v=h91bbBi9Toc",
+      "commentsRead": 37,
+      "commentsSpanish": 28
+     },
+     {
+      "videoId": "H1cyVwzB8dc",
+      "title": "Así es un hotel 5 estrellas en la India 🇮🇳 ✨😱",
+      "published": "hace 2 m",
+      "url": "https://www.youtube.com/watch?v=H1cyVwzB8dc",
+      "commentsRead": 59,
+      "commentsSpanish": 40
+     },
+     {
+      "videoId": "HqfXYkRrkuI",
+      "title": "Me compré un AUTO por mi CUMPLEAÑOS🥳🚘",
+      "published": "hace 2 m",
+      "url": "https://www.youtube.com/watch?v=HqfXYkRrkuI",
+      "commentsRead": 150,
+      "commentsSpanish": 103
+     },
+     {
+      "videoId": "oQtBI5YtSGA",
+      "title": "Así se hace CH’UÑU en uno de los lugares más fríos de Bolivia 🇧🇴🥶🥔",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=oQtBI5YtSGA",
+      "commentsRead": 49,
+      "commentsSpanish": 32
+     },
+     {
+      "videoId": "e8baZVanpaE",
+      "title": "🔥Casi termino en el hospital preparando esta receta 😱 “Empanadas de lacayote”",
+      "published": "hace 4 m",
+      "url": "https://www.youtube.com/watch?v=e8baZVanpaE",
+      "commentsRead": 36,
+      "commentsSpanish": 24
+     },
+     {
+      "videoId": "69Mvk-jNcdY",
+      "title": "El precio REAL de vestirse de cholita paceña (no lo vas a creer)😱🇧🇴💵",
+      "published": "hace 6 m",
+      "url": "https://www.youtube.com/watch?v=69Mvk-jNcdY",
+      "commentsRead": 37,
+      "commentsSpanish": 23
+     }
+    ],
+    "sentiment": {
+     "analyzed": 276,
+     "positivePct": 58.7,
+     "negativePct": 22.5,
+     "neutralPct": 18.8,
+     "ironyPct": 29.3,
+     "netScore": 36.2,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 52.5,
+      "sadness": 0.0,
+      "anger": 5.1,
+      "surprise": 2.2,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "felicidades",
+      "count": 59,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "saludos",
+      "count": 22,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "mereces",
+      "count": 20,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "india",
+      "count": 17,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "auto",
+      "count": 16,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "familia",
+      "count": 14,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "vida",
+      "count": 14,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "dios",
+      "count": 13,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "chuño",
+      "count": 13,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "zumba",
+      "count": 12,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "adelante",
+      "count": 11,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "hermosa",
+      "count": 11,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "bueno",
+      "count": 10,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "feliz",
+      "count": 10,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "argentina",
+      "count": 9,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiciones",
+      "count": 9,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "abrazo",
+      "count": 9,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "felicitaciones",
+      "count": 9,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "alegría",
+      "count": 9,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "logro",
+      "count": 9,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "gente",
+      "count": 8,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "cambies",
+      "count": 8,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "lindo",
+      "count": 8,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 8,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "trabajo",
+      "count": 8,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/channel/UCmJLNo4bkEi-8pD3YUsiMlQ"
+   }
   },
   "P_DANNY_BEJARANO": {
    "videosRead": 5,
@@ -8165,7 +9029,224 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 5,
+    "commentsRead": 197,
+    "commentsAnalyzed": 82,
+    "videos": [
+     {
+      "videoId": "0_LKj-qnxBQ",
+      "title": "Swedish House Mafia and The Weeknd - Moth To A Flame (Bitas Remix)",
+      "published": "hace 4 a",
+      "url": "https://www.youtube.com/watch?v=0_LKj-qnxBQ",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "gEXrf8D3o-A",
+      "title": "Hardwell - Road To Ultra Bolivia 2016",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=gEXrf8D3o-A",
+      "commentsRead": 10,
+      "commentsSpanish": 7
+     },
+     {
+      "videoId": "-gSt3jm11D4",
+      "title": "Road To Ultra Bolivia 2016",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=-gSt3jm11D4",
+      "commentsRead": 4,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "qYuCKvh4EbI",
+      "title": "Tiësto & KSHMR feat. VASSY - Secrets - Lyrics",
+      "published": "hace 11 a",
+      "url": "https://www.youtube.com/watch?v=qYuCKvh4EbI",
+      "commentsRead": 32,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "MaQUMnlSN54",
+      "title": "Deorro Feat. Adrian Delgado & DyCy - Perdóname - Lyrics",
+      "published": "hace 12 a",
+      "url": "https://www.youtube.com/watch?v=MaQUMnlSN54",
+      "commentsRead": 150,
+      "commentsSpanish": 73
+     }
+    ],
+    "sentiment": {
+     "analyzed": 82,
+     "positivePct": 35.4,
+     "negativePct": 15.9,
+     "neutralPct": 48.8,
+     "ironyPct": 28.0,
+     "netScore": 19.5,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 22.0,
+      "sadness": 0.0,
+      "anger": 1.2,
+      "surprise": 1.2,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "canción",
+      "count": 30,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "werever",
+      "count": 6,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "amo",
+      "count": 5,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "encanta",
+      "count": 5,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "mañana",
+      "count": 5,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 4,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "única",
+      "count": 4,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "comercial",
+      "count": 4,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "chida",
+      "count": 4,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "tema",
+      "count": 3,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "vengo",
+      "count": 3,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "letra",
+      "count": 3,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "escuchando",
+      "count": 3,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "microsoft",
+      "count": 3,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "vine",
+      "count": 3,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "zanty",
+      "count": 3,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "ventana",
+      "count": 3,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "fede",
+      "count": 3,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "hago",
+      "count": 3,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "quieras",
+      "count": 3,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "perdoname",
+      "count": 3,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "nena",
+      "count": 3,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "buscando",
+      "count": 2,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "viene",
+      "count": 2,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "aprenderse",
+      "count": 2,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/channel/UC1wEVxsqMvx8OOkHojfvPJg"
+   }
   },
   "P_MARIO_PINEDO": {
    "videosRead": 2,
@@ -8215,7 +9296,216 @@
    "commentsAnalyzed": 0,
    "videos": [],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 4,
+    "commentsRead": 68,
+    "commentsAnalyzed": 56,
+    "videos": [
+     {
+      "videoId": "DnKIW1yXGZw",
+      "title": "Copia de El gran sueño de MARTÍN ELIAS DÍAZ",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=DnKIW1yXGZw",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "-NBLHz35PkY",
+      "title": "El mensaje que dejó la muerte de MARTÍN ELÍAS DÍAZ",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=-NBLHz35PkY",
+      "commentsRead": 28,
+      "commentsSpanish": 27
+     },
+     {
+      "videoId": "0nJD_mCDgWg",
+      "title": "El gran sueño de MARTÍN ELIAS DÍAZ",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=0nJD_mCDgWg",
+      "commentsRead": 38,
+      "commentsSpanish": 28
+     },
+     {
+      "videoId": "ZMAJBRPdjmk",
+      "title": "Relaciones amorosas",
+      "published": "hace 9 a",
+      "url": "https://www.youtube.com/watch?v=ZMAJBRPdjmk",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": {
+     "analyzed": 56,
+     "positivePct": 28.6,
+     "negativePct": 55.4,
+     "neutralPct": 16.1,
+     "ironyPct": 14.3,
+     "netScore": -26.8,
+     "topEmotion": "sadness",
+     "emotionPct": {
+      "joy": 17.9,
+      "sadness": 50.0,
+      "anger": 5.4,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "dios",
+      "count": 41,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "martín",
+      "count": 19,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "vida",
+      "count": 12,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "elias",
+      "count": 11,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "paz",
+      "count": 10,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "santa",
+      "count": 10,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "gloria",
+      "count": 7,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "santo",
+      "count": 7,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "semana",
+      "count": 7,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "triste",
+      "count": 6,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "corazón",
+      "count": 6,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "cantante",
+      "count": 5,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "sabe",
+      "count": 5,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "tin",
+      "count": 5,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "cristo",
+      "count": 5,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "celestial",
+      "count": 5,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "fuiste",
+      "count": 5,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "dijo",
+      "count": 4,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "libro",
+      "count": 4,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "viernes",
+      "count": 4,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "todavía",
+      "count": 4,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "tristeza",
+      "count": 4,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "vallenato",
+      "count": 4,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "canciones",
+      "count": 3,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "tumba",
+      "count": 3,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/channel/UCGwa30Ti8VNHXtHQZhfMEdQ"
+   }
   },
   "P_LEONEL_MORALES": {
    "videosRead": 0,
@@ -8223,7 +9513,81 @@
    "commentsAnalyzed": 0,
    "videos": [],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 9,
+    "commentsAnalyzed": 4,
+    "videos": [
+     {
+      "videoId": "4XjFQHRizuU",
+      "title": "Trailer VIDEOCLIP Loco de amor LIPEÑA",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=4XjFQHRizuU",
+      "commentsRead": 2,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "m-vPT5XzC_g",
+      "title": "LIPEÑA  material discográfico MUY PRONTO...",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=m-vPT5XzC_g",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "aDt3v95dXpk",
+      "title": "Camerata SINCOPA - Regocijad, Jesús Nació (Häendel)",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=aDt3v95dXpk",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Ok0zu_3qXZM",
+      "title": "THE AVENGERS  Alan Silvestri ENSAMBLE DE CÁMARA Carrera de Artes Musicales UATF.",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=Ok0zu_3qXZM",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "6XmDfva5fuI",
+      "title": "PAZ, IGUALDAD Y UNIDAD PARA BOLIVIA de Leonel Morales H.",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=6XmDfva5fuI",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "AIMjhz39eMM",
+      "title": "Juego de Tronos - Ramin Djawadi  CUERDAS DE PLATA",
+      "published": "hace 6 a",
+      "url": "https://www.youtube.com/watch?v=AIMjhz39eMM",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Oa9PRyg0f04",
+      "title": "GARGOLAS Doug Spata  Orquesta de Cámara CUERDAS DE PLATA",
+      "published": "hace 6 a",
+      "url": "https://www.youtube.com/watch?v=Oa9PRyg0f04",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "EV8lEZRGZrE",
+      "title": "HIMNO A POTOSÍ",
+      "published": "hace 6 a",
+      "url": "https://www.youtube.com/watch?v=EV8lEZRGZrE",
+      "commentsRead": 5,
+      "commentsSpanish": 2
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/channel/UC6JZXlgUl9vHo_MrLrxSy7w"
+   }
   },
   "P_MARVIN_BEJARANO": {
    "videosRead": 8,
@@ -10949,6 +12313,1698 @@
    ],
    "sentiment": null,
    "words": null
+  },
+  "P_DANIEL_DUENAS": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 444,
+    "commentsAnalyzed": 334,
+    "videos": [
+     {
+      "videoId": "O9H4gYt--ag",
+      "title": "ROMPE TUS BARRERAS MENTALES  Supera las Creencias Limitantes  1",
+      "published": "hace 2 días",
+      "url": "https://www.youtube.com/watch?v=O9H4gYt--ag",
+      "commentsRead": 15,
+      "commentsSpanish": 12
+     },
+     {
+      "videoId": "ItkWvDJNNvY",
+      "title": "Una mujer con el corazón roto",
+      "published": "hace 7 días",
+      "url": "https://www.youtube.com/watch?v=ItkWvDJNNvY",
+      "commentsRead": 43,
+      "commentsSpanish": 33
+     },
+     {
+      "videoId": "SN9QnsCNz_0",
+      "title": "Se tu mejor versión.",
+      "published": "hace 8 días",
+      "url": "https://www.youtube.com/watch?v=SN9QnsCNz_0",
+      "commentsRead": 26,
+      "commentsSpanish": 18
+     },
+     {
+      "videoId": "oGNUDmmW8Wg",
+      "title": "IDENTIFICA A UN HOMBRE MANIPULADOR.",
+      "published": "hace 10 días",
+      "url": "https://www.youtube.com/watch?v=oGNUDmmW8Wg",
+      "commentsRead": 52,
+      "commentsSpanish": 42
+     },
+     {
+      "videoId": "fHRZYWcl-kQ",
+      "title": "NO VUELVAS CON ALGUIEN QUE YA TE TUVO Y NO SUPO VALORARTE.",
+      "published": "hace 13 días",
+      "url": "https://www.youtube.com/watch?v=fHRZYWcl-kQ",
+      "commentsRead": 150,
+      "commentsSpanish": 111
+     },
+     {
+      "videoId": "HdsRIub8cQc",
+      "title": "El Amor Sano es Real  No Te Conformes con Menos.",
+      "published": "hace 2 sem.",
+      "url": "https://www.youtube.com/watch?v=HdsRIub8cQc",
+      "commentsRead": 44,
+      "commentsSpanish": 31
+     },
+     {
+      "videoId": "AytXr3kxCqM",
+      "title": "¿POR QUÉ UNA MUJER AMA LAS PLANTAS",
+      "published": "hace 2 sem.",
+      "url": "https://www.youtube.com/watch?v=AytXr3kxCqM",
+      "commentsRead": 55,
+      "commentsSpanish": 43
+     },
+     {
+      "videoId": "7_A6T49EYJ8",
+      "title": "7 formas de aumentar tu autoestima.",
+      "published": "hace 2 sem.",
+      "url": "https://www.youtube.com/watch?v=7_A6T49EYJ8",
+      "commentsRead": 59,
+      "commentsSpanish": 44
+     }
+    ],
+    "sentiment": {
+     "analyzed": 334,
+     "positivePct": 57.5,
+     "negativePct": 27.2,
+     "neutralPct": 15.3,
+     "ironyPct": 7.5,
+     "netScore": 30.3,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 44.9,
+      "sadness": 8.1,
+      "anger": 6.6,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.3
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "dios",
+      "count": 44,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiciones",
+      "count": 39,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "amor",
+      "count": 38,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "cierto",
+      "count": 35,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "palabras",
+      "count": 31,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 28,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "vida",
+      "count": 25,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "verdad",
+      "count": 24,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "amén",
+      "count": 24,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "consejos",
+      "count": 23,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiga",
+      "count": 22,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "amo",
+      "count": 21,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "plantas",
+      "count": 20,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "persona",
+      "count": 19,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "totalmente",
+      "count": 19,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "razón",
+      "count": 18,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "acuerdo",
+      "count": 17,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "feliz",
+      "count": 17,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "reflexión",
+      "count": 14,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "años",
+      "count": 14,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "sola",
+      "count": 13,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "personas",
+      "count": 12,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "consejo",
+      "count": 11,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "mal",
+      "count": 11,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "quiero",
+      "count": 10,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/@danielduenas4844"
+   }
+  },
+  "P_ALE_PINEDO": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 11,
+    "commentsAnalyzed": 5,
+    "videos": [
+     {
+      "videoId": "ijbWh0ruREE",
+      "title": "¿Qué está pasando con Luis Vega?",
+      "published": "hace 1 m",
+      "url": "https://www.youtube.com/watch?v=ijbWh0ruREE",
+      "commentsRead": 2,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "N-N81CcwVhU",
+      "title": "Detrás de la Batalla - Capítulo 8",
+      "published": "hace 2 m",
+      "url": "https://www.youtube.com/watch?v=N-N81CcwVhU",
+      "commentsRead": 2,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "yPEA_-LjSfo",
+      "title": "Detrás de la Batalla - Capítulo 7",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=yPEA_-LjSfo",
+      "commentsRead": 2,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "gYyhmxz0a5s",
+      "title": "Detrás de la Batalla - Capítulo 6",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=gYyhmxz0a5s",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "-mTxxNq6qCg",
+      "title": "Detrás de la Batalla - Capítulo 5",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=-mTxxNq6qCg",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "TzYFYofGg7U",
+      "title": "Detrás de la Batalla - Capítulo 4",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=TzYFYofGg7U",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "QP0n8tG9888",
+      "title": "Detrás de la Batalla - Capítulo 3",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=QP0n8tG9888",
+      "commentsRead": 2,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "0ySxvowWvoY",
+      "title": "Nos fuimos a PORONGO",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=0ySxvowWvoY",
+      "commentsRead": 2,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/@alepinedotv"
+   }
+  },
+  "P_ALEXIUS": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 2,
+    "commentsRead": 210,
+    "commentsAnalyzed": 109,
+    "videos": [
+     {
+      "videoId": "H8WzA6DUrjI",
+      "title": "Charli Damelio en un SERIO Problema CASO Peaches/ QUIEN ES? Tiktok Soyalexius",
+      "published": "hace 6 a",
+      "url": "https://www.youtube.com/watch?v=H8WzA6DUrjI",
+      "commentsRead": 150,
+      "commentsSpanish": 69
+     },
+     {
+      "videoId": "XOrACnjK5BQ",
+      "title": "Lo Encontraron EN 3 MALETAS! CASO Estados Unidos / Tiktok Soyalexius",
+      "published": "hace 6 a",
+      "url": "https://www.youtube.com/watch?v=XOrACnjK5BQ",
+      "commentsRead": 60,
+      "commentsSpanish": 40
+     }
+    ],
+    "sentiment": {
+     "analyzed": 109,
+     "positivePct": 56.0,
+     "negativePct": 11.0,
+     "neutralPct": 33.0,
+     "ironyPct": 18.3,
+     "netScore": 45.0,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 41.3,
+      "sadness": 0.9,
+      "anger": 0.9,
+      "surprise": 0.0,
+      "disgust": 0.9,
+      "fear": 0.9
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "vengo",
+      "count": 51,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "tik",
+      "count": 42,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "tok",
+      "count": 39,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "caso",
+      "count": 20,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 15,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "amo",
+      "count": 14,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "casos",
+      "count": 14,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "saludos",
+      "count": 12,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "encantan",
+      "count": 11,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "encanta",
+      "count": 11,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "bolivia",
+      "count": 8,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "quiero",
+      "count": 7,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "cuentas",
+      "count": 6,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "perú",
+      "count": 5,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "espero",
+      "count": 5,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "canal",
+      "count": 4,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "próximo",
+      "count": 4,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "contenido",
+      "count": 4,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "interesantes",
+      "count": 4,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "país",
+      "count": 3,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "ecuador",
+      "count": 3,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "uwu",
+      "count": 3,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "saludame",
+      "count": 3,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "verdad",
+      "count": 3,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "argentina",
+      "count": 3,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/@Soyalexius"
+   }
+  },
+  "P_CRISTIAN_APAZA": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 201,
+    "commentsAnalyzed": 117,
+    "videos": [
+     {
+      "videoId": "DSPehTFk8HM",
+      "title": "Te enseño la multiplicación de tres cifras para todas los niños!!!! #bolivia",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=DSPehTFk8HM",
+      "commentsRead": 8,
+      "commentsSpanish": 5
+     },
+     {
+      "videoId": "WDqvCE-YSYk",
+      "title": "Ahora te explico la DIVISIÓN DE TRES CIFRAS !!!! #matemáticas",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=WDqvCE-YSYk",
+      "commentsRead": 9,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "wDogdIqVC6I",
+      "title": "Canción para mi Universidad San Francisco Xavier en sus 4 SIGLOS!!!",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=wDogdIqVC6I",
+      "commentsRead": 5,
+      "commentsSpanish": 5
+     },
+     {
+      "videoId": "wWRZ8bBkfaQ",
+      "title": "Simplificar la siguiente expresion, pregunta de examen…",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=wWRZ8bBkfaQ",
+      "commentsRead": 3,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "va5RWATSmjo",
+      "title": "TIRADERA CON CLASE - EN CONTRA DE LOS CORRUPTOS DEL SISTEMA EDUCATIVO!!!!",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=va5RWATSmjo",
+      "commentsRead": 121,
+      "commentsSpanish": 53
+     },
+     {
+      "videoId": "UgifuAgpyF4",
+      "title": "Bailar por devoción a la Virgencita de Guadalupe, es una cosa de locos ❤️ SUCRE",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=UgifuAgpyF4",
+      "commentsRead": 6,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "t9QZDpDBYLY",
+      "title": "Hoy quiero celebrar esta alegría con todos ustedes.Soy HÉROE BOLIVIANO",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=t9QZDpDBYLY",
+      "commentsRead": 8,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "7O_hnic9utQ",
+      "title": "Ahora si necesito tu ayuda!!!Nos vemos  en la gran kermesse solidario por mi HERMANO OMAR APAZA CORO",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=7O_hnic9utQ",
+      "commentsRead": 41,
+      "commentsSpanish": 36
+     }
+    ],
+    "sentiment": {
+     "analyzed": 117,
+     "positivePct": 44.4,
+     "negativePct": 24.8,
+     "neutralPct": 30.8,
+     "ironyPct": 15.4,
+     "netScore": 19.6,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 34.2,
+      "sadness": 6.0,
+      "anger": 2.6,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "dios",
+      "count": 17,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "profe",
+      "count": 13,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "hermano",
+      "count": 13,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "cuenta",
+      "count": 10,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "familia",
+      "count": 9,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiciones",
+      "count": 8,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "educación",
+      "count": 8,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "verdad",
+      "count": 8,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "felicidades",
+      "count": 8,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "matemáticas",
+      "count": 7,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiga",
+      "count": 7,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 6,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "profesor",
+      "count": 6,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "canción",
+      "count": 6,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "poder",
+      "count": 6,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "ayuda",
+      "count": 6,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "abrazo",
+      "count": 6,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "amigo",
+      "count": 5,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "decir",
+      "count": 5,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "tenía",
+      "count": 5,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "tema",
+      "count": 5,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "grande",
+      "count": 5,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "saludos",
+      "count": 5,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "mucha",
+      "count": 5,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "favor",
+      "count": 4,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/@cristianapazacoro1245"
+   }
+  },
+  "P_MARIA_LEYDI": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 430,
+    "commentsAnalyzed": 202,
+    "videos": [
+     {
+      "videoId": "2I3t80e42EA",
+      "title": "MI ACTO DE GRADUACIÓN DE LA UNIVERSIDAD (Maria Leydi) 👩‍🎓💓",
+      "published": "hace 4 a",
+      "url": "https://www.youtube.com/watch?v=2I3t80e42EA",
+      "commentsRead": 27,
+      "commentsSpanish": 17
+     },
+     {
+      "videoId": "dOR-WrhtgNI",
+      "title": "Así pase mi cumpleaños 🎂",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=dOR-WrhtgNI",
+      "commentsRead": 41,
+      "commentsSpanish": 21
+     },
+     {
+      "videoId": "xfiTMWCSUG4",
+      "title": "DESAYUNO RAPIDO Y FÁCIL PARA HACER 🤤😋",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=xfiTMWCSUG4",
+      "commentsRead": 22,
+      "commentsSpanish": 13
+     },
+     {
+      "videoId": "l7DftDt8PBM",
+      "title": "Visitando a mis abuelitos después de meses 🥺♥️",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=l7DftDt8PBM",
+      "commentsRead": 19,
+      "commentsSpanish": 11
+     },
+     {
+      "videoId": "yYUHMb7bRS0",
+      "title": "El motivo porque me aleje de tik tok y de las redes sociales 😔",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=yYUHMb7bRS0",
+      "commentsRead": 150,
+      "commentsSpanish": 53
+     },
+     {
+      "videoId": "JcxUkGe4JW4",
+      "title": "Tocoro - Mojocoya  BLOG 😲Maria Leydi",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=JcxUkGe4JW4",
+      "commentsRead": 74,
+      "commentsSpanish": 40
+     },
+     {
+      "videoId": "HtPlWyOWR80",
+      "title": "PREGUNTAS Y RESPUESTAS YOUTUBE 🔴Maria leydi #Bolivia#maria",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=HtPlWyOWR80",
+      "commentsRead": 97,
+      "commentsSpanish": 47
+     },
+     {
+      "videoId": "VQTq-25DcF8",
+      "title": "🐻Maria Leydi y @OsitoLima 🐻",
+      "published": "hace 5 a",
+      "url": "https://www.youtube.com/watch?v=VQTq-25DcF8",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": {
+     "analyzed": 202,
+     "positivePct": 66.8,
+     "negativePct": 9.9,
+     "neutralPct": 23.3,
+     "ironyPct": 9.4,
+     "netScore": 56.9,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 58.4,
+      "sadness": 1.0,
+      "anger": 0.0,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 1.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "saludos",
+      "count": 46,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "hermosa",
+      "count": 26,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiciones",
+      "count": 21,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "quiero",
+      "count": 20,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "felicidades",
+      "count": 19,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 18,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "dios",
+      "count": 14,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiga",
+      "count": 12,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "cumpleaños",
+      "count": 11,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "encanta",
+      "count": 11,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "feliz",
+      "count": 10,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "linda",
+      "count": 10,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "espero",
+      "count": 10,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "hermoso",
+      "count": 9,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "abrazo",
+      "count": 9,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "bonito",
+      "count": 9,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "amo",
+      "count": 9,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "suscribí",
+      "count": 8,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "perú",
+      "count": 8,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "amiga",
+      "count": 8,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "vida",
+      "count": 7,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "adelante",
+      "count": 7,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "argentina",
+      "count": 7,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "méxico",
+      "count": 7,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "años",
+      "count": 7,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/@marialeydi3679"
+   }
+  },
+  "P_CARLOS_MARQUINA": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 64,
+    "commentsAnalyzed": 40,
+    "videos": [
+     {
+      "videoId": "TdpQzL1F1YI",
+      "title": "Las Olimpiadas de Los Marquina llega a su final",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=TdpQzL1F1YI",
+      "commentsRead": 3,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "J70k1SUqlXs",
+      "title": "Olimpiadas de Los Marquina: 4 nuevos desafios y mas medallas.",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=J70k1SUqlXs",
+      "commentsRead": 7,
+      "commentsSpanish": 6
+     },
+     {
+      "videoId": "ElZZVu5qLVo",
+      "title": "Olimpiadas de Los Marquina : Escalada Deportiva, Tiro con Arco y BMX seran las primeras disciplinas",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=ElZZVu5qLVo",
+      "commentsRead": 3,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "XYEV9XD3eYw",
+      "title": "CASTING: Buscamos a 5 deportistas para dar inicio a las olimpiadas de Los Marquina #pausaespower",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=XYEV9XD3eYw",
+      "commentsRead": 3,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "1L-YxFk_oLc",
+      "title": "EL BACK DEL DESAFIO",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=1L-YxFk_oLc",
+      "commentsRead": 4,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "GfyFHjuEUoQ",
+      "title": "Los Marquina vs. Los Zegarra desde Cbba. \"TRIATLON COCACOLA\"",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=GfyFHjuEUoQ",
+      "commentsRead": 22,
+      "commentsSpanish": 11
+     },
+     {
+      "videoId": "JDxYw0FS248",
+      "title": "DESAFIO #6: En busca del Identikit.Primer desafio en El Alto.#cocacola #retornable #vasoscocacola",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=JDxYw0FS248",
+      "commentsRead": 20,
+      "commentsSpanish": 15
+     },
+     {
+      "videoId": "Nrm3IwrBGvI",
+      "title": "💥EL BACK💥desde La Paz",
+      "published": "hace 2 a",
+      "url": "https://www.youtube.com/watch?v=Nrm3IwrBGvI",
+      "commentsRead": 2,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": {
+     "analyzed": 40,
+     "positivePct": 47.5,
+     "negativePct": 17.5,
+     "neutralPct": 35.0,
+     "ironyPct": 45.0,
+     "netScore": 30.0,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 40.0,
+      "sadness": 0.0,
+      "anger": 0.0,
+      "surprise": 2.5,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "equipo",
+      "count": 9,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "salto",
+      "count": 7,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "naranja",
+      "count": 6,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "saludos",
+      "count": 5,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "garrocha",
+      "count": 4,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "medalla",
+      "count": 4,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "señora",
+      "count": 4,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "oro",
+      "count": 3,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "debería",
+      "count": 3,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "consiguió",
+      "count": 3,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "plata",
+      "count": 3,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "familias",
+      "count": 3,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "zegarra",
+      "count": 3,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "desafío",
+      "count": 3,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "señores",
+      "count": 3,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "verde",
+      "count": 2,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "segundo",
+      "count": 2,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "rojo",
+      "count": 2,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "medallas",
+      "count": 2,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "esperando",
+      "count": 2,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "capítulo",
+      "count": 2,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "ansias",
+      "count": 2,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "retos",
+      "count": 2,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "bueno",
+      "count": 2,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "hicieron",
+      "count": 2,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/@carlosmarquina2054"
+   }
+  },
+  "P_COCINANDO_CON_ELENA": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 8,
+    "commentsAnalyzed": 6,
+    "videos": [
+     {
+      "videoId": "6DRfBCxGM-Q",
+      "title": "RECETA PARA LA GASTRIT1S",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=6DRfBCxGM-Q",
+      "commentsRead": 2,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "SCcwhGtwG8Q",
+      "title": "TIENES UN AMIGO O FAMILIAR CON MAL ALIENTO ? ENSEÑALE ESTA RECETA NATURAL",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=SCcwhGtwG8Q",
+      "commentsRead": 2,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "tzQB8VkrBWE",
+      "title": "EL MEJOR TE FRIO QUE TE AYUDARA A DEJAR DE SUDAR Y OLER M4L",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=tzQB8VkrBWE",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "sBu4HYDa5ME",
+      "title": "SABIAS QUE LA CASCARA DE NARANJA TE PUEDE SALVAR LA VIDA",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=sBu4HYDa5ME",
+      "commentsRead": 2,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "gxs_29Ezqa0",
+      "title": "CON ESTA RECETA SE TE QUITARA TODA LA RESACA",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=gxs_29Ezqa0",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "WnSq790WxyQ",
+      "title": "TE FALLA TU VISTA VEZ BORROSO",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=WnSq790WxyQ",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "uw56hyps-EM",
+      "title": "MUCHAS ARRUGAS HOY TE ENSEÑO LA RECETA Q TE AYUDARA A ELIMINARLAS",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=uw56hyps-EM",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "rU-Qcd9nJ8o",
+      "title": "JUVENUD ETERNA CON RECETA NATURAL",
+      "published": "hace 1 a",
+      "url": "https://www.youtube.com/watch?v=rU-Qcd9nJ8o",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/@CocinandoconElenabo"
+   }
+  },
+  "P_LUZ_CRUZ": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 2,
+    "commentsAnalyzed": 1,
+    "videos": [
+     {
+      "videoId": "g6TC-c7sq4A",
+      "title": "Un día siendo modelo",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=g6TC-c7sq4A",
+      "commentsRead": 2,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "e7oMpRFAGR8",
+      "title": "Cuál crees que fue mi fallo",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=e7oMpRFAGR8",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "4s432RFkKuQ",
+      "title": "Café con shampooo",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=4s432RFkKuQ",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "I15X8VvnwIo",
+      "title": "Compras para piel",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=I15X8VvnwIo",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "RHj14G_f4IQ",
+      "title": "Por primera vez un nuevo técnica",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=RHj14G_f4IQ",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "jQmCkued5RE",
+      "title": "Compras de maquillaje",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=jQmCkued5RE",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "ydCX0FR6VkI",
+      "title": "Pónganse en mis zapatos",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=ydCX0FR6VkI",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "zPqn7fJBeeA",
+      "title": "Maquillaje en proceso",
+      "published": "hace 3 m",
+      "url": "https://www.youtube.com/watch?v=zPqn7fJBeeA",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.youtube.com/channel/UCr4Oe6MvpNPQlUq_hqmt88w"
+   }
+  },
+  "P_GABRIELA_ZEGARRA": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 8,
+    "commentsRead": 314,
+    "commentsAnalyzed": 198,
+    "videos": [
+     {
+      "videoId": "fLl8NeqdN6I",
+      "title": "Tailandia #Pandora #PandoraTailandia",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=fLl8NeqdN6I",
+      "commentsRead": 134,
+      "commentsSpanish": 73
+     },
+     {
+      "videoId": "4bEuiOZ6zbU",
+      "title": "Otro cumpleaños????????",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=4bEuiOZ6zbU",
+      "commentsRead": 32,
+      "commentsSpanish": 19
+     },
+     {
+      "videoId": "tC6xsdw4Mzk",
+      "title": "TOMMY FEST",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=tC6xsdw4Mzk",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "FgqC0eAF998",
+      "title": "Mis 28 primaveras.",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=FgqC0eAF998",
+      "commentsRead": 31,
+      "commentsSpanish": 20
+     },
+     {
+      "videoId": "0bJx2XWKHk8",
+      "title": "Especial Cumpleaños",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=0bJx2XWKHk8",
+      "commentsRead": 14,
+      "commentsSpanish": 7
+     },
+     {
+      "videoId": "ht9GYvEHEqg",
+      "title": "Mi experiencia como jurado del Miss Bolivia",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=ht9GYvEHEqg",
+      "commentsRead": 24,
+      "commentsSpanish": 19
+     },
+     {
+      "videoId": "cEMY9hy6ni0",
+      "title": "CAPITULO ESPECIAL: Gran Reto Leidys 2022",
+      "published": "hace 3 a",
+      "url": "https://www.youtube.com/watch?v=cEMY9hy6ni0",
+      "commentsRead": 38,
+      "commentsSpanish": 30
+     },
+     {
+      "videoId": "tRediSUwg9Q",
+      "title": "CAPITULO 44: Sorprendemos a una de las Ladys paceñas con su despedida de soltera",
+      "published": "hace 4 a",
+      "url": "https://www.youtube.com/watch?v=tRediSUwg9Q",
+      "commentsRead": 41,
+      "commentsSpanish": 30
+     }
+    ],
+    "sentiment": {
+     "analyzed": 198,
+     "positivePct": 55.1,
+     "negativePct": 26.3,
+     "neutralPct": 18.7,
+     "ironyPct": 18.7,
+     "netScore": 28.8,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 50.5,
+      "sadness": 2.5,
+      "anger": 5.1,
+      "surprise": 1.5,
+      "disgust": 0.0,
+      "fear": 0.5
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "gaby",
+      "count": 71,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "hermosa",
+      "count": 20,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "felicidades",
+      "count": 18,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "capítulo",
+      "count": 16,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "capítulos",
+      "count": 15,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "lindo",
+      "count": 12,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "dios",
+      "count": 9,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "hermoso",
+      "count": 9,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "feliz",
+      "count": 8,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "bella",
+      "count": 8,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 7,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "familia",
+      "count": 7,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "experiencia",
+      "count": 7,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiciones",
+      "count": 7,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "suban",
+      "count": 7,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "viaje",
+      "count": 6,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "vida",
+      "count": 6,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "gabi",
+      "count": 6,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "bello",
+      "count": 6,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "lugar",
+      "count": 6,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "saludos",
+      "count": 6,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "verte",
+      "count": 5,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "mamá",
+      "count": 5,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "años",
+      "count": 5,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "bueno",
+      "count": 5,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.youtube.com/@GabyZegarra"
+   }
   }
  }
 }
