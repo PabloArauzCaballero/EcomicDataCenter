@@ -1,6 +1,6 @@
 {
  "status": "YOUTUBE_CONVERSATION_ABOUT_PERSON",
- "generatedAt": "2026-10-18T14:28:35Z",
+ "generatedAt": "2026-10-18T23:15:37Z",
  "method": {
   "source": "Comentarios públicos de YouTube en videos de los últimos 12 meses cuyo título nombra a la persona",
   "ownSource": "Comentarios públicos en los últimos videos de su propio canal de YouTube (su audiencia, no quienes hablan de ella)",
@@ -13,10 +13,10 @@
   ]
  },
  "coverage": {
-  "peopleRead": 312,
+  "peopleRead": 338,
   "peoplePublishable": 23,
-  "ownChannelPublishable": 67,
-  "commentsAnalyzed": 11349
+  "ownChannelPublishable": 75,
+  "commentsAnalyzed": 12620
  },
  "people": {
   "P_RODRIGO_PAZ_PEREIRA": {
@@ -227,9 +227,9 @@
     }
    ],
    "own": {
-    "videosRead": 11,
-    "commentsRead": 161,
-    "commentsAnalyzed": 94,
+    "videosRead": 14,
+    "commentsRead": 226,
+    "commentsAnalyzed": 130,
     "videos": [
      {
       "videoId": "Ly54Grm3RNE",
@@ -318,21 +318,45 @@
       "url": "https://www.tiktok.com/@rodrigopazpereira/video/7697436033973112080",
       "commentsRead": 20,
       "commentsSpanish": 8
+     },
+     {
+      "videoId": "DekvshXAAX0",
+      "title": "Los gobernadores de La Paz, Oruro y Potosí se reunieron con sus pares de Arica y Parinacota, Tarapacá y Antofagasta y se articularon como un grupo de gobernadores fronterizos. 🇧🇴🤝🇨🇱\nLa relación e",
+      "published": null,
+      "url": "https://www.instagram.com/p/DekvshXAAX0/",
+      "commentsRead": 8,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "DekcBB_JdMw",
+      "title": "En el histórico Palacio Quemado junto al presidente José Antonio Kast de Chile, donde hemos firmado acuerdos en función del beneficio de nuestra gente, tanto en Chile como en Bolivia. Son acuerdos par",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DekcBB_JdMw/",
+      "commentsRead": 42,
+      "commentsSpanish": 31
+     },
+     {
+      "videoId": "DekaWEKCY-E",
+      "title": "Con el presidente @joseantoniokast firmamos acuerdos que se traducen en oportunidades para nuestra gente. 🇧🇴🤝🇨🇱\n\nEn comercio, el ACE N.º 22 es el acuerdo que define cómo compramos y vendemos prod",
+      "published": null,
+      "url": "https://www.instagram.com/p/DekaWEKCY-E/",
+      "commentsRead": 15,
+      "commentsSpanish": 2
      }
     ],
     "sentiment": {
-     "analyzed": 94,
-     "positivePct": 22.3,
-     "negativePct": 36.2,
-     "neutralPct": 41.5,
-     "ironyPct": 16.0,
-     "netScore": -13.9,
+     "analyzed": 130,
+     "positivePct": 27.7,
+     "negativePct": 31.5,
+     "neutralPct": 40.8,
+     "ironyPct": 14.6,
+     "netScore": -3.8,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 33.0,
-      "sadness": 1.1,
-      "anger": 18.1,
-      "surprise": 1.1,
+      "joy": 45.4,
+      "sadness": 0.8,
+      "anger": 13.8,
+      "surprise": 0.8,
       "disgust": 0.0,
       "fear": 0.0
      }
@@ -341,158 +365,159 @@
      {
       "kind": "WORD",
       "term": "bolivia",
-      "count": 39,
+      "count": 52,
       "rank": 1
      },
      {
       "kind": "WORD",
       "term": "presidente",
-      "count": 33,
+      "count": 40,
       "rank": 2
      },
      {
       "kind": "WORD",
       "term": "chile",
-      "count": 21,
+      "count": 32,
       "rank": 3
      },
      {
       "kind": "WORD",
-      "term": "dios",
-      "count": 12,
+      "term": "países",
+      "count": 19,
       "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "dios",
+      "count": 13,
+      "rank": 5
      },
      {
       "kind": "WORD",
       "term": "planillas",
       "count": 12,
-      "rank": 5
-     },
-     {
-      "kind": "WORD",
-      "term": "países",
-      "count": 12,
       "rank": 6
      },
      {
       "kind": "WORD",
-      "term": "trabajó",
+      "term": "viva",
       "count": 11,
       "rank": 7
      },
      {
       "kind": "WORD",
-      "term": "delincuente",
-      "count": 9,
+      "term": "trabajó",
+      "count": 11,
       "rank": 8
      },
      {
       "kind": "WORD",
-      "term": "fernando",
-      "count": 9,
+      "term": "país",
+      "count": 10,
       "rank": 9
      },
      {
       "kind": "WORD",
-      "term": "cerimedo",
-      "count": 9,
+      "term": "presidentes",
+      "count": 10,
       "rank": 10
      },
      {
       "kind": "WORD",
-      "term": "argentina",
+      "term": "delincuente",
       "count": 9,
       "rank": 11
      },
      {
       "kind": "WORD",
-      "term": "estuvo",
+      "term": "fernando",
       "count": 9,
       "rank": 12
      },
      {
       "kind": "WORD",
-      "term": "políticos",
+      "term": "cerimedo",
       "count": 9,
       "rank": 13
      },
      {
       "kind": "WORD",
-      "term": "mar",
-      "count": 8,
+      "term": "argentina",
+      "count": 9,
       "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "estuvo",
+      "count": 9,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "políticos",
+      "count": 9,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "mar",
+      "count": 9,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "ambos",
+      "count": 9,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiga",
+      "count": 8,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "futuro",
+      "count": 8,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "adelante",
+      "count": 8,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "excelente",
+      "count": 8,
+      "rank": 22
      },
      {
       "kind": "WORD",
       "term": "puertos",
       "count": 8,
-      "rank": 15
-     },
-     {
-      "kind": "WORD",
-      "term": "país",
-      "count": 7,
-      "rank": 16
-     },
-     {
-      "kind": "WORD",
-      "term": "bendiga",
-      "count": 7,
-      "rank": 17
+      "rank": 23
      },
      {
       "kind": "WORD",
       "term": "señor",
       "count": 6,
-      "rank": 18
+      "rank": 24
      },
      {
       "kind": "WORD",
       "term": "legalmente",
       "count": 6,
-      "rank": 19
-     },
-     {
-      "kind": "WORD",
-      "term": "saludos",
-      "count": 6,
-      "rank": 20
-     },
-     {
-      "kind": "WORD",
-      "term": "soy",
-      "count": 5,
-      "rank": 21
-     },
-     {
-      "kind": "WORD",
-      "term": "autoridad",
-      "count": 5,
-      "rank": 22
-     },
-     {
-      "kind": "WORD",
-      "term": "gasolina",
-      "count": 5,
-      "rank": 23
-     },
-     {
-      "kind": "WORD",
-      "term": "futuro",
-      "count": 5,
-      "rank": 24
-     },
-     {
-      "kind": "WORD",
-      "term": "excelente",
-      "count": 5,
       "rank": 25
      }
     ],
     "channel": "https://www.youtube.com/channel/UCqHhgowjCVL_jHC8dpC0How",
     "channels": [
      "https://www.youtube.com/channel/UCqHhgowjCVL_jHC8dpC0How",
-     "https://www.tiktok.com/@rodrigopazpereira"
+     "https://www.tiktok.com/@rodrigopazpereira",
+     "https://www.instagram.com/rodrigopazpereira/"
     ]
    }
   },
@@ -1116,9 +1141,9 @@
     }
    ],
    "own": {
-    "videosRead": 3,
-    "commentsRead": 210,
-    "commentsAnalyzed": 156,
+    "videosRead": 6,
+    "commentsRead": 382,
+    "commentsAnalyzed": 245,
     "videos": [
      {
       "videoId": "7369398871841131782",
@@ -1143,22 +1168,46 @@
       "url": "https://www.tiktok.com/@carlosdmesag/video/7183097596880145670",
       "commentsRead": 51,
       "commentsSpanish": 36
+     },
+     {
+      "videoId": "CG8ab0mn34_",
+      "title": "Esta noche en @conclusionescnn conversando con @fdelrincon",
+      "published": null,
+      "url": "https://www.instagram.com/p/CG8ab0mn34_/",
+      "commentsRead": 54,
+      "commentsSpanish": 33
+     },
+     {
+      "videoId": "CGfa48tnBnA",
+      "title": "¡Vivamos una gran fiesta democrática!👍",
+      "published": null,
+      "url": "https://www.instagram.com/p/CGfa48tnBnA/",
+      "commentsRead": 60,
+      "commentsSpanish": 34
+     },
+     {
+      "videoId": "CGWK8kdHAUo",
+      "title": "¡No faltes! #Bolivia",
+      "published": null,
+      "url": "https://www.instagram.com/p/CGWK8kdHAUo/",
+      "commentsRead": 58,
+      "commentsSpanish": 22
      }
     ],
     "sentiment": {
-     "analyzed": 156,
-     "positivePct": 24.4,
-     "negativePct": 46.2,
-     "neutralPct": 29.5,
-     "ironyPct": 15.4,
-     "netScore": -21.8,
-     "topEmotion": "joy",
+     "analyzed": 245,
+     "positivePct": 17.6,
+     "negativePct": 56.7,
+     "neutralPct": 25.7,
+     "ironyPct": 13.1,
+     "netScore": -39.1,
+     "topEmotion": "anger",
      "emotionPct": {
-      "joy": 19.9,
-      "sadness": 5.1,
-      "anger": 16.0,
-      "surprise": 1.3,
-      "disgust": 0.0,
+      "joy": 16.7,
+      "sadness": 7.3,
+      "anger": 23.7,
+      "surprise": 0.8,
+      "disgust": 0.8,
       "fear": 0.0
      }
     },
@@ -1166,157 +1215,158 @@
      {
       "kind": "WORD",
       "term": "presidente",
-      "count": 12,
+      "count": 23,
       "rank": 1
      },
      {
       "kind": "WORD",
       "term": "bolivia",
-      "count": 12,
+      "count": 23,
       "rank": 2
      },
      {
       "kind": "WORD",
       "term": "país",
-      "count": 11,
+      "count": 20,
       "rank": 3
      },
      {
       "kind": "WORD",
       "term": "señor",
-      "count": 10,
+      "count": 14,
       "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "camacho",
+      "count": 9,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "vendido",
+      "count": 9,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "política",
+      "count": 8,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "verdad",
+      "count": 8,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "añez",
+      "count": 8,
+      "rank": 9
      },
      {
       "kind": "WORD",
       "term": "periodismo",
       "count": 7,
-      "rank": 5
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "don",
+      "count": 7,
+      "rank": 11
      },
      {
       "kind": "WORD",
       "term": "admiro",
+      "count": 7,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "políticos",
+      "count": 7,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "evo",
+      "count": 7,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "gente",
+      "count": 7,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "gobierno",
+      "count": 7,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "fraude",
+      "count": 7,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
       "count": 6,
-      "rank": 6
+      "rank": 18
      },
      {
       "kind": "WORD",
       "term": "periodista",
       "count": 6,
-      "rank": 7
+      "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "política",
+      "term": "años",
       "count": 6,
-      "rank": 8
+      "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "don",
-      "count": 5,
-      "rank": 9
+      "term": "dios",
+      "count": 6,
+      "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "soy",
-      "count": 5,
-      "rank": 10
+      "term": "momento",
+      "count": 6,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "pueblo",
+      "count": 6,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "voto",
+      "count": 6,
+      "rank": 24
      },
      {
       "kind": "WORD",
       "term": "lorenzo",
       "count": 5,
-      "rank": 11
-     },
-     {
-      "kind": "WORD",
-      "term": "favor",
-      "count": 5,
-      "rank": 12
-     },
-     {
-      "kind": "WORD",
-      "term": "debe",
-      "count": 5,
-      "rank": 13
-     },
-     {
-      "kind": "WORD",
-      "term": "ejemplo",
-      "count": 5,
-      "rank": 14
-     },
-     {
-      "kind": "WORD",
-      "term": "meza",
-      "count": 5,
-      "rank": 15
-     },
-     {
-      "kind": "WORD",
-      "term": "políticos",
-      "count": 5,
-      "rank": 16
-     },
-     {
-      "kind": "WORD",
-      "term": "momento",
-      "count": 5,
-      "rank": 17
-     },
-     {
-      "kind": "WORD",
-      "term": "verdad",
-      "count": 5,
-      "rank": 18
-     },
-     {
-      "kind": "WORD",
-      "term": "juicio",
-      "count": 5,
-      "rank": 19
-     },
-     {
-      "kind": "WORD",
-      "term": "gobierno",
-      "count": 5,
-      "rank": 20
-     },
-     {
-      "kind": "WORD",
-      "term": "político",
-      "count": 4,
-      "rank": 21
-     },
-     {
-      "kind": "WORD",
-      "term": "carri",
-      "count": 4,
-      "rank": 22
-     },
-     {
-      "kind": "WORD",
-      "term": "historiador",
-      "count": 4,
-      "rank": 23
-     },
-     {
-      "kind": "WORD",
-      "term": "acuerdo",
-      "count": 4,
-      "rank": 24
-     },
-     {
-      "kind": "WORD",
-      "term": "años",
-      "count": 4,
       "rank": 25
      }
     ],
     "channel": "https://www.tiktok.com/@carlosdmesag",
     "channels": [
-     "https://www.tiktok.com/@carlosdmesag"
+     "https://www.tiktok.com/@carlosdmesag",
+     "https://www.instagram.com/carlosdmesag/"
     ]
    }
   },
@@ -1528,9 +1578,9 @@
     }
    ],
    "own": {
-    "videosRead": 11,
-    "commentsRead": 200,
-    "commentsAnalyzed": 138,
+    "videosRead": 14,
+    "commentsRead": 251,
+    "commentsAnalyzed": 150,
     "videos": [
      {
       "videoId": "4PURQuJYyLA",
@@ -1619,21 +1669,45 @@
       "url": "https://www.tiktok.com/@anabelangusa/video/7697388923625966864",
       "commentsRead": 53,
       "commentsSpanish": 21
+     },
+     {
+      "videoId": "DepKqIdjdOL",
+      "title": "Baires de día 🇦🇷🤩\n¡Extrañaba tanto esta ciudad!",
+      "published": null,
+      "url": "https://www.instagram.com/p/DepKqIdjdOL/",
+      "commentsRead": 6,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "Dekjlmsuj4s",
+      "title": "Santi está en la etapa de las mil preguntas y yo amo descubrir el mundo a través de sus ojitos curiosos 🥹💙 Así que mamá tiene que estar al 100 para responderle todo. \nPor suerte, tengo a mi aliado @",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dekjlmsuj4s/",
+      "commentsRead": 24,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "DeiYHxetRz9",
+      "title": "¡¡¡Buenas noches!!!✨ Arranca Yo me llamo 🤍\n.\n.\n.\n@exclusiva_brasil",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeiYHxetRz9/",
+      "commentsRead": 21,
+      "commentsSpanish": 3
      }
     ],
     "sentiment": {
-     "analyzed": 138,
-     "positivePct": 27.5,
-     "negativePct": 30.4,
-     "neutralPct": 42.0,
-     "ironyPct": 61.6,
-     "netScore": -2.9,
+     "analyzed": 150,
+     "positivePct": 27.3,
+     "negativePct": 28.7,
+     "neutralPct": 44.0,
+     "ironyPct": 62.7,
+     "netScore": -1.4,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 46.4,
-      "sadness": 4.3,
-      "anger": 2.2,
-      "surprise": 2.9,
+      "joy": 48.0,
+      "sadness": 4.7,
+      "anger": 2.0,
+      "surprise": 3.3,
       "disgust": 0.0,
       "fear": 0.0
      }
@@ -1642,31 +1716,31 @@
      {
       "kind": "WORD",
       "term": "santi",
-      "count": 27,
+      "count": 29,
       "rank": 1
      },
      {
       "kind": "WORD",
       "term": "anita",
-      "count": 17,
+      "count": 18,
       "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "amor",
+      "count": 16,
+      "rank": 3
      },
      {
       "kind": "WORD",
       "term": "mario",
       "count": 15,
-      "rank": 3
-     },
-     {
-      "kind": "WORD",
-      "term": "amor",
-      "count": 14,
       "rank": 4
      },
      {
       "kind": "WORD",
       "term": "casas",
-      "count": 11,
+      "count": 12,
       "rank": 5
      },
      {
@@ -1713,26 +1787,26 @@
      },
      {
       "kind": "WORD",
-      "term": "marco",
-      "count": 6,
+      "term": "mamá",
+      "count": 7,
       "rank": 13
      },
      {
       "kind": "WORD",
-      "term": "mamá",
+      "term": "linda",
       "count": 6,
       "rank": 14
      },
      {
       "kind": "WORD",
-      "term": "linda",
-      "count": 5,
+      "term": "marco",
+      "count": 6,
       "rank": 15
      },
      {
       "kind": "WORD",
       "term": "mundo",
-      "count": 5,
+      "count": 6,
       "rank": 16
      },
      {
@@ -1749,43 +1823,43 @@
      },
      {
       "kind": "WORD",
-      "term": "reina",
-      "count": 4,
+      "term": "bella",
+      "count": 5,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "antelo",
+      "term": "reina",
       "count": 4,
       "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "hijo",
+      "term": "antelo",
       "count": 4,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "vida",
+      "term": "hijo",
       "count": 4,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "teniendo",
+      "term": "vida",
       "count": 4,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "hablando",
+      "term": "teniendo",
       "count": 4,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "bella",
+      "term": "hablando",
       "count": 4,
       "rank": 25
      }
@@ -1793,7 +1867,8 @@
     "channel": "https://www.youtube.com/channel/UC7asNp00JCQjtZX_Q-NcGCw",
     "channels": [
      "https://www.youtube.com/channel/UC7asNp00JCQjtZX_Q-NcGCw",
-     "https://www.tiktok.com/@anabelangusa"
+     "https://www.tiktok.com/@anabelangusa",
+     "https://www.instagram.com/anabelangus/"
     ]
    }
   },
@@ -1814,8 +1889,8 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 11,
-    "commentsRead": 734,
+    "videosRead": 14,
+    "commentsRead": 792,
     "commentsAnalyzed": 15,
     "videos": [
      {
@@ -1905,6 +1980,30 @@
       "url": "https://www.tiktok.com/@mishvirmish/video/7696872928989973781",
       "commentsRead": 14,
       "commentsSpanish": 0
+     },
+     {
+      "videoId": "DeooAjlCKhz",
+      "title": "В таку погоду вигуляти мене можуть змусити тільки нові джинси😁💋 @kseniaschnaider",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeooAjlCKhz/",
+      "commentsRead": 10,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DejzXvKIlGK",
+      "title": "Те, що виглядає дуже гарно, не завжди так класно, як здається 😅🙏🏽\n\nВлітку з ними дууууже спекотно 🥵 На укладку йде мінімум 1,5 години, а ще за ними реально дорого доглядати😅🙌🏽 \n\nТож не заздріть",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DejzXvKIlGK/",
+      "commentsRead": 34,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DebSvK1oqLK",
+      "title": "Sorry, я зайнята, рахую не калорії, а прибуток 😂☕️\n\nV12 Coffee To Go – кав’ярня самообслуговування, яку можна запустити за 14 днів.\n\nПиши «MICHELLE» у директ @v12_official_ua, і тобі скинуть всю інфо",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DebSvK1oqLK/",
+      "commentsRead": 14,
+      "commentsSpanish": 0
      }
     ],
     "sentiment": null,
@@ -1912,7 +2011,8 @@
     "channel": "https://www.youtube.com/channel/UCn-L2skxYwPPBGsfjLYl2rA",
     "channels": [
      "https://www.youtube.com/channel/UCn-L2skxYwPPBGsfjLYl2rA",
-     "https://www.tiktok.com/@mishvirmish"
+     "https://www.tiktok.com/@mishvirmish",
+     "https://www.instagram.com/mishvirmish/"
     ]
    }
   },
@@ -2122,7 +2222,44 @@
      "count": 6,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 41,
+    "commentsAnalyzed": 16,
+    "videos": [
+     {
+      "videoId": "DeWvMMXxtEW",
+      "title": "🇧🇴 11 de octubre | Día de la Mujer Boliviana\n\nHoy les hablo desde mi propia historia, desde el dolor que viví y el precio que pagué por asumir la responsabilidad de servir a mi país.\n\nMe humillaron,",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeWvMMXxtEW/",
+      "commentsRead": 27,
+      "commentsSpanish": 14
+     },
+     {
+      "videoId": "DeKy_kMj_Ce",
+      "title": "Libertad y Resistencia: una conversación desde la experiencia y la convicción.\n\nParticipar en este foro en la Universidad de la Libertad, en México, fue una oportunidad para compartir una parte de mi ",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeKy_kMj_Ce/",
+      "commentsRead": 5,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DeKQMKCsep_",
+      "title": "México me dejó una experiencia muy especial y profundamente significativa.\n\nEn las primeras ediciones del Foro América Libre, quien estuvo presente fue mi hija Carolina, no yo. Ella asistió como hija ",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeKQMKCsep_/",
+      "commentsRead": 9,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/jeanineanez/",
+    "channels": [
+     "https://www.instagram.com/jeanineanez/"
+    ]
+   }
   },
   "P_CLAUDIA_ARCE": {
    "videosRead": 0,
@@ -2132,9 +2269,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 11,
-    "commentsRead": 263,
-    "commentsAnalyzed": 118,
+    "videosRead": 14,
+    "commentsRead": 307,
+    "commentsAnalyzed": 128,
     "videos": [
      {
       "videoId": "kizy_VtJATc",
@@ -2223,21 +2360,45 @@
       "url": "https://www.tiktok.com/@claudiaarcelemaitre/video/7697042235849706768",
       "commentsRead": 21,
       "commentsSpanish": 1
+     },
+     {
+      "videoId": "DeawVphM7zr",
+      "title": "🥹💕🐾🐕",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeawVphM7zr/",
+      "commentsRead": 8,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DeIy4QjNrgq",
+      "title": "😏✨🌟💫\n\n#universo #amorespop",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeIy4QjNrgq/",
+      "commentsRead": 22,
+      "commentsSpanish": 5
+     },
+     {
+      "videoId": "Dd-BHGoR-JI",
+      "title": "Uno de mis outfits favoritos en este jueves de Tbt 🥰🇧🇴\n\n#tbt #tv #laBoliviana #claudiaarce #yomellamo",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dd-BHGoR-JI/",
+      "commentsRead": 14,
+      "commentsSpanish": 4
      }
     ],
     "sentiment": {
-     "analyzed": 118,
-     "positivePct": 72.0,
-     "negativePct": 9.3,
-     "neutralPct": 18.6,
-     "ironyPct": 22.9,
-     "netScore": 62.7,
+     "analyzed": 128,
+     "positivePct": 69.5,
+     "negativePct": 7.8,
+     "neutralPct": 22.7,
+     "ironyPct": 25.0,
+     "netScore": 61.7,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 66.9,
+      "joy": 68.0,
       "sadness": 0.8,
       "anger": 0.0,
-      "surprise": 1.7,
+      "surprise": 1.6,
       "disgust": 0.0,
       "fear": 0.0
      }
@@ -2258,7 +2419,7 @@
      {
       "kind": "WORD",
       "term": "hermosa",
-      "count": 15,
+      "count": 17,
       "rank": 3
      },
      {
@@ -2269,127 +2430,127 @@
      },
      {
       "kind": "WORD",
-      "term": "saludos",
-      "count": 11,
+      "term": "clau",
+      "count": 12,
       "rank": 5
      },
      {
       "kind": "WORD",
-      "term": "clau",
+      "term": "saludos",
       "count": 11,
       "rank": 6
      },
      {
       "kind": "WORD",
       "term": "linda",
-      "count": 10,
+      "count": 11,
       "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "bonita",
+      "count": 11,
+      "rank": 8
      },
      {
       "kind": "WORD",
       "term": "soy",
       "count": 10,
-      "rank": 8
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "éxitos",
+      "count": 10,
+      "rank": 10
      },
      {
       "kind": "WORD",
       "term": "quiero",
       "count": 9,
-      "rank": 9
-     },
-     {
-      "kind": "WORD",
-      "term": "bonita",
-      "count": 9,
-      "rank": 10
-     },
-     {
-      "kind": "WORD",
-      "term": "éxitos",
-      "count": 9,
       "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "sem",
+      "count": 9,
+      "rank": 12
      },
      {
       "kind": "WORD",
       "term": "letra",
       "count": 8,
-      "rank": 12
+      "rank": 13
      },
      {
       "kind": "WORD",
       "term": "bolivia",
       "count": 8,
-      "rank": 13
+      "rank": 14
      },
      {
       "kind": "WORD",
       "term": "boliviana",
       "count": 8,
-      "rank": 14
+      "rank": 15
      },
      {
       "kind": "WORD",
       "term": "necesitas",
       "count": 7,
-      "rank": 15
+      "rank": 16
      },
      {
       "kind": "WORD",
       "term": "paraíso",
       "count": 7,
-      "rank": 16
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "gusta",
+      "count": 7,
+      "rank": 18
      },
      {
       "kind": "WORD",
       "term": "música",
       "count": 7,
-      "rank": 17
+      "rank": 19
      },
      {
       "kind": "WORD",
       "term": "excelente",
       "count": 6,
-      "rank": 18
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "amo",
+      "count": 6,
+      "rank": 21
      },
      {
       "kind": "WORD",
       "term": "bella",
       "count": 6,
-      "rank": 19
+      "rank": 22
      },
      {
       "kind": "WORD",
       "term": "ritmo",
       "count": 6,
-      "rank": 20
+      "rank": 23
      },
      {
       "kind": "WORD",
       "term": "canciones",
       "count": 5,
-      "rank": 21
-     },
-     {
-      "kind": "WORD",
-      "term": "encanta",
-      "count": 5,
-      "rank": 22
-     },
-     {
-      "kind": "WORD",
-      "term": "contigo",
-      "count": 5,
-      "rank": 23
-     },
-     {
-      "kind": "WORD",
-      "term": "amo",
-      "count": 5,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "cantante",
+      "term": "encanta",
       "count": 5,
       "rank": 25
      }
@@ -2397,7 +2558,8 @@
     "channel": "https://www.youtube.com/@claudiaarcelemaitre",
     "channels": [
      "https://www.youtube.com/@claudiaarcelemaitre",
-     "https://www.tiktok.com/@claudiaarcelemaitre"
+     "https://www.tiktok.com/@claudiaarcelemaitre",
+     "https://www.instagram.com/claudiaarcelemaitre/"
     ]
    }
   },
@@ -2409,9 +2571,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 3,
-    "commentsRead": 148,
-    "commentsAnalyzed": 79,
+    "videosRead": 6,
+    "commentsRead": 230,
+    "commentsAnalyzed": 109,
     "videos": [
      {
       "videoId": "7394638070026439941",
@@ -2436,21 +2598,45 @@
       "url": "https://www.tiktok.com/@malignobmx/video/7398419600263712006",
       "commentsRead": 26,
       "commentsSpanish": 9
+     },
+     {
+      "videoId": "DekkSlNgc9x",
+      "title": "Aprobadas 👊🏼\nAhora están por explotar mis ruedas de tan infladas que están 🤯\n#vans",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DekkSlNgc9x/",
+      "commentsRead": 48,
+      "commentsSpanish": 16
+     },
+     {
+      "videoId": "DedHukMgCwu",
+      "title": "Que bien se ve el conjunto sobre la bici 👉🏼 Desliza \nVANS // MALIGNO",
+      "published": null,
+      "url": "https://www.instagram.com/p/DedHukMgCwu/",
+      "commentsRead": 23,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "DeX8CMPgrWG",
+      "title": "Este estadio es de la selección de China 🇨🇳 🤯🤯\nEs otro juego de este lado del mundo..",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeX8CMPgrWG/",
+      "commentsRead": 11,
+      "commentsSpanish": 6
      }
     ],
     "sentiment": {
-     "analyzed": 79,
-     "positivePct": 46.8,
-     "negativePct": 12.7,
-     "neutralPct": 40.5,
-     "ironyPct": 20.3,
-     "netScore": 34.1,
+     "analyzed": 109,
+     "positivePct": 39.4,
+     "negativePct": 16.5,
+     "neutralPct": 44.0,
+     "ironyPct": 30.3,
+     "netScore": 22.9,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 72.2,
-      "sadness": 1.3,
-      "anger": 3.8,
-      "surprise": 2.5,
+      "joy": 54.1,
+      "sadness": 2.8,
+      "anger": 2.8,
+      "surprise": 1.8,
       "disgust": 0.0,
       "fear": 0.0
      }
@@ -2458,20 +2644,20 @@
     "words": [
      {
       "kind": "WORD",
-      "term": "felicitaciones",
-      "count": 15,
+      "term": "maligno",
+      "count": 19,
       "rank": 1
      },
      {
       "kind": "WORD",
-      "term": "maligno",
-      "count": 14,
+      "term": "felicitaciones",
+      "count": 15,
       "rank": 2
      },
      {
       "kind": "WORD",
       "term": "argentina",
-      "count": 12,
+      "count": 13,
       "rank": 3
      },
      {
@@ -2506,67 +2692,67 @@
      },
      {
       "kind": "WORD",
-      "term": "orgullo",
-      "count": 5,
+      "term": "oro",
+      "count": 6,
       "rank": 9
      },
      {
       "kind": "WORD",
-      "term": "bmx",
-      "count": 5,
+      "term": "medalla",
+      "count": 6,
       "rank": 10
      },
      {
       "kind": "WORD",
-      "term": "medalla",
+      "term": "orgullo",
       "count": 5,
       "rank": 11
      },
      {
       "kind": "WORD",
-      "term": "mundo",
-      "count": 4,
+      "term": "bmx",
+      "count": 5,
       "rank": 12
      },
      {
       "kind": "WORD",
-      "term": "casco",
+      "term": "mundo",
       "count": 4,
       "rank": 13
      },
      {
       "kind": "WORD",
-      "term": "olímpico",
+      "term": "casco",
       "count": 4,
       "rank": 14
      },
      {
       "kind": "WORD",
-      "term": "oro",
+      "term": "olímpico",
       "count": 4,
       "rank": 15
      },
      {
       "kind": "WORD",
-      "term": "argentino",
+      "term": "grande",
       "count": 4,
       "rank": 16
      },
      {
       "kind": "WORD",
-      "term": "santa",
-      "count": 3,
+      "term": "argentino",
+      "count": 4,
       "rank": 17
      },
      {
       "kind": "WORD",
-      "term": "cruz",
+      "term": "santa",
       "count": 3,
       "rank": 18
      },
      {
       "kind": "WORD",
-      "term": "grande",
+      "term": "cruz",
       "count": 3,
       "rank": 19
      },
@@ -2584,32 +2770,33 @@
      },
      {
       "kind": "WORD",
-      "term": "hermano",
+      "term": "éxitos",
       "count": 3,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "groso",
+      "term": "hermano",
       "count": 3,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "aguante",
-      "count": 2,
+      "term": "groso",
+      "count": 3,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "milei",
-      "count": 2,
+      "term": "zapatillas",
+      "count": 3,
       "rank": 25
      }
     ],
     "channel": "https://www.tiktok.com/@malignobmx",
     "channels": [
-     "https://www.tiktok.com/@malignobmx"
+     "https://www.tiktok.com/@malignobmx",
+     "https://www.instagram.com/malignobmx/"
     ]
    }
   },
@@ -2819,7 +3006,44 @@
      "count": 5,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 43,
+    "commentsAnalyzed": 24,
+    "videos": [
+     {
+      "videoId": "Del07l8FmCs",
+      "title": "@evoespueblo en X.",
+      "published": null,
+      "url": "https://www.instagram.com/p/Del07l8FmCs/",
+      "commentsRead": 5,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "DekzhTVOfpE",
+      "title": "En 1879 nuestros compatriotas del Batallón Colorados de Bolivia dieron su vida en defensa del Litoral boliviano ante la invasión chilena; y, un 12 de noviembre del mismo año, en Canchas Blancas hicier",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DekzhTVOfpE/",
+      "commentsRead": 31,
+      "commentsSpanish": 18
+     },
+     {
+      "videoId": "DekYPJvD9EV",
+      "title": "Un excelente día de trabajo en nuestro chaco de Villa Victoria, moto rozando y carpiendo la mala hierba para cuidar nuestros cultivos. Así de lindo se ve el Paltal, Maizal, Yucal y el Naranjal! Que li",
+      "published": null,
+      "url": "https://www.instagram.com/p/DekYPJvD9EV/",
+      "commentsRead": 7,
+      "commentsSpanish": 2
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/evomoralesayma/",
+    "channels": [
+     "https://www.instagram.com/evomoralesayma/"
+    ]
+   }
   },
   "P_IVO_KULJIS": {
    "videosRead": 12,
@@ -3134,8 +3358,8 @@
     }
    ],
    "own": {
-    "videosRead": 3,
-    "commentsRead": 229,
+    "videosRead": 6,
+    "commentsRead": 233,
     "commentsAnalyzed": 135,
     "videos": [
      {
@@ -3161,6 +3385,30 @@
       "url": "https://www.tiktok.com/@luchoxbolivia/video/7474667126511504646",
       "commentsRead": 70,
       "commentsSpanish": 51
+     },
+     {
+      "videoId": "DRNEFivjcQZ",
+      "title": "Hace 180 años se interpretó por primera vez nuestro glorioso Himno Nacional. Hoy, sus sagradas estrofas resuenan con la misma fuerza en nuestros corazones y nos siguen llenando de amor y fuerzas para ",
+      "published": null,
+      "url": "https://www.instagram.com/p/DRNEFivjcQZ/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DRNBwwbDYCo",
+      "title": "En este 183 aniversario de nuestro querido departamento del Beni, quiero expresar mis más sinceras felicitaciones al pueblo beniano, que siempre dieron cuenta de una inquebrantable valentía y permanen",
+      "published": null,
+      "url": "https://www.instagram.com/p/DRNBwwbDYCo/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DQx5I_kDZ8P",
+      "title": "Los desafíos que tenemos hacia adelante son gigantes. Y estoy seguro que desde el campo nacional-popular seguiremos construyendo Patria digna y soberana. Hoy nos toca volver a las bases para trabajar ",
+      "published": null,
+      "url": "https://www.instagram.com/p/DQx5I_kDZ8P/",
+      "commentsRead": 2,
+      "commentsSpanish": 0
      }
     ],
     "sentiment": {
@@ -3334,7 +3582,8 @@
     ],
     "channel": "https://www.tiktok.com/@luchoxbolivia",
     "channels": [
-     "https://www.tiktok.com/@luchoxbolivia"
+     "https://www.tiktok.com/@luchoxbolivia",
+     "https://www.instagram.com/luchoxbolivia/"
     ]
    }
   },
@@ -3964,7 +4213,211 @@
    "commentsAnalyzed": 0,
    "videos": [],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 174,
+    "commentsAnalyzed": 92,
+    "videos": [
+     {
+      "videoId": "DQA-TMvgM_-",
+      "title": "Acá estuvimos, acá estamos y acá seguiremos estando. ¡GRACIAS! Juntos seguiremos trabajando por una Bolivia Libre.",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DQA-TMvgM_-/",
+      "commentsRead": 54,
+      "commentsSpanish": 33
+     },
+     {
+      "videoId": "DQAHNTIgJcn",
+      "title": "Juntos seremos libres.",
+      "published": null,
+      "url": "https://www.instagram.com/p/DQAHNTIgJcn/",
+      "commentsRead": 60,
+      "commentsSpanish": 32
+     },
+     {
+      "videoId": "DQABqYrgDvT",
+      "title": "Votando con esperanza, ya viene un futuro luminoso para todos los bolivianos.",
+      "published": null,
+      "url": "https://www.instagram.com/p/DQABqYrgDvT/",
+      "commentsRead": 60,
+      "commentsSpanish": 27
+     }
+    ],
+    "sentiment": {
+     "analyzed": 92,
+     "positivePct": 10.9,
+     "negativePct": 60.9,
+     "neutralPct": 28.3,
+     "ironyPct": 7.6,
+     "netScore": -50.0,
+     "topEmotion": "sadness",
+     "emotionPct": {
+      "joy": 16.3,
+      "sadness": 27.2,
+      "anger": 14.1,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "tuto",
+      "count": 43,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "bolivia",
+      "count": 33,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "presidente",
+      "count": 17,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "país",
+      "count": 14,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "fraude",
+      "count": 13,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "duele",
+      "count": 7,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "voto",
+      "count": 7,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "será",
+      "count": 6,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "corazón",
+      "count": 6,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "merece",
+      "count": 6,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "ganaste",
+      "count": 5,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "favor",
+      "count": 5,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "oportunidad",
+      "count": 5,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "cerimedo",
+      "count": 4,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "paz",
+      "count": 4,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "libres",
+      "count": 4,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "vos",
+      "count": 4,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "sabemos",
+      "count": 4,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "santa",
+      "count": 4,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "cruz",
+      "count": 4,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "democracia",
+      "count": 4,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "ganó",
+      "count": 4,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "acta",
+      "count": 4,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "salvar",
+      "count": 4,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "perdió",
+      "count": 4,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.instagram.com/tutoquiroga/",
+    "channels": [
+     "https://www.instagram.com/tutoquiroga/"
+    ]
+   }
   },
   "P_MARIA_GALINDO": {
    "videosRead": 4,
@@ -4459,9 +4912,9 @@
     }
    ],
    "own": {
-    "videosRead": 3,
-    "commentsRead": 131,
-    "commentsAnalyzed": 79,
+    "videosRead": 6,
+    "commentsRead": 280,
+    "commentsAnalyzed": 137,
     "videos": [
      {
       "videoId": "7290604314890931462",
@@ -4486,21 +4939,45 @@
       "url": "https://www.tiktok.com/@ximenaherrera77/video/7693327636101172501",
       "commentsRead": 53,
       "commentsSpanish": 23
+     },
+     {
+      "videoId": "DehjrmBuK7i",
+      "title": "Pedacitos de una noche inolvidable! \nGracias Televisa/Univisión 💃🏻🎙️🌹\n#UpFrontTelevisaUnivision",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DehjrmBuK7i/",
+      "commentsRead": 44,
+      "commentsSpanish": 15
+     },
+     {
+      "videoId": "DeIFTL0BUsu",
+      "title": "Porque juntos somos más! Nos vemos este sábado 10 de Oct en nuestro querido @teletonmexicooficial 💛\n\n#PoresoTequieroTeleton\n#Teleton2026\n#OrgullosameTercos",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeIFTL0BUsu/",
+      "commentsRead": 60,
+      "commentsSpanish": 24
+     },
+     {
+      "videoId": "DeGjMAQlmi1",
+      "title": "FIN! GRACIAS por todo el amor y las maravillosas amistades que me llevo! Gracias @lacasafamososmx 💙 siempre en mi corazón.",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeGjMAQlmi1/",
+      "commentsRead": 45,
+      "commentsSpanish": 19
      }
     ],
     "sentiment": {
-     "analyzed": 79,
-     "positivePct": 35.4,
-     "negativePct": 27.8,
-     "neutralPct": 36.7,
-     "ironyPct": 25.3,
-     "netScore": 7.6,
+     "analyzed": 137,
+     "positivePct": 34.3,
+     "negativePct": 21.2,
+     "neutralPct": 44.5,
+     "ironyPct": 35.8,
+     "netScore": 13.1,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 51.9,
-      "sadness": 10.1,
-      "anger": 2.5,
-      "surprise": 1.3,
+      "joy": 61.3,
+      "sadness": 8.8,
+      "anger": 2.2,
+      "surprise": 0.7,
       "disgust": 0.0,
       "fear": 0.0
      }
@@ -4508,158 +4985,159 @@
     "words": [
      {
       "kind": "WORD",
-      "term": "momento",
-      "count": 12,
+      "term": "feliz",
+      "count": 20,
       "rank": 1
      },
      {
       "kind": "WORD",
-      "term": "hermosa",
-      "count": 11,
+      "term": "cumpleaños",
+      "count": 16,
       "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "hermosa",
+      "count": 15,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "momento",
+      "count": 13,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "xime",
+      "count": 11,
+      "rank": 5
      },
      {
       "kind": "WORD",
       "term": "escuchar",
       "count": 9,
-      "rank": 3
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "bonito",
+      "count": 9,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "bella",
+      "count": 8,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "amo",
+      "count": 7,
+      "rank": 9
      },
      {
       "kind": "WORD",
       "term": "palabras",
       "count": 7,
-      "rank": 4
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "casa",
+      "count": 6,
+      "rank": 11
      },
      {
       "kind": "WORD",
       "term": "justo",
       "count": 6,
-      "rank": 5
+      "rank": 12
      },
      {
       "kind": "WORD",
-      "term": "bella",
-      "count": 6,
-      "rank": 6
+      "term": "actriz",
+      "count": 5,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "masad",
+      "count": 5,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "clase",
+      "count": 5,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "verte",
+      "count": 5,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "deseo",
+      "count": 5,
+      "rank": 17
      },
      {
       "kind": "WORD",
       "term": "cielos",
       "count": 4,
-      "rank": 7
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "vida",
+      "count": 4,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "quiero",
+      "count": 4,
+      "rank": 20
      },
      {
       "kind": "WORD",
       "term": "personas",
       "count": 4,
-      "rank": 8
-     },
-     {
-      "kind": "WORD",
-      "term": "clase",
-      "count": 4,
-      "rank": 9
-     },
-     {
-      "kind": "WORD",
-      "term": "actriz",
-      "count": 3,
-      "rank": 10
-     },
-     {
-      "kind": "WORD",
-      "term": "deje",
-      "count": 3,
-      "rank": 11
-     },
-     {
-      "kind": "WORD",
-      "term": "señor",
-      "count": 3,
-      "rank": 12
-     },
-     {
-      "kind": "WORD",
-      "term": "casa",
-      "count": 3,
-      "rank": 13
-     },
-     {
-      "kind": "WORD",
-      "term": "señal",
-      "count": 3,
-      "rank": 14
-     },
-     {
-      "kind": "WORD",
-      "term": "consejo",
-      "count": 3,
-      "rank": 15
-     },
-     {
-      "kind": "WORD",
-      "term": "xime",
-      "count": 3,
-      "rank": 16
-     },
-     {
-      "kind": "WORD",
-      "term": "llego",
-      "count": 3,
-      "rank": 17
-     },
-     {
-      "kind": "WORD",
-      "term": "soltar",
-      "count": 3,
-      "rank": 18
-     },
-     {
-      "kind": "WORD",
-      "term": "falta",
-      "count": 3,
-      "rank": 19
-     },
-     {
-      "kind": "WORD",
-      "term": "bonito",
-      "count": 3,
-      "rank": 20
-     },
-     {
-      "kind": "WORD",
-      "term": "feliz",
-      "count": 3,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "cumpleaños",
-      "count": 3,
+      "term": "guapa",
+      "count": 4,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "esposa",
-      "count": 2,
+      "term": "exilio",
+      "count": 4,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "aurelio",
-      "count": 2,
+      "term": "bendiciones",
+      "count": 4,
       "rank": 24
      },
      {
       "kind": "WORD",
       "term": "dije",
-      "count": 2,
+      "count": 3,
       "rank": 25
      }
     ],
     "channel": "https://www.tiktok.com/@ximenaherrera77",
     "channels": [
-     "https://www.tiktok.com/@ximenaherrera77"
+     "https://www.tiktok.com/@ximenaherrera77",
+     "https://www.instagram.com/ximenaherrera7/"
     ]
    }
   },
@@ -4950,7 +5428,44 @@
      "count": 4,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 26,
+    "commentsAnalyzed": 12,
+    "videos": [
+     {
+      "videoId": "DeW49VWlvUB",
+      "title": "Feliz día para todas las mujeres Bolivianas en el mundo",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeW49VWlvUB/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DeFUoHUyPG2",
+      "title": "Agradecido siempre con toda la gente que hasta ahora me sigue mostrando tanto cariño. Gracias bolivia 🇧🇴",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeFUoHUyPG2/",
+      "commentsRead": 4,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DeAsRxzG51s",
+      "title": "Alguien quiere jugar 3 vs 3",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeAsRxzG51s/",
+      "commentsRead": 21,
+      "commentsSpanish": 10
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/marcoetcheverry10/",
+    "channels": [
+     "https://www.instagram.com/marcoetcheverry10/"
+    ]
+   }
   },
   "P_GUILLERMO_VISCARRA_BRUCKNER": {
    "videosRead": 0,
@@ -4958,7 +5473,211 @@
    "commentsAnalyzed": 0,
    "videos": [],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 178,
+    "commentsAnalyzed": 59,
+    "videos": [
+     {
+      "videoId": "DeFziVBlP_m",
+      "title": "Con orgullo y responsabilidad siempre 🇧🇴",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeFziVBlP_m/",
+      "commentsRead": 60,
+      "commentsSpanish": 20
+     },
+     {
+      "videoId": "Dd365DSi75d",
+      "title": "🇧🇴🫡",
+      "published": null,
+      "url": "https://www.instagram.com/p/Dd365DSi75d/",
+      "commentsRead": 60,
+      "commentsSpanish": 20
+     },
+     {
+      "videoId": "DdnG7dSlA-D",
+      "title": "🇧🇴🙏🏼\n-\n-\n📸 @arturo_orgaz",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdnG7dSlA-D/",
+      "commentsRead": 58,
+      "commentsSpanish": 19
+     }
+    ],
+    "sentiment": {
+     "analyzed": 59,
+     "positivePct": 11.9,
+     "negativePct": 47.5,
+     "neutralPct": 40.7,
+     "ironyPct": 13.6,
+     "netScore": -35.6,
+     "topEmotion": "sadness",
+     "emotionPct": {
+      "joy": 25.4,
+      "sadness": 33.9,
+      "anger": 6.8,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "billy",
+      "count": 33,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "alianza",
+      "count": 15,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "extrañamos",
+      "count": 10,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "vuelve",
+      "count": 10,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "perú",
+      "count": 5,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "éxitos",
+      "count": 5,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "extraña",
+      "count": 4,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "regresa",
+      "count": 4,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "vuelva",
+      "count": 4,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "casa",
+      "count": 4,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "vaya",
+      "count": 3,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "grande",
+      "count": 3,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "blanquiazul",
+      "count": 3,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "nivel",
+      "count": 3,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "porfavor",
+      "count": 3,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "necesitamos",
+      "count": 3,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "partido",
+      "count": 3,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "peor",
+      "count": 3,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "lima",
+      "count": 3,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "crack",
+      "count": 2,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "arquerazo",
+      "count": 2,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "mereces",
+      "count": 2,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "sudamérica",
+      "count": 2,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "seguimos",
+      "count": 2,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "arco",
+      "count": 2,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.instagram.com/billyvis13/",
+    "channels": [
+     "https://www.instagram.com/billyvis13/"
+    ]
+   }
   },
   "P_MOISES_PANIAGUA": {
    "videosRead": 10,
@@ -5214,7 +5933,211 @@
      "count": 2,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 102,
+    "commentsAnalyzed": 43,
+    "videos": [
+     {
+      "videoId": "DWlFUzFjS0o",
+      "title": "Hoy no logramos la clasificación al mundial. Duele, porque dejamos el alma en cada entrenamiento, en cada jugada y en cada minuto dentro de la cancha. No fue por falta de entrega, porque dimos absolut",
+      "published": null,
+      "url": "https://www.instagram.com/p/DWlFUzFjS0o/",
+      "commentsRead": 43,
+      "commentsSpanish": 23
+     },
+     {
+      "videoId": "DWZp5Mukdal",
+      "title": "🇧🇴💪🏽⚽️",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DWZp5Mukdal/",
+      "commentsRead": 59,
+      "commentsSpanish": 20
+     },
+     {
+      "videoId": "DUzACc6AiJR",
+      "title": "❤️🤍🙏🏽🫡",
+      "published": null,
+      "url": "https://www.instagram.com/p/DUzACc6AiJR/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": {
+     "analyzed": 43,
+     "positivePct": 37.2,
+     "negativePct": 9.3,
+     "neutralPct": 53.5,
+     "ironyPct": 4.7,
+     "netScore": 27.9,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 86.0,
+      "sadness": 0.0,
+      "anger": 0.0,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "selección",
+      "count": 9,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "país",
+      "count": 8,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "dieron",
+      "count": 7,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "bolivia",
+      "count": 7,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "hicieron",
+      "count": 6,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "creer",
+      "count": 6,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "equipo",
+      "count": 6,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "diste",
+      "count": 6,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "dios",
+      "count": 5,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "orgullosos",
+      "count": 5,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "crack",
+      "count": 5,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "ilusión",
+      "count": 4,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "final",
+      "count": 4,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "sos",
+      "count": 4,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "cancha",
+      "count": 4,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "mundial",
+      "count": 4,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "grande",
+      "count": 4,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "gol",
+      "count": 4,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "goles",
+      "count": 4,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "fútbol",
+      "count": 3,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "volver",
+      "count": 3,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "orgullo",
+      "count": 3,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "sentimos",
+      "count": 3,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "viva",
+      "count": 3,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "corazón",
+      "count": 3,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.instagram.com/moises._.paniagua/",
+    "channels": [
+     "https://www.instagram.com/moises._.paniagua/"
+    ]
+   }
   },
   "P_LEONEL_FRANSEZZE": {
    "videosRead": 1,
@@ -5233,9 +6156,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 7,
-    "commentsRead": 246,
-    "commentsAnalyzed": 149,
+    "videosRead": 10,
+    "commentsRead": 350,
+    "commentsAnalyzed": 190,
     "videos": [
      {
       "videoId": "yN2y3QBMoiE",
@@ -5292,21 +6215,45 @@
       "url": "https://www.tiktok.com/@leonelfransezze/video/7286112707663760646",
       "commentsRead": 80,
       "commentsSpanish": 49
+     },
+     {
+      "videoId": "Denbmi9xIUL",
+      "title": "🚘⚡ Les comparto una noticia muy especial para mí: ¡\nme largo a emprender con mi viejo 🇦🇷💛\nEstamos trayendo autos eléctricos y gestionando los pagos internacionales con El Dorado Empresa. Todo sali",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Denbmi9xIUL/",
+      "commentsRead": 23,
+      "commentsSpanish": 11
+     },
+     {
+      "videoId": "DekgB4lqudX",
+      "title": "Qué está pasando en casa ? @donaluisa.oficial explíqueme ! Por favor. Qué alguien me diga algo. #luisardo #cocardovibe #cocardo #frutinovela",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DekgB4lqudX/",
+      "commentsRead": 33,
+      "commentsSpanish": 7
+     },
+     {
+      "videoId": "Deh-96eKl4C",
+      "title": "El que ríe al último ríe mejor. Al fin mi herencia. Sabia que al final triunfaría. @donaluisa.oficial elegiste el lado incorrecto de la historia…. Continuará #familia #herencia #influencer",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Deh-96eKl4C/",
+      "commentsRead": 48,
+      "commentsSpanish": 23
      }
     ],
     "sentiment": {
-     "analyzed": 149,
-     "positivePct": 6.0,
-     "negativePct": 47.0,
-     "neutralPct": 47.0,
-     "ironyPct": 77.9,
-     "netScore": -41.0,
+     "analyzed": 190,
+     "positivePct": 7.9,
+     "negativePct": 49.5,
+     "neutralPct": 42.6,
+     "ironyPct": 76.3,
+     "netScore": -41.6,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 24.8,
-      "sadness": 2.0,
-      "anger": 1.3,
-      "surprise": 2.0,
+      "joy": 23.2,
+      "sadness": 3.7,
+      "anger": 2.1,
+      "surprise": 2.6,
       "disgust": 0.0,
       "fear": 0.0
      }
@@ -5315,158 +6262,159 @@
      {
       "kind": "WORD",
       "term": "luisa",
-      "count": 32,
+      "count": 43,
       "rank": 1
      },
      {
       "kind": "WORD",
       "term": "doña",
-      "count": 29,
+      "count": 37,
       "rank": 2
      },
      {
       "kind": "WORD",
       "term": "mamá",
-      "count": 10,
+      "count": 19,
       "rank": 3
      },
      {
       "kind": "WORD",
-      "term": "papá",
-      "count": 7,
+      "term": "juguetes",
+      "count": 14,
       "rank": 4
      },
      {
       "kind": "WORD",
-      "term": "baile",
-      "count": 7,
+      "term": "papá",
+      "count": 8,
       "rank": 5
      },
      {
       "kind": "WORD",
       "term": "jefe",
-      "count": 7,
+      "count": 8,
       "rank": 6
      },
      {
       "kind": "WORD",
       "term": "soy",
-      "count": 6,
+      "count": 7,
       "rank": 7
      },
      {
       "kind": "WORD",
-      "term": "canción",
-      "count": 6,
+      "term": "baile",
+      "count": 7,
       "rank": 8
      },
      {
       "kind": "WORD",
       "term": "puedo",
-      "count": 5,
+      "count": 6,
       "rank": 9
      },
      {
       "kind": "WORD",
-      "term": "arianita",
-      "count": 5,
+      "term": "canción",
+      "count": 6,
       "rank": 10
      },
      {
       "kind": "WORD",
       "term": "oportunidad",
-      "count": 4,
+      "count": 5,
       "rank": 11
      },
      {
       "kind": "WORD",
       "term": "nadie",
-      "count": 4,
+      "count": 5,
       "rank": 12
      },
      {
       "kind": "WORD",
-      "term": "quiero",
-      "count": 4,
+      "term": "veo",
+      "count": 5,
       "rank": 13
      },
      {
       "kind": "WORD",
-      "term": "vivir",
-      "count": 4,
+      "term": "arianita",
+      "count": 5,
       "rank": 14
      },
      {
       "kind": "WORD",
-      "term": "veo",
-      "count": 4,
+      "term": "cara",
+      "count": 5,
       "rank": 15
      },
      {
       "kind": "WORD",
-      "term": "unda",
-      "count": 4,
+      "term": "cantar",
+      "count": 5,
       "rank": 16
      },
      {
       "kind": "WORD",
-      "term": "navidad",
-      "count": 4,
+      "term": "encanta",
+      "count": 5,
       "rank": 17
      },
      {
       "kind": "WORD",
-      "term": "juguetes",
+      "term": "años",
       "count": 4,
       "rank": 18
      },
      {
       "kind": "WORD",
-      "term": "encanta",
+      "term": "quiero",
       "count": 4,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "realmente",
-      "count": 3,
+      "term": "vivir",
+      "count": 4,
       "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "cuenta",
-      "count": 3,
+      "term": "unda",
+      "count": 4,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "habla",
-      "count": 3,
+      "term": "verdad",
+      "count": 4,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "burro",
-      "count": 3,
+      "term": "navidad",
+      "count": 4,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "parece",
-      "count": 3,
+      "term": "vengo",
+      "count": 4,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "obra",
-      "count": 3,
+      "term": "esperando",
+      "count": 4,
       "rank": 25
      }
     ],
     "channel": "https://www.youtube.com/channel/UCXiZKQjNx86DgJFknNBVDxw",
     "channels": [
      "https://www.youtube.com/channel/UCXiZKQjNx86DgJFknNBVDxw",
-     "https://www.tiktok.com/@leonelfransezze"
+     "https://www.tiktok.com/@leonelfransezze",
+     "https://www.instagram.com/leonelfransezze/"
     ]
    }
   },
@@ -5884,7 +6832,44 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 8,
+    "commentsAnalyzed": 2,
+    "videos": [
+     {
+      "videoId": "DPKeo_6Do8T",
+      "title": "Feliz cumpleaños hermano Presidente @luchoxbolivia te deseamos éxitos, buena salud, buen camino y sabiduría.\n\n¡Jallalla, hermano Lucho!",
+      "published": null,
+      "url": "https://www.instagram.com/p/DPKeo_6Do8T/",
+      "commentsRead": 3,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DOZ1VJRDlJL",
+      "title": "Celebramos con gran alegría la victoria frente a Brasil y la histórica clasificación al repechaje. \n\nFelicitamos al cuerpo técnico y a todos los jugadores por brindarle esta enorme alegria al pueblo b",
+      "published": null,
+      "url": "https://www.instagram.com/p/DOZ1VJRDlJL/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DNdbNTqumHV",
+      "title": "Reafirmamos nuestro compromiso con la democracia cumpliendo nuestro deber de votar y respetando la voz del pueblo boliviano. #bolivia",
+      "published": null,
+      "url": "https://www.instagram.com/p/DNdbNTqumHV/",
+      "commentsRead": 5,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/laramadavid/",
+    "channels": [
+     "https://www.instagram.com/laramadavid/"
+    ]
+   }
   },
   "P_RAMIRO_VACA": {
    "videosRead": 4,
@@ -6092,7 +7077,44 @@
      "count": 2,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 27,
+    "commentsAnalyzed": 4,
+    "videos": [
+     {
+      "videoId": "DeRm7K2KBUR",
+      "title": "@khorfakkanfc 💚🦅",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeRm7K2KBUR/",
+      "commentsRead": 8,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DeKfYP_OLVy",
+      "title": "@wacofficiel ❤️",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeKfYP_OLVy/",
+      "commentsRead": 8,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DeAMzwQG5b0",
+      "title": "🇧🇴❤️",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeAMzwQG5b0/",
+      "commentsRead": 11,
+      "commentsSpanish": 2
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/ramirovaca8/",
+    "channels": [
+     "https://www.instagram.com/ramirovaca8/"
+    ]
+   }
   },
   "P_MANFRED_REYES_VILLA": {
    "videosRead": 3,
@@ -6127,9 +7149,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 3,
-    "commentsRead": 227,
-    "commentsAnalyzed": 184,
+    "videosRead": 6,
+    "commentsRead": 246,
+    "commentsAnalyzed": 192,
     "videos": [
      {
       "videoId": "7692463092206259474",
@@ -6154,22 +7176,46 @@
       "url": "https://www.tiktok.com/@manfredbolivia/video/7684720039282494727",
       "commentsRead": 76,
       "commentsSpanish": 63
+     },
+     {
+      "videoId": "Deom1yChts7",
+      "title": "Un gusto ser Chef por un día y apoyar a una causa tan noble como es ayudar a los niños que más necesitan. El chicharrón estuo presente en el cierre de \"Resonancias\". 🫶🏼\n#ManfredReyesVilla #Cochabamb",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Deom1yChts7/",
+      "commentsRead": 9,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DenxRx6jtZ9",
+      "title": "Mis sentidas condolencias a Tuto y a toda su familia. Que Dios tenga en su Gloria a su señor padre.",
+      "published": null,
+      "url": "https://www.instagram.com/p/DenxRx6jtZ9/",
+      "commentsRead": 2,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DemUIf3pC9s",
+      "title": "Compartimos con creadoras y creadores de contenido, jóvenes que tienen la posibilidad de mostrarle al mundo todo el potencial de nuestra Llajta, de su gente, su clima y, por supuesto, su gastronomía. ",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DemUIf3pC9s/",
+      "commentsRead": 8,
+      "commentsSpanish": 5
      }
     ],
     "sentiment": {
-     "analyzed": 184,
-     "positivePct": 20.1,
-     "negativePct": 42.9,
+     "analyzed": 192,
+     "positivePct": 19.8,
+     "negativePct": 43.2,
      "neutralPct": 37.0,
-     "ironyPct": 32.1,
-     "netScore": -22.8,
+     "ironyPct": 32.3,
+     "netScore": -23.4,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 20.1,
-      "sadness": 1.6,
-      "anger": 12.0,
-      "surprise": 1.1,
-      "disgust": 1.1,
+      "joy": 20.3,
+      "sadness": 2.1,
+      "anger": 11.5,
+      "surprise": 1.0,
+      "disgust": 1.0,
       "fear": 0.5
      }
     },
@@ -6207,7 +7253,7 @@
      {
       "kind": "WORD",
       "term": "gente",
-      "count": 9,
+      "count": 10,
       "rank": 6
      },
      {
@@ -6248,86 +7294,87 @@
      },
      {
       "kind": "WORD",
-      "term": "gratis",
+      "term": "sería",
       "count": 6,
       "rank": 13
      },
      {
       "kind": "WORD",
-      "term": "bus",
+      "term": "alto",
       "count": 6,
       "rank": 14
      },
      {
       "kind": "WORD",
-      "term": "seguridad",
+      "term": "gratis",
       "count": 6,
       "rank": 15
      },
      {
       "kind": "WORD",
-      "term": "cinturón",
+      "term": "presidente",
       "count": 6,
       "rank": 16
      },
      {
       "kind": "WORD",
-      "term": "caro",
-      "count": 5,
+      "term": "bus",
+      "count": 6,
       "rank": 17
      },
      {
       "kind": "WORD",
-      "term": "sería",
-      "count": 5,
+      "term": "seguridad",
+      "count": 6,
       "rank": 18
      },
      {
       "kind": "WORD",
-      "term": "vice",
-      "count": 5,
+      "term": "cinturón",
+      "count": 6,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "city",
+      "term": "caro",
       "count": 5,
       "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "años",
+      "term": "vice",
       "count": 5,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "alto",
+      "term": "city",
       "count": 5,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "santa",
+      "term": "años",
       "count": 5,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "cruz",
+      "term": "santa",
       "count": 5,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "ciudad",
+      "term": "cruz",
       "count": 5,
       "rank": 25
      }
     ],
     "channel": "https://www.tiktok.com/@manfredbolivia",
     "channels": [
-     "https://www.tiktok.com/@manfredbolivia"
+     "https://www.tiktok.com/@manfredbolivia",
+     "https://www.instagram.com/manfred_oficial/"
     ]
    }
   },
@@ -6906,7 +7953,44 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 12,
+    "commentsAnalyzed": 7,
+    "videos": [
+     {
+      "videoId": "CFbIlv3hEDo",
+      "title": "\"Presentamos al famoso guitarrista Chi Hyun Chung\"",
+      "published": null,
+      "url": "https://www.instagram.com/reel/CFbIlv3hEDo/",
+      "commentsRead": 10,
+      "commentsSpanish": 5
+     },
+     {
+      "videoId": "CFYeyFVhv45",
+      "title": "Qué el rostro de Dios vuelva en favor de Bolivia. \n#ChiPuede #ChiPresidente",
+      "published": null,
+      "url": "https://www.instagram.com/p/CFYeyFVhv45/",
+      "commentsRead": 2,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "CFXmzwaBf6k",
+      "title": "Estaré siendo entrevistado desde EE.UU. a las 19h y a las 20h por Bolivision en \"BOLIVIA DECIDE 2020\". Hoy domingo 20/09/2020",
+      "published": null,
+      "url": "https://www.instagram.com/p/CFXmzwaBf6k/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/chihyunchung7/",
+    "channels": [
+     "https://www.instagram.com/chihyunchung7/"
+    ]
+   }
   },
   "P_JULIO_CESAR_BALDIVIESO": {
    "videosRead": 10,
@@ -7519,7 +8603,44 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 16,
+    "commentsAnalyzed": 1,
+    "videos": [
+     {
+      "videoId": "DeSa5iNlRQE",
+      "title": "💚 @khorfakkanfc",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeSa5iNlRQE/",
+      "commentsRead": 16,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DeCSVxnlZUx",
+      "title": "🇧🇴",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeCSVxnlZUx/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Ddm_VrCJqMR",
+      "title": "🇧🇴",
+      "published": null,
+      "url": "https://www.instagram.com/p/Ddm_VrCJqMR/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/luishaquin4/",
+    "channels": [
+     "https://www.instagram.com/luishaquin4/"
+    ]
+   }
   },
   "P_FREDDY_MAMANI": {
    "videosRead": 13,
@@ -7648,7 +8769,44 @@
    "commentsAnalyzed": 0,
    "videos": [],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 59,
+    "commentsAnalyzed": 15,
+    "videos": [
+     {
+      "videoId": "Dd1cQqRAlj-",
+      "title": "¡Este domingo fuimos al albergue “Zulmita” en la ciudad de El Alto! \n\nDonamos más de media tonelada de alimentos para mascotas que compramos con la venta de mi libro. En estos difíciles momentos donde",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dd1cQqRAlj-/",
+      "commentsRead": 25,
+      "commentsSpanish": 10
+     },
+     {
+      "videoId": "DdxcQJWs0cH",
+      "title": "¡Palabra empeñada...palabra cumplida! \n\nEn estos duros momentos para nuestro país donde los precios suben constantemente, todo encarece y el alimento para las mascotas también, por eso es importante l",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdxcQJWs0cH/",
+      "commentsRead": 12,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DdXVEXJgKVR",
+      "title": "¡Gracias a todas y todos!\n\nYa vendí más de 600 ejemplares de mi libro y recaudamos más de Bs 5 mil que serán donados a un albergue de mascotas. \n\nEn comentarios escriban los albergues a los que podemo",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdXVEXJgKVR/",
+      "commentsRead": 22,
+      "commentsSpanish": 3
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/edelcastillodc/",
+    "channels": [
+     "https://www.instagram.com/edelcastillodc/"
+    ]
+   }
   },
   "P_RONALD_RALDES": {
    "videosRead": 9,
@@ -8773,7 +9931,211 @@
      "count": 3,
      "rank": 25
     }
-   ]
+   ],
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 154,
+    "commentsAnalyzed": 66,
+    "videos": [
+     {
+      "videoId": "B3qi3InAWZi",
+      "title": "#FuturoSeguro #SantaCruz #SantaCruzEsFuturo #Alegria #Bolivia #Esperanza",
+      "published": null,
+      "url": "https://www.instagram.com/reel/B3qi3InAWZi/",
+      "commentsRead": 54,
+      "commentsSpanish": 25
+     },
+     {
+      "videoId": "B3kiKyXgsFU",
+      "title": "#PerroFest #Bolivia #SantaCruz #FuturoSeguro",
+      "published": null,
+      "url": "https://www.instagram.com/reel/B3kiKyXgsFU/",
+      "commentsRead": 57,
+      "commentsSpanish": 22
+     },
+     {
+      "videoId": "B3itMqHAKzL",
+      "title": "#SUS #FuturoSeguro #Bolivia #SantaCruz #Matamba",
+      "published": null,
+      "url": "https://www.instagram.com/reel/B3itMqHAKzL/",
+      "commentsRead": 43,
+      "commentsSpanish": 19
+     }
+    ],
+    "sentiment": {
+     "analyzed": 66,
+     "positivePct": 10.6,
+     "negativePct": 68.2,
+     "neutralPct": 21.2,
+     "ironyPct": 27.3,
+     "netScore": -57.6,
+     "topEmotion": "anger",
+     "emotionPct": {
+      "joy": 12.1,
+      "sadness": 4.5,
+      "anger": 34.8,
+      "surprise": 6.1,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "criminal",
+      "count": 7,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "evo",
+      "count": 3,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "gente",
+      "count": 3,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "partido",
+      "count": 3,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "parece",
+      "count": 3,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "pueblo",
+      "count": 3,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "mierda",
+      "count": 3,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "país",
+      "count": 3,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "canción",
+      "count": 3,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "vos",
+      "count": 2,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "basura",
+      "count": 2,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "cruz",
+      "count": 2,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "maleantes",
+      "count": 2,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "mal",
+      "count": 2,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "mil",
+      "count": 2,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "votos",
+      "count": 2,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "verdad",
+      "count": 2,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "apoyo",
+      "count": 2,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "hermosa",
+      "count": 2,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "futuro",
+      "count": 2,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "campaña",
+      "count": 2,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "nara",
+      "count": 2,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "presidenta",
+      "count": 2,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "devolve",
+      "count": 2,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "pasa",
+      "count": 2,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.instagram.com/adrianasalvatierraoficial/",
+    "channels": [
+     "https://www.instagram.com/adrianasalvatierraoficial/"
+    ]
+   }
   },
   "P_MAURICIO_SORIA": {
    "videosRead": 4,
@@ -9279,9 +10641,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 11,
-    "commentsRead": 626,
-    "commentsAnalyzed": 407,
+    "videosRead": 14,
+    "commentsRead": 739,
+    "commentsAnalyzed": 451,
     "videos": [
      {
       "videoId": "k8NFY8yDSzI",
@@ -9370,21 +10732,45 @@
       "url": "https://www.tiktok.com/@albertinasacaca1/video/7697419587406581013",
       "commentsRead": 80,
       "commentsSpanish": 38
+     },
+     {
+      "videoId": "DekxwrYhl_y",
+      "title": "Mi lote en  Santa Cruz en @kantutadeloriente",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DekxwrYhl_y/",
+      "commentsRead": 30,
+      "commentsSpanish": 11
+     },
+     {
+      "videoId": "DefyB-txp6C",
+      "title": "Conocí a mi Chush en EEUU 🇺🇸🤭",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DefyB-txp6C/",
+      "commentsRead": 34,
+      "commentsSpanish": 15
+     },
+     {
+      "videoId": "DeX15ZhBgfI",
+      "title": "Hoy preparamos la receta de PIQUE MACHO del chef Hans Lage",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeX15ZhBgfI/",
+      "commentsRead": 49,
+      "commentsSpanish": 18
      }
     ],
     "sentiment": {
-     "analyzed": 407,
-     "positivePct": 48.2,
-     "negativePct": 23.1,
-     "neutralPct": 28.7,
-     "ironyPct": 33.7,
-     "netScore": 25.1,
+     "analyzed": 451,
+     "positivePct": 45.0,
+     "negativePct": 25.3,
+     "neutralPct": 29.7,
+     "ironyPct": 36.1,
+     "netScore": 19.7,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 45.5,
-      "sadness": 1.0,
-      "anger": 3.7,
-      "surprise": 2.0,
+      "joy": 44.3,
+      "sadness": 1.3,
+      "anger": 3.8,
+      "surprise": 1.8,
       "disgust": 0.0,
       "fear": 0.0
      }
@@ -9393,13 +10779,13 @@
      {
       "kind": "WORD",
       "term": "felicidades",
-      "count": 62,
+      "count": 63,
       "rank": 1
      },
      {
       "kind": "WORD",
       "term": "saludos",
-      "count": 28,
+      "count": 29,
       "rank": 2
      },
      {
@@ -9422,43 +10808,43 @@
      },
      {
       "kind": "WORD",
-      "term": "auto",
+      "term": "dios",
       "count": 16,
       "rank": 6
      },
      {
       "kind": "WORD",
-      "term": "dios",
-      "count": 15,
+      "term": "auto",
+      "count": 16,
       "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "vida",
+      "count": 15,
+      "rank": 8
      },
      {
       "kind": "WORD",
       "term": "familia",
       "count": 14,
-      "rank": 8
+      "rank": 9
      },
      {
       "kind": "WORD",
-      "term": "vida",
+      "term": "chuño",
       "count": 14,
-      "rank": 9
+      "rank": 10
      },
      {
       "kind": "WORD",
       "term": "adelante",
       "count": 13,
-      "rank": 10
-     },
-     {
-      "kind": "WORD",
-      "term": "quedó",
-      "count": 13,
       "rank": 11
      },
      {
       "kind": "WORD",
-      "term": "chuño",
+      "term": "quedó",
       "count": 13,
       "rank": 12
      },
@@ -9488,55 +10874,55 @@
      },
      {
       "kind": "WORD",
-      "term": "gente",
-      "count": 10,
+      "term": "linda",
+      "count": 11,
       "rank": 17
      },
      {
       "kind": "WORD",
-      "term": "feliz",
+      "term": "bendiciones",
       "count": 10,
       "rank": 18
      },
      {
       "kind": "WORD",
-      "term": "alegría",
+      "term": "gente",
       "count": 10,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "bella",
+      "term": "feliz",
       "count": 10,
       "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "argentina",
-      "count": 9,
+      "term": "mujer",
+      "count": 10,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "bendiciones",
-      "count": 9,
+      "term": "alegría",
+      "count": 10,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "abrazo",
-      "count": 9,
+      "term": "bella",
+      "count": 10,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "lindo",
+      "term": "argentina",
       "count": 9,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "felicitaciones",
+      "term": "abrazo",
       "count": 9,
       "rank": 25
      }
@@ -9544,7 +10930,8 @@
     "channel": "https://www.youtube.com/channel/UCmJLNo4bkEi-8pD3YUsiMlQ",
     "channels": [
      "https://www.youtube.com/channel/UCmJLNo4bkEi-8pD3YUsiMlQ",
-     "https://www.tiktok.com/@albertinasacaca1"
+     "https://www.tiktok.com/@albertinasacaca1",
+     "https://www.instagram.com/albertinasacaca/"
     ]
    }
   },
@@ -10898,7 +12285,44 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 40,
+    "commentsAnalyzed": 4,
+    "videos": [
+     {
+      "videoId": "DeTFtbsDDD3",
+      "title": "🪄🩵",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeTFtbsDDD3/",
+      "commentsRead": 21,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DZFx4tmFkJh",
+      "title": "Creo en nosotros, creo en ti. 🖤🩵",
+      "published": null,
+      "url": "https://www.instagram.com/p/DZFx4tmFkJh/",
+      "commentsRead": 9,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DYyGAWmDGyO",
+      "title": "Planes? que todo fluya y nada influya. 🤫🩵",
+      "published": null,
+      "url": "https://www.instagram.com/p/DYyGAWmDGyO/",
+      "commentsRead": 10,
+      "commentsSpanish": 2
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/r18ramallo/",
+    "channels": [
+     "https://www.instagram.com/r18ramallo/"
+    ]
+   }
   },
   "P_LORGIO_ALVAREZ": {
    "videosRead": 1,
@@ -11045,7 +12469,44 @@
    "commentsAnalyzed": 0,
    "videos": [],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 3,
+    "commentsAnalyzed": 0,
+    "videos": [
+     {
+      "videoId": "DdytFV9kWAZ",
+      "title": "El Desafio de mantener tu identidad, es lo que te define como persona y como entrenador!!! El fútbol te lleva donde El quiere llevarte, prepárate para ese momento ⚽️🌍\n\n#bolívia #cochabamba🇧🇴 #santa",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdytFV9kWAZ/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DdEZ4PXkd3v",
+      "title": "Las ganas de prepararse tienen que ser mayores que las ganas de triunfar 🙏",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdEZ4PXkd3v/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DcuWq5apBq-",
+      "title": "Don’t complain don’t explain just show up and do your best (No te quejes, no des explicaciones, simplemente preséntate y haz lo mejor que puedas)",
+      "published": null,
+      "url": "https://www.instagram.com/p/DcuWq5apBq-/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/edivaldo_rojas/",
+    "channels": [
+     "https://www.instagram.com/edivaldo_rojas/"
+    ]
+   }
   },
   "P_MARCO_BULACIA": {
    "videosRead": 1,
@@ -11062,7 +12523,44 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 25,
+    "commentsAnalyzed": 9,
+    "videos": [
+     {
+      "videoId": "DehW1puoHPN",
+      "title": "Viendo los test de ayer junto a @stefanocareagarallydriver y @matiramos07 😏 Se tiene confianza... Veremos cómo sale 🤞\n\n#RallyBolivia #Tarija",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DehW1puoHPN/",
+      "commentsRead": 4,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DefhfNwI8hr",
+      "title": "Día de mucho trabajo (arriba y debajo del auto 😜) junto a @stefanocareagarallydriver en Tarija 💪🇧🇴\n\n#CampeonatoNacionalDeRally | #RallyBolivia",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DefhfNwI8hr/",
+      "commentsRead": 4,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DeR7xksICs5",
+      "title": "Es uno de los momentos más duros de esta pasión, ese que nunca esperamos que suceda, pero que a veces nos toca tristemente transitar.\n\nLamentamos profundamente el fallecimiento del piloto Nicolás Pére",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeR7xksICs5/",
+      "commentsRead": 17,
+      "commentsSpanish": 6
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/marquitobulacia/",
+    "channels": [
+     "https://www.instagram.com/marquitobulacia/"
+    ]
+   }
   },
   "P_TORIBIO_TICONA_PORCO": {
    "videosRead": 0,
@@ -11809,7 +13307,44 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 13,
+    "commentsAnalyzed": 11,
+    "videos": [
+     {
+      "videoId": "Degwqp_HH6k",
+      "title": "Empezaste a dar tus primeros pasos mi hijito , te felicito por quedarte en tu primera selección de Tarija , los sueños se construyen desde aquí y yo estoy ahí para poder apoyarte y guiarte en todo lo ",
+      "published": null,
+      "url": "https://www.instagram.com/p/Degwqp_HH6k/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DdJ0RV5j80o",
+      "title": "🕊️ 𝐀𝐕𝐈𝐒𝐎 𝐍𝐄𝐂𝐑𝐎𝐋𝐎𝐆𝐈𝐂𝐎🕊️\n\nEn la paz del Señor y confortada con los auxilios de la Santa Religión Católica, ha dejado de existir quien en vida fue:\n\n𝐒𝐫𝐚: 𝐕𝐢𝐫𝐠𝐢𝐧𝐢𝐚 𝐉𝐢𝐦𝐞𝐧",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdJ0RV5j80o/",
+      "commentsRead": 12,
+      "commentsSpanish": 11
+     },
+     {
+      "videoId": "DZdQWArn8af",
+      "title": "Llega el momento q paraliza al mundo !!! Empezó el mundial , empezó la alegría , empezó ese sentimiento q mueve todo \nEs un mundial distinto un mundial q va a despedir a estrellas del fútbol , lo disf",
+      "published": null,
+      "url": "https://www.instagram.com/p/DZdQWArn8af/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/marvinbejarano17/",
+    "channels": [
+     "https://www.instagram.com/marvinbejarano17/"
+    ]
+   }
   },
   "P_RICARDO_PEDRIEL": {
    "videosRead": 0,
@@ -12014,7 +13549,44 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 1,
+    "commentsAnalyzed": 0,
+    "videos": [
+     {
+      "videoId": "DecEMZREdj0",
+      "title": "🙌🏻⚽️👌🏻 seguimos Banda 💪🏻 Ph : @kevin_dfernandez 📸",
+      "published": null,
+      "url": "https://www.instagram.com/p/DecEMZREdj0/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Dd98a5lGbZn",
+      "title": "⚽️🙌🏻",
+      "published": null,
+      "url": "https://www.instagram.com/p/Dd98a5lGbZn/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DdH8vs0kR2o",
+      "title": "Seguimos ⚽️🙌🏻",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdH8vs0kR2o/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/pedroazogue22/",
+    "channels": [
+     "https://www.instagram.com/pedroazogue22/"
+    ]
+   }
   },
   "P_VANESSA_ALFARO": {
    "videosRead": 0,
@@ -12022,7 +13594,44 @@
    "commentsAnalyzed": 0,
    "videos": [],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 8,
+    "commentsAnalyzed": 0,
+    "videos": [
+     {
+      "videoId": "DY_I4L9FMZc",
+      "title": "We are absolutely captivated by our beautiful #VanessaAlfaroBride, Alyssa, who said “I do” at the breathtaking Kinnitty Castle in Ireland! 🇮🇪💍\nAlyssa wore a custom bridal couture gown meticulously ",
+      "published": null,
+      "url": "https://www.instagram.com/p/DY_I4L9FMZc/",
+      "commentsRead": 2,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DYdaVEdGLY6",
+      "title": "One gown. Three distinct silhouettes! 🤍\nSlide to see our proprietary Signature Mix & Match System™ in action at our Southern California flagship showroom 🤍\nWe believe every bride deserves total desi",
+      "published": null,
+      "url": "https://www.instagram.com/p/DYdaVEdGLY6/",
+      "commentsRead": 5,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DXvO6d4lByN",
+      "title": "Meet our 2027 “Arise in Light” Bridal Collection’s showstopper! this breathtaking multi-detachable wedding gown with a detachable laced neck piece and detachable sleeves top. Now exclusively available",
+      "published": null,
+      "url": "https://www.instagram.com/p/DXvO6d4lByN/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/vanessaalfaro_official/",
+    "channels": [
+     "https://www.instagram.com/vanessaalfaro_official/"
+    ]
+   }
   },
   "P_MARCELO_TORRICO": {
    "videosRead": 4,
@@ -13471,8 +15080,8 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 3,
-    "commentsRead": 3,
+    "videosRead": 6,
+    "commentsRead": 4,
     "commentsAnalyzed": 3,
     "videos": [
      {
@@ -13498,13 +15107,38 @@
       "url": "https://www.tiktok.com/@lilianacastellano44/video/7693769208840129813",
       "commentsRead": 0,
       "commentsSpanish": 0
+     },
+     {
+      "videoId": "DeWqYHzx-Gh",
+      "title": "Caminan, crean, transforman.\nEn sus manos nace el arte.\nEn su mente, el futuro.\nFeliz Día de la Mujer Boliviana.",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeWqYHzx-Gh/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DeLF3jYx7e9",
+      "title": "El lujo está en las manos que transforman la fibra.\nUna noche mágica, está por llegar ✨\n\n📹 @glifoo.cc",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeLF3jYx7e9/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DcSNx1tjpBE",
+      "title": "Diseño, textura y movimiento en perfecta armonía.\n\nLiliana Castellanos | Hecho en Bolivia\n\nBoutiques:\nLa Paz: Av. Montenegro bloque J7 N° 1070\nSanta Cruz: Av. Bush 3er anillo interno Mall Patio Design",
+      "published": null,
+      "url": "https://www.instagram.com/p/DcSNx1tjpBE/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
      }
     ],
     "sentiment": null,
     "words": null,
     "channel": "https://www.tiktok.com/@lilianacastellano44",
     "channels": [
-     "https://www.tiktok.com/@lilianacastellano44"
+     "https://www.tiktok.com/@lilianacastellano44",
+     "https://www.instagram.com/lilianacastellanos_oficial/"
     ]
    }
   },
@@ -13613,7 +15247,44 @@
     }
    ],
    "sentiment": null,
-   "words": null
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 27,
+    "commentsAnalyzed": 5,
+    "videos": [
+     {
+      "videoId": "Ddr1RLUGQzp",
+      "title": "Feliz cumple amor de mi vida, los Marianitos te amamos muchísimo ❤️Que Dios te llene de bendiciones siempre 🙏🏻",
+      "published": null,
+      "url": "https://www.instagram.com/p/Ddr1RLUGQzp/",
+      "commentsRead": 7,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "DcEOXXZDk3o",
+      "title": "Marianito💙 te amo!!!",
+      "published": null,
+      "url": "https://www.instagram.com/p/DcEOXXZDk3o/",
+      "commentsRead": 12,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DbEN4qksMde",
+      "title": "Caña 2027 garantizada! 🙏🏻 Gracias al equipazo AW💪🏻💪🏻",
+      "published": null,
+      "url": "https://www.instagram.com/p/DbEN4qksMde/",
+      "commentsRead": 8,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/marianoaguilera/",
+    "channels": [
+     "https://www.instagram.com/marianoaguilera/"
+    ]
+   }
   },
   "P_MANUEL_LAREDO": {
    "videosRead": 3,
@@ -14712,9 +16383,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 11,
-    "commentsRead": 615,
-    "commentsAnalyzed": 433,
+    "videosRead": 14,
+    "commentsRead": 727,
+    "commentsAnalyzed": 455,
     "videos": [
      {
       "videoId": "O9H4gYt--ag",
@@ -14803,20 +16474,44 @@
       "url": "https://www.tiktok.com/@daniel_duenas_z/video/7697325024662801672",
       "commentsRead": 12,
       "commentsSpanish": 3
+     },
+     {
+      "videoId": "DepM8z-oBaQ",
+      "title": "Pelear con tu madre es un pecado muy grave.",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DepM8z-oBaQ/",
+      "commentsRead": 31,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "DepKAhdoGWz",
+      "title": "Hay un fuego dentro de ti que ninguna dificultad ha podido apagar. 🔥\n\nMi libro Despierta tu fuego ya está disponible en Amazon.\n\nComenta la palabra FUEGO y te cuento cómo adquirirlo.",
+      "published": null,
+      "url": "https://www.instagram.com/p/DepKAhdoGWz/",
+      "commentsRead": 33,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "DeomT3oisSL",
+      "title": "Oremos a Dios padre esta mañana.",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeomT3oisSL/",
+      "commentsRead": 48,
+      "commentsSpanish": 6
      }
     ],
     "sentiment": {
-     "analyzed": 433,
-     "positivePct": 47.1,
-     "negativePct": 31.6,
-     "neutralPct": 21.2,
-     "ironyPct": 14.1,
-     "netScore": 15.5,
+     "analyzed": 455,
+     "positivePct": 44.8,
+     "negativePct": 31.9,
+     "neutralPct": 23.3,
+     "ironyPct": 14.7,
+     "netScore": 12.9,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 39.3,
-      "sadness": 12.0,
-      "anger": 6.9,
+      "joy": 38.2,
+      "sadness": 12.5,
+      "anger": 7.0,
       "surprise": 0.0,
       "disgust": 0.0,
       "fear": 0.2
@@ -14826,13 +16521,13 @@
      {
       "kind": "WORD",
       "term": "dios",
-      "count": 59,
+      "count": 63,
       "rank": 1
      },
      {
       "kind": "WORD",
       "term": "soy",
-      "count": 47,
+      "count": 48,
       "rank": 2
      },
      {
@@ -14844,55 +16539,55 @@
      {
       "kind": "WORD",
       "term": "bendiciones",
-      "count": 42,
+      "count": 43,
       "rank": 4
      },
      {
       "kind": "WORD",
-      "term": "cierto",
-      "count": 36,
+      "term": "amén",
+      "count": 41,
       "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "vida",
+      "count": 37,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "cierto",
+      "count": 37,
+      "rank": 7
      },
      {
       "kind": "WORD",
       "term": "palabras",
       "count": 34,
-      "rank": 6
-     },
-     {
-      "kind": "WORD",
-      "term": "amén",
-      "count": 30,
-      "rank": 7
-     },
-     {
-      "kind": "WORD",
-      "term": "vida",
-      "count": 30,
       "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "sola",
+      "count": 28,
+      "rank": 9
      },
      {
       "kind": "WORD",
       "term": "verdad",
       "count": 27,
-      "rank": 9
+      "rank": 10
      },
      {
       "kind": "WORD",
-      "term": "sola",
-      "count": 27,
-      "rank": 10
+      "term": "bendiga",
+      "count": 26,
+      "rank": 11
      },
      {
       "kind": "WORD",
       "term": "amo",
       "count": 25,
-      "rank": 11
-     },
-     {
-      "kind": "WORD",
-      "term": "bendiga",
-      "count": 24,
       "rank": 12
      },
      {
@@ -14904,7 +16599,7 @@
      {
       "kind": "WORD",
       "term": "razón",
-      "count": 21,
+      "count": 23,
       "rank": 14
      },
      {
@@ -14921,55 +16616,55 @@
      },
      {
       "kind": "WORD",
-      "term": "plantas",
+      "term": "totalmente",
       "count": 20,
       "rank": 17
      },
      {
       "kind": "WORD",
-      "term": "totalmente",
-      "count": 19,
+      "term": "plantas",
+      "count": 20,
       "rank": 18
      },
      {
       "kind": "WORD",
-      "term": "años",
+      "term": "acuerdo",
       "count": 18,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "acuerdo",
-      "count": 17,
+      "term": "años",
+      "count": 18,
       "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "hijos",
+      "count": 16,
+      "rank": 21
      },
      {
       "kind": "WORD",
       "term": "reflexión",
       "count": 15,
-      "rank": 21
-     },
-     {
-      "kind": "WORD",
-      "term": "personas",
-      "count": 14,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "hijos",
-      "count": 14,
+      "term": "personas",
+      "count": 15,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "mal",
-      "count": 13,
+      "term": "madre",
+      "count": 14,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "hombre",
+      "term": "mal",
       "count": 13,
       "rank": 25
      }
@@ -14977,7 +16672,8 @@
     "channel": "https://www.youtube.com/@danielduenas4844",
     "channels": [
      "https://www.youtube.com/@danielduenas4844",
-     "https://www.tiktok.com/@daniel_duenas_z"
+     "https://www.tiktok.com/@daniel_duenas_z",
+     "https://www.instagram.com/daniel.duenas.z/"
     ]
    }
   },
@@ -14989,9 +16685,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 11,
-    "commentsRead": 248,
-    "commentsAnalyzed": 138,
+    "videosRead": 14,
+    "commentsRead": 261,
+    "commentsAnalyzed": 139,
     "videos": [
      {
       "videoId": "ijbWh0ruREE",
@@ -15080,18 +16776,42 @@
       "url": "https://www.tiktok.com/@alepinedotv/video/7073440499910069510",
       "commentsRead": 80,
       "commentsSpanish": 59
+     },
+     {
+      "videoId": "DenVbw9Jjb0",
+      "title": "El auto volador de Tesla (Roadster) versus los bloqueos de Bolivia 😂🇧🇴 #humor #tesla #rosdster #bolivia @elonmusk",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DenVbw9Jjb0/",
+      "commentsRead": 4,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Dem6VanpYtC",
+      "title": "El auto volador de Tesla (Roadster) versus los bloqueos de Bolivia 😂🇧🇴 #humor #tesla #rosdster #bolivia @elonmusk",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dem6VanpYtC/",
+      "commentsRead": 4,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DemfqhhRu7s",
+      "title": "Cuando el nuevo auto volador de Tesla el\nRoadster llegue a Bolivia 🇧🇴😂 #tesla\n#roadster #elonmusk #Humor @elonmusk",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DemfqhhRu7s/",
+      "commentsRead": 5,
+      "commentsSpanish": 0
      }
     ],
     "sentiment": {
-     "analyzed": 138,
-     "positivePct": 10.9,
-     "negativePct": 56.5,
-     "neutralPct": 32.6,
-     "ironyPct": 59.4,
-     "netScore": -45.6,
+     "analyzed": 139,
+     "positivePct": 10.8,
+     "negativePct": 56.8,
+     "neutralPct": 32.4,
+     "ironyPct": 59.7,
+     "netScore": -46.0,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 21.7,
+      "joy": 21.6,
       "sadness": 9.4,
       "anger": 4.3,
       "surprise": 1.4,
@@ -15254,7 +16974,8 @@
     "channel": "https://www.youtube.com/@alepinedotv",
     "channels": [
      "https://www.youtube.com/@alepinedotv",
-     "https://www.tiktok.com/@alepinedotv"
+     "https://www.tiktok.com/@alepinedotv",
+     "https://www.instagram.com/alepinedotv/"
     ]
    }
   },
@@ -15266,9 +16987,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 5,
-    "commentsRead": 400,
-    "commentsAnalyzed": 204,
+    "videosRead": 8,
+    "commentsRead": 491,
+    "commentsAnalyzed": 236,
     "videos": [
      {
       "videoId": "H8WzA6DUrjI",
@@ -15309,23 +17030,47 @@
       "url": "https://www.tiktok.com/@soyalexius/video/7695471621255089428",
       "commentsRead": 59,
       "commentsSpanish": 22
+     },
+     {
+      "videoId": "DdufaO9zkZJ",
+      "title": "Llega la Raspadita de FairPlay! 👟",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdufaO9zkZJ/",
+      "commentsRead": 19,
+      "commentsSpanish": 5
+     },
+     {
+      "videoId": "DdPpQgEGLjZ",
+      "title": "El Templo del Cielo es energía ✨🇨🇳 Beijing \n\nSudando, estábamos a 45 grados ☀️ Una de mis fotos favoritas \n\nLas fotos las tomó un fotógrafo profesional chino en el templo del Cielo, Temple of Heaven",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdPpQgEGLjZ/",
+      "commentsRead": 31,
+      "commentsSpanish": 11
+     },
+     {
+      "videoId": "Dc7EblBM-Nq",
+      "title": "¿Sabias por qué la caja de preservativos trae 3? 🤔",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dc7EblBM-Nq/",
+      "commentsRead": 41,
+      "commentsSpanish": 16
      }
     ],
     "sentiment": {
-     "analyzed": 204,
-     "positivePct": 48.5,
-     "negativePct": 10.3,
-     "neutralPct": 41.2,
-     "ironyPct": 27.5,
-     "netScore": 38.2,
+     "analyzed": 236,
+     "positivePct": 45.8,
+     "negativePct": 13.1,
+     "neutralPct": 41.1,
+     "ironyPct": 30.1,
+     "netScore": 32.7,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 46.6,
-      "sadness": 1.0,
-      "anger": 0.5,
-      "surprise": 0.0,
-      "disgust": 0.5,
-      "fear": 0.5
+      "joy": 44.5,
+      "sadness": 2.5,
+      "anger": 0.8,
+      "surprise": 0.4,
+      "disgust": 0.4,
+      "fear": 0.4
      }
     },
     "words": [
@@ -15380,7 +17125,7 @@
      {
       "kind": "WORD",
       "term": "amo",
-      "count": 14,
+      "count": 15,
       "rank": 9
      },
      {
@@ -15440,7 +17185,7 @@
      {
       "kind": "WORD",
       "term": "quiero",
-      "count": 7,
+      "count": 8,
       "rank": 19
      },
      {
@@ -15475,7 +17220,7 @@
      },
      {
       "kind": "WORD",
-      "term": "cuentas",
+      "term": "espero",
       "count": 6,
       "rank": 25
      }
@@ -15483,7 +17228,8 @@
     "channel": "https://www.youtube.com/@Soyalexius",
     "channels": [
      "https://www.youtube.com/@Soyalexius",
-     "https://www.tiktok.com/@soyalexius"
+     "https://www.tiktok.com/@soyalexius",
+     "https://www.instagram.com/soyalexius/"
     ]
    }
   },
@@ -15495,8 +17241,8 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 11,
-    "commentsRead": 220,
+    "videosRead": 14,
+    "commentsRead": 221,
     "commentsAnalyzed": 122,
     "videos": [
      {
@@ -15586,6 +17332,30 @@
       "url": "https://www.tiktok.com/@cristianapazacoro/video/7693966086533860629",
       "commentsRead": 12,
       "commentsSpanish": 3
+     },
+     {
+      "videoId": "DehqPfNy0pP",
+      "title": "Pregunta de examen de logaritmos !!",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DehqPfNy0pP/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DeewHICyGKP",
+      "title": "Pregunta de examen de admisión para ingresar a la UNIVERSIDAD!!!",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeewHICyGKP/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DeOyTuERCMq",
+      "title": "Hoy celebro la fórmula más importante de mi vida: tú, mi hija. ❤️\n\nDesde que llegaste, mi ecuación cambió para siempre. Tú fuiste la variable que transformó mi mundo, la constante que le dio sentido a",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeOyTuERCMq/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
      }
     ],
     "sentiment": {
@@ -15760,7 +17530,8 @@
     "channel": "https://www.youtube.com/@cristianapazacoro1245",
     "channels": [
      "https://www.youtube.com/@cristianapazacoro1245",
-     "https://www.tiktok.com/@cristianapazacoro"
+     "https://www.tiktok.com/@cristianapazacoro",
+     "https://www.instagram.com/cristianapazacoro/"
     ]
    }
   },
@@ -16880,9 +18651,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 8,
-    "commentsRead": 314,
-    "commentsAnalyzed": 198,
+    "videosRead": 11,
+    "commentsRead": 339,
+    "commentsAnalyzed": 208,
     "videos": [
      {
       "videoId": "fLl8NeqdN6I",
@@ -16947,21 +18718,45 @@
       "url": "https://www.youtube.com/watch?v=tRediSUwg9Q",
       "commentsRead": 41,
       "commentsSpanish": 30
+     },
+     {
+      "videoId": "DeVDLbWvvdx",
+      "title": "Si estás buscando un nuevo celular a muy buen precio el #honorplay20A es tu mejor opción 🤭✨\n@honor.bolivia \n #PantallaPlay #DoblementeDivertido",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeVDLbWvvdx/",
+      "commentsRead": 11,
+      "commentsSpanish": 5
+     },
+     {
+      "videoId": "DeMgpPRRbes",
+      "title": "La combinación perfecta entre protección, cuidado y buena energía. 🌸✨\nVivimos una experiencia única de Hot Pilates para descubrir el nuevo Dove Clinical + Tono Uniforme junto a @dove_bolivia 🩷\nPiel ",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeMgpPRRbes/",
+      "commentsRead": 4,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "Dd7glAyxYmz",
+      "title": "Activa tu combo triple plus XL de @entel.bolivia 🤭 y disfruta de sus beneficios y también de Disney +\n#bolivia #entel #disneyplus #viral #promo",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dd7glAyxYmz/",
+      "commentsRead": 10,
+      "commentsSpanish": 3
      }
     ],
     "sentiment": {
-     "analyzed": 198,
-     "positivePct": 55.1,
-     "negativePct": 26.3,
-     "neutralPct": 18.7,
-     "ironyPct": 18.7,
-     "netScore": 28.8,
+     "analyzed": 208,
+     "positivePct": 52.9,
+     "negativePct": 26.0,
+     "neutralPct": 21.2,
+     "ironyPct": 21.2,
+     "netScore": 26.9,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 50.5,
-      "sadness": 2.5,
-      "anger": 5.1,
-      "surprise": 1.5,
+      "joy": 49.0,
+      "sadness": 2.4,
+      "anger": 4.8,
+      "surprise": 1.4,
       "disgust": 0.0,
       "fear": 0.5
      }
@@ -16970,13 +18765,13 @@
      {
       "kind": "WORD",
       "term": "gaby",
-      "count": 71,
+      "count": 73,
       "rank": 1
      },
      {
       "kind": "WORD",
       "term": "hermosa",
-      "count": 20,
+      "count": 21,
       "rank": 2
      },
      {
@@ -17029,98 +18824,99 @@
      },
      {
       "kind": "WORD",
-      "term": "soy",
-      "count": 7,
+      "term": "bendiciones",
+      "count": 8,
       "rank": 11
      },
      {
       "kind": "WORD",
-      "term": "familia",
+      "term": "soy",
       "count": 7,
       "rank": 12
      },
      {
       "kind": "WORD",
-      "term": "experiencia",
+      "term": "saludos",
       "count": 7,
       "rank": 13
      },
      {
       "kind": "WORD",
-      "term": "bendiciones",
+      "term": "familia",
       "count": 7,
       "rank": 14
      },
      {
       "kind": "WORD",
-      "term": "suban",
+      "term": "experiencia",
       "count": 7,
       "rank": 15
      },
      {
       "kind": "WORD",
-      "term": "viaje",
-      "count": 6,
+      "term": "suban",
+      "count": 7,
       "rank": 16
      },
      {
       "kind": "WORD",
-      "term": "vida",
+      "term": "verte",
       "count": 6,
       "rank": 17
      },
      {
       "kind": "WORD",
-      "term": "gabi",
+      "term": "mamá",
       "count": 6,
       "rank": 18
      },
      {
       "kind": "WORD",
-      "term": "bello",
+      "term": "viaje",
       "count": 6,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "lugar",
+      "term": "bueno",
       "count": 6,
       "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "saludos",
+      "term": "vida",
       "count": 6,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "verte",
-      "count": 5,
+      "term": "gabi",
+      "count": 6,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "mamá",
-      "count": 5,
+      "term": "bello",
+      "count": 6,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "años",
-      "count": 5,
+      "term": "lugar",
+      "count": 6,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "bueno",
-      "count": 5,
+      "term": "paz",
+      "count": 6,
       "rank": 25
      }
     ],
     "channel": "https://www.youtube.com/@GabyZegarra",
     "channels": [
-     "https://www.youtube.com/@GabyZegarra"
+     "https://www.youtube.com/@GabyZegarra",
+     "https://www.instagram.com/gabyzegarra_gz/"
     ]
    }
   },
@@ -17344,9 +19140,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 3,
-    "commentsRead": 158,
-    "commentsAnalyzed": 48,
+    "videosRead": 6,
+    "commentsRead": 172,
+    "commentsAnalyzed": 52,
     "videos": [
      {
       "videoId": "7689482554738625844",
@@ -17371,23 +19167,47 @@
       "url": "https://www.tiktok.com/@fabrublacutt_/video/7688098024601701648",
       "commentsRead": 60,
       "commentsSpanish": 19
+     },
+     {
+      "videoId": "Ddtsl3SE4nZ",
+      "title": "MI NOVIA ESTÁ EMBARAZADA 🤰#comedia #humor #pov",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Ddtsl3SE4nZ/",
+      "commentsRead": 3,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DdpN086CEkl",
+      "title": "Vives en un mundo donde TODOS ven el número de BESOS que diste... 💋 #pov #comedia #humor",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdpN086CEkl/",
+      "commentsRead": 5,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DdkFqXvgu1f",
+      "title": "Ese NO es mi abuelo... ¿saben quién es? 😳 #terror #suspenso #pov",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdkFqXvgu1f/",
+      "commentsRead": 6,
+      "commentsSpanish": 1
      }
     ],
     "sentiment": {
-     "analyzed": 48,
-     "positivePct": 4.2,
-     "negativePct": 35.4,
-     "neutralPct": 60.4,
-     "ironyPct": 33.3,
-     "netScore": -31.2,
+     "analyzed": 52,
+     "positivePct": 3.8,
+     "negativePct": 36.5,
+     "neutralPct": 59.6,
+     "ironyPct": 36.5,
+     "netScore": -32.7,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 6.2,
-      "sadness": 4.2,
+      "joy": 5.8,
+      "sadness": 3.8,
       "anger": 0.0,
-      "surprise": 2.1,
+      "surprise": 1.9,
       "disgust": 0.0,
-      "fear": 6.2
+      "fear": 5.8
      }
     },
     "words": [
@@ -17465,86 +19285,87 @@
      },
      {
       "kind": "WORD",
-      "term": "llamo",
+      "term": "leche",
       "count": 2,
       "rank": 13
      },
      {
       "kind": "WORD",
-      "term": "zonrisas",
+      "term": "llamo",
       "count": 2,
       "rank": 14
      },
      {
       "kind": "WORD",
-      "term": "zin",
+      "term": "zonrisas",
       "count": 2,
       "rank": 15
      },
      {
       "kind": "WORD",
-      "term": "sentar",
+      "term": "zin",
       "count": 2,
       "rank": 16
      },
      {
       "kind": "WORD",
-      "term": "llado",
+      "term": "sentar",
       "count": 2,
       "rank": 17
      },
      {
       "kind": "WORD",
-      "term": "favru",
+      "term": "llado",
       "count": 2,
       "rank": 18
      },
      {
       "kind": "WORD",
-      "term": "directo",
+      "term": "favru",
       "count": 2,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "primero",
+      "term": "directo",
       "count": 2,
       "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "dio",
+      "term": "primero",
       "count": 2,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "posible",
+      "term": "dio",
       "count": 2,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "puedan",
+      "term": "posible",
       "count": 2,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "risa",
+      "term": "puedan",
       "count": 2,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "salió",
+      "term": "mío",
       "count": 2,
       "rank": 25
      }
     ],
     "channel": "https://www.tiktok.com/@fabrublacutt_",
     "channels": [
-     "https://www.tiktok.com/@fabrublacutt_"
+     "https://www.tiktok.com/@fabrublacutt_",
+     "https://www.instagram.com/fabru_blacutt/"
     ]
    }
   },
@@ -17556,9 +19377,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 3,
-    "commentsRead": 212,
-    "commentsAnalyzed": 156,
+    "videosRead": 6,
+    "commentsRead": 239,
+    "commentsAnalyzed": 172,
     "videos": [
      {
       "videoId": "7697738431387962632",
@@ -17583,72 +19404,96 @@
       "url": "https://www.tiktok.com/@candresperedo/video/7697272485560995080",
       "commentsRead": 72,
       "commentsSpanish": 59
+     },
+     {
+      "videoId": "DekmNmZBZPH",
+      "title": "Después de 15 años peleados, los Gallagher volvieron a los escenarios y Disney+ lo documentó todo! Oasis: Don’t Look Back in Anger trae imágenes inéditas, backstage y la primera entrevista juntos de L",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DekmNmZBZPH/",
+      "commentsRead": 3,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DejvuPdtinb",
+      "title": "El auto que vuela es real! Tesla presentó el nuevo Roadster que se eleva por el aire! Usa propulsores de SpaceX de aire comprimido para saltar, dar vueltas en el aire y aterrizar solo! Acelera de 0 a ",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DejvuPdtinb/",
+      "commentsRead": 20,
+      "commentsSpanish": 12
+     },
+     {
+      "videoId": "DeiRMV8B_De",
+      "title": "Lo entrevistó una inteligencia artificial y puso a su propia IA a responder por él! Un youtuber llevó su entrevista de trabajo a otro nivel: dos inteligencias artificiales conversando como si fuera un",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeiRMV8B_De/",
+      "commentsRead": 4,
+      "commentsSpanish": 3
      }
     ],
     "sentiment": {
-     "analyzed": 156,
+     "analyzed": 172,
      "positivePct": 6.4,
-     "negativePct": 55.1,
-     "neutralPct": 38.5,
-     "ironyPct": 40.4,
-     "netScore": -48.7,
+     "negativePct": 54.7,
+     "neutralPct": 39.0,
+     "ironyPct": 41.9,
+     "netScore": -48.3,
      "topEmotion": "anger",
      "emotionPct": {
       "joy": 6.4,
-      "sadness": 5.1,
-      "anger": 7.7,
-      "surprise": 3.8,
+      "sadness": 4.7,
+      "anger": 8.7,
+      "surprise": 4.1,
       "disgust": 0.6,
-      "fear": 1.3
+      "fear": 1.2
      }
     },
     "words": [
      {
       "kind": "WORD",
-      "term": "estilo",
-      "count": 10,
+      "term": "auto",
+      "count": 12,
       "rank": 1
      },
      {
       "kind": "WORD",
-      "term": "auto",
-      "count": 9,
+      "term": "estilo",
+      "count": 11,
       "rank": 2
      },
      {
       "kind": "WORD",
       "term": "gente",
-      "count": 8,
+      "count": 9,
       "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "creo",
+      "count": 8,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "volar",
+      "count": 8,
+      "rank": 5
      },
      {
       "kind": "WORD",
       "term": "parece",
       "count": 7,
-      "rank": 4
+      "rank": 6
      },
      {
       "kind": "WORD",
       "term": "vida",
       "count": 7,
-      "rank": 5
+      "rank": 7
      },
      {
       "kind": "WORD",
       "term": "años",
       "count": 7,
-      "rank": 6
-     },
-     {
-      "kind": "WORD",
-      "term": "creo",
-      "count": 6,
-      "rank": 7
-     },
-     {
-      "kind": "WORD",
-      "term": "volar",
-      "count": 6,
       "rank": 8
      },
      {
@@ -17671,92 +19516,93 @@
      },
      {
       "kind": "WORD",
-      "term": "falso",
+      "term": "veo",
       "count": 5,
       "rank": 12
      },
      {
       "kind": "WORD",
-      "term": "niña",
+      "term": "bueno",
       "count": 5,
       "rank": 13
      },
      {
       "kind": "WORD",
-      "term": "carro",
+      "term": "falso",
       "count": 5,
       "rank": 14
      },
      {
       "kind": "WORD",
-      "term": "veo",
-      "count": 4,
+      "term": "niña",
+      "count": 5,
       "rank": 15
      },
      {
       "kind": "WORD",
-      "term": "bueno",
-      "count": 4,
+      "term": "cae",
+      "count": 5,
       "rank": 16
      },
      {
       "kind": "WORD",
-      "term": "dicen",
-      "count": 4,
+      "term": "carro",
+      "count": 5,
       "rank": 17
      },
      {
       "kind": "WORD",
-      "term": "cuerpo",
+      "term": "verdad",
       "count": 4,
       "rank": 18
      },
      {
       "kind": "WORD",
-      "term": "hija",
+      "term": "súper",
       "count": 4,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "gusta",
+      "term": "dicen",
       "count": 4,
       "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "vuela",
+      "term": "dinero",
       "count": 4,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "cae",
+      "term": "cuerpo",
       "count": 4,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "mujeres",
-      "count": 3,
+      "term": "entiendo",
+      "count": 4,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "extraterrestres",
-      "count": 3,
+      "term": "hija",
+      "count": 4,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "será",
-      "count": 3,
+      "term": "gusta",
+      "count": 4,
       "rank": 25
      }
     ],
     "channel": "https://www.tiktok.com/@candresperedo",
     "channels": [
-     "https://www.tiktok.com/@candresperedo"
+     "https://www.tiktok.com/@candresperedo",
+     "https://www.instagram.com/candresperedo/"
     ]
    }
   },
@@ -17980,8 +19826,8 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 3,
-    "commentsRead": 145,
+    "videosRead": 6,
+    "commentsRead": 148,
     "commentsAnalyzed": 61,
     "videos": [
      {
@@ -18007,6 +19853,30 @@
       "url": "https://www.tiktok.com/@crissemprende/video/7681327127500721428",
       "commentsRead": 31,
       "commentsSpanish": 14
+     },
+     {
+      "videoId": "DenbDzdOypT",
+      "title": "Picante de pollo para alegrar el corazón y el alma",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DenbDzdOypT/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DekmVKFukmd",
+      "title": "Con 100 Bs podemos cambiar vidas ¿te sumas?",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DekmVKFukmd/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DeW_8HeOmel",
+      "title": "Ensalada tropical - receta, sígueme en Instagram para más recetas",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeW_8HeOmel/",
+      "commentsRead": 2,
+      "commentsSpanish": 0
      }
     ],
     "sentiment": {
@@ -18180,7 +20050,8 @@
     ],
     "channel": "https://www.tiktok.com/@crissemprende",
     "channels": [
-     "https://www.tiktok.com/@crissemprende"
+     "https://www.tiktok.com/@crissemprende",
+     "https://www.instagram.com/crissemprende/"
     ]
    }
   },
@@ -19040,9 +20911,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 3,
-    "commentsRead": 198,
-    "commentsAnalyzed": 64,
+    "videosRead": 6,
+    "commentsRead": 344,
+    "commentsAnalyzed": 105,
     "videos": [
      {
       "videoId": "7697048772878109953",
@@ -19067,180 +20938,205 @@
       "url": "https://www.tiktok.com/@mily_gonzales_equilea/video/7694824471244360980",
       "commentsRead": 64,
       "commentsSpanish": 18
+     },
+     {
+      "videoId": "DdurHq0I3cQ",
+      "title": "Disfrutando de un hermoso viaje",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdurHq0I3cQ/",
+      "commentsRead": 60,
+      "commentsSpanish": 19
+     },
+     {
+      "videoId": "Ddo0i6tJbA6",
+      "title": "🫣disfrutando de la cascada",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Ddo0i6tJbA6/",
+      "commentsRead": 60,
+      "commentsSpanish": 15
+     },
+     {
+      "videoId": "Dc81E0flW01",
+      "title": "Un bonito día en Santa Cruz 😊",
+      "published": null,
+      "url": "https://www.instagram.com/p/Dc81E0flW01/",
+      "commentsRead": 26,
+      "commentsSpanish": 7
      }
     ],
     "sentiment": {
-     "analyzed": 64,
-     "positivePct": 23.4,
-     "negativePct": 17.2,
-     "neutralPct": 59.4,
-     "ironyPct": 51.6,
-     "netScore": 6.2,
+     "analyzed": 105,
+     "positivePct": 19.0,
+     "negativePct": 25.7,
+     "neutralPct": 55.2,
+     "ironyPct": 48.6,
+     "netScore": -6.7,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 34.4,
-      "sadness": 0.0,
+      "joy": 28.6,
+      "sadness": 4.8,
       "anger": 0.0,
-      "surprise": 3.1,
+      "surprise": 2.9,
       "disgust": 0.0,
-      "fear": 1.6
+      "fear": 1.0
      }
     },
     "words": [
      {
       "kind": "WORD",
-      "term": "hermosa",
-      "count": 7,
+      "term": "aja",
+      "count": 14,
       "rank": 1
      },
      {
       "kind": "WORD",
-      "term": "aja",
-      "count": 7,
+      "term": "hermosa",
+      "count": 9,
       "rank": 2
      },
      {
       "kind": "WORD",
       "term": "saludos",
-      "count": 6,
+      "count": 7,
       "rank": 3
      },
      {
       "kind": "WORD",
-      "term": "casco",
+      "term": "punto",
       "count": 5,
       "rank": 4
      },
      {
       "kind": "WORD",
-      "term": "volar",
-      "count": 4,
+      "term": "casco",
+      "count": 5,
       "rank": 5
      },
      {
       "kind": "WORD",
-      "term": "mili",
+      "term": "volar",
       "count": 4,
       "rank": 6
      },
      {
       "kind": "WORD",
-      "term": "bolivia",
-      "count": 3,
+      "term": "mili",
+      "count": 4,
       "rank": 7
      },
      {
       "kind": "WORD",
-      "term": "tenía",
-      "count": 3,
+      "term": "alguien",
+      "count": 4,
       "rank": 8
      },
      {
       "kind": "WORD",
-      "term": "pantalón",
+      "term": "perú",
       "count": 3,
       "rank": 9
      },
      {
       "kind": "WORD",
-      "term": "lindo",
+      "term": "bolivia",
       "count": 3,
       "rank": 10
      },
      {
       "kind": "WORD",
-      "term": "punto",
-      "count": 2,
+      "term": "tenía",
+      "count": 3,
       "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "hacia",
+      "count": 3,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "pantalón",
+      "count": 3,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "quiero",
+      "count": 3,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "lindo",
+      "count": 3,
+      "rank": 15
      },
      {
       "kind": "WORD",
       "term": "santa",
       "count": 2,
-      "rank": 12
+      "rank": 16
      },
      {
       "kind": "WORD",
       "term": "cruz",
       "count": 2,
-      "rank": 13
+      "rank": 17
      },
      {
       "kind": "WORD",
       "term": "final",
       "count": 2,
-      "rank": 14
+      "rank": 18
      },
      {
       "kind": "WORD",
       "term": "vida",
       "count": 2,
-      "rank": 15
-     },
-     {
-      "kind": "WORD",
-      "term": "perú",
-      "count": 2,
-      "rank": 16
-     },
-     {
-      "kind": "WORD",
-      "term": "hacia",
-      "count": 2,
-      "rank": 17
-     },
-     {
-      "kind": "WORD",
-      "term": "experiencia",
-      "count": 2,
-      "rank": 18
-     },
-     {
-      "kind": "WORD",
-      "term": "negro",
-      "count": 2,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "rojo",
+      "term": "lugar",
       "count": 2,
       "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "quiero",
+      "term": "verdad",
       "count": 2,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "gusta",
+      "term": "experiencia",
       "count": 2,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "debe",
+      "term": "negro",
       "count": 2,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "colomi",
+      "term": "rojo",
       "count": 2,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "super",
+      "term": "guapa",
       "count": 2,
       "rank": 25
      }
     ],
     "channel": "https://www.tiktok.com/@mily_gonzales_equilea",
     "channels": [
-     "https://www.tiktok.com/@mily_gonzales_equilea"
+     "https://www.tiktok.com/@mily_gonzales_equilea",
+     "https://www.instagram.com/Mily_Gonzales_Equilea/"
     ]
    }
   },
@@ -19676,9 +21572,9 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 3,
-    "commentsRead": 188,
-    "commentsAnalyzed": 110,
+    "videosRead": 6,
+    "commentsRead": 212,
+    "commentsAnalyzed": 120,
     "videos": [
      {
       "videoId": "7691869341691776264",
@@ -19703,20 +21599,44 @@
       "url": "https://www.tiktok.com/@eliasayaviriofici/video/7691132033099205906",
       "commentsRead": 74,
       "commentsSpanish": 39
+     },
+     {
+      "videoId": "Dd7UlwDsvZR",
+      "title": "Like si extrañas a Alguien 💔🍺",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dd7UlwDsvZR/",
+      "commentsRead": 3,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "Dd5JSM9AlBZ",
+      "title": "Te reto a Dedicarla 💔🍺",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dd5JSM9AlBZ/",
+      "commentsRead": 13,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "Ddu0cuVAecv",
+      "title": "Ya salió En todas las Plataformas 🍺💔",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Ddu0cuVAecv/",
+      "commentsRead": 8,
+      "commentsSpanish": 5
      }
     ],
     "sentiment": {
-     "analyzed": 110,
-     "positivePct": 19.1,
+     "analyzed": 120,
+     "positivePct": 17.5,
      "negativePct": 30.0,
-     "neutralPct": 50.9,
-     "ironyPct": 31.8,
-     "netScore": -10.9,
+     "neutralPct": 52.5,
+     "ironyPct": 35.0,
+     "netScore": -12.5,
      "topEmotion": "joy",
      "emotionPct": {
-      "joy": 25.5,
-      "sadness": 6.4,
-      "anger": 4.5,
+      "joy": 25.8,
+      "sadness": 7.5,
+      "anger": 4.2,
       "surprise": 0.0,
       "disgust": 0.0,
       "fear": 0.0
@@ -19725,26 +21645,26 @@
     "words": [
      {
       "kind": "WORD",
-      "term": "abogado",
-      "count": 13,
+      "term": "canción",
+      "count": 14,
       "rank": 1
      },
      {
       "kind": "WORD",
-      "term": "canción",
-      "count": 11,
+      "term": "abogado",
+      "count": 13,
       "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "música",
+      "count": 10,
+      "rank": 3
      },
      {
       "kind": "WORD",
       "term": "años",
       "count": 9,
-      "rank": 3
-     },
-     {
-      "kind": "WORD",
-      "term": "música",
-      "count": 8,
       "rank": 4
      },
      {
@@ -19755,128 +21675,129 @@
      },
      {
       "kind": "WORD",
+      "term": "canciones",
+      "count": 7,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
       "term": "verdad",
       "count": 6,
-      "rank": 6
+      "rank": 7
      },
      {
       "kind": "WORD",
       "term": "joven",
       "count": 5,
-      "rank": 7
+      "rank": 8
      },
      {
       "kind": "WORD",
       "term": "escuchando",
       "count": 5,
-      "rank": 8
+      "rank": 9
      },
      {
       "kind": "WORD",
       "term": "temas",
       "count": 5,
-      "rank": 9
+      "rank": 10
      },
      {
       "kind": "WORD",
       "term": "bro",
       "count": 4,
-      "rank": 10
-     },
-     {
-      "kind": "WORD",
-      "term": "fan",
-      "count": 4,
       "rank": 11
      },
      {
       "kind": "WORD",
-      "term": "sigo",
+      "term": "soy",
       "count": 4,
       "rank": 12
      },
      {
       "kind": "WORD",
-      "term": "profesional",
-      "count": 3,
+      "term": "fan",
+      "count": 4,
       "rank": 13
      },
      {
       "kind": "WORD",
-      "term": "fans",
-      "count": 3,
+      "term": "sigo",
+      "count": 4,
       "rank": 14
      },
      {
       "kind": "WORD",
-      "term": "nadie",
+      "term": "llama",
       "count": 3,
       "rank": 15
      },
      {
       "kind": "WORD",
-      "term": "educación",
+      "term": "profesional",
       "count": 3,
       "rank": 16
      },
      {
       "kind": "WORD",
-      "term": "envidia",
+      "term": "fans",
       "count": 3,
       "rank": 17
      },
      {
       "kind": "WORD",
-      "term": "corazón",
+      "term": "nadie",
       "count": 3,
       "rank": 18
      },
      {
       "kind": "WORD",
-      "term": "gusto",
+      "term": "educación",
       "count": 3,
       "rank": 19
      },
      {
       "kind": "WORD",
-      "term": "soy",
+      "term": "envidia",
       "count": 3,
       "rank": 20
      },
      {
       "kind": "WORD",
-      "term": "músicas",
+      "term": "corazón",
       "count": 3,
       "rank": 21
      },
      {
       "kind": "WORD",
-      "term": "canciones",
+      "term": "gusto",
       "count": 3,
       "rank": 22
      },
      {
       "kind": "WORD",
-      "term": "hiciste",
+      "term": "músicas",
       "count": 3,
       "rank": 23
      },
      {
       "kind": "WORD",
-      "term": "dedicas",
+      "term": "tiempo",
       "count": 3,
       "rank": 24
      },
      {
       "kind": "WORD",
-      "term": "saludos",
+      "term": "hiciste",
       "count": 3,
       "rank": 25
      }
     ],
     "channel": "https://www.tiktok.com/@eliasayaviriofici",
     "channels": [
-     "https://www.tiktok.com/@eliasayaviriofici"
+     "https://www.tiktok.com/@eliasayaviriofici",
+     "https://www.instagram.com/eliasayavirioficial/"
     ]
    }
   },
@@ -22369,8 +24290,8 @@
    "sentiment": null,
    "words": null,
    "own": {
-    "videosRead": 3,
-    "commentsRead": 240,
+    "videosRead": 6,
+    "commentsRead": 246,
     "commentsAnalyzed": 144,
     "videos": [
      {
@@ -22396,6 +24317,30 @@
       "url": "https://www.tiktok.com/@yossuvalerioo/video/6981617233550118149",
       "commentsRead": 80,
       "commentsSpanish": 61
+     },
+     {
+      "videoId": "DdP81qNFDxC",
+      "title": "Un planazo 🌅🧉",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdP81qNFDxC/",
+      "commentsRead": 2,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DWXZx0vmPrJ",
+      "title": "Me olvidé de estas fotos jaja con el partido de Bolivia me acordé 🫪🫶🏼🇧🇴",
+      "published": null,
+      "url": "https://www.instagram.com/p/DWXZx0vmPrJ/",
+      "commentsRead": 2,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DVedWBJj5TE",
+      "title": "La Paz 😈 Bolivia pa",
+      "published": null,
+      "url": "https://www.instagram.com/p/DVedWBJj5TE/",
+      "commentsRead": 2,
+      "commentsSpanish": 0
      }
     ],
     "sentiment": {
@@ -22569,7 +24514,8 @@
     ],
     "channel": "https://www.tiktok.com/@yossuvalerioo",
     "channels": [
-     "https://www.tiktok.com/@yossuvalerioo"
+     "https://www.tiktok.com/@yossuvalerioo",
+     "https://www.instagram.com/yossuvalerio/"
     ]
    }
   },
@@ -26471,6 +28417,1754 @@
     "channel": "https://www.tiktok.com/@elgranhechicerobo",
     "channels": [
      "https://www.tiktok.com/@elgranhechicerobo"
+    ]
+   }
+  },
+  "P_MARCELO_MARTINS_MORENO": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 88,
+    "commentsAnalyzed": 12,
+    "videos": [
+     {
+      "videoId": "DeKmsV3FP5l",
+      "title": "Lendas do futebol mundial @ronaldinho @galaticosgame foi um prazer reencontrar meus amigos do futebol. ⚽️ Tenham muito orgulho da história que vocês construíram! Legado eterno!",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeKmsV3FP5l/",
+      "commentsRead": 30,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DdZ99G-goRr",
+      "title": "Mi padre se murió por el cáncer,hoy tengo la posibilidad de ayudar a familias que lo están necesitando urgente.Una donación com amor y de corazón de 50,000,000 dólares para el instituto oncológico del",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdZ99G-goRr/",
+      "commentsRead": 30,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "DbBvf6yFGFd",
+      "title": "THE FINAL FIFA WORLD CUP 2026 🏆🥇",
+      "published": null,
+      "url": "https://www.instagram.com/p/DbBvf6yFGFd/",
+      "commentsRead": 28,
+      "commentsSpanish": 3
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/marcelo_moreno/",
+    "channels": [
+     "https://www.instagram.com/marcelo_moreno/"
+    ]
+   }
+  },
+  "P_LUZMILA_CARPIO": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 33,
+    "commentsAnalyzed": 10,
+    "videos": [
+     {
+      "videoId": "DeB2Zhtxq2c",
+      "title": "Chayamuyku, chayamuyku… Ya pronto llegamos.\n\nDesde los Andes traigo mis cantos a Buenos Aires. Hoy esta hermosa sala espera; el 6 de noviembre cantaremos juntos en el Teatro Margarita Xirgu. ☀️\n\nLos e",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeB2Zhtxq2c/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DeBvGOjRvvf",
+      "title": "Luzmila Carpio vuelve a Buenos Aires. ✨\n\nDistinguida con el WOMEX Artist Award 2026, presenta Inti Watana en un concierto único.\n\n6 de noviembre · Teatro Margarita Xirgu\nEntradas en Passline.",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeBvGOjRvvf/",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "Dd4HWHBoPuP",
+      "title": "Hoy recibo uno de los reconocimientos más importantes de mi vida artística.\nWOMEX me ha elegido para recibir el Artist Award 2026.\nDurante más de cincuenta años he cantado en quechua llevando conmigo ",
+      "published": null,
+      "url": "https://www.instagram.com/p/Dd4HWHBoPuP/",
+      "commentsRead": 31,
+      "commentsSpanish": 9
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/luzmilacarpio/",
+    "channels": [
+     "https://www.instagram.com/luzmilacarpio/"
+    ]
+   }
+  },
+  "P_ELOISA_GUTIERREZ": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 70,
+    "commentsAnalyzed": 17,
+    "videos": [
+     {
+      "videoId": "DdKI4_OFeay",
+      "title": "80’s, always 🤍",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdKI4_OFeay/",
+      "commentsRead": 12,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "DadSJ9_Dvmk",
+      "title": "Por aqui, tá tudo bem, amor. 💚💛😎",
+      "published": null,
+      "url": "https://www.instagram.com/p/DadSJ9_Dvmk/",
+      "commentsRead": 30,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "DZ6aIQlDncw",
+      "title": "A thousand moods.\nOne woman. 🖤",
+      "published": null,
+      "url": "https://www.instagram.com/p/DZ6aIQlDncw/",
+      "commentsRead": 28,
+      "commentsSpanish": 5
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/holasoyeloisa/",
+    "channels": [
+     "https://www.instagram.com/holasoyeloisa/"
+    ]
+   }
+  },
+  "P_BRUNO_FERRANTE": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 104,
+    "commentsAnalyzed": 17,
+    "videos": [
+     {
+      "videoId": "DdH7Pe9p-mW",
+      "title": "Ya saben quién manda aquí 🤷🏻‍♂️ @camilarroca",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdH7Pe9p-mW/",
+      "commentsRead": 21,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DYMz62LxemU",
+      "title": "Del Barça som i serem!💙❤️",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DYMz62LxemU/",
+      "commentsRead": 58,
+      "commentsSpanish": 15
+     },
+     {
+      "videoId": "DduZ2fepr0v",
+      "title": "🥺💙❤️",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DduZ2fepr0v/",
+      "commentsRead": 25,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/brferrante/",
+    "channels": [
+     "https://www.instagram.com/brferrante/"
+    ]
+   }
+  },
+  "P_RECETAS_SALUDABLES_LUCIANA": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 114,
+    "commentsAnalyzed": 58,
+    "videos": [
+     {
+      "videoId": "DeiKnlhgqff",
+      "title": "Carrot cake saludable de una porción \nEpisodio 3 \nNecesitas \n- 1 huevo \n- 40 gramos de harina de avena \n- stevia al gusto \n- 1/2 cucharilla de polvo de hornear \n- 1/2 cucharilla de canela \n- una pizca",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeiKnlhgqff/",
+      "commentsRead": 17,
+      "commentsSpanish": 9
+     },
+     {
+      "videoId": "Dec4G3DAhqv",
+      "title": "Helados saludables altos en proteína \nNecesitas: \n- 3 yogurt griego en pote (170g) Delizia \nPara cada pote \n- ⁠1 cuchara de leche en polvo \n- ⁠1/2 medida de proteína en polvo de vainilla (opcional) \n-",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dec4G3DAhqv/",
+      "commentsRead": 49,
+      "commentsSpanish": 28
+     },
+     {
+      "videoId": "DeaPuM9ARmx",
+      "title": "Mousse de maracuyá fit con 4 ingredientes \nNecesitas \n- 250 ml de yogurt griego \n- 50 ml de jugo de maracuyá \n- stevia al gusto\n- 6 gr de gelatina hidratada \n#mousse #maracuya #recetasfaciles",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeaPuM9ARmx/",
+      "commentsRead": 48,
+      "commentsSpanish": 21
+     }
+    ],
+    "sentiment": {
+     "analyzed": 58,
+     "positivePct": 6.9,
+     "negativePct": 25.9,
+     "neutralPct": 67.2,
+     "ironyPct": 44.8,
+     "netScore": -19.0,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 8.6,
+      "sadness": 1.7,
+      "anger": 3.4,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "polvo",
+      "count": 14,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "leche",
+      "count": 13,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "gelatina",
+      "count": 12,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "proteína",
+      "count": 8,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "harina",
+      "count": 5,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "rico",
+      "count": 5,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "hidratada",
+      "count": 5,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "reemplazar",
+      "count": 4,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "sería",
+      "count": 4,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "voy",
+      "count": 3,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "tiempo",
+      "count": 3,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "avena",
+      "count": 3,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "disculpa",
+      "count": 3,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "yogurt",
+      "count": 3,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "favor",
+      "count": 3,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "maracuya",
+      "count": 3,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "sabor",
+      "count": 3,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "gel",
+      "count": 3,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "coco",
+      "count": 2,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "quedó",
+      "count": 2,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "microondas",
+      "count": 2,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "clavo",
+      "count": 2,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "olor",
+      "count": 2,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "receta",
+      "count": 2,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "frutos",
+      "count": 2,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.instagram.com/lu_fitfoodie/",
+    "channels": [
+     "https://www.instagram.com/lu_fitfoodie/"
+    ]
+   }
+  },
+  "P_REYNALDO_PACHECO": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 23,
+    "commentsAnalyzed": 7,
+    "videos": [
+     {
+      "videoId": "DdzyKXsGSeS",
+      "title": "Opening night film festival Hola Mexico @holamexicoff \nTeatro Montalvan\nLos Angeles, California\n\n#holamexicofilmfestival #holamexico #Montalvan #holanexicofilmfestival2026",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdzyKXsGSeS/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DcgyUpaRfvJ",
+      "title": "FUERTES llega al Festival Internacional de Cine FICA Cusco 2026.\n\nQué alegría ver esta película regresar a la pantalla y formar parte de la Competencia Oficial de Largometrajes del festival.\n\nFUERTES ",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DcgyUpaRfvJ/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Db60NtTmW5r",
+      "title": "«Amor Cobarde», de los bolivianos Dany Deglein y Reynaldo Pacheco compite en los Latin Grammy\n\nEl cantautor y productor boliviano Dany Deglein junto al actor y cantante Reynaldo Pacheco, ingresaron a ",
+      "published": null,
+      "url": "https://www.instagram.com/p/Db60NtTmW5r/",
+      "commentsRead": 22,
+      "commentsSpanish": 7
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/reynaldo_pacheco/",
+    "channels": [
+     "https://www.instagram.com/reynaldo_pacheco/"
+    ]
+   }
+  },
+  "P_KEILA_PEREZ": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 61,
+    "commentsAnalyzed": 18,
+    "videos": [
+     {
+      "videoId": "DeodE1SOK2e",
+      "title": "Nunca dejes de ser buena persona \n.\n.\n.\n.\n.\n.\n.\n#consejos #motivación #reflexión",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeodE1SOK2e/",
+      "commentsRead": 33,
+      "commentsSpanish": 10
+     },
+     {
+      "videoId": "DenUkHUNiTz",
+      "title": "#reflexión #consejos #motivación #padresehijos",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DenUkHUNiTz/",
+      "commentsRead": 15,
+      "commentsSpanish": 5
+     },
+     {
+      "videoId": "Dem9yIGMPct",
+      "title": "#reflexión #consejos #amorpropio #motivación",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dem9yIGMPct/",
+      "commentsRead": 13,
+      "commentsSpanish": 3
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/_keilaperez_/",
+    "channels": [
+     "https://www.instagram.com/_keilaperez_/"
+    ]
+   }
+  },
+  "P_ANDRES_SALVATIERRA_J": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 11,
+    "commentsAnalyzed": 4,
+    "videos": [
+     {
+      "videoId": "DepMqH3x_uD",
+      "title": "Diablo, que difícil me la pusiste. 😅",
+      "published": null,
+      "url": "https://www.instagram.com/p/DepMqH3x_uD/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DehrsrrlH6w",
+      "title": "Estos 200mp están de otro mundo. #Honor600",
+      "published": null,
+      "url": "https://www.instagram.com/p/DehrsrrlH6w/",
+      "commentsRead": 7,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DeftcBopbLN",
+      "title": "Mamá sabe cosas. ✨🗿",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeftcBopbLN/",
+      "commentsRead": 4,
+      "commentsSpanish": 2
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/andres.salvatierraj/",
+    "channels": [
+     "https://www.instagram.com/andres.salvatierraj/"
+    ]
+   }
+  },
+  "P_ALESSANDRA_ANEZ": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 24,
+    "commentsAnalyzed": 10,
+    "videos": [
+     {
+      "videoId": "DdpRtW3hMKI",
+      "title": "La mejor ensalada de frutas que probé!!!\nCantidades:\n400 gr de crema de leche\n200 gr de leche condensada\n1/2 taza de leche en polvo\n70 gr de pulpa de maracuyá\nFrutas frescas a elección\n\nDisfruten! :)\n",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdpRtW3hMKI/",
+      "commentsRead": 8,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "DdoWDviRiyc",
+      "title": "La mejor receta de roscas de maíz para este 24 de septiembre💚🤍💚\n\nCantidades:\n300 gr de harina de maíz precocida\n75 gr de azucar\n5 gr de sal\n100 gr de mantequilla\n300 gr de queso\n170 gr de yuca coci",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdoWDviRiyc/",
+      "commentsRead": 10,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "DcEIdtoxREf",
+      "title": "Comprobadísimo, queda muy cremoso!🤤🍨\nHelado de Cookies&Cream con Cremositas Max\n\nCantidades:\n400 gr de leche condensada\n200 gr de crema de leche\n200 gr de leche\n3-4 paquetitos de galletas Cremositas",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DcEIdtoxREf/",
+      "commentsRead": 6,
+      "commentsSpanish": 3
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/facil_de_preparar/",
+    "channels": [
+     "https://www.instagram.com/facil_de_preparar/"
+    ]
+   }
+  },
+  "P_GUISBERT_KALI": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 54,
+    "commentsAnalyzed": 11,
+    "videos": [
+     {
+      "videoId": "Deov0vAFJN5",
+      "title": "Él hacía reír mientras su esposa luchaba contra el cáncer 😭❤",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Deov0vAFJN5/",
+      "commentsRead": 8,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DenpGa4FEBy",
+      "title": "Niños vs. la tentación del dinero: ¡sus ocurrencias no tienen precio! 😂💰❤️",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DenpGa4FEBy/",
+      "commentsRead": 5,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "DemS41SDHQq",
+      "title": "Ten cuidado con lo que le pides a Dios 🙌",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DemS41SDHQq/",
+      "commentsRead": 41,
+      "commentsSpanish": 5
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/guisbert_kali/",
+    "channels": [
+     "https://www.instagram.com/guisbert_kali/"
+    ]
+   }
+  },
+  "P_MARCO_ANTELO": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 46,
+    "commentsAnalyzed": 13,
+    "videos": [
+     {
+      "videoId": "Demgzb9Bo3H",
+      "title": "Paren toooooodooo que Santi trae una tormenta de pintaaaaa jajajajjaja 🔥🔥🔥",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Demgzb9Bo3H/",
+      "commentsRead": 21,
+      "commentsSpanish": 5
+     },
+     {
+      "videoId": "DekggciPV7h",
+      "title": "Que locura todo lo que hemos hecho con Ailive en estos dos años y diez meses. \nVer el camino te ayuda a dimensionar lo conseguido. \n\nGracias a todos los que confiaron y confían en nosotros. \nEsto lo h",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DekggciPV7h/",
+      "commentsRead": 22,
+      "commentsSpanish": 7
+     },
+     {
+      "videoId": "Defao5XvwcX",
+      "title": "Mochila, conservadora, equipo de pesca…Ya no me pregunto “¿Qué llevo?, sino “¿Qué más entra? Cargá todo lo que necesitas para convertir cualquier salida en una aventura. 🎣🏕️\n#nissanfrontier #frontie",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Defao5XvwcX/",
+      "commentsRead": 3,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/yeyoantelo/",
+    "channels": [
+     "https://www.instagram.com/yeyoantelo/"
+    ]
+   }
+  },
+  "P_ICIAR_DIAZ": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 85,
+    "commentsAnalyzed": 2,
+    "videos": [
+     {
+      "videoId": "DeknM2chF6s",
+      "title": "Cover “A Ferro e Fogo” de @zezedicamargoeluciano em espanhol e português ❤️🎼\n\nQuem ama esse clássico como eu?? 😍\nJá salva e manda muito esse vídeo para que chegue no @zezedicamargo 🎶🎼\n\nObrigada se",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeknM2chF6s/",
+      "commentsRead": 28,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Defkm9flD0p",
+      "title": "Que a gente tenha uma semana abençoada, nesta sexta tem cover novooo con muito amor e carinho ☺️💗\n\nObrigada pelo apoio sempreeee 🫶🏻✨\nBeijos\nIci 😘\n\n——————————\nQue tengamos una semana bendecida, est",
+      "published": null,
+      "url": "https://www.instagram.com/p/Defkm9flD0p/",
+      "commentsRead": 28,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DeKy_7CvqEw",
+      "title": "Hay días en los que estar lejos de casa se siente más 🥺🇧🇴\n\nY cuando llega un momento importante, lo único que quiero es estar presente, aunque sea a la distancia ❤️\n\nPor eso me encanta usar @eldora",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DeKy_7CvqEw/",
+      "commentsRead": 29,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/iciardiaz/",
+    "channels": [
+     "https://www.instagram.com/iciardiaz/"
+    ]
+   }
+  },
+  "P_MARIA_RENE_POMACUSI_ANEZ": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 80,
+    "commentsAnalyzed": 15,
+    "videos": [
+     {
+      "videoId": "DepErOVEapM",
+      "title": "Tres señoritas de dudosa reputación 💋\n\nLA MANADA- Ya disponible 🐺",
+      "published": null,
+      "url": "https://www.instagram.com/p/DepErOVEapM/",
+      "commentsRead": 7,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "Deh3xdHvO6J",
+      "title": "Detrás de cada campaña icónica, hay 47 papelones🤣❤️",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Deh3xdHvO6J/",
+      "commentsRead": 53,
+      "commentsSpanish": 12
+     },
+     {
+      "videoId": "DefwSY1tFoV",
+      "title": "Still ahead somehow",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DefwSY1tFoV/",
+      "commentsRead": 20,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/mariarenepomacusi_/",
+    "channels": [
+     "https://www.instagram.com/mariarenepomacusi_/"
+    ]
+   }
+  },
+  "P_CAROLINA_RODAS_CORTEZ": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 36,
+    "commentsAnalyzed": 10,
+    "videos": [
+     {
+      "videoId": "DehOyddkfy4",
+      "title": "👑 EL BAUTIZO DEL EMPERADOR |\n\nCAPÍTULO 1: ¿QUIERES SER MI PADRINO?\nLas reacciones que nos robaron el corazón.\n\n𝑨 𝒗𝒆𝒄𝒆𝒔, 𝑫𝒊𝒐𝒔 𝒏𝒐 𝒓𝒆𝒔𝒑𝒐𝒏𝒅𝒆 𝒄𝒐𝒏 𝒑𝒂𝒍𝒂𝒃𝒓𝒂𝒔, 𝒔𝒊𝒏𝒐 𝒄𝒐𝒏 ",
+      "published": null,
+      "url": "https://www.instagram.com/p/DehOyddkfy4/",
+      "commentsRead": 4,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Ddz-d6_OOI6",
+      "title": "Hoy te miro y hago una promesa, hijo mío: voy a enseñarte que ser un hombre de bien jamás tendrá que ver con hacer sentir menos a una mujer.\n\nQuiero que aprendas que la verdadera hombría está en respe",
+      "published": null,
+      "url": "https://www.instagram.com/p/Ddz-d6_OOI6/",
+      "commentsRead": 32,
+      "commentsSpanish": 10
+     },
+     {
+      "videoId": "DdrzVuYvbbq",
+      "title": "Hoy los espero en ambos stand de @deliziabolivia",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdrzVuYvbbq/",
+      "commentsRead": 0,
+      "commentsSpanish": 0
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/carotvoficial/",
+    "channels": [
+     "https://www.instagram.com/carotvoficial/"
+    ]
+   }
+  },
+  "P_LUIS_VEGA_OFICIAL": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 99,
+    "commentsAnalyzed": 41,
+    "videos": [
+     {
+      "videoId": "Dehl-y8sev_",
+      "title": "@sarangostyle",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dehl-y8sev_/",
+      "commentsRead": 41,
+      "commentsSpanish": 16
+     },
+     {
+      "videoId": "DehOowAsTNM",
+      "title": "Que sonsooo 🤦🏻",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DehOowAsTNM/",
+      "commentsRead": 8,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "Deaf9WfsUqE",
+      "title": "El prometido tenía novia 😱🤯🙊",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Deaf9WfsUqE/",
+      "commentsRead": 50,
+      "commentsSpanish": 21
+     }
+    ],
+    "sentiment": {
+     "analyzed": 41,
+     "positivePct": 19.5,
+     "negativePct": 29.3,
+     "neutralPct": 51.2,
+     "ironyPct": 36.6,
+     "netScore": -9.8,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 34.1,
+      "sadness": 12.2,
+      "anger": 4.9,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "artista",
+      "count": 3,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "colaboración",
+      "count": 3,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "corazón",
+      "count": 3,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "saludos",
+      "count": 3,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "papel",
+      "count": 2,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "lápiz",
+      "count": 2,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "hermoso",
+      "count": 2,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "orgullo",
+      "count": 2,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "boliviano",
+      "count": 2,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "falta",
+      "count": 2,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "contigo",
+      "count": 2,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "pena",
+      "count": 2,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "guapo",
+      "count": 2,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "bendiciones",
+      "count": 2,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "tomé",
+      "count": 2,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "final",
+      "count": 2,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "canción",
+      "count": 2,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "álbum",
+      "count": 2,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "piura",
+      "count": 2,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "canciones",
+      "count": 2,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "grammys",
+      "count": 2,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "año",
+      "count": 2,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "pasado",
+      "count": 2,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "mes",
+      "count": 2,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "pedí",
+      "count": 2,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.instagram.com/luisvega_oficial/",
+    "channels": [
+     "https://www.instagram.com/luisvega_oficial/"
+    ]
+   }
+  },
+  "P_SERGIO_ABEL_MENDEZ_TITZE": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 45,
+    "commentsAnalyzed": 11,
+    "videos": [
+     {
+      "videoId": "DdwZUWCOWm9",
+      "title": "Sophia Antonella 🎀💕",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdwZUWCOWm9/",
+      "commentsRead": 21,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "DdKGBshArmS",
+      "title": "Existen despedidas que deseamos que nunca lleguen.\nLlegaste para cambiar mi vida para enseñarme que no se necesitan de palabras para demostrar amor.\nLlegaste para enseñarme lo que es tener un corazón ",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdKGBshArmS/",
+      "commentsRead": 12,
+      "commentsSpanish": 5
+     },
+     {
+      "videoId": "DdHlFPRAN0U",
+      "title": "Un nuevo capítulo para nuestras vidas 🎀🌸",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdHlFPRAN0U/",
+      "commentsRead": 12,
+      "commentsSpanish": 3
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/baby_mendez_/",
+    "channels": [
+     "https://www.instagram.com/baby_mendez_/"
+    ]
+   }
+  },
+  "P_VALENTINA_SALAS": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 19,
+    "commentsAnalyzed": 5,
+    "videos": [
+     {
+      "videoId": "DdZMZemBVzm",
+      "title": "Sin duda de las mejores decisiones fue realizarme un alisado orgánico en @Spazzio_Donna_ 💇🏻‍♀️🌟✨💕\n\n#alisado #santacruzbolivia",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdZMZemBVzm/",
+      "commentsRead": 1,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Dcv3PbvR5Rd",
+      "title": "Y sí… quedé feliz con mi sonrisa 🦷✨\n@dra_silvanamonasterio \n\nY si van de mi parte tienen un 30% OFF con mi código VALENTINA01 \n\n#sczbolivia #parati #blanqueamientodental #dentista",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dcv3PbvR5Rd/",
+      "commentsRead": 1,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DXU4L1DFBUS",
+      "title": "2024 vs 2026 \nNo fue de un día para otro… ni tampoco fue perfecto.\n\nFueron días buenos, días donde no tenía ganas, momentos donde quería rendirme y otros donde me sentía imparable.\n\nEn el camino no so",
+      "published": null,
+      "url": "https://www.instagram.com/p/DXU4L1DFBUS/",
+      "commentsRead": 17,
+      "commentsSpanish": 4
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/valen.notes/",
+    "channels": [
+     "https://www.instagram.com/valen.notes/"
+    ]
+   }
+  },
+  "P_GABRIEL_APATA": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 95,
+    "commentsAnalyzed": 22,
+    "videos": [
+     {
+      "videoId": "DenIj_hP3QR",
+      "title": "MIS HELADOS SECRETOS 🤫 #nabi #roblox #reels",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DenIj_hP3QR/",
+      "commentsRead": 12,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "Deh7qiYPBm6",
+      "title": "SOY NABI Y SOY UN BODRIO #nabi #reels #roblox",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Deh7qiYPBm6/",
+      "commentsRead": 47,
+      "commentsSpanish": 11
+     },
+     {
+      "videoId": "DecyT_YP4lY",
+      "title": "CELYNNEI YA NO ES MI AMIGA 😭 #nabi #roblox #shorts",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DecyT_YP4lY/",
+      "commentsRead": 36,
+      "commentsSpanish": 8
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/soy.nabriel/",
+    "channels": [
+     "https://www.instagram.com/soy.nabriel/"
+    ]
+   }
+  },
+  "P_LUISFER_SARABIA": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 60,
+    "commentsAnalyzed": 19,
+    "videos": [
+     {
+      "videoId": "Dej5r_KqQY7",
+      "title": "inventándome mil excusas para salir y presumir mi nuevo Volkswagen Polo 0 KM. 🚗✨😍 @vwbolivia \n\nEs que con este auto me siento la más top , ¿Será que Daniel vuelve? 🤭❤️ #comedia #fyp #santacruzboliv",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dej5r_KqQY7/",
+      "commentsRead": 7,
+      "commentsSpanish": 2
+     },
+     {
+      "videoId": "DehRpjjxfPH",
+      "title": "Definitivamente, no puedo vivir sin mamá 🥹 y tampoco sin mi @finesse.bo 🩵✨",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DehRpjjxfPH/",
+      "commentsRead": 8,
+      "commentsSpanish": 3
+     },
+     {
+      "videoId": "DePdFxAqNO_",
+      "title": "Se viene algo NUEVO, NOVEDOSO y NUNCA ANTES VISTO… 🤯 @soyyorene \n\n¡UN PODCAST! 🎙️\n\nGOOD VIBES 💖⏳",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DePdFxAqNO_/",
+      "commentsRead": 45,
+      "commentsSpanish": 14
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/luisfer.sarabia/",
+    "channels": [
+     "https://www.instagram.com/luisfer.sarabia/"
+    ]
+   }
+  },
+  "P_ALANA_FERNANDEZ": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 36,
+    "commentsAnalyzed": 5,
+    "videos": [
+     {
+      "videoId": "DepMfhCFFWG",
+      "title": "october stuff",
+      "published": null,
+      "url": "https://www.instagram.com/p/DepMfhCFFWG/",
+      "commentsRead": 8,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Dem2YSMFCPM",
+      "title": "POR FIN, LLEGÓ IMMU BALANCE.🌸\n\nHay cosas que nacen de una necesidad personal y terminan convirtiéndose en algo que soñas con compartir con muchas más mujeres Y este es uno de esos proyectos para mí. ",
+      "published": null,
+      "url": "https://www.instagram.com/p/Dem2YSMFCPM/",
+      "commentsRead": 14,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "DefY0qFvLMP",
+      "title": "",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DefY0qFvLMP/",
+      "commentsRead": 14,
+      "commentsSpanish": 5
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/alanafernandezh/",
+    "channels": [
+     "https://www.instagram.com/alanafernandezh/"
+    ]
+   }
+  },
+  "P_VICTOR_ALONSO_ABREGO": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 118,
+    "commentsAnalyzed": 14,
+    "videos": [
+     {
+      "videoId": "DdaRuD0IHIs",
+      "title": "Días difíciles, momentos que duelen, pero también momentos que nos hacen más fuertes.💪❤️\nEsto no termina aquí. Seguimos juntos, seguimos creyendo🦁⚽️\n@clubguabira ♥️",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdaRuD0IHIs/",
+      "commentsRead": 48,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "DdIgNCBtKdh",
+      "title": "♥️🐦‍🔥",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DdIgNCBtKdh/",
+      "commentsRead": 27,
+      "commentsSpanish": 4
+     },
+     {
+      "videoId": "Dc96DBAoNlM",
+      "title": "“La fatiga nos hace cobardes a todos.”🧠🙌🏻\nVINCE LOMBARDI.✍🏻",
+      "published": null,
+      "url": "https://www.instagram.com/p/Dc96DBAoNlM/",
+      "commentsRead": 43,
+      "commentsSpanish": 6
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/victoralonsoabrego/",
+    "channels": [
+     "https://www.instagram.com/victoralonsoabrego/"
+    ]
+   }
+  },
+  "P_BELEN_MENDEZ": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 79,
+    "commentsAnalyzed": 16,
+    "videos": [
+     {
+      "videoId": "Dd5FEeotoM-",
+      "title": "AYAYAYAY!!💋💅🏻🎉 \n\n🎥: @juanjoestudios 🔥👏🏻",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Dd5FEeotoM-/",
+      "commentsRead": 30,
+      "commentsSpanish": 6
+     },
+     {
+      "videoId": "DcHOO10KO5H",
+      "title": "Que Bailar Chee!!💃🏻🔥 #okinawa @casagrandescz",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DcHOO10KO5H/",
+      "commentsRead": 33,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "DcHIbZwKhtx",
+      "title": "Gracias Okinawa!!❤️🎉🥹 @casagrandescz",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DcHIbZwKhtx/",
+      "commentsRead": 16,
+      "commentsSpanish": 2
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/belenmendez_oficial/",
+    "channels": [
+     "https://www.instagram.com/belenmendez_oficial/"
+    ]
+   }
+  },
+  "P_WENDY_CALLAU_DURAN": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 104,
+    "commentsAnalyzed": 31,
+    "videos": [
+     {
+      "videoId": "Dd7nqYaDJgU",
+      "title": "“Tenerte como prioridad no es egoísmo, es amor propio💖👑\n.\n.\n.\n.\n.\nPh: @alanro.foto \n#wcd👑 #wendycallau #wendycallau👸",
+      "published": null,
+      "url": "https://www.instagram.com/p/Dd7nqYaDJgU/",
+      "commentsRead": 18,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "Dc4rxX_m7HR",
+      "title": "No existe competencia. Amo ser yo y ni si quiera me gusta la posibilidad  de parecerme a alguien👑\n.\n.\n.\n.\n.\n#wcd👑 #wendycallau",
+      "published": null,
+      "url": "https://www.instagram.com/p/Dc4rxX_m7HR/",
+      "commentsRead": 60,
+      "commentsSpanish": 23
+     },
+     {
+      "videoId": "DbjwS94MZf2",
+      "title": "#wcd👑",
+      "published": null,
+      "url": "https://www.instagram.com/reel/DbjwS94MZf2/",
+      "commentsRead": 26,
+      "commentsSpanish": 7
+     }
+    ],
+    "sentiment": {
+     "analyzed": 31,
+     "positivePct": 32.3,
+     "negativePct": 25.8,
+     "neutralPct": 41.9,
+     "ironyPct": 35.5,
+     "netScore": 6.5,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 38.7,
+      "sadness": 3.2,
+      "anger": 0.0,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "atrás",
+      "count": 11,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "señor",
+      "count": 5,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "argentina",
+      "count": 3,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "tipo",
+      "count": 3,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "hermosa",
+      "count": 3,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "saludos",
+      "count": 2,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 2,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "cambio",
+      "count": 2,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "salta",
+      "count": 2,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "única",
+      "count": 2,
+      "rank": 10
+     }
+    ],
+    "channel": "https://www.instagram.com/wendycallauduran/",
+    "channels": [
+     "https://www.instagram.com/wendycallauduran/"
+    ]
+   }
+  },
+  "P_HENRY_VACA_U": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 124,
+    "commentsAnalyzed": 59,
+    "videos": [
+     {
+      "videoId": "Ddg58oft5-P",
+      "title": "",
+      "published": null,
+      "url": "https://www.instagram.com/reel/Ddg58oft5-P/",
+      "commentsRead": 39,
+      "commentsSpanish": 8
+     },
+     {
+      "videoId": "DbOu8flgZaw",
+      "title": "",
+      "published": null,
+      "url": "https://www.instagram.com/p/DbOu8flgZaw/",
+      "commentsRead": 60,
+      "commentsSpanish": 34
+     },
+     {
+      "videoId": "DV6oEFdgUa9",
+      "title": "❤️👊🏻",
+      "published": null,
+      "url": "https://www.instagram.com/p/DV6oEFdgUa9/",
+      "commentsRead": 25,
+      "commentsSpanish": 17
+     }
+    ],
+    "sentiment": {
+     "analyzed": 59,
+     "positivePct": 25.4,
+     "negativePct": 33.9,
+     "neutralPct": 40.7,
+     "ironyPct": 18.6,
+     "netScore": -8.5,
+     "topEmotion": "joy",
+     "emotionPct": {
+      "joy": 49.2,
+      "sadness": 8.5,
+      "anger": 1.7,
+      "surprise": 0.0,
+      "disgust": 0.0,
+      "fear": 0.0
+     }
+    },
+    "words": [
+     {
+      "kind": "WORD",
+      "term": "crack",
+      "count": 13,
+      "rank": 1
+     },
+     {
+      "kind": "WORD",
+      "term": "oriente",
+      "count": 10,
+      "rank": 2
+     },
+     {
+      "kind": "WORD",
+      "term": "sos",
+      "count": 8,
+      "rank": 3
+     },
+     {
+      "kind": "WORD",
+      "term": "jugar",
+      "count": 7,
+      "rank": 4
+     },
+     {
+      "kind": "WORD",
+      "term": "selección",
+      "count": 7,
+      "rank": 5
+     },
+     {
+      "kind": "WORD",
+      "term": "dale",
+      "count": 5,
+      "rank": 6
+     },
+     {
+      "kind": "WORD",
+      "term": "vos",
+      "count": 5,
+      "rank": 7
+     },
+     {
+      "kind": "WORD",
+      "term": "ídolo",
+      "count": 5,
+      "rank": 8
+     },
+     {
+      "kind": "WORD",
+      "term": "enano",
+      "count": 4,
+      "rank": 9
+     },
+     {
+      "kind": "WORD",
+      "term": "equipo",
+      "count": 4,
+      "rank": 10
+     },
+     {
+      "kind": "WORD",
+      "term": "volve",
+      "count": 4,
+      "rank": 11
+     },
+     {
+      "kind": "WORD",
+      "term": "podes",
+      "count": 4,
+      "rank": 12
+     },
+     {
+      "kind": "WORD",
+      "term": "aurora",
+      "count": 3,
+      "rank": 13
+     },
+     {
+      "kind": "WORD",
+      "term": "soy",
+      "count": 3,
+      "rank": 14
+     },
+     {
+      "kind": "WORD",
+      "term": "extraño",
+      "count": 3,
+      "rank": 15
+     },
+     {
+      "kind": "WORD",
+      "term": "bolivar",
+      "count": 3,
+      "rank": 16
+     },
+     {
+      "kind": "WORD",
+      "term": "grande",
+      "count": 3,
+      "rank": 17
+     },
+     {
+      "kind": "WORD",
+      "term": "talento",
+      "count": 3,
+      "rank": 18
+     },
+     {
+      "kind": "WORD",
+      "term": "carrera",
+      "count": 2,
+      "rank": 19
+     },
+     {
+      "kind": "WORD",
+      "term": "jugando",
+      "count": 2,
+      "rank": 20
+     },
+     {
+      "kind": "WORD",
+      "term": "jugador",
+      "count": 2,
+      "rank": 21
+     },
+     {
+      "kind": "WORD",
+      "term": "gol",
+      "count": 2,
+      "rank": 22
+     },
+     {
+      "kind": "WORD",
+      "term": "amigo",
+      "count": 2,
+      "rank": 23
+     },
+     {
+      "kind": "WORD",
+      "term": "camiseta",
+      "count": 2,
+      "rank": 24
+     },
+     {
+      "kind": "WORD",
+      "term": "blooming",
+      "count": 2,
+      "rank": 25
+     }
+    ],
+    "channel": "https://www.instagram.com/henryvaca10/",
+    "channels": [
+     "https://www.instagram.com/henryvaca10/"
+    ]
+   }
+  },
+  "P_CAMILA_BANZER_PARDO": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 22,
+    "commentsAnalyzed": 2,
+    "videos": [
+     {
+      "videoId": "DepEEepG8dS",
+      "title": "AgroVidas 2026 llegó a su fin! 🥹🤎 Gracias a todos los que pasaron por nuestro stand. ¡Fueron 3 días increíbles al lado de los mejores! 🤝 @jacbolivia @imcruz_bo\n\n#agroétudo #agronegocios #agrogirls⭐",
+      "published": null,
+      "url": "https://www.instagram.com/p/DepEEepG8dS/",
+      "commentsRead": 7,
+      "commentsSpanish": 0
+     },
+     {
+      "videoId": "Deo2Sc-FY0E",
+      "title": "• 1er encuentro de Mujeres del Agro •🤎✨\n\nQué lindo haber sido parte de una iniciativa así. Como joven en el rubro, me hace muy feliz compartir con tantas mujeres que admiro, escuchar sus historias y ",
+      "published": null,
+      "url": "https://www.instagram.com/p/Deo2Sc-FY0E/",
+      "commentsRead": 6,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "Dek18JEDSC3",
+      "title": "🌱 ¡El agro no para y nosotros tampoco! Así vivimos el día 2 de AgroVidas 2026!! Mañana es el último día, los espero para cerrar esta feria juntos✨✨🤝 \n\n#AgroVidas2026 #AgroBolivia #MundoAgro #agroneg",
+      "published": null,
+      "url": "https://www.instagram.com/p/Dek18JEDSC3/",
+      "commentsRead": 9,
+      "commentsSpanish": 1
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/camilabanzer/",
+    "channels": [
+     "https://www.instagram.com/camilabanzer/"
+    ]
+   }
+  },
+  "P_CARLA_MARIANA_BRAVO": {
+   "videosRead": 0,
+   "commentsRead": 0,
+   "commentsAnalyzed": 0,
+   "videos": [],
+   "sentiment": null,
+   "words": null,
+   "own": {
+    "videosRead": 3,
+    "commentsRead": 79,
+    "commentsAnalyzed": 8,
+    "videos": [
+     {
+      "videoId": "DeXKODhiSTw",
+      "title": "🕊️",
+      "published": null,
+      "url": "https://www.instagram.com/p/DeXKODhiSTw/",
+      "commentsRead": 27,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DdwXXxlFORG",
+      "title": "Reír, llorar, caer pero levantarnos juntas, lo mágico que es crecer con vos🌟 Feliz cumpleaños a lo mejor de mi💕",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdwXXxlFORG/",
+      "commentsRead": 17,
+      "commentsSpanish": 1
+     },
+     {
+      "videoId": "DdedqQaFDdf",
+      "title": "Roma, eres un sueño🤍",
+      "published": null,
+      "url": "https://www.instagram.com/p/DdedqQaFDdf/",
+      "commentsRead": 35,
+      "commentsSpanish": 6
+     }
+    ],
+    "sentiment": null,
+    "words": null,
+    "channel": "https://www.instagram.com/carla_mariana99/",
+    "channels": [
+     "https://www.instagram.com/carla_mariana99/"
     ]
    }
   }
