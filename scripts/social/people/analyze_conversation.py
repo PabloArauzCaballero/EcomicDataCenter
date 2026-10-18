@@ -27,6 +27,7 @@ from social_text import TermCounter, fold  # noqa: E402
 RAW = ROOT / 'artifacts' / 'people-conversation-raw.jsonl'
 DEEP = ROOT / 'artifacts' / 'people-conversation-raw-deep.jsonl'
 OWN = ROOT / 'artifacts' / 'people-conversation-raw-own.jsonl'
+OWN_SOCIAL = ROOT / 'artifacts' / 'people-conversation-raw-own-social.jsonl'   # TikTok leído con la sesión del usuario
 OUT = HERE / 'conversation-sentiment.json'
 MIN_COMMENTS = 30
 MIN_VIDEOS = 2          # al menos dos videos con comentarios: un solo video mide ese video, no a la persona
@@ -64,7 +65,7 @@ def measure(videos, name, classifier, keep_title):
         es = [t for t in v['comments'] if spanish(t)]
         texts.extend(es)
         kept.append({'videoId': v['videoId'], 'title': v['title'], 'published': v['published'],
-                     'url': f'https://www.youtube.com/watch?v={v["videoId"]}',
+                     'url': v.get('url') or f'https://www.youtube.com/watch?v={v["videoId"]}',
                      'commentsRead': len(v['comments']), 'commentsSpanish': len(es)})
     labels = classifier.classify(texts) if texts else []
     entry = {'videosRead': len(kept), 'commentsRead': sum(v['commentsRead'] for v in kept),
@@ -92,7 +93,14 @@ def main():
             for v in row['videos']:
                 if v['videoId'] not in videos or len(v['comments']) > len(videos[v['videoId']]['comments']):
                     videos[v['videoId']] = v
-    own = {row['slug']: row for row in read_jsonl(OWN)}
+    # Su público: YouTube (canal propio) y TikTok (videos de su perfil) se suman en un solo bloque por persona.
+    own: dict[str, dict] = {}
+    for source in (OWN, OWN_SOCIAL):
+        for row in read_jsonl(source):
+            entry = own.setdefault(row['slug'], {'channel': row['channel'], 'channels': [], 'videos': []})
+            entry['channels'].append(row['channel'])
+            have = {v['videoId'] for v in entry['videos']}
+            entry['videos'].extend(v for v in row['videos'] if v['videoId'] not in have)
     if not merged and not own:
         print('sin lecturas nuevas: el archivo publicado queda igual')
         return
@@ -117,6 +125,7 @@ def main():
         # En el canal propio no hay que nombrar a la persona en el título: es su canal.
         block = measure(row['videos'], names[slug], classifier, lambda title: True)
         block['channel'] = row['channel']
+        block['channels'] = row['channels']
         if overrides.get(slug, {}).get('exclude'):
             block['sentiment'], block['words'] = None, None
         entry = people.setdefault(slug, {'videosRead': 0, 'commentsRead': 0, 'commentsAnalyzed': 0, 'videos': [],
