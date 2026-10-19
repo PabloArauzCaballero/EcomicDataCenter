@@ -146,7 +146,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@nestjs/cli": "12.0.8",
-    "@nestjs/testing": "12.1.2",
+    "@nestjs/testing": "12.1.3",
     "@opentelemetry/instrumentation": "0.223.0",
     "@opentelemetry/sdk-trace-node": "2.12.0",
     "@types/jest": "30.0.0",
@@ -157,13 +157,13 @@
     "eslint-config-prettier": "10.1.8",
     "jest": "30.5.2",
     "pdfjs-dist": "6.4.299",
-    "playwright": "1.64.0",
-    "prettier": "3.9.9",
+    "playwright": "1.64.1",
+    "prettier": "3.9.10",
     "supertest": "7.3.1",
-    "ts-jest": "29.4.14",
+    "ts-jest": "29.4.15",
     "tsx": "4.23.15",
     "typescript": "7.0.2",
-    "typescript-eslint": "8.71.1"
+    "typescript-eslint": "8.71.2"
   },
   "resolutions": {
     "sequelize-typescript/**/brace-expansion": "1.1.18",
