@@ -8,7 +8,9 @@ import { AdminIngestionController } from '../admin-ingestion.controller';
 import { AdminInquiriesController } from '../admin-inquiries.controller';
 import { AdminQualityController } from '../admin-quality.controller';
 import { AdminSeedsController } from '../admin-seeds.controller';
+import { AdminSubscriptionsController } from '../admin-subscriptions.controller';
 import { AdminController } from '../admin.controller';
+import { SiteSubscriptionsController } from '../site-subscriptions.controller';
 
 type Handler = (...args: never[]) => unknown;
 
@@ -19,6 +21,8 @@ const CONTROLLERS = [
   AdminQualityController,
   AdminAnalyticsController,
   AdminInquiriesController,
+  AdminSubscriptionsController,
+  SiteSubscriptionsController,
 ] as const;
 
 function handlers(controller: (typeof CONTROLLERS)[number]): Array<[string, Handler]> {
