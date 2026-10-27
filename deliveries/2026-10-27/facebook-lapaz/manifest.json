@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-10-27T23:26:35.674Z",
+  "source": "facebook",
+  "scope": "Departamento de La Paz, Bolivia",
+  "files": [
+    {
+      "path": "facebook-lapaz.ndjson.gz",
+      "rows": 63,
+      "bytes": 17230,
+      "sha256": "ccddf18ea9609e2f35763f703bbe2db6b6f8e070822ffe510faa8bedd0feadd9"
+    },
+    {
+      "path": "facebook-lapaz-sin-ubicacion.ndjson.gz",
+      "rows": 0,
+      "bytes": 20,
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"
+    },
+    {
+      "path": "facebook-otros-departamentos.ndjson.gz",
+      "rows": 1,
+      "bytes": 894,
+      "sha256": "475bd185bbfd108f809b561f04c03080c903cb9cc2476ece5daebf2f56c33404"
+    },
+    {
+      "path": "rejected-summary.json",
+      "rows": null,
+      "bytes": 676,
+      "sha256": "9ac1e1e3be9060d8498c6045a4ae791e1225fc0300a702c7569dcc8dc2e19902"
+    }
+  ],
+  "privacy_check": {
+    "verifier": "verifyNoContacts: tramos de 7+ dígitos (NFKC, \\p{Nd}, separadores) y correos, fuera de los campos estructurados",
+    "structured_fields_skipped": [
+      "phone",
+      "source_id",
+      "source_url",
+      "retrieved_at",
+      "source_updated_at",
+      "last_post_at",
+      "raw.page_id",
+      "raw.profile_id",
+      "raw.keys",
+      "raw.html_sha256"
+    ],
+    "findings": 0
+  },
+  "summary": {
+    "attempts": 71,
+    "keys": 71,
+    "status": {
+      "OK": 69,
+      "NOT_PAGE": 1,
+      "RESTRICTED": 1
+    },
+    "foreign": 3,
+    "pages_unique": 69,
+    "lapaz": 63,
+    "sin_ubicacion": 0,
+    "otros_departamentos": 1,
+    "lapaz_pct_latlon": "76.2",
+    "lapaz_pct_address": "87.3",
+    "lapaz_pct_address_any": "93.7",
+    "lapaz_pct_phone": "79.4",
+    "lapaz_pct_website": "49.2",
+    "lapaz_pct_whatsapp": "1.6",
+    "lapaz_pct_followers": "98.4",
+    "lapaz_pct_last_post": "100.0",
+    "lapaz_pct_active_12m": "88.9",
+    "lapaz_pct_locality": "44.4",
+    "municipalities": {
+      "La Paz": 60,
+      "El Alto": 2,
+      "(sin municipio)": 1
+    },
+    "lapaz_geo_basis": {
+      "ciudad_facebook": 57,
+      "ciudad_facebook+coordenadas_fuera": 2,
+      "coordenadas": 1,
+      "nombre_de_la_pagina": 2,
+      "texto_direccion": 1
+    },
+    "sin_ubicacion_por_status": {},
+    "otros_por_departamento": {
+      "Chuquisaca": 1
+    },
+    "queries_done": 13,
+    "queries_with_facebook": 13,
+    "removed_rows_by_reason": {
+      "perfil_personal_NOT_PAGE": 1,
+      "no_confirmada_RESTRICTED": 1,
+      "no_confirmada_BLOCKED": 0,
+      "no_confirmada_NOT_FOUND": 0,
+      "sin_leer_ERROR": 0,
+      "parece_persona": {
+        "sin_tarjeta_de_pagina": 1,
+        "categoria_de_persona": 1
+      },
+      "extranjera": 3
+    },
+    "redactions_in_free_text": {
+      "email": 0,
+      "phone": 1
+    },
+    "run_events": {
+      "yahoo_empty_or_challenge": 0,
+      "yahoo_errors": 0,
+      "discovery_pauses": 0,
+      "blocked_streak_pauses": 0,
+      "memory_waits": 14,
+      "restarts": 4
+    }
+  }
+}

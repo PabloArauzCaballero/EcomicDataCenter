@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-10-27T23:26:35.674Z",
+  "by_status_and_city": {
+    "NOT_PAGE": {
+      "La Paz": 1
+    },
+    "RESTRICTED": {
+      "La Paz": 1
+    },
+    "EXCLUIDA_sin_tarjeta_de_pagina": {
+      "La Paz": 1
+    },
+    "EXCLUIDA_categoria_de_persona": {
+      "La Paz": 1
+    }
+  },
+  "removed_rows_by_reason": {
+    "perfil_personal_NOT_PAGE": 1,
+    "no_confirmada_RESTRICTED": 1,
+    "no_confirmada_BLOCKED": 0,
+    "no_confirmada_NOT_FOUND": 0,
+    "sin_leer_ERROR": 0,
+    "parece_persona": {
+      "sin_tarjeta_de_pagina": 1,
+      "categoria_de_persona": 1
+    },
+    "extranjera": 3
+  },
+  "redactions_in_free_text": {
+    "email": 0,
+    "phone": 1
+  }
+}
