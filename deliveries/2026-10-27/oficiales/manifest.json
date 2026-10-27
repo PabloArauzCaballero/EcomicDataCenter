@@ -1,0 +1,394 @@
+{
+  "delivery": "2026-10-27/oficiales",
+  "description": "Registros oficiales de establecimientos de Bolivia con direccion y coordenadas",
+  "format": "NDJSON gzip, un objeto por linea con los campos normalizados comunes",
+  "fields": [
+    "source",
+    "source_id",
+    "name",
+    "category_raw",
+    "address",
+    "locality",
+    "municipality",
+    "department",
+    "lat",
+    "lon",
+    "phone",
+    "website",
+    "hours",
+    "source_updated_at",
+    "source_url",
+    "retrieved_at",
+    "raw"
+  ],
+  "total_rows": 21963,
+  "total_rows_with_coords": 18608,
+  "sources": {
+    "abc_oficinas": {
+      "file": "abc_oficinas/abc_oficinas.ndjson.gz",
+      "sha256": "939ef7d36fee6942be82f8aa8f4ede3ad771d8deaa4840c062150ef5491d9962",
+      "bytes": 1602,
+      "rows": 10,
+      "rows_with_coords": 10,
+      "pct_coords": 100.0,
+      "rows_with_address": 10,
+      "rows_with_name": 10,
+      "rows_with_department": 10,
+      "source_updated_at_min": "2025-09-15T16:47:30Z",
+      "source_updated_at_max": "2025-09-15T17:02:13Z",
+      "retrieved_at": [
+        "2026-10-27T22:48:57Z"
+      ],
+      "source_url": "https://www.abc.gob.bo/index.php/lista-direcciones-page/",
+      "method": "HTML plantilla AGETIC (ver impuestos_oficinas)",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "aduana_oficinas": {
+      "file": "aduana_oficinas/aduana_oficinas.ndjson.gz",
+      "sha256": "17f16ce55e924dac6e0ad36b343ecb3a911dbac49f46f4529a55db379ff8dd54",
+      "bytes": 4257,
+      "rows": 40,
+      "rows_with_coords": 32,
+      "pct_coords": 80.0,
+      "rows_with_address": 40,
+      "rows_with_name": 40,
+      "rows_with_department": 0,
+      "source_updated_at_min": null,
+      "source_updated_at_max": null,
+      "retrieved_at": [
+        "2026-10-27T22:51:30Z"
+      ],
+      "source_url": "https://www.aduana.gob.bo/pagina-de-direcciones (?page=0..3)",
+      "method": "HTML plantilla AGETIC version Drupal, paginada; sin filtro de departamento",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "ajam_oficinas": {
+      "file": "ajam_oficinas/ajam_oficinas.ndjson.gz",
+      "sha256": "b07f3af87f92faa4aacf36bda7c944b8d93946ccf205d57371da9dc80e102b39",
+      "bytes": 1314,
+      "rows": 8,
+      "rows_with_coords": 6,
+      "pct_coords": 75.0,
+      "rows_with_address": 8,
+      "rows_with_name": 8,
+      "rows_with_department": 8,
+      "source_updated_at_min": "2025-09-17T23:47:38Z",
+      "source_updated_at_max": "2026-06-01T13:17:12Z",
+      "retrieved_at": [
+        "2026-10-27T23:04:00Z"
+      ],
+      "source_url": "https://autoridadminera.gob.bo/index.php/lista-direcciones-page/",
+      "method": "HTML plantilla AGETIC (ver impuestos_oficinas)",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "anh_operadores": {
+      "file": "anh_operadores/anh_operadores.ndjson.gz",
+      "sha256": "f628ee0dab8443c836dd9efa51be497aa3e1385221055b4fde39b4e3509ffc9a",
+      "bytes": 631004,
+      "rows": 7103,
+      "rows_with_coords": 3781,
+      "pct_coords": 53.2,
+      "rows_with_address": 7047,
+      "rows_with_name": 7103,
+      "rows_with_department": 7005,
+      "source_updated_at_min": null,
+      "source_updated_at_max": null,
+      "retrieved_at": [
+        "2026-10-27T22:40:49Z"
+      ],
+      "source_url": "https://www.anh.gob.bo/w2026/contenido.php?s=40&R=<actividad>&D=0",
+      "method": "HTML (tabla por actividad, listado nacional D=0); coordenada en el boton setMark(lat, lon, nombre)",
+      "data_date": "licencias vigentes al 2026-10-27 (codigo LIC09/2026); la pagina no publica fecha de corte",
+      "scraper": "_scripts/anh.py"
+    },
+    "asfi_oficinas": {
+      "file": "asfi_oficinas/asfi_oficinas.ndjson.gz",
+      "sha256": "e8c595c67272ac3431b37dd9bc741946012cdb5889b4c8d1adcec228326d2715",
+      "bytes": 1527,
+      "rows": 10,
+      "rows_with_coords": 10,
+      "pct_coords": 100.0,
+      "rows_with_address": 10,
+      "rows_with_name": 10,
+      "rows_with_department": 0,
+      "source_updated_at_min": null,
+      "source_updated_at_max": null,
+      "retrieved_at": [
+        "2026-10-27T23:04:00Z"
+      ],
+      "source_url": "https://asfi.gob.bo/pagina-de-direcciones",
+      "method": "HTML plantilla AGETIC version Drupal",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "asfi_puntos_atencion": {
+      "file": "asfi_puntos_atencion/asfi_puntos_atencion.ndjson.gz",
+      "sha256": "ed446375dd2d1266dbd9e1947868ad4bffcbc2f06260c122daaff6a3e475fd90",
+      "bytes": 1851941,
+      "rows": 14278,
+      "rows_with_coords": 14269,
+      "pct_coords": 99.9,
+      "rows_with_address": 14278,
+      "rows_with_name": 14278,
+      "rows_with_department": 14278,
+      "source_updated_at_min": "2011-10-13T16:01:00Z",
+      "source_updated_at_max": "2026-10-27T21:29:32Z",
+      "retrieved_at": [
+        "2026-10-27T22:59:00Z"
+      ],
+      "source_url": "https://asfidigitalapi.asfi.gob.bo/api/v1/puntosAtencion/fecha/2009-07-01",
+      "method": "API JSON; direccion, telefono y horario dentro de contenidoHTML",
+      "data_date": "fechaModificacion maxima 2026-10-27T21:29:32Z",
+      "previous_load": "14.136 filas el 2026-09-24",
+      "raw_sha256": "953eb414746da1b00a509d594b4391977a4074b57d0372ad2cab516c05b532f5",
+      "scraper": "_scripts/asfi.py"
+    },
+    "att_oficinas": {
+      "file": "att_oficinas/att_oficinas.ndjson.gz",
+      "sha256": "d26ed3ca288b6ffa79e84723afc26cf04c2d99090fefad7d92490058bfacd550",
+      "bytes": 697,
+      "rows": 5,
+      "rows_with_coords": 0,
+      "pct_coords": 0.0,
+      "rows_with_address": 5,
+      "rows_with_name": 5,
+      "rows_with_department": 5,
+      "source_updated_at_min": null,
+      "source_updated_at_max": null,
+      "retrieved_at": [
+        "2026-10-27T23:06:37Z"
+      ],
+      "source_url": "https://www.att.gob.bo/contactanos",
+      "method": "HTML (bloque Contactos); solo direccion",
+      "scraper": "_scripts/att.py"
+    },
+    "correos_agbc": {
+      "file": "correos_agbc/correos_agbc.ndjson.gz",
+      "sha256": "97ef5500e0612b5d02cffea3b46e2c9970e45c6d2ec8bebdcd8074aba3793743",
+      "bytes": 2510,
+      "rows": 9,
+      "rows_with_coords": 9,
+      "pct_coords": 100.0,
+      "rows_with_address": 9,
+      "rows_with_name": 9,
+      "rows_with_department": 9,
+      "source_updated_at_min": null,
+      "source_updated_at_max": null,
+      "retrieved_at": [
+        "2026-10-27T22:53:11Z"
+      ],
+      "source_url": "https://www.correos.gob.bo/frontapi/api/site/pages/home",
+      "method": "API JSON del sitio (items type=office); coordenada leida del enlace maps_url que publica la AGBC (redireccion seguida, marcador !3d!4d)",
+      "scraper": "_scripts/correos.py"
+    },
+    "entel_multicentros": {
+      "file": "entel_multicentros/entel_multicentros.ndjson.gz",
+      "sha256": "3ca179d5b4492054fc479fabc3801f76093d4ee12477847c7235f4e667fe4b3b",
+      "bytes": 16250,
+      "rows": 77,
+      "rows_with_coords": 77,
+      "pct_coords": 100.0,
+      "rows_with_address": 77,
+      "rows_with_name": 77,
+      "rows_with_department": 77,
+      "source_updated_at_min": "2024-11-11T14:41:44Z",
+      "source_updated_at_max": "2025-07-13T14:41:46Z",
+      "retrieved_at": [
+        "2026-10-27T23:05:11Z"
+      ],
+      "source_url": "https://institucional.entel.bo/inicio3.0/index.php/atencion-presencial/nuestros-multicentros",
+      "method": "HTML; cada enlace multicentro.php?id= es el registro en JSON base64 con latitud/longitud",
+      "scraper": "_scripts/entel.py"
+    },
+    "ibmetro_oficinas": {
+      "file": "ibmetro_oficinas/ibmetro_oficinas.ndjson.gz",
+      "sha256": "2fabcb3d58de3dc762f8cb5b3980f95d7e19f10cad311d6779c08a3f5a15d913",
+      "bytes": 1076,
+      "rows": 7,
+      "rows_with_coords": 7,
+      "pct_coords": 100.0,
+      "rows_with_address": 7,
+      "rows_with_name": 7,
+      "rows_with_department": 0,
+      "source_updated_at_min": null,
+      "source_updated_at_max": null,
+      "retrieved_at": [
+        "2026-10-27T23:04:00Z"
+      ],
+      "source_url": "https://ibmetro.gob.bo/pagina-de-direcciones",
+      "method": "HTML plantilla AGETIC version Drupal",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "impuestos_oficinas": {
+      "file": "impuestos_oficinas/impuestos_oficinas.ndjson.gz",
+      "sha256": "2bac67b1029bfc87889c9e6647f50f5fa9afdd42b61d47e1ddc201a904a87fca",
+      "bytes": 6496,
+      "rows": 53,
+      "rows_with_coords": 53,
+      "pct_coords": 100.0,
+      "rows_with_address": 53,
+      "rows_with_name": 53,
+      "rows_with_department": 53,
+      "source_updated_at_min": "2025-09-15T19:31:48Z",
+      "source_updated_at_max": "2025-09-16T18:50:22Z",
+      "retrieved_at": [
+        "2026-10-27T22:48:57Z"
+      ],
+      "source_url": "https://impuestos.gob.bo/index.php/lista-direcciones-page/",
+      "method": "HTML plantilla AGETIC (tarjetas «Nombre de oficina» + marcador OSM); departamento por el filtro ?departamento= del sitio; fecha por /wp-json/wp/v2/direccion",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "insa_oficinas": {
+      "file": "insa_oficinas/insa_oficinas.ndjson.gz",
+      "sha256": "e1c006148227f26012946602cf35d43aad59555c223ca7fbc7687e0b12e4fe84",
+      "bytes": 1028,
+      "rows": 7,
+      "rows_with_coords": 7,
+      "pct_coords": 100.0,
+      "rows_with_address": 7,
+      "rows_with_name": 7,
+      "rows_with_department": 7,
+      "source_updated_at_min": "2025-08-25T13:14:33Z",
+      "source_updated_at_max": "2025-08-28T16:50:09Z",
+      "retrieved_at": [
+        "2026-10-27T23:04:00Z"
+      ],
+      "source_url": "https://insa.gob.bo/index.php/lista-direcciones-page/",
+      "method": "HTML plantilla AGETIC (ver impuestos_oficinas)",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "lapaz_mercados": {
+      "file": "lapaz_mercados/lapaz_mercados.ndjson.gz",
+      "sha256": "850bf72109a0dedac320fe27d9b8338b3211b4ab32f19a781006d0a1e97d738f",
+      "bytes": 13123,
+      "rows": 156,
+      "rows_with_coords": 154,
+      "pct_coords": 98.7,
+      "rows_with_address": 155,
+      "rows_with_name": 156,
+      "rows_with_department": 156,
+      "source_updated_at_min": "2020-04-11T23:18:16.320Z",
+      "source_updated_at_max": "2026-10-09T21:03:22.553Z",
+      "retrieved_at": [
+        "2026-10-27T23:06:13Z"
+      ],
+      "source_url": "https://sitservicios.lapaz.bo/geoserver/ows (WFS sit:mercados, sit:mercadosmoviles)",
+      "method": "WFS GeoJSON EPSG:4326 del GAMLP; sin los campos usuario/owner",
+      "scraper": "_scripts/lapaz_mercados.py"
+    },
+    "mintrabajo_oficinas": {
+      "file": "mintrabajo_oficinas/mintrabajo_oficinas.ndjson.gz",
+      "sha256": "e5465317a4134971bcccd49a45f0c529bbf81f9983c1cb97969b62b6f6afa16e",
+      "bytes": 2819,
+      "rows": 24,
+      "rows_with_coords": 24,
+      "pct_coords": 100.0,
+      "rows_with_address": 24,
+      "rows_with_name": 24,
+      "rows_with_department": 24,
+      "source_updated_at_min": "2025-10-22T15:29:58Z",
+      "source_updated_at_max": "2025-10-22T16:47:12Z",
+      "retrieved_at": [
+        "2026-10-27T22:48:57Z"
+      ],
+      "source_url": "https://mintrabajo.gob.bo/index.php/lista-direcciones-page/",
+      "method": "HTML plantilla AGETIC (ver impuestos_oficinas)",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "naabol": {
+      "file": "naabol/naabol.ndjson.gz",
+      "sha256": "b6d058ceca682ec37d99b0982f8d00dd47d9abd18f2c0849d927c7619179a2fd",
+      "bytes": 3533,
+      "rows": 42,
+      "rows_with_coords": 42,
+      "pct_coords": 100.0,
+      "rows_with_address": 5,
+      "rows_with_name": 42,
+      "rows_with_department": 0,
+      "source_updated_at_min": null,
+      "source_updated_at_max": null,
+      "retrieved_at": [
+        "2026-10-27T22:50:51Z"
+      ],
+      "source_url": "https://naabol.gob.bo/mapa_aeropuertos/ + https://www.naabol.gob.bo/pagina-de-direcciones",
+      "method": "arreglo JavaScript `aeropuertos` del mapa Leaflet + tarjetas de oficinas con marcador OSM",
+      "scraper": "_scripts/naabol.py"
+    },
+    "segip_oficinas": {
+      "file": "segip_oficinas/segip_oficinas.ndjson.gz",
+      "sha256": "d7f9d6d0fbbc2cd4310dbc08b93dbfeb106810d7b9abb30ce039be184b80ffe1",
+      "bytes": 11812,
+      "rows": 107,
+      "rows_with_coords": 102,
+      "pct_coords": 95.3,
+      "rows_with_address": 107,
+      "rows_with_name": 107,
+      "rows_with_department": 107,
+      "source_updated_at_min": "2026-05-12T13:45:00Z",
+      "source_updated_at_max": "2026-10-14T14:58:57Z",
+      "retrieved_at": [
+        "2026-10-27T22:47:34Z"
+      ],
+      "source_url": "https://www.segip.gob.bo/oficina/ (y /page/N/) + https://www.segip.gob.bo/wp-json/wp/v2/oficina",
+      "method": "HTML de tarjetas con marcador OpenStreetMap (mlat/mlon); fecha por la API de WordPress",
+      "data_date": "modified_gmt por oficina (max 2026-10-14)",
+      "scraper": "_scripts/segip.py"
+    },
+    "senarecom_oficinas": {
+      "file": "senarecom_oficinas/senarecom_oficinas.ndjson.gz",
+      "sha256": "43b524f233eb8ec2b00a5764ea10da4c6e073bcc4ca0bd8b800a2702bef41932",
+      "bytes": 1259,
+      "rows": 8,
+      "rows_with_coords": 6,
+      "pct_coords": 75.0,
+      "rows_with_address": 8,
+      "rows_with_name": 8,
+      "rows_with_department": 8,
+      "source_updated_at_min": "2025-12-08T19:43:38Z",
+      "source_updated_at_max": "2025-12-08T19:43:38Z",
+      "retrieved_at": [
+        "2026-10-27T22:48:57Z"
+      ],
+      "source_url": "https://www.senarecom.gob.bo/index.php/lista-direcciones-page/",
+      "method": "HTML plantilla AGETIC (ver impuestos_oficinas)",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "seprec_oficinas": {
+      "file": "seprec_oficinas/seprec_oficinas.ndjson.gz",
+      "sha256": "ad20451d7265fefd93dcba8f8ec81020f19e21a5f77ac65ada3f36926375e723",
+      "bytes": 2003,
+      "rows": 13,
+      "rows_with_coords": 13,
+      "pct_coords": 100.0,
+      "rows_with_address": 13,
+      "rows_with_name": 13,
+      "rows_with_department": 13,
+      "source_updated_at_min": "2026-07-30T14:39:55Z",
+      "source_updated_at_max": "2026-10-01T18:08:44Z",
+      "retrieved_at": [
+        "2026-10-27T22:48:57Z"
+      ],
+      "source_url": "https://seprec.gob.bo/index.php/lista-direcciones-page/",
+      "method": "HTML plantilla AGETIC (ver impuestos_oficinas)",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    },
+    "ylb_oficinas": {
+      "file": "ylb_oficinas/ylb_oficinas.ndjson.gz",
+      "sha256": "e50d6d035132ebed093f1baa0b1c0918c47aaa80c6e93f951422d8eb5e465128",
+      "bytes": 858,
+      "rows": 6,
+      "rows_with_coords": 6,
+      "pct_coords": 100.0,
+      "rows_with_address": 3,
+      "rows_with_name": 6,
+      "rows_with_department": 6,
+      "source_updated_at_min": "2025-09-13T22:24:07Z",
+      "source_updated_at_max": "2025-09-14T01:25:13Z",
+      "retrieved_at": [
+        "2026-10-27T22:48:57Z"
+      ],
+      "source_url": "https://www.ylb.gob.bo/index.php/lista-direcciones-page/",
+      "method": "HTML plantilla AGETIC (ver impuestos_oficinas)",
+      "scraper": "_scripts/gobbo_direcciones.py"
+    }
+  }
+}
