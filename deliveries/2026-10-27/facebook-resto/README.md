@@ -4,62 +4,84 @@ Páginas de negocios en Facebook de **Cochabamba, Oruro, Potosí, Chuquisaca, Ta
 capitales y ciudades intermedias. La Paz y Santa Cruz las cubren otros agentes: las páginas que caen
 allí se descartaron (ver «Excluidas»).
 
-- Archivo: `facebook-resto.ndjson.gz` — NDJSON con gzip, un lugar por línea, 54 registros.
+- Archivo: `facebook-resto.ndjson.gz` — NDJSON con gzip, un lugar por línea, 75 registros.
 - Cifras completas: `stats.json`. Sumas de verificación: `manifest.json`.
 - Código del recolector: `collector/` (Node 22 + Playwright sólo para el buscador).
-- Generado: 2026-10-27T23:16:35.269Z.
+- Generado: 2026-10-27T23:20:17.861Z.
 
 ## Resultado
 
-Estados: RESTRICTED 5 · OK 49.
+Estados: OK 75.
 
 | Departamento | Páginas | OK | lat/lon | Dirección | Teléfono | Web | Último post |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Cochabamba | 19 | 18 | 100 % | 57,9 % | 63,2 % | 57,9 % | 94,7 % |
+| Cochabamba | 42 | 42 | 100 % | 69 % | 76,2 % | 61,9 % | 100 % |
 | Oruro | 9 | 9 | 77,8 % | 77,8 % | 88,9 % | 11,1 % | 100 % |
 | Potosí | 9 | 9 | 88,9 % | 77,8 % | 88,9 % | 55,6 % | 100 % |
-| Chuquisaca | 6 | 4 | 66,7 % | 66,7 % | 66,7 % | 16,7 % | 66,7 % |
-| Tarija | 8 | 7 | 50 % | 37,5 % | 62,5 % | 25 % | 87,5 % |
-| Beni | 3 | 2 | 100 % | 66,7 % | 66,7 % | 0 % | 66,7 % |
+| Chuquisaca | 4 | 4 | 75 % | 100 % | 100 % | 25 % | 100 % |
+| Tarija | 7 | 7 | 42,9 % | 42,9 % | 71,4 % | 28,6 % | 100 % |
+| Beni | 4 | 4 | 100 % | 75 % | 75 % | 25 % | 100 % |
 | Pando | 0 | 0 | — | — | — | — | — |
-| **Total** | **54** | **49** | **83,3 %** | **63 %** | **72,2 %** | **37 %** | **90,7 %** |
+| **Total** | **75** | **75** | **89,3 %** | **70,7 %** | **80 %** | **48 %** | **100 %** |
 
-- Coordenadas fijadas por la propia página en Facebook: 31 (57,4 %).
-  El resto de las que tienen lat/lon (14) vienen del nodo de
+- Coordenadas fijadas por la propia página en Facebook: 48 (64 %).
+  El resto de las que tienen lat/lon (19) vienen del nodo de
   OpenStreetMap que enlaza la página (`raw.coords_source = "osm"`).
-- Sobre las páginas OK: lat/lon 83.7 %, dirección 69.4 %, teléfono 79.6 %.
-- Cómo se ubicó cada página (`raw.location_source`): `osm_coords` 14 · `coords` 31 · `query` 7 · `address` 1 · `city_text` 1.
+- Sobre las páginas OK: lat/lon 89.3 %, dirección 70.7 %, teléfono 80 %.
+- Cómo se ubicó cada página (`raw.location_source`): `osm_coords` 18 · `coords` 48 · `query` 6 · `address` 2 · `city_text` 1.
   `coords` = coordenadas de la página; `address`/`city_text` = texto de la dirección o del área de servicio;
   `osm_coords` = coordenadas del nodo OSM; `query` = sin ubicación propia, se asignó la ciudad de la
   búsqueda que la trajo (dato más débil: revisar antes de usarlo como ubicación).
-- Descubrimiento: osm 25 · yahoo 29. Candidatas: 1.184
-  (33 del buscador, 1.151 de OSM); consultas hechas: 5.
+- Descubrimiento: osm 47 · yahoo 28. Candidatas: 1.189
+  (38 del buscador, 1.151 de OSM); consultas hechas: 6.
 
 ### Por localidad (las 40 mayores)
 
 | Departamento · localidad | Páginas |
 |---|---:|
-| Cochabamba · Cochabamba | 17 |
+| Cochabamba · Cochabamba | 41 |
 | Oruro · Oruro | 9 |
 | Potosí · Potosí | 7 |
-| Chuquisaca · Sucre | 6 |
 | Tarija · Tarija | 6 |
-| Beni · Trinidad | 2 |
-| Cochabamba · Quillacollo | 2 |
-| Beni · Santa Ana del Yacuma | 1 |
+| Chuquisaca · Sucre | 4 |
+| Beni · Trinidad | 3 |
+| Beni · (sin localidad) | 1 |
+| Cochabamba · Quillacollo | 1 |
 | Potosí · Tupiza | 1 |
 | Potosí · Uyuni | 1 |
-| Tarija · Bermejo | 1 |
 | Tarija · Villamontes | 1 |
 
 ### Excluidas
 
 | Motivo | Candidatas |
 |---|---:|
-| fuera de alcance: La Paz | 4 |
-| perfil de persona | 1 |
+| fuera de alcance: La Paz | 8 |
+| persona: categoría de persona | 2 |
 | fuera de alcance: Santa Cruz | 1 |
 | fuera de Bolivia | 1 |
+
+### No publicadas (no confirmadas como página de negocio)
+
+Las candidatas NOT_FOUND, RESTRICTED o BLOCKED no se publican: `rejected-summary.json` lleva sólo
+cuántas hubo por estado y por la ciudad de la búsqueda, sin nombres, extractos ni enlaces.
+Totales: RESTRICTED 10.
+
+## Privacidad
+
+- Sólo páginas de negocio confirmadas (`status = OK`).
+- Se excluyen las páginas que parecen de una persona: categoría de persona («Persona», «Creador(a)
+  digital», «Personaje público», «Perfil · …», artista, periodista, político…), nombre con título
+  profesional («Dr.», «Lic.», «Ing.»…) o nombre de pila sin ninguna palabra de negocio. Los perfiles
+  personales (sin página) ni siquiera se guardan durante la recolección.
+- En todo texto libre (`raw` entero —bio, `og_description`, `intro_items`, extracto y título del
+  buscador— y `address`, `hours`) se reemplazan los correos por `[correo]` y toda secuencia de 7 o más
+  dígitos por `[teléfono]`. El único número que queda es `phone`, el teléfono de la página de empresa.
+  El WhatsApp no se publica. Del descubrimiento no se guarda el enlace hallado (podía ser un post o un
+  permalink con el id de un tercero), sólo la consulta, el rubro y la ciudad.
+- **Versión anterior en la rama:** el commit `5ed7c80` (primer avance, 54 filas) se subió antes de
+  estas reglas. Contenía 5 filas RESTRICTED con el título y el extracto del buscador y su URL, y los
+  campos de texto libre sin borrar (bios y descripciones que pueden traer teléfonos o correos de las
+  páginas, y el enlace hallado). No se reescribió el historial: el usuario decide si hace falta purgarlo.
 
 ## Método
 

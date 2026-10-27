@@ -11,29 +11,34 @@
     "Beni",
     "Pando"
   ],
-  "records": 54,
+  "records": 75,
   "files": [
     {
       "path": "facebook-resto.ndjson.gz",
-      "bytes": 20509,
-      "sha256": "5aa3a738b20c41aa92188ebab37a272328969712b66f3b30479945943bb29311",
-      "records": 54,
+      "bytes": 26670,
+      "sha256": "2f6b5b1dd7ece5baa48fe26831414cf92d456bac271761711b58ace7149256f7",
+      "records": 75,
       "format": "ndjson+gzip"
     },
     {
       "path": "stats.json",
-      "bytes": 3336,
-      "sha256": "9ac2ef9eebf86fbefcfef00c21bc33a83739317923d987f964473f676f2f423b"
+      "bytes": 3332,
+      "sha256": "7483088e002e8d875b66ff4030b77468d3f18dd6cef81ada38bbdd364c8b8520"
+    },
+    {
+      "path": "rejected-summary.json",
+      "bytes": 335,
+      "sha256": "37ecab9d4c09419b3eb460288cb98ee05ea0f9d0b9dfda9fd75e693f7e0d3154"
     },
     {
       "path": "README.md",
-      "bytes": 7723,
-      "sha256": "811e0f3cd6e06a92be71a0629d535223e39b7cfeb3381b91fe50256bad4ecc2a"
+      "bytes": 9334,
+      "sha256": "0fba733cef685e495d6439ba9badcc979395f73db4736b8edded7975692f59fc"
     },
     {
       "path": "collector/build.mjs",
-      "bytes": 6630,
-      "sha256": "22f4a1b8790c101e2aa2be975a24ba301bbd134d8327d434d57c73b46de7ccaa"
+      "bytes": 7996,
+      "sha256": "bee2080f94a82ab93350b329e6873bb4de94772ea028eb1ed770eda03e970a24"
     },
     {
       "path": "collector/common.mjs",
@@ -66,14 +71,24 @@
       "sha256": "b541566262944dab382dd7f303d39064b4a515e765a77afb19c61d70405f409a"
     },
     {
+      "path": "collector/privacy.mjs",
+      "bytes": 5535,
+      "sha256": "2c5434e300c318472cad34879a1bd2cb64f2365ecbc55434939043af6d45ae76"
+    },
+    {
       "path": "collector/queries.mjs",
       "bytes": 3362,
       "sha256": "d44f3f4dacfbf9132cb7f55eac1774c63357d4ec6d6e77dc10d4b96318c9371a"
     },
     {
       "path": "collector/readme.mjs",
-      "bytes": 8404,
-      "sha256": "d36d9dfd7b1642d63b9342164f60259f8dd12712dc2713a9a872dfb9af30ab24"
+      "bytes": 10167,
+      "sha256": "58af53655de12276a6e6f9cab1255fddf617a1de0e263d58de1a2150ea33977a"
+    },
+    {
+      "path": "collector/verify.mjs",
+      "bytes": 1823,
+      "sha256": "02ad278a7ef117902dc1473c9ea96e326c06147c6b2112e0fa95a9a1bc9ce65b"
     }
   ]
 }

@@ -7,6 +7,7 @@ import crypto from 'node:crypto';
 import { HERE, readLines } from './common.mjs';
 import { IN_SCOPE, locate } from './geo.mjs';
 import { readme } from './readme.mjs';
+import { personReason, scrubRecord } from './privacy.mjs';
 
 const OUT = path.join(HERE, '..');
 const candidates = readLines('candidates.ndjson');
@@ -19,9 +20,26 @@ const ORDER = ['source', 'source_id', 'name', 'category_raw', 'address', 'locali
 const byId = new Map();
 const excluded = {};
 const bump = (k) => { excluded[k] = (excluded[k] || 0) + 1; };
-for (const r0 of readLines('records.ndjson')) {
+// Filas no confirmadas como página de negocio: sólo se cuentan, por estado y ciudad.
+const rejected = {};
+const rejectedKeys = new Set();
+const okKeys = new Set();
+const allRecords = readLines('records.ndjson');
+for (const r of allRecords) if (r.status === 'OK') okKeys.add(r.source_id || r.source_url);
+for (const r0 of allRecords) {
   const r = { ...r0, raw: { ...r0.raw } };
-  if (/^Perfil\b/i.test(r.category_raw || '')) { bump('perfil de persona'); continue; }
+  if (r.status !== 'OK') {
+    const k = r.source_id || r.source_url;
+    if (okKeys.has(k) || rejectedKeys.has(k)) continue;
+    rejectedKeys.add(k);
+    const city = r.raw.discovery?.city || r.locality || '(sin ciudad: semilla OSM)';
+    rejected[r.status] ??= {};
+    rejected[r.status][city] = (rejected[r.status][city] || 0) + 1;
+    continue;
+  }
+  if (/^Perfil\b/i.test(r.category_raw || '')) { bump('persona: categoría de persona'); continue; }
+  const person = personReason(r);
+  if (person) { bump(`persona: ${person}`); continue; }
   if (r.whatsapp !== undefined) { r.raw.whatsapp = r.whatsapp; delete r.whatsapp; }
   const osm = osmByUrl.get(r.raw.discovery?.found_url);
   if (osm) {
@@ -46,7 +64,8 @@ for (const r0 of readLines('records.ndjson')) {
   const key = r.source_id || r.source_url;
   const prev = byId.get(key);
   if (prev && prev.status === 'OK' && r.status !== 'OK') continue;
-  byId.set(key, Object.fromEntries(ORDER.map((k) => [k, r[k] ?? null])));
+  const clean = scrubRecord(r);
+  byId.set(key, Object.fromEntries(ORDER.map((k) => [k, clean[k] ?? null])));
 }
 for (const f of fetched) if (f.status === 'SKIP') bump(f.why || 'omitida');
 
@@ -94,12 +113,19 @@ const stats = {
   candidates: { total: new Set(candidates.map((c) => c.key)).size, yahoo: new Set(candidates.filter((c) => c.via === 'yahoo').map((c) => c.key)).size, osm: osmByUrl.size, fetched: fetched.length },
   queries_done: fs.existsSync(path.join(OUT, '.work', 'state', 'queries.done')) ? fs.readFileSync(path.join(OUT, '.work', 'state', 'queries.done'), 'utf8').split('\n').filter(Boolean).length : 0,
 };
+const rejectedTotals = Object.fromEntries(Object.entries(rejected).map(([k, v]) => [k, Object.values(v).reduce((a, b) => a + b, 0)]));
+fs.writeFileSync(path.join(OUT, 'rejected-summary.json'), `${JSON.stringify({
+  note: 'Filas no confirmadas como página de negocio (NOT_FOUND, RESTRICTED, BLOCKED): no se publican. Sólo conteos por estado y por la ciudad de la búsqueda que las trajo.',
+  totals: rejectedTotals,
+  by_status_and_city: rejected,
+}, null, 2)}\n`);
+stats.rejected = rejectedTotals;
 fs.writeFileSync(path.join(OUT, 'stats.json'), `${JSON.stringify(stats, null, 2)}\n`);
 
 fs.writeFileSync(path.join(OUT, 'README.md'), readme(stats));
 
 const sha = (p) => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
-const files = ['facebook-resto.ndjson.gz', 'stats.json', 'README.md', ...fs.readdirSync(path.join(OUT, 'collector')).map((f) => `collector/${f}`)]
+const files = ['facebook-resto.ndjson.gz', 'stats.json', 'rejected-summary.json', 'README.md', ...fs.readdirSync(path.join(OUT, 'collector')).map((f) => `collector/${f}`)]
   .filter((f) => fs.existsSync(path.join(OUT, f)));
 const manifest = {
   delivery: 'facebook-resto',

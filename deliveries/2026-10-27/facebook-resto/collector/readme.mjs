@@ -53,6 +53,29 @@ ${locRows}
 |---|---:|
 ${excl}
 
+### No publicadas (no confirmadas como página de negocio)
+
+Las candidatas NOT_FOUND, RESTRICTED o BLOCKED no se publican: \`rejected-summary.json\` lleva sólo
+cuántas hubo por estado y por la ciudad de la búsqueda, sin nombres, extractos ni enlaces.
+Totales: ${Object.entries(s.rejected || {}).map(([k, v]) => `${k} ${n(v)}`).join(' · ') || 'ninguna'}.
+
+## Privacidad
+
+- Sólo páginas de negocio confirmadas (\`status = OK\`).
+- Se excluyen las páginas que parecen de una persona: categoría de persona («Persona», «Creador(a)
+  digital», «Personaje público», «Perfil · …», artista, periodista, político…), nombre con título
+  profesional («Dr.», «Lic.», «Ing.»…) o nombre de pila sin ninguna palabra de negocio. Los perfiles
+  personales (sin página) ni siquiera se guardan durante la recolección.
+- En todo texto libre (\`raw\` entero —bio, \`og_description\`, \`intro_items\`, extracto y título del
+  buscador— y \`address\`, \`hours\`) se reemplazan los correos por \`[correo]\` y toda secuencia de 7 o más
+  dígitos por \`[teléfono]\`. El único número que queda es \`phone\`, el teléfono de la página de empresa.
+  El WhatsApp no se publica. Del descubrimiento no se guarda el enlace hallado (podía ser un post o un
+  permalink con el id de un tercero), sólo la consulta, el rubro y la ciudad.
+- **Versión anterior en la rama:** el commit \`5ed7c80\` (primer avance, 54 filas) se subió antes de
+  estas reglas. Contenía 5 filas RESTRICTED con el título y el extracto del buscador y su URL, y los
+  campos de texto libre sin borrar (bios y descripciones que pueden traer teléfonos o correos de las
+  páginas, y el enlace hallado). No se reescribió el historial: el usuario decide si hace falta purgarlo.
+
 ## Método
 
 1. **Descubrimiento por buscador.** Consultas «<rubro> <ciudad> Bolivia facebook» con 91 rubros en las 7
