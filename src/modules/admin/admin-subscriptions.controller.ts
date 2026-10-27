@@ -16,8 +16,9 @@ import { ConflictError, NotFoundError } from '../../common/errors/application.er
 import { RequestId } from '../../common/http/request-id.decorator';
 import { ZodValidationPipe } from '../../common/validation/zod-validation.pipe';
 import { paginate } from './admin-cursor';
-import { envelope, type AdminEnvelope } from './admin.envelope';
+import type { AdminEnvelope } from './admin.envelope';
 import { DeploymentIdentity } from './deployment-identity';
+import { answer } from './subscription-envelope';
 import { SubscriberAdminRepository, type PaymentRow } from './subscriber-admin.repository';
 import { endOfLaPazDay, toAccountSummary } from './subscription-account-row';
 import { issueToken } from './subscription-secrets';
@@ -69,15 +70,6 @@ export class AdminSubscriptionsController {
     private readonly register: SubscriberAdminRepository,
   ) {}
 
-  private wrap<T>(data: T, requestId: string, observedAt: Date | null = new Date()) {
-    return envelope(data, {
-      environmentId: this.identity.environmentId,
-      requestId,
-      observedAt,
-      evidenceState: 'known',
-    });
-  }
-
   @Get('accounts')
   @Roles(ACTOR_ROLES.SUBSCRIPTION_ADMIN)
   @ApiOperation({ operationId: 'listSubscriberAccounts', summary: 'Subscribers, newest first' })
@@ -100,7 +92,7 @@ export class AdminSubscriptionsController {
         usage: USAGE_KINDS.map((usageKind) => ({ usageKind, used: counts?.get(usageKind) ?? 0 })),
       };
     });
-    return this.wrap({ items, nextCursor: page.nextCursor }, requestId);
+    return answer(this.identity, { items, nextCursor: page.nextCursor }, requestId);
   }
 
   @Post('accounts')
@@ -117,7 +109,8 @@ export class AdminSubscriptionsController {
     const token = issueToken(now);
     const account = await this.register.create(body, trial ? 'TRIAL' : 'PENDING', paidUntil, token);
     if (!account) throw new ConflictError('An account with this e-mail already exists');
-    return this.wrap(
+    return answer(
+      this.identity,
       {
         account: toAccountSummary(account),
         activationToken: token.token,
@@ -137,7 +130,7 @@ export class AdminSubscriptionsController {
   ): Promise<AdminEnvelope<unknown>> {
     const account = await this.register.update(params.subscriberAccountId, change);
     if (!account) throw new NotFoundError('Subscriber account', params.subscriberAccountId);
-    return this.wrap({ account: toAccountSummary(account) }, requestId);
+    return answer(this.identity, { account: toAccountSummary(account) }, requestId);
   }
 
   @Post('accounts/:subscriberAccountId/payments')
@@ -157,7 +150,8 @@ export class AdminSubscriptionsController {
       actor.subject,
     );
     if (!result) throw new NotFoundError('Subscriber account', params.subscriberAccountId);
-    return this.wrap(
+    return answer(
+      this.identity,
       { payment: toPaymentItem(result.payment), account: toAccountSummary(result.account) },
       requestId,
     );
@@ -171,7 +165,12 @@ export class AdminSubscriptionsController {
     @RequestId() requestId: string,
   ): Promise<AdminEnvelope<unknown>> {
     const rows = await this.register.listPayments(params.subscriberAccountId);
-    return this.wrap({ items: rows.map(toPaymentItem) }, requestId, rows[0]?.recorded_at ?? null);
+    return answer(
+      this.identity,
+      { items: rows.map(toPaymentItem) },
+      requestId,
+      rows[0]?.recorded_at ?? null,
+    );
   }
 
   @Post('accounts/:subscriberAccountId/tokens')
@@ -189,6 +188,10 @@ export class AdminSubscriptionsController {
     const token = issueToken();
     const stored = await this.register.issueToken(params.subscriberAccountId, body.purpose, token);
     if (!stored) throw new NotFoundError('Subscriber account', params.subscriberAccountId);
-    return this.wrap({ token: token.token, expiresAt: token.expiresAt.toISOString() }, requestId);
+    return answer(
+      this.identity,
+      { token: token.token, expiresAt: token.expiresAt.toISOString() },
+      requestId,
+    );
   }
 }
