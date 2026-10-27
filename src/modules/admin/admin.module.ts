@@ -5,6 +5,7 @@ import { AdminInquiriesController } from './admin-inquiries.controller';
 import { AdminOverviewService } from './admin-overview.service';
 import { AdminQualityController } from './admin-quality.controller';
 import { AdminSeedsController } from './admin-seeds.controller';
+import { AdminSubscriptionsController } from './admin-subscriptions.controller';
 import { AdminController } from './admin.controller';
 import { AnalyticsIntakeRepository } from './analytics-intake.repository';
 import { AnalyticsViewRepository } from './analytics-view.repository';
@@ -29,6 +30,10 @@ import { SeedLedgerRepository } from './seed-ledger.repository';
 import { SeedRunRepository } from './seed-run.repository';
 import { SeedPublicationService } from './seed-publication.service';
 import { SiteAvailabilityService } from './site-availability.service';
+import { SiteSubscriptionsController } from './site-subscriptions.controller';
+import { SubscriberAccountRepository } from './subscriber-account.repository';
+import { SubscriberAdminRepository } from './subscriber-admin.repository';
+import { SubscriberKeyRepository } from './subscriber-key.repository';
 
 /**
  * The administrative surface: read the operation, and act on the seeds.
@@ -48,6 +53,8 @@ import { SiteAvailabilityService } from './site-availability.service';
     AdminQualityController,
     AdminAnalyticsController,
     AdminInquiriesController,
+    AdminSubscriptionsController,
+    SiteSubscriptionsController,
   ],
   providers: [
     DeploymentIdentity,
@@ -66,6 +73,9 @@ import { SiteAvailabilityService } from './site-availability.service';
     AnalyticsIntakeRepository,
     InquiryViewRepository,
     InquiryWriteRepository,
+    SubscriberAccountRepository,
+    SubscriberAdminRepository,
+    SubscriberKeyRepository,
     PublicationStateRepository,
     SeedContextProvider,
     SeedLedgerRepository,
