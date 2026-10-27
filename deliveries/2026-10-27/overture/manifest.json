@@ -1,0 +1,40 @@
+{
+  "delivery": "2026-10-27/overture",
+  "source": "overture_places",
+  "release": "2026-10-21.0",
+  "previous_release": "2026-09-23.0",
+  "retrieved_at": "2026-10-27T22:39:39Z",
+  "inputs": {
+    "places": "s3://overturemaps-us-west-2/release/2026-10-21.0/theme=places/type=place/",
+    "addresses": "s3://overturemaps-us-west-2/release/2026-10-21.0/theme=addresses/type=address/",
+    "divisions": "s3://overturemaps-us-west-2/release/2026-10-21.0/theme=divisions/type=division_area/",
+    "previous_places": "s3://overturemaps-us-west-2/release/2026-09-23.0/theme=places/type=place/",
+    "municipalities": "https://data.humdata.org/dataset/cod-ab-bol (COD-AB Bolivia v02, bol_admin3.geojson)"
+  },
+  "counts": {
+    "bbox_rows": 170199,
+    "inside_bolivia": 106529,
+    "discarded_outside_bolivia": 63670,
+    "new_vs_previous_by_name_and_distance": 4873,
+    "disappeared_vs_previous": 0,
+    "addresses_inside_bolivia": 2
+  },
+  "files": [
+    {
+      "path": "overture-places-bolivia-2026-10-21.0.ndjson.gz",
+      "rows": 106529,
+      "bytes": 34008940,
+      "sha256": "a4260d945c2580734b85e77ab51aca2a2bf106106aa0fde1575607f717b04baa"
+    },
+    {
+      "path": "scripts/download.py",
+      "bytes": 1437,
+      "sha256": "10d1188b7cfa7049882de06c9e031d0db1d9897c7bc0d50a4c1e9a349201faec"
+    },
+    {
+      "path": "scripts/process.py",
+      "bytes": 16986,
+      "sha256": "071960b18896093d5ed457fc1cb742999ed334d4afa22f8fc2ae1d962ca85d0b"
+    }
+  ]
+}
