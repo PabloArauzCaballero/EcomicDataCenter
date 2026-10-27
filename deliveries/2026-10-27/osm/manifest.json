@@ -1,0 +1,38 @@
+{
+ "source": "openstreetmap",
+ "delivery": "2026-10-27/osm",
+ "license": "ODbL-1.0",
+ "attribution": "© OpenStreetMap contributors",
+ "pbf_url": "https://download.geofabrik.de/south-america/bolivia-latest.osm.pbf",
+ "pbf_bytes": 174529121,
+ "pbf_md5": "8596af494c0fabd9520c3a85fdd81c2a",
+ "snapshot_at": "2026-10-26T21:24:46Z",
+ "geofabrik_sequence": 4955,
+ "retrieved_at": "2026-10-27T22:37:27Z",
+ "edited_after_cutoff": "2026-09-24T00:00:00Z",
+ "tools": "pyosmium 4.3.1, shapely 2.1.2",
+ "rows_total": 68655,
+ "files": [
+  {
+   "path": "osm-places-000.ndjson.gz",
+   "rows": 68655,
+   "bytes": 8219098,
+   "sha256": "462d36492bdc3baa4458da6c0da4614f86f7207f5d54f4dbc3f45270427bb006"
+  },
+  {
+   "path": "counts.json",
+   "bytes": 120377,
+   "sha256": "ca309bd647b73360f7088bbf0c86a485f5423509a88e9e17e0dafa8b6de5df4c"
+  },
+  {
+   "path": "method/extract_osm_places.py",
+   "bytes": 19708,
+   "sha256": "694f9b58f77a98a98200d591d3014d64e267d09fc582ad913e284fca92d65198"
+  },
+  {
+   "path": "README.md",
+   "bytes": 12028,
+   "sha256": "75b60cc9cbf5a46713e6d331aa08a543ef3a73c95243573b8d395c06fe992885"
+  }
+ ]
+}
