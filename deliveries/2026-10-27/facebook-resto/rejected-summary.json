@@ -1,12 +1,12 @@
 {
   "note": "Filas no confirmadas como página de negocio (NOT_FOUND, RESTRICTED, BLOCKED): no se publican. Sólo conteos por estado y por la ciudad de la búsqueda que las trajo.",
   "totals": {
-    "RESTRICTED": 12
+    "RESTRICTED": 52
   },
   "by_status_and_city": {
     "RESTRICTED": {
       "Sucre": 1,
-      "(sin ciudad: semilla OSM)": 11
+      "(sin ciudad: semilla OSM)": 51
     }
   }
 }

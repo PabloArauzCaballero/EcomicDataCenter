@@ -1,105 +1,105 @@
 {
-  "generated_at": "2026-10-27T23:24:01.749Z",
+  "generated_at": "2026-10-27T23:51:48.260Z",
   "total": {
-    "pages": 97,
-    "ok": 97,
-    "with_latlon": 89,
-    "with_latlon_from_facebook": 62,
-    "with_address": 71,
-    "with_phone": 76,
-    "with_website": 51,
-    "with_hours": 59,
-    "with_followers": 97,
-    "with_last_post": 97
+    "pages": 302,
+    "ok": 302,
+    "with_latlon": 294,
+    "with_latlon_from_facebook": 229,
+    "with_address": 242,
+    "with_phone": 220,
+    "with_website": 144,
+    "with_hours": 219,
+    "with_followers": 302,
+    "with_last_post": 302
   },
   "pct_ok": {
-    "latlon": 91.8,
-    "latlon_from_facebook": 63.9,
-    "address": 73.2,
-    "phone": 78.4,
-    "website": 52.6,
+    "latlon": 97.4,
+    "latlon_from_facebook": 75.8,
+    "address": 80.1,
+    "phone": 72.8,
+    "website": 47.7,
     "last_post": 100
   },
   "pct_of_ok_pages": {
-    "latlon": 91.8,
-    "address": 73.2,
-    "phone": 78.4
+    "latlon": 97.4,
+    "address": 80.1,
+    "phone": 72.8
   },
   "by_status": {
-    "OK": 97
+    "OK": 302
   },
   "by_department": {
     "Cochabamba": {
-      "pages": 63,
-      "ok": 63,
-      "with_latlon": 63,
-      "with_latlon_from_facebook": 40,
-      "with_address": 47,
-      "with_phone": 47,
-      "with_website": 41,
-      "with_hours": 38,
-      "with_followers": 63,
-      "with_last_post": 63
+      "pages": 248,
+      "ok": 248,
+      "with_latlon": 248,
+      "with_latlon_from_facebook": 191,
+      "with_address": 201,
+      "with_phone": 176,
+      "with_website": 119,
+      "with_hours": 181,
+      "with_followers": 248,
+      "with_last_post": 248
     },
     "Oruro": {
-      "pages": 9,
-      "ok": 9,
-      "with_latlon": 7,
+      "pages": 10,
+      "ok": 10,
+      "with_latlon": 8,
       "with_latlon_from_facebook": 7,
       "with_address": 7,
       "with_phone": 8,
       "with_website": 1,
       "with_hours": 5,
-      "with_followers": 9,
-      "with_last_post": 9
+      "with_followers": 10,
+      "with_last_post": 10
     },
     "Potosí": {
-      "pages": 9,
-      "ok": 9,
-      "with_latlon": 8,
-      "with_latlon_from_facebook": 7,
-      "with_address": 7,
-      "with_phone": 8,
-      "with_website": 4,
-      "with_hours": 6,
-      "with_followers": 9,
-      "with_last_post": 9
+      "pages": 12,
+      "ok": 12,
+      "with_latlon": 11,
+      "with_latlon_from_facebook": 9,
+      "with_address": 9,
+      "with_phone": 11,
+      "with_website": 7,
+      "with_hours": 9,
+      "with_followers": 12,
+      "with_last_post": 12
     },
     "Chuquisaca": {
-      "pages": 4,
-      "ok": 4,
-      "with_latlon": 3,
-      "with_latlon_from_facebook": 3,
-      "with_address": 4,
-      "with_phone": 4,
-      "with_website": 1,
-      "with_hours": 3,
-      "with_followers": 4,
-      "with_last_post": 4
+      "pages": 11,
+      "ok": 11,
+      "with_latlon": 10,
+      "with_latlon_from_facebook": 10,
+      "with_address": 11,
+      "with_phone": 10,
+      "with_website": 6,
+      "with_hours": 10,
+      "with_followers": 11,
+      "with_last_post": 11
     },
     "Tarija": {
-      "pages": 7,
-      "ok": 7,
-      "with_latlon": 3,
-      "with_latlon_from_facebook": 2,
-      "with_address": 3,
-      "with_phone": 5,
-      "with_website": 2,
-      "with_hours": 4,
-      "with_followers": 7,
-      "with_last_post": 7
+      "pages": 11,
+      "ok": 11,
+      "with_latlon": 7,
+      "with_latlon_from_facebook": 6,
+      "with_address": 7,
+      "with_phone": 8,
+      "with_website": 6,
+      "with_hours": 8,
+      "with_followers": 11,
+      "with_last_post": 11
     },
     "Beni": {
-      "pages": 5,
-      "ok": 5,
-      "with_latlon": 5,
-      "with_latlon_from_facebook": 3,
-      "with_address": 3,
-      "with_phone": 4,
-      "with_website": 2,
-      "with_hours": 3,
-      "with_followers": 5,
-      "with_last_post": 5
+      "pages": 10,
+      "ok": 10,
+      "with_latlon": 10,
+      "with_latlon_from_facebook": 6,
+      "with_address": 7,
+      "with_phone": 7,
+      "with_website": 5,
+      "with_hours": 6,
+      "with_followers": 10,
+      "with_last_post": 10
     },
     "Pando": {
       "pages": 0,
@@ -115,44 +115,54 @@
     }
   },
   "by_locality": {
-    "Cochabamba · Cochabamba": 61,
-    "Oruro · Oruro": 9,
-    "Potosí · Potosí": 7,
-    "Tarija · Tarija": 6,
-    "Beni · Trinidad": 4,
-    "Chuquisaca · Sucre": 4,
+    "Cochabamba · Cochabamba": 240,
+    "Chuquisaca · Sucre": 10,
+    "Oruro · Oruro": 10,
+    "Tarija · Tarija": 9,
+    "Potosí · Potosí": 8,
+    "Beni · Trinidad": 7,
+    "Cochabamba · Quillacollo": 3,
+    "Potosí · Tupiza": 2,
+    "Potosí · Uyuni": 2,
     "Beni · (sin localidad)": 1,
+    "Beni · San Borja": 1,
+    "Beni · Santa Ana del Yacuma": 1,
+    "Chuquisaca · (sin localidad)": 1,
+    "Cochabamba · Cliza": 1,
+    "Cochabamba · Colcapirhua": 1,
+    "Cochabamba · Ivirgarzama": 1,
     "Cochabamba · Punata": 1,
-    "Cochabamba · Quillacollo": 1,
-    "Potosí · Tupiza": 1,
-    "Potosí · Uyuni": 1,
-    "Tarija · Villamontes": 1
+    "Cochabamba · Sipe Sipe": 1,
+    "Tarija · Villamontes": 1,
+    "Tarija · Yacuiba": 1
   },
   "by_discovery": {
-    "osm": 69,
+    "osm": 274,
     "yahoo": 28
   },
   "by_location_source": {
-    "osm_coords": 20,
-    "coords": 62,
-    "city_text": 3,
+    "osm_coords": 49,
+    "coords": 229,
+    "city_text": 10,
     "query": 6,
-    "address": 6
+    "address": 8
   },
   "excluded": {
-    "persona: categoría de persona": 2,
-    "fuera de alcance: La Paz": 8,
-    "fuera de alcance: Santa Cruz": 1,
-    "fuera de Bolivia": 2
+    "persona: categoría de persona": 10,
+    "persona: nombre propio": 1,
+    "fuera de alcance: La Paz": 16,
+    "fuera de alcance: Santa Cruz": 6,
+    "fuera de Bolivia": 6,
+    "perfil personal": 2
   },
   "candidates": {
-    "total": 1229,
-    "yahoo": 79,
+    "total": 1404,
+    "yahoo": 256,
     "osm": 1151,
-    "fetched": 122
+    "fetched": 395
   },
-  "queries_done": 14,
+  "queries_done": 56,
   "rejected": {
-    "RESTRICTED": 12
+    "RESTRICTED": 52
   }
 }

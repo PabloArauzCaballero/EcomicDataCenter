@@ -16,9 +16,27 @@ const AT = '(?:@|[(\\[]\\s*(?:at|arroba)\\s*[)\\]]|\\barroba\\b)';
 const DOT = '(?:\\s*\\.\\s*|\\s*[(\\[]\\s*(?:dot|punto)\\s*[)\\]]\\s*|\\s+(?:dot|punto)\\s+)';
 const EMAIL = new RegExp(`[\\p{L}\\p{Nd}._%+\\-]+\\s*${AT}\\s*[\\p{L}\\p{Nd}\\-]+(?:${DOT}[\\p{L}\\p{Nd}\\-]+)+`, 'giu');
 
+const WA_LINK = /\S*(?:wa\.me|whatsapp\.com)\S*/giu;
+
+/**
+ * Última pasada, por ventanas: entre dos palabras de 3+ letras, si quedan 7 o más dígitos
+ * (aunque los separen letras sueltas, «:» o cualquier signo) se borra el tramo de dígitos.
+ * Cubre lo que la expresión de teléfono no ve —«7.00 a 22.45», «tel7o7…»— a costa de
+ * borrar también horarios y rangos de años escritos en texto libre.
+ */
+function scrubWindows(text) {
+  return text.split(/(\p{L}{3,})/u).map((chunk, i) => {
+    if (i % 2 === 1) return chunk; // palabra
+    const digits = chunk.match(/\p{Nd}/gu)?.length ?? 0;
+    if (digits < 7) return chunk;
+    return chunk.replace(/\p{Nd}[\s\S]*\p{Nd}/u, '[número]');
+  }).join('');
+}
+
 export function scrubText(text) {
   if (typeof text !== 'string') return text;
-  return text.normalize('NFKC').replace(EMAIL, '[correo]').replace(PHONE, '[teléfono]');
+  const s = text.normalize('NFKC').replace(WA_LINK, '[whatsapp]').replace(EMAIL, '[correo]').replace(PHONE, '[teléfono]');
+  return scrubWindows(s);
 }
 
 /** ¿Lleva el texto una tira de 7+ dígitos (aunque esté separada)? */

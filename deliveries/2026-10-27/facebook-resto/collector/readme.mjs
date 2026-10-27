@@ -71,7 +71,10 @@ Totales: ${Object.entries(s.rejected || {}).map(([k, v]) => `${k} ${n(v)}`).join
   reemplazan los correos por \`[correo]\` («@», «(at)», «arroba», «(arroba)», «[arroba]»; «.», «punto»,
   «[punto]») y toda tira de 7 o más dígitos (\`\\p{Nd}\`, cualquier alfabeto) separados por espacios,
   puntos, paréntesis, «/», «·» o guiones ASCII y Unicode (‐ ‑ ‒ – — ― −) por \`[teléfono]\`. Efecto
-  colateral aceptado: un rango de años («2015 - 2021») también se borra. El único número que queda es
+  colateral aceptado: un rango de años («2015 - 2021») también se borra. Una última pasada por
+  ventanas (el tramo entre dos palabras de 3+ letras) borra cualquier grupo de 7+ dígitos aunque lo
+  separen letras sueltas o «:» —por eso los horarios escritos en la bio («de 7:00 a 22:45») salen como
+  \`[número]\`— y los enlaces \`wa.me\`/\`whatsapp.com\` salen como \`[whatsapp]\`. El único número que queda es
   \`phone\`, el teléfono de la página de empresa. El WhatsApp no se publica, ni una web con 7+ dígitos.
 - De cómo se halló la página sólo se publica una lista de permitidos: \`raw.discovery = { via, query,
   rubro, city }\`. Ni el título ni el extracto del buscador ni el enlace hallado.

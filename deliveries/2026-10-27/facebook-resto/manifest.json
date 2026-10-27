@@ -11,29 +11,29 @@
     "Beni",
     "Pando"
   ],
-  "records": 97,
+  "records": 302,
   "files": [
     {
       "path": "facebook-resto.ndjson.gz",
-      "bytes": 32500,
-      "sha256": "ee8558dc3111d606f84cd95c0ac61b7d81486f459e8d1b27540837b8adb89311",
-      "records": 97,
+      "bytes": 100039,
+      "sha256": "22fcb29886d11c533c0202c133a208d469a9d103da92eeb6ef2801ec3639bdbd",
+      "records": 302,
       "format": "ndjson+gzip"
     },
     {
       "path": "stats.json",
-      "bytes": 3373,
-      "sha256": "ef7a8e401d768acb82e52590eaba34bf35b096e89ded2f848648de4f386a207b"
+      "bytes": 3761,
+      "sha256": "fad26efd7c4545e66ba7ca3338095f360ffab740ec6301e7d463f6189bb8fca1"
     },
     {
       "path": "rejected-summary.json",
       "bytes": 336,
-      "sha256": "72129275b55885d8dbce47f3cc091bb31c757b8e565c11072ef600c4dcb47ab8"
+      "sha256": "008372724f7bd9f7775524e26ef1450d67f75a0f76a846cde8253873f1624493"
     },
     {
       "path": "README.md",
-      "bytes": 10360,
-      "sha256": "9b817a2546e9a036c9c3cc62a2f3b3b720d0fc564da7d51caea0e08c89b583e9"
+      "bytes": 10997,
+      "sha256": "7b85649ab2713b1e34b5a6d3e2dda3173d4e8716c564d1f66daabd2600462c14"
     },
     {
       "path": "collector/build.mjs",
@@ -72,8 +72,8 @@
     },
     {
       "path": "collector/privacy.mjs",
-      "bytes": 7075,
-      "sha256": "a2164af68284e1a1c838ca26a8b90dabfe949f7ee7792bb542021ff0a3caae7b"
+      "bytes": 7859,
+      "sha256": "f10e641950eb022ff3f32106732a4869ca19a2e703213bd4338c59c4b1080bfd"
     },
     {
       "path": "collector/queries.mjs",
@@ -82,8 +82,8 @@
     },
     {
       "path": "collector/readme.mjs",
-      "bytes": 11174,
-      "sha256": "483a3909b97f9e4fe9ec32b1ad3e0901a10ddd77b3b1999f94cb65f346c00d4b"
+      "bytes": 11494,
+      "sha256": "8dc7a61b489a92b943bf709e5104f69dfb781d2a95f1ff2e7825941931638fed"
     },
     {
       "path": "collector/verify.mjs",
