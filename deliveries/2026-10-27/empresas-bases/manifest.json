@@ -1,6 +1,6 @@
 {
  "delivery": "empresas-bases",
- "generated_at": "2026-10-27T23:20:23+00:00",
+ "generated_at": "2026-10-27T23:52:49+00:00",
  "schema": [
   "source",
   "matricula",
@@ -104,6 +104,25 @@
     "2026-09-30",
     "2026-10-09"
    ]
+  },
+  {
+   "path": "bbv/bbv.ndjson.gz",
+   "bytes": 21323,
+   "sha256": "a10fa1c3f813fded79df4ff52a83663dccba7fd12827ea663d44abf04347caaa",
+   "rows": 122,
+   "fill": {
+    "matricula": 0,
+    "nit": 0,
+    "razon_social": 122,
+    "tipo_societario": 118,
+    "estado": 122,
+    "fecha_inscripcion": 0,
+    "actividad": 122,
+    "departamento": 121,
+    "municipio": 121,
+    "direccion": 122
+   },
+   "source_dates": []
   },
   {
    "path": "datos-gob-bo/datos-gob-bo.ndjson.gz",
@@ -231,8 +250,8 @@
   },
   {
    "path": "_scripts/build.py",
-   "bytes": 17848,
-   "sha256": "a6c14a05b7aac2f6aeb8fc7ed6d9d314b9babd3d5dd4195b7e766046ff09801c"
+   "bytes": 18063,
+   "sha256": "01ae78a525dba3814f3b87a0c3c00e46108acd537e8011d78fece2cd12f81ce6"
   },
   {
    "path": "_scripts/cdx.py",

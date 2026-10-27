@@ -151,16 +151,18 @@ def aps():
 def bbv():
     rows, pa = [], 0
     for x in J('bbv/bbv.json'):
-        if re.search(r'PATRIMONIO AUT', x['nombre'], re.I) or any('Patrimonio' in s for s in x['sectores']):
+        NOEMP = {'Fondo de Inversión Abierto', 'Fondo de Inversión Cerrado', 'Patrimonios Autónomos', 'Municipios'}
+        if re.search(r'PATRIMONIO AUT', x['nombre'], re.I) or all(s in NOEMP for s in x['sectores']):
             pa += 1; continue
-        d = x.get('detalle') or {}
+        d = dict(x.get('detalle') or {})
+        if d.get('objeto'): d['objeto'] = re.sub(r'^Website:\s*\S+\s*', '', d['objeto'])
         of = d.get('Oficina Central')
         rows.append(rec('bbv', razon_social=x['nombre'], tipo_societario=tipo_de(x['nombre']), estado='participante del mercado de valores (BBV)',
                         actividad='; '.join(x['sectores']), departamento=depto(of), municipio=of.title() if of else None, direccion=d.get('Dirección'),
                         source_url=x['url'], source_date=None,
                         raw={'codigo_bbv': x['codigo'], 'sectores': x['sectores'], 'informacion_al': d.get('Información al'),
                              'website': d.get('Website'), 'objeto_extracto': d.get('objeto')}))
-    STATS['bbv'] = {'filas': len(rows), 'patrimonios_autonomos_excluidos': pa}
+    STATS['bbv'] = {'filas': len(rows), 'fondos_patrimonios_municipios_excluidos': pa}
     return rows
 
 

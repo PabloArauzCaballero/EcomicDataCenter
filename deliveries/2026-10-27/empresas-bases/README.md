@@ -28,7 +28,7 @@ Para empresas vigentes con NIT, las únicas bases abiertas son chicas y sectoria
 | `fundempresa-no-encontradas` | Fundempresa, 7.º listado 2018 y 2.º listado 2019 de empresas no encontradas en la verificación de domicilio | 2018-09, 2019-10 | 454 | matrícula, razón social | ídem |
 | `asfi` | ASFI: entidades con licencia (servicios financieros complementarios y de intermediación), en constitución, adecuación, disolución, liquidación, intervención y quiebra | 2026-08-31 / 2026-10-09 | 386 | razón social, categoría, ciudad de la oficina central, sigla ASFI | información pública del regulador |
 | `aps-rms` | APS, Registro del Mercado de Seguros (API pública `api.aps.gob.bo/aps.web/rms`), solo personas jurídicas bolivianas | 2026-10-27 | 140 | **NIT, matrícula, razón social**, actividad, departamento, ciudad, domicilio legal, fecha de constitución | información pública del regulador |
-| `bbv` | Bolsa Boliviana de Valores, participantes del mercado (emisores y otros) | ver `raw.informacion_al` | BBV_ROWS | razón social, sector, oficina central, dirección, objeto | sitio de la BBV |
+| `bbv` | Bolsa Boliviana de Valores, participantes del mercado (emisores y otros) | fichas «información al» 2019 a 2026 (`raw.informacion_al`) | 122 | razón social, sector, oficina central, dirección, objeto | sitio de la BBV |
 | `aduana-oea` | Aduana Nacional, empresas certificadas como Operador Económico Autorizado | 2026-08-05 | 62 | **NIT**, razón social, tipo de operador, estado del certificado | información pública |
 | `aduana-prio` | Aduana Nacional, Principales Operadores de Comercio Exterior (PRIO) | 2026-02-09 | 177 | **solo NIT** (la lista oficial no trae nombres); 26 con nombre por cruce con OEA, APS y GLEIF | información pública |
 | `gleif` | GLEIF, registros LEI con domicilio legal en Bolivia (API, golden copy del día) | 2026-10-27 | 54 | matrícula/NIT (`registeredAs`), razón social, forma jurídica, estado, dirección | CC0 |
@@ -62,7 +62,9 @@ NIT y matrícula juntos, la mejor es `aps-rms`, que es chica pero completa.
   Se excluyeron los tipos de persona natural y las 126 reaseguradoras y corredoras **extranjeras**.
   A las filas con tipo «Persona Natural» o «unipersonal» se les quitó la dirección
   (`raw.direccion_omitida`). En ninguna fila se guardan teléfono, fax, correo ni representante legal.
-- **BBV.** Se excluyeron los patrimonios autónomos de titularización, que no son empresas.
+- **BBV.** De 222 participantes se excluyeron 100 que no son empresas: fondos de inversión abiertos y
+  cerrados, patrimonios autónomos de titularización y municipios. Las fichas no traen NIT ni matrícula.
+  Cada ficha tarda unos 20 s en responder: el colector tarda alrededor de una hora.
 - **GLEIF.** Para Bolivia, `registeredAs` es a veces la matrícula antigua (`00012797`) y a veces el NIT
   (`1020229024`). Si tiene 9 o más dígitos y no empieza con `00`, se copia también a `nit`
   (heurística anotada en `raw.nit_heuristica`).
