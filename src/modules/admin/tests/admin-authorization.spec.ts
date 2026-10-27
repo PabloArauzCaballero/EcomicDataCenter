@@ -81,12 +81,9 @@ describe('administrative authorization', () => {
     const prototype = AdminInquiriesController.prototype as unknown as Record<string, Handler>;
     for (const name of ['list', 'update']) {
       const roles = requiredRoles(prototype[name]!) ?? [];
-      expect(roles).toContain(ACTOR_ROLES.SUBSCRIPTION_ADMIN);
-      expect(roles).not.toContain(ACTOR_ROLES.SITE_INQUIRY);
-      expect(roles).not.toContain(ACTOR_ROLES.SITE_TELEMETRY);
+      // The rows hold personal data: the commercial operator and nobody else.
+      expect(roles).toEqual([ACTOR_ROLES.SUBSCRIPTION_ADMIN]);
     }
-    // Reading the inbox is not the right to change it.
-    expect(requiredRoles(prototype['update']!)).not.toContain(ACTOR_ROLES.ANALYST);
   });
 
   it('does not grant a reading role the right to reconcile', () => {
