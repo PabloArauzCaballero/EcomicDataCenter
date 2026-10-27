@@ -40,10 +40,11 @@ export const ACTOR_ROLES = {
   /**
    * Human operator who manages customers and the inquiries they send.
    *
-   * It reads and updates the inquiry register and nothing else in the console
-   * follows from it: following up with a prospective customer is a commercial
-   * act, and widening an editorial or operational role to cover it would hand
-   * catalogue or methodology rights to whoever answers the sales inbox.
+   * It is the only role that reads and updates the inquiry register — those
+   * rows hold personal data no analyst or steward needs — and nothing else in
+   * the console follows from it: following up with a prospective customer is a
+   * commercial act, and widening an editorial or operational role to cover it
+   * would hand catalogue or methodology rights to whoever answers the inbox.
    */
   SUBSCRIPTION_ADMIN: 'SUBSCRIPTION_ADMIN',
 } as const;

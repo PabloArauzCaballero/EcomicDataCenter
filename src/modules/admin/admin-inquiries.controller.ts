@@ -36,9 +36,11 @@ import {
  *
  * Submitting carries its own machine role, `SITE_INQUIRY`, and that role can do
  * nothing else — in particular it cannot read the inbox it fills, so a leaked
- * form token exposes no one's e-mail. Reading and updating are for people; the
- * commercial operator (`SUBSCRIPTION_ADMIN`) gets the inbox without inheriting
- * any catalogue or methodology right.
+ * form token exposes no one's e-mail. Reading and updating belong to the
+ * commercial operator (`SUBSCRIPTION_ADMIN`) alone: every row holds a person's
+ * name, e-mail, phone and words, and the console's other roles — analysts,
+ * stewards, seed operators — have no reason to see them. The operator, in
+ * turn, inherits no catalogue or methodology right.
  */
 @ApiTags('Administration')
 @ApiBearerAuth()
@@ -80,12 +82,7 @@ export class AdminInquiriesController {
   }
 
   @Get()
-  @Roles(
-    ACTOR_ROLES.ANALYST,
-    ACTOR_ROLES.METHODOLOGY_STEWARD,
-    ACTOR_ROLES.SEED_OPERATOR,
-    ACTOR_ROLES.SUBSCRIPTION_ADMIN,
-  )
+  @Roles(ACTOR_ROLES.SUBSCRIPTION_ADMIN)
   @ApiOperation({ operationId: 'listServiceInquiries', summary: 'Service inquiries, newest first' })
   async list(
     @Query(new ZodValidationPipe(inquiryListQuerySchema)) query: InquiryListQuery,
@@ -108,7 +105,7 @@ export class AdminInquiriesController {
   }
 
   @Patch(':serviceInquiryId')
-  @Roles(ACTOR_ROLES.METHODOLOGY_STEWARD, ACTOR_ROLES.SEED_OPERATOR, ACTOR_ROLES.SUBSCRIPTION_ADMIN)
+  @Roles(ACTOR_ROLES.SUBSCRIPTION_ADMIN)
   @ApiOperation({ operationId: 'updateServiceInquiry', summary: 'Change the state of an inquiry' })
   async update(
     @Param(new ZodValidationPipe(inquiryParamsSchema)) params: { serviceInquiryId: string },
