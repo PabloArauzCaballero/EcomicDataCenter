@@ -1,0 +1,227 @@
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post } from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ACTOR_ROLES } from '../../common/auth/actor';
+import { Roles } from '../../common/auth/auth.decorators';
+import {
+  ApplicationError,
+  ConflictError,
+  NotFoundError,
+  RequestValidationError,
+} from '../../common/errors/application.error';
+import { RequestId } from '../../common/http/request-id.decorator';
+import { ZodValidationPipe } from '../../common/validation/zod-validation.pipe';
+import { envelope, type AdminEnvelope } from './admin.envelope';
+import { DeploymentIdentity } from './deployment-identity';
+import { SubscriberAccountRepository } from './subscriber-account.repository';
+import { SubscriberKeyRepository } from './subscriber-key.repository';
+import { toAccountSummary } from './subscription-account-row';
+import { hashPassword, issueApiKey, sha256Hex, verifyPassword } from './subscription-secrets';
+import {
+  accountParamsSchema,
+  activationSchema,
+  apiKeyCreationSchema,
+  apiKeyParamsSchema,
+  apiKeyVerificationSchema,
+  passwordChangeSchema,
+  sessionSchema,
+  usageIncrementSchema,
+  type Activation,
+  type ApiKeyCreation,
+  type ApiKeyVerification,
+  type PasswordChange,
+  type Session,
+  type UsageIncrement,
+} from './subscription.schemas';
+
+/** One answer for every failed sign-in, so it never tells which part was wrong. */
+export class InvalidCredentialsError extends ApplicationError {
+  constructor() {
+    super('UNAUTHORIZED', 'Invalid e-mail or password', 401);
+  }
+}
+
+type AccountParams = { subscriberAccountId: string };
+
+/**
+ * The customer area of the public site (/cuenta), as the site sees it.
+ *
+ * Every route takes the site's own machine role, `SITE_SUBSCRIPTIONS`; the
+ * customer's identity is established by the site after `POST /sessions` and
+ * passed as the account in the path. This role can sign customers in, manage
+ * their keys and password, and meter usage — never open accounts, record
+ * payments or change plans, which belong to `SUBSCRIPTION_ADMIN`.
+ *
+ * Passwords, tokens, keys and e-mails are never logged; the audit interceptor
+ * records only the names of body fields.
+ */
+@ApiTags('Subscriptions')
+@ApiBearerAuth()
+@Controller('site/subscriptions')
+export class SiteSubscriptionsController {
+  constructor(
+    private readonly identity: DeploymentIdentity,
+    private readonly accounts: SubscriberAccountRepository,
+    private readonly keys: SubscriberKeyRepository,
+  ) {}
+
+  private wrap<T>(data: T, requestId: string): AdminEnvelope<T> {
+    return envelope(data, {
+      environmentId: this.identity.environmentId,
+      requestId,
+      observedAt: new Date(),
+      evidenceState: 'known',
+    });
+  }
+
+  @Post('sessions')
+  @HttpCode(HttpStatus.OK)
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({ operationId: 'openSubscriberSession', summary: 'Check a customer sign-in' })
+  async signIn(
+    @Body(new ZodValidationPipe(sessionSchema)) session: Session,
+    @RequestId() requestId: string,
+  ): Promise<AdminEnvelope<unknown>> {
+    const found = await this.accounts.findCredentialsByEmail(session.email);
+    // verifyPassword runs scrypt against a decoy when there is no hash, so an
+    // unknown e-mail costs the same time as a wrong password.
+    const valid = await verifyPassword(session.password, found?.passwordHash ?? null);
+    if (!found || !valid) throw new InvalidCredentialsError();
+    return this.wrap({ account: toAccountSummary(found.account) }, requestId);
+  }
+
+  @Get('accounts/:subscriberAccountId')
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({ operationId: 'getSubscriberAccount', summary: 'Account, usage and keys' })
+  async account(
+    @Param(new ZodValidationPipe(accountParamsSchema)) params: AccountParams,
+    @RequestId() requestId: string,
+  ): Promise<AdminEnvelope<unknown>> {
+    const id = params.subscriberAccountId;
+    const account = await this.accounts.findById(id);
+    if (!account) throw new NotFoundError('Subscriber account', id);
+    const [usage, keys] = await Promise.all([
+      this.accounts.currentUsage(id),
+      this.accounts.listApiKeys(id),
+    ]);
+    return this.wrap(
+      {
+        account: toAccountSummary(account),
+        usage,
+        apiKeys: keys.map((key) => ({
+          apiKeyId: key.api_key_id,
+          prefix: key.key_prefix,
+          label: key.label,
+          createdAt: key.created_at.toISOString(),
+          lastUsedAt: key.last_used_at ? key.last_used_at.toISOString() : null,
+          revokedAt: key.revoked_at ? key.revoked_at.toISOString() : null,
+        })),
+      },
+      requestId,
+    );
+  }
+
+  @Post('accounts/:subscriberAccountId/api-keys')
+  @HttpCode(HttpStatus.CREATED)
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({ operationId: 'createSubscriberApiKey', summary: 'Mint an API key, shown once' })
+  async createKey(
+    @Param(new ZodValidationPipe(accountParamsSchema)) params: AccountParams,
+    @Body(new ZodValidationPipe(apiKeyCreationSchema)) body: ApiKeyCreation,
+    @RequestId() requestId: string,
+  ): Promise<AdminEnvelope<unknown>> {
+    const issued = issueApiKey();
+    const id = params.subscriberAccountId;
+    const result = await this.keys.create(id, body.label, body.maxActiveKeys, issued);
+    if (result.outcome === 'NO_ACCOUNT') throw new NotFoundError('Subscriber account', id);
+    if (result.outcome === 'LIMIT_REACHED') {
+      throw new ConflictError('The account already holds its maximum of active keys', {
+        active: result.active,
+        maxActiveKeys: body.maxActiveKeys,
+      });
+    }
+    return this.wrap(
+      { apiKeyId: result.apiKeyId, prefix: issued.prefix, key: issued.key },
+      requestId,
+    );
+  }
+
+  @Post('accounts/:subscriberAccountId/api-keys/:apiKeyId/revoke')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({ operationId: 'revokeSubscriberApiKey', summary: 'Revoke one API key' })
+  async revokeKey(
+    @Param(new ZodValidationPipe(apiKeyParamsSchema))
+    params: {
+      subscriberAccountId: string;
+      apiKeyId: string;
+    },
+  ): Promise<void> {
+    const revoked = await this.keys.revoke(params.subscriberAccountId, params.apiKeyId);
+    if (!revoked) throw new NotFoundError('API key', params.apiKeyId);
+  }
+
+  @Post('accounts/:subscriberAccountId/password')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({ operationId: 'changeSubscriberPassword', summary: 'Change the password' })
+  async changePassword(
+    @Param(new ZodValidationPipe(accountParamsSchema)) params: AccountParams,
+    @Body(new ZodValidationPipe(passwordChangeSchema)) body: PasswordChange,
+  ): Promise<void> {
+    const id = params.subscriberAccountId;
+    const stored = await this.accounts.findPasswordHash(id);
+    if (!stored) throw new NotFoundError('Subscriber account', id);
+    const valid = await verifyPassword(body.currentPassword, stored.hash);
+    if (!valid) throw new InvalidCredentialsError();
+    await this.accounts.setPassword(id, await hashPassword(body.newPassword));
+  }
+
+  @Post('activations')
+  @HttpCode(HttpStatus.OK)
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({
+    operationId: 'activateSubscriberAccount',
+    summary: 'Spend a token, set a password',
+  })
+  async activate(
+    @Body(new ZodValidationPipe(activationSchema)) body: Activation,
+    @RequestId() requestId: string,
+  ): Promise<AdminEnvelope<unknown>> {
+    const passwordHash = await hashPassword(body.password);
+    const account = await this.accounts.activate(
+      sha256Hex(body.token),
+      passwordHash,
+      body.termsVersion,
+    );
+    if (!account) {
+      throw new RequestValidationError({ token: 'The token is invalid, expired or already used' });
+    }
+    return this.wrap({ account: toAccountSummary(account) }, requestId);
+  }
+
+  @Post('usage')
+  @HttpCode(HttpStatus.OK)
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({ operationId: 'recordSubscriberUsage', summary: "Add to this month's counter" })
+  async recordUsage(
+    @Body(new ZodValidationPipe(usageIncrementSchema)) body: UsageIncrement,
+    @RequestId() requestId: string,
+  ): Promise<AdminEnvelope<unknown>> {
+    const used = await this.keys.increment(body.subscriberAccountId, body.usageKind, body.amount);
+    if (used === null) throw new NotFoundError('Subscriber account', body.subscriberAccountId);
+    return this.wrap({ used }, requestId);
+  }
+
+  @Post('api-keys/verify')
+  @HttpCode(HttpStatus.OK)
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({ operationId: 'verifySubscriberApiKey', summary: 'Resolve and meter an API key' })
+  async verifyKey(
+    @Body(new ZodValidationPipe(apiKeyVerificationSchema)) body: ApiKeyVerification,
+    @RequestId() requestId: string,
+  ): Promise<AdminEnvelope<unknown>> {
+    const result = await this.keys.verify(body.keyHash, body.usageKind, body.amount);
+    if (!result) throw new NotFoundError('API key', 'presented key');
+    return this.wrap({ account: toAccountSummary(result.account), used: result.used }, requestId);
+  }
+}

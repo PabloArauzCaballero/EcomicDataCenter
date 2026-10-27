@@ -107,7 +107,10 @@ export const accountCreationSchema = z
     planCode: z.enum(PLAN_CODES),
     billingPeriod: z.enum(BILLING_PERIODS),
     trialDays: z.number().int().min(0).max(30).default(0),
-    serviceInquiryId: z.uuid().nullish().transform((value) => value ?? null),
+    serviceInquiryId: z
+      .uuid()
+      .nullish()
+      .transform((value) => value ?? null),
   })
   .strict();
 
