@@ -47,6 +47,16 @@ export const ACTOR_ROLES = {
    * would hand catalogue or methodology rights to whoever answers the inbox.
    */
   SUBSCRIPTION_ADMIN: 'SUBSCRIPTION_ADMIN',
+  /**
+   * Machine identity of the public site's customer area (/cuenta).
+   *
+   * It signs customers in, lets them manage their own API keys and password,
+   * and meters their usage. It cannot create accounts, record payments or
+   * change a plan — those are the operator's acts under `SUBSCRIPTION_ADMIN` —
+   * and it is separate from the other site identities so that a leaked
+   * telemetry or form token cannot verify passwords or mint API keys.
+   */
+  SITE_SUBSCRIPTIONS: 'SITE_SUBSCRIPTIONS',
 } as const;
 
 /**
