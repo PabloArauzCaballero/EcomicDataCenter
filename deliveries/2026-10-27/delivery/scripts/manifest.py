@@ -11,5 +11,5 @@ for p in sorted(glob.glob(BASE + "/*.ndjson.gz") + glob.glob(BASE + "/stats.json
         e["records"] = sum(1 for _ in gzip.open(p, "rt", encoding="utf-8"))
     files.append(e)
 json.dump({"delivery": "2026-10-27/delivery", "agent_topic": "apps y webs de delivery (PedidosYa, Yango, Uber Eats)",
-           "generated_at": "2026-10-27", "files": files}, open(BASE + "/manifest.json", "w", encoding="utf-8"), indent=1)
+           "generated_at": "2026-10-27", "files": files}, open(BASE + "/manifest.json", "w", encoding="utf-8", newline=chr(10)), indent=1)
 print(json.dumps(files, indent=1))

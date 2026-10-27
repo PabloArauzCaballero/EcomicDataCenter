@@ -109,7 +109,10 @@ def detail():
             if v.get("brand") or os.environ.get("YANGO_ALL"):
                 seen.setdefault(s, (j["lat"], j["lon"], j["city"]))
     print("slugs", len(seen), flush=True)
-    for i, (s, (lat, lon, city)) in enumerate(seen.items()):
+    items = list(seen.items())[::-1] if os.environ.get("REVERSE") else list(seen.items())
+    if os.environ.get("SHUFFLE"):
+        import random; random.Random(int(os.environ["SHUFFLE"])).shuffle(items)
+    for i, (s, (lat, lon, city)) in enumerate(items):
         fn = f"{W}/detail/{s}.json"
         if os.path.exists(fn):
             continue

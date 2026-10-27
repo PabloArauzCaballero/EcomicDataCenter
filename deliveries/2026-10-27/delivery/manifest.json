@@ -4,9 +4,19 @@
  "generated_at": "2026-10-27",
  "files": [
   {
+   "path": "README.md",
+   "bytes": 8903,
+   "sha256": "d4fffa77f1c8bf3906179d1b154ddea1930c077b0352f32d481c341e14d22609"
+  },
+  {
    "path": "scripts/build.py",
-   "bytes": 16297,
-   "sha256": "70437f9b1454435fbb8c66c796e86d47aea52d3f52f5872b4ecd6acf0a19f097"
+   "bytes": 16314,
+   "sha256": "be8f6128c57c0289368a09f9be8c27859ebac4ce1023590686050fd4148e8edd"
+  },
+  {
+   "path": "scripts/fill_readme.py",
+   "bytes": 3075,
+   "sha256": "176d3b31d4d73a7df44e54da339a686dda2c684a25e12ac1a2ea4e5b1e420262"
   },
   {
    "path": "scripts/httptry.py",
@@ -15,8 +25,8 @@
   },
   {
    "path": "scripts/manifest.py",
-   "bytes": 896,
-   "sha256": "d67d192d04f52e25512f00149de583a2b84a7836a13c9661b67a41d5d414efc5"
+   "bytes": 913,
+   "sha256": "ac7a492a4a8d81bf6aa0a00f800a0ae4791007152faca6f94c40f534d0b60f73"
   },
   {
    "path": "scripts/parse_pya_wayback.py",
@@ -60,18 +70,8 @@
   },
   {
    "path": "scripts/yango_collect.py",
-   "bytes": 6132,
-   "sha256": "e95024d6714a2e0a4a02cdd7b00e3582d0f4febf361d94650de3045f9b6fd117"
-  },
-  {
-   "path": "scripts/yango_filter_try.py",
-   "bytes": 1316,
-   "sha256": "957c57e6ab7b3df1d8f8fe0413a7ca31698a08297d72ff4e732dbf588fe727f0"
-  },
-  {
-   "path": "scripts/yango_tags.py",
-   "bytes": 2472,
-   "sha256": "833ddb682ea9b4ff9776c7e3bf8eeb8a4244288c8a842d60574cb8d43649e934"
+   "bytes": 6200,
+   "sha256": "900323135f99e82ae42d7091e510180e863215485d31b34a2bd74a6660ea632c"
   },
   {
    "path": "scripts/yango_try.py",
@@ -80,26 +80,26 @@
   },
   {
    "path": "stats.json",
-   "bytes": 1642,
-   "sha256": "c7282b0e0a2cbc3e23471962d7b653eca1b57fd02b86d401c03f523dfa46bad4"
+   "bytes": 1602,
+   "sha256": "f91a6b9c4c9e9dba29e5841c7867eb9330015911495620336b3dacd982f5b358"
   },
   {
    "path": "pedidosya.ndjson.gz",
    "bytes": 140209,
-   "sha256": "d0a9ed4ae638efb609fc784253818fc62e7c702c769674728713808369e67329",
+   "sha256": "71d0e44f4c76c7976f7420d11daa54109a74e9833534b6a54e1c53e60b818b48",
    "records": 1494
   },
   {
    "path": "ubereats.ndjson.gz",
    "bytes": 25699,
-   "sha256": "3dd1bd0a3114c1baf1255ef49a4869bfe54e4aeef35b4d220970def5db3bcecc",
+   "sha256": "82ae9f1d7cccca9b5b336b3ad33e9133cd064b3c72fb6817630e56c7024977bc",
    "records": 350
   },
   {
    "path": "yango.ndjson.gz",
-   "bytes": 3633,
-   "sha256": "f92122a23b2c8f39b80f190cc5f43da93e94901794d3fdd092ad77d8d2a29237",
-   "records": 18
+   "bytes": 292014,
+   "sha256": "e468bc22d843d9e955596415a61b8c8e6face5131ef19f56499fe87cf963f0b5",
+   "records": 2220
   }
  ]
 }

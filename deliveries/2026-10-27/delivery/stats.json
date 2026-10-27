@@ -1,17 +1,19 @@
 {
  "yango": {
-  "total": 18,
-  "with_latlon": 18,
-  "with_address": 18,
+  "total": 2220,
+  "with_latlon": 2220,
+  "with_address": 2220,
   "by_municipality": {
-   "Santa Cruz de la Sierra": 18
+   "Santa Cruz de la Sierra": 1478,
+   "Cochabamba": 565,
+   "La Paz": 177
   },
   "by_via": {
-   "live_api": 18
+   "live_api": 2220
   },
   "by_category": {
-   "restaurant": 17,
-   "shop": 1
+   "restaurant": 2174,
+   "shop": 46
   }
  },
  "pedidosya": {
@@ -88,7 +90,7 @@
   }
  },
  "all": {
-  "total": 1862,
-  "with_latlon": 1534
+  "total": 4064,
+  "with_latlon": 3736
  }
 }

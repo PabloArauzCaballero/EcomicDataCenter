@@ -289,7 +289,7 @@ def main():
         if src == "pedidosya":
             stats[src]["last_seen_year"] = dict(collections.Counter((r["raw"].get("last_seen") or "2026")[:4] for r in rs))
     stats["all"] = {"total": len(allr), "with_latlon": sum(1 for r in allr if r["lat"] is not None)}
-    json.dump(stats, open(f"{BASE}/stats.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(stats, open(f"{BASE}/stats.json", "w", encoding="utf-8", newline=chr(10)), ensure_ascii=False, indent=1)
     print(json.dumps(stats, ensure_ascii=False, indent=1))
 
 
