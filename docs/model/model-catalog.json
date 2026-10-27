@@ -1,8 +1,8 @@
 {
   "model": "Observatorio Económico y de Mercados de Bolivia",
   "version": "1.0-final-logical",
-  "entity_count": 66,
-  "field_count": 649,
+  "entity_count": 71,
+  "field_count": 689,
   "packages": {
     "provenance": 4,
     "semantic": 11,
@@ -11,7 +11,7 @@
     "quality_lineage": 7,
     "intelligence": 14,
     "audit": 1,
-    "operations": 11
+    "operations": 16
   },
   "entities": [
     {
@@ -7636,6 +7636,486 @@
           "table": "source_expectation",
           "field": "is_active",
           "type": "boolean",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "subscriber_account",
+      "alias": "subscriber_account",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "subscriber_account_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "email",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "full_name",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "organization",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "legal_name",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "tax_id",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "plan_code",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "billing_period",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "status",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "paid_until",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "password_hash",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "terms_version",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "terms_accepted_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "service_inquiry_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "created_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_account",
+          "field": "updated_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "subscriber_api_key",
+      "alias": "subscriber_api_key",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "subscriber_api_key",
+          "field": "subscriber_api_key_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_api_key",
+          "field": "subscriber_account_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_api_key",
+          "field": "key_prefix",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_api_key",
+          "field": "key_hash",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_api_key",
+          "field": "label",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_api_key",
+          "field": "created_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_api_key",
+          "field": "last_used_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_api_key",
+          "field": "revoked_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "subscriber_payment",
+      "alias": "subscriber_payment",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "subscriber_payment",
+          "field": "subscriber_payment_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_payment",
+          "field": "subscriber_account_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_payment",
+          "field": "amount_bob",
+          "type": "numeric(12,2)",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_payment",
+          "field": "covers_until",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_payment",
+          "field": "reference",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_payment",
+          "field": "recorded_by",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_payment",
+          "field": "recorded_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "subscriber_token",
+      "alias": "subscriber_token",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "subscriber_token",
+          "field": "token_hash",
+          "type": "text",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_token",
+          "field": "subscriber_account_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_token",
+          "field": "purpose",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_token",
+          "field": "expires_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_token",
+          "field": "used_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "subscriber_usage",
+      "alias": "subscriber_usage",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "subscriber_usage",
+          "field": "subscriber_account_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_usage",
+          "field": "period_month",
+          "type": "date",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_usage",
+          "field": "usage_kind",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "subscriber_usage",
+          "field": "used",
+          "type": "integer",
           "primary_key": false,
           "foreign_key": false,
           "unique": false,

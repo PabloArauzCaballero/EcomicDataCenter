@@ -64,6 +64,11 @@ import {
   SeedRunModel,
   ServiceInquiryModel,
   SourceExpectationModel,
+  SubscriberAccountModel,
+  SubscriberApiKeyModel,
+  SubscriberPaymentModel,
+  SubscriberTokenModel,
+  SubscriberUsageModel,
   TrafficEventModel,
 } from './index';
 
@@ -133,5 +138,10 @@ export const DATABASE_MODELS = [
   SeedRunModel,
   ServiceInquiryModel,
   SourceExpectationModel,
+  SubscriberAccountModel,
+  SubscriberApiKeyModel,
+  SubscriberPaymentModel,
+  SubscriberTokenModel,
+  SubscriberUsageModel,
   TrafficEventModel,
 ] as const;
