@@ -66,15 +66,25 @@ Totales: ${Object.entries(s.rejected || {}).map(([k, v]) => `${k} ${n(v)}`).join
   digital», «Personaje público», «Perfil · …», artista, periodista, político…), nombre con título
   profesional («Dr.», «Lic.», «Ing.»…) o nombre de pila sin ninguna palabra de negocio. Los perfiles
   personales (sin página) ni siquiera se guardan durante la recolección.
-- En todo texto libre (\`raw\` entero —bio, \`og_description\`, \`intro_items\`, extracto y título del
-  buscador— y \`address\`, \`hours\`) se reemplazan los correos por \`[correo]\` y toda secuencia de 7 o más
-  dígitos por \`[teléfono]\`. El único número que queda es \`phone\`, el teléfono de la página de empresa.
-  El WhatsApp no se publica. Del descubrimiento no se guarda el enlace hallado (podía ser un post o un
-  permalink con el id de un tercero), sólo la consulta, el rubro y la ciudad.
-- **Versión anterior en la rama:** el commit \`5ed7c80\` (primer avance, 54 filas) se subió antes de
-  estas reglas. Contenía 5 filas RESTRICTED con el título y el extracto del buscador y su URL, y los
+- Todo texto libre (\`raw\` entero —bio, \`og_description\`, \`intro_items\`…— y los campos de texto de nivel
+  superior: \`name\`, \`category_raw\`, \`address\`, \`locality\`, \`hours\`…) se normaliza con NFKC y se le
+  reemplazan los correos por \`[correo]\` («@», «(at)», «arroba», «(arroba)», «[arroba]»; «.», «punto»,
+  «[punto]») y toda tira de 7 o más dígitos (\`\\p{Nd}\`, cualquier alfabeto) separados por espacios,
+  puntos, paréntesis, «/», «·» o guiones ASCII y Unicode (‐ ‑ ‒ – — ― −) por \`[teléfono]\`. Efecto
+  colateral aceptado: un rango de años («2015 - 2021») también se borra. El único número que queda es
+  \`phone\`, el teléfono de la página de empresa. El WhatsApp no se publica, ni una web con 7+ dígitos.
+- De cómo se halló la página sólo se publica una lista de permitidos: \`raw.discovery = { via, query,
+  rubro, city }\`. Ni el título ni el extracto del buscador ni el enlace hallado.
+- \`collector/verify.mjs\` revisa el archivo publicado con un detector independiente y más estricto
+  (ventanas sin letras de las que se quita todo lo que no es dígito, más una ventana deslizante de 24
+  caracteres): la entrega publicada tiene **0 hallazgos** fuera de \`phone\` y de los campos de sistema.
+- **Versiones anteriores en la rama:** el commit \`5ed7c80\` (primer avance, 54 filas) se subió antes de
+  estas reglas: contenía 5 filas RESTRICTED con el título, el extracto y la URL del buscador, y los
   campos de texto libre sin borrar (bios y descripciones que pueden traer teléfonos o correos de las
-  páginas, y el enlace hallado). No se reescribió el historial: el usuario decide si hace falta purgarlo.
+  páginas, el WhatsApp y el enlace hallado). El commit \`f1298fb\` (75 filas) ya quitaba las filas no OK,
+  pero aún publicaba \`raw.discovery.search_title\` y \`search_snippet\` y usaba un borrador más débil
+  (sólo dígitos ASCII, sin «arroba»/«punto»). No se reescribió el historial: el usuario decide si hace
+  falta purgarlo.
 
 ## Método
 

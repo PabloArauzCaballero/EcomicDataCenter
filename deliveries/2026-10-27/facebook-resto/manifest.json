@@ -11,29 +11,29 @@
     "Beni",
     "Pando"
   ],
-  "records": 75,
+  "records": 97,
   "files": [
     {
       "path": "facebook-resto.ndjson.gz",
-      "bytes": 26670,
-      "sha256": "2f6b5b1dd7ece5baa48fe26831414cf92d456bac271761711b58ace7149256f7",
-      "records": 75,
+      "bytes": 32500,
+      "sha256": "ee8558dc3111d606f84cd95c0ac61b7d81486f459e8d1b27540837b8adb89311",
+      "records": 97,
       "format": "ndjson+gzip"
     },
     {
       "path": "stats.json",
-      "bytes": 3332,
-      "sha256": "7483088e002e8d875b66ff4030b77468d3f18dd6cef81ada38bbdd364c8b8520"
+      "bytes": 3373,
+      "sha256": "ef7a8e401d768acb82e52590eaba34bf35b096e89ded2f848648de4f386a207b"
     },
     {
       "path": "rejected-summary.json",
-      "bytes": 335,
-      "sha256": "37ecab9d4c09419b3eb460288cb98ee05ea0f9d0b9dfda9fd75e693f7e0d3154"
+      "bytes": 336,
+      "sha256": "72129275b55885d8dbce47f3cc091bb31c757b8e565c11072ef600c4dcb47ab8"
     },
     {
       "path": "README.md",
-      "bytes": 9334,
-      "sha256": "0fba733cef685e495d6439ba9badcc979395f73db4736b8edded7975692f59fc"
+      "bytes": 10360,
+      "sha256": "9b817a2546e9a036c9c3cc62a2f3b3b720d0fc564da7d51caea0e08c89b583e9"
     },
     {
       "path": "collector/build.mjs",
@@ -72,8 +72,8 @@
     },
     {
       "path": "collector/privacy.mjs",
-      "bytes": 5535,
-      "sha256": "2c5434e300c318472cad34879a1bd2cb64f2365ecbc55434939043af6d45ae76"
+      "bytes": 7075,
+      "sha256": "a2164af68284e1a1c838ca26a8b90dabfe949f7ee7792bb542021ff0a3caae7b"
     },
     {
       "path": "collector/queries.mjs",
@@ -82,13 +82,13 @@
     },
     {
       "path": "collector/readme.mjs",
-      "bytes": 10167,
-      "sha256": "58af53655de12276a6e6f9cab1255fddf617a1de0e263d58de1a2150ea33977a"
+      "bytes": 11174,
+      "sha256": "483a3909b97f9e4fe9ec32b1ad3e0901a10ddd77b3b1999f94cb65f346c00d4b"
     },
     {
       "path": "collector/verify.mjs",
-      "bytes": 1823,
-      "sha256": "02ad278a7ef117902dc1473c9ea96e326c06147c6b2112e0fa95a9a1bc9ce65b"
+      "bytes": 3311,
+      "sha256": "12dacafb64218c3e30b63f5dc92751205e3154a7afa22d6a86004248338bd68d"
     }
   ]
 }

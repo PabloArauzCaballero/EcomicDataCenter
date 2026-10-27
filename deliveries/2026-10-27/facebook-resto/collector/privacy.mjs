@@ -5,44 +5,58 @@
 //    el campo `phone` de la página de empresa confirmada.
 // 3. Las páginas que parecen de una persona se excluyen.
 
-const EMAIL = /[A-Za-z0-9._%+-]+\s*(?:@|\(at\)|\[at\])\s*[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
-// Siete o más dígitos, con espacios, puntos, guiones o paréntesis entre medio, y prefijos +591.
-const PHONE = /(?:\+?\d[\s().-]{0,3}){7,}/g;
+// Todo texto se normaliza con NFKC antes de comparar: así los dígitos de ancho completo,
+// matemáticos u otros alfabetos y los signos compatibles caen en las mismas clases.
+const SEP = '[\\s().\\-\\u2010-\\u2015\\u2212/·•_]';
+// Siete o más dígitos (\p{Nd}: cualquier sistema de numeración) con hasta 3 separadores entre
+// cada uno: espacios, puntos, paréntesis, guiones ASCII y Unicode (‐ ‑ ‒ – — ―, −), «/», «·».
+const PHONE = new RegExp(`(?:\\+\\s*)?(?:\\p{Nd}${SEP}{0,3}){6,}\\p{Nd}`, 'gu');
+// «@», «(at)», «arroba», «(arroba)», «[arroba]» como arroba; «.», «punto», « . » como punto.
+const AT = '(?:@|[(\\[]\\s*(?:at|arroba)\\s*[)\\]]|\\barroba\\b)';
+const DOT = '(?:\\s*\\.\\s*|\\s*[(\\[]\\s*(?:dot|punto)\\s*[)\\]]\\s*|\\s+(?:dot|punto)\\s+)';
+const EMAIL = new RegExp(`[\\p{L}\\p{Nd}._%+\\-]+\\s*${AT}\\s*[\\p{L}\\p{Nd}\\-]+(?:${DOT}[\\p{L}\\p{Nd}\\-]+)+`, 'giu');
 
 export function scrubText(text) {
   if (typeof text !== 'string') return text;
-  return text.replace(EMAIL, '[correo]').replace(PHONE, (m) => {
-    if (m.replace(/\D/g, '').length < 7) return m;
-    if (/^\s*(?:19|20)\d\d\s*[-–/]\s*(?:19|20)\d\d\s*$/.test(m)) return m; // «2015 - 2021»: años
-    return '[teléfono]';
-  });
+  return text.normalize('NFKC').replace(EMAIL, '[correo]').replace(PHONE, '[teléfono]');
 }
 
-export function scrubDeep(value) {
+/** ¿Lleva el texto una tira de 7+ dígitos (aunque esté separada)? */
+export function hasLongDigits(text) {
+  return typeof text === 'string' && new RegExp(PHONE.source, 'u').test(text.normalize('NFKC'));
+}
+
+// Claves de `raw` que son identificadores o cifras del sistema, no texto libre.
+const RAW_IDS = new Set(['page_id', 'profile_id', 'html_sha256', 'osm', 'http_status', 'location_distance_km', 'posts_seen', 'likes', 'talking_about', 'were_here']);
+
+export function scrubDeep(value, key) {
+  if (key && RAW_IDS.has(key)) return value;
   if (typeof value === 'string') return scrubText(value);
-  if (Array.isArray(value)) return value.map(scrubDeep);
-  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, scrubDeep(v)]));
+  if (Array.isArray(value)) return value.map((v) => scrubDeep(v));
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, scrubDeep(v, k)]));
   return value;
 }
 
 const WA = /wa\.me|whatsapp\.com|api\.whatsapp/i;
+// Campos de nivel superior que no son texto libre: no se tocan.
+const STRUCTURAL = new Set(['source', 'source_id', 'source_url', 'retrieved_at', 'source_updated_at', 'last_post_at', 'status', 'phone', 'lat', 'lon', 'followers', 'raw', 'website']);
 
-/** Limpia un registro OK: todo `raw` y la dirección pasan por el borrador; `phone` queda. */
+/** Limpia un registro OK: todo texto libre pasa por el borrador; `phone` queda. */
 export function scrubRecord(r) {
   const out = { ...r };
-  out.raw = scrubDeep(r.raw || {});
-  // El WhatsApp es un número: fuera, aun siendo de la empresa (sólo `phone` conserva número).
-  delete out.raw.whatsapp;
-  if (Array.isArray(out.raw.websites)) out.raw.websites = out.raw.websites.filter((w) => !WA.test(w));
-  if (out.website && WA.test(out.website)) out.website = null;
-  if (out.raw.discovery) {
-    // El enlace hallado puede ser un post o un permalink con id de terceros: se deja sólo la vía.
-    const { found_url, ...rest } = out.raw.discovery;
-    out.raw.discovery = rest;
+  const { discovery, whatsapp: _wa, websites, ...raw } = r.raw || {};
+  out.raw = scrubDeep(raw);
+  // Lista de permitidos: de cómo se halló la página sólo la vía, la consulta, el rubro y la ciudad.
+  if (discovery) out.raw.discovery = { via: discovery.via ?? null, query: discovery.query ?? null, rubro: discovery.rubro ?? null, city: discovery.city ?? null };
+  // El WhatsApp es un número: fuera, aun siendo de la empresa. Una web con 7+ dígitos seguidos
+  // (wa.me/591…, profile.php?id=…) tampoco se publica.
+  const okUrl = (w) => typeof w === 'string' && !WA.test(w) && !hasLongDigits(w);
+  if (Array.isArray(websites)) {
+    const kept = websites.filter(okUrl);
+    if (kept.length) out.raw.websites = kept;
   }
-  out.address = scrubText(r.address);
-  out.name = scrubText(r.name);
-  out.hours = scrubText(r.hours);
+  out.website = okUrl(r.website) ? r.website : null;
+  for (const [k, v] of Object.entries(out)) if (!STRUCTURAL.has(k) && typeof v === 'string') out[k] = scrubText(v);
   return out;
 }
 

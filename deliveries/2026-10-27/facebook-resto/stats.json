@@ -1,45 +1,45 @@
 {
-  "generated_at": "2026-10-27T23:20:17.861Z",
+  "generated_at": "2026-10-27T23:24:01.749Z",
   "total": {
-    "pages": 75,
-    "ok": 75,
-    "with_latlon": 67,
-    "with_latlon_from_facebook": 48,
-    "with_address": 53,
-    "with_phone": 60,
-    "with_website": 36,
-    "with_hours": 44,
-    "with_followers": 75,
-    "with_last_post": 75
+    "pages": 97,
+    "ok": 97,
+    "with_latlon": 89,
+    "with_latlon_from_facebook": 62,
+    "with_address": 71,
+    "with_phone": 76,
+    "with_website": 51,
+    "with_hours": 59,
+    "with_followers": 97,
+    "with_last_post": 97
   },
   "pct_ok": {
-    "latlon": 89.3,
-    "latlon_from_facebook": 64,
-    "address": 70.7,
-    "phone": 80,
-    "website": 48,
+    "latlon": 91.8,
+    "latlon_from_facebook": 63.9,
+    "address": 73.2,
+    "phone": 78.4,
+    "website": 52.6,
     "last_post": 100
   },
   "pct_of_ok_pages": {
-    "latlon": 89.3,
-    "address": 70.7,
-    "phone": 80
+    "latlon": 91.8,
+    "address": 73.2,
+    "phone": 78.4
   },
   "by_status": {
-    "OK": 75
+    "OK": 97
   },
   "by_department": {
     "Cochabamba": {
-      "pages": 42,
-      "ok": 42,
-      "with_latlon": 42,
-      "with_latlon_from_facebook": 26,
-      "with_address": 29,
-      "with_phone": 32,
-      "with_website": 26,
-      "with_hours": 23,
-      "with_followers": 42,
-      "with_last_post": 42
+      "pages": 63,
+      "ok": 63,
+      "with_latlon": 63,
+      "with_latlon_from_facebook": 40,
+      "with_address": 47,
+      "with_phone": 47,
+      "with_website": 41,
+      "with_hours": 38,
+      "with_followers": 63,
+      "with_last_post": 63
     },
     "Oruro": {
       "pages": 9,
@@ -60,7 +60,7 @@
       "with_latlon_from_facebook": 7,
       "with_address": 7,
       "with_phone": 8,
-      "with_website": 5,
+      "with_website": 4,
       "with_hours": 6,
       "with_followers": 9,
       "with_last_post": 9
@@ -90,16 +90,16 @@
       "with_last_post": 7
     },
     "Beni": {
-      "pages": 4,
-      "ok": 4,
-      "with_latlon": 4,
+      "pages": 5,
+      "ok": 5,
+      "with_latlon": 5,
       "with_latlon_from_facebook": 3,
       "with_address": 3,
-      "with_phone": 3,
-      "with_website": 1,
+      "with_phone": 4,
+      "with_website": 2,
       "with_hours": 3,
-      "with_followers": 4,
-      "with_last_post": 4
+      "with_followers": 5,
+      "with_last_post": 5
     },
     "Pando": {
       "pages": 0,
@@ -115,43 +115,44 @@
     }
   },
   "by_locality": {
-    "Cochabamba · Cochabamba": 41,
+    "Cochabamba · Cochabamba": 61,
     "Oruro · Oruro": 9,
     "Potosí · Potosí": 7,
     "Tarija · Tarija": 6,
+    "Beni · Trinidad": 4,
     "Chuquisaca · Sucre": 4,
-    "Beni · Trinidad": 3,
     "Beni · (sin localidad)": 1,
+    "Cochabamba · Punata": 1,
     "Cochabamba · Quillacollo": 1,
     "Potosí · Tupiza": 1,
     "Potosí · Uyuni": 1,
     "Tarija · Villamontes": 1
   },
   "by_discovery": {
-    "osm": 47,
+    "osm": 69,
     "yahoo": 28
   },
   "by_location_source": {
-    "osm_coords": 18,
-    "coords": 48,
+    "osm_coords": 20,
+    "coords": 62,
+    "city_text": 3,
     "query": 6,
-    "address": 2,
-    "city_text": 1
+    "address": 6
   },
   "excluded": {
     "persona: categoría de persona": 2,
     "fuera de alcance: La Paz": 8,
     "fuera de alcance: Santa Cruz": 1,
-    "fuera de Bolivia": 1
+    "fuera de Bolivia": 2
   },
   "candidates": {
-    "total": 1189,
-    "yahoo": 38,
+    "total": 1229,
+    "yahoo": 79,
     "osm": 1151,
-    "fetched": 97
+    "fetched": 122
   },
-  "queries_done": 6,
+  "queries_done": 14,
   "rejected": {
-    "RESTRICTED": 10
+    "RESTRICTED": 12
   }
 }
