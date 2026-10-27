@@ -62,6 +62,7 @@ import {
   ReadModelPublicationModel,
   SeedApplicationModel,
   SeedRunModel,
+  ServiceInquiryModel,
   SourceExpectationModel,
   TrafficEventModel,
 } from './index';
@@ -130,6 +131,7 @@ export const DATABASE_MODELS = [
   ReadModelPublicationModel,
   SeedApplicationModel,
   SeedRunModel,
+  ServiceInquiryModel,
   SourceExpectationModel,
   TrafficEventModel,
 ] as const;

@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AdminAnalyticsController } from './admin-analytics.controller';
 import { AdminIngestionController } from './admin-ingestion.controller';
+import { AdminInquiriesController } from './admin-inquiries.controller';
 import { AdminOverviewService } from './admin-overview.service';
 import { AdminQualityController } from './admin-quality.controller';
 import { AdminSeedsController } from './admin-seeds.controller';
@@ -14,6 +15,8 @@ import { HealthProbeRepository } from './health-probe.repository';
 import { HealthViewRepository } from './health-view.repository';
 import { IngestionStatusRepository } from './ingestion-status.repository';
 import { IngestionStatusService } from './ingestion-status.service';
+import { InquiryViewRepository } from './inquiry-view.repository';
+import { InquiryWriteRepository } from './inquiry-write.repository';
 import { MetadataViewRepository } from './metadata-view.repository';
 import { OverviewRepository } from './overview.repository';
 import { PublicationStateRepository } from './publication-state.repository';
@@ -44,6 +47,7 @@ import { SiteAvailabilityService } from './site-availability.service';
     AdminSeedsController,
     AdminQualityController,
     AdminAnalyticsController,
+    AdminInquiriesController,
   ],
   providers: [
     DeploymentIdentity,
@@ -60,6 +64,8 @@ import { SiteAvailabilityService } from './site-availability.service';
     ExternalCheckScheduler,
     AnalyticsViewRepository,
     AnalyticsIntakeRepository,
+    InquiryViewRepository,
+    InquiryWriteRepository,
     PublicationStateRepository,
     SeedContextProvider,
     SeedLedgerRepository,

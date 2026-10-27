@@ -61,5 +61,6 @@ export { IngestionEventModel } from './ingestion_event.model';
 export { ReadModelPublicationModel } from './read_model_publication.model';
 export { SeedApplicationModel } from './seed_application.model';
 export { SeedRunModel } from './seed_run.model';
+export { ServiceInquiryModel } from './service_inquiry.model';
 export { SourceExpectationModel } from './source_expectation.model';
 export { TrafficEventModel } from './traffic_event.model';
