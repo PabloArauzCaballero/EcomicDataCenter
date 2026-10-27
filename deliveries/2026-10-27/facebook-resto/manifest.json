@@ -1,0 +1,79 @@
+{
+  "delivery": "facebook-resto",
+  "date": "2026-10-27",
+  "source": "facebook",
+  "scope": [
+    "Cochabamba",
+    "Oruro",
+    "Potosí",
+    "Chuquisaca",
+    "Tarija",
+    "Beni",
+    "Pando"
+  ],
+  "records": 54,
+  "files": [
+    {
+      "path": "facebook-resto.ndjson.gz",
+      "bytes": 20509,
+      "sha256": "5aa3a738b20c41aa92188ebab37a272328969712b66f3b30479945943bb29311",
+      "records": 54,
+      "format": "ndjson+gzip"
+    },
+    {
+      "path": "stats.json",
+      "bytes": 3336,
+      "sha256": "9ac2ef9eebf86fbefcfef00c21bc33a83739317923d987f964473f676f2f423b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7723,
+      "sha256": "811e0f3cd6e06a92be71a0629d535223e39b7cfeb3381b91fe50256bad4ecc2a"
+    },
+    {
+      "path": "collector/build.mjs",
+      "bytes": 6630,
+      "sha256": "22f4a1b8790c101e2aa2be975a24ba301bbd134d8327d434d57c73b46de7ccaa"
+    },
+    {
+      "path": "collector/common.mjs",
+      "bytes": 4409,
+      "sha256": "7365127dd22d4247ed7fea7ea583e35269dfaf46c9af41886a3fbced7b1f7fcb"
+    },
+    {
+      "path": "collector/discover.mjs",
+      "bytes": 5940,
+      "sha256": "b18f1d38fc091e9a8bb9a4ef563b83ef952934c12e258fd7c6e299bed9935735"
+    },
+    {
+      "path": "collector/fetch-pages.mjs",
+      "bytes": 8540,
+      "sha256": "ce642088139c26da7f998525d9faac86b49dc7232b572e1b5c051b19e458cab9"
+    },
+    {
+      "path": "collector/geo.mjs",
+      "bytes": 8287,
+      "sha256": "b9bc81171d741d1a02fa81b966b226af467f109de8ae9042d385c2600ca5429f"
+    },
+    {
+      "path": "collector/osm-seed.mjs",
+      "bytes": 1917,
+      "sha256": "6e5436bfb60b0bcfbbfba112b651d423b7d5ff2eab9f1181739c804bf13e8dc0"
+    },
+    {
+      "path": "collector/parse-page.mjs",
+      "bytes": 9608,
+      "sha256": "b541566262944dab382dd7f303d39064b4a515e765a77afb19c61d70405f409a"
+    },
+    {
+      "path": "collector/queries.mjs",
+      "bytes": 3362,
+      "sha256": "d44f3f4dacfbf9132cb7f55eac1774c63357d4ec6d6e77dc10d4b96318c9371a"
+    },
+    {
+      "path": "collector/readme.mjs",
+      "bytes": 8404,
+      "sha256": "d36d9dfd7b1642d63b9342164f60259f8dd12712dc2713a9a872dfb9af30ab24"
+    }
+  ]
+}

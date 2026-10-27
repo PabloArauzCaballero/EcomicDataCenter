@@ -1,0 +1,156 @@
+{
+  "generated_at": "2026-10-27T23:16:35.269Z",
+  "total": {
+    "pages": 54,
+    "ok": 49,
+    "with_latlon": 45,
+    "with_latlon_from_facebook": 31,
+    "with_address": 34,
+    "with_phone": 39,
+    "with_website": 20,
+    "with_hours": 30,
+    "with_followers": 49,
+    "with_last_post": 49
+  },
+  "pct_ok": {
+    "latlon": 83.3,
+    "latlon_from_facebook": 57.4,
+    "address": 63,
+    "phone": 72.2,
+    "website": 37,
+    "last_post": 90.7
+  },
+  "pct_of_ok_pages": {
+    "latlon": 83.7,
+    "address": 69.4,
+    "phone": 79.6
+  },
+  "by_status": {
+    "RESTRICTED": 5,
+    "OK": 49
+  },
+  "by_department": {
+    "Cochabamba": {
+      "pages": 19,
+      "ok": 18,
+      "with_latlon": 19,
+      "with_latlon_from_facebook": 10,
+      "with_address": 11,
+      "with_phone": 12,
+      "with_website": 11,
+      "with_hours": 10,
+      "with_followers": 18,
+      "with_last_post": 18
+    },
+    "Oruro": {
+      "pages": 9,
+      "ok": 9,
+      "with_latlon": 7,
+      "with_latlon_from_facebook": 7,
+      "with_address": 7,
+      "with_phone": 8,
+      "with_website": 1,
+      "with_hours": 5,
+      "with_followers": 9,
+      "with_last_post": 9
+    },
+    "Potosí": {
+      "pages": 9,
+      "ok": 9,
+      "with_latlon": 8,
+      "with_latlon_from_facebook": 7,
+      "with_address": 7,
+      "with_phone": 8,
+      "with_website": 5,
+      "with_hours": 6,
+      "with_followers": 9,
+      "with_last_post": 9
+    },
+    "Chuquisaca": {
+      "pages": 6,
+      "ok": 4,
+      "with_latlon": 4,
+      "with_latlon_from_facebook": 3,
+      "with_address": 4,
+      "with_phone": 4,
+      "with_website": 1,
+      "with_hours": 3,
+      "with_followers": 4,
+      "with_last_post": 4
+    },
+    "Tarija": {
+      "pages": 8,
+      "ok": 7,
+      "with_latlon": 4,
+      "with_latlon_from_facebook": 2,
+      "with_address": 3,
+      "with_phone": 5,
+      "with_website": 2,
+      "with_hours": 4,
+      "with_followers": 7,
+      "with_last_post": 7
+    },
+    "Beni": {
+      "pages": 3,
+      "ok": 2,
+      "with_latlon": 3,
+      "with_latlon_from_facebook": 2,
+      "with_address": 2,
+      "with_phone": 2,
+      "with_website": 0,
+      "with_hours": 2,
+      "with_followers": 2,
+      "with_last_post": 2
+    },
+    "Pando": {
+      "pages": 0,
+      "ok": 0,
+      "with_latlon": 0,
+      "with_latlon_from_facebook": 0,
+      "with_address": 0,
+      "with_phone": 0,
+      "with_website": 0,
+      "with_hours": 0,
+      "with_followers": 0,
+      "with_last_post": 0
+    }
+  },
+  "by_locality": {
+    "Cochabamba · Cochabamba": 17,
+    "Oruro · Oruro": 9,
+    "Potosí · Potosí": 7,
+    "Chuquisaca · Sucre": 6,
+    "Tarija · Tarija": 6,
+    "Beni · Trinidad": 2,
+    "Cochabamba · Quillacollo": 2,
+    "Beni · Santa Ana del Yacuma": 1,
+    "Potosí · Tupiza": 1,
+    "Potosí · Uyuni": 1,
+    "Tarija · Bermejo": 1,
+    "Tarija · Villamontes": 1
+  },
+  "by_discovery": {
+    "osm": 25,
+    "yahoo": 29
+  },
+  "by_location_source": {
+    "osm_coords": 14,
+    "coords": 31,
+    "query": 7,
+    "address": 1,
+    "city_text": 1
+  },
+  "excluded": {
+    "perfil de persona": 1,
+    "fuera de alcance: La Paz": 4,
+    "fuera de alcance: Santa Cruz": 1,
+    "fuera de Bolivia": 1
+  },
+  "candidates": {
+    "total": 1184,
+    "yahoo": 33,
+    "osm": 1151,
+    "fetched": 61
+  },
+  "queries_done": 5
+}
