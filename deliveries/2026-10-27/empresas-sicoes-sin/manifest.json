@@ -1,0 +1,51 @@
+{
+ "generated_at": "2026-10-27T23:07:41Z",
+ "branch": "datos/2026-10-27-empresas-sicoes-sin",
+ "files": [
+  {
+   "path": "sicoes_rupe/sicoes_rupe_proveedores.ndjson.gz",
+   "sha256": "7f9647f4be9067a1a7bd597deab2003f66b415e4e6a026c73a0b52c8e12a9950",
+   "bytes": 825028,
+   "rows": 25553
+  },
+  {
+   "path": "sin/inventario_pdfs_sin.jsonl",
+   "sha256": "ef182c03f1f3d068a7f5f4b7bac18490da8a0b6710032dbf8741e4973806a867",
+   "bytes": 835625,
+   "rows": 1187
+  },
+  {
+   "path": "sin/sin_listas_publicadas.ndjson.gz",
+   "sha256": "9e5a9470fc57805b9c8fd7103c1dbdcac423803bab144043e00dc48d7a985904",
+   "bytes": 6714444,
+   "rows": 743326
+  }
+ ],
+ "stats": {
+  "sicoes_rupe": {
+   "filas": 25553,
+   "con_nit": 25553,
+   "con_direccion": 0,
+   "con_nit_y_direccion": 0,
+   "con_actividad": 0,
+   "tipo:Empresa-Persona Jurídica": 25201,
+   "tipo:Cooperativa-Persona Jurídica": 139,
+   "tipo:Organización Económica y Campesina (OECAS)-Persona Jurídica": 87,
+   "tipo:Asociación de Pequeño Productor Urbano y Rural(APPS)-Persona Jurídica": 126,
+   "listados_unicos": 25553,
+   "declarados_por_el_portal_en_tipos_listados": 103395,
+   "detalles": 0
+  },
+  "sin": {
+   "filas": 743326,
+   "lista:categorizacion": 42625,
+   "con_departamento": 203670,
+   "con_razon_social": 170,
+   "lista:portal": 25127,
+   "lista:facturacion_modalidad": 611535,
+   "lista:nit_observados": 3244,
+   "lista:jurisdiccion": 60795,
+   "nit_unicos": 349657
+  }
+ }
+}
