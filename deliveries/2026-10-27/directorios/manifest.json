@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-10-27T23:13:36Z",
+  "branch": "datos/2026-10-27-directorios",
+  "files": [
+    {
+      "path": "boliviaempresas/boliviaempresas.ndjson.gz",
+      "sha256": "8928301371cc1d82998f2fca8763239ed233f071115459f967dae417548c4758",
+      "bytes": 279526,
+      "rows": 964,
+      "source": "boliviaempresas"
+    },
+    {
+      "path": "cadecocruz/cadecocruz.ndjson.gz",
+      "sha256": "add656ccd152a61898ea526744766d2627694ecf2a06266c92e5ec729d0e5b8f",
+      "bytes": 6286,
+      "rows": 72,
+      "source": "cadecocruz"
+    }
+  ]
+}
