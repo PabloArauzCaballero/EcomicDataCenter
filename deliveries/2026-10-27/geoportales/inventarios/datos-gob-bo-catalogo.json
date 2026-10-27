@@ -1,0 +1,1660 @@
+[
+ {
+  "name": "ciudadania-digital",
+  "title": "Ciudadanía Digital",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Otra (Abierta)",
+  "modified": "2022-05-31T00:47:21.874623",
+  "tags": [
+   "datos abiertos",
+   "gobierno digital",
+   "servicios digitales"
+  ],
+  "resources": [
+   {
+    "name": "",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/947951b9-7a2e-446a-9e2f-8d6f052b18ee/resource/8a227141-2576-4a4b-84a9-18c7fd3eaa47/download/ciudadanos_por_dia_que_aprueban.csv",
+    "modified": "2021-12-30T01:21:51.093960"
+   },
+   {
+    "name": "",
+    "format": "",
+    "url": "https://datos.gob.bo/dataset/947951b9-7a2e-446a-9e2f-8d6f052b18ee/resource/71b5efad-d2d3-4cd9-accc-497d99c45427/download/autenticaciones_realizadas_exito_v2.csv",
+    "modified": "2021-12-30T02:14:42.135712"
+   },
+   {
+    "name": "",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/947951b9-7a2e-446a-9e2f-8d6f052b18ee/resource/9a50ee7d-ddb0-465c-b20a-46d1f21d36ea/download/autenticaciones_realizadas_exito_v2_x_sistema_year.csv",
+    "modified": "2021-12-30T01:34:53.947759"
+   },
+   {
+    "name": "",
+    "format": "",
+    "url": "https://datos.gob.bo/dataset/947951b9-7a2e-446a-9e2f-8d6f052b18ee/resource/2927ff51-6b8c-4b41-adb8-ed35f31d3b6d/download/cuentas_activadas_entidad.csv",
+    "modified": "2021-12-30T02:17:15.639449"
+   },
+   {
+    "name": "",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/947951b9-7a2e-446a-9e2f-8d6f052b18ee/resource/8e3aa311-accc-4f81-a7b8-72c0696f2cc6/download/operadores_registro_entidad-1.csv",
+    "modified": "2021-12-30T01:36:51.412719"
+   },
+   {
+    "name": "",
+    "format": "",
+    "url": "https://datos.gob.bo/dataset/947951b9-7a2e-446a-9e2f-8d6f052b18ee/resource/688fcd83-f190-46c8-88b7-77dc033c0cd3/download/registros_firmados.csv",
+    "modified": "2021-12-30T02:19:31.937640"
+   },
+   {
+    "name": "",
+    "format": "",
+    "url": "https://datos.gob.bo/dataset/947951b9-7a2e-446a-9e2f-8d6f052b18ee/resource/0ae65f43-820c-42ba-8076-05307f09c2b6/download/aprobaciones_por_dia_exitosas.csv",
+    "modified": "2021-12-30T02:21:07.162483"
+   },
+   {
+    "name": "",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/947951b9-7a2e-446a-9e2f-8d6f052b18ee/resource/80137939-aada-4290-8be4-b8bc3ffdd219/download/preregistros_portal_aplicacion_v1.csv",
+    "modified": "2021-12-30T01:40:35.145217"
+   },
+   {
+    "name": "",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/947951b9-7a2e-446a-9e2f-8d6f052b18ee/resource/3bfc75ee-866f-4e50-90af-f12f77ba9105/download/preregistros_portal_aplicacion_v2.csv",
+    "modified": "2021-12-30T01:41:34.057149"
+   }
+  ]
+ },
+ {
+  "name": "casos-covid-19-acumulado-por-municipios",
+  "title": "Casos COVID-19 acumulado por municipios (Semana epidemiológica 48)",
+  "org": "Ministerio de Salud ",
+  "license": "Otra (Abierta)",
+  "modified": "2020-12-03T12:56:51.131612",
+  "tags": [
+   "COVID19",
+   "municipios",
+   "salud"
+  ],
+  "resources": [
+   {
+    "name": "Metadatos - Casos COVID19 acumulado por municipios",
+    "format": "PDF",
+    "url": "https://datos.gob.bo/dataset/8e2ef657-cfc3-44e1-8552-4a4883aa484e/resource/cd99d124-4177-4a8b-ba01-6397389304ca/download/memoria_datos_covid_municipio.pdf",
+    "modified": "2020-07-17T14:32:19.932580"
+   },
+   {
+    "name": "Casos COVID19 acumulado por municipios Semana 48",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/8e2ef657-cfc3-44e1-8552-4a4883aa484e/resource/30cdcb68-ec87-42fb-b4a9-087d81f186c6/download/consolidado_covid_19-mun_se.csv",
+    "modified": "2020-12-03T12:56:13.202711"
+   }
+  ]
+ },
+ {
+  "name": "localidades-con-fibra-optica-2020",
+  "title": "Localidades con fibra óptica 2020",
+  "org": "Ministerio de Obras Públicas Servicios y Vivienda",
+  "license": "Otra (Abierta)",
+  "modified": "2020-11-23T15:08:36.062851",
+  "tags": [
+   "ENTEL",
+   "PRONTIS",
+   "fibra óptica",
+   "telecomunicaciones"
+  ],
+  "resources": [
+   {
+    "name": "localidades-con-fibra-optica-2020",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/4080f299-c50a-4e50-9015-68d62280d60c/resource/9e2aee71-e558-483f-af20-283acfea81b1/download/localidades_fo_2020.csv",
+    "modified": "2020-11-16T19:59:16.185932"
+   },
+   {
+    "name": "Antecedente / Fibra optica 2018",
+    "format": "PDF",
+    "url": "https://datos.gob.bo/dataset/4080f299-c50a-4e50-9015-68d62280d60c/resource/d38e4098-c0fd-4bb7-8a29-259be8d41bf6/download/document1-2-9.pdf",
+    "modified": "2020-11-23T15:08:36.051787"
+   }
+  ]
+ },
+ {
+  "name": "localidades-con-kioscos-electronicos",
+  "title": "Localidades con kioscos electrónicos 2020",
+  "org": "Ministerio de Obras Públicas Servicios y Vivienda",
+  "license": "Creative Commons Attribution",
+  "modified": "2020-11-17T13:02:54.091010",
+  "tags": [
+   "electronico",
+   "kioscos",
+   "telecomunicaciones"
+  ],
+  "resources": [
+   {
+    "name": "Localidades_Kioscos_electronicos_2020",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/85c33d92-7221-4aa7-b986-a072c4c83753/resource/83c25b26-b173-462a-81e7-f05cd622621d/download/localidades_kioscos_electronicos_2020.csv",
+    "modified": "2020-11-17T13:02:31.654016"
+   }
+  ]
+ },
+ {
+  "name": "contrataciones-agetic-2019-estandar-ocp",
+  "title": "Contrataciones AGETIC 2019 - Estandar OCDS Vers.1.0",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Otra (Abierta)",
+  "modified": "2020-08-19T00:07:32.451893",
+  "tags": [
+   "2019",
+   "agetic",
+   "contrataciones"
+  ],
+  "resources": [
+   {
+    "name": "Metadatos SICOES AGETIC OCP",
+    "format": "PDF",
+    "url": "https://datos.gob.bo/dataset/c0d87e59-2cd7-412f-b431-75454d383659/resource/9367427f-1fe9-4e29-84a0-84430e2d91ac/download/metadatos-sicoes-agetic3.pdf",
+    "modified": "2020-07-14T14:39:03.811091"
+   },
+   {
+    "name": "sicoes_ocp_2019.csv",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/c0d87e59-2cd7-412f-b431-75454d383659/resource/4526c3bc-3d6a-45b5-ade9-db0942db39b0/download/sicoes_ocp_2019.csv",
+    "modified": "2020-07-14T14:36:52.513787"
+   },
+   {
+    "name": "sicoes_ocp_2019_ocds",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/c0d87e59-2cd7-412f-b431-75454d383659/resource/be665deb-828f-41a0-a104-c34817cd9def/download/sicoes_ocp_2019_ocds-releases-2.csv",
+    "modified": "2020-08-13T00:26:26.495579"
+   }
+  ]
+ },
+ {
+  "name": "encuesta-nacional-de-opinion-sobre-tic",
+  "title": "Encuesta Nacional de Opinión sobre TIC",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Otra (Abierta)",
+  "modified": "2020-05-14T19:19:41.232663",
+  "tags": [
+   "AGETIC",
+   "Bolivia",
+   "Datos",
+   "RRSS",
+   "TIC",
+   "encuesta",
+   "gobierno"
+  ],
+  "resources": [
+   {
+    "name": "Base de Datos Encuesta TIC, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/ad014183-636d-467f-affb-97a25374d180/resource/5353b7fc-1bb7-46d9-baad-2aa00bc35b8c/download/base_etic_5536_final_corregido_2.csv",
+    "modified": "2020-05-14T19:17:31.278748"
+   },
+   {
+    "name": "Base de Datos Encuesta TIC, 2016",
+    "format": "",
+    "url": "https://datos.gob.bo/dataset/ad014183-636d-467f-affb-97a25374d180/resource/54e0b9ef-b5d3-4365-94dc-d1595531c392/download/base-5536-bdfinalcorregido.sav",
+    "modified": "2017-12-28T00:00:55.746303"
+   },
+   {
+    "name": "Diccionario de Datos",
+    "format": "PDF",
+    "url": "https://datos.gob.bo/dataset/ad014183-636d-467f-affb-97a25374d180/resource/0966d413-0755-4cae-9cf4-5c4b02363d3d/download/diccionario20de20codigos.pdf",
+    "modified": "2017-12-28T18:32:20.129648"
+   },
+   {
+    "name": "Cuestionario Internautas",
+    "format": "PDF",
+    "url": "https://datos.gob.bo/dataset/ad014183-636d-467f-affb-97a25374d180/resource/dd4a9cbf-5812-4958-9cbd-503f1e8ab471/download/agetic20cuestionario20internautas20final.pdf",
+    "modified": "2018-04-11T13:17:22.363547"
+   },
+   {
+    "name": "Cuestionario de NO Internautas",
+    "format": "PDF",
+    "url": "https://datos.gob.bo/dataset/ad014183-636d-467f-affb-97a25374d180/resource/7928ac91-d843-41d1-9fb1-553d3e2051c5/download/agetic20cuestionario20no20internautas20final.pdf",
+    "modified": "2018-04-11T13:18:51.582105"
+   }
+  ]
+ },
+ {
+  "name": "tramites-estado",
+  "title": "Trámites de Instituciones - Portal Único de Trámites del Estado",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Open Data Commons Attribution License",
+  "modified": "2020-03-10T19:54:25.232858",
+  "tags": [
+   "AGETIC",
+   "Instituciones públicas",
+   "Sector Público",
+   "Trámites"
+  ],
+  "resources": [
+   {
+    "name": "Trámites del Estado",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/7111f044-f916-4fee-b9bb-3da4d74ed29e/resource/271f1b91-72b7-4382-825a-6af35ac4e845/download/tramites_rev.csv",
+    "modified": "2020-03-06T21:36:53.760409"
+   }
+  ]
+ },
+ {
+  "name": "encuesta-final-voluntarios-inclusion-digital",
+  "title": "Encuesta Final-Voluntarios de Inclusión Digital",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Creative Commons Attribution",
+  "modified": "2019-12-09T21:44:57.726337",
+  "tags": [
+   "AGETIC",
+   "Bolivia",
+   "Datos",
+   "TIC",
+   "colegio",
+   "digital",
+   "encuesta",
+   "fin",
+   "final",
+   "inclusion",
+   "inclusión",
+   "unidad educativa",
+   "voluntariado",
+   "voluntario"
+  ],
+  "resources": [
+   {
+    "name": "Base de Datos Final de Voluntarios de Unidades Educativas de Inclusión Digital",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/7634a498-ebf3-4256-a9b6-56930841b47e/resource/9ceebd52-162f-495b-8de0-ad9f582cd768/download/voluntarios_fin.csv",
+    "modified": "2019-12-09T21:44:47.270411"
+   },
+   {
+    "name": "Diccionario de variables final-voluntarios",
+    "format": "ODS",
+    "url": "https://datos.gob.bo/dataset/7634a498-ebf3-4256-a9b6-56930841b47e/resource/c02c72b2-1cb0-4f22-baf3-ddd8eaf1db8e/download/diccionario-de-variables-final-voluntarios.ods",
+    "modified": "2019-12-09T21:43:22.290705"
+   }
+  ]
+ },
+ {
+  "name": "encuesta-final-estudiantes-inclusion-digital",
+  "title": "Encuesta Final-Estudiantes de Inclusión Digital",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Creative Commons Attribution",
+  "modified": "2019-12-09T21:35:37.986866",
+  "tags": [
+   "AGETIC",
+   "Bolivia",
+   "Datos",
+   "Inclusion",
+   "Inclusión",
+   "TIC",
+   "colegio",
+   "digital",
+   "encuesta",
+   "estudiante",
+   "estudiantes",
+   "unidad educativa"
+  ],
+  "resources": [
+   {
+    "name": "Base de Datos Final de Estudiantes de Unidades Educativas de Inclusión Digital",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/9726dbc5-b21a-4ba2-aabe-3eb3c9df146b/resource/6346c63d-3048-4d77-a459-57adc3e0b49a/download/estudiantes_fin.csv",
+    "modified": "2019-12-09T21:34:32.518468"
+   },
+   {
+    "name": "Diccionario de variables final-estudiantes",
+    "format": "ODS",
+    "url": "https://datos.gob.bo/dataset/9726dbc5-b21a-4ba2-aabe-3eb3c9df146b/resource/616594c7-e9ea-4d47-978c-04cfb52940b3/download/diccionario-de-variables-final-estudiantes.ods",
+    "modified": "2019-12-09T21:35:29.872807"
+   }
+  ]
+ },
+ {
+  "name": "encuesta-final-directores-inclusion-digital",
+  "title": "Encuesta Final-Directores de Inclusión Digital",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Creative Commons Attribution",
+  "modified": "2019-12-09T21:28:12.913733",
+  "tags": [
+   "AGETIC",
+   "Bolivia",
+   "Datos",
+   "Director",
+   "Directores",
+   "Inclusión",
+   "TIC",
+   "Unidad Educativa",
+   "colegio",
+   "digital",
+   "encuesta",
+   "inclusion"
+  ],
+  "resources": [
+   {
+    "name": "Base de Datos Final de Directores de Unidades Educativas de Inclusión Digital",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/dd9e2ef4-a7e2-4f9d-b81f-6f7def0cd71d/resource/8f462a50-5e67-457b-85f2-5fc9811e9de8/download/directores_fin.csv",
+    "modified": "2019-12-09T21:27:21.274368"
+   },
+   {
+    "name": "Diccionario de variables final-directores",
+    "format": "ODS",
+    "url": "https://datos.gob.bo/dataset/dd9e2ef4-a7e2-4f9d-b81f-6f7def0cd71d/resource/d52a227e-c72a-4489-acfa-2b22a20f8a3c/download/diccionario-de-variables-final-directores.ods",
+    "modified": "2019-12-09T21:28:08.079712"
+   }
+  ]
+ },
+ {
+  "name": "encuesta-final-profesores-inclusion-digital",
+  "title": "Encuesta Final-Profesores de Inclusión Digital",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Creative Commons Attribution",
+  "modified": "2019-12-09T20:25:25.184291",
+  "tags": [
+   "AGETIC",
+   "Bolivia",
+   "Datos",
+   "Profesor",
+   "TIC",
+   "Unidad Educativa",
+   "colegio",
+   "digital",
+   "encuesta",
+   "inclusion",
+   "inclusión",
+   "profesores"
+  ],
+  "resources": [
+   {
+    "name": "Base de Datos Final de Profesores de Unidades Educativas de Inclusión Digital",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bf97cf5a-a8d3-4694-926c-2a3da3df40e5/resource/119afffe-8e0a-4657-9cea-40fd6837b90c/download/profesores_fin.csv",
+    "modified": "2019-12-09T20:25:02.828202"
+   },
+   {
+    "name": "Diccionario de variables final-profesores",
+    "format": "ODS",
+    "url": "https://datos.gob.bo/dataset/bf97cf5a-a8d3-4694-926c-2a3da3df40e5/resource/2a793fbc-e231-431d-96ea-83c35752c399/download/diccionario-de-variables-final-profesores.ods",
+    "modified": "2019-12-09T20:12:02.013778"
+   }
+  ]
+ },
+ {
+  "name": "encuesta-inicial-profesores-inclusion-digital",
+  "title": "Encuesta Inicial-Profesores de Inclusión Digital",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Open Data Commons Attribution License",
+  "modified": "2019-12-09T20:23:36.064127",
+  "tags": [
+   "AGETIC",
+   "Bolivia",
+   "Datos",
+   "Profesor",
+   "TIC",
+   "Unidad Educativa",
+   "colegio",
+   "digital",
+   "encuesta",
+   "inclusion",
+   "inclusión",
+   "profesores"
+  ],
+  "resources": [
+   {
+    "name": "Base de Datos Inicial de Profesores de Unidades Educativas de Inclusión Digital",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f66939e5-40ff-460f-a6a3-bdc654ce6741/resource/a53815b8-e672-4001-bd3f-6d2531a645b8/download/profesores_inicial_1fase.csv",
+    "modified": "2019-12-09T20:23:23.355460"
+   },
+   {
+    "name": "Diccionario de variables inicial-profesores ",
+    "format": "ODS",
+    "url": "https://datos.gob.bo/dataset/f66939e5-40ff-460f-a6a3-bdc654ce6741/resource/4587c0a0-dac2-4b13-869a-e6dbf76cf334/download/diccionario_variables_profesores.ods",
+    "modified": "2019-12-05T16:07:45.018109"
+   }
+  ]
+ },
+ {
+  "name": "encuesta-inicial-directores-inclusion-digital",
+  "title": "Encuesta Inicial-Directores de Inclusión Digital",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Creative Commons Attribution",
+  "modified": "2019-12-09T20:18:07.921157",
+  "tags": [
+   "AGETIC",
+   "Bolivia",
+   "Datos",
+   "Director",
+   "Directores",
+   "Inclusion",
+   "Inclusión",
+   "TIC",
+   "Unidad Educativa",
+   "colegio",
+   "digital",
+   "encuesta"
+  ],
+  "resources": [
+   {
+    "name": "Base de Datos Inicial de Directores de Unidades Educativas de Inclusión Digital",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/5709224f-b120-4ec9-aee6-d9d4ecee305c/resource/41d6a324-8d0c-4261-8bcf-94b5c86cd440/download/directores_inicial_1fase.csv",
+    "modified": "2019-12-09T20:17:54.374495"
+   },
+   {
+    "name": "Diccionario variables inicial-directores",
+    "format": "ODS",
+    "url": "https://datos.gob.bo/dataset/5709224f-b120-4ec9-aee6-d9d4ecee305c/resource/1d7c0ae0-7a16-4beb-8d11-2fc979e1e682/download/diccionario_variables_directores.ods",
+    "modified": "2019-12-05T16:15:04.278951"
+   }
+  ]
+ },
+ {
+  "name": "encuesta-inicial-estudiantes-inclusion-digital",
+  "title": "Encuesta Inicial-Estudiantes de Inclusión Digital",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Creative Commons Attribution",
+  "modified": "2019-12-06T15:08:11.890383",
+  "tags": [
+   "AGETIC",
+   "Bolivia",
+   "Datos",
+   "Inclusión",
+   "TIC",
+   "colegio",
+   "digital",
+   "encuesta",
+   "estudiante",
+   "estudiantes",
+   "inclusion",
+   "unidad educativa"
+  ],
+  "resources": [
+   {
+    "name": "Estudiantes de Unidades Educativas de Inclusión Digital ",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/3c237727-31d6-418b-b827-f7ac3df060ef/resource/81a8e3df-e3bd-4138-8b84-b869006b4dee/download/estudiantes_1f.csv",
+    "modified": "2019-11-15T22:22:49.391290"
+   }
+  ]
+ },
+ {
+  "name": "encuesta-inicial-voluntarios-inclusion-digital",
+  "title": "Encuesta Inicial-Voluntarios de Inclusión Digital",
+  "org": "Agencia de Gobierno Electrónico y Tecnologías de Información y Comunicación - AGETIC",
+  "license": "Creative Commons Attribution",
+  "modified": "2019-12-06T15:07:40.492589",
+  "tags": [
+   "AGETIC",
+   "Bolivia",
+   "Datos",
+   "TIC",
+   "colegio",
+   "digital",
+   "encuesta",
+   "inclusion",
+   "inclusión",
+   "unidad educativa",
+   "voluntariado",
+   "voluntario"
+  ],
+  "resources": [
+   {
+    "name": "Voluntarios de Unidades Educativas de Inclusión Digital",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/13d8b95e-dfb6-401b-8d48-2df49521b96b/resource/4d7b6b93-9163-4f59-8e28-1e0e5ea50ae1/download/voluntarios_1f.csv",
+    "modified": "2019-11-15T22:28:49.753530"
+   }
+  ]
+ },
+ {
+  "name": "puntos-de-venta-doble-aguinaldo",
+  "title": "Puntos de Venta Doble Aguinaldo",
+  "org": null,
+  "license": "Creative Commons Attribution",
+  "modified": "2019-12-06T15:00:34.810713",
+  "tags": [
+   "Sector Público",
+   "aguinaldo",
+   "doble",
+   "doble aguinaldo",
+   "empresas",
+   "puntos",
+   "puntos de venta",
+   "venta"
+  ],
+  "resources": [
+   {
+    "name": "puntos_venta_DobleAguinaldo(1).csv",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/37c16682-f1bd-4a18-94bd-097b65f6b763/resource/3a2748b5-e9dc-4e9e-952b-31a9f1e01112/download/puntos_venta_dap1.csv",
+    "modified": "2019-08-30T20:36:53.441527"
+   }
+  ]
+ },
+ {
+  "name": "monitoreo-de-focos-de-calor",
+  "title": "Monitoreo de focos de calor",
+  "org": null,
+  "license": "Creative Commons Attribution",
+  "modified": "2019-12-06T14:57:49.784316",
+  "tags": [
+   "FIRMS",
+   "Focos de calor",
+   "NASA",
+   "agosto",
+   "calor",
+   "focos",
+   "monitoreo",
+   "satelitales"
+  ],
+  "resources": [
+   {
+    "name": "Focos de Calor_Sur_America",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/93a262ee-b404-45f1-93ca-fcdba9efd497/resource/897b1d35-604d-408e-be6d-c4ad680db561/download/focos-de-calor_sur_america_7d.csv",
+    "modified": "2019-08-30T20:56:44.973508"
+   }
+  ]
+ },
+ {
+  "name": "distribucion-de-lineas-telefonicas-fijas-en-servicio",
+  "title": "DISTRIBUCIÓN DE LÍNEAS TELEFÓNICAS FIJAS EN SERVICIO",
+  "org": "Instituto Nacional de Estadística - INE ",
+  "license": "Creative Commons Attribution",
+  "modified": "2018-12-17T15:53:51.922247",
+  "tags": [
+   "distribución",
+   "fijas",
+   "líneas telefónicas"
+  ],
+  "resources": [
+   {
+    "name": "Tabla de distribución de líneas fijas de servicio ",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/c45bd4e8-70ba-45fb-aa8e-8401969acfb2/resource/f185b17f-34f5-435f-a37f-048f18cc60e4/download/distribucion-de-lineas-telefonicas-fijas-en-servicio.csv",
+    "modified": "2018-12-17T15:53:45.920504"
+   }
+  ]
+ },
+ {
+  "name": "indicadores-de-poblacion-segun-departamento-y-municipio-censo-2012",
+  "title": "Indicadores de Población, Según Departamento y Municipio, Censo 2012",
+  "org": null,
+  "license": "Open Data Commons Attribution License",
+  "modified": "2018-08-17T22:17:00.322702",
+  "tags": [
+   "Censo",
+   "Municipio",
+   "Población"
+  ],
+  "resources": [
+   {
+    "name": "",
+    "format": "CSV",
+    "url": "",
+    "modified": "2018-08-17T10:04:29.782597"
+   },
+   {
+    "name": "Indicadores de Población Según Departamento y Municipio, Censo 2012",
+    "format": "",
+    "url": "",
+    "modified": "2018-08-17T11:53:19.879762"
+   },
+   {
+    "name": "Indicadores de Población Según Departamento y Municipio, Censo 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/24fd8424-7e76-4f40-9bf9-d5922c6f6766/resource/f2b69ec5-0101-4821-84bd-fd85375f8f68/download/indicadores_municipios_cpv-2012_cod.csv",
+    "modified": "2018-08-17T22:16:58.185398"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-desarrollo-economico-territorial-con-inclusion-2015-y-2016",
+  "title": "Proyectos de desarrollo económico territorial con inclusión, 2015 y 2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-12-20T18:36:47.983039",
+  "tags": [
+   "departamento",
+   "desarrollo rural",
+   "empoderar",
+   "inclusión",
+   "municipio",
+   "proyectos",
+   "rural",
+   "territorial"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de desarrollo económico territorial con inclusión, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/277edb52-f906-45d7-be71-a89d9523dac4/resource/7c699b8d-a0ba-4363-a932-a42d5507f23d/download/mindesarrollorural_proyectos_desarrollo_economico_territorial_con_inclusion_2015.csv",
+    "modified": "2016-11-27T23:24:36.752841"
+   },
+   {
+    "name": "Proyectos de desarrollo económico territorial con inclusión, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/277edb52-f906-45d7-be71-a89d9523dac4/resource/c8df61f6-cdfb-4228-9897-d3b7f0879ca0/download/mindesarrollorural_proyectos_desarrollo_economico_territorial_con_inclusion_2016.csv",
+    "modified": "2016-11-27T23:26:07.573077"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-innovacion-agropecuaria-y-forestal-2014-2016",
+  "title": "Proyectos de innovación agropecuaria y forestal, 2014-2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-12-20T18:34:17.294089",
+  "tags": [
+   "agropecuaria",
+   "departamento",
+   "desarrollo rural",
+   "forestal",
+   "innovación",
+   "municipio",
+   "proyectos",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de innovación agropecuaria y forestal, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/fc04a752-3347-4622-8c0f-2c70267186d1/resource/a269f81a-79dc-47a7-9c9a-dafd2c182f4c/download/mindesarrollorural_proyectos_innovacion_agropecuaria_forestal_2014.csv",
+    "modified": "2016-11-29T23:22:51.015589"
+   },
+   {
+    "name": "Proyectos de innovación agropecuaria y forestal, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/fc04a752-3347-4622-8c0f-2c70267186d1/resource/15c99c87-c48b-42aa-9b9a-e8a8b7ab0a32/download/mindesarrollorural_proyectos_innovacion_agropecuaria_forestal_2015.csv",
+    "modified": "2016-11-29T23:23:40.142312"
+   },
+   {
+    "name": "Proyectos de innovación agropecuaria y forestal, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/fc04a752-3347-4622-8c0f-2c70267186d1/resource/cb8219f3-5c05-4230-942e-6fb436df450b/download/mindesarrollorural_proyectos_innovacion_agropecuaria_forestal_2016.csv",
+    "modified": "2016-11-29T23:25:04.672589"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-del-seguro-agrario-2013-2015",
+  "title": "Proyectos del seguro agrario, 2013-2015",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-29T23:48:04.159404",
+  "tags": [
+   "agrario",
+   "departamento",
+   "desarrollo rural",
+   "municpio",
+   "proyectos",
+   "rural",
+   "seguro"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos del seguro agrario, 2013-2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/164212ab-3f0b-45e2-9466-0c7dba4b4e27/resource/d39ab369-5fec-4315-82b2-9bd8df127ed9/download/mindesarrollorural_proyectos_seguro_agropecuario_2013_2014.csv",
+    "modified": "2016-11-29T23:45:00.829498"
+   },
+   {
+    "name": "Proyectos del seguro agrario, 2014-2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/164212ab-3f0b-45e2-9466-0c7dba4b4e27/resource/722a8a70-48e1-472b-aa9b-98fbc32b169d/download/mindesarrollorural_proyectos_seguro_agropecuario_2014-2015.csv",
+    "modified": "2016-11-29T23:47:01.093030"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-ganaderia-bovina-2016",
+  "title": "Proyectos de ganadería bovina, 2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-29T00:48:45.045464",
+  "tags": [
+   "bovina",
+   "departamento",
+   "desarrollo rural",
+   "ganadería",
+   "municipio",
+   "proyectos",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de ganadería bovina, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bca5aff9-029d-41f0-8fc4-9d5a2ab8042a/resource/4e93abe2-0874-4dee-b367-578031f2d99d/download/mindesarrollorural_proyectos_ganaderia_bovina_2016.csv",
+    "modified": "2016-11-29T00:48:35.392644"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-produccion-de-hortalizas-2014-2016",
+  "title": "Proyectos de producción de hortalizas, 2014-2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-29T00:43:49.335366",
+  "tags": [
+   "departamento",
+   "desarrollo rural",
+   "hortalizas",
+   "municipio",
+   "producción",
+   "proyectos",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de producción de hortalizas, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/3ae1687e-b68f-4a7d-8d4c-96638265f290/resource/1c197c88-ccce-4ba5-8660-21f4107c3361/download/mindesarrollorural_proyecto_produccion_hortalizas_2014.csv",
+    "modified": "2016-11-29T00:41:51.647709"
+   },
+   {
+    "name": "Proyectos de producción de hortalizas, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/3ae1687e-b68f-4a7d-8d4c-96638265f290/resource/843384db-6302-4c57-9847-1e7f1b59e374/download/mindesarrollorural_proyecto_produccion_hortalizas_2015.csv",
+    "modified": "2016-11-29T00:42:26.751461"
+   },
+   {
+    "name": "Proyectos de producción de hortalizas, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/3ae1687e-b68f-4a7d-8d4c-96638265f290/resource/b8680201-9fcb-49f8-8ba5-a3a5a167576f/download/mindesarrollorural_proyecto_produccion_hortalizas_2016.csv",
+    "modified": "2016-11-29T00:43:39.158751"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-apoyo-a-la-crianza-de-rumiantes-menores-2014-y-2016",
+  "title": "Proyectos de apoyo a la crianza de rumiantes menores, 2014 y 2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-29T00:36:26.412580",
+  "tags": [
+   "crianza",
+   "departamento",
+   "desarrollo rural",
+   "municipio",
+   "proyectos",
+   "rumiantes",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de apoyo a la crianza de rumiantes menores, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a760a632-9d5c-4e2b-b993-669980486db9/resource/6a827544-86b3-47d6-85f2-430335557af8/download/mindesarrollorural_proyectos_rumiantes_menores_2014.csv",
+    "modified": "2016-11-29T00:35:10.389996"
+   },
+   {
+    "name": "Proyectos de apoyo a la crianza de rumiantes menores, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a760a632-9d5c-4e2b-b993-669980486db9/resource/2496877c-85aa-4264-a4f1-fcddd78cb3a7/download/mindesarrollorural_proyectos_rumiantes_menores_2016.csv",
+    "modified": "2016-11-29T00:36:14.781061"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-apoyo-a-la-produccion-de-frutas-2014-2016",
+  "title": "Proyectos de apoyo a la producción de frutas, 2014-2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-29T00:29:53.471168",
+  "tags": [
+   "departamento",
+   "desarrollo rural",
+   "frutas",
+   "municipio",
+   "producción",
+   "proyectos",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de apoyo a la producción de frutas, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/45b50b26-41ff-47b1-897e-044e5364043b/resource/ffa3190f-7721-4a5d-9ed2-302ac5df4b78/download/mindesarrollorural_proyectos_produccion_frutas_2014.csv",
+    "modified": "2016-11-29T00:28:21.813457"
+   },
+   {
+    "name": "Proyectos de apoyo a la producción de frutas, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/45b50b26-41ff-47b1-897e-044e5364043b/resource/fc8df768-b4c0-41b1-a416-5085394687c6/download/mindesarrollorural_proyectos_produccion_frutas_2015.csv",
+    "modified": "2016-11-29T00:28:59.413167"
+   },
+   {
+    "name": "Proyectos de apoyo a la producción de frutas, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/45b50b26-41ff-47b1-897e-044e5364043b/resource/eaa86f0c-27c0-4080-b514-9fefd6bed3ca/download/mindesarrollorural_proyectos_produccion_frutas_2016.csv",
+    "modified": "2016-11-29T00:29:45.803788"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-apoyo-a-la-produccion-de-tomate-2016",
+  "title": "Proyectos de apoyo a la producción de tomate, 2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-29T00:22:27.758955",
+  "tags": [
+   "departamento",
+   "desarrollo rural",
+   "municipio",
+   "producción",
+   "proyecto",
+   "rural",
+   "tomate"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de apoyo a la producción de tomate, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bf3a43d9-6614-4616-8e16-254b7996e9d0/resource/aaec49a3-8295-4d1f-94d3-338623b8cff8/download/mindesarrollorural_proyectos_apoyo_produccion_tomate_2016.csv",
+    "modified": "2016-11-29T00:22:19.533892"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-fortalecimiento-a-la-produccion-de-papa-2016",
+  "title": "Proyectos de fortalecimiento a la producción de papa, 2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-29T00:17:35.377699",
+  "tags": [
+   "departamento",
+   "desarrollo rural",
+   "fortalecimiento",
+   "municipio",
+   "papa",
+   "producción",
+   "proyectos",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de fortalecimiento a la producción de papa, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/83a5934e-4a94-4616-8edc-48b1ec17990a/resource/8ecf2755-0cf6-465b-a349-333e591fc31d/download/mindesarrollorural_proyectos_apoyo_produccion_papa_siembras_invierno_2016.csv",
+    "modified": "2016-11-29T00:17:23.812817"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-accesos-apoyo-a-los-emprendimientos-agricolas-y-no-agricolas-2014-y-2016",
+  "title": "Proyectos de accesos apoyo a los emprendimientos agrícolas y no agrícolas, 2014 y 2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-29T00:12:06.338493",
+  "tags": [
+   "agrícola",
+   "departamento",
+   "desarrollo rural",
+   "emprendemiento",
+   "municipio",
+   "proyectos",
+   "rutal",
+   "áreas rurales"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de acceso y apoyo a los emprendimientos agrícolas y no agrícolas, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/db96b470-0b6b-4e92-b1af-ca2012c0bb92/resource/091f9861-adeb-470f-95ae-3ea8dbad5c02/download/mindesarrollorural_proyectos_emprendimientos_agricolas_no_agricolas_2014.csv",
+    "modified": "2016-11-28T23:58:20.172214"
+   },
+   {
+    "name": "Proyectos de acceso y apoyo a los emprendimientos agrícolas y no agrícolas, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/db96b470-0b6b-4e92-b1af-ca2012c0bb92/resource/52d03305-5bd6-42f7-8930-ee5ac79539a5/download/mindesarrollorural_proyectos_emprendimientos_agricolas_no_agricolas_2016.csv",
+    "modified": "2016-11-28T23:59:07.810992"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-construccion-y-mantenimiento-de-caminos-vecinales-2014-y-2016",
+  "title": "Proyectos de construcción y mantenimiento de caminos vecinales, 2014 y 2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-29T00:11:21.167057",
+  "tags": [
+   "caminos",
+   "caminos vecinales",
+   "construcción",
+   "departamento",
+   "desarrollo rural",
+   "mantenimiento",
+   "municipio",
+   "proyectos",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de construcción y mantenimiento de caminos vecinales, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/5067a700-cf24-4d9d-ab87-569c901c1824/resource/b45da58c-10d9-4289-8b0a-38c61c85c537/download/mindesarrollorural_proyectos_caminos_vecinales_2014.csv",
+    "modified": "2016-11-29T00:09:46.721346"
+   },
+   {
+    "name": "Proyectos de construcción y mantenimiento de caminos vecinales, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/5067a700-cf24-4d9d-ab87-569c901c1824/resource/8e9fcdda-e6ff-4b80-8888-5ad1aad442f5/download/mindesarrollorural_proyectos_caminos_vecinales_2016.csv",
+    "modified": "2016-11-29T00:11:14.210761"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-inversion-comunitaria-en-areas-rurales-2011-2015",
+  "title": "Proyectos de inversión comunitaria en áreas rurales, 2011-2015",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-27T23:52:07.131363",
+  "tags": [
+   "comunitaria",
+   "departamento",
+   "desarrollo rural",
+   "empoderar",
+   "municipio",
+   "proyectos",
+   "rural",
+   "áreas rurales"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de inversión comunitaria en áreas rurales, 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f5430d3a-0fbb-49c1-b954-cf4cc4b8eda1/resource/2f81ce36-d17d-43e7-b57c-2015cab909cb/download/mindesarrollorural_empoderar_proyectos_inversion_areas_rurales_2011.csv",
+    "modified": "2016-11-27T23:09:40.659742"
+   },
+   {
+    "name": "Proyectos de inversión comunitaria en áreas rurales, 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f5430d3a-0fbb-49c1-b954-cf4cc4b8eda1/resource/a58075b1-7aa6-4385-ad07-e1a064765197/download/mindesarrollorural_empoderar_proyectos_inversion_areas_rurales_2012.csv",
+    "modified": "2016-11-27T23:09:19.552732"
+   },
+   {
+    "name": "Proyectos de inversión comunitaria en áreas rurales, 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f5430d3a-0fbb-49c1-b954-cf4cc4b8eda1/resource/7dfc663e-90a7-40b1-9ef2-8caa186c82f5/download/mindesarrollorural_empoderar_proyectos_inversion_areas_rurales_2013.csv",
+    "modified": "2016-11-27T23:09:11.427603"
+   },
+   {
+    "name": "Proyectos de inversión comunitaria en áreas rurales, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f5430d3a-0fbb-49c1-b954-cf4cc4b8eda1/resource/eb3f7d6e-93e7-4ae6-9b34-7cefc0c368c2/download/mindesarrollorural_empoderar_proyectos_inversion_areas_rurales_2014.csv",
+    "modified": "2016-11-27T23:09:07.701167"
+   },
+   {
+    "name": "Proyectos de inversión comunitaria en áreas rurales, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f5430d3a-0fbb-49c1-b954-cf4cc4b8eda1/resource/8f2b2694-2550-4aab-9739-b6e9f56537fc/download/mindesarrollorural_empoderar_proyectos_inversion_areas_rurales_2015.csv",
+    "modified": "2016-11-27T23:51:57.039098"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-emprendimientos-organizados-para-el-desarrollo-rural-autogestionario-2009-2016",
+  "title": "Proyectos de emprendimientos organizados para el desarrollo rural autogestionario, 2009-2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-27T23:33:38.281144",
+  "tags": [
+   "departamento",
+   "desarrollo rural",
+   "empoderar",
+   "emprendimientos",
+   "municipio",
+   "proyectos",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de emprendimientos organizados para el desarrollo rural autogestionario, 2009",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bd0da05a-a67f-4d00-bfca-be1c53e526e8/resource/8210bf1e-841a-4942-8b22-729d95e9e452/download/mindesarrollorural_par_proyectos_empredimientos_organizados_autogestionarios_2009.csv",
+    "modified": "2016-11-27T23:01:09.296712"
+   },
+   {
+    "name": "Proyectos de emprendimientos organizados para el desarrollo rural autogestionario, 2010",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bd0da05a-a67f-4d00-bfca-be1c53e526e8/resource/be167571-0674-4474-a4ce-bf52ba85b26c/download/mindesarrollorural_par_proyectos_empredimientos_organizados_autogestionarios_2010.csv",
+    "modified": "2016-11-27T23:01:23.241446"
+   },
+   {
+    "name": "Proyectos de emprendimientos organizados para el desarrollo rural autogestionario, 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bd0da05a-a67f-4d00-bfca-be1c53e526e8/resource/8c4f1295-4a15-4c28-9cf0-685e97c9a41f/download/mindesarrollorural_par_proyectos_empredimientos_organizados_autogestionarios_2011.csv",
+    "modified": "2016-11-27T23:01:36.630297"
+   },
+   {
+    "name": "Proyectos de emprendimientos organizados para el desarrollo rural autogestionario, 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bd0da05a-a67f-4d00-bfca-be1c53e526e8/resource/125fd0d2-2866-4192-8bb6-b3f646ffa732/download/mindesarrollorural_par_proyectos_empredimientos_organizados_autogestionarios_2012.csv",
+    "modified": "2016-11-27T23:01:49.962850"
+   },
+   {
+    "name": "Proyectos de emprendimientos organizados para el desarrollo rural autogestionario, 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bd0da05a-a67f-4d00-bfca-be1c53e526e8/resource/02371639-ef88-4989-848a-45158ea8b3f1/download/mindesarrollorural_par_proyectos_empredimientos_organizados_autogestionarios_2013.csv",
+    "modified": "2016-11-27T23:02:04.404772"
+   },
+   {
+    "name": "Proyectos de emprendimientos organizados para el desarrollo rural autogestionario, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bd0da05a-a67f-4d00-bfca-be1c53e526e8/resource/39e8c5d2-4911-499b-8d6b-2987cdf8187e/download/mindesarrollorural_par_proyectos_empredimientos_organizados_autogestionarios_2014.csv",
+    "modified": "2016-11-27T23:02:10.645743"
+   },
+   {
+    "name": "Proyectos de emprendimientos organizados para el desarrollo rural autogestionario, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bd0da05a-a67f-4d00-bfca-be1c53e526e8/resource/6c9c5cf4-cd15-4154-bd69-e43b0693f34e/download/mindesarrollorural_par_proyectos_empredimientos_organizados_autogestionarios_2015.csv",
+    "modified": "2016-11-27T23:04:09.495377"
+   },
+   {
+    "name": "Proyectos de emprendimientos organizados para el desarrollo rural autogestionario, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/bd0da05a-a67f-4d00-bfca-be1c53e526e8/resource/82d55e8a-4f91-4b2d-ad58-b6615d675bf6/download/mindesarrollorural_par_proyectos_empredimientos_organizados_autogestionarios_2016.csv",
+    "modified": "2016-11-27T15:34:13.701124"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-desarrollo-alternativo-2005-2016",
+  "title": "Proyectos de desarrollo alternativo, 2005-2016",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-27T23:30:53.024610",
+  "tags": [
+   "departamento",
+   "desarrollo alternativo",
+   "desarrollo rural",
+   "municipio",
+   "proyectos",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de desarrollo alternativo, 2005",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/bff20772-e60d-4e5f-ba20-cac7801bd65e/download/fonadal_proyectos_desarrollo_alternativo_2005.csv",
+    "modified": "2016-11-27T22:36:46.857870"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2006",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/47ce64c3-8768-4aa8-acd7-92204b9b788a/download/fonadal_proyectos_desarrollo_alternativo_2006.csv",
+    "modified": "2016-11-27T22:36:56.032606"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2007",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/455f9736-5876-4442-967e-b3dcaae8912f/download/fonadal_proyectos_desarrollo_alternativo_2007.csv",
+    "modified": "2016-11-27T22:37:07.541876"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2008",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/3f6f882e-18b3-46a5-a2ef-40f08916cbf9/download/fonadal_proyectos_desarrollo_alternativo_2008.csv",
+    "modified": "2016-11-27T14:24:25.481412"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2009",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/0b4ba678-d2bc-4c3b-848a-cf349023646a/download/fonadal_proyectos_desarrollo_alternativo_2009.csv",
+    "modified": "2016-11-27T23:30:48.054949"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2010",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/18d73f1c-c1b4-4248-88e5-6a19d371aed7/download/fonadal_proyectos_desarrollo_alternativo_2010.csv",
+    "modified": "2016-11-27T14:25:53.237109"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/f7e115eb-f10c-415f-905f-e7489e8bb15b/download/fonadal_proyectos_desarrollo_alternativo_2011.csv",
+    "modified": "2016-11-27T14:26:41.784937"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/c552db9b-fd54-4270-9deb-7b15ed779833/download/fonadal_proyectos_desarrollo_alternativo_2012.csv",
+    "modified": "2016-11-27T22:37:43.796404"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/9262155f-caee-4b3b-bcf9-d90cfd7369fd/download/fonadal_proyectos_desarrollo_alternativo_2013.csv",
+    "modified": "2016-11-27T14:28:41.264854"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/b7506b9a-7bfc-4ee6-ac66-7969d456d799/download/fonadal_proyectos_desarrollo_alternativo_2014.csv",
+    "modified": "2016-11-27T14:29:38.717210"
+   },
+   {
+    "name": "Proyectos de desarrollo alternativo, 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/cfc45ae5-3931-4a12-b3e0-5a2e1c3dd1a9/resource/c49e136d-8bf7-4fbe-bcd9-4f561d627633/download/fonadal_proyectos_desarrollo_alternativo_2016.csv",
+    "modified": "2016-11-27T22:38:15.408645"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-de-produccion-agropecuaria-y-forestal-no-maderable-ecologica-2010-2015",
+  "title": "Proyectos de producción agropecuaria y forestal no maderable ecológica, 2010-2015",
+  "org": "Ministerio de Desarrollo Rural y Tierras ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-27T22:52:10.335921",
+  "tags": [
+   "agropecuario",
+   "departamento",
+   "desarrollo rural",
+   "ecológico",
+   "forestal",
+   "municipio",
+   "proyectos",
+   "rural"
+  ],
+  "resources": [
+   {
+    "name": "Proyectos de producción agropecuaria y forestal no maderable ecológica, 2010",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/42f2a9ca-a197-44c8-aa8f-3e6e3df2788c/resource/64096749-1826-42d1-a69a-613d830273d6/download/mindesarrollorural_proyectos_produccion_ecologica_2010.csv",
+    "modified": "2016-11-27T22:49:57.272035"
+   },
+   {
+    "name": "Proyectos de producción agropecuaria y forestal no maderable ecológica, 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/42f2a9ca-a197-44c8-aa8f-3e6e3df2788c/resource/538ac214-bbbb-4b31-8966-39748b7468f1/download/mindesarrollorural_proyectos_produccion_ecologica_2011.csv",
+    "modified": "2016-11-27T22:49:49.750935"
+   },
+   {
+    "name": "Proyectos de producción agropecuaria y forestal no maderable ecológica, 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/42f2a9ca-a197-44c8-aa8f-3e6e3df2788c/resource/950e4181-9fb8-48b6-88f5-ff31dbc75a49/download/mindesarrollorural_proyectos_produccion_ecologica_2012.csv",
+    "modified": "2016-11-27T22:49:42.413369"
+   },
+   {
+    "name": "Proyectos de producción agropecuaria y forestal no maderable ecológica, 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/42f2a9ca-a197-44c8-aa8f-3e6e3df2788c/resource/7d586ad7-5e6d-4da3-a895-18939a09a3e0/download/mindesarrollorural_proyectos_produccion_ecologica_2013.csv",
+    "modified": "2016-11-27T22:49:30.065669"
+   },
+   {
+    "name": "Proyectos de producción agropecuaria y forestal no maderable ecológica, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/42f2a9ca-a197-44c8-aa8f-3e6e3df2788c/resource/906d4e27-ba99-4a58-b38f-3f62ba42b55e/download/mindesarrollorural_proyectos_produccion_ecologica_2014.csv",
+    "modified": "2016-11-27T22:49:22.857213"
+   },
+   {
+    "name": "Proyectos de producción agropecuaria y forestal no maderable ecológica, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/42f2a9ca-a197-44c8-aa8f-3e6e3df2788c/resource/a16a8464-64ac-4488-802a-cad2f86894e9/download/mindesarrollorural_proyectos_produccion_ecologica_2015.csv",
+    "modified": "2016-11-27T22:52:07.684659"
+   }
+  ]
+ },
+ {
+  "name": "limites-municipales",
+  "title": "Limite referencial de municipios",
+  "org": "Viceministerio de Autonomías",
+  "license": "Creative Commons Attribution Share-Alike",
+  "modified": "2016-11-19T12:03:08.480786",
+  "tags": [
+   "limite",
+   "municipio",
+   "unidad territorial"
+  ],
+  "resources": [
+   {
+    "name": "Limite referencial de municipios de Pando",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/87652a20-263b-45f4-a370-6cdd066b2744/resource/a7ac328d-9bc5-46fc-b0ec-9ad5b5c0a513/download/min_autonomias_limite_municipal_pando.csv",
+    "modified": "2016-11-19T11:52:08.243364"
+   },
+   {
+    "name": "Limite referencial de municipios de Pando",
+    "format": "JSON",
+    "url": "https://datos.gob.bo/dataset/87652a20-263b-45f4-a370-6cdd066b2744/resource/46cc32f9-a18a-49c6-b553-9f075745c51d/download/min_autonomias_limite_municipal_pando.geojson",
+    "modified": "2016-11-19T11:47:10.264582"
+   }
+  ]
+ },
+ {
+  "name": "estab",
+  "title": "Establecimientos Educativos 2016",
+  "org": "Ministerio de Educación",
+  "license": "Creative Commons Attribution Share-Alike",
+  "modified": "2016-11-18T16:02:04.451213",
+  "tags": [
+   "colegios",
+   "educación",
+   "escuelas"
+  ],
+  "resources": [
+   {
+    "name": "Establecimientos educativos 2016",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a1ab65be-4160-494f-8eea-dddb1a04287d/resource/b5da4242-1c90-47d9-b98f-bde1f35a0764/download/me_establecimientos_educativos2016.csv",
+    "modified": "2016-11-18T15:56:08.484807"
+   },
+   {
+    "name": "Establecimientos educativos 2016",
+    "format": "JSON",
+    "url": "https://datos.gob.bo/dataset/a1ab65be-4160-494f-8eea-dddb1a04287d/resource/62a9416b-00af-446c-8606-3062c0bbd503/download/me_establecimientos_educativos2016.geojson",
+    "modified": "2016-11-18T15:58:16.486816"
+   }
+  ]
+ },
+ {
+  "name": "cantidad-de-establecimientos-de-salud-por-nivel-de-atencion-2006-20151",
+  "title": "Cantidad de establecimientos de salud por nivel de atención, 2006-2015",
+  "org": "Ministerio de Salud ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-16T00:23:51.264764",
+  "tags": [
+   "centro de salud",
+   "departamento",
+   "establecimientos de salud",
+   "hospital",
+   "indicadores",
+   "instituto especializado",
+   "municipio",
+   "puesto de salud",
+   "salud"
+  ],
+  "resources": [
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2006",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/8848c5d0-d71b-414d-bd96-3d95e73e0c45/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2006.csv",
+    "modified": "2016-11-15T23:53:51.733466"
+   },
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2007",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/262dc155-6de8-4aa8-bb7c-2f94e60ac627/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2007.csv",
+    "modified": "2016-11-15T23:57:00.043807"
+   },
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2008",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/4da5ca45-597a-4632-9a6b-aeb44b8f4fc4/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2008.csv",
+    "modified": "2016-11-16T00:06:43.948679"
+   },
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2009",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/7c021756-bd90-4751-b931-b1630abbf3dd/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2009.csv",
+    "modified": "2016-11-16T00:07:39.956510"
+   },
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2010",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/19091f22-9be9-43b9-8b55-9a3ed620438d/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2010.csv",
+    "modified": "2016-11-16T00:08:29.460524"
+   },
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/7dc23e6d-ccff-49a7-8f18-761a5cc1c41f/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2011.csv",
+    "modified": "2016-11-16T00:09:41.426410"
+   },
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/934eb97f-fc73-44b9-a21d-8f9e7238fb10/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2012.csv",
+    "modified": "2016-11-16T00:14:02.244409"
+   },
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/fbcdd24c-5dd6-4fd6-a259-7578d31c8fdf/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2013.csv",
+    "modified": "2016-11-16T00:17:28.301108"
+   },
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/9a62f3a8-0768-46e0-8cf1-9ad12d437bba/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2014.csv",
+    "modified": "2016-11-16T00:18:33.568287"
+   },
+   {
+    "name": "Cantidad acumulada de establecimientos de salud por nivel de atención al 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/518556a5-25bf-450e-98e4-d7e358fe4ae8/resource/a279ca37-3cdf-46ee-9a9c-08f9c6011e33/download/minsalud_numero_establecimientos_por_nivel_de_atencion_al_2015.csv",
+    "modified": "2016-11-16T00:23:42.950545"
+   }
+  ]
+ },
+ {
+  "name": "cantidad-y-cobertura-de-vacunas-2009-2015",
+  "title": "Cantidad y cobertura de vacunas, 2009-2015",
+  "org": "Ministerio de Salud ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-15T05:02:00.794555",
+  "tags": [
+   "cobertura",
+   "departamento",
+   "indicador",
+   "municipio",
+   "salud",
+   "vacunas"
+  ],
+  "resources": [
+   {
+    "name": "Cantidad y cobertura de vacunas, 2009",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/1b784afd-f7de-4652-a0b1-78eeec1eaf46/resource/ac20615e-d4ee-4b23-b0e3-541528daf1da/download/minsalud_cobertura_vacuna_2009.csv",
+    "modified": "2016-11-15T04:46:06.977220"
+   },
+   {
+    "name": "Cantidad y cobertura de vacunas, 2010",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/1b784afd-f7de-4652-a0b1-78eeec1eaf46/resource/9a80b338-dab0-4310-b63f-ec7ea4932012/download/minsalud_cobertura_vacuna_2010.csv",
+    "modified": "2016-11-15T04:49:12.768441"
+   },
+   {
+    "name": "Cantidad y cobertura de vacunas, 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/1b784afd-f7de-4652-a0b1-78eeec1eaf46/resource/bdde7615-d8be-40b4-8e40-649786e9ecea/download/minsalud_cobertura_vacuna_2011.csv",
+    "modified": "2016-11-15T04:52:06.828748"
+   },
+   {
+    "name": "Cantidad y cobertura de vacunas, 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/1b784afd-f7de-4652-a0b1-78eeec1eaf46/resource/1d592f59-fe7a-4e9d-8ab6-b1f1688e75fb/download/minsalud_cobertura_vacuna_2012.csv",
+    "modified": "2016-11-15T04:54:27.397844"
+   },
+   {
+    "name": "Cantidad y cobertura de vacunas, 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/1b784afd-f7de-4652-a0b1-78eeec1eaf46/resource/0f41b0b0-6972-4d7e-87b4-be6edbf4d549/download/minsalud_cobertura_vacuna_2013.csv",
+    "modified": "2016-11-15T04:56:37.790339"
+   },
+   {
+    "name": "Cantidad y cobertura de vacunas, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/1b784afd-f7de-4652-a0b1-78eeec1eaf46/resource/16c11e09-20aa-4b82-bdd9-9deab7730d05/download/minsalud_cobertura_vacuna_2014.csv",
+    "modified": "2016-11-15T04:59:13.558721"
+   },
+   {
+    "name": "Cantidad y cobertura de vacunas, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/1b784afd-f7de-4652-a0b1-78eeec1eaf46/resource/70e61465-23fe-4a63-8664-fb16d0935af3/download/minsalud_cobertura_vacuna_2015.csv",
+    "modified": "2016-11-15T05:01:52.353207"
+   }
+  ]
+ },
+ {
+  "name": "cantidad-y-cobertura-de-partos-institucionales",
+  "title": "Cantidad y cobertura de partos institucionales, 2009-2015",
+  "org": "Ministerio de Salud ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-15T04:44:08.525663",
+  "tags": [
+   "cesarea",
+   "cobertura",
+   "departamento",
+   "indicadores",
+   "municipio",
+   "partos",
+   "salud",
+   "vaginal"
+  ],
+  "resources": [
+   {
+    "name": "Cantidad y cobertura de partos institucionales, 2009",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/00bffc7d-fd83-4e54-91ba-9676f79837d8/resource/fab6a4b3-9fed-4b6a-9216-1bd0bb68cae1/download/minsalud_numero_de_partos_2009.csv",
+    "modified": "2016-11-15T04:38:02.875126"
+   },
+   {
+    "name": "Cantidad y cobertura de partos institucionales, 2010",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/00bffc7d-fd83-4e54-91ba-9676f79837d8/resource/400d88ab-04eb-47c7-ad99-b23756071209/download/minsalud_numero_de_partos_2010.csv",
+    "modified": "2016-11-14T22:52:44.050478"
+   },
+   {
+    "name": "Cantidad y cobertura de partos institucionales, 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/00bffc7d-fd83-4e54-91ba-9676f79837d8/resource/d8e98f0d-bef4-4563-bab2-04eb6c31b679/download/minsalud_numero_de_partos_2011.csv",
+    "modified": "2016-11-14T23:12:03.122585"
+   },
+   {
+    "name": "Cantidad y cobertura de partos institucionales, 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/00bffc7d-fd83-4e54-91ba-9676f79837d8/resource/9e325c00-72a2-495e-9d6b-65204e4c52e2/download/minsalud_numero_de_partos_2012.csv",
+    "modified": "2016-11-14T23:16:40.289850"
+   },
+   {
+    "name": "Cantidad y cobertura de partos institucionales, 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/00bffc7d-fd83-4e54-91ba-9676f79837d8/resource/c4bd8af7-33fe-45f5-90f5-0f92a0be6924/download/minsalud_numero_de_partos_2013.csv",
+    "modified": "2016-11-14T23:26:15.401470"
+   },
+   {
+    "name": "Cantidad y cobertura de partos institucionales, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/00bffc7d-fd83-4e54-91ba-9676f79837d8/resource/b5e98527-9be1-4d69-b079-12f603482bed/download/minsalud_numero_de_partos_2014.csv",
+    "modified": "2016-11-14T23:30:45.405128"
+   },
+   {
+    "name": "Cantidad y cobertura de partos institucionales, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/00bffc7d-fd83-4e54-91ba-9676f79837d8/resource/ec54db8e-d5be-494a-af54-862e309305fc/download/minsalud_numero_de_partos_2015.csv",
+    "modified": "2016-11-14T23:42:12.774988"
+   }
+  ]
+ },
+ {
+  "name": "cantidad-de-nacimientos-registrados-2009-20152",
+  "title": "Cantidad de nacimientos registrados, 2009-2015",
+  "org": "Ministerio de Salud ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-15T04:10:30.048518",
+  "tags": [
+   "cobertura",
+   "departamento",
+   "indicador",
+   "municipio",
+   "nacimientos",
+   "salud"
+  ],
+  "resources": [
+   {
+    "name": "Cantidad de nacimientos registrados, 2009",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a4785eac-3426-4540-89e8-83d291e7154f/resource/e237e9db-c102-4f63-a8dd-54597a7ef329/download/minsalud_registro_nacidos_2009.csv",
+    "modified": "2016-11-15T03:34:32.593249"
+   },
+   {
+    "name": "Cantidad de nacimientos registrados, 2010",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a4785eac-3426-4540-89e8-83d291e7154f/resource/f0fbd139-c4b2-4344-88d5-99379b26a973/download/minsalud_registro_nacidos_2010.csv",
+    "modified": "2016-11-15T03:38:38.507641"
+   },
+   {
+    "name": "Cantidad de nacimientos registrados, 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a4785eac-3426-4540-89e8-83d291e7154f/resource/37f4e116-1d00-4a54-909e-eaa4a69d1f93/download/minsalud_registro_nacidos_2011.csv",
+    "modified": "2016-11-15T03:41:21.440933"
+   },
+   {
+    "name": "Cantidad de nacimientos registrados, 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a4785eac-3426-4540-89e8-83d291e7154f/resource/897d3920-d1b6-47dc-a7d3-e0b7132cc43d/download/minsalud_registro_nacidos_2012.csv",
+    "modified": "2016-11-15T03:44:50.066710"
+   },
+   {
+    "name": "Cantidad de nacimientos registrados, 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a4785eac-3426-4540-89e8-83d291e7154f/resource/b490bf7e-f1b5-42c7-88de-ba09f5d7850a/download/minsalud_registro_nacidos_2013.csv",
+    "modified": "2016-11-15T04:01:42.515591"
+   },
+   {
+    "name": "Cantidad de nacimientos registrados, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a4785eac-3426-4540-89e8-83d291e7154f/resource/0cd5985b-4e9b-4f1b-818b-9fff1e1e4ac2/download/minsalud_registro_nacidos_2014.csv",
+    "modified": "2016-11-15T04:04:57.836490"
+   },
+   {
+    "name": "Cantidad de nacimientos registrados, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/a4785eac-3426-4540-89e8-83d291e7154f/resource/ff2b39ca-c4b5-4d82-b84a-be3e8aacf434/download/minsalud_registro_nacidos_2015.csv",
+    "modified": "2016-11-15T04:10:20.036244"
+   }
+  ]
+ },
+ {
+  "name": "cantidad-y-cobertura-de-mujeres-embarazadas-con-4-controles-prenatales",
+  "title": "Cantidad y cobertura de mujeres embarazadas con 4 controles prenatales, 2009-2015",
+  "org": "Ministerio de Salud ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-15T01:05:38.325913",
+  "tags": [
+   "cobertura",
+   "control",
+   "departamento",
+   "indicadores",
+   "municipio",
+   "prenatal",
+   "salud"
+  ],
+  "resources": [
+   {
+    "name": "Cantidad y cobertura de mujeres embarazas con 4 controles prenatales, 2009",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f3fe4f4c-367a-4e6f-aa96-9d6b94c47e81/resource/a2f2f819-6751-4522-8dfc-1daedb3bb759/download/minsalud_4to_control_prenatal_2009.csv",
+    "modified": "2016-11-14T15:57:42.190881"
+   },
+   {
+    "name": "Cantidad y cobertura de mujeres embarazas con 4 controles prenatales, 2010",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f3fe4f4c-367a-4e6f-aa96-9d6b94c47e81/resource/17b4cba7-b907-4d08-ba81-0f8aec4249d6/download/minsalud_4to_control_prenatal_2010.csv",
+    "modified": "2016-11-14T19:07:25.167413"
+   },
+   {
+    "name": "Cantidad y cobertura de mujeres embarazas con 4 controles prenatales, 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f3fe4f4c-367a-4e6f-aa96-9d6b94c47e81/resource/5e73b2c8-1f06-4732-a2d5-b55b2745196e/download/minsalud_4to_control_prenatal_2011.csv",
+    "modified": "2016-11-14T19:11:51.520203"
+   },
+   {
+    "name": "Cantidad y cobertura de mujeres embarazas con 4 controles prenatales, 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f3fe4f4c-367a-4e6f-aa96-9d6b94c47e81/resource/5769385f-30b8-4194-8658-272694436a00/download/minsalud_4to_control_prenatal_2012.csv",
+    "modified": "2016-11-14T19:17:51.985159"
+   },
+   {
+    "name": "Cantidad y cobertura de mujeres embarazas con 4 controles prenatales, 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f3fe4f4c-367a-4e6f-aa96-9d6b94c47e81/resource/36e3a38e-bb84-49f4-94e8-571f4f022dd9/download/minsalud_4to_control_prenatal_2013.csv",
+    "modified": "2016-11-14T19:26:18.192552"
+   },
+   {
+    "name": "Cantidad y cobertura de mujeres embarazas con 4 controles prenatales, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f3fe4f4c-367a-4e6f-aa96-9d6b94c47e81/resource/788d74b6-e86d-40d7-b4e0-f3ef7b2dca0c/download/minsalud_4to_control_prenatal_2014.csv",
+    "modified": "2016-11-14T19:30:38.029111"
+   },
+   {
+    "name": "Cantidad y cobertura de mujeres embarazas con 4 controles prenatales, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/f3fe4f4c-367a-4e6f-aa96-9d6b94c47e81/resource/09ec31ee-c988-4a3a-83a6-c9b5f3ea8f61/download/minsalud_4to_control_prenatal_2015.csv",
+    "modified": "2016-11-14T19:34:31.646770"
+   }
+  ]
+ },
+ {
+  "name": "cantidad-y-promedio-de-consultas-externas-2009-2015",
+  "title": "Cantidad y promedio de consultas externas, 2009-2015",
+  "org": "Ministerio de Salud ",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-15T01:00:47.458872",
+  "tags": [
+   "consulta",
+   "departamento",
+   "externa",
+   "indicador",
+   "municipio",
+   "promedio",
+   "salud"
+  ],
+  "resources": [
+   {
+    "name": "Cantidad y promedio de consultas externas, 2009",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/08aa16cf-b3d6-4ef0-abb8-b670420de942/resource/2c43d408-f3f6-4a52-af1b-2967b374a24b/download/minsalud_consultas_externas_2009.csv",
+    "modified": "2016-11-15T00:26:52.429036"
+   },
+   {
+    "name": "Cantidad y promedio de consultas externas, 2010",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/08aa16cf-b3d6-4ef0-abb8-b670420de942/resource/9f072fe2-da92-49e7-ad69-8d8d6786e7a8/download/minsalud_consultas_externas_2010.csv",
+    "modified": "2016-11-15T00:44:36.949800"
+   },
+   {
+    "name": "Cantidad y promedio de consultas externas, 2011",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/08aa16cf-b3d6-4ef0-abb8-b670420de942/resource/b846079d-c251-4287-8775-a5d32e75afd7/download/minsalud_consultas_externas_2011.csv",
+    "modified": "2016-11-15T00:47:37.202300"
+   },
+   {
+    "name": "Cantidad y promedio de consultas externas, 2012",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/08aa16cf-b3d6-4ef0-abb8-b670420de942/resource/38b55128-2c75-4b1f-a8b3-4fcd0e994033/download/minsalud_consultas_externas_2012.csv",
+    "modified": "2016-11-15T00:50:08.691811"
+   },
+   {
+    "name": "Cantidad y promedio de consultas externas, 2013",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/08aa16cf-b3d6-4ef0-abb8-b670420de942/resource/06d263d9-bbd8-469a-9b47-656cdb09ef63/download/minsalud_consultas_externas_2013.csv",
+    "modified": "2016-11-15T00:52:45.254988"
+   },
+   {
+    "name": "Cantidad y promedio de consultas externas, 2014",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/08aa16cf-b3d6-4ef0-abb8-b670420de942/resource/e20ee560-9784-4e2f-ba63-b619ce1fc163/download/minsalud_consultas_externas_2014.csv",
+    "modified": "2016-11-15T00:55:15.683345"
+   },
+   {
+    "name": "Cantidad y promedio de consultas externas, 2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/08aa16cf-b3d6-4ef0-abb8-b670420de942/resource/45f74122-4a72-4829-bab1-6681e21831a2/download/minsalud_consultas_externas_2015.csv",
+    "modified": "2016-11-15T00:58:47.857733"
+   }
+  ]
+ },
+ {
+  "name": "proyectos-programa-miagua-i",
+  "title": "Proyectos Programa MIAGUA I",
+  "org": "Fondo Nacional de Inversión Productiva y Social - FPS",
+  "license": "Creative Commons Attribution",
+  "modified": "2016-11-14T16:09:42.792745",
+  "tags": [
+   "agua",
+   "departamento",
+   "mi agua",
+   "municipio",
+   "programa",
+   "proyectos",
+   "riego"
+  ],
+  "resources": [
+   {
+    "name": "Tabla de registro de proyectos de agua potable y riego del Programa MIAGUA I, 2011-2015",
+    "format": "CSV",
+    "url": "https://datos.gob.bo/dataset/ea7001f3-7d1e-432f-ae66-3c42e2ea930d/resource/cfaac208-f853-4607-907b-249887235c37/download/fps_programa_miagua_1.csv",
+    "modified": "2016-11-14T14:46:35.847267"
+   }
+  ]
+ }
+]

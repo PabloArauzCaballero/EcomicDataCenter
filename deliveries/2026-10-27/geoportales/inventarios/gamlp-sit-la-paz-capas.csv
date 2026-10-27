@@ -1,0 +1,312 @@
+capa,titulo,geometria,crs_nativo,features_servidor,estado,motivo,filas_entregadas,con_nombre,dentro_municipio_la_paz,sin_geometria,archivo
+lapaz:riesgo_36zonas,36 zonas en riesgo,Surface,urn:ogc:def:crs:EPSG::32719,36,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:actividadesEconomicasEBA,Actividades Economicas EBA,Point,urn:ogc:def:crs:EPSG::32719,105,descargada,,105,105,105,0,gamlp-sit-la-paz/sit__actividadesEconomicasEBA.ndjson.gz
+lpm:aeropuertos,Aeropuertos,Point,urn:ogc:def:crs:EPSG::32719,2,descargada,,2,2,0,0,gamlp-sit-la-paz/lpm__aeropuertos.ndjson.gz
+sit:agenciasviajes,Agencias de Viajes,Point,urn:ogc:def:crs:EPSG::32719,74,descargada,,74,74,74,0,gamlp-sit-la-paz/sit__agenciasviajes.ndjson.gz
+sit:agenciascooperacion,AgenciasCooperacion,Point,urn:ogc:def:crs:EPSG::32719,28,descargada,,28,28,28,0,gamlp-sit-la-paz/sit__agenciascooperacion.ndjson.gz
+sit:AlumbradoPublico,Alumbrado Publico,Point,urn:ogc:def:crs:EPSG::32719,62571,descartada,postes de alumbrado,,,,,
+lapaz:rest2006_area,Area Restitucion 2006,MultiSurface,urn:ogc:def:crs:EPSG::32719,1,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:ap_sector_chucura,Area protegida Sector Chucura,Surface,urn:ogc:def:crs:EPSG::4326,1,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:areas_protegidas,Areas Protegidas Municipales,MultiSurface,urn:ogc:def:crs:EPSG::32719,25,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:ap_municipales2018,Areas Protegidas Municipales 2018,MultiSurface,urn:ogc:def:crs:EPSG::32719,33,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:ap_nacional,Areas Protegidas Nacional,Surface,urn:ogc:def:crs:EPSG::4326,36,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+movilidad:areasradiotaxis,Areas Radio Taxis,Surface,urn:ogc:def:crs:EPSG::32719,22,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:areasequipamiento,Areas de Equipamiento,MultiSurface,urn:ogc:def:crs:EPSG::32719,6054,descargada,,6054,1525,5855,2,gamlp-sit-la-paz/lapaz__areasequipamiento.ndjson.gz
+sit:arqueo_muyaltasensibilidad,Areas de Interes arqueologico muy alta sencibilidad,MultiSurface,urn:ogc:def:crs:EPSG::32719,101,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:equipamientoareas,Areas de equipamiento,MultiSurface,urn:ogc:def:crs:EPSG::32719,5658,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:smc_arqueologico,Areas de interes arqueologico,MultiSurface,urn:ogc:def:crs:EPSG::32719,109,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:arquitectModerna,"Arquitectura Moderna, siglo XX y contemporánea",MultiSurface,urn:ogc:def:crs:EPSG::32719,131,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+culturas:asociaciones,Asociaciones y Funcaciones culturales,Point,urn:ogc:def:crs:EPSG::32719,43,descargada,,43,43,43,0,gamlp-sit-la-paz/culturas__asociaciones.ndjson.gz
+sit:rutas_recoleccion_basura_atencion,Atencion y control de residuos,Point,urn:ogc:def:crs:EPSG::32719,443,descartada,atencion de residuos,,,,,
+sim:obras_sgeo_sim,Avance de obras SGEO y SIM,Geometry,urn:ogc:def:crs:EPSG::32719,2162,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lpm:bancos,Bancos,Point,urn:ogc:def:crs:EPSG::32719,89,descargada,,89,89,89,0,gamlp-sit-la-paz/lpm__bancos.ndjson.gz
+sit:bancos,Bancos,Point,urn:ogc:def:crs:EPSG::32719,191,descargada,,191,191,189,2,gamlp-sit-la-paz/sit__bancos.ndjson.gz
+sit:bibliotecas,Bibliotecas,Point,urn:ogc:def:crs:EPSG::32719,20,descargada,,20,20,20,0,gamlp-sit-la-paz/sit__bibliotecas.ndjson.gz
+sit:bicicleteada,Bicicleteada,Curve,urn:ogc:def:crs:EPSG::32719,1,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:atm_bloques,Bloques Los Pinos,Surface,urn:ogc:def:crs:EPSG::32719,161,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lpm:cajerosautomaticos,Cajeros Automaticos,Point,urn:ogc:def:crs:EPSG::32719,99,descargada,,99,99,99,0,gamlp-sit-la-paz/lpm__cajerosautomaticos.ndjson.gz
+sit:cajeros_atm,Cajeros Automáticos (ATM),Point,urn:ogc:def:crs:EPSG::32719,715,descargada,,715,715,688,27,gamlp-sit-la-paz/sit__cajeros_atm.ndjson.gz
+sit:camarasseguridad,Camaras de Seguridad Ciudadana,Point,urn:ogc:def:crs:EPSG::32719,726,descartada,camaras de seguridad,,,,,
+sit:camposdeportivos,Campos Deportivos,Point,urn:ogc:def:crs:EPSG::32719,492,descargada,,492,492,492,0,gamlp-sit-la-paz/sit__camposdeportivos.ndjson.gz
+lapaz:carpetas2,Carpetas de Inversion 2,Geometry,urn:ogc:def:crs:EPSG::32719,43891,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:carpetas,Carpetas de Invesion,Geometry,urn:ogc:def:crs:EPSG::32719,9173,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:carpetaspoa,Carpetas de inversion POAs,Geometry,urn:ogc:def:crs:EPSG::32719,43891,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lpm:casasdecambio,Casa de Cambios,Point,urn:ogc:def:crs:EPSG::32719,19,descargada,,19,19,19,0,gamlp-sit-la-paz/lpm__casasdecambio.ndjson.gz
+lapaz:Casos,Casos Red 114,Geometry,urn:ogc:def:crs:EPSG::32719,2144,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:lotesCertificados,Catastro Lotes Certificados,Geometry,urn:ogc:def:crs:EPSG::32719,148905,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:manzanas,Catastro manzanas,MultiSurface,urn:ogc:def:crs:EPSG::32719,13218,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:trazos,Catastro trazos,MultiCurve,urn:ogc:def:crs:EPSG::32719,12474,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:vias,Catastro vias,MultiCurve,urn:ogc:def:crs:EPSG::32719,28100,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:vias2,Catastro vias,MultiCurve,urn:ogc:def:crs:EPSG::32719,28100,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:cementerioValoracion,Cementerio General valoración patrimonial,MultiSurface,urn:ogc:def:crs:EPSG::32719,1175,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:centrosinfantiles,Centros Infantiles Municipales,Point,urn:ogc:def:crs:EPSG::32719,34,descargada,,34,34,34,0,gamlp-sit-la-paz/sit__centrosinfantiles.ndjson.gz
+sit:centrosreligiosos,Centros Religiosos,Point,urn:ogc:def:crs:EPSG::32719,179,descargada,,179,179,179,0,gamlp-sit-la-paz/sit__centrosreligiosos.ndjson.gz
+culturas:centrosFormacion,Centros de Formación,Point,urn:ogc:def:crs:EPSG::32719,117,descargada,,117,117,113,4,gamlp-sit-la-paz/culturas__centrosFormacion.ndjson.gz
+sit:CentrosVacunacion,Centros de Vacunacion,Point,urn:ogc:def:crs:EPSG::32719,22,descargada,,22,0,15,0,gamlp-sit-la-paz/sit__CentrosVacunacion.ndjson.gz
+sit:centrosdesarrollosocial,CentrosDesSocial,Point,urn:ogc:def:crs:EPSG::32719,131,descargada,,131,131,131,0,gamlp-sit-la-paz/sit__centrosdesarrollosocial.ndjson.gz
+sit:cines,Cines,Point,urn:ogc:def:crs:EPSG::32719,6,descargada,,6,6,6,0,gamlp-sit-la-paz/sit__cines.ndjson.gz
+sit:clustersfinancieros,ClusterFinanciero,Point,urn:ogc:def:crs:EPSG::32719,100,descargada,,100,100,99,0,gamlp-sit-la-paz/sit__clustersfinancieros.ndjson.gz
+lapaz:dm_alpacoma_cr,Cobertura Radio Alpacoma,MultiSurface,urn:ogc:def:crs:EPSG::32719,649,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:dm_pampahasi_cr,Cobertura Radio Pampahasi,MultiSurface,urn:ogc:def:crs:EPSG::32719,682,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:compatMorfologica,Compatibilidad Morfológica,MultiSurface,urn:ogc:def:crs:EPSG::32719,518,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:manzanas2,Compilacion Manzanos 2011,MultiSurface,urn:ogc:def:crs:EPSG::32719,10049,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:lotes2,Compilacion Predios 2011,MultiSurface,urn:ogc:def:crs:EPSG::32719,135803,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:conjuntoObrajes,Conjunto Obrajes,MultiSurface,urn:ogc:def:crs:EPSG::32719,2,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:conjuntosOM76_99,Conjuntos Urb. calles y plazas OM 76 99,MultiSurface,urn:ogc:def:crs:EPSG::32719,11,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:conjuntos,Conjuntos patrimoniales,MultiSurface,urn:ogc:def:crs:EPSG::32719,18,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:patrimonio_conjuntos,Conjuntos patrimoniales,MultiSurface,urn:ogc:def:crs:EPSG::32719,25,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:contenedoresbasura,Contenedores de Basura,Point,urn:ogc:def:crs:EPSG::32719,3168,descartada,contenedores de basura,,,,,
+lapaz:cuencahidrografica,Cuenca Hidrografica,MultiSurface,urn:ogc:def:crs:EPSG::32719,10,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:distribucionoxigeno,Distribucion de Oxigeno,Point,urn:ogc:def:crs:EPSG::32719,6,descargada,,6,6,3,0,gamlp-sit-la-paz/sit__distribucionoxigeno.ndjson.gz
+catastro:distritoscatastrales,Distritos Catastrales,Surface,urn:ogc:def:crs:EPSG::32719,42,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:distritoscatastrales2,Distritos Catastrales Urbano,MultiSurface,urn:ogc:def:crs:EPSG::32719,42,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:distritoselalto,Distritos El Alto,MultiSurface,urn:ogc:def:crs:EPSG::32719,14,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:distritos2016,Distritos Municipales 2016,Surface,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:distritos_2016,Distritos Municipales 2016 (Redistritacion),Surface,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:distritos_2017,Distritos Municipales 2017,MultiSurface,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:distritos_2018,Distritos Municipales 2018,MultiSurface,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:distritos_2019,Distritos Municipales 2019,MultiSurface,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:distritos_2020,Distritos Municipales 2020,MultiSurface,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:distritos_2021,Distritos Municipales 2021,MultiSurface,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:distritos_2013,Distritos Municipales O.M. 198 2013,MultiSurface,urn:ogc:def:crs:EPSG::32719,22,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:distritos_2012,Distritos Municipales OM 192/2012,MultiSurface,urn:ogc:def:crs:EPSG::32719,22,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:distritos_nrocasos,Distritos numero de casos,Surface,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+culturas:infrPatrimonial,Edificaciones y Monumentos Patrimoniales,Point,urn:ogc:def:crs:EPSG::32719,87,descargada,,87,87,87,0,gamlp-sit-la-paz/culturas__infrPatrimonial.ndjson.gz
+sit:edificios,Edificios,Point,urn:ogc:def:crs:EPSG::32719,4123,descargada,,4123,4123,4123,0,gamlp-sit-la-paz/sit__edificios.ndjson.gz
+sit:educacion_smecc,Educacion Publica (SMECC),Point,urn:ogc:def:crs:EPSG::32719,379,descargada,,379,379,376,3,gamlp-sit-la-paz/sit__educacion_smecc.ndjson.gz
+sit:educacionsuperior,EducacionSuperior,Point,urn:ogc:def:crs:EPSG::32719,60,descargada,,60,60,60,0,gamlp-sit-la-paz/sit__educacionsuperior.ndjson.gz
+sit:embajadas,Embajadas,Point,urn:ogc:def:crs:EPSG::32719,21,descargada,,21,21,21,0,gamlp-sit-la-paz/sit__embajadas.ndjson.gz
+lpm:embajadasconsulados,Embajadas y Consulados,Point,urn:ogc:def:crs:EPSG::32719,55,descargada,,55,55,52,3,gamlp-sit-la-paz/lpm__embajadasconsulados.ndjson.gz
+lpm:vista_embajadasconsulados,Embajadas y Consulados,Point,urn:ogc:def:crs:EPSG::32719,55,descargada,,55,55,52,3,gamlp-sit-la-paz/lpm__vista_embajadasconsulados.ndjson.gz
+lpm:empresasturismo,Empresas de Turismo,Point,urn:ogc:def:crs:EPSG::32719,238,descargada,,238,236,235,3,gamlp-sit-la-paz/lpm__empresasturismo.ndjson.gz
+sit:entidadesfinancieras,Entidades Financieras,Point,urn:ogc:def:crs:EPSG::32719,779,descargada,,779,779,779,0,gamlp-sit-la-paz/sit__entidadesfinancieras.ndjson.gz
+sit:equipHampaturi,Equipamiento Hampaturi,Point,urn:ogc:def:crs:EPSG::32719,228,descargada,,228,228,228,0,gamlp-sit-la-paz/sit__equipHampaturi.ndjson.gz
+sit:equipZongo,Equipamiento Zongo,Point,urn:ogc:def:crs:EPSG::32719,78,descargada,,78,78,78,0,gamlp-sit-la-paz/sit__equipZongo.ndjson.gz
+culturas:espaciosLibres,Espacios al aire libre,Point,urn:ogc:def:crs:EPSG::32719,49,descargada,,49,49,49,0,gamlp-sit-la-paz/culturas__espaciosLibres.ndjson.gz
+lapaz:espaciospublicos,Espacios publicos,MultiSurface,urn:ogc:def:crs:EPSG::32719,173,descargada,,173,173,173,0,gamlp-sit-la-paz/lapaz__espaciospublicos.ndjson.gz
+sit:sedes_establsalud,Establecimientos de Salud SEDES,Point,urn:ogc:def:crs:EPSG::4326,792,descargada,,792,792,147,0,gamlp-sit-la-paz/sit__sedes_establsalud.ndjson.gz
+sit:saludsiis,Establecimientos de Salud SIIS,Point,urn:ogc:def:crs:EPSG::32719,66,descargada,,66,66,66,0,gamlp-sit-la-paz/sit__saludsiis.ndjson.gz
+sit:estacionesteleferico,Estaciones Teleferico,Point,urn:ogc:def:crs:EPSG::32719,36,descargada,,36,36,27,0,gamlp-sit-la-paz/sit__estacionesteleferico.ndjson.gz
+sit:estacionesservicio,Estaciones de servicios,Point,urn:ogc:def:crs:EPSG::32719,34,descargada,,34,34,34,0,gamlp-sit-la-paz/sit__estacionesservicio.ndjson.gz
+sit:patrimonio_estilocartilla,Estilo cartilla en predios patrimoniales,MultiSurface,urn:ogc:def:crs:EPSG::32719,1437,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:vias,Estructura vial,MultiCurve,urn:ogc:def:crs:EPSG::32719,26055,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:zonasgu2016_label,Etiquetas zonas guia urbana,MultiPoint,urn:ogc:def:crs:EPSG::32719,187,descartada,etiquetas de zonas,,,,,
+sit:farmacias_smde,Farmacias SMDE,Point,urn:ogc:def:crs:EPSG::32719,594,descargada,,594,594,594,0,gamlp-sit-la-paz/sit__farmacias_smde.ndjson.gz
+culturas:festividades2,Festividades,Geometry,urn:ogc:def:crs:EPSG::32719,248,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sim:tblFinanciamiento,Gestión Financiamiento,Geometry,urn:ogc:def:crs:EPSG::32719,211,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:grillasigap,Grilla sigap,Surface,urn:ogc:def:crs:EPSG::32719,469,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:hidrantes,Hidrantes,Point,urn:ogc:def:crs:EPSG::32719,100,descartada,hidrantes,,,,,
+sit:riosrural,Hidrografia Zona Rural,MultiCurve,urn:ogc:def:crs:EPSG::32719,998,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lpm:hospedajes,Hospedajes,Point,urn:ogc:def:crs:EPSG::32719,155,descargada,,155,154,148,7,gamlp-sit-la-paz/lpm__hospedajes.ndjson.gz
+patrimonio:hospClinicas_valoracion,Hospital de Clinicas - valoracion,MultiSurface,urn:ogc:def:crs:EPSG::32719,25,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lpm:hospitales,Hospitales,Point,urn:ogc:def:crs:EPSG::32719,32,descargada,,32,32,31,1,gamlp-sit-la-paz/lpm__hospitales.ndjson.gz
+sit:hoteleshostales,Hoteles y Hostales,Point,urn:ogc:def:crs:EPSG::32719,258,descargada,,258,258,258,0,gamlp-sit-la-paz/sit__hoteleshostales.ndjson.gz
+culturas:infrArtisticaCultural,Infraestructura Artistico Cultural,Point,urn:ogc:def:crs:EPSG::32719,172,descargada,,172,172,172,0,gamlp-sit-la-paz/culturas__infrArtisticaCultural.ndjson.gz
+culturas:inmueblesSISPAC,Inmuebles SISPAC,Geometry,urn:ogc:def:crs:EPSG::32719,170,descargada,,170,170,170,0,gamlp-sit-la-paz/culturas__inmueblesSISPAC.ndjson.gz
+patrimonio:indentifValorados,Inmuebles identificados y valorados,MultiSurface,urn:ogc:def:crs:EPSG::32719,1041,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:inmuebles_phau,Inmuebles patrimoniales,MultiSurface,urn:ogc:def:crs:EPSG::32719,1101,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:institucional,InstitucionalGAMLP,Point,urn:ogc:def:crs:EPSG::32719,9,descargada,,9,9,9,0,gamlp-sit-la-paz/sit__institucional.ndjson.gz
+lapaz:jurisdiccion,Jurisdiccion Municipio La Paz,MultiSurface,urn:ogc:def:crs:EPSG::32719,1,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:lusu_conjuntospat,LUSU Conjuntos Patrimoniales,Surface,urn:ogc:def:crs:EPSG::32719,16,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:lusu_ejeteleferico,LUSU Eje Teleferico,Curve,urn:ogc:def:crs:EPSG::32719,61,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:lusu_teleferico2,LUSU Líneas Teleférico,Curve,urn:ogc:def:crs:EPSG::32719,64,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:lusu_pem,LUSU Patron Especial Mirador,Surface,urn:ogc:def:crs:EPSG::32719,722,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:lusu_vigente,LUSU Patrones,MultiSurface,urn:ogc:def:crs:EPSG::32719,191074,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:lusu_prediospat,LUSU Predios Patrimoniales,MultiSurface,urn:ogc:def:crs:EPSG::32719,124344,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:laboratorioscovid,Laboratorios Covid,Point,urn:ogc:def:crs:EPSG::32719,59,descargada,,59,59,46,0,gamlp-sit-la-paz/sit__laboratorioscovid.ndjson.gz
+lpm:lavanderias,Lavanderias,Point,urn:ogc:def:crs:EPSG::32719,8,descargada,,8,8,8,0,gamlp-sit-la-paz/lpm__lavanderias.ndjson.gz
+levantamiento:levpuntocontrol,Levantamiento Puntos Control,Point,urn:ogc:def:crs:EPSG::32719,8280,descartada,puntos de control topografico,,,,,
+lev:levpunto,Levantamiento punto,Geometry,urn:ogc:def:crs:EPSG::32719,3886402,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lev:levpoligono,Levantamientos Poligonales,Surface,urn:ogc:def:crs:EPSG::32719,58287,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lev:levlinea,Levantamientos lineales,Geometry,urn:ogc:def:crs:EPSG::32719,1895809,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:lusu2015,Ley Uso Urbano del Suelo 2015,MultiSurface,urn:ogc:def:crs:EPSG::32719,152286,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:lusu_2012,Ley de Uso Urbano del Suelo 2012,MultiSurface,urn:ogc:def:crs:EPSG::32719,156374,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:limitedemanda,Limite demanda Municipal,MultiCurve,urn:ogc:def:crs:EPSG::32719,4,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:PUC,Limites Parque Urbano Central,MultiSurface,urn:ogc:def:crs:EPSG::32719,2,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:comunidades_limites,Limites comunidades,MultiSurface,urn:ogc:def:crs:EPSG::32719,99,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:locales_expendio,Locales de expendio de bebidas alcoholicas,Point,urn:ogc:def:crs:EPSG::32719,269,descargada,,269,0,269,0,gamlp-sit-la-paz/lapaz__locales_expendio.ndjson.gz
+sit:ubicacionvias2,Localización de vias,Point,urn:ogc:def:crs:EPSG::32719,5540,descartada,etiquetas de vias,,,,,
+catastro:lotesestados,Lotes catastro según estados,MultiSurface,urn:ogc:def:crs:EPSG::32719,149004,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:lotes,Lotes fuera de linea,MultiSurface,urn:ogc:def:crs:EPSG::32719,148905,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+culturas:lugaresSimbolicos,Lugares Simbolicos,Point,urn:ogc:def:crs:EPSG::32719,31,descargada,,31,31,31,0,gamlp-sit-la-paz/culturas__lugaresSimbolicos.ndjson.gz
+lapaz:luminarias,Luminarias,Point,urn:ogc:def:crs:EPSG::32719,61029,descartada,luminarias,,,,,
+lpm:lineasaereas,Líneas Aereas,Point,urn:ogc:def:crs:EPSG::32719,24,descargada,,24,24,23,1,gamlp-sit-la-paz/lpm__lineasaereas.ndjson.gz
+sit:lineasteleferico,Líneas Teleférico,Curve,urn:ogc:def:crs:EPSG::32719,10,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:macroproyecto,Macro Proyectos del SIMv2,Geometry,urn:ogc:def:crs:EPSG::32719,0,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:macrodistritos,Macrodistritos Municipales,MultiSurface,urn:ogc:def:crs:EPSG::32719,9,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:macrodistritos_2017,Macrodistritos Municipales 2017,MultiSurface,urn:ogc:def:crs:EPSG::32719,11,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:macrodistritos_2019,Macrodistritos Municipales 2019,MultiSurface,urn:ogc:def:crs:EPSG::32719,11,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:macrodistritos_2020,Macrodistritos Municipales 2020,MultiSurface,urn:ogc:def:crs:EPSG::32719,9,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+culturas:manifestacionesFestivas,Manifestaciones Festivas,Geometry,urn:ogc:def:crs:EPSG::32719,248,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:RiesgoManzanas,Manzanas Riesgo,Geometry,urn:ogc:def:crs:EPSG::32719,194,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:manzanas,Manzanas ciudad de La Paz,MultiSurface,urn:ogc:def:crs:EPSG::32719,12880,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:geologia2025,Mapa Geológico 2025,MultiSurface,urn:ogc:def:crs:EPSG::32719,16150,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:riesgos2011,Mapa de Riesgos 2011,MultiSurface,urn:ogc:def:crs:EPSG::32719,5321,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:riesgos2011b,Mapa de Riesgos 2011,MultiSurface,urn:ogc:def:crs:EPSG::32719,5321,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:dm_medidores,Medidores Direccion de Mantenimiento,Point,urn:ogc:def:crs:EPSG::32719,114,descartada,medidores,,,,,
+sit:puntosverdes,Medio ambiente puntos verdes,Point,urn:ogc:def:crs:EPSG::32719,1,descargada,,1,1,1,0,gamlp-sit-la-paz/sit__puntosverdes.ndjson.gz
+sit:medioscomunicacion,Medios de Comunicacion,Point,urn:ogc:def:crs:EPSG::32719,49,descargada,,49,49,49,0,gamlp-sit-la-paz/sit__medioscomunicacion.ndjson.gz
+culturas:mediosComunicacion,Medios de comunicacion cultural,Point,urn:ogc:def:crs:EPSG::32719,49,descargada,,49,49,49,0,gamlp-sit-la-paz/culturas__mediosComunicacion.ndjson.gz
+sit:mercadosmoviles,Mercados Moviles,Point,urn:ogc:def:crs:EPSG::32719,68,descargada,,68,68,68,0,gamlp-sit-la-paz/sit__mercadosmoviles.ndjson.gz
+geosit:mora_atm,Mora ATM,Point,urn:ogc:def:crs:EPSG::32719,2567,descartada,mora tributaria por inmueble (dato sensible),,,,,
+geosit:mora_atm_centro,Mora ATM Centro,Point,urn:ogc:def:crs:EPSG::32719,3853,descartada,mora tributaria por inmueble (dato sensible),,,,,
+sit:computopresi2020,Municipio computo elecciones2020,Surface,urn:ogc:def:crs:EPSG::4326,339,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:numeropuertas,Numero Puertas,Point,urn:ogc:def:crs:EPSG::32719,132309,descargada,,132309,0,132309,0,gamlp-sit-la-paz/sit__numeropuertas.ndjson.gz
+lapaz:elalto_otbs,OTBs El Alto,MultiSurface,urn:ogc:def:crs:EPSG::4326,598,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:otbs_poa,OTBs POA SIM,MultiSurface,urn:ogc:def:crs:EPSG::32719,728,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:otbrural,OTBs Rurales,MultiSurface,urn:ogc:def:crs:EPSG::32719,87,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:otbdpe,OTBs Urbano,MultiSurface,urn:ogc:def:crs:EPSG::32719,609,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:otb_urbano,OTBs urbanos,MultiSurface,urn:ogc:def:crs:EPSG::32719,644,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:otb_atlas,Organizaciones Territorial de Base - Atlas,MultiSurface,urn:ogc:def:crs:EPSG::32719,546,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:otb_dot,Organizaciones Territorial de Base 2013 - DOT,MultiSurface,urn:ogc:def:crs:EPSG::32719,611,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:otbs,Otbs concejo,MultiSurface,urn:ogc:def:crs:EPSG::32719,475,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sim:poa_gestion,POA por Gestion,Geometry,urn:ogc:def:crs:EPSG::32719,1438,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+movilidad:paradas,Paradas 2019,Point,urn:ogc:def:crs:EPSG::32719,921,descargada,,921,0,921,0,gamlp-sit-la-paz/movilidad__paradas.ndjson.gz
+sit:paradaspumakatari,Paradas Pumakatari,Point,urn:ogc:def:crs:EPSG::32719,423,descargada,,423,0,423,0,gamlp-sit-la-paz/sit__paradaspumakatari.ndjson.gz
+sit:paradaspumakatari2021,Paradas Pumakatari 2021,Point,urn:ogc:def:crs:EPSG::32719,635,descargada,,635,635,635,0,gamlp-sit-la-paz/sit__paradaspumakatari2021.ndjson.gz
+sit:lusu_arqueologico,Patrimonio Arqueológico Subsuelo,MultiSurface,urn:ogc:def:crs:EPSG::32719,105,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:patrimonio_declarado,Patrimonio Declarado,Surface,urn:ogc:def:crs:EPSG::32719,1311,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:espaciosPublicosCCP,Patrimonio Espacios Públicos de Carácter Patrimonila,MultiSurface,urn:ogc:def:crs:EPSG::32719,35,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:patrimonio_lineas,Patrimonio dibujo de lineas ó trazos,Curve,urn:ogc:def:crs:EPSG::32719,5350,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:patrimonio_textos,Patrimos texto o anotaciones,Point,urn:ogc:def:crs:EPSG::32719,315,descartada,anotaciones,,,,,
+movilidad:viaspendiente,Pendiente Vias Catastro,Geometry,urn:ogc:def:crs:EPSG::32719,24590,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:permisosconstruccion,Permisos construcción,Point,urn:ogc:def:crs:EPSG::32719,15506,descartada,permisos de construccion,,,,,
+sit:pl_poligonos,Planimetria Polígonos,Surface,urn:ogc:def:crs:EPSG::32719,91807,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:pl_lineas,Planimetria linea,MultiCurve,urn:ogc:def:crs:EPSG::32719,154983,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+archivo:planimetrias,Planimetrias,MultiSurface,urn:ogc:def:crs:EPSG::32719,663,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:nv_poligonos,Planimetrias No validadas (poligonos),Surface,urn:ogc:def:crs:EPSG::32719,933,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:plataformassitram,PlataformasSitram,Point,urn:ogc:def:crs:EPSG::32719,30,descargada,,30,30,30,0,gamlp-sit-la-paz/sit__plataformassitram.ndjson.gz
+sit:plazasparques_sit,Plazas y Parques SITv2,Point,urn:ogc:def:crs:EPSG::32719,441,descargada,,441,441,441,0,gamlp-sit-la-paz/sit__plazasparques_sit.ndjson.gz
+patrimonio:preservMorfologica,Predios con Preservación Morfológica,MultiSurface,urn:ogc:def:crs:EPSG::32719,302,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:prediosRiesgo,Predios en Riesgo,Surface,urn:ogc:def:crs:EPSG::32719,4336,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sim:poa,Programa Operativo Anual,Geometry,urn:ogc:def:crs:EPSG::32719,1437,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:poa,Programacion de Operaciones Anual 2013,Geometry,urn:ogc:def:crs:EPSG::32719,977,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:sim_proyectos_puntos,Proyectos SIM,Geometry,urn:ogc:def:crs:EPSG::32719,2590,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:publicidadurbana,Publicidad Urbana Corporativa,Point,urn:ogc:def:crs:EPSG::32719,305,descargada,,305,305,148,157,gamlp-sit-la-paz/sit__publicidadurbana.ndjson.gz
+lpm:pubsdiscotecas,Pubs y Discotecas,Point,urn:ogc:def:crs:EPSG::32719,8,descargada,,8,8,8,0,gamlp-sit-la-paz/lpm__pubsdiscotecas.ndjson.gz
+sit:puentes,"Puentes, tuneles, pasos a nivel",Point,urn:ogc:def:crs:EPSG::32719,190,descargada,,190,190,190,0,gamlp-sit-la-paz/sit__puentes.ndjson.gz
+sigae:puestosbebida,Puestos de venta de bebidas alcoholicas,Geometry,urn:ogc:def:crs:EPSG::32719,96,descargada,,96,0,96,0,gamlp-sit-la-paz/sigae__puestosbebida.ndjson.gz
+sigae:puestosventa,Puestos de venta en vias públicas,Geometry,urn:ogc:def:crs:EPSG::32719,31879,descargada,,31879,0,31861,0,gamlp-sit-la-paz/sigae__puestosventa.ndjson.gz
+sit:puntosdiapeaton,Puntos Dia del Peaton,Point,urn:ogc:def:crs:EPSG::32719,24,descartada,puntos de evento,,,,,
+lev:levpuntocontrol,Puntos de Control,Point,urn:ogc:def:crs:EPSG::32719,8280,descartada,puntos de control topografico,,,,,
+lapaz:quemassanjuan,Quemas San Juan,Geometry,urn:ogc:def:crs:EPSG::32719,299,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:quemassanjuan_2011,Quemas San Juan 2011 red 114,Point,urn:ogc:def:crs:EPSG::32719,126,descartada,quemas de San Juan,,,,,
+lapaz:radios_urbanos_plg,Radios Urbanos,Surface,urn:ogc:def:crs:EPSG::32719,2,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lev:RedGeodesica,Red Geodesica,Geometry,urn:ogc:def:crs:EPSG::32719,365,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+levantamiento:levantamientoPuntosRedGeodesica,Red Geodésica,Geometry,urn:ogc:def:crs:EPSG::32719,365,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:red_aguapotable_epsas,Red de Agua Potable - EPSAS,MultiCurve,urn:ogc:def:crs:EPSG::32719,57323,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:red_alcantarillado,Red de Alcantarillado,MultiCurve,urn:ogc:def:crs:EPSG::32719,46898,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:red_alcantarillado_epsas,Red de Alcantarillado EPSAS,MultiCurve,urn:ogc:def:crs:EPSG::32719,424631,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:red_altatension_delapaz,Red de Alta Tensión DELAPAZ,MultiCurve,urn:ogc:def:crs:EPSG::4326,40,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:red_agua,Red de Cañerias de Agua Potable,MultiCurve,urn:ogc:def:crs:EPSG::32719,20713,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:red_electrica,Red de Energia Electrica,MultiCurve,urn:ogc:def:crs:EPSG::32719,33515,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:red_gas,Red de Gas Domiciliario,MultiCurve,urn:ogc:def:crs:EPSG::32719,382,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:red_gasdomiciliario,Red de Gas domiciliario YPFB,MultiCurve,urn:ogc:def:crs:EPSG::32719,20691,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:sedes_redsalud2016,Red de Salud 2016,MultiSurface,urn:ogc:def:crs:EPSG::4326,27,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:sedes_redsalud,Red de Salud La Paz,MultiSurface,urn:ogc:def:crs:EPSG::4326,27,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:red_telecomunicacion,Red de Telecomunicaciones,MultiCurve,urn:ogc:def:crs:EPSG::32719,87196,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:redistritacion,Redistritacion Ley Municipal 166/2016,Surface,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:vialidad,Registro Vial,Curve,urn:ogc:def:crs:EPSG::32719,26054,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lpm:rentacar,Rent A-Car,Point,urn:ogc:def:crs:EPSG::32719,16,descargada,,16,16,14,2,gamlp-sit-la-paz/lpm__rentacar.ndjson.gz
+sit:reporteCasosRed114,Reporte de Casos Red 114,Point,urn:ogc:def:crs:EPSG::32719,2890,descartada,reportes de emergencia,,,,,
+lpm:restaurantes,Restaurantes,Point,urn:ogc:def:crs:EPSG::32719,427,descargada,,427,427,379,48,gamlp-sit-la-paz/lpm__restaurantes.ndjson.gz
+sit:restaurantes,Restaurantes,Point,urn:ogc:def:crs:EPSG::32719,2747,descargada,,2747,2745,2661,86,gamlp-sit-la-paz/sit__restaurantes.ndjson.gz
+lapaz:rest2006_Merge,Restitucion 2006,MultiCurve,urn:ogc:def:crs:EPSG::32719,684857,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:lusu_restriccionpem,Restriccion Patron Especial Mirador,Surface,urn:ogc:def:crs:EPSG::32719,28,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:lusu_restriccrespre,Restriccion Residencia Presidencial,Surface,urn:ogc:def:crs:EPSG::32719,6,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+movilidad:restriccionvehicular,Restriccion vehicular 2023,MultiSurface,urn:ogc:def:crs:EPSG::32719,1,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:lusu_restricciontelef,Restricción Construcción Teleférico,Surface,urn:ogc:def:crs:EPSG::32719,9,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:riesgo_riesgos2025opt,Riesgos 2025,MultiSurface,urn:ogc:def:crs:EPSG::32719,39159,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:riosrural,Rios Municipio area rural,MultiCurve,urn:ogc:def:crs:EPSG::32719,999,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:riosurbano,Rios urbano,MultiCurve,urn:ogc:def:crs:EPSG::32719,1860,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:rutaspeaton,Rutas Dia del Peaton,Curve,urn:ogc:def:crs:EPSG::32719,5,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:rutaspumakatari,Rutas Pumakatari,Curve,urn:ogc:def:crs:EPSG::32719,13,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:rutaspumakatari2021,Rutas Pumakatari 2021,MultiCurve,urn:ogc:def:crs:EPSG::32719,20,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:rutas_recoleccion_basura,Rutas de recoleccion de basura,MultiCurve,urn:ogc:def:crs:EPSG::32719,3574,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:rutas_recoleccion_basura_lpl,Rutas de recoleccion de basura LPL,MultiCurve,urn:ogc:def:crs:EPSG::32719,504,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:rutas_recoleccion_basura_selec,Rutas de recoleccion de basura mayor,MultiCurve,urn:ogc:def:crs:EPSG::32719,128,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+movilidad:rutas_recorridos_2025,Rutas recorridos 2025,MultiCurve,urn:ogc:def:crs:EPSG::32719,979,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+movilidad:rutas_recorridos,Rutas y recorridos 2019,MultiCurve,urn:ogc:def:crs:EPSG::32719,921,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:creditobisa_lineas,SIM Credito BISA lineas,Geometry,urn:ogc:def:crs:EPSG::32719,17,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:creditobisa_poligonos,SIM Credito BISA poligonos,Geometry,urn:ogc:def:crs:EPSG::32719,10,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:creditobisa_puntos,SIM Credito BISA puntos,Geometry,urn:ogc:def:crs:EPSG::32719,228,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:sim_proyectos_p,SIM Proyectos,Point,urn:ogc:def:crs:EPSG::32719,2590,descartada,proyectos de inversion,,,,,
+sit:servicioshigienicos,Servicios Higienicos Municipales,Point,urn:ogc:def:crs:EPSG::32719,31,descargada,,31,31,31,0,gamlp-sit-la-paz/sit__servicioshigienicos.ndjson.gz
+lapaz:sistemasemaforico,Sistema Semaforico,Point,urn:ogc:def:crs:EPSG::32719,193,descartada,semaforos,,,,,
+sit:arqueologico_sitios_2026,Sitios Arqueológicos 2026,Point,urn:ogc:def:crs:EPSG::32719,214,descargada,,214,0,214,0,gamlp-sit-la-paz/sit__arqueologico_sitios_2026.ndjson.gz
+sit:sitiosturisticos,Sitiosde Interes Turisticos,Point,urn:ogc:def:crs:EPSG::32719,160,descargada,,160,160,158,0,gamlp-sit-la-paz/sit__sitiosturisticos.ndjson.gz
+lapaz:sumideros,Sumideros,Point,urn:ogc:def:crs:EPSG::32719,18723,descartada,sumideros,,,,,
+sit:supermercados,SuperMercados,Point,urn:ogc:def:crs:EPSG::32719,61,descargada,,61,61,61,0,gamlp-sit-la-paz/sit__supermercados.ndjson.gz
+lapaz:tblZona,Tabla zonas SIM,Geometry,urn:ogc:def:crs:EPSG::32719,805,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:TblFranja,TblFranja,Geometry,urn:ogc:def:crs:EPSG::32719,18,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:TblPredio,TblPredio,Geometry,urn:ogc:def:crs:EPSG::32719,6706,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:TblSector,TblSector,Geometry,urn:ogc:def:crs:EPSG::32719,158,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:pl_texto,Texto Planimetrias,Point,urn:ogc:def:crs:EPSG::32719,134836,descartada,texto de planimetrias,,,,,
+lapaz:lugares,Toponimia,Point,urn:ogc:def:crs:EPSG::32719,8026,descartada,duplicado de sit:toponimia (8.026 vs 8.023) y JSON roto en el servidor,,,,,
+sit:toponimia,Toponimia,Point,urn:ogc:def:crs:EPSG::32719,8023,descargada,,8023,8023,7933,0,gamlp-sit-la-paz/sit__toponimia.ndjson.gz
+sit:toponimia2,Toponimia,Point,urn:ogc:def:crs:EPSG::32719,9242,descargada,,9242,8010,9233,0,gamlp-sit-la-paz/sit__toponimia2.ndjson.gz
+territorio:tramitesTerritorio,Tramites Territorio,Point,urn:ogc:def:crs:EPSG::32719,38661,descartada,tramites de construccion con nombres de solicitantes y arquitectos,,,,,
+sit:tramitesterritoriales,Tramites territoriales,Point,urn:ogc:def:crs:EPSG::32719,15506,descartada,tramites,,,,,
+patrimonio:tramosPatrimoniales,Tramos Patrimoniales,MultiCurve,urn:ogc:def:crs:EPSG::32719,42,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:patrimonio_tramos,Tramos patrimoniales,Curve,urn:ogc:def:crs:EPSG::32719,21,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:hospClinicas_linea,Trazos Hospital de Clinicas,MultiCurve,urn:ogc:def:crs:EPSG::32719,2101,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:ubicacion_fpd,Ubicacion FPD,Geometry,urn:ogc:def:crs:EPSG::32719,18258,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+patrimonio:valorPatrimonial,Valoración Patrimonial,MultiSurface,urn:ogc:def:crs:EPSG::32719,793,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:zonas,Zonas Barrios,MultiSurface,urn:ogc:def:crs:EPSG::32719,118,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:zonasgu2016,Zonas Guia Urbana,Surface,urn:ogc:def:crs:EPSG::32719,188,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sim:tblzonapoa,Zonas POA,Geometry,urn:ogc:def:crs:EPSG::32719,638,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sim:zonasSimPoa2018,Zonas SIMv2 POA 2018,MultiSurface,urn:ogc:def:crs:EPSG::32719,667,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:zonas_seguras_ae,Zonas Seguras AE,MultiSurface,urn:ogc:def:crs:EPSG::32719,5,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:zonasvalor2015,Zonas de Valor,Geometry,urn:ogc:def:crs:EPSG::32719,108,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:zonas_valor_2011,Zonas de Valores 2011,MultiSurface,urn:ogc:def:crs:EPSG::32719,108,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:nombre_zonas2,Zonas referenciales,Point,urn:ogc:def:crs:EPSG::32719,118,descargada,,118,0,118,0,gamlp-sit-la-paz/lapaz__nombre_zonas2.ndjson.gz
+lapaz:nombre_zonas,Zonas referenciales (estructura de barrios),Point,urn:ogc:def:crs:EPSG::32719,118,descargada,,118,0,118,0,gamlp-sit-la-paz/lapaz__nombre_zonas.ndjson.gz
+sit:zonas_nrocasos,Zonas segun numero de casos,Surface,urn:ogc:def:crs:EPSG::32719,188,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:zanjas_autorizacion,_geo_autorizacion,Geometry,urn:ogc:def:crs:EPSG::32719,33589,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+catastro:manzanas_zona,catastromanzanas_zona_fl,MultiSurface,urn:ogc:def:crs:EPSG::32719,13168,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:cementerios,cementerios,Point,urn:ogc:def:crs:EPSG::32719,21,descargada,,21,21,21,0,gamlp-sit-la-paz/sit__cementerios.ndjson.gz
+lapaz:siremu_contenedores012021,contenedores012021,Point,urn:ogc:def:crs:EPSG::32719,75,descartada,contenedores,,,,,
+sit:educacionprivada,educacion privada,Point,urn:ogc:def:crs:EPSG::32719,105,descargada,,105,105,105,0,gamlp-sit-la-paz/sit__educacionprivada.ndjson.gz
+sit:educacionpublica,educacion publica,Point,urn:ogc:def:crs:EPSG::32719,223,descargada,,223,223,223,0,gamlp-sit-la-paz/sit__educacionpublica.ndjson.gz
+sit:farmacias,farmacias,Point,urn:ogc:def:crs:EPSG::32719,197,descargada,,197,197,197,0,gamlp-sit-la-paz/sit__farmacias.ndjson.gz
+lapaz:geologia,geologia,MultiSurface,urn:ogc:def:crs:EPSG::32719,4948,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+geosit:gestion_riesgos_casos,gestion_riesgos_casos,Geometry,urn:ogc:def:crs:EPSG::32719,6,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:siremu_islasverdes012021,islasverdes012021,Point,urn:ogc:def:crs:EPSG::32719,43,descartada,islas verdes de reciclaje,,,,,
+levantamiento:levpuntocontrolCatastro,levpuntocontrol,Point,urn:ogc:def:crs:EPSG::32719,36647,descartada,puntos de control topografico,,,,,
+lapaz:luminarias2,luminarias2,Point,urn:ogc:def:crs:EPSG::32719,56890,descartada,luminarias,,,,,
+sit:macrodistritos_nrocasos,macrodistrito_nro_casos,Surface,urn:ogc:def:crs:EPSG::32719,9,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:mercados,mercados,Point,urn:ogc:def:crs:EPSG::32719,88,descargada,,88,88,86,2,gamlp-sit-la-paz/sit__mercados.ndjson.gz
+sit:mgr_brigadas,mgr_brigadas,MultiSurface,urn:ogc:def:crs:EPSG::32719,6069,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:mgr_puntosencuentro,mgr_puntosencuentro,Point,urn:ogc:def:crs:EPSG::32719,36,descartada,puntos de encuentro de emergencia,,,,,
+sit:mgr_distritos,mgr_resumen_distritos,Geometry,urn:ogc:def:crs:EPSG::32719,23,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:mgr_macrodistrito,mgr_resumen_macrodistrito,Geometry,urn:ogc:def:crs:EPSG::32719,9,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:mgr_resumen_mlp,mgr_resumen_mlp,,urn:ogc:def:crs:EPSG::4326,1,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:mgr_resumen_mlp_fechas,mgr_resumen_mlp_fechas,,urn:ogc:def:crs:EPSG::404000,6,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:mgr_zonas,mgr_resumen_zonas,Geometry,urn:ogc:def:crs:EPSG::32719,153,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:miradores,miradores,Point,urn:ogc:def:crs:EPSG::32719,48,descargada,,48,48,48,0,gamlp-sit-la-paz/sit__miradores.ndjson.gz
+sit:modulospoliciales,modulos policiales,Point,urn:ogc:def:crs:EPSG::32719,106,descargada,,106,106,106,0,gamlp-sit-la-paz/sit__modulospoliciales.ndjson.gz
+sit:museos,museos,Point,urn:ogc:def:crs:EPSG::32719,24,descargada,,24,24,24,0,gamlp-sit-la-paz/sit__museos.ndjson.gz
+lapaz:Organizaciones Territoriales de Base 2019,otb_2019,MultiSurface,urn:ogc:def:crs:EPSG::32719,635,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:oxigenoterapia,oxigenoterapia,Point,urn:ogc:def:crs:EPSG::32719,15,descargada,,15,15,15,0,gamlp-sit-la-paz/sit__oxigenoterapia.ndjson.gz
+sit:plazasparques,plazas parques,Point,urn:ogc:def:crs:EPSG::32719,807,descargada,,807,807,807,0,gamlp-sit-la-paz/sit__plazasparques.ndjson.gz
+lapaz:prediosEncuesta2D,prediosEncuesta2D,Geometry,urn:ogc:def:crs:EPSG::32719,1209,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:riesgo_amenaza,riesgo_amenaza,MultiSurface,urn:ogc:def:crs:EPSG::32719,24302,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:riesgo_vulnerabilidad,riesgo_vulnerabilidad,MultiSurface,urn:ogc:def:crs:EPSG::32719,481,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:rutasfumigacion,rutasfumigacion,Curve,urn:ogc:def:crs:EPSG::32719,39,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:salud,salud,Point,urn:ogc:def:crs:EPSG::32719,151,descargada,,151,151,151,0,gamlp-sit-la-paz/sit__salud.ndjson.gz
+sit:sim_proyectos2023_puntos2,sim_proyectos2023_puntos_2,Geometry,urn:ogc:def:crs:EPSG::32719,912,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:tblCoordenadaCarpetaGeomConcesiones,tblCoordenadaCarpetaGeomConcesiones,Geometry,urn:ogc:def:crs:EPSG::32719,11,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:tblCoordenadaPOAGeom,tblCoordenadaPOAGeom,Geometry,urn:ogc:def:crs:EPSG::32719,25244,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:tblCoordenadaPOAReplicaGeom,tblCoordenadaPOAReplicaGeom,Geometry,urn:ogc:def:crs:EPSG::32719,848,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:tblZona_gestion2019,tblZona,Geometry,urn:ogc:def:crs:EPSG::32719,6651,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+movilidad:tipoLinea,tipoLinea,MultiCurve,urn:ogc:def:crs:EPSG::32719,3,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+movilidad:tipoPoligono,tipoPoligono,MultiSurface,urn:ogc:def:crs:EPSG::32719,10,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+movilidad:tipoPuntos,tipoPuntos,Point,urn:ogc:def:crs:EPSG::32719,34,descartada,catalogo de simbolos,,,,,
+estadisticasMunicipales:vwEncuestasItemGeom,vwEncuestasItemGeom,Geometry,urn:ogc:def:crs:EPSG::32719,1738,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+Educacion:vwInfraestructura,vwInfraestructura,Geometry,urn:ogc:def:crs:EPSG::32719,851,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+Educacion:vwInfraestructuraUE,vwInfraestructuraUE,Geometry,urn:ogc:def:crs:EPSG::32719,851,descargada,,851,838,851,0,gamlp-sit-la-paz/Educacion__vwInfraestructuraUE.ndjson.gz
+lapaz:vwSITv3CatastroTramite,vwSITv3CatastroTramite,Geometry,urn:ogc:def:crs:EPSG::32719,1168,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+geosit:vw_mapa_4_ptas_sub_alcaldias,vw_mapa_4_ptas_sub_alcaldias,Geometry,urn:ogc:def:crs:EPSG::32719,1641,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+lapaz:vw_zonas_concesion,vw_zonas_concesion,Geometry,urn:ogc:def:crs:EPSG::32719,6533,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:zonasref,zonas_gu2016,Surface,urn:ogc:def:crs:EPSG::32719,188,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,
+sit:arqueologico_areas_interes_2026,Áreas de Interés por potencial Arquelógico 2026,MultiSurface,urn:ogc:def:crs:EPSG::32719,66,no descargada,"sin geometria de punto de interes (poligonos, lineas o tablas)",,,,,

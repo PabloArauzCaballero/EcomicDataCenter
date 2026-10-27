@@ -1,0 +1,829 @@
+{
+ "delivery": "2026-10-27/geoportales",
+ "branch": "datos/2026-10-27-geoportales",
+ "generated_at": "2026-10-27T23:20:19Z",
+ "crs": "EPSG:4326 (WGS84); las capas UTM 19S del GAMLP se reproyectaron en el servidor (srsName=EPSG:4326)",
+ "rows_total": 249322,
+ "rows_by_source": {
+  "datos.gob.bo:estab": 15749,
+  "datos.gob.bo:puntos-de-venta-doble-aguinaldo": 2840,
+  "gamc_planificacion_mapa_interactivo": 877,
+  "gamlp_sit_geoserver": 208757,
+  "gamscs_guia_urbana": 5105,
+  "wikidata": 15994
+ },
+ "schema": [
+  "source",
+  "source_id",
+  "name",
+  "category_raw",
+  "address",
+  "locality",
+  "municipality",
+  "department",
+  "lat",
+  "lon",
+  "phone",
+  "website",
+  "hours",
+  "source_updated_at",
+  "source_url",
+  "retrieved_at",
+  "raw"
+ ],
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 13996,
+   "sha256": "ede73fe10be86ed59643ea5b5269a880c3fef2a2854d9aa3e60c9700aa4c1568"
+  },
+  {
+   "path": "datos-gob-bo/me-establecimientos-educativos-2016.ndjson.gz",
+   "bytes": 1193509,
+   "sha256": "633a1ae5102616ea10152eda86ca3ed349ee4eb600d4831f5afac0a3ada62d06",
+   "rows": 15749,
+   "source": "datos.gob.bo:estab"
+  },
+  {
+   "path": "datos-gob-bo/puntos-de-venta-doble-aguinaldo-2019.ndjson.gz",
+   "bytes": 734437,
+   "sha256": "79deacf20404908c45914990d3c97c2bf3a62f592b29e7d16b0c7257a8713ebb",
+   "rows": 2840,
+   "source": "datos.gob.bo:puntos-de-venta-doble-aguinaldo"
+  },
+  {
+   "path": "gamc-planificacion-cochabamba/gamc-planificacion-mapa-interactivo.ndjson.gz",
+   "bytes": 30841,
+   "sha256": "c12d97ffbbd091110903a7f917723a4d46798e34bd68cd62baff19e616bebeb0",
+   "rows": 877,
+   "source": "gamc_planificacion_mapa_interactivo"
+  },
+  {
+   "path": "gamlp-sit-la-paz/Educacion__vwInfraestructuraUE.ndjson.gz",
+   "bytes": 158381,
+   "sha256": "4eb5a351ed0d2147539b50418438f3c36a39e1cce462fcfda073911f369c094b",
+   "rows": 851,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/culturas__asociaciones.ndjson.gz",
+   "bytes": 11901,
+   "sha256": "0c9100d8164355e6c59742d15a1a1ad019d016ad85b2a54eff11c93092ec490d",
+   "rows": 43,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/culturas__centrosFormacion.ndjson.gz",
+   "bytes": 29270,
+   "sha256": "584be5a22b646850bdca03795c2cc8d16f9e7a39cefcb098c62a64a73b8f6616",
+   "rows": 117,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/culturas__espaciosLibres.ndjson.gz",
+   "bytes": 12262,
+   "sha256": "161b30d8f1cf9f68a8d4f58d4b64fcd1d859aaafbcefee66b15af6a48eed6073",
+   "rows": 49,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/culturas__infrArtisticaCultural.ndjson.gz",
+   "bytes": 62728,
+   "sha256": "ba157be193ff3aaa6fed475f6be35d88c4c680d8ec127ebedec0008579f18593",
+   "rows": 172,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/culturas__infrPatrimonial.ndjson.gz",
+   "bytes": 30388,
+   "sha256": "4f78f8abc9c80dd6ec80f3a56069317306a75e63c1e7f94a3b122b07d352cbeb",
+   "rows": 87,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/culturas__inmueblesSISPAC.ndjson.gz",
+   "bytes": 12384,
+   "sha256": "bebc5f51a5e79cd76d6acab468e6b67b01b2cc9e63b8a0949cb5f51b70a86a3b",
+   "rows": 170,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/culturas__lugaresSimbolicos.ndjson.gz",
+   "bytes": 10423,
+   "sha256": "49a2fa888f56741c57fd0e9a13dde22fbd0be3fd6253343a5a1734ac584e76f5",
+   "rows": 31,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/culturas__mediosComunicacion.ndjson.gz",
+   "bytes": 5725,
+   "sha256": "4ff726c48c046aa2398cb29ad6bbe520af6505f61491a58757198a682add1dbb",
+   "rows": 49,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lapaz__areasequipamiento.ndjson.gz",
+   "bytes": 132899,
+   "sha256": "f4a5110b421833dd1c9350c4d365cd4b145350d239c9ecdc86876b8b107de5b0",
+   "rows": 6054,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lapaz__espaciospublicos.ndjson.gz",
+   "bytes": 11205,
+   "sha256": "66ce4d67fba49ba4a39fcdbeb49e5ef771fd77a703441e0f6197414e75f005b8",
+   "rows": 173,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lapaz__locales_expendio.ndjson.gz",
+   "bytes": 6587,
+   "sha256": "7b55f4d377160dee6bc0b074c96ad12cf50c90a95a3b2bef8ca268a5eb4de0e8",
+   "rows": 269,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lapaz__nombre_zonas.ndjson.gz",
+   "bytes": 4857,
+   "sha256": "8b59624833b851bef586b57037a402a0df1e6a73e95a286bf47ededeb60ecc31",
+   "rows": 118,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lapaz__nombre_zonas2.ndjson.gz",
+   "bytes": 4642,
+   "sha256": "0b02f35992a59c91cbcf2ab51ffac5e2f2540096a40cbb25554594d056bf988b",
+   "rows": 118,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__aeropuertos.ndjson.gz",
+   "bytes": 831,
+   "sha256": "19f8ff4af43a6f4255e90e426ca51f181838078b6b6f4e40c90fb39905ed74f2",
+   "rows": 2,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__bancos.ndjson.gz",
+   "bytes": 8389,
+   "sha256": "99ae618b7d53dde434ab7dc200e8f8feb9b454b80356289d5f13c914ae76e7a8",
+   "rows": 89,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__cajerosautomaticos.ndjson.gz",
+   "bytes": 7599,
+   "sha256": "7a22b57ee062cbb2a3247bf6a1ee70b23330dad2f31cd56b1517def8cf4607c6",
+   "rows": 99,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__casasdecambio.ndjson.gz",
+   "bytes": 2684,
+   "sha256": "a5f092649130bc2fa93f8aa67005ccbc1ddc96fd22a9de3ba157e375c03c567d",
+   "rows": 19,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__embajadasconsulados.ndjson.gz",
+   "bytes": 7343,
+   "sha256": "cd66da66c3af20b7cc443a2990710adf1529a43a376e0ab69e94158459514b2f",
+   "rows": 55,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__empresasturismo.ndjson.gz",
+   "bytes": 23631,
+   "sha256": "70aca7b5f448663d0daf93be59da561327b4e511ce06de5c7db7091ccaa76b4f",
+   "rows": 238,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__hospedajes.ndjson.gz",
+   "bytes": 16099,
+   "sha256": "1e05fa497460240350592d8a3338e7615db4a2d9344b494bba2b864e555f20bb",
+   "rows": 155,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__hospitales.ndjson.gz",
+   "bytes": 4150,
+   "sha256": "1f12aa47859e3cae1b99c77ec706cf831060e369d1edd992d1db5e80f37bb2d9",
+   "rows": 32,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__lavanderias.ndjson.gz",
+   "bytes": 1428,
+   "sha256": "05d19590fefb1c8b2bd31f40d159ca2ba4f64c6c7bbb6909528a8e5562203c0b",
+   "rows": 8,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__lineasaereas.ndjson.gz",
+   "bytes": 3145,
+   "sha256": "0587a5beafd556dd68754dc5113b8ee1c2858f38fb80444033b8acf50535f5c2",
+   "rows": 24,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__pubsdiscotecas.ndjson.gz",
+   "bytes": 1332,
+   "sha256": "a9d195424d12547aa5bbb73436b682223561d7ed16b2a05770790c403b3c618a",
+   "rows": 8,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__rentacar.ndjson.gz",
+   "bytes": 2789,
+   "sha256": "ce3473fa42478d6a257ad1882cc539c1a68b17a022fed89fe1c287bea73fe446",
+   "rows": 16,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__restaurantes.ndjson.gz",
+   "bytes": 38292,
+   "sha256": "03d39d4a9ce05eb92a2b82f9198131a76b5080c012225ff2029b5b514c9a9f77",
+   "rows": 427,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/lpm__vista_embajadasconsulados.ndjson.gz",
+   "bytes": 5771,
+   "sha256": "c984010cc350fa0386cd804e68f229a9cfe9e42e6a4ac9fa3b64cace6209e17f",
+   "rows": 55,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/movilidad__paradas.ndjson.gz",
+   "bytes": 41236,
+   "sha256": "17b9293c7092c1e9d7ed8e49542b0acadf64d73a16cc5376401d30f1a5008538",
+   "rows": 921,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sigae__puestosbebida.ndjson.gz",
+   "bytes": 2857,
+   "sha256": "a0cb23f20866ceaaf64a86f70b44d73d45a04202e3d0fc8cdb26d6d2a140bef1",
+   "rows": 96,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sigae__puestosventa.ndjson.gz",
+   "bytes": 1231029,
+   "sha256": "1d8cf646e749c04c791a166ebcf3c9c3cc996fd82e1b6b2adee219b5b3bb6092",
+   "rows": 31879,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__CentrosVacunacion.ndjson.gz",
+   "bytes": 1543,
+   "sha256": "aaecab06b3d00a1f6f3c68945007bd93a3c849875320b520c30a0b7f38853d0c",
+   "rows": 22,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__actividadesEconomicasEBA.ndjson.gz",
+   "bytes": 9981,
+   "sha256": "ed9c552ab174126f40637943ba1d122e35dfa160198a5f161e66f6007de868d9",
+   "rows": 105,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__agenciascooperacion.ndjson.gz",
+   "bytes": 3589,
+   "sha256": "b5f118836a0ac85c1deeacc1982293a8569e858950679239c30a0afcf95c57c3",
+   "rows": 28,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__agenciasviajes.ndjson.gz",
+   "bytes": 6650,
+   "sha256": "a87e1c94e05c2eb32d0fe6757049ca1396a46536f719822f3d6e5652d6045748",
+   "rows": 74,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__arqueologico_sitios_2026.ndjson.gz",
+   "bytes": 6098,
+   "sha256": "2317fca529aa02ed659a2e066a782991d78f9a76aa3cac14f0d9f996996f09b3",
+   "rows": 214,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__bancos.ndjson.gz",
+   "bytes": 25850,
+   "sha256": "9126a300bfd627c6815e8f9e78f16d5f471a69b02f9107277f5827227c0ffae6",
+   "rows": 191,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__bibliotecas.ndjson.gz",
+   "bytes": 2654,
+   "sha256": "199b7b41d54587e26a5d0f15deed02c0dda62e57824489e5df22d61aad6b4277",
+   "rows": 20,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__cajeros_atm.ndjson.gz",
+   "bytes": 70320,
+   "sha256": "54c13e6ba1a663727fdc3738071088ab2aa8b92dce20798121b028062b23c9ac",
+   "rows": 715,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__camposdeportivos.ndjson.gz",
+   "bytes": 42735,
+   "sha256": "47a3ec9114d499d6792873f6f627b2a59338b1807bfb4229b89bf978675e5d93",
+   "rows": 492,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__cementerios.ndjson.gz",
+   "bytes": 2593,
+   "sha256": "a827aa111df47d0febf9438fcbe3d7c856c1755f7a31a5a84a14508445982757",
+   "rows": 21,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__centrosdesarrollosocial.ndjson.gz",
+   "bytes": 15418,
+   "sha256": "0cccfb9e1541dfb04203bd530a4aa9fd54d117ebf310944fdd2e25d16e9345de",
+   "rows": 131,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__centrosinfantiles.ndjson.gz",
+   "bytes": 3875,
+   "sha256": "cd79a23c7cedc875cb058074829de09ee1d9ec0f26ddf923a5344c9bda535336",
+   "rows": 34,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__centrosreligiosos.ndjson.gz",
+   "bytes": 6597,
+   "sha256": "f2d2761409b7446e7c9923aabc367500d6f457ee2c210a0e85e9ef77322773a2",
+   "rows": 179,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__cines.ndjson.gz",
+   "bytes": 904,
+   "sha256": "4d145555d73c3d6f4e26536c97f383f0b2682d27caf71cd5d67a4f1ba8227918",
+   "rows": 6,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__clustersfinancieros.ndjson.gz",
+   "bytes": 10154,
+   "sha256": "7fb0978ff2c8ff050861f55573d39970b8bed7c6e3c6a283ef7788510a843e02",
+   "rows": 100,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__distribucionoxigeno.ndjson.gz",
+   "bytes": 1047,
+   "sha256": "88ca3b15921c7948fa7374148269998261da79b4ebb549976cbdbbac9dbbb15f",
+   "rows": 6,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__edificios.ndjson.gz",
+   "bytes": 218903,
+   "sha256": "1e28e0e415294491addfdef5423cdd6ce76e6eb1415dfa7e05fe535604a44bc7",
+   "rows": 4123,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__educacion_smecc.ndjson.gz",
+   "bytes": 30372,
+   "sha256": "3eb2f5fe56a213e5129738d1be79c77ad506437d4ce4f956ce5e23c3ac227295",
+   "rows": 379,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__educacionprivada.ndjson.gz",
+   "bytes": 10143,
+   "sha256": "c0072843289c665e492b5b684392e29ac0ae3c53bcbf65486259f177c2304e4c",
+   "rows": 105,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__educacionpublica.ndjson.gz",
+   "bytes": 27686,
+   "sha256": "629adad37137a58ec7d11414ae0683b425189204d9aa24ccd526edaa9cecef92",
+   "rows": 223,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__educacionsuperior.ndjson.gz",
+   "bytes": 5649,
+   "sha256": "fe4aed3ec3a64ecc55de1fef6a481b1fb5ae8c976427fdab8cee455a6efd8d78",
+   "rows": 60,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__embajadas.ndjson.gz",
+   "bytes": 2445,
+   "sha256": "45c21a531afc9b4818ab872eeee0ec36594b1a897b7f5ca84baadadd9f8c5751",
+   "rows": 21,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__entidadesfinancieras.ndjson.gz",
+   "bytes": 75868,
+   "sha256": "6f251e6476a28281de065a40893df3d0bba8347f8c39f6bf65121b0b778c5281",
+   "rows": 779,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__equipHampaturi.ndjson.gz",
+   "bytes": 12150,
+   "sha256": "5099051b72894934442f1d26302aa2bb2eea584cd57d8f8d500ce4466b8f13de",
+   "rows": 228,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__equipZongo.ndjson.gz",
+   "bytes": 3907,
+   "sha256": "5c70b2f45a4357078f2463437fcd393506b30aff7537e259ce1adc6a73b814d2",
+   "rows": 78,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__estacionesservicio.ndjson.gz",
+   "bytes": 2908,
+   "sha256": "fa53c0a3658f43162bab69b3c340844edd93ff3bff9375a417cd5e44e6be8a99",
+   "rows": 34,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__estacionesteleferico.ndjson.gz",
+   "bytes": 2759,
+   "sha256": "ff32497e3b8d938f4366d71532cdeb824a0fbca3202f3910eac293a264347188",
+   "rows": 36,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__farmacias.ndjson.gz",
+   "bytes": 14112,
+   "sha256": "498ad2869c1b9646e7545da9ae42b2ff9708d2482761379832aee4581614580d",
+   "rows": 197,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__farmacias_smde.ndjson.gz",
+   "bytes": 40931,
+   "sha256": "896c2363891d0acbe2241f4575bdde2278075f39a04cb854ea1171ba479fa96e",
+   "rows": 594,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__hoteleshostales.ndjson.gz",
+   "bytes": 19669,
+   "sha256": "4b8b4c5ac5668cc4167888c1d4bb7876238087a3f362227976e1adda932ee015",
+   "rows": 258,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__institucional.ndjson.gz",
+   "bytes": 1021,
+   "sha256": "c5ca684e19a2a0045382ede3b95eac11ccdb91d867e54295bcdcdc30831d8aa4",
+   "rows": 9,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__laboratorioscovid.ndjson.gz",
+   "bytes": 6306,
+   "sha256": "54664c2d42ec0eea611a8af9bfe299f3b4e1cccd9d992a4c8c465218d4238cba",
+   "rows": 59,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__medioscomunicacion.ndjson.gz",
+   "bytes": 5765,
+   "sha256": "c3c09bc4d39f3869a7f96c6434c36d06b71ca7e4a9d36baa7b1ed04d3a142491",
+   "rows": 49,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__mercados.ndjson.gz",
+   "bytes": 8318,
+   "sha256": "923eb37dea7ce3f69f19acc3ec1357580e2f5fc16b993e2e6baf7e1ed10a9a95",
+   "rows": 88,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__mercadosmoviles.ndjson.gz",
+   "bytes": 6313,
+   "sha256": "a63545f5eedbebe99a7bf2e6964c151cb1868a96df58b49934a2ed23eb5b31ff",
+   "rows": 68,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__miradores.ndjson.gz",
+   "bytes": 5211,
+   "sha256": "fd0c4f3a3c6c29072e1064c688d0c1b574c01921e4eeccbb0a0cd876a1513eeb",
+   "rows": 48,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__modulospoliciales.ndjson.gz",
+   "bytes": 10915,
+   "sha256": "b7d41c50949c89a3cfb27b0ad035029061b22ea6d45098a173de987e8d1adacd",
+   "rows": 106,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__museos.ndjson.gz",
+   "bytes": 2691,
+   "sha256": "04eb09412792959030b3b2c934d540008e2ba45982686511ab6dcd6e4930516d",
+   "rows": 24,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__numeropuertas.ndjson.gz",
+   "bytes": 5689310,
+   "sha256": "1a41198509468dfc2dba41544e89d6f28ceb6266c73aea4931840f6475aec949",
+   "rows": 132309,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__oxigenoterapia.ndjson.gz",
+   "bytes": 1249,
+   "sha256": "17800d2e7e8b6bad95e1ed369b1aca31db916e37ec34e694faca16958d38e372",
+   "rows": 15,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__paradaspumakatari.ndjson.gz",
+   "bytes": 12152,
+   "sha256": "8b88790a7a4028a8349933fc81bc4d08f83d90bf0a2eef31004e9b417d32ee48",
+   "rows": 423,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__paradaspumakatari2021.ndjson.gz",
+   "bytes": 21733,
+   "sha256": "85bfc8b95646e728a8222186f9c1493006e63d96a6eb85ded231d045209b1c4b",
+   "rows": 635,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__plataformassitram.ndjson.gz",
+   "bytes": 6546,
+   "sha256": "4b4c46db0235276c723b194426f2df6bc3e57442776b9dfefe7b8945d8b92bb2",
+   "rows": 30,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__plazasparques.ndjson.gz",
+   "bytes": 50514,
+   "sha256": "e3c21a98c4886d9fa5f8e0cccdd9d2b9bc77d7f3229eb5ebdb76727c28c8c5dc",
+   "rows": 807,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__plazasparques_sit.ndjson.gz",
+   "bytes": 21749,
+   "sha256": "41d26857b69cd72a0ea16b9229c1f73bb65d5271ee44c014c8d262f081a34371",
+   "rows": 441,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__publicidadurbana.ndjson.gz",
+   "bytes": 22635,
+   "sha256": "aa144eac0e65c0a852133fdd8e86fdf7bf09e642d0f970fa05bf702d2efc405a",
+   "rows": 305,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__puentes.ndjson.gz",
+   "bytes": 11716,
+   "sha256": "990e51ec48aa990c22bc3adba0c73d628d8ea426ad26ebd88d0b7ea90a239d36",
+   "rows": 190,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__puntosverdes.ndjson.gz",
+   "bytes": 776,
+   "sha256": "70e9e99024116510aeeafa120846d5e78bad4f4d93ab99f567a2bbeeba796c3c",
+   "rows": 1,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__restaurantes.ndjson.gz",
+   "bytes": 386136,
+   "sha256": "e97fc29863f15be2fe000e2449dada2484f65e4ee00d3942b9aa24947633d1ce",
+   "rows": 2747,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__salud.ndjson.gz",
+   "bytes": 14558,
+   "sha256": "6d646a11f070e9dc906d808db74e2f2bbec2fc9dd59b954349551c898a280e33",
+   "rows": 151,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__saludsiis.ndjson.gz",
+   "bytes": 6675,
+   "sha256": "78f44a32e0fbdcd35e17c358cb898167cda711e13b9662f994994017bcdc132b",
+   "rows": 66,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__sedes_establsalud.ndjson.gz",
+   "bytes": 28078,
+   "sha256": "1ec3a2497a6993e3da9a4d80980c4fa38545ccb8b1ab56515b8e19028d705e72",
+   "rows": 792,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__servicioshigienicos.ndjson.gz",
+   "bytes": 3017,
+   "sha256": "57e10ca6dbd12732f6b5e4ad52cfb8656982f76c9eb855982a89f0862bddfff9",
+   "rows": 31,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__sitiosturisticos.ndjson.gz",
+   "bytes": 12515,
+   "sha256": "c170e70a450ab9f166e518defba5a4ce85624186d6c9427f342394509df87913",
+   "rows": 160,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__supermercados.ndjson.gz",
+   "bytes": 4768,
+   "sha256": "c822bfd8ca7d6d8eb5aedc6018e861fc7be2ec09d7008a921a7a8714e08e0527",
+   "rows": 61,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__toponimia.ndjson.gz",
+   "bytes": 268086,
+   "sha256": "0b9ec3eba5e5ddc5a0d0cd8f150601557b22d2833ad530a9737114fc4984d4ef",
+   "rows": 8023,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamlp-sit-la-paz/sit__toponimia2.ndjson.gz",
+   "bytes": 385157,
+   "sha256": "0c3d0a0937e2beb051f70c12adde000dcd0853aab0aec260b9b19c27809b50f6",
+   "rows": 9242,
+   "source": "gamlp_sit_geoserver"
+  },
+  {
+   "path": "gamscs-guia-urbana-santa-cruz/gamscs-guia-urbana.ndjson.gz",
+   "bytes": 308037,
+   "sha256": "dc42204e116db727f8214932fb2b7a8bb0ada09c049b9c7da8d0b42377799281",
+   "rows": 5105,
+   "source": "gamscs_guia_urbana"
+  },
+  {
+   "path": "inventarios/datos-gob-bo-catalogo.json",
+   "bytes": 67714,
+   "sha256": "1495bc809fce7cb2a528369a51b0ba623c689ff327029682069972d0b3c98be9"
+  },
+  {
+   "path": "inventarios/gamc-planificacion-categorias.tsv",
+   "bytes": 1860,
+   "sha256": "a1eb4f98f2ded08ab6f8851bb1586e37f67c983fb551d62b04a66c0202046235"
+  },
+  {
+   "path": "inventarios/gamlp-sit-la-paz-capas.csv",
+   "bytes": 50641,
+   "sha256": "d626f042f05230e21569d7e5e3bbb5d45ab9b477819fc68f505a2fe6326d3f16"
+  },
+  {
+   "path": "inventarios/gamlp-sit-la-paz-capas.json",
+   "bytes": 207830,
+   "sha256": "8391be83c6b251e9ab1feceee6f5b15310791daca9ab3684d41a06fa95ee8138"
+  },
+  {
+   "path": "inventarios/gamscs-guia-urbana-capas.tsv",
+   "bytes": 7491,
+   "sha256": "65904ff36fb59fa7f30b4a22b04bb614892d85c38be02085b879926c1783de7c"
+  },
+  {
+   "path": "inventarios/geonode-iigeo-umsa-datasets.json",
+   "bytes": 6918,
+   "sha256": "67d66ed5958659f553ddd30c084eadd8c25c3fedb2598b392c4d84d6ed8eb0ae"
+  },
+  {
+   "path": "inventarios/geoserver-el-alto-capas.json",
+   "bytes": 14101,
+   "sha256": "328fcd0b18f09994ec3322ee94c07a6af21e1f0c73214ab6e0a621bbd9f8de98"
+  },
+  {
+   "path": "scripts/build_inventories.py",
+   "bytes": 5230,
+   "sha256": "3d29273ea5a15a67efa2c2363c5feb6a5cb79d4d9a79fb320b140e06e6e7a116"
+  },
+  {
+   "path": "scripts/cbba_cats.py",
+   "bytes": 703,
+   "sha256": "07283509d07b142a3853ed04f705ab7dc4b2349976f4c47bd91fc71b9d9fab9b"
+  },
+  {
+   "path": "scripts/ckan_list.py",
+   "bytes": 1280,
+   "sha256": "0968140fbcd5fa7120eaa45b48145cf82e5583d069a9b4734e59a6da4ae2b6f0"
+  },
+  {
+   "path": "scripts/fetch.py",
+   "bytes": 763,
+   "sha256": "58c7702389bb5ddd302526e4aa08d2ea34684ba97933a40d6c5301fa10cceb31"
+  },
+  {
+   "path": "scripts/make_manifest.py",
+   "bytes": 2007,
+   "sha256": "9f3bf7a3b797a6320caec078e21ee50b462ae2a632b193e503b4484a3e68e852"
+  },
+  {
+   "path": "scripts/normalize_cbba.py",
+   "bytes": 3420,
+   "sha256": "276da909d925424c8769a48ea325661f59a0cc9c696c26ebb98ca496bf1a6a48"
+  },
+  {
+   "path": "scripts/normalize_datosgob.py",
+   "bytes": 4183,
+   "sha256": "f6298e7fddc6894daeef9be47f9ce0eaa86c9ab3d301cffcd52fc81547b759b7"
+  },
+  {
+   "path": "scripts/normalize_scz.py",
+   "bytes": 3224,
+   "sha256": "cd9891079d593019e4a4f474541aebd04340b60999f0bf749a0840228744eacf"
+  },
+  {
+   "path": "scripts/normalize_wfs.py",
+   "bytes": 8148,
+   "sha256": "9cdffda263a899503bc89cb80c743c47c118b817c0b93cb5bd1c805812c80fd2"
+  },
+  {
+   "path": "scripts/probe.py",
+   "bytes": 892,
+   "sha256": "a144974199072810e649683e7a9e0a2c3cda00edb40fcdd226d284c7498494bb"
+  },
+  {
+   "path": "scripts/qa.py",
+   "bytes": 1116,
+   "sha256": "97b95c3ccd83c7b48e34cd677fcbd715eb4a753c5b5fc7d6f8e04cd5b236ab38"
+  },
+  {
+   "path": "scripts/resolve.py",
+   "bytes": 857,
+   "sha256": "65f99b8dc255f9b7092ce84ee0dde7cd1b6e2699fd00fffe31beb996fcea2fb0"
+  },
+  {
+   "path": "scripts/scz_fetch.py",
+   "bytes": 987,
+   "sha256": "e08bb4455aa4a2ea05e95c5877cd91c3060ffecc158b6983d2906f3016531223"
+  },
+  {
+   "path": "scripts/scz_layers.py",
+   "bytes": 1766,
+   "sha256": "667a385b37d309f2eb6812ea8d5a9a3daf6cc3305da5f0ac9bad622d6ae69c5b"
+  },
+  {
+   "path": "scripts/select_layers.py",
+   "bytes": 669,
+   "sha256": "2c18b09740f88befd2d9bf59837beb820906bafd99e05b657077528c74a95827"
+  },
+  {
+   "path": "scripts/wd_filter.py",
+   "bytes": 721,
+   "sha256": "4760f6e1a36c8e271d864303ed49c5cf7c98b8453d3ec79715d5da9459350607"
+  },
+  {
+   "path": "scripts/wfs_download.py",
+   "bytes": 4582,
+   "sha256": "cc9d354c1063969b525b3e7dce8a9b100167b0ec86576b380a3c581dce4ef638"
+  },
+  {
+   "path": "scripts/wfs_inventory.py",
+   "bytes": 2462,
+   "sha256": "2ca187da272128dc6e7d4a7ac301a2f229b945b71193d1e691f4ed373a12c858"
+  },
+  {
+   "path": "scripts/wikidata_lugares.py",
+   "bytes": 9868,
+   "sha256": "f1776450b01964d9c772473d5aa482aab88cbd12bca04df892fe1487f7c8fbcb"
+  },
+  {
+   "path": "wikidata/wikidata-descartes-fuera-de-bolivia.ndjson.gz",
+   "bytes": 7966,
+   "sha256": "c9ea8c39fab75851f0afb57bfb58a618e6a2b7e14022f3ec0aae4bcc18af44bb",
+   "rows": 53,
+   "source": "wikidata"
+  },
+  {
+   "path": "wikidata/wikidata-lugares-bolivia.ndjson.gz",
+   "bytes": 992676,
+   "sha256": "ffe2a4365c02a822415ec94f350b99cabdcfcfdb42a3aeaf3f6eb3b4bd97e67d",
+   "rows": 15994,
+   "source": "wikidata"
+  }
+ ]
+}
