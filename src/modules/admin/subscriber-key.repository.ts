@@ -52,7 +52,7 @@ export class SubscriberKeyRepository {
     subscriberAccountId: string,
     label: string,
     maxActiveKeys: number,
-    issued: IssuedApiKey,
+    issued: Pick<IssuedApiKey, 'prefix' | 'hash'>,
   ): Promise<KeyCreation> {
     return this.writer.transaction(async (transaction) => {
       const locked = await this.writer.query<{ active: string }>(

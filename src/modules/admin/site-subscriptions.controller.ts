@@ -10,8 +10,9 @@ import {
 } from '../../common/errors/application.error';
 import { RequestId } from '../../common/http/request-id.decorator';
 import { ZodValidationPipe } from '../../common/validation/zod-validation.pipe';
-import { envelope, type AdminEnvelope } from './admin.envelope';
+import type { AdminEnvelope } from './admin.envelope';
 import { DeploymentIdentity } from './deployment-identity';
+import { answer } from './subscription-envelope';
 import { SubscriberAccountRepository } from './subscriber-account.repository';
 import { SubscriberKeyRepository } from './subscriber-key.repository';
 import { toAccountSummary } from './subscription-account-row';
@@ -64,15 +65,6 @@ export class SiteSubscriptionsController {
     private readonly keys: SubscriberKeyRepository,
   ) {}
 
-  private wrap<T>(data: T, requestId: string): AdminEnvelope<T> {
-    return envelope(data, {
-      environmentId: this.identity.environmentId,
-      requestId,
-      observedAt: new Date(),
-      evidenceState: 'known',
-    });
-  }
-
   @Post('sessions')
   @HttpCode(HttpStatus.OK)
   @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
@@ -86,7 +78,7 @@ export class SiteSubscriptionsController {
     // unknown e-mail costs the same time as a wrong password.
     const valid = await verifyPassword(session.password, found?.passwordHash ?? null);
     if (!found || !valid) throw new InvalidCredentialsError();
-    return this.wrap({ account: toAccountSummary(found.account) }, requestId);
+    return answer(this.identity, { account: toAccountSummary(found.account) }, requestId);
   }
 
   @Get('accounts/:subscriberAccountId')
@@ -103,7 +95,8 @@ export class SiteSubscriptionsController {
       this.accounts.currentUsage(id),
       this.accounts.listApiKeys(id),
     ]);
-    return this.wrap(
+    return answer(
+      this.identity,
       {
         account: toAccountSummary(account),
         usage,
@@ -131,7 +124,11 @@ export class SiteSubscriptionsController {
   ): Promise<AdminEnvelope<unknown>> {
     const issued = issueApiKey();
     const id = params.subscriberAccountId;
-    const result = await this.keys.create(id, body.label, body.maxActiveKeys, issued);
+    // Only the prefix and the hash go to storage; the key itself is answered once.
+    const result = await this.keys.create(id, body.label, body.maxActiveKeys, {
+      prefix: issued.prefix,
+      hash: issued.hash,
+    });
     if (result.outcome === 'NO_ACCOUNT') throw new NotFoundError('Subscriber account', id);
     if (result.outcome === 'LIMIT_REACHED') {
       throw new ConflictError('The account already holds its maximum of active keys', {
@@ -139,7 +136,8 @@ export class SiteSubscriptionsController {
         maxActiveKeys: body.maxActiveKeys,
       });
     }
-    return this.wrap(
+    return answer(
+      this.identity,
       { apiKeyId: result.apiKeyId, prefix: issued.prefix, key: issued.key },
       requestId,
     );
@@ -196,7 +194,7 @@ export class SiteSubscriptionsController {
     if (!account) {
       throw new RequestValidationError({ token: 'The token is invalid, expired or already used' });
     }
-    return this.wrap({ account: toAccountSummary(account) }, requestId);
+    return answer(this.identity, { account: toAccountSummary(account) }, requestId);
   }
 
   @Post('usage')
@@ -209,7 +207,7 @@ export class SiteSubscriptionsController {
   ): Promise<AdminEnvelope<unknown>> {
     const used = await this.keys.increment(body.subscriberAccountId, body.usageKind, body.amount);
     if (used === null) throw new NotFoundError('Subscriber account', body.subscriberAccountId);
-    return this.wrap({ used }, requestId);
+    return answer(this.identity, { used }, requestId);
   }
 
   @Post('api-keys/verify')
@@ -222,6 +220,10 @@ export class SiteSubscriptionsController {
   ): Promise<AdminEnvelope<unknown>> {
     const result = await this.keys.verify(body.keyHash, body.usageKind, body.amount);
     if (!result) throw new NotFoundError('API key', 'presented key');
-    return this.wrap({ account: toAccountSummary(result.account), used: result.used }, requestId);
+    return answer(
+      this.identity,
+      { account: toAccountSummary(result.account), used: result.used },
+      requestId,
+    );
   }
 }
