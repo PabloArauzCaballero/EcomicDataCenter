@@ -1,0 +1,94 @@
+{
+ "yango": {
+  "total": 18,
+  "with_latlon": 18,
+  "with_address": 18,
+  "by_municipality": {
+   "Santa Cruz de la Sierra": 18
+  },
+  "by_via": {
+   "live_api": 18
+  },
+  "by_category": {
+   "restaurant": 17,
+   "shop": 1
+  }
+ },
+ "pedidosya": {
+  "total": 1494,
+  "with_latlon": 1415,
+  "with_address": 1403,
+  "by_municipality": {
+   "Santa Cruz de la Sierra": 783,
+   "La Paz": 390,
+   "Cochabamba": 281,
+   "El Alto": 35,
+   "Sucre": 4,
+   "Tarija": 1
+  },
+  "by_via": {
+   "wayback": 1415,
+   "home_lazy_load": 79
+  },
+  "by_category": {
+   "Pollo": 166,
+   "Pizzas": 158,
+   "Hamburguesas": 155,
+   "": 104,
+   "Postres": 92,
+   "Carnes": 73,
+   "Sándwiches": 73,
+   "Menú del día": 70,
+   "RESTAURANT": 65,
+   "Helados": 63,
+   "Cafetería": 63,
+   "Licuados y Jugos": 62,
+   "Sushi": 50,
+   "Bebidas": 46,
+   "Comida Mexicana": 39
+  },
+  "last_seen_year": {
+   "2025": 5,
+   "2023": 18,
+   "2019": 1341,
+   "2020": 27,
+   "2024": 5,
+   "2021": 19,
+   "2026": 79
+  }
+ },
+ "ubereats": {
+  "total": 350,
+  "with_latlon": 101,
+  "with_address": 51,
+  "by_municipality": {
+   "Santa Cruz de la Sierra": 320,
+   "La Paz": 30
+  },
+  "by_via": {
+   "wayback": 101,
+   "wayback_link_only": 249
+  },
+  "by_category": {
+   "": 252,
+   "Burgers": 13,
+   "Chicken": 6,
+   "American": 6,
+   "Latin American": 5,
+   "Sushi": 5,
+   "Desserts": 5,
+   "Coffee and Tea": 5,
+   "BBQ": 5,
+   "Alcohol": 5,
+   "Bolivian": 4,
+   "Convenience": 4,
+   "Salads": 4,
+   "Sandwiches": 3,
+   "Italian": 3
+  }
+ },
+ "all": {
+  "total": 1862,
+  "with_latlon": 1534
+ }
+}

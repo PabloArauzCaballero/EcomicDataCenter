@@ -1,0 +1,105 @@
+{
+ "delivery": "2026-10-27/delivery",
+ "agent_topic": "apps y webs de delivery (PedidosYa, Yango, Uber Eats)",
+ "generated_at": "2026-10-27",
+ "files": [
+  {
+   "path": "scripts/build.py",
+   "bytes": 16297,
+   "sha256": "70437f9b1454435fbb8c66c796e86d47aea52d3f52f5872b4ecd6acf0a19f097"
+  },
+  {
+   "path": "scripts/httptry.py",
+   "bytes": 723,
+   "sha256": "0ff62eb07e456c5b8827fa8f39269858741886b072a725c9413d22a2bd506fa4"
+  },
+  {
+   "path": "scripts/manifest.py",
+   "bytes": 896,
+   "sha256": "d67d192d04f52e25512f00149de583a2b84a7836a13c9661b67a41d5d414efc5"
+  },
+  {
+   "path": "scripts/parse_pya_wayback.py",
+   "bytes": 6183,
+   "sha256": "3d4ac6dc311b9605aa40c1c7cbbf5206190bf7f982b498bc46f3541ee9672b32"
+  },
+  {
+   "path": "scripts/peek.py",
+   "bytes": 440,
+   "sha256": "22b33f088a6e7ba3e10d877422408a57e58c9d5a4144f3c2cb68782b60e2501e"
+  },
+  {
+   "path": "scripts/probe.py",
+   "bytes": 1354,
+   "sha256": "0b19344136700dd1cccf4b547d751b5acfb8e5aa94c3db393e7ce9c1f43dc966"
+  },
+  {
+   "path": "scripts/probe2.py",
+   "bytes": 1943,
+   "sha256": "599b6d61635a49ff5c2d01ef0f36f424227358148fa19a3b83398f869db16b06"
+  },
+  {
+   "path": "scripts/probe4.py",
+   "bytes": 2571,
+   "sha256": "ec2c37032b33793d722c837902e8b73955d99df44d92996b57e3c8528b161222"
+  },
+  {
+   "path": "scripts/probe_yango.py",
+   "bytes": 1834,
+   "sha256": "fb64fc892a3a9976d433c68c4fd513955fea03b1a343642802c483bde8251208"
+  },
+  {
+   "path": "scripts/shape.py",
+   "bytes": 658,
+   "sha256": "0f97a6d32f9bcb5f1b04f510895c98fa714b4e554d722a17d412180472951134"
+  },
+  {
+   "path": "scripts/wayback_fetch.py",
+   "bytes": 1977,
+   "sha256": "da34c0e25e42458581f8818e97ae2d9abfafb495c7d92c05a36c88fc58cad23f"
+  },
+  {
+   "path": "scripts/yango_collect.py",
+   "bytes": 6132,
+   "sha256": "e95024d6714a2e0a4a02cdd7b00e3582d0f4febf361d94650de3045f9b6fd117"
+  },
+  {
+   "path": "scripts/yango_filter_try.py",
+   "bytes": 1316,
+   "sha256": "957c57e6ab7b3df1d8f8fe0413a7ca31698a08297d72ff4e732dbf588fe727f0"
+  },
+  {
+   "path": "scripts/yango_tags.py",
+   "bytes": 2472,
+   "sha256": "833ddb682ea9b4ff9776c7e3bf8eeb8a4244288c8a842d60574cb8d43649e934"
+  },
+  {
+   "path": "scripts/yango_try.py",
+   "bytes": 1236,
+   "sha256": "1a77102af7d0eaa1c340f5d79aaafea3defb6f39cb0f93241b59f4cb831d36b6"
+  },
+  {
+   "path": "stats.json",
+   "bytes": 1642,
+   "sha256": "c7282b0e0a2cbc3e23471962d7b653eca1b57fd02b86d401c03f523dfa46bad4"
+  },
+  {
+   "path": "pedidosya.ndjson.gz",
+   "bytes": 140209,
+   "sha256": "d0a9ed4ae638efb609fc784253818fc62e7c702c769674728713808369e67329",
+   "records": 1494
+  },
+  {
+   "path": "ubereats.ndjson.gz",
+   "bytes": 25699,
+   "sha256": "3dd1bd0a3114c1baf1255ef49a4869bfe54e4aeef35b4d220970def5db3bcecc",
+   "records": 350
+  },
+  {
+   "path": "yango.ndjson.gz",
+   "bytes": 3633,
+   "sha256": "f92122a23b2c8f39b80f190cc5f43da93e94901794d3fdd092ad77d8d2a29237",
+   "records": 18
+  }
+ ]
+}
