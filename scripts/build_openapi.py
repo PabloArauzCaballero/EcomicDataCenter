@@ -516,10 +516,11 @@ paths[f"{API}/admin/analytics/exports"] = {
                       ["SITE_TELEMETRY"], "ExportEventInput"),
 }
 # Service inquiries: the public site submits with SITE_INQUIRY, which cannot
-# read the inbox back; people read and work it.
+# read the inbox back. The rows hold personal data, so only the commercial
+# operator reads and works them.
 INQUIRY_STATUSES = ["NEW", "CONTACTED", "WON", "LOST"]
-INQUIRY_READERS = ["ANALYST", "METHODOLOGY_STEWARD", "SEED_OPERATOR", "SUBSCRIPTION_ADMIN"]
-INQUIRY_EDITORS = ["METHODOLOGY_STEWARD", "SEED_OPERATOR", "SUBSCRIPTION_ADMIN"]
+INQUIRY_READERS = ["SUBSCRIPTION_ADMIN"]
+INQUIRY_EDITORS = ["SUBSCRIPTION_ADMIN"]
 schemas["ServiceInquiryInput"] = obj({
     "requestId": UUID,
     "fullName": {"type": "string", "minLength": 2, "maxLength": 120},

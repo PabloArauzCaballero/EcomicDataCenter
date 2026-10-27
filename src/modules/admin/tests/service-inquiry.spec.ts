@@ -79,14 +79,6 @@ describe('service inquiries: who may call what', () => {
     ).toThrow(ForbiddenException);
   });
 
-  it('refuses the inquiry identity on reading and updating the inbox', () => {
-    for (const name of ['list', 'update']) {
-      expect(() =>
-        guard.canActivate(contextFor(prototype[name]!, actorWith('SITE_INQUIRY'))),
-      ).toThrow(ForbiddenException);
-    }
-  });
-
   it('lets the subscription operator read and update', () => {
     for (const name of ['list', 'update']) {
       expect(guard.canActivate(contextFor(prototype[name]!, actorWith('SUBSCRIPTION_ADMIN')))).toBe(
@@ -95,11 +87,18 @@ describe('service inquiries: who may call what', () => {
     }
   });
 
-  it('lets an analyst read but not update', () => {
-    expect(guard.canActivate(contextFor(prototype['list']!, actorWith('ANALYST')))).toBe(true);
-    expect(() => guard.canActivate(contextFor(prototype['update']!, actorWith('ANALYST')))).toThrow(
-      ForbiddenException,
-    );
+  it.each([
+    'ANALYST',
+    'METHODOLOGY_STEWARD',
+    'SEED_OPERATOR',
+    'SITE_INQUIRY',
+    'SITE_TELEMETRY',
+  ] as const)('keeps %s out of the inbox, reading and updating alike', (role) => {
+    for (const name of ['list', 'update']) {
+      expect(() => guard.canActivate(contextFor(prototype[name]!, actorWith(role)))).toThrow(
+        ForbiddenException,
+      );
+    }
   });
 
   it('does not let a human operator submit as if they were the site', () => {
