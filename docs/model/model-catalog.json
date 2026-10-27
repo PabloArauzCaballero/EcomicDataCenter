@@ -1,8 +1,8 @@
 {
   "model": "Observatorio Económico y de Mercados de Bolivia",
   "version": "1.0-final-logical",
-  "entity_count": 65,
-  "field_count": 635,
+  "entity_count": 66,
+  "field_count": 649,
   "packages": {
     "provenance": 4,
     "semantic": 11,
@@ -11,7 +11,7 @@
     "quality_lineage": 7,
     "intelligence": 14,
     "audit": 1,
-    "operations": 10
+    "operations": 11
   },
   "entities": [
     {
@@ -7394,6 +7394,168 @@
           "unique": false,
           "nullable": false,
           "tags": ""
+        }
+      ],
+      "unique_constraints": []
+    },
+    {
+      "package": "operations",
+      "table": "service_inquiry",
+      "alias": "service_inquiry",
+      "fields": [
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "service_inquiry_id",
+          "type": "uuid",
+          "primary_key": true,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": "PK"
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "request_id",
+          "type": "uuid",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": true,
+          "nullable": false,
+          "tags": "UQ"
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "full_name",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "email",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "organization",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "phone",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "plan_code",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "message",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "source_route",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "status",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "operator_note",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "created_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": false,
+          "tags": ""
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "updated_at",
+          "type": "timestamptz",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
+        },
+        {
+          "package": "operations",
+          "table": "service_inquiry",
+          "field": "updated_by",
+          "type": "text",
+          "primary_key": false,
+          "foreign_key": false,
+          "unique": false,
+          "nullable": true,
+          "tags": "nullable"
         }
       ],
       "unique_constraints": []
