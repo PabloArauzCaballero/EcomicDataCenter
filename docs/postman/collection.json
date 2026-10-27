@@ -3047,6 +3047,605 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "Subscriptions",
+      "item": [
+        {
+          "name": "Check a customer sign-in; one generic 401 for every failure",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/sessions",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "sessions"
+              ]
+            },
+            "description": "Check a customer sign-in; one generic 401 for every failure",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Account, this month's usage and API keys",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}"
+              ]
+            },
+            "description": "Account, this month's usage and API keys",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Mint an API key; the full key is answered once",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}/api-keys",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "api-keys"
+              ]
+            },
+            "description": "Mint an API key; the full key is answered once",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"label\": \"string\",\n  \"maxActiveKeys\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Revoke one API key",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}/api-keys/{{apiKeyId}}/revoke",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "api-keys",
+                "{{apiKeyId}}",
+                "revoke"
+              ]
+            },
+            "description": "Revoke one API key",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change the password; 401 when the current one is wrong",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}/password",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "password"
+              ]
+            },
+            "description": "Change the password; 401 when the current one is wrong",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currentPassword\": \"string\",\n  \"newPassword\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Spend a one-time token and set the password; 400 if the token is not valid",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/activations",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "activations"
+              ]
+            },
+            "description": "Spend a one-time token and set the password; 400 if the token is not valid",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"string\",\n  \"password\": \"string\",\n  \"termsVersion\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add to this month's usage counter",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/usage",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "usage"
+              ]
+            },
+            "description": "Add to this month's usage counter",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subscriberAccountId\": \"00000000-0000-4000-8000-000000000001\",\n  \"usageKind\": \"API\",\n  \"amount\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Resolve an API key by its SHA-256 and meter the call; 404 if unknown or revoked",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/api-keys/verify",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "api-keys",
+                "verify"
+              ]
+            },
+            "description": "Resolve an API key by its SHA-256 and meter the call; 404 if unknown or revoked",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keyHash\": \"string\",\n  \"usageKind\": \"API\",\n  \"amount\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Subscribers, newest first, with this month's usage",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/subscriptions/accounts",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "subscriptions",
+                "accounts"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "cursor",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Subscribers, newest first, with this month's usage",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Open an account and its activation token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/subscriptions/accounts",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "subscriptions",
+                "accounts"
+              ]
+            },
+            "description": "Open an account and its activation token",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"organization\": \"string\",\n  \"planCode\": \"analista\",\n  \"billingPeriod\": \"MONTHLY\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change plan, billing period, state or invoicing data",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/subscriptions/accounts/{{subscriberAccountId}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}"
+              ]
+            },
+            "description": "Change plan, billing period, state or invoicing data",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"planCode\": \"analista\",\n  \"billingPeriod\": \"MONTHLY\",\n  \"status\": \"PENDING\",\n  \"legalName\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Payments of one account, newest first",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/subscriptions/accounts/{{subscriberAccountId}}/payments",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "payments"
+              ]
+            },
+            "description": "Payments of one account, newest first",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Record a payment; the account becomes ACTIVE until the covered day ends in La Paz",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/subscriptions/accounts/{{subscriberAccountId}}/payments",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "payments"
+              ]
+            },
+            "description": "Record a payment; the account becomes ACTIVE until the covered day ends in La Paz",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amountBob\": 0,\n  \"coversUntil\": \"2026-01-31\",\n  \"reference\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Issue a one-time activation or reset token, answered once",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/subscriptions/accounts/{{subscriberAccountId}}/tokens",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "tokens"
+              ]
+            },
+            "description": "Issue a one-time activation or reset token, answered once",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purpose\": \"ACTIVATE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }
