@@ -27,6 +27,14 @@ describe('parseActorClaims', () => {
     expect(actor.roles).toEqual([ACTOR_ROLES.SITE_INQUIRY, ACTOR_ROLES.SUBSCRIPTION_ADMIN]);
   });
 
+  it('accepts the site subscriptions role without an organization', () => {
+    const actor = parseActorClaims(
+      { sub: 'site-cuenta', roles: ['SITE_SUBSCRIPTIONS'] },
+      environment,
+    );
+    expect(actor.roles).toEqual([ACTOR_ROLES.SITE_SUBSCRIPTIONS]);
+  });
+
   it('accepts a data officer with a UUID organization', () => {
     const actor = parseActorClaims(
       {

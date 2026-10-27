@@ -549,6 +549,131 @@ paths[f"{API}/admin/inquiries/{{serviceInquiryId}}"] = {"patch": operation(
     "updateServiceInquiry", "Change the state or note of one inquiry", "Administration",
     INQUIRY_EDITORS, "ServiceInquiryUpdateInput",
     [{"name": "serviceInquiryId", "in": "path", "required": True, "schema": UUID}])}
+# Subscriptions: paid plans billed by hand. The site's customer area calls the
+# site routes with SITE_SUBSCRIPTIONS; the operator's console the admin routes
+# with SUBSCRIPTION_ADMIN. Secrets are answered once and stored only hashed.
+SUBS_TAG = "Subscriptions"
+SITE_SUBS = ["SITE_SUBSCRIPTIONS"]
+SUBS_ADMIN = ["SUBSCRIPTION_ADMIN"]
+SUBS_PLANS = ["analista", "profesional", "institucional"]
+SUBS_PERIODS = ["MONTHLY", "ANNUAL"]
+SUBS_STATUSES = ["PENDING", "TRIAL", "ACTIVE", "SUSPENDED", "CANCELLED"]
+SUBS_USAGE_KINDS = ["API", "DOWNLOAD", "CHAT", "MAP"]
+SUBS_ACCOUNT_PARAM = {"name": "subscriberAccountId", "in": "path", "required": True, "schema": UUID}
+
+
+def with_status(item, status, description):
+    """Moves the success response of an operation to the status it really answers."""
+    success = item["responses"].pop("200")
+    if status == "204":
+        success = {"description": description}
+    item["responses"] = {status: success, **item["responses"]}
+    return item
+
+
+schemas["SubscriberSessionInput"] = obj({
+    "email": {"type": "string", "format": "email", "maxLength": 200},
+    "password": {"type": "string", "minLength": 1, "maxLength": 200},
+}, ("email", "password"))
+schemas["SubscriberApiKeyInput"] = obj({
+    "label": {"type": "string", "minLength": 1, "maxLength": 80},
+    "maxActiveKeys": {"type": "integer", "minimum": 1, "maximum": 100, "default": 1},
+}, ("label",))
+schemas["SubscriberPasswordInput"] = obj({
+    "currentPassword": {"type": "string", "minLength": 1, "maxLength": 200},
+    "newPassword": {"type": "string", "minLength": 10, "maxLength": 200},
+}, ("currentPassword", "newPassword"))
+schemas["SubscriberActivationInput"] = obj({
+    "token": {"type": "string", "minLength": 16, "maxLength": 200},
+    "password": {"type": "string", "minLength": 10, "maxLength": 200},
+    "termsVersion": {"type": "string", "minLength": 1, "maxLength": 40},
+}, ("token", "password", "termsVersion"))
+schemas["SubscriberUsageInput"] = obj({
+    "subscriberAccountId": UUID,
+    "usageKind": {"type": "string", "enum": SUBS_USAGE_KINDS},
+    "amount": {"type": "integer", "minimum": 1, "maximum": 100000},
+}, ("subscriberAccountId", "usageKind", "amount"))
+schemas["SubscriberKeyVerificationInput"] = obj({
+    "keyHash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "usageKind": {"type": "string", "enum": ["API"], "default": "API"},
+    "amount": {"type": "integer", "enum": [1], "default": 1},
+}, ("keyHash",))
+schemas["SubscriberAccountInput"] = obj({
+    "email": {"type": "string", "format": "email", "maxLength": 200},
+    "fullName": {"type": "string", "minLength": 2, "maxLength": 120},
+    "organization": {"type": "string", "maxLength": 160, "nullable": True},
+    "planCode": {"type": "string", "enum": SUBS_PLANS},
+    "billingPeriod": {"type": "string", "enum": SUBS_PERIODS},
+    "trialDays": {"type": "integer", "minimum": 0, "maximum": 30, "default": 0},
+    "serviceInquiryId": {**UUID, "nullable": True},
+}, ("email", "fullName", "planCode", "billingPeriod"))
+schemas["SubscriberAccountUpdateInput"] = obj({
+    "planCode": {"type": "string", "enum": SUBS_PLANS},
+    "billingPeriod": {"type": "string", "enum": SUBS_PERIODS},
+    "status": {"type": "string", "enum": SUBS_STATUSES},
+    "legalName": {"type": "string", "maxLength": 200, "nullable": True},
+    "taxId": {"type": "string", "maxLength": 40, "nullable": True},
+    "organization": {"type": "string", "maxLength": 160, "nullable": True},
+})
+schemas["SubscriberPaymentInput"] = obj({
+    "amountBob": {"type": "number", "exclusiveMinimum": True, "minimum": 0, "maximum": 9999999999.99},
+    "coversUntil": {"type": "string", "format": "date"},
+    "reference": {"type": "string", "maxLength": 200, "nullable": True},
+}, ("amountBob", "coversUntil"))
+schemas["SubscriberTokenInput"] = obj({
+    "purpose": {"type": "string", "enum": ["ACTIVATE", "RESET"]},
+}, ("purpose",))
+
+SITE_SUBS_PATH = f"{API}/site/subscriptions"
+paths[f"{SITE_SUBS_PATH}/sessions"] = {"post": operation(
+    "openSubscriberSession", "Check a customer sign-in; one generic 401 for every failure",
+    SUBS_TAG, SITE_SUBS, "SubscriberSessionInput")}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}"] = {"get": operation(
+    "getSubscriberAccount", "Account, this month's usage and API keys",
+    SUBS_TAG, SITE_SUBS, parameters=[SUBS_ACCOUNT_PARAM])}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/api-keys"] = {"post": with_status(operation(
+    "createSubscriberApiKey", "Mint an API key; the full key is answered once",
+    SUBS_TAG, SITE_SUBS, "SubscriberApiKeyInput", [SUBS_ACCOUNT_PARAM]), "201", "Key created")}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/api-keys/{{apiKeyId}}/revoke"] = {"post": with_status(operation(
+    "revokeSubscriberApiKey", "Revoke one API key", SUBS_TAG, SITE_SUBS, parameters=[
+        SUBS_ACCOUNT_PARAM, {"name": "apiKeyId", "in": "path", "required": True, "schema": UUID}]),
+    "204", "Key revoked")}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/password"] = {"post": with_status(operation(
+    "changeSubscriberPassword", "Change the password; 401 when the current one is wrong",
+    SUBS_TAG, SITE_SUBS, "SubscriberPasswordInput", [SUBS_ACCOUNT_PARAM]), "204", "Password changed")}
+paths[f"{SITE_SUBS_PATH}/activations"] = {"post": operation(
+    "activateSubscriberAccount", "Spend a one-time token and set the password; 400 if the token is not valid",
+    SUBS_TAG, SITE_SUBS, "SubscriberActivationInput")}
+paths[f"{SITE_SUBS_PATH}/usage"] = {"post": operation(
+    "recordSubscriberUsage", "Add to this month's usage counter",
+    SUBS_TAG, SITE_SUBS, "SubscriberUsageInput")}
+paths[f"{SITE_SUBS_PATH}/api-keys/verify"] = {"post": operation(
+    "verifySubscriberApiKey", "Resolve an API key by its SHA-256 and meter the call; 404 if unknown or revoked",
+    SUBS_TAG, SITE_SUBS, "SubscriberKeyVerificationInput")}
+
+ADMIN_SUBS_PATH = f"{API}/admin/subscriptions"
+paths[f"{ADMIN_SUBS_PATH}/accounts"] = {
+    "get": operation("listSubscriberAccounts", "Subscribers, newest first, with this month's usage",
+                     SUBS_TAG, SUBS_ADMIN, parameters=[
+                         {"name": "status", "in": "query", "schema": {"type": "string", "enum": SUBS_STATUSES}},
+                         {"name": "pageSize", "in": "query", "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 25}},
+                         {"name": "cursor", "in": "query", "schema": {"type": "string", "maxLength": 512}},
+                     ]),
+    "post": with_status(operation("createSubscriberAccount", "Open an account and its activation token",
+                                  SUBS_TAG, SUBS_ADMIN, "SubscriberAccountInput"), "201", "Account created"),
+}
+paths[f"{ADMIN_SUBS_PATH}/accounts/{{subscriberAccountId}}"] = {"patch": operation(
+    "updateSubscriberAccount", "Change plan, billing period, state or invoicing data",
+    SUBS_TAG, SUBS_ADMIN, "SubscriberAccountUpdateInput", [SUBS_ACCOUNT_PARAM])}
+paths[f"{ADMIN_SUBS_PATH}/accounts/{{subscriberAccountId}}/payments"] = {
+    "get": operation("listSubscriberPayments", "Payments of one account, newest first",
+                     SUBS_TAG, SUBS_ADMIN, parameters=[SUBS_ACCOUNT_PARAM]),
+    "post": with_status(operation("recordSubscriberPayment", "Record a payment; the account becomes ACTIVE until the covered day ends in La Paz",
+                                  SUBS_TAG, SUBS_ADMIN, "SubscriberPaymentInput", [SUBS_ACCOUNT_PARAM]), "201", "Payment recorded"),
+}
+paths[f"{ADMIN_SUBS_PATH}/accounts/{{subscriberAccountId}}/tokens"] = {"post": with_status(operation(
+    "issueSubscriberToken", "Issue a one-time activation or reset token, answered once",
+    SUBS_TAG, SUBS_ADMIN, "SubscriberTokenInput", [SUBS_ACCOUNT_PARAM]), "201", "Token issued")}
 paths[f"{API}/admin/seeds/packages"] = {"get": operation(
     "listSeedPackages", "Seed manifest next to the ledger of what was applied",
     "Administration", SEED_READERS)}
@@ -573,7 +698,7 @@ spec = {
         "description": "Core estadístico para procedencia, metadatos, ingestión, revisión, consulta histórica, calidad y linaje.",
     },
     "servers": [{"url": "http://localhost:8080", "description": "Local via NGINX"}],
-    "tags": [{"name": name} for name in ["Operations", "Provenance", "Metadata governance", "Data ingestion", "Data query", "Quality and lineage", "Agent intelligence", "Claim review", "Administration"]],
+    "tags": [{"name": name} for name in ["Operations", "Provenance", "Metadata governance", "Data ingestion", "Data query", "Quality and lineage", "Agent intelligence", "Claim review", "Administration", "Subscriptions"]],
     "paths": paths,
     "components": {
         "securitySchemes": {"bearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT"}},
