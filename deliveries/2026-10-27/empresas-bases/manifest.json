@@ -1,0 +1,278 @@
+{
+ "delivery": "empresas-bases",
+ "generated_at": "2026-10-27T23:20:23+00:00",
+ "schema": [
+  "source",
+  "matricula",
+  "nit",
+  "razon_social",
+  "tipo_societario",
+  "estado",
+  "fecha_inscripcion",
+  "actividad",
+  "departamento",
+  "municipio",
+  "direccion",
+  "source_url",
+  "source_date",
+  "retrieved_at",
+  "raw"
+ ],
+ "files": [
+  {
+   "path": "aduana-oea/aduana-oea.ndjson.gz",
+   "bytes": 2242,
+   "sha256": "88265b80dbc207ef9f8632f4475a0181b8ffc4f2a6fc4db759549e955676b912",
+   "rows": 62,
+   "fill": {
+    "matricula": 0,
+    "nit": 62,
+    "razon_social": 62,
+    "tipo_societario": 62,
+    "estado": 62,
+    "fecha_inscripcion": 0,
+    "actividad": 62,
+    "departamento": 0,
+    "municipio": 0,
+    "direccion": 0
+   },
+   "source_dates": [
+    "2026-08-05"
+   ]
+  },
+  {
+   "path": "aduana-prio/aduana-prio.ndjson.gz",
+   "bytes": 2742,
+   "sha256": "d2d0b1cab55052c7c6e11278ea21ff74db9139539df4b86317357ba3e62bde65",
+   "rows": 177,
+   "fill": {
+    "matricula": 0,
+    "nit": 177,
+    "razon_social": 26,
+    "tipo_societario": 0,
+    "estado": 177,
+    "fecha_inscripcion": 0,
+    "actividad": 0,
+    "departamento": 0,
+    "municipio": 0,
+    "direccion": 0
+   },
+   "source_dates": [
+    "2026-02-09"
+   ]
+  },
+  {
+   "path": "aps-rms/aps-rms.ndjson.gz",
+   "bytes": 19261,
+   "sha256": "1c45cd1d29e7f3d720b98ca17b1299ac7853ac4482eb7118eebbd2f54e582592",
+   "rows": 140,
+   "fill": {
+    "matricula": 118,
+    "nit": 139,
+    "razon_social": 140,
+    "tipo_societario": 125,
+    "estado": 140,
+    "fecha_inscripcion": 140,
+    "actividad": 140,
+    "departamento": 136,
+    "municipio": 138,
+    "direccion": 137
+   },
+   "source_dates": [
+    "2026-10-27"
+   ]
+  },
+  {
+   "path": "asfi/asfi.ndjson.gz",
+   "bytes": 11383,
+   "sha256": "26b8b3b33fd6ec50998d807b5ed8b740a00916a62dc375a160ac757e0662e5e1",
+   "rows": 386,
+   "fill": {
+    "matricula": 0,
+    "nit": 0,
+    "razon_social": 386,
+    "tipo_societario": 138,
+    "estado": 386,
+    "fecha_inscripcion": 0,
+    "actividad": 386,
+    "departamento": 386,
+    "municipio": 386,
+    "direccion": 0
+   },
+   "source_dates": [
+    "2026-08-31",
+    "2026-09-30",
+    "2026-10-09"
+   ]
+  },
+  {
+   "path": "datos-gob-bo/datos-gob-bo.ndjson.gz",
+   "bytes": 582243,
+   "sha256": "7f9972698108856ea8436605bb42c5be63e57e3ee9e531148c8784d1eed0fbc1",
+   "rows": 2840,
+   "fill": {
+    "matricula": 0,
+    "nit": 0,
+    "razon_social": 2840,
+    "tipo_societario": 1034,
+    "estado": 0,
+    "fecha_inscripcion": 0,
+    "actividad": 2840,
+    "departamento": 2840,
+    "municipio": 0,
+    "direccion": 1116
+   },
+   "source_dates": [
+    "2019-12-06"
+   ]
+  },
+  {
+   "path": "fundempresa-depuradas/fundempresa-depuradas.ndjson.gz",
+   "bytes": 836269,
+   "sha256": "91f0e062e102acc483b695df5454e5eb21da521278caf65626a77572729721ad",
+   "rows": 37234,
+   "fill": {
+    "matricula": 37234,
+    "nit": 0,
+    "razon_social": 37234,
+    "tipo_societario": 8669,
+    "estado": 37234,
+    "fecha_inscripcion": 0,
+    "actividad": 0,
+    "departamento": 0,
+    "municipio": 0,
+    "direccion": 0
+   },
+   "source_dates": [
+    "2019-09",
+    "2020-03",
+    "2021-07",
+    "2021-09"
+   ]
+  },
+  {
+   "path": "fundempresa-no-encontradas/fundempresa-no-encontradas.ndjson.gz",
+   "bytes": 13266,
+   "sha256": "f53eb6d0e01da9f0f0c94811180dc0540eb61535c482e5aab3ff63e8c9864aa8",
+   "rows": 454,
+   "fill": {
+    "matricula": 454,
+    "nit": 0,
+    "razon_social": 454,
+    "tipo_societario": 102,
+    "estado": 454,
+    "fecha_inscripcion": 0,
+    "actividad": 0,
+    "departamento": 0,
+    "municipio": 0,
+    "direccion": 0
+   },
+   "source_dates": [
+    "2018-09",
+    "2019-10"
+   ]
+  },
+  {
+   "path": "gleif/gleif.ndjson.gz",
+   "bytes": 6924,
+   "sha256": "7449f1c6bc5eedb4fd449120c87304521c54b1420c8d038ee73a55c63c97d6ec",
+   "rows": 54,
+   "fill": {
+    "matricula": 44,
+    "nit": 29,
+    "razon_social": 54,
+    "tipo_societario": 54,
+    "estado": 54,
+    "fecha_inscripcion": 48,
+    "actividad": 0,
+    "departamento": 54,
+    "municipio": 54,
+    "direccion": 54
+   },
+   "source_dates": [
+    "2026-10-27"
+   ]
+  },
+  {
+   "path": "wikidata/wikidata.ndjson.gz",
+   "bytes": 15911,
+   "sha256": "9d9ac8abaeec88f127f5964ac624c4f67a0011b7394663b7be0d68c63c3d72f7",
+   "rows": 445,
+   "fill": {
+    "matricula": 0,
+    "nit": 0,
+    "razon_social": 445,
+    "tipo_societario": 20,
+    "estado": 54,
+    "fecha_inscripcion": 193,
+    "actividad": 49,
+    "departamento": 80,
+    "municipio": 80,
+    "direccion": 0
+   },
+   "source_dates": [
+    "2026-10-27"
+   ]
+  },
+  {
+   "path": "_scripts/aps.py",
+   "bytes": 1248,
+   "sha256": "eefed325d24d0f143ce37ce66d0d2e9e65a9ef642f254a3fbcd3f52636d99067"
+  },
+  {
+   "path": "_scripts/asfi_pdf.py",
+   "bytes": 4772,
+   "sha256": "10de74355f0182a13e062e79ea3a4a6aee498277a3fe57ba6ffca85c1ffb272a"
+  },
+  {
+   "path": "_scripts/bbv.py",
+   "bytes": 2060,
+   "sha256": "8bba6b16dab1ea807247e9a9acea9f86c6e1f8a62a0f6b070fc45773d20f3fe9"
+  },
+  {
+   "path": "_scripts/build.py",
+   "bytes": 17848,
+   "sha256": "a6c14a05b7aac2f6aeb8fc7ed6d9d314b9babd3d5dd4195b7e766046ff09801c"
+  },
+  {
+   "path": "_scripts/cdx.py",
+   "bytes": 1037,
+   "sha256": "5b256986e8122945d780c85c1a36d96c35f5b244c8a0824e4bdb5eb157211dad"
+  },
+  {
+   "path": "_scripts/common.py",
+   "bytes": 1544,
+   "sha256": "1fdac096403a914487a2d5513a4f5e260088a154a1dfcfac761ee00ab9e7e466"
+  },
+  {
+   "path": "_scripts/gleif.py",
+   "bytes": 3312,
+   "sha256": "786aabf88a122c2be671ee59b3af05ad8241d68c7b7a1270d29776e6e392875c"
+  },
+  {
+   "path": "_scripts/manifest.py",
+   "bytes": 1782,
+   "sha256": "98ab343d66a2065fc193fa6a67fa404c08234bd16272b3e98b5b01ceceaaa798"
+  },
+  {
+   "path": "_scripts/matlist.py",
+   "bytes": 4326,
+   "sha256": "76f5075e811572acb60039609b8eb2972332a61fd4956380faee82fb3e98fb91"
+  },
+  {
+   "path": "_scripts/oea.py",
+   "bytes": 1089,
+   "sha256": "7ff0efc3fbd2aab5ac6cb4bdfca74554071e81b5a2c59c14c1f2122400c7f61e"
+  },
+  {
+   "path": "_scripts/wb.py",
+   "bytes": 1189,
+   "sha256": "e2ec4d6e088c71bf283b859d04aa022ae22ad94a5f52802e76bc684dbae94a7f"
+  },
+  {
+   "path": "_scripts/wikidata.py",
+   "bytes": 1817,
+   "sha256": "3f2a65edd0ca379e39b29e74af2ab5be8790826793ae9415efbe73796eead603"
+  }
+ ]
+}
