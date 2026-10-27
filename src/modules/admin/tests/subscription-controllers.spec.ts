@@ -32,7 +32,7 @@ const OTHER_ROLES: ActorRole[] = [
 function handlersOf(controller: { prototype: object }): Array<[string, Handler]> {
   const prototype = controller.prototype as Record<string, unknown>;
   return Object.getOwnPropertyNames(prototype)
-    .filter((name) => name !== 'constructor' && name !== 'wrap')
+    .filter((name) => name !== 'constructor')
     .map((name) => [name, prototype[name] as Handler]);
 }
 
