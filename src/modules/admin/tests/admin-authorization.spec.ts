@@ -5,6 +5,7 @@ import { REQUIRED_ROLES } from '../../../common/auth/auth.decorators';
 import { RolesGuard } from '../../../common/auth/roles.guard';
 import { AdminAnalyticsController } from '../admin-analytics.controller';
 import { AdminIngestionController } from '../admin-ingestion.controller';
+import { AdminInquiriesController } from '../admin-inquiries.controller';
 import { AdminQualityController } from '../admin-quality.controller';
 import { AdminSeedsController } from '../admin-seeds.controller';
 import { AdminController } from '../admin.controller';
@@ -17,6 +18,7 @@ const CONTROLLERS = [
   AdminSeedsController,
   AdminQualityController,
   AdminAnalyticsController,
+  AdminInquiriesController,
 ] as const;
 
 function handlers(controller: (typeof CONTROLLERS)[number]): Array<[string, Handler]> {
@@ -68,6 +70,23 @@ describe('administrative authorization', () => {
     const prototype = AdminAnalyticsController.prototype as unknown as Record<string, Handler>;
     expect(requiredRoles(prototype['recordTraffic']!)).toEqual([ACTOR_ROLES.SITE_TELEMETRY]);
     expect(requiredRoles(prototype['recordExport']!)).toEqual([ACTOR_ROLES.SITE_TELEMETRY]);
+  });
+
+  it('reserves inquiry submission for the inquiry identity alone', () => {
+    const prototype = AdminInquiriesController.prototype as unknown as Record<string, Handler>;
+    expect(requiredRoles(prototype['submit']!)).toEqual([ACTOR_ROLES.SITE_INQUIRY]);
+  });
+
+  it('keeps both site identities out of the inquiry inbox', () => {
+    const prototype = AdminInquiriesController.prototype as unknown as Record<string, Handler>;
+    for (const name of ['list', 'update']) {
+      const roles = requiredRoles(prototype[name]!) ?? [];
+      expect(roles).toContain(ACTOR_ROLES.SUBSCRIPTION_ADMIN);
+      expect(roles).not.toContain(ACTOR_ROLES.SITE_INQUIRY);
+      expect(roles).not.toContain(ACTOR_ROLES.SITE_TELEMETRY);
+    }
+    // Reading the inbox is not the right to change it.
+    expect(requiredRoles(prototype['update']!)).not.toContain(ACTOR_ROLES.ANALYST);
   });
 
   it('does not grant a reading role the right to reconcile', () => {

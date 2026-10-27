@@ -59,6 +59,9 @@ truncada devolviera las filas más nuevas mientras el lector cree estar continua
 | `POST /admin/seeds/reconciliations` | SEED_OPERATOR | **202** con un identificador de ejecución. Nunca un resultado. |
 | `POST /admin/analytics/traffic` | SITE_TELEMETRY | Vistas del sitio público. |
 | `POST /admin/analytics/exports` | SITE_TELEMETRY | Una etapa de una exportación. |
+| `POST /admin/inquiries` | SITE_INQUIRY | **202**. Consulta del formulario /servicios; idempotente por `requestId` (`duplicate: true` al repetir). |
+| `GET /admin/inquiries` | ANALYST, METHODOLOGY_STEWARD, SEED_OPERATOR, SUBSCRIPTION_ADMIN | Consultas, más recientes primero, con el conteo por estado. |
+| `PATCH /admin/inquiries/{serviceInquiryId}` | METHODOLOGY_STEWARD, SEED_OPERATOR, SUBSCRIPTION_ADMIN | Cambia estado y nota; registra quién y cuándo. 404 si no existe. |
 | `POST /api/v1/quality/evaluations` | METHODOLOGY_STEWARD | Ejecuta las reglas declaradas a un corte. |
 
 ### Ejemplo: pedir una reconciliación
@@ -113,6 +116,8 @@ es el que aparece en el log del servidor.
 | --- | --- |
 | `SEED_OPERATOR` | Reconciliar un paquete reescribe filas de catálogo en bloque bajo la autoridad de un manifiesto: es un acto operativo, no editorial. Ningún otro rol lo implica, y tenerlo no arrastra ningún otro permiso. La alternativa —ensanchar `METHODOLOGY_STEWARD` hasta poder desplegar catálogos— habría convertido al custodio en administrador por accidente. |
 | `SITE_TELEMETRY` | El sitio público necesita poder informar sobre sí mismo y nada más. Darle `INGESTION_AGENT` habría sido una línea más corta y habría permitido que un servidor web comprometido enviara observaciones económicas. |
+| `SITE_INQUIRY` | El formulario de servicios escribe nombre, correo y texto libre, que no son un contador de visitas. Tiene su propio token para que el de telemetría no pueda llenar la bandeja, y no puede leer lo que envía: un token filtrado no expone el correo de nadie. |
+| `SUBSCRIPTION_ADMIN` | Quien atiende a los clientes lee y actualiza las consultas y nada más. Ensanchar un rol editorial u operativo para cubrirlo habría dado derechos de catálogo o metodología a quien responde la bandeja comercial. |
 
 La separación de deberes existente se mantiene: `token-claims.parser` sigue impidiendo que
 un token de `INGESTION_AGENT` lleve otros roles.

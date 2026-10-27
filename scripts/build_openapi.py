@@ -515,6 +515,39 @@ paths[f"{API}/admin/analytics/exports"] = {
     "post": operation("recordExportEvent", "Report one export stage", "Administration",
                       ["SITE_TELEMETRY"], "ExportEventInput"),
 }
+# Service inquiries: the public site submits with SITE_INQUIRY, which cannot
+# read the inbox back; people read and work it.
+INQUIRY_STATUSES = ["NEW", "CONTACTED", "WON", "LOST"]
+INQUIRY_READERS = ["ANALYST", "METHODOLOGY_STEWARD", "SEED_OPERATOR", "SUBSCRIPTION_ADMIN"]
+INQUIRY_EDITORS = ["METHODOLOGY_STEWARD", "SEED_OPERATOR", "SUBSCRIPTION_ADMIN"]
+schemas["ServiceInquiryInput"] = obj({
+    "requestId": UUID,
+    "fullName": {"type": "string", "minLength": 2, "maxLength": 120},
+    "email": {"type": "string", "format": "email", "maxLength": 200},
+    "organization": {"type": "string", "maxLength": 160, "nullable": True},
+    "phone": {"type": "string", "maxLength": 40, "nullable": True},
+    "planCode": {"type": "string", "enum": ["analista", "profesional", "institucional", "a-medida"]},
+    "message": {"type": "string", "minLength": 10, "maxLength": 4000},
+    "sourceRoute": {"type": "string", "minLength": 1, "maxLength": 200},
+}, ("requestId", "fullName", "email", "planCode", "message", "sourceRoute"))
+schemas["ServiceInquiryUpdateInput"] = obj({
+    "status": {"type": "string", "enum": INQUIRY_STATUSES},
+    "operatorNote": {"type": "string", "maxLength": 2000, "nullable": True},
+}, ("status",))
+paths[f"{API}/admin/inquiries"] = {
+    "get": operation("listServiceInquiries", "Service inquiries, newest first, with counts by state",
+                     "Administration", INQUIRY_READERS, parameters=[
+                         {"name": "status", "in": "query", "schema": {"type": "string", "enum": INQUIRY_STATUSES}},
+                         {"name": "pageSize", "in": "query", "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 25}},
+                         {"name": "cursor", "in": "query", "schema": {"type": "string", "maxLength": 512}},
+                     ]),
+    "post": operation("submitServiceInquiry", "Submit a service inquiry; answers 202, idempotent on requestId",
+                      "Administration", ["SITE_INQUIRY"], "ServiceInquiryInput"),
+}
+paths[f"{API}/admin/inquiries/{{serviceInquiryId}}"] = {"patch": operation(
+    "updateServiceInquiry", "Change the state or note of one inquiry", "Administration",
+    INQUIRY_EDITORS, "ServiceInquiryUpdateInput",
+    [{"name": "serviceInquiryId", "in": "path", "required": True, "schema": UUID}])}
 paths[f"{API}/admin/seeds/packages"] = {"get": operation(
     "listSeedPackages", "Seed manifest next to the ledger of what was applied",
     "Administration", SEED_READERS)}

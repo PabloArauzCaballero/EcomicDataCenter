@@ -4747,6 +4747,247 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ExportEventInput'
+  /api/v1/admin/inquiries:
+    get:
+      operationId: listServiceInquiries
+      summary: Service inquiries, newest first, with counts by state
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - ANALYST
+      - METHODOLOGY_STEWARD
+      - SEED_OPERATOR
+      - SUBSCRIPTION_ADMIN
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum: &id014
+          - NEW
+          - CONTACTED
+          - WON
+          - LOST
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 25
+      - name: cursor
+        in: query
+        schema:
+          type: string
+          maxLength: 512
+    post:
+      operationId: submitServiceInquiry
+      summary: Submit a service inquiry; answers 202, idempotent on requestId
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - SITE_INQUIRY
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceInquiryInput'
+  /api/v1/admin/inquiries/{serviceInquiryId}:
+    patch:
+      operationId: updateServiceInquiry
+      summary: Change the state or note of one inquiry
+      tags:
+      - Administration
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles:
+      - METHODOLOGY_STEWARD
+      - SEED_OPERATOR
+      - SUBSCRIPTION_ADMIN
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceInquiryUpdateInput'
+      parameters:
+      - name: serviceInquiryId
+        in: path
+        required: true
+        schema: *id002
   /api/v1/admin/seeds/packages:
     get:
       operationId: listSeedPackages
@@ -6123,4 +6364,60 @@ components:
       - requestId
       - datasetCode
       - format
+      - status
+    ServiceInquiryInput:
+      type: object
+      properties:
+        requestId: *id002
+        fullName:
+          type: string
+          minLength: 2
+          maxLength: 120
+        email:
+          type: string
+          format: email
+          maxLength: 200
+        organization:
+          type: string
+          maxLength: 160
+          nullable: true
+        phone:
+          type: string
+          maxLength: 40
+          nullable: true
+        planCode:
+          type: string
+          enum:
+          - analista
+          - profesional
+          - institucional
+          - a-medida
+        message:
+          type: string
+          minLength: 10
+          maxLength: 4000
+        sourceRoute:
+          type: string
+          minLength: 1
+          maxLength: 200
+      additionalProperties: false
+      required:
+      - requestId
+      - fullName
+      - email
+      - planCode
+      - message
+      - sourceRoute
+    ServiceInquiryUpdateInput:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: *id014
+        operatorNote:
+          type: string
+          maxLength: 2000
+          nullable: true
+      additionalProperties: false
+      required:
       - status

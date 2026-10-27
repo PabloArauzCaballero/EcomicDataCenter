@@ -27,6 +27,25 @@ export const ACTOR_ROLES = {
    * counter.
    */
   SITE_TELEMETRY: 'SITE_TELEMETRY',
+  /**
+   * Machine identity of the public site, allowed only to submit service inquiries.
+   *
+   * It is separate from `SITE_TELEMETRY` because the two write different kinds
+   * of rows: a page-view counter holds no personal data, an inquiry holds a
+   * name, an e-mail and free text. A token minted for counting visits must not
+   * be able to fill the operators' inbox, and the form's token must not be able
+   * to read that inbox back — it can submit and nothing else.
+   */
+  SITE_INQUIRY: 'SITE_INQUIRY',
+  /**
+   * Human operator who manages customers and the inquiries they send.
+   *
+   * It reads and updates the inquiry register and nothing else in the console
+   * follows from it: following up with a prospective customer is a commercial
+   * act, and widening an editorial or operational role to cover it would hand
+   * catalogue or methodology rights to whoever answers the sales inbox.
+   */
+  SUBSCRIPTION_ADMIN: 'SUBSCRIPTION_ADMIN',
 } as const;
 
 /**

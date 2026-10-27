@@ -655,6 +655,139 @@
           "response": []
         },
         {
+          "name": "Service inquiries, newest first, with counts by state",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/inquiries",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "inquiries"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "pageSize",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "cursor",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "Service inquiries, newest first, with counts by state",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Submit a service inquiry; answers 202, idempotent on requestId",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/inquiries",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "inquiries"
+              ]
+            },
+            "description": "Submit a service inquiry; answers 202, idempotent on requestId",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requestId\": \"00000000-0000-4000-8000-000000000001\",\n  \"fullName\": \"string\",\n  \"email\": \"string\",\n  \"organization\": \"string\",\n  \"planCode\": \"analista\",\n  \"message\": \"string\",\n  \"sourceRoute\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change the state or note of one inquiry",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/inquiries/{{serviceInquiryId}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "inquiries",
+                "{{serviceInquiryId}}"
+              ]
+            },
+            "description": "Change the state or note of one inquiry",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"NEW\",\n  \"operatorNote\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
           "name": "Seed manifest next to the ledger of what was applied",
           "request": {
             "method": "GET",
