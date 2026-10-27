@@ -1,7 +1,7 @@
 {
  "delivery": "2026-10-27/geoportales",
  "branch": "datos/2026-10-27-geoportales",
- "generated_at": "2026-10-27T23:20:19Z",
+ "generated_at": "2026-10-27T23:20:46Z",
  "crs": "EPSG:4326 (WGS84); las capas UTM 19S del GAMLP se reproyectaron en el servidor (srsName=EPSG:4326)",
  "rows_total": 249322,
  "rows_by_source": {
@@ -683,38 +683,38 @@
   },
   {
    "path": "inventarios/datos-gob-bo-catalogo.json",
-   "bytes": 67714,
-   "sha256": "1495bc809fce7cb2a528369a51b0ba623c689ff327029682069972d0b3c98be9"
+   "bytes": 66055,
+   "sha256": "acfe99722c20e98bc7eb4547ba32f5708d293d93416ecc040af367a4ba0a1da4"
   },
   {
    "path": "inventarios/gamc-planificacion-categorias.tsv",
-   "bytes": 1860,
-   "sha256": "a1eb4f98f2ded08ab6f8851bb1586e37f67c983fb551d62b04a66c0202046235"
+   "bytes": 1832,
+   "sha256": "2f063c3947a4253d1d5cc4522b2728ddae8846ba5b70cb35076ee169337c95aa"
   },
   {
    "path": "inventarios/gamlp-sit-la-paz-capas.csv",
-   "bytes": 50641,
-   "sha256": "d626f042f05230e21569d7e5e3bbb5d45ab9b477819fc68f505a2fe6326d3f16"
+   "bytes": 50329,
+   "sha256": "176936449a95a042837a8fb99e98ebac070dd16b5c43be8ca1108041924bc055"
   },
   {
    "path": "inventarios/gamlp-sit-la-paz-capas.json",
-   "bytes": 207830,
-   "sha256": "8391be83c6b251e9ab1feceee6f5b15310791daca9ab3684d41a06fa95ee8138"
+   "bytes": 198839,
+   "sha256": "3ac9bbd3275e646c2bf91d0b88807adc32c0131be8c2bb4cd5a80d2fb136d25f"
   },
   {
    "path": "inventarios/gamscs-guia-urbana-capas.tsv",
-   "bytes": 7491,
-   "sha256": "65904ff36fb59fa7f30b4a22b04bb614892d85c38be02085b879926c1783de7c"
+   "bytes": 7423,
+   "sha256": "9468a7e2ec3554e7ab5398d8b4aa0ddb0a83a8ffd25bcefe8e2d8a3285697771"
   },
   {
    "path": "inventarios/geonode-iigeo-umsa-datasets.json",
-   "bytes": 6918,
-   "sha256": "67d66ed5958659f553ddd30c084eadd8c25c3fedb2598b392c4d84d6ed8eb0ae"
+   "bytes": 6637,
+   "sha256": "d0672ca42df3da13bfed8e8f7bcf006c057de9bf0b9ee0de7040f9808cb8eef6"
   },
   {
    "path": "inventarios/geoserver-el-alto-capas.json",
-   "bytes": 14101,
-   "sha256": "328fcd0b18f09994ec3322ee94c07a6af21e1f0c73214ab6e0a621bbd9f8de98"
+   "bytes": 13290,
+   "sha256": "59c6f20479109aa742e504fa6525ae2d67f0d889e94be7fc4c3b87141d7e1b24"
   },
   {
    "path": "scripts/build_inventories.py",
@@ -733,8 +733,8 @@
   },
   {
    "path": "scripts/fetch.py",
-   "bytes": 763,
-   "sha256": "58c7702389bb5ddd302526e4aa08d2ea34684ba97933a40d6c5301fa10cceb31"
+   "bytes": 746,
+   "sha256": "816d4a6437663254670b67cc82d68d2dca1d4f0f4f1e6e056a2942e544c996d0"
   },
   {
    "path": "scripts/make_manifest.py",
@@ -743,8 +743,8 @@
   },
   {
    "path": "scripts/normalize_cbba.py",
-   "bytes": 3420,
-   "sha256": "276da909d925424c8769a48ea325661f59a0cc9c696c26ebb98ca496bf1a6a48"
+   "bytes": 3348,
+   "sha256": "059423fad0408bf208317dce244aa7eff49c4bb5de21121775fd737574257438"
   },
   {
    "path": "scripts/normalize_datosgob.py",
@@ -753,8 +753,8 @@
   },
   {
    "path": "scripts/normalize_scz.py",
-   "bytes": 3224,
-   "sha256": "cd9891079d593019e4a4f474541aebd04340b60999f0bf749a0840228744eacf"
+   "bytes": 3162,
+   "sha256": "ff8ce36fc883ca0ca7124b078a0903fadbaa2ec57481ab2719d8d214197e4f59"
   },
   {
    "path": "scripts/normalize_wfs.py",
@@ -783,8 +783,8 @@
   },
   {
    "path": "scripts/scz_layers.py",
-   "bytes": 1766,
-   "sha256": "667a385b37d309f2eb6812ea8d5a9a3daf6cc3305da5f0ac9bad622d6ae69c5b"
+   "bytes": 1733,
+   "sha256": "c05194e18e795677ebe78f88abd65f43189d5330934df588ae3b84a1a06168e9"
   },
   {
    "path": "scripts/select_layers.py",
