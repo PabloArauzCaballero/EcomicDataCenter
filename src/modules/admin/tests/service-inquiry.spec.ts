@@ -175,7 +175,7 @@ describe('InquiryWriteRepository', () => {
   const submission: InquirySubmission = inquirySubmissionSchema.parse(VALID);
 
   function writerReturning(...results: unknown[][]) {
-    const query = jest.fn();
+    const query = jest.fn<Promise<unknown>, [string, unknown?]>();
     for (const result of results) query.mockResolvedValueOnce(result);
     return { query, repository: new InquiryWriteRepository({ query } as unknown as Sequelize) };
   }
