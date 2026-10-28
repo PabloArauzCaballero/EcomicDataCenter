@@ -203,6 +203,11 @@ async function discover() {
       res = await yahoo(query);
     } catch (e) {
       log('yahoo error', query, e.message.slice(0, 100));
+      if (/crash|closed|disconnected/i.test(e.message)) {
+        // Chromium caído (casi siempre por memoria): se cierra y se relanza en la próxima.
+        await browser?.close().catch(() => undefined);
+        browser = null;
+      }
       await pause(20, 40);
       continue;
     }
@@ -275,10 +280,20 @@ async function readOne(ctx, cand) {
  * `--min-free-mb`). Si falta, se cierra el navegador entero y se espera 60 s.
  */
 const MIN_FREE = Number(args['min-free-mb'] || 781) * 1024 * 1024;
+/**
+ * Tandas cortas para el candado compartido de Chromium (`gate.sh`): la corrida
+ * termina sola al pasar `--max-minutes` o tras `--max-wait-min` minutos seguidos
+ * esperando memoria, para soltar el cupo en vez de retenerlo dormida.
+ */
+const DEADLINE = Date.now() + Number(args['max-minutes'] || Infinity) * 60000;
+const MAX_WAIT = Number(args['max-wait-min'] || Infinity);
+class Stop extends Error {}
 let readerCtx = null;
 async function memoryGate() {
+  if (Date.now() > DEADLINE) throw new Stop('tiempo de la tanda cumplido');
   let waited = 0;
   while (os.freemem() < MIN_FREE) {
+    if (waited >= MAX_WAIT) throw new Stop(`${waited} min esperando memoria`);
     if (waited === 0) {
       log(`memoria libre ${(os.freemem() / 1048576).toFixed(0)} MB < ${(MIN_FREE / 1048576).toFixed(0)} MB: cierro Chromium y espero`);
       await readerCtx?.close().catch(() => undefined);
@@ -340,7 +355,8 @@ try {
   await drainQueue(); // lo pendiente de una corrida anterior
   if (discovering) await discover();
 } catch (e) {
-  log('murió', e.stack);
+  if (e instanceof Stop) log(`fin de tanda: ${e.message}`);
+  else log('murió', e.stack);
 } finally {
   await readerCtx?.close().catch(() => undefined);
   await browser?.close().catch(() => undefined);

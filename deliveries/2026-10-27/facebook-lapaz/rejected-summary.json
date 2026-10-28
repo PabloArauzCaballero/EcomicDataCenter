@@ -1,33 +1,45 @@
 {
-  "generated_at": "2026-10-28T02:15:46.581Z",
+  "generated_at": "2026-10-28T08:02:17.547Z",
   "by_status_and_city": {
     "NOT_PAGE": {
-      "La Paz": 2
+      "La Paz": 3
     },
     "RESTRICTED": {
       "La Paz": 1
     },
-    "EXCLUIDA_sin_tarjeta_de_pagina": {
+    "ERROR": {
       "La Paz": 1
     },
-    "EXCLUIDA_categoria_de_persona": {
+    "EXCLUIDA_sin_tarjeta_de_pagina": {
       "La Paz": 3
+    },
+    "EXCLUIDA_categoria_de_persona": {
+      "La Paz": 4
+    },
+    "EXCLUIDA_nombre_propio_con_categoria_profesional": {
+      "La Paz": 3
+    },
+    "EXCLUIDA_nombre_de_profesional": {
+      "La Paz": 2
     }
   },
   "removed_rows_by_reason": {
-    "perfil_personal_NOT_PAGE": 2,
+    "perfil_personal_NOT_PAGE": 3,
     "no_confirmada_RESTRICTED": 1,
     "no_confirmada_BLOCKED": 0,
     "no_confirmada_NOT_FOUND": 0,
-    "sin_leer_ERROR": 0,
+    "sin_leer_ERROR": 1,
     "parece_persona": {
-      "sin_tarjeta_de_pagina": 1,
-      "categoria_de_persona": 3
+      "sin_tarjeta_de_pagina": 3,
+      "categoria_de_persona": 4,
+      "nombre_propio_con_categoria_profesional": 3,
+      "nombre_de_profesional": 2
     },
-    "extranjera": 4
+    "extranjera": 7,
+    "web_con_numero": 2
   },
   "redactions_in_free_text": {
-    "email": 0,
-    "phone": 2
+    "email": 2,
+    "phone": 7
   }
 }

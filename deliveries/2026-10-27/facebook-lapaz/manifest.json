@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-10-28T02:15:46.581Z",
+  "generated_at": "2026-10-28T08:02:17.547Z",
   "source": "facebook",
   "scope": "Departamento de La Paz, Bolivia",
   "files": [
     {
       "path": "facebook-lapaz.ndjson.gz",
-      "rows": 157,
-      "bytes": 43652,
-      "sha256": "370f46eca60cd971702e150e85032f662e982763eefce99161f54dfcfa7725ca"
+      "rows": 417,
+      "bytes": 117224,
+      "sha256": "3ddfbe82e4e389bba1137377a96703aa252ca3d6fe6fb66ff38b8bf55e9fa44e"
     },
     {
       "path": "facebook-lapaz-sin-ubicacion.ndjson.gz",
-      "rows": 1,
-      "bytes": 848,
-      "sha256": "86f68bccb0c8867775963778dbccf648ff6e79863a6ab8faa3cbc022333d32af"
+      "rows": 4,
+      "bytes": 1713,
+      "sha256": "64cb4bfd539b58f61e31f7f1134487637b6aeeffcf2e9acd55a90283fdc2232a"
     },
     {
       "path": "facebook-otros-departamentos.ndjson.gz",
-      "rows": 1,
-      "bytes": 894,
-      "sha256": "475bd185bbfd108f809b561f04c03080c903cb9cc2476ece5daebf2f56c33404"
+      "rows": 5,
+      "bytes": 2065,
+      "sha256": "4a56c7470de4921beed84d4bf955cf7bfd94e7c60a2bc16278650814e6d2e83d"
     },
     {
       "path": "rejected-summary.json",
       "rows": null,
-      "bytes": 676,
-      "sha256": "62c8af37c9c2d2431ddf442797ba530627b4b57436b4f495205da417dbdc664f"
+      "bytes": 975,
+      "sha256": "34f585f452e96ffd79f09d1b361913ad892cc05715d08e9b2f94e625a8199a5d"
     }
   ],
   "privacy_check": {
@@ -45,71 +45,79 @@
     "findings": 0
   },
   "summary": {
-    "attempts": 171,
-    "keys": 171,
+    "attempts": 452,
+    "keys": 452,
     "status": {
-      "OK": 168,
-      "NOT_PAGE": 2,
-      "RESTRICTED": 1
+      "OK": 447,
+      "NOT_PAGE": 3,
+      "RESTRICTED": 1,
+      "ERROR": 1
     },
-    "foreign": 4,
-    "pages_unique": 167,
-    "lapaz": 157,
-    "sin_ubicacion": 1,
-    "otros_departamentos": 1,
-    "lapaz_pct_latlon": "80.3",
-    "lapaz_pct_address": "84.7",
-    "lapaz_pct_address_any": "93.6",
-    "lapaz_pct_phone": "77.7",
-    "lapaz_pct_website": "45.2",
-    "lapaz_pct_whatsapp": "1.3",
-    "lapaz_pct_followers": "99.4",
+    "foreign": 7,
+    "pages_unique": 445,
+    "lapaz": 417,
+    "sin_ubicacion": 4,
+    "otros_departamentos": 5,
+    "lapaz_pct_latlon": "79.4",
+    "lapaz_pct_address": "81.3",
+    "lapaz_pct_address_any": "92.8",
+    "lapaz_pct_phone": "80.3",
+    "lapaz_pct_website": "46.0",
+    "lapaz_pct_whatsapp": "1.4",
+    "lapaz_pct_followers": "99.5",
     "lapaz_pct_last_post": "100.0",
-    "lapaz_pct_active_12m": "80.9",
-    "lapaz_pct_locality": "43.3",
+    "lapaz_pct_active_12m": "80.8",
+    "lapaz_pct_locality": "38.1",
     "municipalities": {
-      "La Paz": 153,
-      "El Alto": 3,
-      "(sin municipio)": 1
+      "La Paz": 399,
+      "El Alto": 16,
+      "(sin municipio)": 2
     },
     "lapaz_geo_basis": {
-      "ciudad_facebook": 148,
-      "ciudad_facebook+coordenadas_fuera": 3,
-      "nombre_de_la_pagina": 4,
-      "coordenadas": 1,
+      "ciudad_facebook": 389,
+      "ciudad_facebook+coordenadas_fuera": 13,
+      "nombre_de_la_pagina": 12,
+      "coordenadas": 2,
       "texto_direccion": 1
     },
     "sin_ubicacion_por_status": {
-      "OK": 1
+      "OK": 4
     },
     "otros_por_departamento": {
-      "Chuquisaca": 1
+      "Tarija": 1,
+      "Beni": 1,
+      "Santa Cruz": 1,
+      "Chuquisaca": 1,
+      "Cochabamba": 1
     },
-    "queries_done": 28,
-    "queries_with_facebook": 28,
+    "queries_done": 71,
+    "queries_with_facebook": 71,
     "removed_rows_by_reason": {
-      "perfil_personal_NOT_PAGE": 2,
+      "perfil_personal_NOT_PAGE": 3,
       "no_confirmada_RESTRICTED": 1,
       "no_confirmada_BLOCKED": 0,
       "no_confirmada_NOT_FOUND": 0,
-      "sin_leer_ERROR": 0,
+      "sin_leer_ERROR": 1,
       "parece_persona": {
-        "sin_tarjeta_de_pagina": 1,
-        "categoria_de_persona": 3
+        "sin_tarjeta_de_pagina": 3,
+        "categoria_de_persona": 4,
+        "nombre_propio_con_categoria_profesional": 3,
+        "nombre_de_profesional": 2
       },
-      "extranjera": 4
+      "extranjera": 7,
+      "web_con_numero": 2
     },
     "redactions_in_free_text": {
-      "email": 0,
-      "phone": 2
+      "email": 2,
+      "phone": 7
     },
     "run_events": {
       "yahoo_empty_or_challenge": 0,
-      "yahoo_errors": 0,
+      "yahoo_errors": 21,
       "discovery_pauses": 0,
       "blocked_streak_pauses": 0,
       "memory_waits": 34,
-      "restarts": 5
+      "restarts": 6
     }
   }
 }
