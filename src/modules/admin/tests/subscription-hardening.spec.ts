@@ -74,12 +74,20 @@ describe('a new token spends the earlier unused ones', () => {
   it('for a self-service reset of a member, scoped to that member', async () => {
     const { writer, calls } = fakeWriter((sql) => {
       if (sql.includes('FROM operations.subscriber_member m')) {
-        return [{ subscriber_account_id: ID, subscriber_member_id: MEMBER_ID, full_name: 'Luis' }];
+        return [
+          {
+            subscriber_account_id: ID,
+            subscriber_member_id: MEMBER_ID,
+            email: MEMBER.email,
+            full_name: 'Luis',
+          },
+        ];
       }
       return [];
     });
     const accounts = new SubscriberAccountRepository(writer);
     await expect(accounts.issueReset(MEMBER.email, issueToken())).resolves.toEqual({
+      email: MEMBER.email,
       fullName: 'Luis',
       memberId: MEMBER_ID,
     });
@@ -198,7 +206,11 @@ describe('password resets', () => {
   it('answers 201 with the token to whoever may reset, and 202 with nothing otherwise', async () => {
     const issueReset = jest
       .fn()
-      .mockResolvedValueOnce({ fullName: 'Luis', memberId: MEMBER.subscriber_member_id })
+      .mockResolvedValueOnce({
+        email: MEMBER.email,
+        fullName: 'Luis',
+        memberId: MEMBER.subscriber_member_id,
+      })
       .mockResolvedValueOnce(null);
     const controller = credentials(issueReset);
     const issued = fakeReply();
@@ -209,7 +221,11 @@ describe('password resets', () => {
     );
     expect(issued.sent.status).toBe(201);
     const data = (issued.sent.body as { data: Record<string, unknown> }).data;
-    expect(data).toMatchObject({ fullName: 'Luis', memberId: MEMBER.subscriber_member_id });
+    expect(data).toMatchObject({
+      email: MEMBER.email,
+      fullName: 'Luis',
+      memberId: MEMBER.subscriber_member_id,
+    });
     expect(typeof data.token).toBe('string');
     // Only the hash reached the repository.
     expect(JSON.stringify(issueReset.mock.calls[0])).not.toContain(String(data.token));
