@@ -20,6 +20,8 @@ export interface Activated {
 
 /** Who a self-service reset token was issued to; `memberId` null for the owner. */
 export interface ResetHolder {
+  /** The address as stored, which is where the link must be sent. */
+  readonly email: string;
   readonly fullName: string;
   readonly memberId: string | null;
 }
@@ -108,8 +110,12 @@ export class SubscriberAccountRepository {
    */
   async issueReset(email: string, token: StoredToken): Promise<ResetHolder | null> {
     return this.writer.transaction(async (transaction) => {
-      const owners = await this.writer.query<{ subscriber_account_id: string; full_name: string }>(
-        `SELECT subscriber_account_id::text AS subscriber_account_id, full_name
+      const owners = await this.writer.query<{
+        subscriber_account_id: string;
+        email: string;
+        full_name: string;
+      }>(
+        `SELECT subscriber_account_id::text AS subscriber_account_id, email, full_name
            FROM operations.subscriber_account
           WHERE email = :email AND status <> 'CANCELLED'
           FOR UPDATE`,
@@ -120,10 +126,11 @@ export class SubscriberAccountRepository {
         : await this.writer.query<{
             subscriber_account_id: string;
             subscriber_member_id: string;
+            email: string;
             full_name: string;
           }>(
             `SELECT m.subscriber_account_id::text AS subscriber_account_id,
-                    m.subscriber_member_id::text AS subscriber_member_id, m.full_name
+                    m.subscriber_member_id::text AS subscriber_member_id, m.email, m.full_name
                FROM operations.subscriber_member m
                JOIN operations.subscriber_account a
                  ON a.subscriber_account_id = m.subscriber_account_id
@@ -145,7 +152,11 @@ export class SubscriberAccountRepository {
         'RESET',
         token,
       );
-      return { fullName: holder.full_name, memberId: holder.subscriber_member_id };
+      return {
+        email: holder.email,
+        fullName: holder.full_name,
+        memberId: holder.subscriber_member_id,
+      };
     });
   }
 

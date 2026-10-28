@@ -134,6 +134,8 @@ export class SiteSubscriberCredentialsController {
         {
           token: token.token,
           expiresAt: token.expiresAt.toISOString(),
+          // The stored address: the site mails the link here, never to what was typed.
+          email: holder.email,
           fullName: holder.fullName,
           memberId: holder.memberId,
         },
