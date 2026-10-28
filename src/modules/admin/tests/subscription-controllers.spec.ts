@@ -104,7 +104,7 @@ function sessionsFinding(principal: unknown): Partial<SubscriberSessionRepositor
   return {
     findPrincipal: jest.fn().mockResolvedValue(principal),
     recordFailure: jest.fn().mockResolvedValue(null),
-    recordSuccess: jest.fn().mockResolvedValue(null),
+    recordSuccess: jest.fn().mockResolvedValue(true),
   };
 }
 

@@ -19,9 +19,8 @@ const PRINCIPAL_TABLES: Readonly<Record<PrincipalKind, { table: string; key: str
   MEMBER: { table: 'operations.subscriber_member', key: 'subscriber_member_id' },
 };
 
-/** Seconds left on a lock, measured by the database clock; null when unlocked. */
-const RETRY_AFTER = `CASE WHEN locked_until > now()
-  THEN CEIL(EXTRACT(EPOCH FROM (locked_until - now())))::int END AS retry_after_seconds`;
+/** Whether a lock is in force, by the database clock. */
+const LOCKED = `COALESCE(locked_until > now(), false) AS locked`;
 
 export interface Principal {
   readonly kind: PrincipalKind;
@@ -29,12 +28,12 @@ export interface Principal {
   readonly account: AccountRow;
   readonly member: MemberRow | null;
   readonly passwordHash: string | null;
-  /** Seconds until the lock ends, or null when the principal is not locked. */
-  readonly retryAfterSeconds: number | null;
+  /** Whether a sign-in lock is in force now. */
+  readonly locked: boolean;
 }
 
 interface LockState {
-  readonly retry_after_seconds: number | null;
+  readonly locked: boolean;
 }
 
 /** A principal already identified by the site, as a password change names it. */
@@ -50,7 +49,7 @@ export interface Credentials {
   readonly kind: PrincipalKind;
   readonly id: string;
   readonly passwordHash: string | null;
-  readonly retryAfterSeconds: number | null;
+  readonly locked: boolean;
 }
 
 /**
@@ -70,21 +69,21 @@ export class SubscriberSessionRepository {
     const owners = await this.writer.query<
       AccountRow & LockState & { password_hash: string | null }
     >(
-      `SELECT ${ACCOUNT_COLUMNS}, password_hash, ${RETRY_AFTER}
+      `SELECT ${ACCOUNT_COLUMNS}, password_hash, ${LOCKED}
          FROM operations.subscriber_account
         WHERE email = :email`,
       { type: QueryTypes.SELECT, replacements: { email } },
     );
     const owner = owners[0];
     if (owner) {
-      const { password_hash: passwordHash, retry_after_seconds: retry, ...account } = owner;
+      const { password_hash: passwordHash, locked, ...account } = owner;
       return {
         kind: 'OWNER',
         id: account.subscriber_account_id,
         account,
         member: null,
         passwordHash,
-        retryAfterSeconds: retry === null ? null : Number(retry),
+        locked: Boolean(locked),
       };
     }
     return this.findMember(email);
@@ -94,14 +93,14 @@ export class SubscriberSessionRepository {
     const members = await this.writer.query<
       MemberRow & LockState & { password_hash: string | null }
     >(
-      `SELECT ${MEMBER_COLUMNS}, password_hash, ${RETRY_AFTER}
+      `SELECT ${MEMBER_COLUMNS}, password_hash, ${LOCKED}
          FROM operations.subscriber_member
         WHERE email = :email AND status = 'ACTIVE'`,
       { type: QueryTypes.SELECT, replacements: { email } },
     );
     const found = members[0];
     if (!found) return null;
-    const { password_hash: passwordHash, retry_after_seconds: retry, ...member } = found;
+    const { password_hash: passwordHash, locked, ...member } = found;
     const accounts = await this.writer.query<AccountRow>(
       `SELECT ${ACCOUNT_COLUMNS} FROM operations.subscriber_account
         WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)`,
@@ -118,7 +117,7 @@ export class SubscriberSessionRepository {
       account,
       member,
       passwordHash,
-      retryAfterSeconds: retry === null ? null : Number(retry),
+      locked: Boolean(locked),
     };
   }
 
@@ -147,10 +146,10 @@ export class SubscriberSessionRepository {
 
   /**
    * Resets the failure count after a right password — unless a lock was set
-   * meanwhile by concurrent failures, in which case the lock wins. Returns the
-   * seconds left on that lock, or null when the sign-in may proceed.
+   * meanwhile by concurrent failures, in which case the lock wins. Returns
+   * whether the sign-in may proceed.
    */
-  async recordSuccess(kind: PrincipalKind, id: string): Promise<number | null> {
+  async recordSuccess(kind: PrincipalKind, id: string): Promise<boolean> {
     const { table, key } = PRINCIPAL_TABLES[kind];
     const rows = await this.writer.query<{ cleared: boolean }>(
       `UPDATE ${table}
@@ -160,9 +159,8 @@ export class SubscriberSessionRepository {
         RETURNING true AS cleared`,
       { type: QueryTypes.SELECT, replacements: { id } },
     );
-    if (rows.length > 0) return null;
-    // Nothing cleared: the row is locked, or it vanished — which no path allows.
-    return (await this.currentLock(kind, id)) ?? SIGN_IN_LOCK_MINUTES * 60;
+    // Nothing cleared means the row is locked (or gone, which no path allows).
+    return rows.length > 0;
   }
 
   /**
@@ -198,11 +196,11 @@ export class SubscriberSessionRepository {
   async findCredentials(target: PrincipalRef): Promise<Credentials | null> {
     const rows = await this.writer.query<LockState & { id: string; password_hash: string | null }>(
       target.kind === 'MEMBER'
-        ? `SELECT subscriber_member_id::text AS id, password_hash, ${RETRY_AFTER}
+        ? `SELECT subscriber_member_id::text AS id, password_hash, ${LOCKED}
              FROM operations.subscriber_member
             WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
               AND subscriber_member_id = CAST(:memberId AS uuid) AND status = 'ACTIVE'`
-        : `SELECT subscriber_account_id::text AS id, password_hash, ${RETRY_AFTER}
+        : `SELECT subscriber_account_id::text AS id, password_hash, ${LOCKED}
              FROM operations.subscriber_account
             WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)`,
       {
@@ -215,22 +213,11 @@ export class SubscriberSessionRepository {
     );
     const row = rows[0];
     if (!row) return null;
-    const retry = row.retry_after_seconds;
     return {
       kind: target.kind,
       id: row.id,
       passwordHash: row.password_hash,
-      retryAfterSeconds: retry === null ? null : Number(retry),
+      locked: Boolean(row.locked),
     };
-  }
-
-  private async currentLock(kind: PrincipalKind, id: string): Promise<number | null> {
-    const { table, key } = PRINCIPAL_TABLES[kind];
-    const rows = await this.writer.query<LockState>(
-      `SELECT ${RETRY_AFTER} FROM ${table} WHERE ${key} = CAST(:id AS uuid)`,
-      { type: QueryTypes.SELECT, replacements: { id } },
-    );
-    const value = rows[0]?.retry_after_seconds;
-    return value === null || value === undefined ? null : Number(value);
   }
 }

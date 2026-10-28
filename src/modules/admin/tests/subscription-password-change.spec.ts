@@ -9,7 +9,7 @@ import {
   type PrincipalKind,
 } from '../subscriber-session.repository';
 import { SubscriberSignInService } from '../subscriber-sign-in.service';
-import { AccountLockedError, InvalidCredentialsError } from '../subscription-errors';
+import { InvalidCredentialsError } from '../subscription-errors';
 import { hashPassword } from '../subscription-secrets';
 import { ACCOUNT, MEMBER, fakeWriter, identity } from './subscription-fixtures';
 
@@ -18,18 +18,13 @@ const CHANGE = { currentPassword: CURRENT, newPassword: 'la-clave-nueva-larga' }
 const ID = ACCOUNT.subscriber_account_id;
 const MEMBER_ID = MEMBER.subscriber_member_id;
 
-/** A session register whose principal has `retryAfterSeconds` of lock left. */
-async function sessionsWith(kind: PrincipalKind, id: string, retryAfterSeconds: number | null) {
-  const credentials: Credentials = {
-    kind,
-    id,
-    passwordHash: await hashPassword(CURRENT),
-    retryAfterSeconds,
-  };
+/** A session register whose principal is, or is not, locked. */
+async function sessionsWith(kind: PrincipalKind, id: string, locked: boolean) {
+  const credentials: Credentials = { kind, id, passwordHash: await hashPassword(CURRENT), locked };
   return {
     findCredentials: jest.fn().mockResolvedValue(credentials),
     recordFailure: jest.fn().mockResolvedValue(undefined),
-    recordSuccess: jest.fn().mockResolvedValue(null),
+    recordSuccess: jest.fn().mockResolvedValue(true),
   };
 }
 
@@ -51,7 +46,7 @@ describe("an owner's password change goes through the sign-in lock", () => {
   const params = { subscriberAccountId: ID };
 
   it('counts a wrong current password and answers 401 without changing it', async () => {
-    const sessions = await sessionsWith('OWNER', ID, null);
+    const sessions = await sessionsWith('OWNER', ID, false);
     const setPassword = jest.fn();
     const change = owner(sessions, setPassword).changePassword(params, {
       ...CHANGE,
@@ -67,18 +62,19 @@ describe("an owner's password change goes through the sign-in lock", () => {
     expect(setPassword).not.toHaveBeenCalled();
   });
 
-  it('answers 423 to the right password while locked, and changes nothing', async () => {
-    const sessions = await sessionsWith('OWNER', ID, 600);
+  it('while locked, refuses even the right password with the generic 401, uncounted', async () => {
+    const sessions = await sessionsWith('OWNER', ID, true);
     const setPassword = jest.fn();
     const change = owner(sessions, setPassword).changePassword(params, CHANGE);
-    await expect(change).rejects.toBeInstanceOf(AccountLockedError);
-    await expect(change).rejects.toMatchObject({ details: { retryAfterSeconds: 600 } });
+    await expect(change).rejects.toBeInstanceOf(InvalidCredentialsError);
+    await expect(change).rejects.toMatchObject({ statusCode: 401 });
+    expect(sessions.recordFailure).not.toHaveBeenCalled();
     expect(sessions.recordSuccess).not.toHaveBeenCalled();
     expect(setPassword).not.toHaveBeenCalled();
   });
 
   it('resets the count on the right password and sets the new one; 404 when unknown', async () => {
-    const sessions = await sessionsWith('OWNER', ID, null);
+    const sessions = await sessionsWith('OWNER', ID, false);
     const setPassword = jest.fn().mockResolvedValue(true);
     await owner(sessions, setPassword).changePassword(params, CHANGE);
     expect(sessions.recordSuccess).toHaveBeenCalledWith('OWNER', ID);
@@ -99,7 +95,7 @@ describe("a member's password change goes through its own sign-in lock", () => {
   const params = { subscriberAccountId: ID, memberId: MEMBER_ID };
 
   it('counts a wrong current password against the member and answers 401', async () => {
-    const sessions = await sessionsWith('MEMBER', MEMBER_ID, null);
+    const sessions = await sessionsWith('MEMBER', MEMBER_ID, false);
     const setPassword = jest.fn();
     const change = member(sessions, setPassword).changePassword(params, {
       ...CHANGE,
@@ -115,14 +111,15 @@ describe("a member's password change goes through its own sign-in lock", () => {
     expect(setPassword).not.toHaveBeenCalled();
   });
 
-  it('answers 423 while locked, and changes it once the right password is accepted', async () => {
-    const locked = await sessionsWith('MEMBER', MEMBER_ID, 300);
+  it('while locked, refuses the right password with 401 uncounted; after, changes it', async () => {
+    const locked = await sessionsWith('MEMBER', MEMBER_ID, true);
     const setPassword = jest.fn().mockResolvedValue(true);
     await expect(member(locked, setPassword).changePassword(params, CHANGE)).rejects.toBeInstanceOf(
-      AccountLockedError,
+      InvalidCredentialsError,
     );
+    expect(locked.recordFailure).not.toHaveBeenCalled();
     expect(setPassword).not.toHaveBeenCalled();
-    const open = await sessionsWith('MEMBER', MEMBER_ID, null);
+    const open = await sessionsWith('MEMBER', MEMBER_ID, false);
     await member(open, setPassword).changePassword(params, CHANGE);
     expect(open.recordSuccess).toHaveBeenCalledWith('MEMBER', MEMBER_ID);
     expect(setPassword).toHaveBeenCalledWith(ID, MEMBER_ID, expect.stringMatching(/^scrypt\$/u));
