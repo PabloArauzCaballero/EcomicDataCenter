@@ -4,7 +4,8 @@ import { NotFoundError, RequestValidationError } from '../../common/errors/appli
 import { WRITER_DATABASE } from '../../database/database.tokens';
 import { decodeCursor } from './admin-cursor';
 import { ACCOUNT_COLUMNS, CURRENT_MONTH, type AccountRow } from './subscription-account-row';
-import type { IssuedToken } from './subscription-secrets';
+import { lockEmail, replaceToken } from './subscriber-tokens';
+import type { StoredToken } from './subscription-secrets';
 import type {
   AccountCreation,
   AccountListQuery,
@@ -16,24 +17,9 @@ import type {
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/iu;
 
-export interface PaymentRow {
-  readonly subscriber_payment_id: string;
-  readonly subscriber_account_id: string;
-  readonly amount_bob: string;
-  readonly covers_until: string;
-  readonly reference: string | null;
-  readonly recorded_by: string;
-  readonly recorded_at: Date;
-}
-
-const PAYMENT_COLUMNS = `
-  subscriber_payment_id::text AS subscriber_payment_id,
-  subscriber_account_id::text AS subscriber_account_id, amount_bob::text AS amount_bob,
-  to_char(covers_until, 'YYYY-MM-DD') AS covers_until, reference, recorded_by, recorded_at`;
-
 /**
- * The operator's side of the subscriber register: open accounts, change them,
- * record payments and issue tokens.
+ * The operator's side of the subscriber register: open accounts, change them
+ * and issue tokens. Payments have their own ledger repository.
  *
  * Every method that can name a missing account says so (null or NotFoundError)
  * instead of reporting a change that touched nothing. Nothing here logs.
@@ -97,15 +83,16 @@ export class SubscriberAdminRepository {
   /**
    * Opens an account and its activation token together, or neither.
    *
-   * Returns null when the e-mail already has an account: the unique key and
-   * `DO NOTHING` decide it, never a check-then-insert that two operators could
-   * race through.
+   * Returns null when the e-mail already names an owner or an ACTIVE member.
+   * Among owners the unique key and `DO NOTHING` decide it; against members,
+   * the check runs under the e-mail's advisory lock, which the path that adds
+   * members takes too, so neither can race the other through.
    */
   async create(
     input: AccountCreation,
     status: AccountStatus,
     paidUntil: Date | null,
-    token: IssuedToken,
+    token: StoredToken,
   ): Promise<AccountRow | null> {
     return this.writer.transaction(async (transaction) => {
       if (input.serviceInquiryId) {
@@ -121,6 +108,13 @@ export class SubscriberAdminRepository {
         if (inquiry.length === 0)
           throw new NotFoundError('Service inquiry', input.serviceInquiryId);
       }
+      await lockEmail(this.writer, transaction, input.email);
+      const members = await this.writer.query<{ found: number }>(
+        `SELECT 1 AS found FROM operations.subscriber_member
+          WHERE email = :email AND status = 'ACTIVE'`,
+        { type: QueryTypes.SELECT, transaction, replacements: { email: input.email } },
+      );
+      if (members.length > 0) return null;
       const rows = await this.writer.query<AccountRow>(
         `INSERT INTO operations.subscriber_account (
            email, full_name, organization, plan_code, billing_period, status, paid_until,
@@ -148,24 +142,21 @@ export class SubscriberAdminRepository {
       );
       const account = rows[0];
       if (!account) return null;
-      await this.writer.query(
-        `INSERT INTO operations.subscriber_token (token_hash, subscriber_account_id, purpose, expires_at)
-         VALUES (:hash, CAST(:subscriberAccountId AS uuid), 'ACTIVATE', CAST(:expiresAt AS timestamptz))`,
-        {
-          type: QueryTypes.INSERT,
-          transaction,
-          replacements: {
-            hash: token.hash,
-            subscriberAccountId: account.subscriber_account_id,
-            expiresAt: token.expiresAt.toISOString(),
-          },
-        },
+      await replaceToken(
+        this.writer,
+        transaction,
+        { subscriberAccountId: account.subscriber_account_id, subscriberMemberId: null },
+        'ACTIVATE',
+        token,
       );
       return account;
     });
   }
 
-  /** Applies an operator's change; absent fields keep their stored value. */
+  /**
+   * Applies an operator's change; absent fields keep their stored value.
+   * `unlock` clears the owner's sign-in lock and failure count.
+   */
   async update(subscriberAccountId: string, change: AccountUpdate): Promise<AccountRow | null> {
     const rows = await this.writer.query<AccountRow>(
       `UPDATE operations.subscriber_account
@@ -176,6 +167,8 @@ export class SubscriberAdminRepository {
               tax_id = CASE WHEN :keepTaxId THEN tax_id ELSE CAST(:taxId AS text) END,
               organization = CASE WHEN :keepOrganization THEN organization
                                   ELSE CAST(:organization AS text) END,
+              failed_login_count = CASE WHEN :unlock THEN 0 ELSE failed_login_count END,
+              locked_until = CASE WHEN :unlock THEN NULL ELSE locked_until END,
               updated_at = now()
         WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
         RETURNING ${ACCOUNT_COLUMNS}`,
@@ -192,6 +185,7 @@ export class SubscriberAdminRepository {
           taxId: change.taxId ?? null,
           keepOrganization: change.organization === undefined,
           organization: change.organization ?? null,
+          unlock: change.unlock === true,
         },
       },
     );
@@ -199,86 +193,32 @@ export class SubscriberAdminRepository {
   }
 
   /**
-   * Records a payment and moves the account to ACTIVE until `paidUntil`, together.
-   *
-   * The ledger row is inserted, never updated: a mistaken payment is corrected
-   * by recording another, so the history of what was received stays whole.
+   * Stores a new one-time token for the owner and spends its earlier unused
+   * ones of the same purpose. The account row is locked first, so two
+   * concurrent issues cannot both leave a live token. Returns false when the
+   * account does not exist.
    */
-  async recordPayment(
-    subscriberAccountId: string,
-    payment: { amountBob: number; coversUntil: string; reference: string | null },
-    paidUntil: Date,
-    recordedBy: string,
-  ): Promise<{ payment: PaymentRow; account: AccountRow } | null> {
-    return this.writer.transaction(async (transaction) => {
-      const accounts = await this.writer.query<AccountRow>(
-        `UPDATE operations.subscriber_account
-            SET paid_until = CAST(:paidUntil AS timestamptz), status = 'ACTIVE', updated_at = now()
-          WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
-          RETURNING ${ACCOUNT_COLUMNS}`,
-        {
-          type: QueryTypes.SELECT,
-          transaction,
-          replacements: { subscriberAccountId, paidUntil: paidUntil.toISOString() },
-        },
-      );
-      const account = accounts[0];
-      if (!account) return null;
-      const payments = await this.writer.query<PaymentRow>(
-        `INSERT INTO operations.subscriber_payment (
-           subscriber_account_id, amount_bob, covers_until, reference, recorded_by
-         ) VALUES (
-           CAST(:subscriberAccountId AS uuid), CAST(:amountBob AS numeric(12,2)),
-           CAST(:coversUntil AS date), CAST(:reference AS text), :recordedBy
-         )
-         RETURNING ${PAYMENT_COLUMNS}`,
-        {
-          type: QueryTypes.SELECT,
-          transaction,
-          replacements: {
-            subscriberAccountId,
-            amountBob: payment.amountBob.toFixed(2),
-            coversUntil: payment.coversUntil,
-            reference: payment.reference,
-            recordedBy: recordedBy.slice(0, 200),
-          },
-        },
-      );
-      return { payment: payments[0]!, account };
-    });
-  }
-
-  async listPayments(subscriberAccountId: string): Promise<PaymentRow[]> {
-    return this.writer.query<PaymentRow>(
-      `SELECT ${PAYMENT_COLUMNS} FROM operations.subscriber_payment
-        WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
-        ORDER BY recorded_at DESC, subscriber_payment_id DESC`,
-      { type: QueryTypes.SELECT, replacements: { subscriberAccountId } },
-    );
-  }
-
-  /** Stores a new one-time token. Returns false when the account does not exist. */
   async issueToken(
     subscriberAccountId: string,
     purpose: TokenPurpose,
-    token: IssuedToken,
+    token: StoredToken,
   ): Promise<boolean> {
-    const rows = await this.writer.query<{ token_hash: string }>(
-      `INSERT INTO operations.subscriber_token (token_hash, subscriber_account_id, purpose, expires_at)
-       SELECT :hash, subscriber_account_id, :purpose, CAST(:expiresAt AS timestamptz)
-         FROM operations.subscriber_account
-        WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
-       RETURNING token_hash`,
-      {
-        type: QueryTypes.SELECT,
-        replacements: {
-          subscriberAccountId,
-          purpose,
-          hash: token.hash,
-          expiresAt: token.expiresAt.toISOString(),
-        },
-      },
-    );
-    return rows.length > 0;
+    return this.writer.transaction(async (transaction) => {
+      const locked = await this.writer.query<{ found: number }>(
+        `SELECT 1 AS found FROM operations.subscriber_account
+          WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
+          FOR UPDATE`,
+        { type: QueryTypes.SELECT, transaction, replacements: { subscriberAccountId } },
+      );
+      if (locked.length === 0) return false;
+      await replaceToken(
+        this.writer,
+        transaction,
+        { subscriberAccountId, subscriberMemberId: null },
+        purpose,
+        token,
+      );
+      return true;
+    });
   }
 }

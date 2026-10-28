@@ -133,6 +133,8 @@ describe('effective status', () => {
       billing_period: 'MONTHLY',
       status: 'ACTIVE',
       paid_until: at(-2),
+      session_version: 1,
+      locked_until: null,
       created_at: at(-40),
       created_at_key: '2026-09-17T12:00:00.000000Z',
     };
@@ -155,6 +157,8 @@ describe('effective status', () => {
       'effectiveStatus',
       'entitled',
       'paidUntil',
+      'sessionVersion',
+      'lockedUntil',
       'createdAt',
     ]);
     expect(JSON.stringify(summary)).not.toContain('password');

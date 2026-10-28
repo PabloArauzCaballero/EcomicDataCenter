@@ -19,9 +19,13 @@ import { paginate } from './admin-cursor';
 import type { AdminEnvelope } from './admin.envelope';
 import { DeploymentIdentity } from './deployment-identity';
 import { answer } from './subscription-envelope';
-import { SubscriberAdminRepository, type PaymentRow } from './subscriber-admin.repository';
+import { SubscriberAdminRepository } from './subscriber-admin.repository';
+import { SubscriberMemberRepository } from './subscriber-member.repository';
+import { SubscriberPaymentRepository, type PaymentRow } from './subscriber-payment.repository';
+import { SubscriberSessionRepository } from './subscriber-session.repository';
 import { endOfLaPazDay, toAccountSummary } from './subscription-account-row';
-import { issueToken } from './subscription-secrets';
+import { toMemberSummary } from './subscription-member-row';
+import { issueToken, storedForm } from './subscription-secrets';
 import {
   accountCreationSchema,
   accountListQuerySchema,
@@ -68,6 +72,9 @@ export class AdminSubscriptionsController {
   constructor(
     private readonly identity: DeploymentIdentity,
     private readonly register: SubscriberAdminRepository,
+    private readonly ledger: SubscriberPaymentRepository,
+    private readonly sessions: SubscriberSessionRepository,
+    private readonly members: SubscriberMemberRepository,
   ) {}
 
   @Get('accounts')
@@ -107,8 +114,15 @@ export class AdminSubscriptionsController {
     const trial = body.trialDays > 0;
     const paidUntil = trial ? new Date(now.getTime() + body.trialDays * DAY_MS) : null;
     const token = issueToken(now);
-    const account = await this.register.create(body, trial ? 'TRIAL' : 'PENDING', paidUntil, token);
-    if (!account) throw new ConflictError('An account with this e-mail already exists');
+    const account = await this.register.create(
+      body,
+      trial ? 'TRIAL' : 'PENDING',
+      paidUntil,
+      storedForm(token),
+    );
+    if (!account) {
+      throw new ConflictError('This e-mail already belongs to an account or a member');
+    }
     return answer(
       this.identity,
       {
@@ -122,7 +136,10 @@ export class AdminSubscriptionsController {
 
   @Patch('accounts/:subscriberAccountId')
   @Roles(ACTOR_ROLES.SUBSCRIPTION_ADMIN)
-  @ApiOperation({ operationId: 'updateSubscriberAccount', summary: 'Change plan, state or data' })
+  @ApiOperation({
+    operationId: 'updateSubscriberAccount',
+    summary: 'Change plan, state, data, lock',
+  })
   async update(
     @Param(new ZodValidationPipe(accountParamsSchema)) params: AccountParams,
     @Body(new ZodValidationPipe(accountUpdateSchema)) change: AccountUpdate,
@@ -143,7 +160,7 @@ export class AdminSubscriptionsController {
     @CurrentActor() actor: Actor,
     @RequestId() requestId: string,
   ): Promise<AdminEnvelope<unknown>> {
-    const result = await this.register.recordPayment(
+    const result = await this.ledger.recordPayment(
       params.subscriberAccountId,
       payment,
       endOfLaPazDay(payment.coversUntil),
@@ -164,7 +181,7 @@ export class AdminSubscriptionsController {
     @Param(new ZodValidationPipe(accountParamsSchema)) params: AccountParams,
     @RequestId() requestId: string,
   ): Promise<AdminEnvelope<unknown>> {
-    const rows = await this.register.listPayments(params.subscriberAccountId);
+    const rows = await this.ledger.listPayments(params.subscriberAccountId);
     return answer(
       this.identity,
       { items: rows.map(toPaymentItem) },
@@ -186,12 +203,44 @@ export class AdminSubscriptionsController {
     @RequestId() requestId: string,
   ): Promise<AdminEnvelope<unknown>> {
     const token = issueToken();
-    const stored = await this.register.issueToken(params.subscriberAccountId, body.purpose, token);
+    const stored = await this.register.issueToken(
+      params.subscriberAccountId,
+      body.purpose,
+      storedForm(token),
+    );
     if (!stored) throw new NotFoundError('Subscriber account', params.subscriberAccountId);
     return answer(
       this.identity,
       { token: token.token, expiresAt: token.expiresAt.toISOString() },
       requestId,
     );
+  }
+
+  @Post('accounts/:subscriberAccountId/sessions/revoke')
+  @HttpCode(HttpStatus.OK)
+  @Roles(ACTOR_ROLES.SUBSCRIPTION_ADMIN)
+  @ApiOperation({
+    operationId: 'revokeSubscriberAccountSessions',
+    summary: 'End the sessions of the owner and every member',
+  })
+  async revokeSessions(
+    @Param(new ZodValidationPipe(accountParamsSchema)) params: AccountParams,
+    @RequestId() requestId: string,
+  ): Promise<AdminEnvelope<unknown>> {
+    const account = await this.sessions.revoke(params.subscriberAccountId, true);
+    if (!account) throw new NotFoundError('Subscriber account', params.subscriberAccountId);
+    return answer(this.identity, { account: toAccountSummary(account) }, requestId);
+  }
+
+  @Get('accounts/:subscriberAccountId/members')
+  @Roles(ACTOR_ROLES.SUBSCRIPTION_ADMIN)
+  @ApiOperation({ operationId: 'listSubscriberAccountMembers', summary: 'Members of one account' })
+  async listMembers(
+    @Param(new ZodValidationPipe(accountParamsSchema)) params: AccountParams,
+    @RequestId() requestId: string,
+  ): Promise<AdminEnvelope<unknown>> {
+    const rows = await this.members.list(params.subscriberAccountId);
+    if (!rows) throw new NotFoundError('Subscriber account', params.subscriberAccountId);
+    return answer(this.identity, { items: rows.map(toMemberSummary) }, requestId);
   }
 }
