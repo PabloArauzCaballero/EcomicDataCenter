@@ -1,34 +1,34 @@
 {
   "delivery": "2026-10-27/facebook-santacruz",
   "source": "facebook",
-  "generated_at": "2026-10-28T00:01:45.466Z",
+  "generated_at": "2026-10-28T08:09:21.322Z",
   "method": "Yahoo site:facebook.com (descubrimiento) + Playwright/Chromium sin sesión (lectura de la página pública)",
   "files": [
     {
       "file": "facebook-santacruz.ndjson.gz",
-      "records": 35,
-      "bytes": 7962,
-      "sha256": "f8a3ff0c46ddbe32a2ec8228b0027468dcbf5a1fa598046209dd69f961ac8d14"
+      "records": 384,
+      "bytes": 73490,
+      "sha256": "eef43feb847b91c5c438f69c49851d0c187ad4f1384c029566ea9d101fd64fa0"
     },
     {
       "file": "facebook-santacruz-fuera-del-departamento.ndjson.gz",
-      "records": 0,
-      "bytes": 20,
-      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"
+      "records": 9,
+      "bytes": 2844,
+      "sha256": "072b1e00e905819e25136913266b222f0d851333705fc224a9bf49c656f33c53"
     },
     {
       "file": "rejected-summary.json",
-      "sha256": "eac72f73b7cf95b416f8210376df6aadc5845bb7305d0f6b51bc1b6be8b301da"
+      "sha256": "03cb2b509d1cbec4e4425733b6bd4e1969b3403feb96c5f8d27f7a27a0d31b19"
     }
   ],
   "scripts": [
     {
       "file": "discover.mjs",
-      "sha256": "1cd30daf9543be7c0b40bf3ba17471a80142b2f078bcce19f17d5e7fa37c2b70"
+      "sha256": "74794bf02f9ae83955049c562e56d4eb9480ecdfc0eb7f6adf5f3c79fad924f8"
     },
     {
       "file": "fetch.mjs",
-      "sha256": "785ddf781dff87304bbca6e29928461c02b38a4f580ded9a5d5018135118f072"
+      "sha256": "7e3062b40bd9d033e5df3c8e39bfc5fcb8da518fe01ab0788b1a8c611a0ec06d"
     },
     {
       "file": "run.mjs",
@@ -36,7 +36,7 @@
     },
     {
       "file": "package.mjs",
-      "sha256": "abc405a588e41212534feabd120c4ff037839fadceaee65cd58c823491cffc60"
+      "sha256": "5c2e8af7aa0931a6cef03c839110c7d36469349c6b52bfca89949e93f1a9b119"
     },
     {
       "file": "verify-privacy.mjs",
@@ -44,136 +44,158 @@
     }
   ],
   "discovery": {
-    "distinct_queries": 17,
-    "result_pages_read": 71,
-    "candidates": 403,
-    "candidates_read": 38,
-    "candidates_not_read_yet": 365
+    "distinct_queries": 25,
+    "result_pages_read": 89,
+    "candidates": 479,
+    "candidates_read": 428,
+    "candidates_not_read_yet": 51
   },
   "removed_by_reason": {
-    "perfil_personal_detectado_al_leer": 0,
+    "perfil_personal_detectado_al_leer": 3,
     "no_confirmada_NOT_FOUND": 0,
     "no_confirmada_RESTRICTED": 0,
-    "no_confirmada_BLOCKED": 2,
-    "categoria_de_persona": 0,
+    "no_confirmada_BLOCKED": 12,
+    "categoria_de_persona": 4,
     "nombre_propio": 0,
-    "duplicado_misma_pagina": 1
+    "duplicado_misma_pagina": 16
   },
-  "records_with_free_text_scrubbed": 33,
+  "records_with_free_text_scrubbed": 375,
   "stats_main_file": {
-    "records": 35,
-    "department_santa_cruz": 32,
-    "department_unknown": 3,
+    "records": 384,
+    "department_santa_cruz": 363,
+    "department_unknown": 21,
     "with_latlon": {
-      "n": 29,
-      "pct": 82.9
+      "n": 345,
+      "pct": 89.8
     },
     "with_address": {
-      "n": 31,
-      "pct": 88.6
+      "n": 353,
+      "pct": 91.9
     },
     "with_phone": {
-      "n": 30,
-      "pct": 85.7
+      "n": 339,
+      "pct": 88.3
     },
     "with_latlon_and_address": {
-      "n": 29,
-      "pct": 82.9
+      "n": 343,
+      "pct": 89.3
     },
     "with_latlon_address_phone": {
-      "n": 27,
-      "pct": 77.1
+      "n": 305,
+      "pct": 79.4
     },
     "with_website": {
-      "n": 15,
-      "pct": 42.9
+      "n": 131,
+      "pct": 34.1
     },
     "with_whatsapp": {
-      "n": 8,
-      "pct": 22.9
+      "n": 117,
+      "pct": 30.5
     },
     "with_full_hours": {
       "n": 17,
-      "pct": 48.6
+      "pct": 4.4
     },
     "with_hours_any": {
       "n": 17,
-      "pct": 48.6
+      "pct": 4.4
     },
     "with_followers": {
-      "n": 35,
-      "pct": 100
+      "n": 383,
+      "pct": 99.7
     },
     "with_last_post": {
-      "n": 35,
-      "pct": 100
+      "n": 379,
+      "pct": 98.7
     },
     "active_last_12_months": {
-      "n": 27,
-      "pct": 77.1
+      "n": 237,
+      "pct": 61.7
     },
     "by_department": {
-      "(sin departamento)": 3,
-      "Santa Cruz": 32
+      "Santa Cruz": 363,
+      "(sin departamento)": 21
     },
     "by_municipality": {
-      "Santa Cruz de la Sierra": 20,
-      "Montero": 7,
-      "Pailón": 5
+      "Santa Cruz de la Sierra": 327,
+      "Montero": 28,
+      "Pailón": 7,
+      "Cotoca": 1
     },
     "top_categories": {
-      "Restaurante": 13,
-      "Restaurante familiar": 5,
-      "Cafetería": 1,
-      "Bar · Restaurante": 1,
-      "Servicio de comida a domicilio · Restaurante · Sala de eventos y espectáculos": 1,
-      "Servicio local": 1,
-      "Restaurante boliviano": 1,
-      "Reserva natural": 1,
-      "Restaurante peruano": 1,
-      "Comunidad": 1,
-      "Restaurante de mariscos": 1,
-      "Restaurante de carnes asadas": 1,
-      "Emprendedor(a)": 1,
-      "Restaurante de comida rápida": 1,
-      "Restaurante italiano": 1,
-      "Restaurante de carnes": 1,
-      "Restaurante de comida saludable": 1,
-      "Restaurante suizo": 1,
-      "Tienda de comestibles": 1
+      "Restaurante": 42,
+      "Negocio local": 21,
+      "Farmacia": 18,
+      "Heladería": 17,
+      "Panadería": 16,
+      "Peluquería": 14,
+      "Cafetería": 12,
+      "Restaurante de carnes asadas": 12,
+      "Ferretería": 12,
+      "Producto/servicio": 11,
+      "Veterinario": 11,
+      "Restaurante familiar": 9,
+      "Servicio agrícola": 9,
+      "Restaurante de carnes": 8,
+      "Tienda de postres": 8,
+      "Tienda de ropa": 6,
+      "Ropa (marca)": 5,
+      "Agricultura": 5,
+      "Restaurante de comida rápida": 5,
+      "Tienda de comestibles": 5,
+      "Tienda de maquinarias": 4,
+      "Comida y bebida": 4,
+      "Medicina y salud": 3,
+      "Restaurante de desayuno y brunch": 3,
+      "Materiales de construcción": 3,
+      "Tienda de ropa para mujeres": 3,
+      "Belleza, cosmética y cuidado personal": 3,
+      "Canal de televisión": 3,
+      "Emprendedor(a)": 3,
+      "Bar & Grill": 3,
+      "Salón de belleza": 3,
+      "Tienda de ropa para hombres": 2,
+      "Servicio local": 2,
+      "Puesto de comida": 2,
+      "Comercial e industrial": 2,
+      "Salud/belleza": 2,
+      "Restaurante peruano": 2,
+      "Compras y ventas minoristas": 2,
+      "Interés": 2,
+      "Tienda de materiales para la construcción": 2
     }
   },
   "stats_outside_file": {
-    "records": 0,
+    "records": 9,
     "department_santa_cruz": 0,
     "department_unknown": 0,
     "with_latlon": {
-      "n": 0,
-      "pct": 0
+      "n": 8,
+      "pct": 88.9
     },
     "with_address": {
-      "n": 0,
-      "pct": 0
+      "n": 9,
+      "pct": 100
     },
     "with_phone": {
-      "n": 0,
-      "pct": 0
+      "n": 8,
+      "pct": 88.9
     },
     "with_latlon_and_address": {
-      "n": 0,
-      "pct": 0
+      "n": 8,
+      "pct": 88.9
     },
     "with_latlon_address_phone": {
-      "n": 0,
-      "pct": 0
+      "n": 7,
+      "pct": 77.8
     },
     "with_website": {
-      "n": 0,
-      "pct": 0
+      "n": 7,
+      "pct": 77.8
     },
     "with_whatsapp": {
-      "n": 0,
-      "pct": 0
+      "n": 4,
+      "pct": 44.4
     },
     "with_full_hours": {
       "n": 0,
@@ -184,19 +206,31 @@
       "pct": 0
     },
     "with_followers": {
-      "n": 0,
-      "pct": 0
+      "n": 9,
+      "pct": 100
     },
     "with_last_post": {
-      "n": 0,
-      "pct": 0
+      "n": 9,
+      "pct": 100
     },
     "active_last_12_months": {
-      "n": 0,
-      "pct": 0
+      "n": 8,
+      "pct": 88.9
     },
-    "by_department": {},
+    "by_department": {
+      "La Paz": 6,
+      "Cochabamba": 1,
+      "EXTRANJERO": 2
+    },
     "by_municipality": {},
-    "top_categories": {}
+    "top_categories": {
+      "Restaurante": 3,
+      "Restaurante boliviano": 1,
+      "Restaurante vegetariano/vegano": 1,
+      "Tienda de ropa para mujeres": 1,
+      "Restaurante peruano": 1,
+      "Escuela · Escuela de cocina · Chef": 1,
+      "Ropa (marca)": 1
+    }
   }
 }

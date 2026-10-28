@@ -39,6 +39,10 @@ const ONCE = process.argv.includes('--once');
 const LIMIT = Number(process.env.FB_LIMIT ?? Infinity);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// Umbral de memoria libre (MB): el candado compartido gate.sh usa 700 para Chromium y 300 para HTTP.
+const MIN_FREE_MB = Number(process.env.MIN_FREE_MB ?? 800);
+// Cada tanda dura como mucho TANDA_MIN minutos (turnos de 40 min del candado).
+const TANDA_END = Date.now() + Number(process.env.TANDA_MIN ?? 1e9) * 60_000;
 const pause = (a, b) => sleep((a + Math.random() * (b - a)) * 1000);
 
 function readNdjson(file) {
@@ -457,7 +461,7 @@ async function handle(cand) {
 
 async function worker(queue, wid) {
   while (true) {
-    if (processed >= LIMIT) return;
+    if (processed >= LIMIT || Date.now() > TANDA_END) return;
     const cand = queue.shift();
     if (!cand) return;
     if (done.has(cand.key)) continue;
@@ -470,7 +474,7 @@ async function worker(queue, wid) {
     }
     // La laptop es compartida con otros agentes: sin 800 MB libres no se sigue. Con
     // navegador se mira antes de cada página; por HTTP (sin Chromium) antes de cada lote de 40.
-    while ((USE_BROWSER || processed % 40 === 0) && os.freemem() < 800 * 1024 * 1024) {
+    while ((USE_BROWSER || processed % 40 === 0) && os.freemem() < MIN_FREE_MB * 1024 * 1024) {
       console.log(`[mem] libre ${Math.round(os.freemem() / 1048576)} MB: espero 60 s`);
       await browser?.close().catch(() => undefined); browser = null;
       await sleep(60_000);

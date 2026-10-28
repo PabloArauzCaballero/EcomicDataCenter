@@ -4,6 +4,31 @@ Entrega de lugares tomados de páginas públicas de Facebook, leídas sin sesió
 Formato común de los 12 agentes: NDJSON comprimido con gzip, un objeto por página.
 Las cifras exactas de esta versión están en `manifest.json`, que manda sobre este texto.
 
+## Resumen (versión del 28-oct, 04:10)
+
+| | |
+|---|---|
+| Páginas publicadas, archivo principal | **384** (363 con departamento Santa Cruz, 21 sin ubicación declarada) |
+| Fuera del departamento (aparte) | 9 (6 La Paz, 1 Cochabamba, 2 extranjero) |
+| Con lat/lon | 345 (89,8 %) |
+| Con dirección | 353 (91,9 %) |
+| Con teléfono | 339 (88,3 %) |
+| Con lat/lon + dirección + teléfono | 305 (79,4 %) |
+| Con web · con WhatsApp de empresa | 131 (34,1 %) · 117 (30,5 %) |
+| Con horario semanal | 17 (4,4 %; sólo las leídas con navegador, ver «Método») |
+| Con post en los últimos 12 meses | 237 (61,7 %) |
+| Por municipio | Santa Cruz de la Sierra 327, Montero 28, Pailón 7, Cotoca 1 |
+| Consultas hechas | 25 de 11.280 previstas (89 páginas de resultados) |
+| Candidatos | 479 hallados, 428 leídos, 51 sin leer |
+| No publicados | 12 BLOCKED, 3 perfiles personales, 4 páginas de persona, 16 duplicados |
+
+**La entrega es parcial.** El descubrimiento cubrió 25 consultas (restaurantes, churrasquerías,
+pollerías, heladerías, cafeterías, panaderías, farmacias, ferreterías, agroveterinarias,
+maquinaria agrícola, ropa, peluquerías, supermercados; capital, Montero, Pailón, Equipetrol
+y algunos municipios chicos) de 11.280 previstas. Lo frenó la memoria de la laptop, no
+Facebook ni Yahoo (ver «Bloqueos»). Con `node run.mjs` o las tandas por el candado se
+retoma desde `work/` sin repetir nada.
+
 ## Archivos
 
 | Archivo | Qué trae |
@@ -52,9 +77,10 @@ Campos de cada fila: `source` (= `facebook`), `source_id` (id de la página), `n
    Zona Norte, del 2do al 8vo anillo, Doble Vía La Guardia, Av. Banzer, Sirari, Urubó…).
    Los tramos se intercalan: si el tiempo se acaba, la muestra cubre capital, municipios y
    zonas, no sólo la capital. Las consultas hechas y su rendimiento quedan en `manifest.json`.
-2. **Lectura.** Cada página se lee por HTTPS con un agente de usuario de Chrome de escritorio
-   (sin Chromium; ~1 s por página). Facebook entrega el mismo HTML que a un navegador, con
-   el JSON embebido. De ahí salen: el id y la categoría de la página (`delegate_page`), la
+2. **Lectura.** Cada página se lee por HTTPS con las cabeceras de navegación de un Chrome de
+   escritorio (agente de usuario, `accept`, `sec-fetch-*`), sin Chromium: ~1 s por página.
+   Facebook entrega el mismo HTML público que a un navegador, con el JSON embebido; sin las
+   cabeceras `sec-fetch-*` responde 400. No hay desafío ni login de por medio. De ahí salen: el id y la categoría de la página (`delegate_page`), la
    lista «Detalles» (dirección con lat/lon en el enlace a Google Maps, teléfono, web,
    estado del horario, rango de precios), las cifras de la `meta description` (seguidores,
    «Me gusta», «estuvieron aquí») y el `creation_time` de los posts embebidos. Si la página
@@ -92,31 +118,46 @@ Campos de cada fila: `source` (= `facebook`), `source_id` (id de la página), `n
   los ids de la página (`source_id`, `raw.page_id`, `raw.profile_id`, `raw.vanity_or_key`
   numérico), `source_url` cuando el número que lleva es uno de esos ids, y las marcas de
   tiempo ISO. Resultado de esta versión: **0 hallazgos**.
-- **Historial.** Ninguna versión anterior de esta rama se subió antes de aplicar estas
-  reglas: el primer push ya las incluye. No hace falta reescribir el historial.
+- **Una web con «@»** (perfil de otra red: `tiktok.com/@cuenta`) se retira de `website`
+  (`raw.website_removed_for_privacy`), porque el verificador no distingue un handle de un
+  correo. Una clave numérica que no es uno de los ids de la página tampoco se publica.
+- **Historial.** El primer push (`e5a7099`, 35 páginas) ya llevaba la lista de permitidos,
+  el limpiador NFKC y sólo filas OK; pasado por el verificador actual da 0 hallazgos. No
+  contiene filas no confirmadas ni texto con datos personales: no hace falta reescribir.
 
 ## Bloqueos y cómo se evitaron
 
 - **Bing** (el buscador que usaba el repo) devolvía resultados envenenados desde esta red:
   «churrasquería Santa Cruz Bolivia facebook» → letras de canciones; «Aproximadamente 57
   resultados». **Google, Brave, Mojeek, Startpage y Yandex** responden con un desafío
-  anti-robots y **DuckDuckGo** con un error. No se intentó resolver ningún desafío.
-  **Yahoo** sí contesta y respeta `site:facebook.com`: es el buscador de esta entrega.
-- **Facebook sin sesión** no pidió login en ninguna lectura de esta versión. Las páginas
-  BLOCKED fueron fichas que llegaron sin metadatos (2 en esta versión) y se reintentan.
+  anti-robots y **DuckDuckGo** (versión lite, en navegador) con un error. No se intentó
+  resolver ni esquivar ningún desafío. **Yahoo** sí contesta y respeta `site:facebook.com`:
+  es el buscador de esta entrega. Por HTTP sin navegador Yahoo responde 500, así que el
+  descubrimiento necesita Chromium.
+- **Facebook sin sesión** no pidió login en ninguna lectura. Las 12 BLOCKED son fichas que
+  llegaron con HTTP 200 pero sin metadatos ni `delegate_page`; cada una se intentó dos
+  veces y no se publica.
 - **Memoria de la laptop.** La máquina es compartida con otros 11 agentes y estuvo casi
   todo el tiempo con menos de 800 MB libres. Por orden del coordinador: un solo Chromium a
-  la vez, descubrimiento y lectura en serie (`run.mjs`), y espera de 60 s cada vez que la
-  memoria libre baja de 800 MB (antes de cada página con navegador y de cada lote de 40
-  por HTTP). Ese freno, no Facebook ni Yahoo, es lo que limitó el volumen. Por eso la
-  lectura pasó de Chromium a HTTPS.
+  la vez, espera de 60 s mientras la memoria libre esté bajo el umbral (800 MB al principio;
+  700 para Chromium y 300 para HTTP desde que existe el candado compartido `gate.sh`) y
+  tandas de 35 min como máximo (`TANDA_MIN`). Claude Code mató por falta de memoria tres
+  veces los procesos de esta entrega (el orquestador `run.mjs` y dos tandas por el
+  candado); otra sesión mató por error un `discover.mjs`. Tras la segunda muerte de una
+  tanda relanzada se paró, como pedía la regla, y se entregó lo leído. Para no quedarse
+  sin lecturas, la lectura pasó de Chromium a HTTPS: con eso 315 páginas se leyeron en una
+  sola tanda.
 
 ## Cómo reproducir o continuar
 
 ```
-node run.mjs <horas> <consultasPorTanda> <paginasPorTanda>   # retoma desde work/
+# por el candado compartido, en tandas de 35 min
+TANDA_MIN=35 MIN_FREE_MB=700 bash gate.sh chromium 700 node discover.mjs
+TANDA_MIN=35 MIN_FREE_MB=300 bash gate.sh http 300 node fetch.mjs 1 --once
+# o todo en serie, sin candado
+node run.mjs <horas> <consultasPorTanda> <paginasPorTanda>
 node package.mjs
-node verify-privacy.mjs
+node verify-privacy.mjs   # debe dar 0 hallazgos
 ```
 
 Playwright se toma del `node_modules` del checkout principal (ruta fija al principio de

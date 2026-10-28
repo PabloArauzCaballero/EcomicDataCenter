@@ -116,7 +116,14 @@ for (const r of byKey.values()) {
   const sourceId = String(r.page_id ?? r.profile_id ?? r.key);
   if (records.has(sourceId)) { removed.duplicado_misma_pagina += 1; continue; }
   // Identificadores de la página: estructurales, no texto libre (exentos del verificador).
-  const ids = { page_id: r.page_id, profile_id: r.profile_id, vanity_or_key: r.key };
+  // Una clave numérica que no coincide con los ids de la página (un enlace viejo que
+  // redirige) no se publica: sólo el vanity textual o un id confirmado.
+  // «nombre-de-la-pagina-114363685374651» se publica como el id, si es uno de los suyos.
+  const knownIds = [r.page_id, r.profile_id].filter(Boolean).map(String);
+  const slugId = /-(\d{7,})$/.exec(r.key)?.[1];
+  const key = slugId ? (knownIds.includes(slugId) ? slugId : null) : r.key;
+  const keyOk = key && (!/\d{7,}/.test(key) || knownIds.includes(key));
+  const ids = { page_id: r.page_id, profile_id: r.profile_id, vanity_or_key: keyOk ? key : null };
   const freeText = {
     category_fb_en: d.category_fb_en,
     page_kind: d.page_kind ?? 'pagina',
@@ -132,7 +139,9 @@ for (const r of byKey.values()) {
   const wa = d.whatsapp ? `+${String(d.whatsapp).replace(/^\+/, '')}` : null;
   const waSame = Boolean(wa && d.phone && wa.replace(/\D/g, '').endsWith(d.phone.replace(/\D/g, '')));
   const phone = [d.phone, wa && !waSame ? `WhatsApp ${wa}` : null].filter(Boolean).join(' · ') || null;
-  const website = flagged(d.website) ? null : d.website;
+  // Una web con «@» (perfil de otra red, p. ej. tiktok.com/@cuenta) o con tramos de
+  // 7+ dígitos se retira: el verificador no distingue un handle de un correo.
+  const website = flagged(d.website) || /@|arroba/i.test(d.website ?? '') ? null : d.website;
   const rec = {
     source: 'facebook',
     source_id: sourceId,

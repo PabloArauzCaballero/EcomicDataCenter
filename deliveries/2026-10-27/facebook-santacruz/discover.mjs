@@ -164,6 +164,10 @@ const knownKeys = new Set(readNdjson(CANDIDATES).map((x) => x.key));
 
 // ---------------------------------------------------------------- navegador
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// Umbral de memoria libre (MB): el candado compartido gate.sh usa 700 para Chromium y 300 para HTTP.
+const MIN_FREE_MB = Number(process.env.MIN_FREE_MB ?? 800);
+// Cada tanda dura como mucho TANDA_MIN minutos (turnos de 40 min del candado).
+const TANDA_END = Date.now() + Number(process.env.TANDA_MIN ?? 1e9) * 60_000;
 const pause = (a, b) => sleep((a + Math.random() * (b - a)) * 1000);
 
 let browser = null;
@@ -209,7 +213,7 @@ let ran = 0;
 let emptyStreak = 0;
 console.log(`consultas: ${all.length}, hechas: ${doneQueries.size}, candidatos: ${knownKeys.size}`);
 for (const q of all) {
-  if (ran >= max) break;
+  if (ran >= max || Date.now() > TANDA_END) break;
   for (const offset of [1, 8, 15]) {
     const id = `${q.text}#${offset}`;
     if (doneQueries.has(id)) {
@@ -218,7 +222,7 @@ for (const q of all) {
       if (prev !== undefined && prev < 3) break;
       continue;
     }
-    while (os.freemem() < 800 * 1024 * 1024) {
+    while (os.freemem() < MIN_FREE_MB * 1024 * 1024) {
       console.log(`[mem] libre ${Math.round(os.freemem() / 1048576)} MB: espero 60 s`);
       await browser?.close().catch(() => undefined); browser = null;
       await sleep(60_000);
@@ -260,5 +264,5 @@ for (const q of all) {
   }
 }
 await browser?.close().catch(() => undefined);
-if (ran < max) fs.writeFileSync(DONE_FLAG, new Date().toISOString());
+if (ran < max && Date.now() <= TANDA_END) fs.writeFileSync(DONE_FLAG, new Date().toISOString());
 console.log(`fin: ${ran} consultas, ${knownKeys.size} candidatos`);
