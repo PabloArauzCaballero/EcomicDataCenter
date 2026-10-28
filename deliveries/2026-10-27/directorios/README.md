@@ -8,19 +8,19 @@ términos prohíben este uso.
 
 | Directorio | Fichas en Bolivia | Fichas bajadas | % con coordenadas | % con dirección | % con NIT | % con fecha |
 |---|---:|---:|---:|---:|---:|---:|
-| amarillas.bo (Páginas Amarillas de Bolivia) | 3.541 empresas únicas (4.660 pares rubro×empresa) | 3.540 (99,97 %) | 0 | 98,8 | 0 | 0 |
+| amarillas.bo (Páginas Amarillas de Bolivia) | 3.541 empresas únicas (4.660 pares rubro×empresa) | 3.541 (100 %) | 0 | 98,8 | 0 | 0 |
 | boliviaempresas.com | 964 | 964 (100 %) | 0 | 17,0 | 0 | 100 (fecha de alta) |
 | CADECOCRUZ (Cámara de la Construcción de Santa Cruz) | 72 | 72 (100 %) | 0 | 100 | 0 | 0 |
-| **Total** | | **4.576** | | | | |
+| **Total** | | **4.577** | | | | |
 
-Teléfono comercial: amarillas.bo 4,9 % por ahora (ver la nota de abajo), boliviaempresas.com
-49,6 % y CADECOCRUZ 100 %. Departamento: 100 % en las tres.
+Teléfono comercial: amarillas.bo 47,1 %, boliviaempresas.com 49,6 % y CADECOCRUZ 100 %.
+Departamento: 100 % en las tres.
 
-**amarillas.bo: el teléfono sigue en curso.** Ya están recorridos los 584 rubros, así que 3.540
-de las 3.541 empresas tienen nombre, rubros, dirección, zona y departamento. El slug que falta
-salía en la lista de rubros pero no en ninguna tarjeta. El teléfono y la web solo vienen en la
-página de cada empresa: en este corte van 331 de 3.541, y alrededor de la mitad trae teléfono
-comercial. El recorrido sigue a través del candado compartido de memoria (`gate.sh http 300`).
+**amarillas.bo: faltan algunas páginas de empresa.** Las 3.541 empresas tienen nombre, rubros,
+departamento y, en el 98,8 %, dirección y zona. El teléfono y la web solo vienen en la página de
+cada empresa, y en este corte se leyeron 2.811 de 3.541 (79 %). Las demás todavía no tienen
+teléfono; `raw.company_page_fetched = false` las marca. Ese recorrido es reanudable (ver «Cómo
+reanudar»).
 
 «Fichas en Bolivia» es lo que el propio sitio publica, no lo que dice su publicidad. En
 boliviaempresas.com, por ejemplo, el título promete «+50.000 empresas» y su API pública devuelve
