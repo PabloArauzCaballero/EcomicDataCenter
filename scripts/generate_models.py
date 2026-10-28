@@ -64,8 +64,13 @@ def render_model(entity: dict[str, object]) -> tuple[str, str]:
     fields = entity['fields']
     assert isinstance(fields, list)
 
+    # CreationOptional marks the generated primary key; a table whose key is a
+    # composite constraint has none, and importing it unused fails the lint gate.
+    has_primary = any(isinstance(field, dict) and field['primary_key'] for field in fields)
+    sequelize_types = ['CreationOptional'] if has_primary else []
+    sequelize_types += ['InferAttributes', 'InferCreationAttributes']
     body: list[str] = [
-        "import { CreationOptional, InferAttributes, InferCreationAttributes } from 'sequelize';",
+        f"import {{ {', '.join(sequelize_types)} }} from 'sequelize';",
         "import { Column, DataType, Model, Table } from 'sequelize-typescript';",
         '',
         f"@Table({{ tableName: '{table}', schema: '{schema}', timestamps: false, underscored: true }})",
