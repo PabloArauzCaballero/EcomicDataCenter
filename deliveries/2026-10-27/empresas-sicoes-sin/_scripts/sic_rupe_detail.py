@@ -35,7 +35,13 @@ if os.path.exists(out):
             pass
 todo = [k for k, r in rows.items() if k not in done and not any(n in (r.get('tipoProveedor') or '') for n in NATURAL)]
 # primero los que tienen NIT
-todo.sort(key=lambda k: 0 if 'Tributaria' in (rows[k].get('tipoDocumento') or '') else 1)
+def prio(k):
+    t = rows[k].get('tipoProveedor') or ''
+    return (0 if 'Tributaria' in (rows[k].get('tipoDocumento') or '') else 1,
+            2 if 'Accidental' in t else (1 if 'Extranjera' in t else 0))
+
+
+todo.sort(key=prio)
 if LIMIT:
     todo = todo[:LIMIT]
 print('listados', len(rows), 'hechos', len(done), 'por hacer', len(todo), flush=True)

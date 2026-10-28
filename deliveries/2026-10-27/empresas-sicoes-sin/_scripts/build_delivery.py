@@ -55,7 +55,7 @@ def build_rupe():
     os.makedirs(os.path.join(OUT, 'sicoes_rupe'), exist_ok=True)
     fn = os.path.join(OUT, 'sicoes_rupe', 'sicoes_rupe_proveedores.ndjson.gz')
     c = collections.Counter()
-    with gzip.open(fn, 'wt', encoding='utf-8') as f:
+    with gzip.open(fn, 'wt', encoding='utf-8', newline=chr(10)) as f:
         for k in sorted(rows, key=lambda x: int(x) if x.isdigit() else 0):
             r = rows[k]
             tipo = clean(r.get('tipoProveedor'))
@@ -109,7 +109,7 @@ def build_sin():
     fn = os.path.join(OUT, 'sin', 'sin_listas_publicadas.ndjson.gz')
     c = collections.Counter()
     nits = set()
-    with gzip.open(fn, 'wt', encoding='utf-8') as f:
+    with gzip.open(fn, 'wt', encoding='utf-8', newline=chr(10)) as f:
         for line in open(src, encoding='utf-8'):
             r = json.loads(line)
             f.write(json.dumps(ordered(r), ensure_ascii=False) + '\n')
@@ -124,18 +124,23 @@ def build_sin():
 
 
 files = [build_rupe(), build_sin()]
+inv_src = os.path.join(DL, 'sin', 'scan.jsonl')
+if os.path.exists(inv_src):
+    with open(inv_src, encoding='utf-8') as a, open(os.path.join(OUT, 'sin', 'inventario_pdfs_sin.jsonl'), 'w', encoding='utf-8', newline='\n') as b:
+        for line in a:
+            b.write(line.rstrip('\r\n') + '\n')
 man = {'generated_at': NOW, 'branch': 'datos/2026-10-27-empresas-sicoes-sin', 'files': [], 'stats': stats}
-for fn in files + sorted(glob.glob(os.path.join(OUT, '**', '*.json'), recursive=True)):
-    if fn.endswith('manifest.json'):
-        continue
 for fn in sorted(glob.glob(os.path.join(OUT, '**', '*'), recursive=True)):
-    if os.path.isdir(fn) or fn.endswith('manifest.json'):
+    rel = os.path.relpath(fn, OUT).replace(os.sep, '/')
+    if os.path.isdir(fn) or rel == 'manifest.json' or rel.startswith('_scripts') or rel == 'README.md':
         continue
     h = hashlib.sha256(open(fn, 'rb').read()).hexdigest()
-    ent = {'path': os.path.relpath(fn, OUT).replace('\\', '/'), 'sha256': h, 'bytes': os.path.getsize(fn)}
+    ent = {'path': rel, 'sha256': h, 'bytes': os.path.getsize(fn)}
     if fn.endswith('.ndjson.gz'):
         with gzip.open(fn, 'rt', encoding='utf-8') as g:
             ent['rows'] = sum(1 for _ in g)
+    elif fn.endswith('.jsonl'):
+        ent['rows'] = sum(1 for _ in open(fn, encoding='utf-8'))
     man['files'].append(ent)
-json.dump(man, open(os.path.join(OUT, 'manifest.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+json.dump(man, open(os.path.join(OUT, 'manifest.json'), 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, indent=1)
 print(json.dumps(stats, ensure_ascii=False, indent=1))

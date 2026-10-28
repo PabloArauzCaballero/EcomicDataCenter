@@ -5,7 +5,7 @@ Recolección del 27-oct-2026 para enriquecer y cruzar el registro del SEPREC. Do
 
 | Carpeta | Archivo | Filas | Con NIT | Con dirección | Con NIT y dirección |
 |---|---|---:|---:|---:|---:|
-| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 10.134 (10,1 %) | 10.134 (10,1 %) |
+| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 10.776 (10,7 %) | 10.776 (10,7 %) |
 | `sin/` | `sin_listas_publicadas.ndjson.gz` | 743.326 | 743.326 (100 %) | 0 (0 %) | 0 (0 %) |
 | (sin carpeta) | Ministerio de Trabajo | 0 | — | — | — |
 
@@ -56,6 +56,9 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
 - Personas naturales: solo se guardan NIT, tipo, estado, departamento y actividad. No se guarda el nombre, el documento de
   identidad, la dirección ni los contactos. Las que no tienen NIT (solo carnet) se excluyen.
 - De la ficha **no** se guardan teléfono, fax, casilla ni correo, ni siquiera en `raw`, en ningún tipo de proveedor.
+- Las empresas unipersonales se guardan como empresas, con nombre y dirección. El RUPE las registra como
+  «Empresa-Persona Jurídica», con NIT, aunque la razón social sea el nombre de una persona. La dirección es la que el
+  proveedor declaró al Estado; puede coincidir con su vivienda. Quien publique estos datos debería revisarlo.
 
 ### Cobertura
 
@@ -81,10 +84,10 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
   naturales extranjeras obtenidas no se guarda ninguna, porque ninguna tiene NIT.
 - Las asociaciones accidentales (consorcios para una licitación) no tienen NIT en el RUPE. El documento con que se registran va
   en `raw.numero_documento`.
-- **Fichas consultadas (`getDatosRupe`): 10.134 de 100.569 filas.** La dirección y la actividad solo vienen en las filas con
+- **Fichas consultadas (`getDatosRupe`): 10.776 de 100.569 filas.** La dirección y la actividad solo vienen en las filas con
   `raw.detalle_consultado = true`. El orden de consulta fue: primero los proveedores con NIT (empresas, cooperativas, OECAS, APPS,
   asociaciones civiles, entidades públicas), después las personas jurídicas extranjeras y al final las asociaciones accidentales.
-  **Estado de la reanudación (corte 22:15):** la consulta de fichas sigue en curso. Se reanuda con `python -P _scripts/sic_rupe_detail.py <dir> 2`, que salta los códigos RUPE ya guardados en `detail.jsonl`.
+  **Estado de la reanudación (corte 22:20):** la consulta de fichas sigue en curso. Se reanuda con `python -P _scripts/sic_rupe_detail.py <dir> 2`, que salta los códigos RUPE ya guardados en `detail.jsonl`.
 
 ### Adjudicaciones (`adjudicado_por_anio`)
 
