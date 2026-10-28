@@ -63,11 +63,13 @@ truncada devolviera las filas más nuevas mientras el lector cree estar continua
 | `GET /admin/inquiries` | SUBSCRIPTION_ADMIN | Consultas, más recientes primero, con el conteo por estado. |
 | `PATCH /admin/inquiries/{serviceInquiryId}` | SUBSCRIPTION_ADMIN | Cambia estado y nota; registra quién y cuándo. 404 si no existe. |
 | `GET /admin/subscriptions/accounts` | SUBSCRIPTION_ADMIN | Suscriptores, más recientes primero, con el uso del mes por tipo. |
-| `POST /admin/subscriptions/accounts` | SUBSCRIPTION_ADMIN | **201**. Abre la cuenta (TRIAL si `trialDays > 0`, si no PENDING) y devuelve una vez el token de activación. 409 si el correo ya existe. |
-| `PATCH /admin/subscriptions/accounts/{subscriberAccountId}` | SUBSCRIPTION_ADMIN | Plan, periodo, estado y datos de facturación. |
-| `GET/POST /admin/subscriptions/accounts/{subscriberAccountId}/payments` | SUBSCRIPTION_ADMIN | Libro de pagos (solo inserción). Registrar uno deja la cuenta ACTIVE hasta las 23:59:59 de La Paz del día cubierto. |
-| `POST /admin/subscriptions/accounts/{subscriberAccountId}/tokens` | SUBSCRIPTION_ADMIN | **201**. Token de activación o restablecimiento, 7 días, un solo uso; se devuelve una vez. |
-| `/site/subscriptions/*` | SITE_SUBSCRIPTIONS | Área /cuenta del sitio: sesión, cuenta, claves de API, contraseña, activación, uso y verificación de claves. |
+| `POST /admin/subscriptions/accounts` | SUBSCRIPTION_ADMIN | **201**. Abre la cuenta (TRIAL si `trialDays > 0`, si no PENDING) y devuelve una vez el token de activación. 409 si el correo ya es de un titular o de un miembro ACTIVE. |
+| `PATCH /admin/subscriptions/accounts/{subscriberAccountId}` | SUBSCRIPTION_ADMIN | Plan, periodo, estado y datos de facturación. `unlock: true` borra el bloqueo de inicio de sesión del titular y su contador. |
+| `GET/POST /admin/subscriptions/accounts/{subscriberAccountId}/payments` | SUBSCRIPTION_ADMIN | Libro de pagos (solo inserción). Registrar uno deja la cuenta ACTIVE y `paid_until = GREATEST(actual, 23:59:59 de La Paz del día cubierto)`: nunca retrocede. |
+| `POST /admin/subscriptions/accounts/{subscriberAccountId}/tokens` | SUBSCRIPTION_ADMIN | **201**. Token de activación o restablecimiento del titular, 7 días, un solo uso; se devuelve una vez y anula los anteriores sin usar del mismo propósito. |
+| `POST /admin/subscriptions/accounts/{subscriberAccountId}/sessions/revoke` | SUBSCRIPTION_ADMIN | Sube el `sessionVersion` del titular y de todos sus miembros: cierra todas sus sesiones. |
+| `GET /admin/subscriptions/accounts/{subscriberAccountId}/members` | SUBSCRIPTION_ADMIN | Miembros de la cuenta, con la misma forma que la ruta del sitio. |
+| `/site/subscriptions/*` | SITE_SUBSCRIPTIONS | Área /cuenta del sitio: sesión (titular o miembro ACTIVE; **423** con `error.details.retryAfterSeconds` tras 10 fallos seguidos, 15 min), cuenta y datos de facturación, cierre de sesiones, claves de API, contraseña, activación, restablecimiento (**201** con token o **202** vacío), miembros, avisos (candidatos y reclamo **201**/200 idempotente), uso y verificación de claves. |
 | `POST /api/v1/quality/evaluations` | METHODOLOGY_STEWARD | Ejecuta las reglas declaradas a un corte. |
 
 ### Ejemplo: pedir una reconciliación
@@ -124,7 +126,7 @@ es el que aparece en el log del servidor.
 | `SITE_TELEMETRY` | El sitio público necesita poder informar sobre sí mismo y nada más. Darle `INGESTION_AGENT` habría sido una línea más corta y habría permitido que un servidor web comprometido enviara observaciones económicas. |
 | `SITE_INQUIRY` | El formulario de servicios escribe nombre, correo y texto libre, que no son un contador de visitas. Tiene su propio token para que el de telemetría no pueda llenar la bandeja, y no puede leer lo que envía: un token filtrado no expone el correo de nadie. |
 | `SUBSCRIPTION_ADMIN` | Quien atiende a los clientes lee y actualiza las consultas y nada más; es el **único** rol que las ve, porque cada fila lleva nombre, correo, teléfono y texto libre. Ensanchar un rol editorial u operativo para cubrirlo habría dado derechos de catálogo o metodología a quien responde la bandeja comercial. |
-| `SITE_SUBSCRIPTIONS` | El área /cuenta del sitio inicia sesión, gestiona claves y contraseña del propio cliente y cuenta su uso. No abre cuentas, no registra pagos ni cambia planes, y es un token aparte de los de telemetría y consultas para que ninguno de ellos pueda verificar contraseñas ni emitir claves. |
+| `SITE_SUBSCRIPTIONS` | El área /cuenta del sitio inicia sesión, gestiona claves, contraseña, datos de facturación y miembros del propio cliente, reclama los avisos que envía y cuenta su uso. No abre cuentas, no registra pagos ni cambia planes, y es un token aparte de los de telemetría y consultas para que ninguno de ellos pueda verificar contraseñas ni emitir claves. |
 
 La separación de deberes existente se mantiene: `token-claims.parser` sigue impidiendo que
 un token de `INGESTION_AGENT` lleve otros roles.

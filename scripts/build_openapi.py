@@ -571,6 +571,15 @@ def with_status(item, status, description):
     return item
 
 
+def with_responses(item, extra):
+    """Adds the statuses an operation answers besides the generic ones, keyed by code."""
+    for status, description in extra.items():
+        schema = {"type": "object", "additionalProperties": True} if status.startswith("2") else ref("ErrorResponse")
+        item["responses"][status] = response(description, schema)
+    item["responses"] = dict(sorted(item["responses"].items()))
+    return item
+
+
 schemas["SubscriberSessionInput"] = obj({
     "email": {"type": "string", "format": "email", "maxLength": 200},
     "password": {"type": "string", "minLength": 1, "maxLength": 200},
@@ -614,7 +623,27 @@ schemas["SubscriberAccountUpdateInput"] = obj({
     "legalName": {"type": "string", "maxLength": 200, "nullable": True},
     "taxId": {"type": "string", "maxLength": 40, "nullable": True},
     "organization": {"type": "string", "maxLength": 160, "nullable": True},
+    "unlock": {"type": "boolean", "enum": [True], "description": "Clears the owner's sign-in lock and failure count."},
 })
+schemas["SubscriberProfileInput"] = obj({
+    "organization": {"type": "string", "maxLength": 160, "nullable": True},
+    "legalName": {"type": "string", "maxLength": 200, "nullable": True},
+    "taxId": {"type": "string", "maxLength": 40, "nullable": True},
+})
+schemas["SubscriberPasswordResetInput"] = obj({
+    "email": {"type": "string", "format": "email", "maxLength": 200},
+}, ("email",))
+schemas["SubscriberNoticeClaimInput"] = obj({
+    "subscriberAccountId": UUID,
+    "kind": {"type": "string", "enum": ["USAGE_80", "EXPIRY_5D", "GRACE"]},
+    "periodKey": {"type": "string", "minLength": 1, "maxLength": 40,
+                  "description": "YYYY-MM for USAGE_80; the paidUntil day (date or ISO instant) otherwise."},
+}, ("subscriberAccountId", "kind", "periodKey"))
+schemas["SubscriberMemberInput"] = obj({
+    "email": {"type": "string", "format": "email", "maxLength": 200},
+    "fullName": {"type": "string", "minLength": 2, "maxLength": 120},
+    "maxMembers": {"type": "integer", "minimum": 0, "maximum": 100},
+}, ("email", "fullName", "maxMembers"))
 schemas["SubscriberPaymentInput"] = obj({
     "amountBob": {"type": "number", "exclusiveMinimum": True, "minimum": 0, "maximum": 9999999999.99},
     "coversUntil": {"type": "string", "format": "date"},
@@ -625,12 +654,43 @@ schemas["SubscriberTokenInput"] = obj({
 }, ("purpose",))
 
 SITE_SUBS_PATH = f"{API}/site/subscriptions"
-paths[f"{SITE_SUBS_PATH}/sessions"] = {"post": operation(
-    "openSubscriberSession", "Check a customer sign-in; one generic 401 for every failure",
-    SUBS_TAG, SITE_SUBS, "SubscriberSessionInput")}
-paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}"] = {"get": operation(
-    "getSubscriberAccount", "Account, this month's usage and API keys",
-    SUBS_TAG, SITE_SUBS, parameters=[SUBS_ACCOUNT_PARAM])}
+SUBS_MEMBER_PARAM = {"name": "memberId", "in": "path", "required": True, "schema": UUID}
+paths[f"{SITE_SUBS_PATH}/sessions"] = {"post": with_responses(operation(
+    "openSubscriberSession", "Sign in an owner or an ACTIVE member; one generic 401 for every failure, 423 while locked after 10 consecutive failures",
+    SUBS_TAG, SITE_SUBS, "SubscriberSessionInput"), {"423": "Locked; error.details.retryAfterSeconds says how long, even when the password is right"})}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}"] = {
+    "get": operation("getSubscriberAccount", "Account, this month's usage and API keys",
+                     SUBS_TAG, SITE_SUBS, parameters=[SUBS_ACCOUNT_PARAM]),
+    "patch": with_responses(operation("updateSubscriberProfile", "Change the invoicing data; null or blank clears a field, an absent one keeps it",
+                                      SUBS_TAG, SITE_SUBS, "SubscriberProfileInput", [SUBS_ACCOUNT_PARAM]), {"404": "Unknown account"}),
+}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/sessions/revoke"] = {"post": with_responses(operation(
+    "revokeSubscriberSessions", "End the owner's sessions by raising its sessionVersion",
+    SUBS_TAG, SITE_SUBS, parameters=[SUBS_ACCOUNT_PARAM]), {"404": "Unknown account"})}
+paths[f"{SITE_SUBS_PATH}/password-resets"] = {"post": with_responses(with_status(operation(
+    "requestSubscriberPasswordReset", "Issue a reset token for an owner, or an ACTIVE member, of an account that is not CANCELLED; 202 with an empty data object otherwise",
+    SUBS_TAG, SITE_SUBS, "SubscriberPasswordResetInput"), "201", "Token issued, answered once"), {"202": "Nobody may reset with this e-mail"})}
+paths[f"{SITE_SUBS_PATH}/notices/candidates"] = {"get": operation(
+    "listSubscriberNoticeCandidates", "Every account that is neither PENDING nor CANCELLED, with this month's usage and its ACTIVE members",
+    SUBS_TAG, SITE_SUBS)}
+paths[f"{SITE_SUBS_PATH}/notices/claim"] = {"post": with_responses(with_status(operation(
+    "claimSubscriberNotice", "Claim a notice before sending it; 201 claimed:true once, 200 claimed:false after",
+    SUBS_TAG, SITE_SUBS, "SubscriberNoticeClaimInput"), "201", "First claim"), {"200": "Already claimed", "404": "Unknown account"})}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/members"] = {
+    "get": with_responses(operation("listSubscriberMembers", "Members of an account, oldest first",
+                                    SUBS_TAG, SITE_SUBS, parameters=[SUBS_ACCOUNT_PARAM]), {"404": "Unknown account"}),
+    "post": with_responses(with_status(operation("addSubscriberMember", "Invite a member and answer its activation token once; 409 when the e-mail is in use or the plan has no seat left",
+                                                 SUBS_TAG, SITE_SUBS, "SubscriberMemberInput", [SUBS_ACCOUNT_PARAM]), "201", "Member added"), {"404": "Unknown account"}),
+}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/members/{{memberId}}"] = {"get": with_responses(operation(
+    "getSubscriberMember", "One member, with its status and sessionVersion",
+    SUBS_TAG, SITE_SUBS, parameters=[SUBS_ACCOUNT_PARAM, SUBS_MEMBER_PARAM]), {"404": "Unknown member"})}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/members/{{memberId}}/remove"] = {"post": with_responses(with_status(operation(
+    "removeSubscriberMember", "Remove a member and end its sessions", SUBS_TAG, SITE_SUBS,
+    parameters=[SUBS_ACCOUNT_PARAM, SUBS_MEMBER_PARAM]), "204", "Member removed"), {"404": "Unknown member"})}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/members/{{memberId}}/password"] = {"post": with_responses(with_status(operation(
+    "changeSubscriberMemberPassword", "Change an ACTIVE member's password; 401 when the current one is wrong",
+    SUBS_TAG, SITE_SUBS, "SubscriberPasswordInput", [SUBS_ACCOUNT_PARAM, SUBS_MEMBER_PARAM]), "204", "Password changed"), {"404": "Unknown member"})}
 paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/api-keys"] = {"post": with_status(operation(
     "createSubscriberApiKey", "Mint an API key; the full key is answered once",
     SUBS_TAG, SITE_SUBS, "SubscriberApiKeyInput", [SUBS_ACCOUNT_PARAM]), "201", "Key created")}
@@ -642,7 +702,7 @@ paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/password"] = {"post": 
     "changeSubscriberPassword", "Change the password; 401 when the current one is wrong",
     SUBS_TAG, SITE_SUBS, "SubscriberPasswordInput", [SUBS_ACCOUNT_PARAM]), "204", "Password changed")}
 paths[f"{SITE_SUBS_PATH}/activations"] = {"post": operation(
-    "activateSubscriberAccount", "Spend a one-time token and set the password; 400 if the token is not valid",
+    "activateSubscriberAccount", "Spend a one-time token and set the password of the owner or member it names; 400 if the token is not valid",
     SUBS_TAG, SITE_SUBS, "SubscriberActivationInput")}
 paths[f"{SITE_SUBS_PATH}/usage"] = {"post": operation(
     "recordSubscriberUsage", "Add to this month's usage counter",
@@ -663,16 +723,22 @@ paths[f"{ADMIN_SUBS_PATH}/accounts"] = {
                                   SUBS_TAG, SUBS_ADMIN, "SubscriberAccountInput"), "201", "Account created"),
 }
 paths[f"{ADMIN_SUBS_PATH}/accounts/{{subscriberAccountId}}"] = {"patch": operation(
-    "updateSubscriberAccount", "Change plan, billing period, state or invoicing data",
+    "updateSubscriberAccount", "Change plan, billing period, state or invoicing data; unlock: true clears the sign-in lock",
     SUBS_TAG, SUBS_ADMIN, "SubscriberAccountUpdateInput", [SUBS_ACCOUNT_PARAM])}
+paths[f"{ADMIN_SUBS_PATH}/accounts/{{subscriberAccountId}}/sessions/revoke"] = {"post": with_responses(operation(
+    "revokeSubscriberAccountSessions", "End the sessions of the owner and of every member",
+    SUBS_TAG, SUBS_ADMIN, parameters=[SUBS_ACCOUNT_PARAM]), {"404": "Unknown account"})}
+paths[f"{ADMIN_SUBS_PATH}/accounts/{{subscriberAccountId}}/members"] = {"get": with_responses(operation(
+    "listSubscriberAccountMembers", "Members of an account, oldest first",
+    SUBS_TAG, SUBS_ADMIN, parameters=[SUBS_ACCOUNT_PARAM]), {"404": "Unknown account"})}
 paths[f"{ADMIN_SUBS_PATH}/accounts/{{subscriberAccountId}}/payments"] = {
     "get": operation("listSubscriberPayments", "Payments of one account, newest first",
                      SUBS_TAG, SUBS_ADMIN, parameters=[SUBS_ACCOUNT_PARAM]),
-    "post": with_status(operation("recordSubscriberPayment", "Record a payment; the account becomes ACTIVE until the covered day ends in La Paz",
+    "post": with_status(operation("recordSubscriberPayment", "Record a payment; the account becomes ACTIVE and paid_until moves to the end of the covered day in La Paz, never back",
                                   SUBS_TAG, SUBS_ADMIN, "SubscriberPaymentInput", [SUBS_ACCOUNT_PARAM]), "201", "Payment recorded"),
 }
 paths[f"{ADMIN_SUBS_PATH}/accounts/{{subscriberAccountId}}/tokens"] = {"post": with_status(operation(
-    "issueSubscriberToken", "Issue a one-time activation or reset token, answered once",
+    "issueSubscriberToken", "Issue a one-time activation or reset token, answered once; earlier unused ones of the same purpose stop working",
     SUBS_TAG, SUBS_ADMIN, "SubscriberTokenInput", [SUBS_ACCOUNT_PARAM]), "201", "Token issued")}
 paths[f"{API}/admin/seeds/packages"] = {"get": operation(
     "listSeedPackages", "Seed manifest next to the ledger of what was applied",

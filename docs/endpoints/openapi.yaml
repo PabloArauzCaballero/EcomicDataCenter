@@ -4819,7 +4819,7 @@ paths:
         in: query
         schema:
           type: string
-          enum: &id017
+          enum: &id018
           - NEW
           - CONTACTED
           - WON
@@ -4987,7 +4987,8 @@ paths:
   /api/v1/site/subscriptions/sessions:
     post:
       operationId: openSubscriberSession
-      summary: Check a customer sign-in; one generic 401 for every failure
+      summary: Sign in an owner or an ACTIVE member; one generic 401 for every failure,
+        423 while locked after 10 consecutive failures
       tags:
       - Subscriptions
       responses:
@@ -5024,6 +5025,13 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
         '422':
           description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '423':
+          description: Locked; error.details.retryAfterSeconds says how long, even
+            when the password is right
           content:
             application/json:
               schema:
@@ -5127,6 +5135,762 @@ paths:
         in: path
         required: true
         schema: *id002
+    patch:
+      operationId: updateSubscriberProfile
+      summary: Change the invoicing data; null or blank clears a field, an absent
+        one keeps it
+      tags:
+      - Subscriptions
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberProfileInput'
+      parameters:
+      - *id012
+  /api/v1/site/subscriptions/accounts/{subscriberAccountId}/sessions/revoke:
+    post:
+      operationId: revokeSubscriberSessions
+      summary: End the owner's sessions by raising its sessionVersion
+      tags:
+      - Subscriptions
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      parameters:
+      - *id012
+  /api/v1/site/subscriptions/password-resets:
+    post:
+      operationId: requestSubscriberPasswordReset
+      summary: Issue a reset token for an owner, or an ACTIVE member, of an account
+        that is not CANCELLED; 202 with an empty data object otherwise
+      tags:
+      - Subscriptions
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '202':
+          description: Nobody may reset with this e-mail
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberPasswordResetInput'
+  /api/v1/site/subscriptions/notices/candidates:
+    get:
+      operationId: listSubscriberNoticeCandidates
+      summary: Every account that is neither PENDING nor CANCELLED, with this month's
+        usage and its ACTIVE members
+      tags:
+      - Subscriptions
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+  /api/v1/site/subscriptions/notices/claim:
+    post:
+      operationId: claimSubscriberNotice
+      summary: Claim a notice before sending it; 201 claimed:true once, 200 claimed:false
+        after
+      tags:
+      - Subscriptions
+      responses:
+        '200':
+          description: Already claimed
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberNoticeClaimInput'
+  /api/v1/site/subscriptions/accounts/{subscriberAccountId}/members:
+    get:
+      operationId: listSubscriberMembers
+      summary: Members of an account, oldest first
+      tags:
+      - Subscriptions
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      parameters:
+      - *id012
+    post:
+      operationId: addSubscriberMember
+      summary: Invite a member and answer its activation token once; 409 when the
+        e-mail is in use or the plan has no seat left
+      tags:
+      - Subscriptions
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberMemberInput'
+      parameters:
+      - *id012
+  /api/v1/site/subscriptions/accounts/{subscriberAccountId}/members/{memberId}:
+    get:
+      operationId: getSubscriberMember
+      summary: One member, with its status and sessionVersion
+      tags:
+      - Subscriptions
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      parameters:
+      - *id012
+      - &id013
+        name: memberId
+        in: path
+        required: true
+        schema: *id002
+  /api/v1/site/subscriptions/accounts/{subscriberAccountId}/members/{memberId}/remove:
+    post:
+      operationId: removeSubscriberMember
+      summary: Remove a member and end its sessions
+      tags:
+      - Subscriptions
+      responses:
+        '204':
+          description: Member removed
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      parameters:
+      - *id012
+      - *id013
+  /api/v1/site/subscriptions/accounts/{subscriberAccountId}/members/{memberId}/password:
+    post:
+      operationId: changeSubscriberMemberPassword
+      summary: Change an ACTIVE member's password; 401 when the current one is wrong
+      tags:
+      - Subscriptions
+      responses:
+        '204':
+          description: Password changed
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown member
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id011
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriberPasswordInput'
+      parameters:
+      - *id012
+      - *id013
   /api/v1/site/subscriptions/accounts/{subscriberAccountId}/api-keys:
     post:
       operationId: createSubscriberApiKey
@@ -5337,8 +6101,8 @@ paths:
   /api/v1/site/subscriptions/activations:
     post:
       operationId: activateSubscriberAccount
-      summary: Spend a one-time token and set the password; 400 if the token is not
-        valid
+      summary: Spend a one-time token and set the password of the owner or member
+        it names; 400 if the token is not valid
       tags:
       - Subscriptions
       responses:
@@ -5611,7 +6375,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      x-required-roles: &id013
+      x-required-roles: &id014
       - SUBSCRIPTION_ADMIN
       security:
       - bearerAuth: []
@@ -5620,7 +6384,7 @@ paths:
         in: query
         schema:
           type: string
-          enum: &id020
+          enum: &id021
           - PENDING
           - TRIAL
           - ACTIVE
@@ -5699,7 +6463,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      x-required-roles: *id013
+      x-required-roles: *id014
       security:
       - bearerAuth: []
       requestBody:
@@ -5711,7 +6475,8 @@ paths:
   /api/v1/admin/subscriptions/accounts/{subscriberAccountId}:
     patch:
       operationId: updateSubscriberAccount
-      summary: Change plan, billing period, state or invoicing data
+      summary: 'Change plan, billing period, state or invoicing data; unlock: true
+        clears the sign-in lock'
       tags:
       - Subscriptions
       responses:
@@ -5770,7 +6535,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      x-required-roles: *id013
+      x-required-roles: *id014
       security:
       - bearerAuth: []
       requestBody:
@@ -5779,6 +6544,152 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SubscriberAccountUpdateInput'
+      parameters:
+      - *id012
+  /api/v1/admin/subscriptions/accounts/{subscriberAccountId}/sessions/revoke:
+    post:
+      operationId: revokeSubscriberAccountSessions
+      summary: End the sessions of the owner and of every member
+      tags:
+      - Subscriptions
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id014
+      security:
+      - bearerAuth: []
+      parameters:
+      - *id012
+  /api/v1/admin/subscriptions/accounts/{subscriberAccountId}/members:
+    get:
+      operationId: listSubscriberAccountMembers
+      summary: Members of an account, oldest first
+      tags:
+      - Subscriptions
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Unknown account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Business rule violation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Dependency unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-required-roles: *id014
+      security:
+      - bearerAuth: []
       parameters:
       - *id012
   /api/v1/admin/subscriptions/accounts/{subscriberAccountId}/payments:
@@ -5843,15 +6754,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      x-required-roles: *id013
+      x-required-roles: *id014
       security:
       - bearerAuth: []
       parameters:
       - *id012
     post:
       operationId: recordSubscriberPayment
-      summary: Record a payment; the account becomes ACTIVE until the covered day
-        ends in La Paz
+      summary: Record a payment; the account becomes ACTIVE and paid_until moves to
+        the end of the covered day in La Paz, never back
       tags:
       - Subscriptions
       responses:
@@ -5910,7 +6821,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      x-required-roles: *id013
+      x-required-roles: *id014
       security:
       - bearerAuth: []
       requestBody:
@@ -5924,7 +6835,8 @@ paths:
   /api/v1/admin/subscriptions/accounts/{subscriberAccountId}/tokens:
     post:
       operationId: issueSubscriberToken
-      summary: Issue a one-time activation or reset token, answered once
+      summary: Issue a one-time activation or reset token, answered once; earlier
+        unused ones of the same purpose stop working
       tags:
       - Subscriptions
       responses:
@@ -5983,7 +6895,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      x-required-roles: *id013
+      x-required-roles: *id014
       security:
       - bearerAuth: []
       requestBody:
@@ -6056,7 +6968,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      x-required-roles: &id014
+      x-required-roles: &id015
       - ANALYST
       - METHODOLOGY_STEWARD
       - SEED_OPERATOR
@@ -6124,7 +7036,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-      x-required-roles: *id014
+      x-required-roles: *id015
       security:
       - bearerAuth: []
       parameters:
@@ -6395,10 +7307,10 @@ components:
           type: boolean
         isActive:
           type: boolean
-        validFrom: &id015
+        validFrom: &id016
           type: string
           format: date
-        validTo: *id015
+        validTo: *id016
       additionalProperties: false
       required:
       - code
@@ -6426,8 +7338,8 @@ components:
           format: uri
         licenseCode:
           type: string
-        activeFrom: *id015
-        activeTo: *id015
+        activeFrom: *id016
+        activeTo: *id016
         isActive:
           type: boolean
       additionalProperties: false
@@ -6455,7 +7367,7 @@ components:
         sha256:
           type: string
           pattern: ^[a-f0-9]{64}$
-        publicationDate: *id015
+        publicationDate: *id016
         retrievedAt: *id006
         fileSizeBytes:
           type: string
@@ -6481,7 +7393,7 @@ components:
           type: string
         numericValue:
           type: string
-        dateValue: *id015
+        dateValue: *id016
       additionalProperties: false
       required:
       - dimensionDefinitionId
@@ -6518,11 +7430,11 @@ components:
         indicatorVersionId: *id002
         frequencyId: *id002
         unitMeasureId: *id002
-        periodStart: *id015
-        periodEnd: *id015
+        periodStart: *id016
+        periodEnd: *id016
         periodCode:
           type: string
-        referenceDate: *id015
+        referenceDate: *id016
         dimensions:
           type: array
           items:
@@ -6540,8 +7452,8 @@ components:
           maxItems: 50
         confidentialityStatus:
           type: string
-        publicationDate: *id015
-        vintageDate: *id015
+        publicationDate: *id016
+        vintageDate: *id016
         revisionReason:
           type: string
       additionalProperties: false
@@ -6705,9 +7617,9 @@ components:
       properties:
         datasetVersionId: *id002
         indicatorVersionId: *id002
-        periodFrom: *id015
-        periodTo: *id015
-        vintageDate: *id015
+        periodFrom: *id016
+        periodTo: *id016
+        vintageDate: *id016
         dimensions:
           type: array
           items:
@@ -7032,7 +7944,7 @@ components:
     FactClaimInput:
       type: object
       properties:
-        claimType: &id016
+        claimType: &id017
           type: string
           enum:
           - FACT
@@ -7050,7 +7962,7 @@ components:
           type: string
           minLength: 20
           maxLength: 4000
-        eventDate: *id015
+        eventDate: *id016
         publishedAt: *id006
         timeHorizon:
           type: string
@@ -7210,7 +8122,7 @@ components:
     ClaimQueryInput:
       type: object
       properties:
-        claimType: *id016
+        claimType: *id017
         statisticalDomainId: *id002
         geographicUnitId: *id002
         economicEntityId: *id002
@@ -7419,7 +8331,7 @@ components:
       properties:
         status:
           type: string
-          enum: *id017
+          enum: *id018
         operatorNote:
           type: string
           maxLength: 2000
@@ -7548,13 +8460,13 @@ components:
           nullable: true
         planCode:
           type: string
-          enum: &id018
+          enum: &id019
           - analista
           - profesional
           - institucional
         billingPeriod:
           type: string
-          enum: &id019
+          enum: &id020
           - MONTHLY
           - ANNUAL
         trialDays:
@@ -7577,13 +8489,13 @@ components:
       properties:
         planCode:
           type: string
-          enum: *id018
+          enum: *id019
         billingPeriod:
           type: string
-          enum: *id019
+          enum: *id020
         status:
           type: string
-          enum: *id020
+          enum: *id021
         legalName:
           type: string
           maxLength: 200
@@ -7596,7 +8508,79 @@ components:
           type: string
           maxLength: 160
           nullable: true
+        unlock:
+          type: boolean
+          enum:
+          - true
+          description: Clears the owner's sign-in lock and failure count.
       additionalProperties: false
+    SubscriberProfileInput:
+      type: object
+      properties:
+        organization:
+          type: string
+          maxLength: 160
+          nullable: true
+        legalName:
+          type: string
+          maxLength: 200
+          nullable: true
+        taxId:
+          type: string
+          maxLength: 40
+          nullable: true
+      additionalProperties: false
+    SubscriberPasswordResetInput:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 200
+      additionalProperties: false
+      required:
+      - email
+    SubscriberNoticeClaimInput:
+      type: object
+      properties:
+        subscriberAccountId: *id002
+        kind:
+          type: string
+          enum:
+          - USAGE_80
+          - EXPIRY_5D
+          - GRACE
+        periodKey:
+          type: string
+          minLength: 1
+          maxLength: 40
+          description: YYYY-MM for USAGE_80; the paidUntil day (date or ISO instant)
+            otherwise.
+      additionalProperties: false
+      required:
+      - subscriberAccountId
+      - kind
+      - periodKey
+    SubscriberMemberInput:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 200
+        fullName:
+          type: string
+          minLength: 2
+          maxLength: 120
+        maxMembers:
+          type: integer
+          minimum: 0
+          maximum: 100
+      additionalProperties: false
+      required:
+      - email
+      - fullName
+      - maxMembers
     SubscriberPaymentInput:
       type: object
       properties:
