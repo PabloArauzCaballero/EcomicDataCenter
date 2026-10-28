@@ -1,22 +1,22 @@
 {
   "source": "seprec",
-  "generated_at": "2026-10-28T01:47:58.095Z",
-  "rows": 315998,
+  "generated_at": "2026-10-28T02:16:41.597Z",
+  "rows": 390996,
   "files": [
     {
       "name": "README.md",
-      "bytes": 11162,
-      "sha256": "6f5b27ebe32aed7fcce32b63ac29f4098c0122efb66297372b4c5a767e5891ab"
+      "bytes": 13342,
+      "sha256": "f1aeb865c466c6dfdd95a2c8dad9ef9dcfa2c1be38bc939c354de65d0996b58f"
     },
     {
       "name": "seprec-empresas-01.ndjson.gz",
-      "bytes": 20656470,
-      "sha256": "5c5e4ceb7a8eb2bb98f6deba80d7f232c46cb00ca1fe7e7eeda00c2f54e86afb"
+      "bytes": 25606766,
+      "sha256": "8f5548dc7c8945f3000280f51284cbd9c804239f759b20f441c20ac96901cd48"
     },
     {
       "name": "summary.json",
-      "bytes": 4207,
-      "sha256": "6cd6ebe2dd7b251273427ab96830231569dd70407fc2e38c388ce6322301193b"
+      "bytes": 4262,
+      "sha256": "ffc400ca93e8e583a6d3ca9e7c638a0ff5106874b23b66ba816e4a20475154df"
     },
     {
       "name": "scripts/build-delivery.mjs",

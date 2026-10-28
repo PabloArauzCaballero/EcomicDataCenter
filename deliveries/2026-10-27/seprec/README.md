@@ -8,13 +8,47 @@ captcha.
 <!-- ESTADO -->
 ## Estado de esta entrega (PARCIAL, se reanuda)
 
-- **Listado: 316 de 423 páginas** (315.998 unidades de 422.530 que declara la API, 74,8 %). La
-  corrida se detuvo porque la laptop se quedó sin RAM (Claude Code mata los procesos en segundo
-  plano bajo presión de memoria). Las páginas que faltan son la 317 a la 423 del orden por razón
-  social, es decir, las razones sociales que empiezan más tarde en el alfabeto.
-- **Gaceta: 8 de 2.287 páginas** (799 publicaciones). Prácticamente sin empezar.
-- **Fichas: 0.** Bloqueadas (ver «Bloqueos», punto 2).
-- Conteos de esta parte en `summary.json`.
+- **Listado: 391 de 423 páginas → 390.996 unidades** de las 422.530 que declara la API (92,5 %).
+  Faltan las páginas **392 a 423** del orden alfabético por razón social: las razones sociales
+  desde «T…» (la última guardada termina en «TEXTILES RIELYS») hasta la «Z». La corrida se cortó
+  dos veces porque la laptop se quedó sin RAM (Claude Code mata los procesos en segundo plano bajo
+  presión de memoria); no se relanzó una tercera vez.
+- **Frente al 398.131 del SEPREC (nov-2025):** esa cifra cuenta unidades no canceladas, renovadas o
+  no. Aquí hay **377.380 con `estado_registro` ACTIVO (94,8 % de esa referencia)**; de ellas
+  104.978 con matrícula renovada (`vigente`) y 272.402 sin renovar (`no_actualizada`).
+- **Paginación:** el orden es por razón social con desempates inestables; en 391.000 filas leídas
+  hubo 4 repetidas, así que unas 4 unidades se perdieron entre páginas. Se dedupe por `id`.
+- **Gaceta: 8 de 2.287 páginas** (799 publicaciones): prácticamente sin empezar; por eso
+  `fecha_constitucion_gaceta` y `publicaciones_gaceta` casi siempre van `null`.
+- **Fichas: 0.** Bloqueadas (ver «Bloqueos», punto 2): NIT, municipio, dirección y actividad vacíos.
+
+### Conteos (390.996 unidades)
+
+| Departamento | Unidades | | Tipo societario | Unidades |
+| --- | ---: | --- | --- | ---: |
+| La Paz | 120.375 | | Empresa unipersonal | 300.499 |
+| Santa Cruz | 116.420 | | Sociedad de responsabilidad limitada | 85.177 |
+| Cochabamba | 65.553 | | Sociedad anónima | 4.188 |
+| Tarija | 19.044 | | Sociedad constituida en el extranjero | 968 |
+| Oruro | 18.523 | | Sociedad colectiva | 113 |
+| Potosí | 18.323 | | Sociedad en comandita simple | 28 |
+| Chuquisaca | 16.057 | | Sociedad anónima mixta | 14 |
+| Beni | 12.381 | | Entidad financiera de vivienda | 4 |
+| Pando | 4.315 | | Sociedad en comandita por acciones | 4 |
+| Sin dato | 5 | | Empresa pública departamental mixta | 1 |
+
+| Estado | Unidades |
+| --- | ---: |
+| `no_actualizada` (ACTIVO, matrícula no renovada) | 272.402 |
+| `vigente` (ACTIVO, matrícula renovada) | 104.978 |
+| `cancelada` | 12.418 |
+| `creado` | 965 |
+| `inactivo` | 227 |
+| `eliminado` | 4 |
+| `anulado` | 2 |
+
+El cruce estado × departamento y tipo × estado está en `summary.json`. Como faltan las razones
+sociales de la T a la Z, los repartos son de esta parte, no del registro entero.
 
 ### Cómo reanudar
 
@@ -25,9 +59,12 @@ node scripts/run-all.mjs <out> 2 list,gaceta
 node scripts/build-delivery.mjs <out> deliveries/2026-10-27/seprec
 ```
 
-Las páginas crudas ya bajadas (`list/p-0001…p-0316.json.gz`, 13 MB) no van en la rama; quedaron en
-la carpeta de trabajo de la sesión. Si se pierden, `run-all.mjs` las vuelve a pedir (unos 40 min
-para el listado entero con 2 hilos y la RAM holgada).
+Las páginas crudas ya bajadas (`list/p-0001…p-0391.json.gz`, unos 15 MB) no van en la rama:
+quedaron en la carpeta de trabajo de la sesión (scratchpad, `seprec/out/`). Si se pierden,
+`run-all.mjs` las vuelve a pedir; el listado entero son 423 peticiones de unos 3 s. Para completar
+solo lo que falta basta con correr la fase `list` sobre una carpeta que ya tenga las 391 páginas:
+pedirá las 32 restantes. Las páginas del final dependen del orden alfabético del día en que se
+pidan; reconstruir la carpeta entera de una vez evita que una inscripción nueva corra las páginas.
 
 ## Archivos
 
@@ -103,7 +140,7 @@ conjunto del SEPREC ni de FUNDEMPRESA (búsqueda CKAN `seprec` y `fundempresa`: 
 | `actividad` | ficha `objetos_sociales` | Objeto social, varios unidos por ` \| `. |
 | `departamento` | listado | Siempre presente. |
 | `provincia`, `municipio`, `direccion`, `latitud`, `longitud` | ficha | |
-| `domicilio_vivienda` | ficha | `true` si `edificio` o la vía dicen vivienda/particular/casa/domicilio. En unipersonales se vacían dirección y coordenadas, también en `raw`. |
+| `domicilio_vivienda` | ficha | `true` si `edificio` o la vía dicen vivienda/particular/casa/domicilio. En unipersonales se vacían dirección y coordenadas, también en `raw`. `null` sin ficha (no se sabe). |
 | `sitio_web` | ficha | Lo único que se guarda de los contactos. |
 | `sucursales` | — | `null` (bloqueo 5). |
 | `publicaciones_gaceta` | Gaceta | `[{id, codigo, titulo, fecha}]`, sin `resumen`. |
