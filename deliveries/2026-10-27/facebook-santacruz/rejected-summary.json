@@ -1,0 +1,17 @@
+{
+  "note": "Filas leídas y NO publicadas. Sólo conteos: sin nombres, títulos, extractos ni URLs. La ciudad es la que el buscador mostraba junto al título del resultado.",
+  "removed_by_reason": {
+    "perfil_personal_detectado_al_leer": 0,
+    "no_confirmada_NOT_FOUND": 0,
+    "no_confirmada_RESTRICTED": 0,
+    "no_confirmada_BLOCKED": 2,
+    "categoria_de_persona": 0,
+    "nombre_propio": 0,
+    "duplicado_misma_pagina": 1
+  },
+  "not_confirmed_by_status_and_city": {
+    "BLOCKED": {
+      "(sin ciudad)": 2
+    }
+  }
+}

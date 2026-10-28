@@ -1,0 +1,202 @@
+{
+  "delivery": "2026-10-27/facebook-santacruz",
+  "source": "facebook",
+  "generated_at": "2026-10-28T00:01:45.466Z",
+  "method": "Yahoo site:facebook.com (descubrimiento) + Playwright/Chromium sin sesión (lectura de la página pública)",
+  "files": [
+    {
+      "file": "facebook-santacruz.ndjson.gz",
+      "records": 35,
+      "bytes": 7962,
+      "sha256": "f8a3ff0c46ddbe32a2ec8228b0027468dcbf5a1fa598046209dd69f961ac8d14"
+    },
+    {
+      "file": "facebook-santacruz-fuera-del-departamento.ndjson.gz",
+      "records": 0,
+      "bytes": 20,
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e"
+    },
+    {
+      "file": "rejected-summary.json",
+      "sha256": "eac72f73b7cf95b416f8210376df6aadc5845bb7305d0f6b51bc1b6be8b301da"
+    }
+  ],
+  "scripts": [
+    {
+      "file": "discover.mjs",
+      "sha256": "1cd30daf9543be7c0b40bf3ba17471a80142b2f078bcce19f17d5e7fa37c2b70"
+    },
+    {
+      "file": "fetch.mjs",
+      "sha256": "785ddf781dff87304bbca6e29928461c02b38a4f580ded9a5d5018135118f072"
+    },
+    {
+      "file": "run.mjs",
+      "sha256": "10e0d811b5eafd1d0de73a29a9d2c3e561e69cd493a1e18231c11fbdacfd561d"
+    },
+    {
+      "file": "package.mjs",
+      "sha256": "abc405a588e41212534feabd120c4ff037839fadceaee65cd58c823491cffc60"
+    },
+    {
+      "file": "verify-privacy.mjs",
+      "sha256": "532493b15e3c54e31061218833a019be0dc8ea2f4b797028baeeb8265486e2cd"
+    }
+  ],
+  "discovery": {
+    "distinct_queries": 17,
+    "result_pages_read": 71,
+    "candidates": 403,
+    "candidates_read": 38,
+    "candidates_not_read_yet": 365
+  },
+  "removed_by_reason": {
+    "perfil_personal_detectado_al_leer": 0,
+    "no_confirmada_NOT_FOUND": 0,
+    "no_confirmada_RESTRICTED": 0,
+    "no_confirmada_BLOCKED": 2,
+    "categoria_de_persona": 0,
+    "nombre_propio": 0,
+    "duplicado_misma_pagina": 1
+  },
+  "records_with_free_text_scrubbed": 33,
+  "stats_main_file": {
+    "records": 35,
+    "department_santa_cruz": 32,
+    "department_unknown": 3,
+    "with_latlon": {
+      "n": 29,
+      "pct": 82.9
+    },
+    "with_address": {
+      "n": 31,
+      "pct": 88.6
+    },
+    "with_phone": {
+      "n": 30,
+      "pct": 85.7
+    },
+    "with_latlon_and_address": {
+      "n": 29,
+      "pct": 82.9
+    },
+    "with_latlon_address_phone": {
+      "n": 27,
+      "pct": 77.1
+    },
+    "with_website": {
+      "n": 15,
+      "pct": 42.9
+    },
+    "with_whatsapp": {
+      "n": 8,
+      "pct": 22.9
+    },
+    "with_full_hours": {
+      "n": 17,
+      "pct": 48.6
+    },
+    "with_hours_any": {
+      "n": 17,
+      "pct": 48.6
+    },
+    "with_followers": {
+      "n": 35,
+      "pct": 100
+    },
+    "with_last_post": {
+      "n": 35,
+      "pct": 100
+    },
+    "active_last_12_months": {
+      "n": 27,
+      "pct": 77.1
+    },
+    "by_department": {
+      "(sin departamento)": 3,
+      "Santa Cruz": 32
+    },
+    "by_municipality": {
+      "Santa Cruz de la Sierra": 20,
+      "Montero": 7,
+      "Pailón": 5
+    },
+    "top_categories": {
+      "Restaurante": 13,
+      "Restaurante familiar": 5,
+      "Cafetería": 1,
+      "Bar · Restaurante": 1,
+      "Servicio de comida a domicilio · Restaurante · Sala de eventos y espectáculos": 1,
+      "Servicio local": 1,
+      "Restaurante boliviano": 1,
+      "Reserva natural": 1,
+      "Restaurante peruano": 1,
+      "Comunidad": 1,
+      "Restaurante de mariscos": 1,
+      "Restaurante de carnes asadas": 1,
+      "Emprendedor(a)": 1,
+      "Restaurante de comida rápida": 1,
+      "Restaurante italiano": 1,
+      "Restaurante de carnes": 1,
+      "Restaurante de comida saludable": 1,
+      "Restaurante suizo": 1,
+      "Tienda de comestibles": 1
+    }
+  },
+  "stats_outside_file": {
+    "records": 0,
+    "department_santa_cruz": 0,
+    "department_unknown": 0,
+    "with_latlon": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_address": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_phone": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_latlon_and_address": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_latlon_address_phone": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_website": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_whatsapp": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_full_hours": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_hours_any": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_followers": {
+      "n": 0,
+      "pct": 0
+    },
+    "with_last_post": {
+      "n": 0,
+      "pct": 0
+    },
+    "active_last_12_months": {
+      "n": 0,
+      "pct": 0
+    },
+    "by_department": {},
+    "by_municipality": {},
+    "top_categories": {}
+  }
+}
