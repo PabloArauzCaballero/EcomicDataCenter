@@ -1,45 +1,45 @@
 {
-  "generated_at": "2026-10-28T05:26:50.718Z",
+  "generated_at": "2026-10-28T08:07:28.630Z",
   "total": {
-    "pages": 565,
-    "ok": 565,
-    "with_latlon": 557,
-    "with_latlon_from_facebook": 445,
-    "with_address": 472,
-    "with_phone": 422,
+    "pages": 566,
+    "ok": 566,
+    "with_latlon": 558,
+    "with_latlon_from_facebook": 446,
+    "with_address": 473,
+    "with_phone": 423,
     "with_website": 236,
-    "with_hours": 426,
-    "with_followers": 564,
-    "with_last_post": 563
+    "with_hours": 427,
+    "with_followers": 565,
+    "with_last_post": 564
   },
   "pct_ok": {
     "latlon": 98.6,
     "latlon_from_facebook": 78.8,
-    "address": 83.5,
+    "address": 83.6,
     "phone": 74.7,
-    "website": 41.8,
+    "website": 41.7,
     "last_post": 99.6
   },
   "pct_of_ok_pages": {
     "latlon": 98.6,
-    "address": 83.5,
+    "address": 83.6,
     "phone": 74.7
   },
   "by_status": {
-    "OK": 565
+    "OK": 566
   },
   "by_department": {
     "Cochabamba": {
-      "pages": 499,
-      "ok": 499,
-      "with_latlon": 499,
-      "with_latlon_from_facebook": 398,
-      "with_address": 422,
-      "with_phone": 367,
+      "pages": 500,
+      "ok": 500,
+      "with_latlon": 500,
+      "with_latlon_from_facebook": 399,
+      "with_address": 423,
+      "with_phone": 368,
       "with_website": 207,
-      "with_hours": 378,
-      "with_followers": 498,
-      "with_last_post": 497
+      "with_hours": 379,
+      "with_followers": 499,
+      "with_last_post": 498
     },
     "Oruro": {
       "pages": 10,
@@ -115,7 +115,7 @@
     }
   },
   "by_locality": {
-    "Cochabamba · Cochabamba": 484,
+    "Cochabamba · Cochabamba": 485,
     "Chuquisaca · Sucre": 15,
     "Oruro · Oruro": 10,
     "Tarija · Tarija": 10,
@@ -141,12 +141,12 @@
     "Tarija · Yacuiba": 1
   },
   "by_discovery": {
-    "osm": 537,
+    "osm": 538,
     "yahoo": 28
   },
   "by_location_source": {
     "osm_coords": 73,
-    "coords": 445,
+    "coords": 446,
     "city_text": 23,
     "query": 6,
     "address": 18
@@ -161,12 +161,12 @@
     "perfil personal": 2
   },
   "candidates": {
-    "total": 1643,
-    "yahoo": 500,
+    "total": 2042,
+    "yahoo": 899,
     "osm": 1151,
-    "fetched": 708
+    "fetched": 709
   },
-  "queries_done": 129,
+  "queries_done": 299,
   "rejected": {
     "RESTRICTED": 83
   }

@@ -97,6 +97,17 @@ function buildRecord(c, res, p, status, loc) {
   };
 }
 
+const CONTROL = 'https://www.facebook.com/lapicanteriacbba/';
+let control = { at: 0, ok: false };
+async function controlOk() {
+  if (Date.now() - control.at < 120000) return control.ok;
+  let ok = false;
+  try { ok = /og:title/.test((await get(CONTROL)).html); } catch { ok = false; }
+  control = { at: Date.now(), ok };
+  if (!ok) log('control de Facebook sin og:title: es un bloqueo, no una restricción');
+  return ok;
+}
+
 async function handle(c) {
   let res;
   try {
@@ -104,7 +115,12 @@ async function handle(c) {
   } catch (e) {
     return { retry: true, why: `red: ${String(e.message).slice(0, 80)}` };
   }
-  const status = classify(res.html, res.status);
+  let status = classify(res.html, res.status);
+  // Una página con restricción de edad (bares, licorerías) llega por HTTP como el cascarón
+  // vacío de Facebook (<title>Facebook</title>, ~326 KB, sin og:title), igual que un muro de
+  // inicio de sesión. Se distinguen con una página de control conocida: si el control se lee,
+  // el cascarón es una restricción de esa página y no un bloqueo.
+  if (status === 'BLOCKED' && res.status === 200 && /<title>Facebook<\/title>/.test(res.html) && (await controlOk())) status = 'RESTRICTED';
   if (status === 'BLOCKED') return { retry: true, why: `sin og:title (${res.status}, ${res.html.length} B, ${res.url.slice(0, 80)})`, res };
   if (status === 'NOT_FOUND' || status === 'RESTRICTED') {
     const loc = locate({ queryCity: c.city });

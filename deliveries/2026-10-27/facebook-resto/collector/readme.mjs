@@ -93,7 +93,7 @@ Totales: ${Object.entries(s.rejected || {}).map(([k, v]) => `${k} ${n(v)}`).join
 
 ## Método
 
-1. **Descubrimiento por buscador.** Consultas «<rubro> <ciudad> Bolivia facebook» con 91 rubros en las 7
+1. **Descubrimiento por buscador.** Consultas «<rubro> <ciudad> Bolivia facebook» con 89 rubros en las 7
    capitales (hasta 2 páginas de resultados) y 26 rubros en 24 ciudades intermedias (Quillacollo, Sacaba,
    Colcapirhua, Tiquipaya, Vinto, Punata, Villa Tunari, Shinahota, Aiquile, Llallagua, Uyuni, Villazón,
    Tupiza, Huanuni, Challapata, Yacuiba, Villamontes, Bermejo, Monteagudo, Camargo, Riberalta,
@@ -137,7 +137,27 @@ la muestra Facebook; \`raw.category_en\` la trae en inglés), \`address\`, \`loc
 entera, sin correo), \`location_source\`, \`coords_source\`, \`osm\` (si vino de OSM), \`discovery\` (consulta,
 rubro, ciudad, título y extracto del buscador) y \`html_sha256\` de la página leída.
 
+## Estado de la corrida: incompleta
+
+La recolección **no terminó**. La laptop es compartida con otras 11 recolecciones y Claude Code
+detuvo los procesos de este agente por falta de memoria varias veces: dos durante la corrida libre
+(27-oct, ~20:40) y dos más el 28-oct al pasar por el candado compartido (la segunda vez, mientras
+esperaban turno). Por regla, tras dos cortes seguidos se paró. Queda pendiente:
+
+- **${n(1247 - s.queries_done)} de 1.247 consultas** del plan (hechas: ${n(s.queries_done)}).
+- **${n(s.candidates.total - s.candidates.fetched)} candidatas sin leer** de ${n(s.candidates.total)} (leídas: ${n(s.candidates.fetched)}).
+  El lector toma primero las semillas de OSM, que son sobre todo de Cochabamba: por eso Cochabamba
+  domina y **Pando sale en 0** (hay candidatas de Cobija halladas por el buscador, aún sin leer).
+- Para seguir: \`node collector/discover.mjs --max-minutes=35\` y \`node collector/fetch-pages.mjs
+  --max-minutes=35\` (reanudan solos desde \`.work/state/\`), y luego \`node collector/build.mjs\` y
+  \`node collector/verify.mjs\`.
+
 ## Bloqueos y límites
+
+- **Páginas con restricción de edad leídas por HTTP:** llegan como el cascarón vacío de Facebook
+  (\`<title>Facebook</title>\`, ~326 KB, sin \`og:title\`), igual que un muro de inicio de sesión. En la
+  tanda del 28-oct eso se leyó como bloqueo y disparó pausas de 5–10 min. El lector ahora lee una
+  página de control conocida: si el control se lee, el cascarón es RESTRICTED, no un bloqueo.
 
 - **Bing está envenenado para clientes automatizados** (27-oct): a cualquier consulta devuelve resultados
   ajenos (foros húngaros, calendarios, ayuda de YouTube), sin desafío visible. Se usó **Yahoo**, que sirve

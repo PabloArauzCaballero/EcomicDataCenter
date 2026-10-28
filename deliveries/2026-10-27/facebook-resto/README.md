@@ -4,42 +4,42 @@ Páginas de negocios en Facebook de **Cochabamba, Oruro, Potosí, Chuquisaca, Ta
 capitales y ciudades intermedias. La Paz y Santa Cruz las cubren otros agentes: las páginas que caen
 allí se descartaron (ver «Excluidas»).
 
-- Archivo: `facebook-resto.ndjson.gz` — NDJSON con gzip, un lugar por línea, 565 registros.
+- Archivo: `facebook-resto.ndjson.gz` — NDJSON con gzip, un lugar por línea, 566 registros.
 - Cifras completas: `stats.json`. Sumas de verificación: `manifest.json`.
 - Código del recolector: `collector/` (Node 22 + Playwright sólo para el buscador).
-- Generado: 2026-10-28T05:26:50.718Z.
+- Generado: 2026-10-28T08:07:28.630Z.
 
 ## Resultado
 
-Estados: OK 565.
+Estados: OK 566.
 
 | Departamento | Páginas | OK | lat/lon | Dirección | Teléfono | Web | Último post |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Cochabamba | 499 | 499 | 100 % | 84,6 % | 73,5 % | 41,5 % | 99,6 % |
+| Cochabamba | 500 | 500 | 100 % | 84,6 % | 73,6 % | 41,4 % | 99,6 % |
 | Oruro | 10 | 10 | 80 % | 70 % | 80 % | 10 % | 100 % |
 | Potosí | 13 | 13 | 92,3 % | 76,9 % | 92,3 % | 53,8 % | 100 % |
 | Chuquisaca | 18 | 18 | 94,4 % | 94,4 % | 88,9 % | 38,9 % | 100 % |
 | Tarija | 12 | 12 | 66,7 % | 58,3 % | 75 % | 58,3 % | 100 % |
 | Beni | 13 | 13 | 100 % | 69,2 % | 76,9 % | 53,8 % | 100 % |
 | Pando | 0 | 0 | — | — | — | — | — |
-| **Total** | **565** | **565** | **98,6 %** | **83,5 %** | **74,7 %** | **41,8 %** | **99,6 %** |
+| **Total** | **566** | **566** | **98,6 %** | **83,6 %** | **74,7 %** | **41,7 %** | **99,6 %** |
 
-- Coordenadas fijadas por la propia página en Facebook: 445 (78,8 %).
+- Coordenadas fijadas por la propia página en Facebook: 446 (78,8 %).
   El resto de las que tienen lat/lon (112) vienen del nodo de
   OpenStreetMap que enlaza la página (`raw.coords_source = "osm"`).
-- Sobre las páginas OK: lat/lon 98.6 %, dirección 83.5 %, teléfono 74.7 %.
-- Cómo se ubicó cada página (`raw.location_source`): `osm_coords` 73 · `coords` 445 · `city_text` 23 · `query` 6 · `address` 18.
+- Sobre las páginas OK: lat/lon 98.6 %, dirección 83.6 %, teléfono 74.7 %.
+- Cómo se ubicó cada página (`raw.location_source`): `osm_coords` 73 · `coords` 446 · `city_text` 23 · `query` 6 · `address` 18.
   `coords` = coordenadas de la página; `address`/`city_text` = texto de la dirección o del área de servicio;
   `osm_coords` = coordenadas del nodo OSM; `query` = sin ubicación propia, se asignó la ciudad de la
   búsqueda que la trajo (dato más débil: revisar antes de usarlo como ubicación).
-- Descubrimiento: osm 537 · yahoo 28. Candidatas: 1.643
-  (500 del buscador, 1.151 de OSM); consultas hechas: 129.
+- Descubrimiento: osm 538 · yahoo 28. Candidatas: 2.042
+  (899 del buscador, 1.151 de OSM); consultas hechas: 299.
 
 ### Por localidad (las 40 mayores)
 
 | Departamento · localidad | Páginas |
 |---|---:|
-| Cochabamba · Cochabamba | 484 |
+| Cochabamba · Cochabamba | 485 |
 | Chuquisaca · Sucre | 15 |
 | Oruro · Oruro | 10 |
 | Tarija · Tarija | 10 |
@@ -116,7 +116,7 @@ Totales: RESTRICTED 83.
 
 ## Método
 
-1. **Descubrimiento por buscador.** Consultas «<rubro> <ciudad> Bolivia facebook» con 91 rubros en las 7
+1. **Descubrimiento por buscador.** Consultas «<rubro> <ciudad> Bolivia facebook» con 89 rubros en las 7
    capitales (hasta 2 páginas de resultados) y 26 rubros en 24 ciudades intermedias (Quillacollo, Sacaba,
    Colcapirhua, Tiquipaya, Vinto, Punata, Villa Tunari, Shinahota, Aiquile, Llallagua, Uyuni, Villazón,
    Tupiza, Huanuni, Challapata, Yacuiba, Villamontes, Bermejo, Monteagudo, Camargo, Riberalta,
@@ -160,7 +160,27 @@ la muestra Facebook; `raw.category_en` la trae en inglés), `address`, `locality
 entera, sin correo), `location_source`, `coords_source`, `osm` (si vino de OSM), `discovery` (consulta,
 rubro, ciudad, título y extracto del buscador) y `html_sha256` de la página leída.
 
+## Estado de la corrida: incompleta
+
+La recolección **no terminó**. La laptop es compartida con otras 11 recolecciones y Claude Code
+detuvo los procesos de este agente por falta de memoria varias veces: dos durante la corrida libre
+(27-oct, ~20:40) y dos más el 28-oct al pasar por el candado compartido (la segunda vez, mientras
+esperaban turno). Por regla, tras dos cortes seguidos se paró. Queda pendiente:
+
+- **948 de 1.247 consultas** del plan (hechas: 299).
+- **1.333 candidatas sin leer** de 2.042 (leídas: 709).
+  El lector toma primero las semillas de OSM, que son sobre todo de Cochabamba: por eso Cochabamba
+  domina y **Pando sale en 0** (hay candidatas de Cobija halladas por el buscador, aún sin leer).
+- Para seguir: `node collector/discover.mjs --max-minutes=35` y `node collector/fetch-pages.mjs
+  --max-minutes=35` (reanudan solos desde `.work/state/`), y luego `node collector/build.mjs` y
+  `node collector/verify.mjs`.
+
 ## Bloqueos y límites
+
+- **Páginas con restricción de edad leídas por HTTP:** llegan como el cascarón vacío de Facebook
+  (`<title>Facebook</title>`, ~326 KB, sin `og:title`), igual que un muro de inicio de sesión. En la
+  tanda del 28-oct eso se leyó como bloqueo y disparó pausas de 5–10 min. El lector ahora lee una
+  página de control conocida: si el control se lee, el cascarón es RESTRICTED, no un bloqueo.
 
 - **Bing está envenenado para clientes automatizados** (27-oct): a cualquier consulta devuelve resultados
   ajenos (foros húngaros, calendarios, ayuda de YouTube), sin desafío visible. Se usó **Yahoo**, que sirve
