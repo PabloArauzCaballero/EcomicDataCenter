@@ -1,16 +1,16 @@
 {
- "generated_at": "2026-10-28T05:28:57Z",
+ "generated_at": "2026-10-28T05:44:36Z",
  "branch": "datos/2026-10-27-empresas-sicoes-sin",
  "files": [
   {
    "path": "sicoes_rupe/fichas_pendientes.txt",
-   "sha256": "e7341c41ec6aea0b413e3d84a58454bf759cdd709d9ab177b4ff5b3bf5e464aa",
-   "bytes": 614405
+   "sha256": "3fd426959e402913db755f9cd68e390c0528b0dbe5d026204c88317b2f0e4fef",
+   "bytes": 588043
   },
   {
    "path": "sicoes_rupe/sicoes_rupe_proveedores.ndjson.gz",
-   "sha256": "f3454cefb269d7069ef8b07cdb2dd5978db8ea12f666c37e05b2139412623739",
-   "bytes": 9771637,
+   "sha256": "21a3e6b6a7ed39f1ccd587a0ec533199d2c70c26ce5b17dfc36f20b0758fabaf",
+   "bytes": 11572427,
    "rows": 100569
   },
   {
@@ -21,22 +21,22 @@
   },
   {
    "path": "sin/sin_listas_publicadas.ndjson.gz",
-   "sha256": "c634670e461f1865d7dced487c58505b46d27d7fdfa7c3e540fe535e2fbb2af8",
-   "bytes": 6714444,
+   "sha256": "70e56fb233c9f016cfab05d94b65eb52502ca7e770c98992d37560252dbef288",
+   "bytes": 6714424,
    "rows": 743326
   }
  ],
  "stats": {
   "sicoes_rupe": {
-   "unipersonal_presunta": 54405,
+   "unipersonal_presunta": 54580,
    "filas": 100569,
    "con_nit": 74872,
-   "con_direccion": 3115,
-   "con_nit_y_direccion": 3115,
-   "con_actividad": 10828,
+   "con_direccion": 3944,
+   "con_nit_y_direccion": 3944,
+   "con_actividad": 14554,
    "tipo:Empresa-Persona Jurídica": 72643,
    "tipo:Asociación Civil sin Fines de Lucro-Persona Jurídica": 598,
-   "direccion_omitida_unipersonal": 8368,
+   "direccion_omitida_unipersonal": 11519,
    "natural_sin_nit_excluido": 714,
    "tipo:Entidad / Empresa Pública-Persona Jurídica": 167,
    "tipo:Asociación Accidental-Asociación Accidental": 25697,
@@ -46,15 +46,19 @@
    "tipo:Extranjera-Persona Jurídica": 1112,
    "listados_unicos": 101283,
    "declarados_por_el_portal_en_tipos_listados": 103395,
-   "detalles": 11483
+   "detalles": 15463,
+   "telefonos:nombre_comercial": 1,
+   "telefonos_con_separadores:nombre_comercial": 1,
+   "telefonos:razon_social": 3
   },
   "sin": {
    "filas": 743326,
    "lista:categorizacion": 42625,
    "con_departamento": 203670,
-   "con_razon_social": 170,
+   "con_razon_social": 163,
    "lista:portal": 25127,
    "lista:facturacion_modalidad": 611535,
+   "razon_social_omitida": 7,
    "lista:nit_observados": 3244,
    "lista:jurisdiccion": 60795,
    "nit_unicos": 349657

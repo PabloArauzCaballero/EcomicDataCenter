@@ -23,31 +23,58 @@ def clean(s):
     return s or None
 
 
-import re
-# Marcas de forma societaria o de organización. Una «Empresa-Persona Jurídica» sin ninguna se toma por unipersonal.
-SOCIETARIA = re.compile(
-    r'S\.?\s?R\.?\s?L\b|\bS\.\s?A\b|\bS\.A\.|\bSA\b|\bS\.?A\.?\s?C\b|\bLTDA\b|LIMITADA|SOCIEDAD|\bCIA\b|COMPA[NÑ]IA|CORPORACI|'
-    r'CONSORCIO|ASOCIACI|COOPERATIV|FUNDACI|\bGRUPO\b|\bS\.?\s?C\.?\s?S\b|E\.?\s?I\.?\s?R\.?\s?L|\bONG\b|MUTUAL|BANCO|'
-    r'SEGUROS|GOBIERNO|MUNICIPAL|UNIVERSIDAD|INSTITUTO|COLEGIO|CLINICA|CLÍNICA|HOSPITAL|FEDERACI|CAMARA|CÁMARA|'
-    r'SINDICATO|IGLESIA|CENTRO\b|EMPRESA\b|INDUSTRIA|ASOCIADOS|& ?ASOC|\bY CIA\b|HERMANOS|HNOS|\bS\.?\s?en\s?C\b|'
-    r'SUCURSAL|BOLIVIA\b|INTERNACIONAL|CONSTRUCTORA|IMPORTADORA|DISTRIBUIDORA|LABORATORIO', re.I)
+import re, unicodedata
+# Formas legales reales. Una «Empresa…» sin ninguna (o con UNIPERSONAL en el nombre) se trata como unipersonal: sin domicilio.
+FORMA_LEGAL = re.compile(
+    r'\bS ?R ?L\b|\bS ?A\b|\bLTDA\b|\bLIMITADA\b|\bS ?A ?C\b|\bS ?C ?S\b|\bS ?C ?A\b|COOPERATIVA|ASOCIACION|FUNDACION|'
+    r'SOCIEDAD ACCIDENTAL|SOCIEDAD ANONIMA|RESPONSABILIDAD LIMITADA')
 EMAIL = re.compile(r'[\w.+-]+@[\w-]+\.[\w.-]+')
-FONO = re.compile(r'(?i)(?:telf?s?|tel[eé]fonos?|cel(?:ular)?|fax|whatsapp|wpp|fono|tlf)\.?\s*:?\s*[\d\s\-/.,y]{6,}')
-LARGO = re.compile(r'(?<!\d)\d{7,}(?!\d)')
+# 7 o más dígitos, admitiendo espacios, guiones, puntos y paréntesis entre ellos (y un + o ( inicial)
+TEL_SPAN = re.compile(r'(?:\+\s*|\(\s*)?\d(?:[\s\-.()]*\d){6,}\)?')
+RESPALDO = re.compile(r'(?<!\d)(?:\+?591[\s-]?)?[2-7](?:[\s.\-]?\d){6,7}(?!\d)')
+ROTULO = re.compile(r'(?i)\b(?:telf?s?|tel[eé]fonos?|cel(?:ular)?|fax|whatsapp|wpp|fono|tlf|cel)\b\.?\s*:?\s*(?=$|[,;/\-|])')
+TEL_STATS = collections.Counter()
+
+
+def _sin_tildes(s):
+    return ''.join(ch for ch in unicodedata.normalize('NFKD', s) if not unicodedata.combining(ch))
+
+
+def forma_legal(nombre):
+    if not nombre:
+        return False
+    u = _sin_tildes(unicodedata.normalize('NFKC', nombre)).upper().replace('.', ' ').replace(',', ' ')
+    u = ' '.join(u.split())
+    if 'UNIPERSONAL' in u:
+        return False
+    return bool(FORMA_LEGAL.search(u))
 
 
 def es_unipersonal(tipo, razon):
-    return bool(tipo and tipo.startswith('Empresa') and razon and not SOCIETARIA.search(razon))
+    return bool(tipo and tipo.startswith('Empresa') and not forma_legal(razon))
 
 
-def scrub(s):
-    """Quita correos y números de teléfono que algunos proveedores escriben dentro de la dirección."""
+def scrub(s, campo='texto'):
+    """Normaliza (NFKC) y quita correos y teléfonos, también los escritos con separadores."""
     if not s:
         return s
-    s = EMAIL.sub('', s)
-    s = FONO.sub('', s)
-    s = LARGO.sub('', s)
-    s = ' '.join(s.split()).strip(' ,;-/')
+    s = unicodedata.normalize('NFKC', s)
+    for m in EMAIL.finditer(s):
+        TEL_STATS['correos:' + campo] += 1
+    s = EMAIL.sub(' ', s)
+
+    def quitar(m):
+        txt = m.group(0)
+        if sum(ch.isdigit() for ch in txt) < 7:
+            return txt
+        TEL_STATS['telefonos:' + campo] += 1
+        if re.search(r'[\s\-.()]', txt.strip('+( )')):
+            TEL_STATS['telefonos_con_separadores:' + campo] += 1
+        return ' '
+    s = TEL_SPAN.sub(quitar, s)
+    s = RESPALDO.sub(lambda m: (TEL_STATS.update(['telefonos_respaldo:' + campo]) or ' '), s)
+    s = ROTULO.sub(' ', s)
+    s = ' '.join(s.split()).strip(' ,;-/|:')
     return s or None
 
 
@@ -106,13 +133,15 @@ def build_rupe():
                 razon = clean(r.get('razonSocial'))
                 unip = es_unipersonal(tipo, razon)
                 sucs = d.get('sucursales') if isinstance(d.get('sucursales'), list) else []
-                raw.update({'nombre_comercial': clean(d.get('nombreComercial')), 'provincia_o_ciudad': clean(d.get('provincia')),
+                razon = scrub(razon, 'razon_social')
+                raw.update({'nombre_comercial': scrub(clean(d.get('nombreComercial')), 'nombre_comercial'),
+                            'provincia_o_ciudad': scrub(clean(d.get('provincia')), 'provincia_o_ciudad'),
                             'catalogo_unspsc': [[clean(x[0]), clean(x[1])] for x in cat if isinstance(x, list) and len(x) > 1],
                             'n_sucursales': len(sucs) if k in det else None})
                 if unip:
                     # unipersonal: sin domicilio, ni de la casa matriz ni de sucursales
                     raw['unipersonal_presunta'] = True
-                    raw['sucursales'] = [{'pais': clean(s[0]), 'ciudad': clean(s[1]), 'nro': clean(s[2])}
+                    raw['sucursales'] = [{'pais': clean(s[0]), 'ciudad': scrub(clean(s[1]), 'sucursal'), 'nro': scrub(clean(s[2]), 'sucursal')}
                                          for s in sucs if isinstance(s, list) and len(s) >= 3][:50]
                     direccion = None
                     if k in det and clean(d.get('direccion')):
@@ -120,10 +149,10 @@ def build_rupe():
                 else:
                     # sucursal = [país, ciudad, nro, dirección, responsable, teléfono, fax, casilla]:
                     # se guardan solo país, ciudad, número y dirección (sin responsable ni contactos)
-                    raw['sucursales'] = [{'pais': clean(s[0]), 'ciudad': clean(s[1]), 'nro': clean(s[2]),
-                                          'direccion': scrub(clean(s[3]))}
+                    raw['sucursales'] = [{'pais': clean(s[0]), 'ciudad': scrub(clean(s[1]), 'sucursal'), 'nro': scrub(clean(s[2]), 'sucursal'),
+                                          'direccion': scrub(clean(s[3]), 'sucursal')}
                                          for s in sucs if isinstance(s, list) and len(s) >= 4][:50]
-                    direccion = scrub(clean(d.get('direccion')))
+                    direccion = scrub(clean(d.get('direccion')), 'direccion')
                 out = {'source': 'sicoes_rupe', 'nit': nit,
                        'razon_social': razon, 'tipo': tipo, 'estado': clean(r.get('estado')),
                        'actividad': actividad, 'departamento': clean(r.get('departamento')) or clean(d.get('departamento')),
@@ -144,6 +173,7 @@ def build_rupe():
     c['listados_unicos'] = len(rows)
     c['declarados_por_el_portal_en_tipos_listados'] = declared
     c['detalles'] = len(det)
+    c.update(TEL_STATS)
     stats['sicoes_rupe'] = dict(c)
     return fn
 
@@ -158,6 +188,13 @@ def build_sin():
     with gzip.open(fn, 'wt', encoding='utf-8', newline=chr(10)) as f:
         for line in open(src, encoding='utf-8'):
             r = json.loads(line)
+            if r.get('razon_social') and not forma_legal(r['razon_social']):
+                # sin forma societaria puede ser una persona natural: solo NIT y lista
+                r['razon_social'] = None
+                r['raw']['razon_social_omitida'] = 'sin forma societaria (posible persona natural)'
+                c['razon_social_omitida'] += 1
+            elif r.get('razon_social'):
+                r['razon_social'] = scrub(r['razon_social'], 'sin_razon_social')
             f.write(json.dumps(ordered(r), ensure_ascii=False) + '\n')
             c['filas'] += 1
             c['lista:' + r['raw']['lista']] += 1

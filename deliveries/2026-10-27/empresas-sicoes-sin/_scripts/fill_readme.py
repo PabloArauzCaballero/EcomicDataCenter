@@ -29,6 +29,7 @@ rep = {
     '__CAT__': fmt(n.get('lista:categorizacion', 0)), '__FE__': fmt(n.get('lista:facturacion_modalidad', 0)),
     '__OBS__': fmt(n.get('lista:nit_observados', 0)), '__JUR__': fmt(n.get('lista:jurisdiccion', 0)),
     '__POR__': fmt(n.get('lista:portal', 0)),
+    '__SINOMIT__': fmt(n.get('razon_social_omitida', 0)),
     '__UNIP__': fmt(r.get('unipersonal_presunta', 0)), '__UNIPOMIT__': fmt(r.get('direccion_omitida_unipersonal', 0)),
     '__RUPE_COBERTURA__': cob,
     '__ADJ__': open(ADJ, encoding='utf-8').read().strip(),

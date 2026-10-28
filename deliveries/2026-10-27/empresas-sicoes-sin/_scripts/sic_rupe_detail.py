@@ -59,7 +59,9 @@ def one(k):
     if j and j.get('ESTADO') == 0:
         dd = {a: b for a, b in (j.get('data') or {}).items() if a not in DROP}
         if isinstance(dd.get('sucursales'), list):
-            dd['sucursales'] = [{a: b for a, b in s.items() if a not in DROP} if isinstance(s, dict) else s for s in dd['sucursales']]
+            # sucursal = [país, ciudad, nro, dirección, responsable, teléfono, fax, casilla]: se guardan los 4 primeros
+            dd['sucursales'] = [{a: b for a, b in s.items() if a not in DROP} if isinstance(s, dict) else
+                                (s[:4] if isinstance(s, list) else None) for s in dd['sucursales']]
         rec['data'] = dd
     else:
         rec['error'] = (j or {}).get('ERROR') if isinstance(j, dict) else 'sin respuesta'

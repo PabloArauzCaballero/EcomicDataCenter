@@ -5,7 +5,7 @@ Recolección del 27-oct-2026 para enriquecer y cruzar el registro del SEPREC. Do
 
 | Carpeta | Archivo | Filas | Con NIT | Con dirección | Con NIT y dirección |
 |---|---|---:|---:|---:|---:|
-| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 3.115 (3,1 %) | 3.115 (3,1 %) |
+| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 3.944 (3,9 %) | 3.944 (3,9 %) |
 | `sin/` | `sin_listas_publicadas.ndjson.gz` | 743.326 | 743.326 (100 %) | 0 (0 %) | 0 (0 %) |
 | (sin carpeta) | Ministerio de Trabajo | 0 | — | — | — |
 
@@ -58,17 +58,46 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
   identidad, la dirección ni los contactos. Las que no tienen NIT (solo carnet) se excluyen.
 - De la ficha **no** se guardan teléfono, fax, casilla ni correo, ni siquiera en `raw`, en ningún tipo de proveedor.
 - **Empresas unipersonales: sin domicilio.** El RUPE las registra como «Empresa-Persona Jurídica», con NIT, pero la razón
-  social es el nombre de una persona y la dirección puede ser su vivienda. Se toma por unipersonal toda «Empresa» cuya razón
-  social no trae ninguna marca de sociedad u organización (S.R.L., S.A., LTDA, SOCIEDAD, CONSTRUCTORA, GRUPO, etc.;
-  la lista exacta está en `SOCIETARIA`, en `_scripts/build_delivery.py`). A esas filas se les deja `direccion = null`,
+  social es el nombre de una persona y la dirección puede ser su vivienda. Se toma por unipersonal toda «Empresa» que cumpla una de dos
+  condiciones: su razón social lleva la palabra UNIPERSONAL, o no tiene una forma legal reconocida. Las formas legales
+  reconocidas, con o sin puntos, son SRL, SA, LTDA o LIMITADA, SAC, SCS, SCA, cooperativa, asociación, fundación, sociedad
+  accidental, sociedad anónima y responsabilidad limitada (`FORMA_LEGAL` en `_scripts/build_delivery.py`). Las palabras de
+  comercio (EMPRESA, IMPORTADORA, CONSTRUCTORA, HERMANOS, BOLIVIA…) no cuentan. A esas filas se les deja `direccion = null`,
   `raw.unipersonal_presunta = true` y, de las sucursales, solo país, ciudad y número. Se guardan su NIT, la razón social,
-  la actividad y el departamento. Son 54.405 filas, y en 8.368 de ellas la ficha traía una dirección que se descartó.
+  la actividad y el departamento. Son 54.580 filas, y en 11.519 de ellas la ficha traía una dirección que se descartó.
 - Sucursales de las demás: la ficha trae país, ciudad, número, dirección, responsable, teléfono, fax y casilla. Solo se
   guardan los cuatro primeros. Del responsable y de los contactos no se guarda nada.
 - A las direcciones que se guardan se les quitan los correos y los números de teléfono que algunos proveedores escriben
   dentro, así como toda secuencia de 7 o más dígitos.
-- La entrega pasa `_scripts/privacy_check.py` con 0 hallazgos. El programa busca correos, teléfonos rotulados, números largos
-  en las direcciones, claves de contacto, domicilios o nombres de personas naturales y domicilios de unipersonales.
+- Para detectar teléfonos, el texto se normaliza con NFKC, se quitan espacios, guiones, puntos y paréntesis entre dígitos y se
+  borra toda corrida de 7 o más dígitos. Como respaldo se usa el patrón `(?<!\d)(?:\+?591[\s-]?)?[2-7](?:[\s.\-]?\d){6,7}(?!\d)`.
+  También se borran los correos. Se aplica a todos los campos de texto libre publicados: `razon_social`, `direccion`,
+  `raw.nombre_comercial`, `raw.provincia_o_ciudad` y `raw.sucursales`.
+- En el SIN, una razón social sin forma societaria puede ser una persona natural, así que se deja en `null`
+  (`raw.razon_social_omitida`): 7 filas.
+- **La entrega pasa `_scripts/privacy_check.py` con 0 hallazgos y código de salida 0.** El verificador hace su propia
+  clasificación de unipersonales y su propio detector de teléfonos; no importa nada de `build_delivery.py`. Sale con 1 si
+  encuentra algo, y entonces `checkpoint.py` corta la publicación: la entrega se arma en `_work/staging` y solo se copia a
+  `deliveries/` con 0 hallazgos. `privacy_check.py --selftest` lo prueba con teléfonos escritos con separadores
+  («7 123 4567», «2-245-678», «(591) 7…», dígitos de ancho completo).
+
+### Versiones ya publicadas con datos personales (el historial no se reescribió)
+
+Revisadas con el verificador nuevo. Para borrar estos datos del historial hay que reescribirlo con un force-push sobre la
+rama; **lo decide el usuario.**
+
+| Commit (rama `datos/2026-10-27-empresas-sicoes-sin`) | Campo | Filas |
+|---|---|---:|
+| `2e06071`, `8e3403c` y `4752268` (27-oct, 22:12–22:17) | `direccion` de empresas sin forma societaria (presuntas unipersonales) | 7.369 / 7.850 / 8.395 |
+| los mismos | correo dentro de `direccion` | 4 |
+| los mismos y `2f01578` | `raw.nombre_comercial` con un número de 7+ dígitos escrito con separadores | 1 |
+| los mismos y `2f01578` | `razon_social` que es solo un número de 7–10 dígitos (proveedores de prueba o mal cargados, no son teléfonos rotulados) | 3 |
+| `2f01578` (28-oct, 01:29) | `direccion` de presuntas unipersonales según la regla nueva | 28 |
+| `2f01578` | dirección de sucursales de presuntas unipersonales | 3 |
+| todas desde `07d9d7a` (lista del SIN) | `razon_social` sin forma societaria en el anexo de facturación electrónica (posibles personas naturales) | 7 |
+
+En ninguna versión se publicaron teléfonos, faxes, casillas, correos ni responsables de las fichas como campos propios. Esos
+datos nunca salieron de `_work/` en la máquina local.
 
 ### Cobertura
 
@@ -94,10 +123,10 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
   naturales extranjeras obtenidas no se guarda ninguna, porque ninguna tiene NIT.
 - Las asociaciones accidentales (consorcios para una licitación) no tienen NIT en el RUPE. El documento con que se registran va
   en `raw.numero_documento`.
-- **Fichas consultadas (`getDatosRupe`): 11.483 de 100.569 filas.** La actividad solo viene en las filas con
+- **Fichas consultadas (`getDatosRupe`): 15.463 de 100.569 filas.** La actividad solo viene en las filas con
   `raw.detalle_consultado = true`, y la dirección solo en esas mismas filas cuando no son unipersonales. El orden de consulta fue: primero los proveedores con NIT (empresas, cooperativas, OECAS, APPS,
   asociaciones civiles, entidades públicas), después las personas jurídicas extranjeras y al final las asociaciones accidentales.
-  **Estado de la reanudación (28-oct):** la consulta de fichas se reanudó por el candado compartido (`gate.sh http`, 2 hilos). Mientras siga, faltan las fichas listadas en `sicoes_rupe/fichas_pendientes.txt`. Para reanudar: `RUPE_TODO=sicoes_rupe/fichas_pendientes.txt python -P _scripts/sic_rupe_detail.py <dir_de_trabajo> 2`. Escribe `<dir_de_trabajo>/detail.jsonl`, una línea por ficha, que se une a este NDJSON por `raw.rupe`.
+  **Estado de la reanudación (28-oct, 01:45):** la consulta de fichas sigue corriendo, por el candado compartido (`gate.sh http`, 2 hilos). Las fichas que faltan en esta versión están en `sicoes_rupe/fichas_pendientes.txt`. Para reanudar: `RUPE_TODO=sicoes_rupe/fichas_pendientes.txt python -P _scripts/sic_rupe_detail.py <dir_de_trabajo> 2`. Escribe `<dir_de_trabajo>/detail.jsonl`, una línea por ficha, que se une a este NDJSON por `raw.rupe`.
 
 ### Adjudicaciones (`adjudicado_por_anio`)
 
