@@ -17,7 +17,7 @@ for route, methods in paths.items():
         operation_ids.append(operation_id)
         if not operation.get('responses'): errors.append(f'{method.upper()} {route} lacks responses')
 if len(operation_ids) != len(set(operation_ids)): errors.append('operationId values are not unique')
-if len(paths) != 89: errors.append(f"expected 89 paths, found {len(paths)}")
+if len(paths) != 90: errors.append(f"expected 90 paths, found {len(paths)}")
 for error in errors: print(f'FAIL: {error}')
 if errors: sys.exit(1)
 print(f'PASS: {len(paths)} paths and {len(operation_ids)} operations validated.')

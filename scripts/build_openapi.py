@@ -656,8 +656,8 @@ schemas["SubscriberTokenInput"] = obj({
 SITE_SUBS_PATH = f"{API}/site/subscriptions"
 SUBS_MEMBER_PARAM = {"name": "memberId", "in": "path", "required": True, "schema": UUID}
 paths[f"{SITE_SUBS_PATH}/sessions"] = {"post": with_responses(operation(
-    "openSubscriberSession", "Sign in an owner or an ACTIVE member; one generic 401 for every failure, 423 while locked after 10 consecutive failures",
-    SUBS_TAG, SITE_SUBS, "SubscriberSessionInput"), {"423": "Locked; error.details.retryAfterSeconds says how long, even when the password is right"})}
+    "openSubscriberSession", "Sign in an owner or an ACTIVE member; one generic 401 for an unknown e-mail or a wrong password, locked or not; 423 only to the right password while locked after 10 consecutive failures",
+    SUBS_TAG, SITE_SUBS, "SubscriberSessionInput"), {"423": "Right password, but locked; error.details.retryAfterSeconds says how long"})}
 paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}"] = {
     "get": operation("getSubscriberAccount", "Account, this month's usage and API keys",
                      SUBS_TAG, SITE_SUBS, parameters=[SUBS_ACCOUNT_PARAM]),
@@ -676,6 +676,9 @@ paths[f"{SITE_SUBS_PATH}/notices/candidates"] = {"get": operation(
 paths[f"{SITE_SUBS_PATH}/notices/claim"] = {"post": with_responses(with_status(operation(
     "claimSubscriberNotice", "Claim a notice before sending it; 201 claimed:true once, 200 claimed:false after",
     SUBS_TAG, SITE_SUBS, "SubscriberNoticeClaimInput"), "201", "First claim"), {"200": "Already claimed", "404": "Unknown account"})}
+paths[f"{SITE_SUBS_PATH}/notices/release"] = {"post": with_status(operation(
+    "releaseSubscriberNotice", "Release a claim after a failed send so the next run retries; idempotent",
+    SUBS_TAG, SITE_SUBS, "SubscriberNoticeClaimInput"), "204", "Claim released")}
 paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/members"] = {
     "get": with_responses(operation("listSubscriberMembers", "Members of an account, oldest first",
                                     SUBS_TAG, SITE_SUBS, parameters=[SUBS_ACCOUNT_PARAM]), {"404": "Unknown account"}),
@@ -689,8 +692,9 @@ paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/members/{{memberId}}/r
     "removeSubscriberMember", "Remove a member and end its sessions", SUBS_TAG, SITE_SUBS,
     parameters=[SUBS_ACCOUNT_PARAM, SUBS_MEMBER_PARAM]), "204", "Member removed"), {"404": "Unknown member"})}
 paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/members/{{memberId}}/password"] = {"post": with_responses(with_status(operation(
-    "changeSubscriberMemberPassword", "Change an ACTIVE member's password; 401 when the current one is wrong",
-    SUBS_TAG, SITE_SUBS, "SubscriberPasswordInput", [SUBS_ACCOUNT_PARAM, SUBS_MEMBER_PARAM]), "204", "Password changed"), {"404": "Unknown member"})}
+    "changeSubscriberMemberPassword", "Change an ACTIVE member's password; the current one is checked under the member's sign-in lock (401 counted, 423 while locked)",
+    SUBS_TAG, SITE_SUBS, "SubscriberPasswordInput", [SUBS_ACCOUNT_PARAM, SUBS_MEMBER_PARAM]), "204", "Password changed"),
+    {"404": "Unknown member", "423": "Right current password, but the member is locked"})}
 paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/api-keys"] = {"post": with_status(operation(
     "createSubscriberApiKey", "Mint an API key; the full key is answered once",
     SUBS_TAG, SITE_SUBS, "SubscriberApiKeyInput", [SUBS_ACCOUNT_PARAM]), "201", "Key created")}
@@ -698,9 +702,10 @@ paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/api-keys/{{apiKeyId}}/
     "revokeSubscriberApiKey", "Revoke one API key", SUBS_TAG, SITE_SUBS, parameters=[
         SUBS_ACCOUNT_PARAM, {"name": "apiKeyId", "in": "path", "required": True, "schema": UUID}]),
     "204", "Key revoked")}
-paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/password"] = {"post": with_status(operation(
-    "changeSubscriberPassword", "Change the password; 401 when the current one is wrong",
-    SUBS_TAG, SITE_SUBS, "SubscriberPasswordInput", [SUBS_ACCOUNT_PARAM]), "204", "Password changed")}
+paths[f"{SITE_SUBS_PATH}/accounts/{{subscriberAccountId}}/password"] = {"post": with_responses(with_status(operation(
+    "changeSubscriberPassword", "Change the password; the current one is checked under the sign-in lock (401 counted, 423 while locked)",
+    SUBS_TAG, SITE_SUBS, "SubscriberPasswordInput", [SUBS_ACCOUNT_PARAM]), "204", "Password changed"),
+    {"404": "Unknown account", "423": "Right current password, but the owner is locked"})}
 paths[f"{SITE_SUBS_PATH}/activations"] = {"post": operation(
     "activateSubscriberAccount", "Spend a one-time token and set the password of the owner or member it names; 400 if the token is not valid",
     SUBS_TAG, SITE_SUBS, "SubscriberActivationInput")}

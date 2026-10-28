@@ -3052,7 +3052,7 @@
       "name": "Subscriptions",
       "item": [
         {
-          "name": "Sign in an owner or an ACTIVE member; one generic 401 for every failure, 423 while locked after 10 consecutive failures",
+          "name": "Sign in an owner or an ACTIVE member; one generic 401 for an unknown e-mail or a wrong password, locked or not; 423 only to the right password while locked after 10 consecutive failures",
           "request": {
             "method": "POST",
             "header": [
@@ -3072,7 +3072,7 @@
                 "sessions"
               ]
             },
-            "description": "Sign in an owner or an ACTIVE member; one generic 401 for every failure, 423 while locked after 10 consecutive failures",
+            "description": "Sign in an owner or an ACTIVE member; one generic 401 for an unknown e-mail or a wrong password, locked or not; 423 only to the right password while locked after 10 consecutive failures",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -3325,6 +3325,51 @@
           "response": []
         },
         {
+          "name": "Release a claim after a failed send so the next run retries; idempotent",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/notices/release",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "notices",
+                "release"
+              ]
+            },
+            "description": "Release a claim after a failed send so the next run retries; idempotent",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subscriberAccountId\": \"00000000-0000-4000-8000-000000000001\",\n  \"kind\": \"USAGE_80\",\n  \"periodKey\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
           "name": "Members of an account, oldest first",
           "request": {
             "method": "GET",
@@ -3470,7 +3515,7 @@
           "response": []
         },
         {
-          "name": "Change an ACTIVE member's password; 401 when the current one is wrong",
+          "name": "Change an ACTIVE member's password; the current one is checked under the member's sign-in lock (401 counted, 423 while locked)",
           "request": {
             "method": "POST",
             "header": [
@@ -3494,7 +3539,7 @@
                 "password"
               ]
             },
-            "description": "Change an ACTIVE member's password; 401 when the current one is wrong",
+            "description": "Change an ACTIVE member's password; the current one is checked under the member's sign-in lock (401 counted, 423 while locked)",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -3598,7 +3643,7 @@
           "response": []
         },
         {
-          "name": "Change the password; 401 when the current one is wrong",
+          "name": "Change the password; the current one is checked under the sign-in lock (401 counted, 423 while locked)",
           "request": {
             "method": "POST",
             "header": [
@@ -3620,7 +3665,7 @@
                 "password"
               ]
             },
-            "description": "Change the password; 401 when the current one is wrong",
+            "description": "Change the password; the current one is checked under the sign-in lock (401 counted, 423 while locked)",
             "auth": {
               "type": "bearer",
               "bearer": [

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpStatus, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, Res } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import type { FastifyReply } from 'fastify';
 import { ACTOR_ROLES } from '../../common/auth/actor';
@@ -17,7 +17,8 @@ import { noticeClaimSchema, type NoticeClaim } from './subscription.schemas';
  * The inputs and the ledger of the site's usage and expiry notices.
  *
  * The site's hourly job reads the candidates, decides which notice is due,
- * claims it here and sends it only on a first claim. Both routes take
+ * claims it here and sends it only on a first claim; if the send fails it
+ * releases the claim, so the next run tries again. Every route takes
  * `SITE_SUBSCRIPTIONS`; the e-mails go out from the site, never from here.
  */
 @ApiTags('Subscriptions')
@@ -61,5 +62,17 @@ export class SiteSubscriberNoticesController {
       claimed ? HttpStatus.CREATED : HttpStatus.OK,
       answer(this.identity, { claimed }, requestId),
     );
+  }
+
+  /** 204 whether or not a claim existed: releasing is idempotent. */
+  @Post('notices/release')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({
+    operationId: 'releaseSubscriberNotice',
+    summary: 'Release a claim after a failed send',
+  })
+  async release(@Body(new ZodValidationPipe(noticeClaimSchema)) body: NoticeClaim): Promise<void> {
+    await this.notices.release(body);
   }
 }

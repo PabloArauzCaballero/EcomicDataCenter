@@ -99,4 +99,24 @@ export class SubscriberNoticeRepository {
     if (!row?.found) return 'NO_ACCOUNT';
     return row.claimed ? 'CLAIMED' : 'ALREADY_CLAIMED';
   }
+
+  /**
+   * Releases a claim whose notice could not be sent, so the next run claims
+   * and sends it again. Releasing what is not claimed changes nothing.
+   */
+  async release(claim: NoticeClaim): Promise<void> {
+    await this.writer.query(
+      `DELETE FROM operations.subscriber_notice
+        WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
+          AND kind = :kind AND period_key = :periodKey`,
+      {
+        type: QueryTypes.DELETE,
+        replacements: {
+          subscriberAccountId: claim.subscriberAccountId,
+          kind: claim.kind,
+          periodKey: claim.periodKey,
+        },
+      },
+    );
+  }
 }
