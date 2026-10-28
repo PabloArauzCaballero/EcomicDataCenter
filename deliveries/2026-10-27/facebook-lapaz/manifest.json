@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-10-27T23:26:35.674Z",
+  "generated_at": "2026-10-28T01:42:11.606Z",
   "source": "facebook",
   "scope": "Departamento de La Paz, Bolivia",
   "files": [
     {
       "path": "facebook-lapaz.ndjson.gz",
-      "rows": 63,
-      "bytes": 17230,
-      "sha256": "ccddf18ea9609e2f35763f703bbe2db6b6f8e070822ffe510faa8bedd0feadd9"
+      "rows": 125,
+      "bytes": 34341,
+      "sha256": "870fcf5a93c51457b19607a76e1bf187d33f5ecc3aecaeade4a4dc2f753ffd34"
     },
     {
       "path": "facebook-lapaz-sin-ubicacion.ndjson.gz",
@@ -25,7 +25,7 @@
       "path": "rejected-summary.json",
       "rows": null,
       "bytes": 676,
-      "sha256": "9ac1e1e3be9060d8498c6045a4ae791e1225fc0300a702c7569dcc8dc2e19902"
+      "sha256": "956c119b5ada2c3dd93a69615a3a7384f06e2af5f63b57d955572f0bfc023f3a"
     }
   ],
   "privacy_check": {
@@ -45,68 +45,68 @@
     "findings": 0
   },
   "summary": {
-    "attempts": 71,
-    "keys": 71,
+    "attempts": 137,
+    "keys": 137,
     "status": {
-      "OK": 69,
-      "NOT_PAGE": 1,
+      "OK": 134,
+      "NOT_PAGE": 2,
       "RESTRICTED": 1
     },
-    "foreign": 3,
-    "pages_unique": 69,
-    "lapaz": 63,
+    "foreign": 4,
+    "pages_unique": 133,
+    "lapaz": 125,
     "sin_ubicacion": 0,
     "otros_departamentos": 1,
-    "lapaz_pct_latlon": "76.2",
-    "lapaz_pct_address": "87.3",
-    "lapaz_pct_address_any": "93.7",
-    "lapaz_pct_phone": "79.4",
-    "lapaz_pct_website": "49.2",
+    "lapaz_pct_latlon": "79.2",
+    "lapaz_pct_address": "83.2",
+    "lapaz_pct_address_any": "92.8",
+    "lapaz_pct_phone": "77.6",
+    "lapaz_pct_website": "47.2",
     "lapaz_pct_whatsapp": "1.6",
-    "lapaz_pct_followers": "98.4",
+    "lapaz_pct_followers": "99.2",
     "lapaz_pct_last_post": "100.0",
-    "lapaz_pct_active_12m": "88.9",
-    "lapaz_pct_locality": "44.4",
+    "lapaz_pct_active_12m": "79.2",
+    "lapaz_pct_locality": "38.4",
     "municipalities": {
-      "La Paz": 60,
-      "El Alto": 2,
+      "La Paz": 121,
+      "El Alto": 3,
       "(sin municipio)": 1
     },
     "lapaz_geo_basis": {
-      "ciudad_facebook": 57,
-      "ciudad_facebook+coordenadas_fuera": 2,
+      "ciudad_facebook": 117,
+      "ciudad_facebook+coordenadas_fuera": 3,
+      "nombre_de_la_pagina": 3,
       "coordenadas": 1,
-      "nombre_de_la_pagina": 2,
       "texto_direccion": 1
     },
     "sin_ubicacion_por_status": {},
     "otros_por_departamento": {
       "Chuquisaca": 1
     },
-    "queries_done": 13,
-    "queries_with_facebook": 13,
+    "queries_done": 23,
+    "queries_with_facebook": 23,
     "removed_rows_by_reason": {
-      "perfil_personal_NOT_PAGE": 1,
+      "perfil_personal_NOT_PAGE": 2,
       "no_confirmada_RESTRICTED": 1,
       "no_confirmada_BLOCKED": 0,
       "no_confirmada_NOT_FOUND": 0,
       "sin_leer_ERROR": 0,
       "parece_persona": {
         "sin_tarjeta_de_pagina": 1,
-        "categoria_de_persona": 1
+        "categoria_de_persona": 2
       },
-      "extranjera": 3
+      "extranjera": 4
     },
     "redactions_in_free_text": {
       "email": 0,
-      "phone": 1
+      "phone": 2
     },
     "run_events": {
       "yahoo_empty_or_challenge": 0,
       "yahoo_errors": 0,
       "discovery_pauses": 0,
       "blocked_streak_pauses": 0,
-      "memory_waits": 14,
+      "memory_waits": 26,
       "restarts": 4
     }
   }

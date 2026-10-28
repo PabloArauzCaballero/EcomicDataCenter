@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-27T23:26:35.674Z",
+  "generated_at": "2026-10-28T01:42:11.606Z",
   "by_status_and_city": {
     "NOT_PAGE": {
-      "La Paz": 1
+      "La Paz": 2
     },
     "RESTRICTED": {
       "La Paz": 1
@@ -11,23 +11,23 @@
       "La Paz": 1
     },
     "EXCLUIDA_categoria_de_persona": {
-      "La Paz": 1
+      "La Paz": 2
     }
   },
   "removed_rows_by_reason": {
-    "perfil_personal_NOT_PAGE": 1,
+    "perfil_personal_NOT_PAGE": 2,
     "no_confirmada_RESTRICTED": 1,
     "no_confirmada_BLOCKED": 0,
     "no_confirmada_NOT_FOUND": 0,
     "sin_leer_ERROR": 0,
     "parece_persona": {
       "sin_tarjeta_de_pagina": 1,
-      "categoria_de_persona": 1
+      "categoria_de_persona": 2
     },
-    "extranjera": 3
+    "extranjera": 4
   },
   "redactions_in_free_text": {
     "email": 0,
-    "phone": 1
+    "phone": 2
   }
 }

@@ -4,13 +4,13 @@ Lugares de La Paz, El Alto y los demás municipios del departamento, sacados de
 páginas públicas de negocios en Facebook vistas **sin sesión**. Una fila por página
 de negocio confirmada, con la ubicación más precisa que la página publica.
 
-> Estado: EN CURSO — entrega parcial; la recolección sigue y se actualiza en commits nuevos.
+> Estado: EN CURSO — entrega parcial; la recolección sigue (limitada por la RAM de la laptop) y se actualiza en commits nuevos.
 
 ## Archivos
 
 | Archivo | Filas | Qué tiene |
 |---|---:|---|
-| `facebook-lapaz.ndjson.gz` | 63 | Páginas con evidencia de estar en el departamento de La Paz. |
+| `facebook-lapaz.ndjson.gz` | 125 | Páginas con evidencia de estar en el departamento de La Paz. |
 | `facebook-lapaz-sin-ubicacion.ndjson.gz` | 0 | Páginas confirmadas que salieron en búsquedas de La Paz pero no publican dirección, ciudad ni punto. |
 | `facebook-otros-departamentos.ndjson.gz` | 1 | Páginas bolivianas de otros departamentos que aparecieron en las búsquedas (para cruzar con los agentes de Santa Cruz y del resto). |
 | `rejected-summary.json` | — | Sólo conteos, por estado y ciudad de la consulta, de lo que NO se publica. |
@@ -41,29 +41,29 @@ Cada fila trae los campos comunes (`source`=facebook, `source_id`, `name`,
 
 ## Resultados
 
-- Consultas hechas: **13** (con algún resultado de Facebook: 13).
-- Páginas abiertas: **71** claves de URL → 69 páginas confirmadas únicas tras deduplicar por id.
-- Estados al abrir: OK 69 · NOT_PAGE 1 · RESTRICTED 1.
-- **Publicadas en La Paz: 63**; sin ubicación: 0; otros departamentos: 1 (Chuquisaca 1).
+- Consultas hechas: **23** (con algún resultado de Facebook: 23).
+- Páginas abiertas: **137** claves de URL → 133 páginas confirmadas únicas tras deduplicar por id.
+- Estados al abrir: OK 134 · NOT_PAGE 2 · RESTRICTED 1.
+- **Publicadas en La Paz: 125**; sin ubicación: 0; otros departamentos: 1 (Chuquisaca 1).
 
 Cobertura de `facebook-lapaz.ndjson.gz`:
 
 | Campo | % de filas |
 |---|---:|
-| lat/lon (punto fijado por el negocio) | 76.2 % |
-| dirección de calle (más que «La Paz, Bolivia») | 87.3 % |
-| dirección, cualquiera | 93.7 % |
-| teléfono | 79.4 % |
-| web | 49.2 % |
+| lat/lon (punto fijado por el negocio) | 79.2 % |
+| dirección de calle (más que «La Paz, Bolivia») | 83.2 % |
+| dirección, cualquiera | 92.8 % |
+| teléfono | 77.6 % |
+| web | 47.2 % |
 | WhatsApp de empresa (sólo la marca) | 1.6 % |
-| zona (`locality`) | 44.4 % |
-| seguidores | 98.4 % |
+| zona (`locality`) | 38.4 % |
+| seguidores | 99.2 % |
 | fecha del último post | 100.0 % |
-| último post en los últimos 12 meses | 88.9 % |
+| último post en los últimos 12 meses | 79.2 % |
 
-Por municipio: La Paz 60 · El Alto 2 · (sin municipio) 1.
+Por municipio: La Paz 121 · El Alto 3 · (sin municipio) 1.
 
-Base de la ubicación: `ciudad_facebook` 57 · `ciudad_facebook+coordenadas_fuera` 2 · `coordenadas` 1 · `nombre_de_la_pagina` 2 · `texto_direccion` 1.
+Base de la ubicación: `ciudad_facebook` 117 · `ciudad_facebook+coordenadas_fuera` 3 · `nombre_de_la_pagina` 3 · `coordenadas` 1 · `texto_direccion` 1.
 
 ## Método
 
@@ -73,7 +73,7 @@ Base de la ubicación: `ciudad_facebook` 57 · `ciudad_facebook+coordenadas_fuer
    Achumani, San Miguel, Centro, Villa Fátima, Obrajes, Irpavi, …, Ceja, 16 de Julio, Ciudad
    Satélite, Senkata, Villa Adela, Río Seco, …); 12 rubros × 44 municipios (Viacha, Achocalla,
    Copacabana, Coroico, Caranavi, Chulumani, Achacachi, Sorata, Patacamaya, …). En total
-   1484 consultas posibles; se hicieron 13.
+   1484 consultas posibles; se hicieron 23.
 2. **Lectura.** Cada página se abre con Playwright/Chromium **sin sesión**, agente de usuario de
    Chrome de escritorio, **sin JavaScript** y sin cargar nada más que el documento: Facebook pinta
    en el servidor todo lo que se lee (`<script type="application/json">` dentro del HTML), así que
@@ -117,13 +117,13 @@ Base de la ubicación: `ciudad_facebook` 57 · `ciudad_facebook+coordenadas_fuer
 
 Filas quitadas, por motivo: 
 
-- perfil personal (sin tarjeta de página): 1
+- perfil personal (sin tarjeta de página): 2
 - no confirmadas: RESTRICTED 1, BLOCKED 0, NOT_FOUND 0
 - sin leer (error de red): 0
-- parecen de una persona: sin_tarjeta_de_pagina 1, categoria_de_persona 1
-- fuera de Bolivia: 3
+- parecen de una persona: sin_tarjeta_de_pagina 1, categoria_de_persona 2
+- fuera de Bolivia: 4
 - webs no publicadas por llevar un número: 0
-- tramos borrados en texto libre: 1 numéricos, 0 correos
+- tramos borrados en texto libre: 2 numéricos, 0 correos
 - verificador independiente: **0 hallazgos**
 
 ## Bloqueos y cómo se evitaron
@@ -142,7 +142,7 @@ Filas quitadas, por motivo:
   DuckDuckGo HTML, desafío.
 - **Ritmo:** una consulta a la vez con 3-7 s de pausa y 1,5-4 s entre páginas; tras 3 consultas
   vacías seguidas el descubrimiento se pausa (2-15 min); tras 4 páginas BLOCKED seguidas, 10 min.
-  En esta corrida: 0 consultas de Yahoo vacías o con desafío, 0 pausas de descubrimiento, 0 pausas por BLOCKED, 14 esperas por memoria y 4 arranques/reanudaciones.
+  En esta corrida: 0 consultas de Yahoo vacías o con desafío, 0 pausas de descubrimiento, 0 pausas por BLOCKED, 26 esperas por memoria y 4 arranques/reanudaciones.
 - **Memoria de la laptop (el verdadero límite):** el equipo es compartido con otros 11 agentes y
   pasó buena parte de la corrida con < 800 MB libres (llegó a 1 MB). Por pedido del coordinador:
   un solo Chromium, un solo contexto abierto, nada en paralelo, y antes de cada consulta y cada
