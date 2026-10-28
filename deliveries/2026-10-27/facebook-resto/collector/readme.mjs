@@ -74,7 +74,9 @@ Totales: ${Object.entries(s.rejected || {}).map(([k, v]) => `${k} ${n(v)}`).join
   colateral aceptado: un rango de años («2015 - 2021») también se borra. Una última pasada por
   ventanas (el tramo entre dos palabras de 3+ letras) borra cualquier grupo de 7+ dígitos aunque lo
   separen letras sueltas o «:» —por eso los horarios escritos en la bio («de 7:00 a 22:45») salen como
-  \`[número]\`— y los enlaces \`wa.me\`/\`whatsapp.com\` salen como \`[whatsapp]\`. El único número que queda es
+  \`[número]\`— y los enlaces \`wa.me\`/\`whatsapp.com\` salen como \`[whatsapp]\`. Las cuentas con puntos
+  («@negocio.cbba», también dentro de enlaces de TikTok/Instagram) salen como \`@[cuenta]\`, porque el
+  verificador no las distingue de un correo. El único número que queda es
   \`phone\`, el teléfono de la página de empresa. El WhatsApp no se publica, ni una web con 7+ dígitos.
 - De cómo se halló la página sólo se publica una lista de permitidos: \`raw.discovery = { via, query,
   rubro, city }\`. Ni el título ni el extracto del buscador ni el enlace hallado.
@@ -92,10 +94,12 @@ Totales: ${Object.entries(s.rejected || {}).map(([k, v]) => `${k} ${n(v)}`).join
 ## Método
 
 1. **Descubrimiento por buscador.** Consultas «<rubro> <ciudad> Bolivia facebook» con 91 rubros en las 7
-   capitales (hasta 3 páginas de resultados) y 40 rubros en 24 ciudades intermedias (Quillacollo, Sacaba,
+   capitales (hasta 2 páginas de resultados) y 26 rubros en 24 ciudades intermedias (Quillacollo, Sacaba,
    Colcapirhua, Tiquipaya, Vinto, Punata, Villa Tunari, Shinahota, Aiquile, Llallagua, Uyuni, Villazón,
    Tupiza, Huanuni, Challapata, Yacuiba, Villamontes, Bermejo, Monteagudo, Camargo, Riberalta,
-   Guayaramerín, San Borja, Rurrenabaque; hasta 2 páginas). Sólo se pide la página siguiente si la
+   Guayaramerín, San Borja, Rurrenabaque; 1 página). Las primeras ~100 consultas se hicieron con el plan
+   original (3 y 2 páginas, 40 rubros en las intermedias); se recortó porque la RAM compartida de la
+   laptop dejaba unas 2 consultas por minuto. Sólo se pide la página siguiente si la
    anterior trajo páginas nuevas. Cualquier enlace a una página (post, foto, reseña, \`/p/Nombre-id\`,
    \`profile.php?id=\`) se reduce a la página; grupos, eventos, reels y marketplace se descartan.
 2. **Semilla OSM.** Los lugares de OpenStreetMap de los 7 departamentos con etiqueta \`facebook\` o

@@ -20,7 +20,7 @@ const shardArg = process.argv.find((a) => a.startsWith('--shard='));
 const [shard, shards] = shardArg ? shardArg.slice(8).split('/').map(Number) : [0, 1];
 
 // Las consultas, intercaladas por ciudad para que todas avancen a la par.
-const perCity = CIUDADES.map((c) => (c.capital ? RUBROS : RUBROS_CORTOS).map((r) => ({ rubro: r, city: c.name, q: `${r} ${c.query ?? c.name} Bolivia facebook`, pages: c.capital ? 3 : 2 })));
+const perCity = CIUDADES.map((c) => (c.capital ? RUBROS : RUBROS_CORTOS).map((r) => ({ rubro: r, city: c.name, q: `${r} ${c.query ?? c.name} Bolivia facebook`, pages: c.capital ? 2 : 1 })));
 const all = [];
 for (let i = 0; perCity.some((l) => i < l.length); i += 1) for (const l of perCity) if (i < l.length) all.push(l[i]);
 const mine = all.filter((_, i) => i % shards === shard);
@@ -41,7 +41,7 @@ async function getBrowser() {
   if (browser?.isConnected() && loads < 50) return browser;
   if (browser) { await browser.close().catch(() => {}); browser = null; }
   loads = 0;
-  await waitForRam();
+  await waitForRam(700000);
   browser = await chromium.launch({ headless: true, args: ['--disable-blink-features=AutomationControlled'] });
   return browser;
 }
@@ -78,10 +78,15 @@ const decodeRU = (u) => {
 
 let backoff = 0;
 log(`discover shard ${shard}/${shards}: ${mine.length} consultas, ${mine.filter((x) => done.has(x.q)).length} ya hechas`);
+// Tandas: con --max-minutes=N el proceso termina solo y suelta el candado compartido.
+const maxMin = Number(process.argv.find((a) => a.startsWith('--max-minutes='))?.slice(14) || 0);
+const deadline = maxMin ? Date.now() + maxMin * 60000 : Infinity;
+let timedOut = false;
 let sinceCheck = 0;
 for (const item of mine) {
   if (done.has(item.q)) continue;
-  if (++sinceCheck >= 10) { sinceCheck = 0; await waitForRam(); }
+  if (Date.now() > deadline) { timedOut = true; break; }
+  if (++sinceCheck >= 10) { sinceCheck = 0; await waitForRam(700000); }
   let found = 0;
   for (let p = 0; p < item.pages; p += 1) {
     const b = 1 + p * 10;
@@ -126,5 +131,9 @@ for (const item of mine) {
   log(`q «${item.q}» +${found} (total ${seenKeys.size})`);
 }
 await browser?.close();
-fs.writeFileSync(file(`discover.${shard}.finished`), new Date().toISOString());
-log('discover terminado');
+if (timedOut) {
+  log(`discover: fin de tanda (${maxMin} min); quedan ${mine.filter((x) => !done.has(x.q)).length} consultas`);
+} else {
+  fs.writeFileSync(file(`discover.${shard}.finished`), new Date().toISOString());
+  log('discover terminado');
+}

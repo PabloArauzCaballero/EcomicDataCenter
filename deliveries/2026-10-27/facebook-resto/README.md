@@ -4,51 +4,53 @@ Páginas de negocios en Facebook de **Cochabamba, Oruro, Potosí, Chuquisaca, Ta
 capitales y ciudades intermedias. La Paz y Santa Cruz las cubren otros agentes: las páginas que caen
 allí se descartaron (ver «Excluidas»).
 
-- Archivo: `facebook-resto.ndjson.gz` — NDJSON con gzip, un lugar por línea, 302 registros.
+- Archivo: `facebook-resto.ndjson.gz` — NDJSON con gzip, un lugar por línea, 565 registros.
 - Cifras completas: `stats.json`. Sumas de verificación: `manifest.json`.
 - Código del recolector: `collector/` (Node 22 + Playwright sólo para el buscador).
-- Generado: 2026-10-27T23:51:48.260Z.
+- Generado: 2026-10-28T05:26:50.718Z.
 
 ## Resultado
 
-Estados: OK 302.
+Estados: OK 565.
 
 | Departamento | Páginas | OK | lat/lon | Dirección | Teléfono | Web | Último post |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Cochabamba | 248 | 248 | 100 % | 81 % | 71 % | 48 % | 100 % |
+| Cochabamba | 499 | 499 | 100 % | 84,6 % | 73,5 % | 41,5 % | 99,6 % |
 | Oruro | 10 | 10 | 80 % | 70 % | 80 % | 10 % | 100 % |
-| Potosí | 12 | 12 | 91,7 % | 75 % | 91,7 % | 58,3 % | 100 % |
-| Chuquisaca | 11 | 11 | 90,9 % | 100 % | 90,9 % | 54,5 % | 100 % |
-| Tarija | 11 | 11 | 63,6 % | 63,6 % | 72,7 % | 54,5 % | 100 % |
-| Beni | 10 | 10 | 100 % | 70 % | 70 % | 50 % | 100 % |
+| Potosí | 13 | 13 | 92,3 % | 76,9 % | 92,3 % | 53,8 % | 100 % |
+| Chuquisaca | 18 | 18 | 94,4 % | 94,4 % | 88,9 % | 38,9 % | 100 % |
+| Tarija | 12 | 12 | 66,7 % | 58,3 % | 75 % | 58,3 % | 100 % |
+| Beni | 13 | 13 | 100 % | 69,2 % | 76,9 % | 53,8 % | 100 % |
 | Pando | 0 | 0 | — | — | — | — | — |
-| **Total** | **302** | **302** | **97,4 %** | **80,1 %** | **72,8 %** | **47,7 %** | **100 %** |
+| **Total** | **565** | **565** | **98,6 %** | **83,5 %** | **74,7 %** | **41,8 %** | **99,6 %** |
 
-- Coordenadas fijadas por la propia página en Facebook: 229 (75,8 %).
-  El resto de las que tienen lat/lon (65) vienen del nodo de
+- Coordenadas fijadas por la propia página en Facebook: 445 (78,8 %).
+  El resto de las que tienen lat/lon (112) vienen del nodo de
   OpenStreetMap que enlaza la página (`raw.coords_source = "osm"`).
-- Sobre las páginas OK: lat/lon 97.4 %, dirección 80.1 %, teléfono 72.8 %.
-- Cómo se ubicó cada página (`raw.location_source`): `osm_coords` 49 · `coords` 229 · `city_text` 10 · `query` 6 · `address` 8.
+- Sobre las páginas OK: lat/lon 98.6 %, dirección 83.5 %, teléfono 74.7 %.
+- Cómo se ubicó cada página (`raw.location_source`): `osm_coords` 73 · `coords` 445 · `city_text` 23 · `query` 6 · `address` 18.
   `coords` = coordenadas de la página; `address`/`city_text` = texto de la dirección o del área de servicio;
   `osm_coords` = coordenadas del nodo OSM; `query` = sin ubicación propia, se asignó la ciudad de la
   búsqueda que la trajo (dato más débil: revisar antes de usarlo como ubicación).
-- Descubrimiento: osm 274 · yahoo 28. Candidatas: 1.404
-  (256 del buscador, 1.151 de OSM); consultas hechas: 56.
+- Descubrimiento: osm 537 · yahoo 28. Candidatas: 1.643
+  (500 del buscador, 1.151 de OSM); consultas hechas: 129.
 
 ### Por localidad (las 40 mayores)
 
 | Departamento · localidad | Páginas |
 |---|---:|
-| Cochabamba · Cochabamba | 240 |
-| Chuquisaca · Sucre | 10 |
+| Cochabamba · Cochabamba | 484 |
+| Chuquisaca · Sucre | 15 |
 | Oruro · Oruro | 10 |
-| Tarija · Tarija | 9 |
-| Potosí · Potosí | 8 |
-| Beni · Trinidad | 7 |
-| Cochabamba · Quillacollo | 3 |
+| Tarija · Tarija | 10 |
+| Beni · Trinidad | 9 |
+| Potosí · Potosí | 9 |
+| Cochabamba · Quillacollo | 6 |
+| Beni · (sin localidad) | 2 |
+| Chuquisaca · Camargo | 2 |
+| Cochabamba · Sacaba | 2 |
 | Potosí · Tupiza | 2 |
 | Potosí · Uyuni | 2 |
-| Beni · (sin localidad) | 1 |
 | Beni · San Borja | 1 |
 | Beni · Santa Ana del Yacuma | 1 |
 | Chuquisaca · (sin localidad) | 1 |
@@ -57,6 +59,8 @@ Estados: OK 302.
 | Cochabamba · Ivirgarzama | 1 |
 | Cochabamba · Punata | 1 |
 | Cochabamba · Sipe Sipe | 1 |
+| Cochabamba · Tiquipaya | 1 |
+| Cochabamba · Villa Tunari | 1 |
 | Tarija · Villamontes | 1 |
 | Tarija · Yacuiba | 1 |
 
@@ -64,18 +68,19 @@ Estados: OK 302.
 
 | Motivo | Candidatas |
 |---|---:|
-| fuera de alcance: La Paz | 16 |
-| persona: categoría de persona | 10 |
-| fuera de alcance: Santa Cruz | 6 |
-| fuera de Bolivia | 6 |
+| fuera de alcance: La Paz | 21 |
+| persona: categoría de persona | 14 |
+| fuera de alcance: Santa Cruz | 12 |
+| fuera de Bolivia | 8 |
+| persona: nombre propio | 2 |
 | perfil personal | 2 |
-| persona: nombre propio | 1 |
+| persona: nombre propio (título profesional) | 1 |
 
 ### No publicadas (no confirmadas como página de negocio)
 
 Las candidatas NOT_FOUND, RESTRICTED o BLOCKED no se publican: `rejected-summary.json` lleva sólo
 cuántas hubo por estado y por la ciudad de la búsqueda, sin nombres, extractos ni enlaces.
-Totales: RESTRICTED 52.
+Totales: RESTRICTED 83.
 
 ## Privacidad
 
@@ -92,7 +97,9 @@ Totales: RESTRICTED 52.
   colateral aceptado: un rango de años («2015 - 2021») también se borra. Una última pasada por
   ventanas (el tramo entre dos palabras de 3+ letras) borra cualquier grupo de 7+ dígitos aunque lo
   separen letras sueltas o «:» —por eso los horarios escritos en la bio («de 7:00 a 22:45») salen como
-  `[número]`— y los enlaces `wa.me`/`whatsapp.com` salen como `[whatsapp]`. El único número que queda es
+  `[número]`— y los enlaces `wa.me`/`whatsapp.com` salen como `[whatsapp]`. Las cuentas con puntos
+  («@negocio.cbba», también dentro de enlaces de TikTok/Instagram) salen como `@[cuenta]`, porque el
+  verificador no las distingue de un correo. El único número que queda es
   `phone`, el teléfono de la página de empresa. El WhatsApp no se publica, ni una web con 7+ dígitos.
 - De cómo se halló la página sólo se publica una lista de permitidos: `raw.discovery = { via, query,
   rubro, city }`. Ni el título ni el extracto del buscador ni el enlace hallado.
@@ -110,10 +117,12 @@ Totales: RESTRICTED 52.
 ## Método
 
 1. **Descubrimiento por buscador.** Consultas «<rubro> <ciudad> Bolivia facebook» con 91 rubros en las 7
-   capitales (hasta 3 páginas de resultados) y 40 rubros en 24 ciudades intermedias (Quillacollo, Sacaba,
+   capitales (hasta 2 páginas de resultados) y 26 rubros en 24 ciudades intermedias (Quillacollo, Sacaba,
    Colcapirhua, Tiquipaya, Vinto, Punata, Villa Tunari, Shinahota, Aiquile, Llallagua, Uyuni, Villazón,
    Tupiza, Huanuni, Challapata, Yacuiba, Villamontes, Bermejo, Monteagudo, Camargo, Riberalta,
-   Guayaramerín, San Borja, Rurrenabaque; hasta 2 páginas). Sólo se pide la página siguiente si la
+   Guayaramerín, San Borja, Rurrenabaque; 1 página). Las primeras ~100 consultas se hicieron con el plan
+   original (3 y 2 páginas, 40 rubros en las intermedias); se recortó porque la RAM compartida de la
+   laptop dejaba unas 2 consultas por minuto. Sólo se pide la página siguiente si la
    anterior trajo páginas nuevas. Cualquier enlace a una página (post, foto, reseña, `/p/Nombre-id`,
    `profile.php?id=`) se reduce a la página; grupos, eventos, reels y marketplace se descartan.
 2. **Semilla OSM.** Los lugares de OpenStreetMap de los 7 departamentos con etiqueta `facebook` o

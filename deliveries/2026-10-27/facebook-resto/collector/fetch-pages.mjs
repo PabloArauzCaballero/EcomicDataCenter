@@ -142,11 +142,15 @@ function discoveryFinished() {
 let okCount = readLines('records.ndjson').length;
 log(`fetch: ${fetched.size} ya leídas, ${okCount} registros; concurrencia ${conc}`);
 
+// Tandas: con --max-minutes=N el proceso termina solo y suelta el candado compartido.
+const maxMin = Number(process.argv.find((a) => a.startsWith('--max-minutes='))?.slice(14) || 0);
+const deadline = maxMin ? Date.now() + maxMin * 60000 : Infinity;
+
 async function worker(queue) {
-  while (queue.length) {
+  while (queue.length && Date.now() < deadline) {
     const c = queue.shift();
     if (fetched.has(c.key)) continue;
-    if (++handled % 25 === 0) await waitForRam();
+    if (++handled % 25 === 0) await waitForRam(300000);
     const wait = cooldownUntil - Date.now();
     if (wait > 0) await sleep(wait);
     const out = await handle(c);
@@ -190,9 +194,12 @@ async function worker(queue) {
 }
 
 for (;;) {
+  if (Date.now() >= deadline) { log(`fetch: fin de tanda (${maxMin} min)`); break; }
   const queue = pending();
   if (!queue.length) {
     if (discoveryFinished() && !fs.existsSync(file('osm.pending'))) break;
+    // En tandas no se espera al descubrimiento: la tanda siguiente toma lo nuevo.
+    if (maxMin) { log('fetch: sin candidatas pendientes; fin de tanda'); break; }
     await sleep(30000);
     continue;
   }

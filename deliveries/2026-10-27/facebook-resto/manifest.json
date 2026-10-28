@@ -11,29 +11,29 @@
     "Beni",
     "Pando"
   ],
-  "records": 302,
+  "records": 565,
   "files": [
     {
       "path": "facebook-resto.ndjson.gz",
-      "bytes": 100039,
-      "sha256": "22fcb29886d11c533c0202c133a208d469a9d103da92eeb6ef2801ec3639bdbd",
-      "records": 302,
+      "bytes": 188202,
+      "sha256": "d72c7a4bba807a409dcc1392f1996c919db4ccaba126fac5c77e28520f744eb9",
+      "records": 565,
       "format": "ndjson+gzip"
     },
     {
       "path": "stats.json",
-      "bytes": 3761,
-      "sha256": "fad26efd7c4545e66ba7ca3338095f360ffab740ec6301e7d463f6189bb8fca1"
+      "bytes": 3959,
+      "sha256": "3a0645e0663ebde9d0e21fec70317cef22b94b6eaf5c959a441340ef5096f067"
     },
     {
       "path": "rejected-summary.json",
       "bytes": 336,
-      "sha256": "008372724f7bd9f7775524e26ef1450d67f75a0f76a846cde8253873f1624493"
+      "sha256": "09b2eec965ce27e0bfea5b073b54714872e5af50244b57162bf49c47177b9917"
     },
     {
       "path": "README.md",
-      "bytes": 10997,
-      "sha256": "7b85649ab2713b1e34b5a6d3e2dda3173d4e8716c564d1f66daabd2600462c14"
+      "bytes": 11562,
+      "sha256": "709ae327311c2128f79c9bd3309835258c4ad6566c055a3da2ee0573cb9830ab"
     },
     {
       "path": "collector/build.mjs",
@@ -47,13 +47,13 @@
     },
     {
       "path": "collector/discover.mjs",
-      "bytes": 5940,
-      "sha256": "b18f1d38fc091e9a8bb9a4ef563b83ef952934c12e258fd7c6e299bed9935735"
+      "bytes": 6424,
+      "sha256": "3f1a869ee52b77f67b6089a25f40bdaf7708b9d35f5e092c8b6ce2c339c81985"
     },
     {
       "path": "collector/fetch-pages.mjs",
-      "bytes": 8540,
-      "sha256": "ce642088139c26da7f998525d9faac86b49dc7232b572e1b5c051b19e458cab9"
+      "bytes": 9072,
+      "sha256": "148fdb1d67e53daf00121f3047f716767b1c252bad1bc3fabaf57397012c5374"
     },
     {
       "path": "collector/geo.mjs",
@@ -72,18 +72,18 @@
     },
     {
       "path": "collector/privacy.mjs",
-      "bytes": 7859,
-      "sha256": "f10e641950eb022ff3f32106732a4869ca19a2e703213bd4338c59c4b1080bfd"
+      "bytes": 8039,
+      "sha256": "42801bd656be21babf301fd70a7d1e90cb283c4485d8412422e8b893079b79db"
     },
     {
       "path": "collector/queries.mjs",
-      "bytes": 3362,
-      "sha256": "d44f3f4dacfbf9132cb7f55eac1774c63357d4ec6d6e77dc10d4b96318c9371a"
+      "bytes": 3345,
+      "sha256": "3f0fc7cad2b09cde58300372c481c8a71eb4444d65fa32595a9327fbfeb292d3"
     },
     {
       "path": "collector/readme.mjs",
-      "bytes": 11494,
-      "sha256": "8dc7a61b489a92b943bf709e5104f69dfb781d2a95f1ff2e7825941931638fed"
+      "bytes": 11862,
+      "sha256": "11a9e203cd8ecad2e61e1ad4e1656e61a0c44c3ede921f7cfaea8bf1392b24c7"
     },
     {
       "path": "collector/verify.mjs",

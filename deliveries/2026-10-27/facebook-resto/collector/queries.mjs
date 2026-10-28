@@ -16,13 +16,14 @@ export const RUBROS = [
   'cine', 'cosméticos', 'tienda de telas', 'mercería', 'electricidad materiales eléctricos', 'pinturas',
 ];
 
+// Recortada a 26 el 27-oct (la RAM compartida dejaba ~2 consultas por minuto): se quitaron
+// los rubros que en las primeras consultas no trajeron páginas nuevas en ciudades chicas.
 export const RUBROS_CORTOS = [
-  'restaurante', 'pollería', 'salteñería', 'cafetería', 'panadería', 'pizzería', 'comida rápida', 'farmacia',
-  'ferretería', 'tienda de ropa', 'peluquería', 'barbería', 'gimnasio', 'clínica', 'consultorio', 'taller mecánico',
-  'repuestos', 'hotel', 'hostal', 'alojamiento', 'agencia de turismo', 'librería', 'celulares', 'supermercado',
-  'mueblería', 'veterinaria', 'colegio', 'instituto', 'inmobiliaria', 'distribuidora', 'constructora',
-  'materiales de construcción', 'salón de eventos', 'tienda', 'transporte', 'agropecuaria', 'heladería',
-  'discoteca', 'óptica', 'lavandería',
+  'restaurante', 'pollería', 'salteñería', 'cafetería', 'panadería', 'pizzería', 'farmacia',
+  'ferretería', 'tienda de ropa', 'peluquería', 'gimnasio', 'clínica', 'taller mecánico',
+  'hotel', 'hostal', 'agencia de turismo', 'librería', 'celulares', 'supermercado',
+  'mueblería', 'veterinaria', 'colegio', 'instituto', 'distribuidora', 'materiales de construcción',
+  'salón de eventos',
 ];
 
 export const CIUDADES = [

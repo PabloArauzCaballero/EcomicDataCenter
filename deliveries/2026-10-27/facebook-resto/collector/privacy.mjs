@@ -35,7 +35,9 @@ function scrubWindows(text) {
 
 export function scrubText(text) {
   if (typeof text !== 'string') return text;
-  const s = text.normalize('NFKC').replace(WA_LINK, '[whatsapp]').replace(EMAIL, '[correo]').replace(PHONE, '[teléfono]');
+  const s = text.normalize('NFKC').replace(WA_LINK, '[whatsapp]').replace(EMAIL, '[correo]').replace(PHONE, '[teléfono]')
+    // «@cuenta.con.puntos» (TikTok, Instagram) se parece demasiado a un correo: fuera también.
+    .replace(/@\s*[\p{L}\p{Nd}_-]*(?:\s*\.\s*[\p{L}\p{Nd}_-]+)+/gu, '@[cuenta]');
   return scrubWindows(s);
 }
 
