@@ -10,6 +10,9 @@ import { AdminQualityController } from '../admin-quality.controller';
 import { AdminSeedsController } from '../admin-seeds.controller';
 import { AdminSubscriptionsController } from '../admin-subscriptions.controller';
 import { AdminController } from '../admin.controller';
+import { SiteSubscriberCredentialsController } from '../site-subscriber-credentials.controller';
+import { SiteSubscriberMembersController } from '../site-subscriber-members.controller';
+import { SiteSubscriberNoticesController } from '../site-subscriber-notices.controller';
 import { SiteSubscriptionsController } from '../site-subscriptions.controller';
 
 type Handler = (...args: never[]) => unknown;
@@ -23,6 +26,9 @@ const CONTROLLERS = [
   AdminInquiriesController,
   AdminSubscriptionsController,
   SiteSubscriptionsController,
+  SiteSubscriberCredentialsController,
+  SiteSubscriberMembersController,
+  SiteSubscriberNoticesController,
 ] as const;
 
 function handlers(controller: (typeof CONTROLLERS)[number]): Array<[string, Handler]> {

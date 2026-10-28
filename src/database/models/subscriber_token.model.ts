@@ -25,4 +25,7 @@ export class SubscriberTokenModel extends Model<
 
   @Column({ field: 'used_at', type: DataType.DATE, allowNull: true })
   declare usedAt: Date | null;
+
+  @Column({ field: 'subscriber_member_id', type: DataType.UUID, allowNull: true })
+  declare subscriberMemberId: string | null;
 }

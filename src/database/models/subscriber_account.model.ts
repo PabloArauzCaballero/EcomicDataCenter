@@ -64,4 +64,13 @@ export class SubscriberAccountModel extends Model<
 
   @Column({ field: 'updated_at', type: DataType.DATE, allowNull: false })
   declare updatedAt: Date;
+
+  @Column({ field: 'failed_login_count', type: DataType.INTEGER, allowNull: false })
+  declare failedLoginCount: number;
+
+  @Column({ field: 'locked_until', type: DataType.DATE, allowNull: true })
+  declare lockedUntil: Date | null;
+
+  @Column({ field: 'session_version', type: DataType.INTEGER, allowNull: false })
+  declare sessionVersion: number;
 }
