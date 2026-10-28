@@ -42,6 +42,9 @@ def prio(k):
 
 
 todo.sort(key=prio)
+if os.environ.get('RUPE_TODO'):
+    # reanudación desde la entrega: un código RUPE por línea (sicoes_rupe/fichas_pendientes.txt)
+    todo = [x.strip() for x in open(os.environ['RUPE_TODO'], encoding='utf-8') if x.strip() and x.strip() not in done]
 if LIMIT:
     todo = todo[:LIMIT]
 print('listados', len(rows), 'hechos', len(done), 'por hacer', len(todo), flush=True)

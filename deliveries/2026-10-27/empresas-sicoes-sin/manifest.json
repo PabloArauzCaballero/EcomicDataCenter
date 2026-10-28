@@ -1,11 +1,16 @@
 {
- "generated_at": "2026-10-28T02:13:23Z",
+ "generated_at": "2026-10-28T02:17:10Z",
  "branch": "datos/2026-10-27-empresas-sicoes-sin",
  "files": [
   {
+   "path": "sicoes_rupe/fichas_pendientes.txt",
+   "sha256": "e7341c41ec6aea0b413e3d84a58454bf759cdd709d9ab177b4ff5b3bf5e464aa",
+   "bytes": 614405
+  },
+  {
    "path": "sicoes_rupe/sicoes_rupe_proveedores.ndjson.gz",
-   "sha256": "43899cf1d3ee452515d2487d441adb6c43be98a4348b36511076b895fbebf7c2",
-   "bytes": 9540410,
+   "sha256": "edb3a160abf78ed41620bfbd45d6711619a29c02f088ce5c0d561eeb8c0845a7",
+   "bytes": 9907443,
    "rows": 100569
   },
   {
@@ -16,7 +21,7 @@
   },
   {
    "path": "sin/sin_listas_publicadas.ndjson.gz",
-   "sha256": "dbce5a7de8a9e79496e93ecea30683e05baf9699eb2f89075b466a198f6e9a1c",
+   "sha256": "1918901a14a57ce4bd214dce21fc2cf5a8ba0ef2d2699ad8b00a84c78a2f4acc",
    "bytes": 6714444,
    "rows": 743326
   }
@@ -25,9 +30,9 @@
   "sicoes_rupe": {
    "filas": 100569,
    "con_nit": 74872,
-   "con_direccion": 10776,
-   "con_nit_y_direccion": 10776,
-   "con_actividad": 10177,
+   "con_direccion": 11483,
+   "con_nit_y_direccion": 11483,
+   "con_actividad": 10828,
    "tipo:Empresa-Persona Jurídica": 72643,
    "tipo:Asociación Civil sin Fines de Lucro-Persona Jurídica": 598,
    "natural_sin_nit_excluido": 714,
@@ -39,7 +44,7 @@
    "tipo:Extranjera-Persona Jurídica": 1112,
    "listados_unicos": 101283,
    "declarados_por_el_portal_en_tipos_listados": 103395,
-   "detalles": 10776
+   "detalles": 11483
   },
   "sin": {
    "filas": 743326,

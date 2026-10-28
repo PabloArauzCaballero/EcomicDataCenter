@@ -5,7 +5,7 @@ Recolección del 27-oct-2026 para enriquecer y cruzar el registro del SEPREC. Do
 
 | Carpeta | Archivo | Filas | Con NIT | Con dirección | Con NIT y dirección |
 |---|---|---:|---:|---:|---:|
-| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 10.776 (10,7 %) | 10.776 (10,7 %) |
+| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 11.483 (11,4 %) | 11.483 (11,4 %) |
 | `sin/` | `sin_listas_publicadas.ndjson.gz` | 743.326 | 743.326 (100 %) | 0 (0 %) | 0 (0 %) |
 | (sin carpeta) | Ministerio de Trabajo | 0 | — | — | — |
 
@@ -40,7 +40,8 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
 - El servidor ignora `start` y `length`: cada página trae 10 filas y se pide con `draw=N`. Sin filtros, cada página tarda unos 7 s.
   Por eso la lista se partió por tipo de proveedor y departamento, donde una página tarda entre 0,3 y 2 s.
 - El orden del servidor no es estable. Por eso se deduplica por código RUPE y se compara con `recordsTotal` (ver «Cobertura»).
-- La guía solo muestra proveedores **Activos**, y todos los listados se identifican con NIT.
+- La guía solo muestra proveedores **Activos**. Las personas jurídicas nacionales se identifican con NIT; las asociaciones
+  accidentales y las extranjeras, no.
 - Se recorrieron los tipos de persona jurídica y la asociación accidental: Empresa (2), Cooperativa (7), OECAS (6), APPS (5),
   Asociación civil sin fines de lucro (12), Entidad o empresa pública (9), Asociación accidental (4) y Persona jurídica
   extranjera (11). También se recorrió Persona natural extranjera (10).
@@ -84,10 +85,10 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
   naturales extranjeras obtenidas no se guarda ninguna, porque ninguna tiene NIT.
 - Las asociaciones accidentales (consorcios para una licitación) no tienen NIT en el RUPE. El documento con que se registran va
   en `raw.numero_documento`.
-- **Fichas consultadas (`getDatosRupe`): 10.776 de 100.569 filas.** La dirección y la actividad solo vienen en las filas con
+- **Fichas consultadas (`getDatosRupe`): 11.483 de 100.569 filas.** La dirección y la actividad solo vienen en las filas con
   `raw.detalle_consultado = true`. El orden de consulta fue: primero los proveedores con NIT (empresas, cooperativas, OECAS, APPS,
   asociaciones civiles, entidades públicas), después las personas jurídicas extranjeras y al final las asociaciones accidentales.
-  **Estado de la reanudación (corte 22:20):** la consulta de fichas sigue en curso. Se reanuda con `python -P _scripts/sic_rupe_detail.py <dir> 2`, que salta los códigos RUPE ya guardados en `detail.jsonl`.
+  **Estado de la reanudación (corte del 27-oct, 22:15):** la consulta de fichas **quedó detenida** porque Claude Code cerró el proceso por falta de memoria en la laptop (no fue un fallo del portal ni del programa). Hay 11.483 fichas hechas y **89.086 pendientes**, sobre todo de empresas con NIT. La lista de pendientes, en orden de prioridad, está en `sicoes_rupe/fichas_pendientes.txt`. Para reanudar: `RUPE_TODO=sicoes_rupe/fichas_pendientes.txt python -P _scripts/sic_rupe_detail.py <dir_de_trabajo> 2`. Escribe `<dir_de_trabajo>/detail.jsonl`, una línea por ficha, sin teléfonos ni correos, que se une a este NDJSON por `raw.rupe`. A unas 430 fichas por minuto con 2 hilos, son unas 3,5 h.
 
 ### Adjudicaciones (`adjudicado_por_anio`)
 
