@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-10-28T01:46:26Z",
+ "generated_at": "2026-10-28T02:11:55Z",
  "branch": "datos/2026-10-27-empresas-sicoes-sin",
  "files": [
   {
    "path": "sicoes_rupe/sicoes_rupe_proveedores.ndjson.gz",
-   "sha256": "0c9abc14a54a30fd8fce1e7da5196bb56c0a867fbda3ece565b05fef86eb09ad",
-   "bytes": 3080539,
+   "sha256": "21717c1546af173987c031a6ef196259dedf22b39a4b93cd42a3363091a3bb55",
+   "bytes": 9229515,
    "rows": 100569
   },
   {
@@ -16,7 +16,7 @@
   },
   {
    "path": "sin/sin_listas_publicadas.ndjson.gz",
-   "sha256": "7e7236faf4ad9ac360802c1e217ace1426c4302350a09a23c780b2105d1a130e",
+   "sha256": "92f05dfbe86a7c8ea6aecfa74dbb3c87315200849570f3f636d67043f6cc4c05",
    "bytes": 6714444,
    "rows": 743326
   }
@@ -25,9 +25,9 @@
   "sicoes_rupe": {
    "filas": 100569,
    "con_nit": 74872,
-   "con_direccion": 0,
-   "con_nit_y_direccion": 0,
-   "con_actividad": 0,
+   "con_direccion": 10134,
+   "con_nit_y_direccion": 10134,
+   "con_actividad": 9588,
    "tipo:Empresa-Persona Jurídica": 72643,
    "tipo:Asociación Civil sin Fines de Lucro-Persona Jurídica": 598,
    "natural_sin_nit_excluido": 714,
@@ -39,7 +39,7 @@
    "tipo:Extranjera-Persona Jurídica": 1112,
    "listados_unicos": 101283,
    "declarados_por_el_portal_en_tipos_listados": 103395,
-   "detalles": 0
+   "detalles": 10134
   },
   "sin": {
    "filas": 743326,

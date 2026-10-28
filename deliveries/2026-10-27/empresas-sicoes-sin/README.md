@@ -5,9 +5,9 @@ Recolección del 27-oct-2026 para enriquecer y cruzar el registro del SEPREC. Do
 
 | Carpeta | Archivo | Filas | Con NIT | Con dirección | Con NIT y dirección |
 |---|---|---:|---:|---:|---:|
-| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | __RUPE_FILAS__ | __RUPE_NIT__ | __RUPE_DIR__ | __RUPE_NITDIR__ |
-| `sin/` | `sin_listas_publicadas.ndjson.gz` | __SIN_FILAS__ | __SIN_FILAS__ (100 %) | 0 (0 %) | 0 (0 %) |
-| `mintrabajo/` | — | 0 | — | — | — |
+| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 10.134 (10,1 %) | 10.134 (10,1 %) |
+| `sin/` | `sin_listas_publicadas.ndjson.gz` | 743.326 | 743.326 (100 %) | 0 (0 %) | 0 (0 %) |
+| (sin carpeta) | Ministerio de Trabajo | 0 | — | — | — |
 
 `manifest.json` trae el sha256, el tamaño y las filas de cada archivo, más los conteos de cada fuente.
 Los programas que produjeron los datos están en `_scripts/` (Python 3, `requests` y `pymupdf`).
@@ -59,11 +59,50 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
 
 ### Cobertura
 
-__RUPE_COBERTURA__
+| Tipo (`selTipo`) | Declarados por el portal | Únicos obtenidos | Cobertura |
+|---|---:|---:|---:|
+| Empresa (2) | 74.635 | 72.643 | 97,3 % |
+| Asociación civil sin fines de lucro (12) | 603 | 598 | 99,2 % |
+| Entidad / empresa pública (9) | 167 | 167 | 100,0 % |
+| Asociación accidental (4) | 25.795 | 25.697 | 99,6 % |
+| Persona natural extranjera (10) | 725 | 714 | 98,5 % |
+| Persona jurídica extranjera (11) | 1.117 | 1.112 | 99,6 % |
+| Cooperativa (7) | 139 | 139 | 100,0 % |
+| OECAS (6) | 87 | 87 | 100,0 % |
+| APPS (5) | 127 | 126 | 99,2 % |
+| **Total** | **103.395** | **101.283** | **98,0 %** |
+
+- La diferencia (2,0 %) viene de que el portal no ordena de forma estable entre páginas: la misma consulta repite unos
+  proveedores y omite otros. Para «Empresa» faltan unos 2.000. Otra pasada sobre las particiones grandes (La Paz, Santa Cruz y
+  Cochabamba) los recuperaría en parte.
+- 4 empresas no tienen departamento: el total declarado sin filtro (74.639) supera en 4 a la suma por departamento.
+- **No se recorrieron las personas naturales nacionales** (`selTipo=1`, 267.844 registros). En las páginas que se vieron se
+  identifican con carnet de identidad, que es un dato personal, y recorrerlas costaría unas 26.800 páginas. De las 714 personas
+  naturales extranjeras obtenidas no se guarda ninguna, porque ninguna tiene NIT.
+- Las asociaciones accidentales (consorcios para una licitación) no tienen NIT en el RUPE. El documento con que se registran va
+  en `raw.numero_documento`.
+- **Fichas consultadas (`getDatosRupe`): 10.134 de 100.569 filas.** La dirección y la actividad solo vienen en las filas con
+  `raw.detalle_consultado = true`. El orden de consulta fue: primero los proveedores con NIT (empresas, cooperativas, OECAS, APPS,
+  asociaciones civiles, entidades públicas), después las personas jurídicas extranjeras y al final las asociaciones accidentales.
+  **Estado de la reanudación (corte 22:15):** la consulta de fichas sigue en curso. Se reanuda con `python -P _scripts/sic_rupe_detail.py <dir> 2`, que salta los códigos RUPE ya guardados en `detail.jsonl`.
 
 ### Adjudicaciones (`adjudicado_por_anio`)
 
-__ADJ__
+**No se entregan montos adjudicados: `adjudicado_por_anio` va en `null` en todas las filas.** Motivo:
+
+- El buscador de convocatorias (`POST /portal/contrataciones/operacion.php`, `operacion=convNacional`, `tipo=Avanzada`)
+  **no pide captcha** y filtra por el NIT del adjudicado (`nroDocumento`) o por su nombre (`nombreAdjudicado`). Devuelve el
+  CUCE, la entidad, la modalidad, el objeto, el estado («Adjudicado», «Contratado», «Desierto»…), la fecha de adjudicación
+  (si se pide `fechaAdjudicacionDespliegue`) y el departamento. **No devuelve el monto.** Ejemplo: el NIT 191664025
+  (MULTI-STOCK S.R.L.) tiene 52 procesos.
+- El monto adjudicado o contratado solo aparece en la ficha del proceso (`/portal/contrataciones/ficha/fichaProceso.php`
+  → `descargaFicha.php`) y en los formularios 170/200 (`/portal/contrataciones/verFormulario.php`). **Los dos piden
+  Cloudflare Turnstile** (sitekeys `0x4AAAAAACHQnmr7z-aPbV4e` y `0x4AAAAAABjOuoSrQDMK9Yq2`). No se evadió.
+- El filtro `montoDesde`/`montoHasta` del buscador permitiría acotar montos por tramos, pero haría falta una búsqueda por
+  proveedor y tramo. A unos 4 s por consulta, con el límite de 2 hilos de esta corrida, eso es inviable para 100.000 proveedores.
+- **Lo que sí se puede hacer en otra corrida, sin captcha:** contar los procesos adjudicados o contratados por año para cada
+  NIT con la búsqueda avanzada, como señal de actividad. Son unos 100.000 NIT, al menos una consulta de unos 4 s por NIT,
+  más páginas de 10 para los que tienen muchos procesos.
 
 ---
 
@@ -75,13 +114,17 @@ Una fila por NIT y documento. Si un NIT aparece en varias listas, aparece en var
 
 | `raw.lista` | Qué significa | Documentos (RND) | Filas |
 |---|---|---|---:|
-| `categorizacion` | El NIT fue categorizado como PRICO, GRACO o RESTO (`raw.categoria`, `raw.subcategoria`) | 102400000041 (2024), anexo I GRACO (sin número de RND en el PDF, publicado en 2025), 102200000011 (2022), 101800000003 (2018), 10-0009-16, 10-00011-15, 10-009-14, 10-0026-13, 10-0026-11, 10-0007-10 | __CAT__ |
-| `facturacion_modalidad` | Modalidad de facturación asignada por el SIN (electrónica en línea, computarizada en línea, portal web…), con `raw.modalidad`, `raw.administracion`, `raw.grupo` y `raw.fecha_inicio` | 102200000024, 102300000020, 102400000025, 102300000022, 102400000005, 102200000010, 102400000012, 102400000003, 102100000019, 102400000004, 102300000019, 102400000002, 101800000026, 101800000028 y 101900000003, más un anexo con razón social | __FE__ |
-| `nit_observados` | El SIN publicó el NIT por emitir facturas sin transacción real o porque su domicilio fiscal no fue hallado | «nits-observados» (sep-2025) y «NOVIEMBRE-2025-NIT-OBSERVADOS» | __OBS__ |
-| `jurisdiccion` | El NIT fue asignado a una gerencia distrital | 10-0011-13 y anexo de 10-011-14 | __JUR__ |
-| `portal` | Obligado a declarar por el Portal Tributario | 10-0002-06, 10-0023-06, 10-0027-06, 10-0039-07 y 10-0031-12 | __POR__ |
+| `categorizacion` | El NIT fue categorizado como PRICO, GRACO o RESTO (`raw.categoria`, `raw.subcategoria`) | 102400000041 (2024), anexo I GRACO (sin número de RND en el PDF, publicado en 2025), 102200000011 (2022), 101800000003 (2018), 10-0009-16, 10-00011-15, 10-009-14, 10-0026-13, 10-0026-11, 10-0007-10 | 42.625 |
+| `facturacion_modalidad` | Modalidad de facturación asignada por el SIN (electrónica en línea, computarizada en línea, portal web…), con `raw.modalidad`, `raw.administracion`, `raw.grupo` y `raw.fecha_inicio` | 102200000024, 102300000020, 102400000025, 102300000022, 102400000005, 102200000010, 102400000012, 102400000003, 102100000019, 102400000004, 102300000019, 102400000002, 101800000026, 101800000028 y 101900000003, más un anexo con razón social | 611.535 |
+| `nit_observados` | El SIN publicó el NIT por emitir facturas sin transacción real o porque su domicilio fiscal no fue hallado | «nits-observados» (sep-2025) y «NOVIEMBRE-2025-NIT-OBSERVADOS» | 3.244 |
+| `jurisdiccion` | El NIT fue asignado a una gerencia distrital | 10-0011-13 y anexo de 10-011-14 | 60.795 |
+| `portal` | Obligado a declarar por el Portal Tributario | 10-0002-06, 10-0023-06, 10-0027-06, 10-0039-07 y 10-0031-12 | 25.127 |
 
-NIT distintos en total: __SIN_NITS__.
+NIT distintos en total: 349.657.
+
+`sin/inventario_pdfs_sin.jsonl` trae una línea por cada PDF revisado (1.187). Cada línea tiene la URL, la fecha de subida,
+las páginas, cuántos números con forma de NIT aparecen, las palabras clave halladas, el comienzo del texto y el sha256 del
+PDF. Sirve para ver qué se miró y qué se descartó.
 
 `departamento` se deduce de la gerencia o administración que el documento nombra (por ejemplo, «GRACO SANTA CRUZ» o
 «GDLPZ I» dan La Paz). Va en `null` cuando el documento no la nombra. `razon_social` solo viene en el anexo de
@@ -121,7 +164,7 @@ facturación electrónica en línea (170 filas). Ninguna lista del SIN trae dire
 
 ---
 
-## 3. Ministerio de Trabajo: registro de empleadores (ROE) (`mintrabajo/`)
+## 3. Ministerio de Trabajo: registro de empleadores (ROE)
 
 Sin datos. La Oficina Virtual de Trámites (`ovt.mintrabajo.gob.bo`, aplicación AngularJS) atiende el ROE solo con inicio de
 sesión del empleador (`#/loginRoe`, `/ws/login/`). El único servicio llamado «público» del código,
