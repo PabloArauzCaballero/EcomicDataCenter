@@ -5,7 +5,7 @@ Recolección del 27-oct-2026 para enriquecer y cruzar el registro del SEPREC. Do
 
 | Carpeta | Archivo | Filas | Con NIT | Con dirección | Con NIT y dirección |
 |---|---|---:|---:|---:|---:|
-| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 3.944 (3,9 %) | 3.944 (3,9 %) |
+| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 22.487 (22,4 %) | 20.283 (20,2 %) |
 | `sin/` | `sin_listas_publicadas.ndjson.gz` | 743.326 | 743.326 (100 %) | 0 (0 %) | 0 (0 %) |
 | (sin carpeta) | Ministerio de Trabajo | 0 | — | — | — |
 
@@ -64,7 +64,7 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
   accidental, sociedad anónima y responsabilidad limitada (`FORMA_LEGAL` en `_scripts/build_delivery.py`). Las palabras de
   comercio (EMPRESA, IMPORTADORA, CONSTRUCTORA, HERMANOS, BOLIVIA…) no cuentan. A esas filas se les deja `direccion = null`,
   `raw.unipersonal_presunta = true` y, de las sucursales, solo país, ciudad y número. Se guardan su NIT, la razón social,
-  la actividad y el departamento. Son 54.580 filas, y en 11.519 de ellas la ficha traía una dirección que se descartó.
+  la actividad y el departamento. Son 54.580 filas, y en 54.576 de ellas la ficha traía una dirección que se descartó.
 - Sucursales de las demás: la ficha trae país, ciudad, número, dirección, responsable, teléfono, fax y casilla. Solo se
   guardan los cuatro primeros. Del responsable y de los contactos no se guarda nada.
 - A las direcciones que se guardan se les quitan los correos y los números de teléfono que algunos proveedores escriben
@@ -123,10 +123,10 @@ datos nunca salieron de `_work/` en la máquina local.
   naturales extranjeras obtenidas no se guarda ninguna, porque ninguna tiene NIT.
 - Las asociaciones accidentales (consorcios para una licitación) no tienen NIT en el RUPE. El documento con que se registran va
   en `raw.numero_documento`.
-- **Fichas consultadas (`getDatosRupe`): 15.463 de 100.569 filas.** La actividad solo viene en las filas con
+- **Fichas consultadas (`getDatosRupe`): 77.076 de 100.569 filas.** La actividad solo viene en las filas con
   `raw.detalle_consultado = true`, y la dirección solo en esas mismas filas cuando no son unipersonales. El orden de consulta fue: primero los proveedores con NIT (empresas, cooperativas, OECAS, APPS,
   asociaciones civiles, entidades públicas), después las personas jurídicas extranjeras y al final las asociaciones accidentales.
-  **Estado de la reanudación (28-oct, 01:45):** la consulta de fichas sigue corriendo, por el candado compartido (`gate.sh http`, 2 hilos). Las fichas que faltan en esta versión están en `sicoes_rupe/fichas_pendientes.txt`. Para reanudar: `RUPE_TODO=sicoes_rupe/fichas_pendientes.txt python -P _scripts/sic_rupe_detail.py <dir_de_trabajo> 2`. Escribe `<dir_de_trabajo>/detail.jsonl`, una línea por ficha, que se une a este NDJSON por `raw.rupe`.
+  **Estado de la reanudación (28-oct, 04:02):** la consulta de fichas se reanudó por el candado compartido y Claude Code la volvió a cerrar por falta de memoria en la laptop. Fue la segunda vez, así que por regla se dejó parada. Las fichas que faltan están en `sicoes_rupe/fichas_pendientes.txt`. Para reanudar: `RUPE_TODO=sicoes_rupe/fichas_pendientes.txt python -P _scripts/sic_rupe_detail.py <dir_de_trabajo> 2`. Escribe `<dir_de_trabajo>/detail.jsonl`, una línea por ficha, que se une a este NDJSON por `raw.rupe`. A unas 400 fichas por minuto con 2 hilos.
 
 ### Adjudicaciones (`adjudicado_por_anio`)
 

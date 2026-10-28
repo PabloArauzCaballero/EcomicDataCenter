@@ -1,16 +1,16 @@
 {
- "generated_at": "2026-10-28T05:44:36Z",
+ "generated_at": "2026-10-28T08:02:37Z",
  "branch": "datos/2026-10-27-empresas-sicoes-sin",
  "files": [
   {
    "path": "sicoes_rupe/fichas_pendientes.txt",
-   "sha256": "3fd426959e402913db755f9cd68e390c0528b0dbe5d026204c88317b2f0e4fef",
-   "bytes": 588043
+   "sha256": "8fbeff43fe2080bb6d9777410f75fbe3f7871b415156f0e58c0aa7317d45c184",
+   "bytes": 165431
   },
   {
    "path": "sicoes_rupe/sicoes_rupe_proveedores.ndjson.gz",
-   "sha256": "21a3e6b6a7ed39f1ccd587a0ec533199d2c70c26ce5b17dfc36f20b0758fabaf",
-   "bytes": 11572427,
+   "sha256": "12ce10e095cbc3df3b6f934d768be5e50802b318a7a7381c1feb13bffb29419e",
+   "bytes": 47988737,
    "rows": 100569
   },
   {
@@ -21,7 +21,7 @@
   },
   {
    "path": "sin/sin_listas_publicadas.ndjson.gz",
-   "sha256": "70e56fb233c9f016cfab05d94b65eb52502ca7e770c98992d37560252dbef288",
+   "sha256": "ec0d502abce05c44e95a4f6b41c6c11e7fc6900f82e9e866b208f996fb500c2f",
    "bytes": 6714424,
    "rows": 743326
   }
@@ -31,12 +31,12 @@
    "unipersonal_presunta": 54580,
    "filas": 100569,
    "con_nit": 74872,
-   "con_direccion": 3944,
-   "con_nit_y_direccion": 3944,
-   "con_actividad": 14554,
+   "con_direccion": 22487,
+   "con_nit_y_direccion": 20283,
+   "con_actividad": 74320,
    "tipo:Empresa-Persona Jurídica": 72643,
+   "direccion_omitida_unipersonal": 54576,
    "tipo:Asociación Civil sin Fines de Lucro-Persona Jurídica": 598,
-   "direccion_omitida_unipersonal": 11519,
    "natural_sin_nit_excluido": 714,
    "tipo:Entidad / Empresa Pública-Persona Jurídica": 167,
    "tipo:Asociación Accidental-Asociación Accidental": 25697,
@@ -46,10 +46,16 @@
    "tipo:Extranjera-Persona Jurídica": 1112,
    "listados_unicos": 101283,
    "declarados_por_el_portal_en_tipos_listados": 103395,
-   "detalles": 15463,
-   "telefonos:nombre_comercial": 1,
+   "detalles": 77076,
+   "telefonos:sucursal": 4,
+   "telefonos:direccion": 57,
+   "telefonos_con_separadores:direccion": 44,
+   "telefonos:nombre_comercial": 2,
    "telefonos_con_separadores:nombre_comercial": 1,
-   "telefonos:razon_social": 3
+   "correos:nombre_comercial": 1,
+   "telefonos:razon_social": 3,
+   "correos:direccion": 3,
+   "telefonos_con_separadores:sucursal": 1
   },
   "sin": {
    "filas": 743326,
