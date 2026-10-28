@@ -1,3 +1,4 @@
+import { HttpExceptionFilter } from '../../../common/errors/http-exception.filter';
 import {
   SIGN_IN_FAILURE_LIMIT,
   SIGN_IN_LOCK_MINUTES,
@@ -6,11 +7,12 @@ import {
   type PrincipalKind,
 } from '../subscriber-session.repository';
 import { SubscriberSignInService } from '../subscriber-sign-in.service';
-import { AccountLockedError, InvalidCredentialsError } from '../subscription-errors';
-import { hashPassword } from '../subscription-secrets';
+import { InvalidCredentialsError } from '../subscription-errors';
+import * as secrets from '../subscription-secrets';
 import { ACCOUNT, fakeWriter } from './subscription-fixtures';
 
 const PASSWORD = 'una-clave-larga';
+const WRONG = 'otra-clave-xx';
 
 /**
  * The lock as the database keeps it, in memory: the same rule the repository's
@@ -29,18 +31,16 @@ class LockingSessions {
     this.now += ms;
   }
 
-  private retry(): number | null {
-    return this.lockedUntil && this.lockedUntil > this.now
-      ? Math.ceil((this.lockedUntil - this.now) / 1000)
-      : null;
+  private locked(): boolean {
+    return this.lockedUntil !== null && this.lockedUntil > this.now;
   }
 
   findPrincipal(): Promise<Principal> {
-    return Promise.resolve({ ...this.principal, retryAfterSeconds: this.retry() });
+    return Promise.resolve({ ...this.principal, locked: this.locked() });
   }
 
   recordFailure(): Promise<void> {
-    if (this.retry()) return Promise.resolve();
+    if (this.locked()) return Promise.resolve();
     this.failures += 1;
     if (this.failures >= SIGN_IN_FAILURE_LIMIT) {
       this.failures = 0;
@@ -49,12 +49,12 @@ class LockingSessions {
     return Promise.resolve();
   }
 
-  recordSuccess(): Promise<number | null> {
-    if (this.retry()) return Promise.resolve(this.retry());
+  recordSuccess(): Promise<boolean> {
+    if (this.locked()) return Promise.resolve(false);
     this.successes += 1;
     this.failures = 0;
     this.lockedUntil = null;
-    return Promise.resolve(null);
+    return Promise.resolve(true);
   }
 
   /** What a token or the operator does: clear the lock and the count. */
@@ -70,21 +70,52 @@ async function ownerPrincipal(): Promise<Principal> {
     id: ACCOUNT.subscriber_account_id,
     account: ACCOUNT,
     member: null,
-    passwordHash: await hashPassword(PASSWORD),
-    retryAfterSeconds: null,
+    passwordHash: await secrets.hashPassword(PASSWORD),
+    locked: false,
   };
 }
 
-function serviceOver(sessions: LockingSessions): SubscriberSignInService {
-  return new SubscriberSignInService(sessions as unknown as SubscriberSessionRepository);
+async function lockedOwner(): Promise<{
+  sessions: LockingSessions;
+  service: SubscriberSignInService;
+}> {
+  const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
+  const service = new SubscriberSignInService(sessions as unknown as SubscriberSessionRepository);
+  for (let attempt = 0; attempt < SIGN_IN_FAILURE_LIMIT; attempt += 1) {
+    await service.signIn(ACCOUNT.email, WRONG).catch(() => undefined);
+  }
+  return { sessions, service };
+}
+
+/** The body the exception filter would send for an error, without the request id. */
+function bodyOf(error: unknown): unknown {
+  let sent: unknown;
+  const reply = { status: () => ({ send: (body: unknown) => (sent = body) }) };
+  const host = {
+    switchToHttp: () => ({
+      getResponse: () => reply,
+      getRequest: () => ({ id: 'r', url: '/' }),
+    }),
+  };
+  new HttpExceptionFilter({ error: jest.fn() } as never).catch(error, host as never);
+  return sent;
+}
+
+async function rejection(attempt: Promise<unknown>): Promise<unknown> {
+  return attempt.then(
+    () => {
+      throw new Error('expected a refusal');
+    },
+    (error: unknown) => error,
+  );
 }
 
 describe('sign-in lock', () => {
   it('locks on the tenth consecutive failure, which still answers the generic 401', async () => {
     const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
-    const service = serviceOver(sessions);
+    const service = new SubscriberSignInService(sessions as unknown as SubscriberSessionRepository);
     for (let attempt = 1; attempt <= SIGN_IN_FAILURE_LIMIT; attempt += 1) {
-      await expect(service.signIn(ACCOUNT.email, 'otra-clave-xx')).rejects.toBeInstanceOf(
+      await expect(service.signIn(ACCOUNT.email, WRONG)).rejects.toBeInstanceOf(
         InvalidCredentialsError,
       );
     }
@@ -92,83 +123,74 @@ describe('sign-in lock', () => {
     expect(sessions.lockedUntil).not.toBeNull();
   });
 
-  it('while locked, answers 423 with the seconds left only to the right password', async () => {
-    const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
-    const service = serviceOver(sessions);
-    for (let attempt = 0; attempt < SIGN_IN_FAILURE_LIMIT; attempt += 1) {
-      await service.signIn(ACCOUNT.email, 'otra-clave-xx').catch(() => undefined);
+  it('while locked, refuses the right password with the same 401 body as a wrong one', async () => {
+    const { sessions, service } = await lockedOwner();
+    const lockedUntil = sessions.lockedUntil;
+    const recordFailure = jest.spyOn(sessions, 'recordFailure');
+    const right = await rejection(service.signIn(ACCOUNT.email, PASSWORD));
+    const wrong = await rejection(service.signIn(ACCOUNT.email, WRONG));
+    const unknown = await rejection(
+      new SubscriberSignInService({
+        findPrincipal: jest.fn().mockResolvedValue(null),
+      } as unknown as SubscriberSessionRepository).signIn('nadie@example.org', PASSWORD),
+    );
+    for (const error of [right, wrong, unknown]) {
+      expect(error).toBeInstanceOf(InvalidCredentialsError);
+      expect(error).toMatchObject({ statusCode: 401 });
     }
-    const right = service.signIn(ACCOUNT.email, PASSWORD);
-    await expect(right).rejects.toBeInstanceOf(AccountLockedError);
-    await expect(right).rejects.toMatchObject({
-      statusCode: 423,
-      code: 'LOCKED',
-      details: { retryAfterSeconds: SIGN_IN_LOCK_MINUTES * 60 },
-    });
+    // Byte for byte the same answer: nothing tells a locked account apart.
+    expect(bodyOf(right)).toEqual(bodyOf(unknown));
+    expect(bodyOf(wrong)).toEqual(bodyOf(unknown));
+    // Neither attempt is counted, the lock is not extended, nothing is reset.
+    expect(recordFailure).not.toHaveBeenCalled();
     expect(sessions.successes).toBe(0);
+    expect(sessions.lockedUntil).toBe(lockedUntil);
+  });
+
+  it('runs scrypt while locked, so the refusal costs the same time', async () => {
+    const { service } = await lockedOwner();
+    const verify = jest.spyOn(secrets, 'verifyPassword');
+    await service.signIn(ACCOUNT.email, PASSWORD).catch(() => undefined);
+    expect(verify).toHaveBeenCalledTimes(1);
+    verify.mockRestore();
+  });
+
+  it('lets the right password in once the lock has passed', async () => {
+    const { sessions, service } = await lockedOwner();
     sessions.advance(SIGN_IN_LOCK_MINUTES * 60_000 + 1);
     await expect(service.signIn(ACCOUNT.email, PASSWORD)).resolves.toMatchObject({
       kind: 'OWNER',
     });
   });
 
-  it('while locked, gives a wrong password the same 401 as an unknown e-mail and counts nothing', async () => {
-    const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
-    const service = serviceOver(sessions);
-    for (let attempt = 0; attempt < SIGN_IN_FAILURE_LIMIT; attempt += 1) {
-      await service.signIn(ACCOUNT.email, 'otra-clave-xx').catch(() => undefined);
-    }
-    const lockedUntil = sessions.lockedUntil;
-    const recordFailure = jest.spyOn(sessions, 'recordFailure');
-    const wrong = service.signIn(ACCOUNT.email, 'otra-clave-xx');
-    await expect(wrong).rejects.toBeInstanceOf(InvalidCredentialsError);
-    await expect(wrong).rejects.toMatchObject({
-      statusCode: 401,
-      message: 'Invalid e-mail or password',
-    });
-    // Not counted, and the lock is not extended.
-    expect(recordFailure).not.toHaveBeenCalled();
-    expect(sessions.failures).toBe(0);
-    expect(sessions.lockedUntil).toBe(lockedUntil);
-  });
-
-  it('resets the count on a right password, so failures must be consecutive', async () => {
-    const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
-    const service = serviceOver(sessions);
-    for (let attempt = 1; attempt < SIGN_IN_FAILURE_LIMIT; attempt += 1) {
-      await service.signIn(ACCOUNT.email, 'otra-clave-xx').catch(() => undefined);
-    }
-    await service.signIn(ACCOUNT.email, PASSWORD);
-    expect(sessions.failures).toBe(0);
-    await expect(service.signIn(ACCOUNT.email, 'otra-clave-xx')).rejects.toBeInstanceOf(
-      InvalidCredentialsError,
-    );
-  });
-
   it('opens again at once when a token or the operator clears the lock', async () => {
-    const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
-    const service = serviceOver(sessions);
-    for (let attempt = 0; attempt < SIGN_IN_FAILURE_LIMIT; attempt += 1) {
-      await service.signIn(ACCOUNT.email, 'otra-clave-xx').catch(() => undefined);
-    }
+    const { sessions, service } = await lockedOwner();
     sessions.unlock();
     await expect(service.signIn(ACCOUNT.email, PASSWORD)).resolves.toMatchObject({
       kind: 'OWNER',
     });
   });
 
-  it('refuses with 423 when concurrent failures lock it between check and success', async () => {
-    const principal = await ownerPrincipal();
+  it('resets the count on a right password, so failures must be consecutive', async () => {
+    const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
+    const service = new SubscriberSignInService(sessions as unknown as SubscriberSessionRepository);
+    for (let attempt = 1; attempt < SIGN_IN_FAILURE_LIMIT; attempt += 1) {
+      await service.signIn(ACCOUNT.email, WRONG).catch(() => undefined);
+    }
+    await service.signIn(ACCOUNT.email, PASSWORD);
+    expect(sessions.failures).toBe(0);
+  });
+
+  it('refuses with 401 when concurrent failures lock it between check and success', async () => {
     const sessions = {
-      findPrincipal: jest.fn().mockResolvedValue(principal),
+      findPrincipal: jest.fn().mockResolvedValue(await ownerPrincipal()),
       recordFailure: jest.fn(),
-      recordSuccess: jest.fn().mockResolvedValue(840),
+      recordSuccess: jest.fn().mockResolvedValue(false),
     };
     const service = new SubscriberSignInService(sessions as unknown as SubscriberSessionRepository);
-    await expect(service.signIn(ACCOUNT.email, PASSWORD)).rejects.toMatchObject({
-      statusCode: 423,
-      details: { retryAfterSeconds: 840 },
-    });
+    await expect(service.signIn(ACCOUNT.email, PASSWORD)).rejects.toBeInstanceOf(
+      InvalidCredentialsError,
+    );
   });
 
   it('gives an unknown e-mail the same 401 and counts nothing', async () => {
@@ -203,12 +225,10 @@ describe('sign-in lock: the statements that keep it', () => {
   });
 
   it('lets a lock set meanwhile win over a right password', async () => {
-    const { writer, calls } = fakeWriter((sql) =>
-      sql.startsWith('SELECT') ? [{ retry_after_seconds: 600 }] : [],
-    );
+    const { writer, calls } = fakeWriter(() => []);
     const repository = new SubscriberSessionRepository(writer);
     await expect(repository.recordSuccess('OWNER', ACCOUNT.subscriber_account_id)).resolves.toBe(
-      600,
+      false,
     );
     expect(calls[0]?.sql).toContain('SET failed_login_count = 0, locked_until = NULL');
     expect(calls[0]?.sql).toContain('AND (locked_until IS NULL OR locked_until <= now())');

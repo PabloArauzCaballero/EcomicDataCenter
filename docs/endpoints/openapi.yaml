@@ -4987,9 +4987,9 @@ paths:
   /api/v1/site/subscriptions/sessions:
     post:
       operationId: openSubscriberSession
-      summary: Sign in an owner or an ACTIVE member; one generic 401 for an unknown
-        e-mail or a wrong password, locked or not; 423 only to the right password
-        while locked after 10 consecutive failures
+      summary: Sign in an owner or an ACTIVE member; one identical 401 for an unknown
+        e-mail, a wrong password, and any password while locked (15 min after 10 consecutive
+        failures; a reset token or the operator's unlock ends it)
       tags:
       - Subscriptions
       responses:
@@ -5026,13 +5026,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
         '422':
           description: Business rule violation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '423':
-          description: Right password, but locked; error.details.retryAfterSeconds
-            says how long
           content:
             application/json:
               schema:
@@ -5887,7 +5880,7 @@ paths:
     post:
       operationId: changeSubscriberMemberPassword
       summary: Change an ACTIVE member's password; the current one is checked under
-        the member's sign-in lock (401 counted, 423 while locked)
+        the member's sign-in lock, with the same generic 401
       tags:
       - Subscriptions
       responses:
@@ -5925,12 +5918,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
         '422':
           description: Business rule violation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '423':
-          description: Right current password, but the member is locked
           content:
             application/json:
               schema:
@@ -6107,8 +6094,8 @@ paths:
   /api/v1/site/subscriptions/accounts/{subscriberAccountId}/password:
     post:
       operationId: changeSubscriberPassword
-      summary: Change the password; the current one is checked under the sign-in lock
-        (401 counted, 423 while locked)
+      summary: Change the password; the current one is checked under the sign-in lock,
+        with the same generic 401
       tags:
       - Subscriptions
       responses:
@@ -6146,12 +6133,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
         '422':
           description: Business rule violation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        '423':
-          description: Right current password, but the owner is locked
           content:
             application/json:
               schema:

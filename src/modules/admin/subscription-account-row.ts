@@ -55,7 +55,7 @@ export interface AccountRow {
   paid_until: Date | null;
   /** Raised to end every session the site issued before; starts at 1. */
   session_version: number;
-  /** While in the future, sign-in answers 423 even with the right password. */
+  /** While in the future, every sign-in is refused with the generic 401. */
   locked_until: Date | null;
   created_at: Date;
   /** `created_at` with its microseconds, used only for the cursor. */

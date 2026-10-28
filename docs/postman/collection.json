@@ -3052,7 +3052,7 @@
       "name": "Subscriptions",
       "item": [
         {
-          "name": "Sign in an owner or an ACTIVE member; one generic 401 for an unknown e-mail or a wrong password, locked or not; 423 only to the right password while locked after 10 consecutive failures",
+          "name": "Sign in an owner or an ACTIVE member; one identical 401 for an unknown e-mail, a wrong password, and any password while locked (15 min after 10 consecutive failures; a reset token or the operator's unlock ends it)",
           "request": {
             "method": "POST",
             "header": [
@@ -3072,7 +3072,7 @@
                 "sessions"
               ]
             },
-            "description": "Sign in an owner or an ACTIVE member; one generic 401 for an unknown e-mail or a wrong password, locked or not; 423 only to the right password while locked after 10 consecutive failures",
+            "description": "Sign in an owner or an ACTIVE member; one identical 401 for an unknown e-mail, a wrong password, and any password while locked (15 min after 10 consecutive failures; a reset token or the operator's unlock ends it)",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -3515,7 +3515,7 @@
           "response": []
         },
         {
-          "name": "Change an ACTIVE member's password; the current one is checked under the member's sign-in lock (401 counted, 423 while locked)",
+          "name": "Change an ACTIVE member's password; the current one is checked under the member's sign-in lock, with the same generic 401",
           "request": {
             "method": "POST",
             "header": [
@@ -3539,7 +3539,7 @@
                 "password"
               ]
             },
-            "description": "Change an ACTIVE member's password; the current one is checked under the member's sign-in lock (401 counted, 423 while locked)",
+            "description": "Change an ACTIVE member's password; the current one is checked under the member's sign-in lock, with the same generic 401",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -3643,7 +3643,7 @@
           "response": []
         },
         {
-          "name": "Change the password; the current one is checked under the sign-in lock (401 counted, 423 while locked)",
+          "name": "Change the password; the current one is checked under the sign-in lock, with the same generic 401",
           "request": {
             "method": "POST",
             "header": [
@@ -3665,7 +3665,7 @@
                 "password"
               ]
             },
-            "description": "Change the password; the current one is checked under the sign-in lock (401 counted, 423 while locked)",
+            "description": "Change the password; the current one is checked under the sign-in lock, with the same generic 401",
             "auth": {
               "type": "bearer",
               "bearer": [

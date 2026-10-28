@@ -5,7 +5,6 @@ export type ErrorCode =
   | 'BUSINESS_RULE_VIOLATION'
   | 'UNAUTHORIZED'
   | 'FORBIDDEN'
-  | 'LOCKED'
   | 'INFRASTRUCTURE_ERROR';
 
 export class ApplicationError extends Error {
