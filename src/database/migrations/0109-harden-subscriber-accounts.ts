@@ -20,7 +20,10 @@ import type { MigrationContext } from '../migration.types';
  * 4. A token may name a member. Without one it is the owner's.
  * 5. `subscriber_notice` has one row per account, kind and period. The site
  *    claims a row before sending a notice, and the unique key — not a read
- *    first — decides who sends it, so a notice goes out once.
+ *    first — decides who sends it, so a notice goes out once. When the send
+ *    fails the site releases the claim so the next run retries: this is the
+ *    only table here on which the writer may DELETE, because a claim is a
+ *    lease, not a record of anything that happened.
  *
  * The SQL is written here rather than in a `migration-sql` module because the
  * physical-model gate parses the migration files themselves; each added column
@@ -78,7 +81,7 @@ DO $$
 BEGIN
   IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'backend_writer') THEN
     GRANT SELECT, INSERT, UPDATE ON operations.subscriber_member TO backend_writer;
-    GRANT SELECT, INSERT ON operations.subscriber_notice TO backend_writer;
+    GRANT SELECT, INSERT, DELETE ON operations.subscriber_notice TO backend_writer;
   END IF;
   IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'backup_operator') THEN
     GRANT SELECT ON operations.subscriber_member, operations.subscriber_notice TO backup_operator;

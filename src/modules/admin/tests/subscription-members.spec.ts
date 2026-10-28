@@ -5,6 +5,7 @@ import { SiteSubscriberNoticesController } from '../site-subscriber-notices.cont
 import { SubscriberAdminRepository } from '../subscriber-admin.repository';
 import { SubscriberMemberRepository } from '../subscriber-member.repository';
 import { SubscriberNoticeRepository } from '../subscriber-notice.repository';
+import type { SubscriberSignInService } from '../subscriber-sign-in.service';
 import { issueToken } from '../subscription-secrets';
 import { memberCreationSchema, noticeClaimSchema } from '../subscription.schemas';
 import { ACCOUNT, MEMBER, fakeReply, fakeWriter, identity } from './subscription-fixtures';
@@ -81,9 +82,13 @@ describe('members: seats and e-mails', () => {
       .mockResolvedValueOnce({ outcome: 'EMAIL_IN_USE' })
       .mockResolvedValueOnce({ outcome: 'LIMIT_REACHED', active: 2 })
       .mockResolvedValueOnce({ outcome: 'CREATED', member: MEMBER });
-    const controller = new SiteSubscriberMembersController(identity, {
-      add,
-    } as unknown as SubscriberMemberRepository);
+    const controller = new SiteSubscriberMembersController(
+      identity,
+      {
+        add,
+      } as unknown as SubscriberMemberRepository,
+      {} as SubscriberSignInService,
+    );
     const params = { subscriberAccountId: ID };
     await expect(controller.add(params, INVITE, 'r')).rejects.toBeInstanceOf(NotFoundError);
     await expect(controller.add(params, INVITE, 'r')).rejects.toMatchObject({
@@ -137,6 +142,36 @@ describe('members: seats and e-mails', () => {
   });
 });
 
+describe('one member, as the site checks it', () => {
+  it('answers {member} with id, e-mail, name, status, sessionVersion and activated, or 404', async () => {
+    const find = jest
+      .fn()
+      .mockResolvedValueOnce({ ...MEMBER, status: 'REMOVED', activated: false })
+      .mockResolvedValueOnce(null);
+    const controller = new SiteSubscriberMembersController(
+      identity,
+      {
+        find,
+      } as unknown as SubscriberMemberRepository,
+      {} as SubscriberSignInService,
+    );
+    const params = { subscriberAccountId: ID, memberId: MEMBER.subscriber_member_id };
+    const answer = await controller.member(params, 'r');
+    expect(answer.data).toEqual({
+      member: {
+        memberId: MEMBER.subscriber_member_id,
+        email: MEMBER.email,
+        fullName: MEMBER.full_name,
+        status: 'REMOVED',
+        activated: false,
+        sessionVersion: 3,
+        createdAt: MEMBER.created_at.toISOString(),
+      },
+    });
+    await expect(controller.member(params, 'r')).rejects.toBeInstanceOf(NotFoundError);
+  });
+});
+
 describe('notices are claimed once', () => {
   function controllerWith(claim: jest.Mock) {
     return new SiteSubscriberNoticesController(identity, {
@@ -163,6 +198,20 @@ describe('notices are claimed once', () => {
     await expect(
       controller.claim(CLAIM, 'r', reply as unknown as FastifyReply),
     ).rejects.toBeInstanceOf(NotFoundError);
+  });
+
+  it('releases a claim after a failed send, so the next run can claim it again', async () => {
+    const release = jest.fn().mockResolvedValue(undefined);
+    const controller = new SiteSubscriberNoticesController(identity, {
+      release,
+    } as unknown as SubscriberNoticeRepository);
+    await expect(controller.release(CLAIM)).resolves.toBeUndefined();
+    expect(release).toHaveBeenCalledWith(CLAIM);
+    const { writer, calls } = fakeWriter(() => []);
+    await new SubscriberNoticeRepository(writer).release(CLAIM);
+    expect(calls[0]?.sql).toMatch(/^DELETE FROM operations\.subscriber_notice/u);
+    expect(calls[0]?.sql).toContain('AND kind = :kind AND period_key = :periodKey');
+    expect(calls[0]?.replacements).toEqual(CLAIM);
   });
 
   it('lets the unique key decide, in one statement', async () => {
