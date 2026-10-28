@@ -5,7 +5,7 @@ Recolección del 27-oct-2026 para enriquecer y cruzar el registro del SEPREC. Do
 
 | Carpeta | Archivo | Filas | Con NIT | Con dirección | Con NIT y dirección |
 |---|---|---:|---:|---:|---:|
-| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 11.483 (11,4 %) | 11.483 (11,4 %) |
+| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 3.115 (3,1 %) | 3.115 (3,1 %) |
 | `sin/` | `sin_listas_publicadas.ndjson.gz` | 743.326 | 743.326 (100 %) | 0 (0 %) | 0 (0 %) |
 | (sin carpeta) | Ministerio de Trabajo | 0 | — | — | — |
 
@@ -57,9 +57,18 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
 - Personas naturales: solo se guardan NIT, tipo, estado, departamento y actividad. No se guarda el nombre, el documento de
   identidad, la dirección ni los contactos. Las que no tienen NIT (solo carnet) se excluyen.
 - De la ficha **no** se guardan teléfono, fax, casilla ni correo, ni siquiera en `raw`, en ningún tipo de proveedor.
-- Las empresas unipersonales se guardan como empresas, con nombre y dirección. El RUPE las registra como
-  «Empresa-Persona Jurídica», con NIT, aunque la razón social sea el nombre de una persona. La dirección es la que el
-  proveedor declaró al Estado; puede coincidir con su vivienda. Quien publique estos datos debería revisarlo.
+- **Empresas unipersonales: sin domicilio.** El RUPE las registra como «Empresa-Persona Jurídica», con NIT, pero la razón
+  social es el nombre de una persona y la dirección puede ser su vivienda. Se toma por unipersonal toda «Empresa» cuya razón
+  social no trae ninguna marca de sociedad u organización (S.R.L., S.A., LTDA, SOCIEDAD, CONSTRUCTORA, GRUPO, etc.;
+  la lista exacta está en `SOCIETARIA`, en `_scripts/build_delivery.py`). A esas filas se les deja `direccion = null`,
+  `raw.unipersonal_presunta = true` y, de las sucursales, solo país, ciudad y número. Se guardan su NIT, la razón social,
+  la actividad y el departamento. Son 54.405 filas, y en 8.368 de ellas la ficha traía una dirección que se descartó.
+- Sucursales de las demás: la ficha trae país, ciudad, número, dirección, responsable, teléfono, fax y casilla. Solo se
+  guardan los cuatro primeros. Del responsable y de los contactos no se guarda nada.
+- A las direcciones que se guardan se les quitan los correos y los números de teléfono que algunos proveedores escriben
+  dentro, así como toda secuencia de 7 o más dígitos.
+- La entrega pasa `_scripts/privacy_check.py` con 0 hallazgos. El programa busca correos, teléfonos rotulados, números largos
+  en las direcciones, claves de contacto, domicilios o nombres de personas naturales y domicilios de unipersonales.
 
 ### Cobertura
 
@@ -85,10 +94,10 @@ Los campos que la fuente no publica van en `null`. Nada se infiere ni se rellena
   naturales extranjeras obtenidas no se guarda ninguna, porque ninguna tiene NIT.
 - Las asociaciones accidentales (consorcios para una licitación) no tienen NIT en el RUPE. El documento con que se registran va
   en `raw.numero_documento`.
-- **Fichas consultadas (`getDatosRupe`): 11.483 de 100.569 filas.** La dirección y la actividad solo vienen en las filas con
-  `raw.detalle_consultado = true`. El orden de consulta fue: primero los proveedores con NIT (empresas, cooperativas, OECAS, APPS,
+- **Fichas consultadas (`getDatosRupe`): 11.483 de 100.569 filas.** La actividad solo viene en las filas con
+  `raw.detalle_consultado = true`, y la dirección solo en esas mismas filas cuando no son unipersonales. El orden de consulta fue: primero los proveedores con NIT (empresas, cooperativas, OECAS, APPS,
   asociaciones civiles, entidades públicas), después las personas jurídicas extranjeras y al final las asociaciones accidentales.
-  **Estado de la reanudación (corte del 27-oct, 22:15):** la consulta de fichas **quedó detenida** porque Claude Code cerró el proceso por falta de memoria en la laptop (no fue un fallo del portal ni del programa). Hay 11.483 fichas hechas y **89.086 pendientes**, sobre todo de empresas con NIT. La lista de pendientes, en orden de prioridad, está en `sicoes_rupe/fichas_pendientes.txt`. Para reanudar: `RUPE_TODO=sicoes_rupe/fichas_pendientes.txt python -P _scripts/sic_rupe_detail.py <dir_de_trabajo> 2`. Escribe `<dir_de_trabajo>/detail.jsonl`, una línea por ficha, sin teléfonos ni correos, que se une a este NDJSON por `raw.rupe`. A unas 430 fichas por minuto con 2 hilos, son unas 3,5 h.
+  **Estado de la reanudación (28-oct):** la consulta de fichas se reanudó por el candado compartido (`gate.sh http`, 2 hilos). Mientras siga, faltan las fichas listadas en `sicoes_rupe/fichas_pendientes.txt`. Para reanudar: `RUPE_TODO=sicoes_rupe/fichas_pendientes.txt python -P _scripts/sic_rupe_detail.py <dir_de_trabajo> 2`. Escribe `<dir_de_trabajo>/detail.jsonl`, una línea por ficha, que se une a este NDJSON por `raw.rupe`.
 
 ### Adjudicaciones (`adjudicado_por_anio`)
 

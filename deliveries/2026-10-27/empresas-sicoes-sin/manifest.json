@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-28T02:17:10Z",
+ "generated_at": "2026-10-28T05:28:57Z",
  "branch": "datos/2026-10-27-empresas-sicoes-sin",
  "files": [
   {
@@ -9,8 +9,8 @@
   },
   {
    "path": "sicoes_rupe/sicoes_rupe_proveedores.ndjson.gz",
-   "sha256": "edb3a160abf78ed41620bfbd45d6711619a29c02f088ce5c0d561eeb8c0845a7",
-   "bytes": 9907443,
+   "sha256": "f3454cefb269d7069ef8b07cdb2dd5978db8ea12f666c37e05b2139412623739",
+   "bytes": 9771637,
    "rows": 100569
   },
   {
@@ -21,20 +21,22 @@
   },
   {
    "path": "sin/sin_listas_publicadas.ndjson.gz",
-   "sha256": "1918901a14a57ce4bd214dce21fc2cf5a8ba0ef2d2699ad8b00a84c78a2f4acc",
+   "sha256": "c634670e461f1865d7dced487c58505b46d27d7fdfa7c3e540fe535e2fbb2af8",
    "bytes": 6714444,
    "rows": 743326
   }
  ],
  "stats": {
   "sicoes_rupe": {
+   "unipersonal_presunta": 54405,
    "filas": 100569,
    "con_nit": 74872,
-   "con_direccion": 11483,
-   "con_nit_y_direccion": 11483,
+   "con_direccion": 3115,
+   "con_nit_y_direccion": 3115,
    "con_actividad": 10828,
    "tipo:Empresa-Persona Jurídica": 72643,
    "tipo:Asociación Civil sin Fines de Lucro-Persona Jurídica": 598,
+   "direccion_omitida_unipersonal": 8368,
    "natural_sin_nit_excluido": 714,
    "tipo:Entidad / Empresa Pública-Persona Jurídica": 167,
    "tipo:Asociación Accidental-Asociación Accidental": 25697,

@@ -23,6 +23,34 @@ def clean(s):
     return s or None
 
 
+import re
+# Marcas de forma societaria o de organización. Una «Empresa-Persona Jurídica» sin ninguna se toma por unipersonal.
+SOCIETARIA = re.compile(
+    r'S\.?\s?R\.?\s?L\b|\bS\.\s?A\b|\bS\.A\.|\bSA\b|\bS\.?A\.?\s?C\b|\bLTDA\b|LIMITADA|SOCIEDAD|\bCIA\b|COMPA[NÑ]IA|CORPORACI|'
+    r'CONSORCIO|ASOCIACI|COOPERATIV|FUNDACI|\bGRUPO\b|\bS\.?\s?C\.?\s?S\b|E\.?\s?I\.?\s?R\.?\s?L|\bONG\b|MUTUAL|BANCO|'
+    r'SEGUROS|GOBIERNO|MUNICIPAL|UNIVERSIDAD|INSTITUTO|COLEGIO|CLINICA|CLÍNICA|HOSPITAL|FEDERACI|CAMARA|CÁMARA|'
+    r'SINDICATO|IGLESIA|CENTRO\b|EMPRESA\b|INDUSTRIA|ASOCIADOS|& ?ASOC|\bY CIA\b|HERMANOS|HNOS|\bS\.?\s?en\s?C\b|'
+    r'SUCURSAL|BOLIVIA\b|INTERNACIONAL|CONSTRUCTORA|IMPORTADORA|DISTRIBUIDORA|LABORATORIO', re.I)
+EMAIL = re.compile(r'[\w.+-]+@[\w-]+\.[\w.-]+')
+FONO = re.compile(r'(?i)(?:telf?s?|tel[eé]fonos?|cel(?:ular)?|fax|whatsapp|wpp|fono|tlf)\.?\s*:?\s*[\d\s\-/.,y]{6,}')
+LARGO = re.compile(r'(?<!\d)\d{7,}(?!\d)')
+
+
+def es_unipersonal(tipo, razon):
+    return bool(tipo and tipo.startswith('Empresa') and razon and not SOCIETARIA.search(razon))
+
+
+def scrub(s):
+    """Quita correos y números de teléfono que algunos proveedores escriben dentro de la dirección."""
+    if not s:
+        return s
+    s = EMAIL.sub('', s)
+    s = FONO.sub('', s)
+    s = LARGO.sub('', s)
+    s = ' '.join(s.split()).strip(' ,;-/')
+    return s or None
+
+
 # ---------------- SICOES / RUPE ----------------
 def build_rupe():
     D = os.path.join(DL, 'rupe')
@@ -75,14 +103,32 @@ def build_rupe():
                        'actividad': actividad, 'departamento': clean(r.get('departamento')),
                        'raw': {'rupe': k, 'tipo_documento': raw['tipo_documento'], 'nota': 'persona natural: solo NIT y actividad'}}
             else:
+                razon = clean(r.get('razonSocial'))
+                unip = es_unipersonal(tipo, razon)
+                sucs = d.get('sucursales') if isinstance(d.get('sucursales'), list) else []
                 raw.update({'nombre_comercial': clean(d.get('nombreComercial')), 'provincia_o_ciudad': clean(d.get('provincia')),
                             'catalogo_unspsc': [[clean(x[0]), clean(x[1])] for x in cat if isinstance(x, list) and len(x) > 1],
-                            'n_sucursales': len(d.get('sucursales') or []) if isinstance(d.get('sucursales'), list) else None,
-                            'sucursales': [{a: clean(b) for a, b in s.items()} for s in (d.get('sucursales') or []) if isinstance(s, dict)][:50]})
+                            'n_sucursales': len(sucs) if k in det else None})
+                if unip:
+                    # unipersonal: sin domicilio, ni de la casa matriz ni de sucursales
+                    raw['unipersonal_presunta'] = True
+                    raw['sucursales'] = [{'pais': clean(s[0]), 'ciudad': clean(s[1]), 'nro': clean(s[2])}
+                                         for s in sucs if isinstance(s, list) and len(s) >= 3][:50]
+                    direccion = None
+                    if k in det and clean(d.get('direccion')):
+                        c['direccion_omitida_unipersonal'] += 1
+                else:
+                    # sucursal = [país, ciudad, nro, dirección, responsable, teléfono, fax, casilla]:
+                    # se guardan solo país, ciudad, número y dirección (sin responsable ni contactos)
+                    raw['sucursales'] = [{'pais': clean(s[0]), 'ciudad': clean(s[1]), 'nro': clean(s[2]),
+                                          'direccion': scrub(clean(s[3]))}
+                                         for s in sucs if isinstance(s, list) and len(s) >= 4][:50]
+                    direccion = scrub(clean(d.get('direccion')))
                 out = {'source': 'sicoes_rupe', 'nit': nit,
-                       'razon_social': clean(r.get('razonSocial')), 'tipo': tipo, 'estado': clean(r.get('estado')),
+                       'razon_social': razon, 'tipo': tipo, 'estado': clean(r.get('estado')),
                        'actividad': actividad, 'departamento': clean(r.get('departamento')) or clean(d.get('departamento')),
-                       'direccion': clean(d.get('direccion')), 'raw': raw}
+                       'direccion': direccion, 'raw': raw}
+                c['unipersonal_presunta'] += bool(unip)
                 if not nit:
                     raw['numero_documento'] = clean(r.get('numeroDocumento'))
             out.update({'matricula': None, 'municipio': None, 'adjudicado_por_anio': None,
