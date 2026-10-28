@@ -39,14 +39,14 @@ class LockingSessions {
     return Promise.resolve({ ...this.principal, retryAfterSeconds: this.retry() });
   }
 
-  recordFailure(): Promise<number | null> {
-    if (this.retry()) return Promise.resolve(this.retry());
+  recordFailure(): Promise<void> {
+    if (this.retry()) return Promise.resolve();
     this.failures += 1;
     if (this.failures >= SIGN_IN_FAILURE_LIMIT) {
       this.failures = 0;
       this.lockedUntil = this.now + SIGN_IN_LOCK_MINUTES * 60_000;
     } else this.lockedUntil = null;
-    return Promise.resolve(this.retry());
+    return Promise.resolve();
   }
 
   recordSuccess(): Promise<number | null> {
@@ -80,38 +80,56 @@ function serviceOver(sessions: LockingSessions): SubscriberSignInService {
 }
 
 describe('sign-in lock', () => {
-  it('locks on the tenth consecutive failure and answers 423 with the seconds left', async () => {
+  it('locks on the tenth consecutive failure, which still answers the generic 401', async () => {
     const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
     const service = serviceOver(sessions);
-    for (let attempt = 1; attempt < SIGN_IN_FAILURE_LIMIT; attempt += 1) {
+    for (let attempt = 1; attempt <= SIGN_IN_FAILURE_LIMIT; attempt += 1) {
       await expect(service.signIn(ACCOUNT.email, 'otra-clave-xx')).rejects.toBeInstanceOf(
         InvalidCredentialsError,
       );
     }
-    const tenth = service.signIn(ACCOUNT.email, 'otra-clave-xx');
-    await expect(tenth).rejects.toBeInstanceOf(AccountLockedError);
-    await expect(tenth).rejects.toMatchObject({
-      statusCode: 423,
-      code: 'LOCKED',
-      details: { retryAfterSeconds: SIGN_IN_LOCK_MINUTES * 60 },
-    });
     expect(sessions.failures).toBe(0);
+    expect(sessions.lockedUntil).not.toBeNull();
   });
 
-  it('answers 423 while locked even with the right password, and lets in after', async () => {
+  it('while locked, answers 423 with the seconds left only to the right password', async () => {
     const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
     const service = serviceOver(sessions);
     for (let attempt = 0; attempt < SIGN_IN_FAILURE_LIMIT; attempt += 1) {
       await service.signIn(ACCOUNT.email, 'otra-clave-xx').catch(() => undefined);
     }
-    await expect(service.signIn(ACCOUNT.email, PASSWORD)).rejects.toMatchObject({
+    const right = service.signIn(ACCOUNT.email, PASSWORD);
+    await expect(right).rejects.toBeInstanceOf(AccountLockedError);
+    await expect(right).rejects.toMatchObject({
       statusCode: 423,
+      code: 'LOCKED',
+      details: { retryAfterSeconds: SIGN_IN_LOCK_MINUTES * 60 },
     });
     expect(sessions.successes).toBe(0);
     sessions.advance(SIGN_IN_LOCK_MINUTES * 60_000 + 1);
     await expect(service.signIn(ACCOUNT.email, PASSWORD)).resolves.toMatchObject({
       kind: 'OWNER',
     });
+  });
+
+  it('while locked, gives a wrong password the same 401 as an unknown e-mail and counts nothing', async () => {
+    const sessions = new LockingSessions(await ownerPrincipal(), Date.now());
+    const service = serviceOver(sessions);
+    for (let attempt = 0; attempt < SIGN_IN_FAILURE_LIMIT; attempt += 1) {
+      await service.signIn(ACCOUNT.email, 'otra-clave-xx').catch(() => undefined);
+    }
+    const lockedUntil = sessions.lockedUntil;
+    const recordFailure = jest.spyOn(sessions, 'recordFailure');
+    const wrong = service.signIn(ACCOUNT.email, 'otra-clave-xx');
+    await expect(wrong).rejects.toBeInstanceOf(InvalidCredentialsError);
+    await expect(wrong).rejects.toMatchObject({
+      statusCode: 401,
+      message: 'Invalid e-mail or password',
+    });
+    // Not counted, and the lock is not extended.
+    expect(recordFailure).not.toHaveBeenCalled();
+    expect(sessions.failures).toBe(0);
+    expect(sessions.lockedUntil).toBe(lockedUntil);
   });
 
   it('resets the count on a right password, so failures must be consecutive', async () => {
@@ -172,7 +190,7 @@ describe('sign-in lock: the statements that keep it', () => {
     ['OWNER', 'operations.subscriber_account'],
     ['MEMBER', 'operations.subscriber_member'],
   ])('counts a %s failure in one guarded UPDATE of %s', async (kind, table) => {
-    const { writer, calls } = fakeWriter(() => [{ retry_after_seconds: null }]);
+    const { writer, calls } = fakeWriter(() => []);
     const repository = new SubscriberSessionRepository(writer);
     await repository.recordFailure(kind, ACCOUNT.subscriber_account_id);
     const [update] = calls;

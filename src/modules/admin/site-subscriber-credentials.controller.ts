@@ -10,17 +10,11 @@ import type { AdminEnvelope } from './admin.envelope';
 import { DeploymentIdentity } from './deployment-identity';
 import { SubscriberAccountRepository } from './subscriber-account.repository';
 import { SubscriberSessionRepository } from './subscriber-session.repository';
+import { SubscriberSignInService } from './subscriber-sign-in.service';
 import { toAccountSummary } from './subscription-account-row';
 import { answer, send } from './subscription-envelope';
-import { InvalidCredentialsError } from './subscription-errors';
 import { toMemberSummary } from './subscription-member-row';
-import {
-  hashPassword,
-  issueToken,
-  sha256Hex,
-  storedForm,
-  verifyPassword,
-} from './subscription-secrets';
+import { hashPassword, issueToken, sha256Hex, storedForm } from './subscription-secrets';
 import {
   accountParamsSchema,
   activationSchema,
@@ -50,6 +44,7 @@ export class SiteSubscriberCredentialsController {
     private readonly identity: DeploymentIdentity,
     private readonly accounts: SubscriberAccountRepository,
     private readonly sessions: SubscriberSessionRepository,
+    private readonly signIns: SubscriberSignInService,
   ) {}
 
   @Post('accounts/:subscriberAccountId/password')
@@ -61,10 +56,9 @@ export class SiteSubscriberCredentialsController {
     @Body(new ZodValidationPipe(passwordChangeSchema)) body: PasswordChange,
   ): Promise<void> {
     const id = params.subscriberAccountId;
-    const stored = await this.accounts.findPasswordHash(id);
-    if (!stored) throw new NotFoundError('Subscriber account', id);
-    const valid = await verifyPassword(body.currentPassword, stored.hash);
-    if (!valid) throw new InvalidCredentialsError();
+    const target = { kind: 'OWNER', subscriberAccountId: id, memberId: null } as const;
+    const found = await this.signIns.confirmPassword(target, body.currentPassword);
+    if (!found) throw new NotFoundError('Subscriber account', id);
     await this.accounts.setPassword(id, await hashPassword(body.newPassword));
   }
 

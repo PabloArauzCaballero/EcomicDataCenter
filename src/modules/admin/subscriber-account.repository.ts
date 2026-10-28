@@ -47,16 +47,6 @@ export interface ApiKeyRow {
 export class SubscriberAccountRepository {
   constructor(@Inject(WRITER_DATABASE) private readonly writer: Sequelize) {}
 
-  async findPasswordHash(subscriberAccountId: string): Promise<{ hash: string | null } | null> {
-    const rows = await this.writer.query<{ password_hash: string | null }>(
-      `SELECT password_hash FROM operations.subscriber_account
-        WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)`,
-      { type: QueryTypes.SELECT, replacements: { subscriberAccountId } },
-    );
-    const row = rows[0];
-    return row ? { hash: row.password_hash } : null;
-  }
-
   async findById(
     subscriberAccountId: string,
     transaction: Transaction | null = null,

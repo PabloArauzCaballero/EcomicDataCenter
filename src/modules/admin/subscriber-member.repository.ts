@@ -150,20 +150,6 @@ export class SubscriberMemberRepository {
     });
   }
 
-  /** The password hash of an ACTIVE member; null when there is no such member. */
-  async findPasswordHash(
-    subscriberAccountId: string,
-    memberId: string,
-  ): Promise<{ hash: string | null } | null> {
-    const rows = await this.writer.query<{ password_hash: string | null }>(
-      `SELECT password_hash FROM operations.subscriber_member
-        WHERE ${BY_ACCOUNT_AND_MEMBER} AND status = 'ACTIVE'`,
-      { type: QueryTypes.SELECT, replacements: { subscriberAccountId, memberId } },
-    );
-    const row = rows[0];
-    return row ? { hash: row.password_hash } : null;
-  }
-
   /** Replaces an ACTIVE member's password and ends its other sessions. */
   async setPassword(
     subscriberAccountId: string,

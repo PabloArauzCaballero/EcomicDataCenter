@@ -10,9 +10,10 @@ export class InvalidCredentialsError extends ApplicationError {
 /**
  * Too many consecutive failed sign-ins: 423 until the lock passes.
  *
- * It is answered even when the password is right, so a guesser who lands on the
- * password during the lock learns nothing from the response. The body says
- * only how long to wait, under `details.retryAfterSeconds`.
+ * It is answered only to a caller who gave the right password, so the lock
+ * tells nothing to someone who does not have it — a wrong password gets the
+ * same 401 as an unknown e-mail. The body says only how long to wait, under
+ * `details.retryAfterSeconds`.
  */
 export class AccountLockedError extends ApplicationError {
   constructor(retryAfterSeconds: number) {

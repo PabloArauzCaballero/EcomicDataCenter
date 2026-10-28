@@ -37,6 +37,22 @@ interface LockState {
   readonly retry_after_seconds: number | null;
 }
 
+/** A principal already identified by the site, as a password change names it. */
+export interface PrincipalRef {
+  readonly kind: PrincipalKind;
+  readonly subscriberAccountId: string;
+  /** The member's id; null for the owner. */
+  readonly memberId: string | null;
+}
+
+/** What checking a password needs: the hash and the lock in force, if any. */
+export interface Credentials {
+  readonly kind: PrincipalKind;
+  readonly id: string;
+  readonly passwordHash: string | null;
+  readonly retryAfterSeconds: number | null;
+}
+
 /**
  * Who is signing in, and the lock that guards them.
  *
@@ -108,14 +124,12 @@ export class SubscriberSessionRepository {
 
   /**
    * Counts one failed sign-in. The tenth in a row locks the principal for
-   * fifteen minutes and resets the count, in the same statement.
-   *
-   * A principal already locked is not counted again. Returns the seconds left
-   * on the lock when the principal is locked after this attempt, else null.
+   * fifteen minutes and resets the count, in the same statement. A principal
+   * already locked is not counted again, so guessing never extends a lock.
    */
-  async recordFailure(kind: PrincipalKind, id: string): Promise<number | null> {
+  async recordFailure(kind: PrincipalKind, id: string): Promise<void> {
     const { table, key } = PRINCIPAL_TABLES[kind];
-    const rows = await this.writer.query<LockState>(
+    await this.writer.query(
       `UPDATE ${table}
           SET failed_login_count = CASE WHEN failed_login_count + 1 >= :limit THEN 0
                                         ELSE failed_login_count + 1 END,
@@ -123,16 +137,12 @@ export class SubscriberSessionRepository {
                                   THEN now() + make_interval(mins => :minutes)
                                   ELSE NULL END
         WHERE ${key} = CAST(:id AS uuid)
-          AND (locked_until IS NULL OR locked_until <= now())
-        RETURNING ${RETRY_AFTER}`,
+          AND (locked_until IS NULL OR locked_until <= now())`,
       {
-        type: QueryTypes.SELECT,
+        type: QueryTypes.UPDATE,
         replacements: { id, limit: SIGN_IN_FAILURE_LIMIT, minutes: SIGN_IN_LOCK_MINUTES },
       },
     );
-    const row = rows[0];
-    if (row) return row.retry_after_seconds === null ? null : Number(row.retry_after_seconds);
-    return this.currentLock(kind, id);
   }
 
   /**
@@ -179,6 +189,39 @@ export class SubscriberSessionRepository {
       );
       return account;
     });
+  }
+
+  /**
+   * The hash and lock of an owner, or of an ACTIVE member of that account.
+   * Null when there is no such principal.
+   */
+  async findCredentials(target: PrincipalRef): Promise<Credentials | null> {
+    const rows = await this.writer.query<LockState & { id: string; password_hash: string | null }>(
+      target.kind === 'MEMBER'
+        ? `SELECT subscriber_member_id::text AS id, password_hash, ${RETRY_AFTER}
+             FROM operations.subscriber_member
+            WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
+              AND subscriber_member_id = CAST(:memberId AS uuid) AND status = 'ACTIVE'`
+        : `SELECT subscriber_account_id::text AS id, password_hash, ${RETRY_AFTER}
+             FROM operations.subscriber_account
+            WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)`,
+      {
+        type: QueryTypes.SELECT,
+        replacements: {
+          subscriberAccountId: target.subscriberAccountId,
+          memberId: target.memberId,
+        },
+      },
+    );
+    const row = rows[0];
+    if (!row) return null;
+    const retry = row.retry_after_seconds;
+    return {
+      kind: target.kind,
+      id: row.id,
+      passwordHash: row.password_hash,
+      retryAfterSeconds: retry === null ? null : Number(retry),
+    };
   }
 
   private async currentLock(kind: PrincipalKind, id: string): Promise<number | null> {

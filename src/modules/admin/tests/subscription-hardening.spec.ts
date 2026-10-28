@@ -6,6 +6,7 @@ import { SubscriberAdminRepository } from '../subscriber-admin.repository';
 import { SubscriberMemberRepository } from '../subscriber-member.repository';
 import { SubscriberPaymentRepository } from '../subscriber-payment.repository';
 import { SubscriberSessionRepository } from '../subscriber-session.repository';
+import type { SubscriberSignInService } from '../subscriber-sign-in.service';
 import { endOfLaPazDay, toAccountSummary } from '../subscription-account-row';
 import { issueToken } from '../subscription-secrets';
 import { accountUpdateSchema } from '../subscription.schemas';
@@ -190,6 +191,7 @@ describe('password resets', () => {
       identity,
       { issueReset } as unknown as SubscriberAccountRepository,
       {} as SubscriberSessionRepository,
+      {} as SubscriberSignInService,
     );
   }
 
@@ -229,6 +231,7 @@ describe('password resets', () => {
       identity,
       {} as SubscriberAccountRepository,
       { revoke } as unknown as SubscriberSessionRepository,
+      {} as SubscriberSignInService,
     );
     const params = { subscriberAccountId: ACCOUNT.subscriber_account_id };
     const revoked = await controller.revokeSessions(params, 'r');
