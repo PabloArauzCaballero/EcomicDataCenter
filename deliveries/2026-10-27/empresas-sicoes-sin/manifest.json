@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-27T23:07:41Z",
+ "generated_at": "2026-10-28T01:46:26Z",
  "branch": "datos/2026-10-27-empresas-sicoes-sin",
  "files": [
   {
    "path": "sicoes_rupe/sicoes_rupe_proveedores.ndjson.gz",
-   "sha256": "7f9647f4be9067a1a7bd597deab2003f66b415e4e6a026c73a0b52c8e12a9950",
-   "bytes": 825028,
-   "rows": 25553
+   "sha256": "0c9abc14a54a30fd8fce1e7da5196bb56c0a867fbda3ece565b05fef86eb09ad",
+   "bytes": 3080539,
+   "rows": 100569
   },
   {
    "path": "sin/inventario_pdfs_sin.jsonl",
@@ -16,23 +16,28 @@
   },
   {
    "path": "sin/sin_listas_publicadas.ndjson.gz",
-   "sha256": "9e5a9470fc57805b9c8fd7103c1dbdcac423803bab144043e00dc48d7a985904",
+   "sha256": "7e7236faf4ad9ac360802c1e217ace1426c4302350a09a23c780b2105d1a130e",
    "bytes": 6714444,
    "rows": 743326
   }
  ],
  "stats": {
   "sicoes_rupe": {
-   "filas": 25553,
-   "con_nit": 25553,
+   "filas": 100569,
+   "con_nit": 74872,
    "con_direccion": 0,
    "con_nit_y_direccion": 0,
    "con_actividad": 0,
-   "tipo:Empresa-Persona Jurídica": 25201,
+   "tipo:Empresa-Persona Jurídica": 72643,
+   "tipo:Asociación Civil sin Fines de Lucro-Persona Jurídica": 598,
+   "natural_sin_nit_excluido": 714,
+   "tipo:Entidad / Empresa Pública-Persona Jurídica": 167,
+   "tipo:Asociación Accidental-Asociación Accidental": 25697,
    "tipo:Cooperativa-Persona Jurídica": 139,
    "tipo:Organización Económica y Campesina (OECAS)-Persona Jurídica": 87,
    "tipo:Asociación de Pequeño Productor Urbano y Rural(APPS)-Persona Jurídica": 126,
-   "listados_unicos": 25553,
+   "tipo:Extranjera-Persona Jurídica": 1112,
+   "listados_unicos": 101283,
    "declarados_por_el_portal_en_tipos_listados": 103395,
    "detalles": 0
   },
