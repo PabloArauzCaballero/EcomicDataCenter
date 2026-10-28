@@ -130,11 +130,21 @@ export async function memoryGuard() {
   }
 }
 
+/**
+ * Plazo del turno: el Chromium es un cupo compartido entre agentes, así que una
+ * corrida dura como máximo lo que diga `setDeadline`. Al vencer, `pool` deja de
+ * tomar trabajo nuevo, termina lo que está en vuelo y vuelve; lo guardado queda
+ * y la próxima corrida sigue desde ahí.
+ */
+let deadline = Infinity;
+export const setDeadline = (at) => (deadline = at);
+export const pastDeadline = () => Date.now() >= deadline;
+
 /** Ejecuta `worker(item)` sobre `items` con `n` hilos (2 como máximo). */
 export async function pool(items, n, worker) {
   let i = 0;
   const runners = Array.from({ length: Math.min(n, 2) }, async () => {
-    while (i < items.length) {
+    while (i < items.length && !pastDeadline()) {
       const item = items[i++];
       await memoryGuard();
       await worker(item);

@@ -1,111 +1,112 @@
 {
-  "generated_at": "2026-10-28T02:16:41.597Z",
-  "unidades": 390996,
-  "total_declarado_por_la_api": 422534,
+  "generated_at": "2026-10-28T08:07:54.160Z",
+  "unidades": 422530,
+  "total_declarado_por_la_api": 422536,
   "referencia_vigentes_nov_2025": 398131,
-  "renovadas_en_listado": 117915,
+  "renovadas_en_listado": 128545,
   "fichas_pedidas": 0,
   "fichas_412": 0,
   "gaceta_publicaciones": 799,
   "gaceta_total_declarado": 228671,
   "departamento": {
-    "POTOSI": 18323,
-    "LA PAZ": 120375,
-    "SANTA CRUZ": 116420,
-    "COCHABAMBA": 65553,
-    "TARIJA": 19044,
-    "PANDO": 4315,
-    "ORURO": 18523,
-    "BENI": 12381,
-    "CHUQUISACA": 16057,
+    "POTOSI": 19518,
+    "LA PAZ": 130774,
+    "SANTA CRUZ": 126315,
+    "COCHABAMBA": 70883,
+    "TARIJA": 20441,
+    "PANDO": 4591,
+    "ORURO": 19710,
+    "BENI": 13183,
+    "CHUQUISACA": 17110,
     "SIN DATO": 5
   },
   "tipo_societario": {
-    "SOCIEDAD DE RESPONSABILIDAD LIMITADA": 85177,
-    "SOCIEDAD CONSTITUIDA EN EL EXTRANJERO": 968,
-    "SOCIEDAD ANONIMA": 4188,
-    "EMPRESA UNIPERSONAL": 300499,
-    "SOCIEDAD EN COMANDITA SIMPLE": 28,
-    "SOCIEDAD COLECTIVA": 113,
-    "SOCIEDAD ANONIMA MIXTA": 14,
+    "SOCIEDAD DE RESPONSABILIDAD LIMITADA": 92828,
+    "SOCIEDAD CONSTITUIDA EN EL EXTRANJERO": 1057,
+    "SOCIEDAD ANONIMA": 4447,
+    "EMPRESA UNIPERSONAL": 324023,
+    "SOCIEDAD EN COMANDITA SIMPLE": 30,
+    "SOCIEDAD COLECTIVA": 120,
+    "SOCIEDAD ANONIMA MIXTA": 16,
     "ENTIDAD FINANCIERA DE VIVIENDA": 4,
     "EMPRESA PUBLICA DEPARTAMENTAL MIXTA": 1,
     "SOCIEDAD EN COMANDITA POR ACCIONES": 4
   },
   "estado": {
-    "cancelada": 12418,
-    "creado": 965,
-    "vigente": 104978,
-    "no_actualizada": 272402,
-    "inactivo": 227,
-    "eliminado": 4,
+    "cancelada": 13455,
+    "creado": 1046,
+    "vigente": 114513,
+    "no_actualizada": 293258,
+    "inactivo": 250,
+    "eliminado": 6,
     "anulado": 2
   },
   "estado_por_departamento": {
     "POTOSI": {
-      "cancelada": 327,
+      "cancelada": 356,
       "creado": 62,
-      "no_actualizada": 13192,
-      "vigente": 4727,
+      "no_actualizada": 14019,
+      "vigente": 5066,
       "inactivo": 15
     },
     "LA PAZ": {
-      "cancelada": 4413,
-      "creado": 244,
-      "vigente": 33533,
-      "no_actualizada": 82119,
-      "inactivo": 66
+      "cancelada": 4799,
+      "creado": 280,
+      "vigente": 36878,
+      "no_actualizada": 88742,
+      "inactivo": 73,
+      "eliminado": 2
     },
     "SANTA CRUZ": {
-      "cancelada": 3105,
-      "creado": 306,
-      "no_actualizada": 81479,
-      "vigente": 31450,
-      "inactivo": 80
+      "cancelada": 3364,
+      "creado": 326,
+      "no_actualizada": 88217,
+      "vigente": 34321,
+      "inactivo": 87
     },
     "COCHABAMBA": {
-      "cancelada": 2735,
-      "vigente": 19442,
-      "no_actualizada": 43124,
-      "inactivo": 47,
-      "creado": 201,
+      "cancelada": 2951,
+      "vigente": 21228,
+      "no_actualizada": 46434,
+      "inactivo": 56,
+      "creado": 210,
       "eliminado": 2,
       "anulado": 2
     },
     "TARIJA": {
-      "cancelada": 550,
-      "no_actualizada": 14008,
-      "vigente": 4440,
-      "creado": 44,
+      "cancelada": 594,
+      "no_actualizada": 15001,
+      "vigente": 4797,
+      "creado": 47,
       "inactivo": 2
     },
     "PANDO": {
-      "cancelada": 67,
-      "no_actualizada": 3606,
-      "vigente": 633,
+      "cancelada": 71,
+      "no_actualizada": 3835,
+      "vigente": 676,
       "creado": 8,
       "inactivo": 1
     },
     "ORURO": {
-      "cancelada": 574,
+      "cancelada": 612,
       "inactivo": 7,
-      "vigente": 4658,
-      "no_actualizada": 13266,
+      "vigente": 5006,
+      "no_actualizada": 14061,
       "eliminado": 2,
-      "creado": 16
+      "creado": 22
     },
     "BENI": {
-      "cancelada": 200,
-      "no_actualizada": 10020,
-      "vigente": 2117,
-      "creado": 42,
+      "cancelada": 221,
+      "no_actualizada": 10634,
+      "vigente": 2283,
+      "creado": 43,
       "inactivo": 2
     },
     "CHUQUISACA": {
-      "cancelada": 447,
-      "no_actualizada": 11587,
-      "vigente": 3978,
-      "creado": 39,
+      "cancelada": 487,
+      "no_actualizada": 12314,
+      "vigente": 4258,
+      "creado": 45,
       "inactivo": 6
     },
     "SIN DATO": {
@@ -117,50 +118,50 @@
   "con_ficha": 0,
   "domicilio_vivienda": 0,
   "con_coordenadas": 0,
-  "con_fecha_constitucion_gaceta": 209,
-  "con_publicaciones_gaceta": 635,
+  "con_fecha_constitucion_gaceta": 231,
+  "con_publicaciones_gaceta": 703,
   "tipo_por_estado": {
     "SOCIEDAD DE RESPONSABILIDAD LIMITADA": {
-      "cancelada": 2283,
-      "vigente": 31817,
-      "no_actualizada": 50828,
-      "inactivo": 201,
-      "creado": 48
+      "cancelada": 2445,
+      "vigente": 35310,
+      "no_actualizada": 54804,
+      "inactivo": 217,
+      "creado": 52
     },
     "SOCIEDAD CONSTITUIDA EN EL EXTRANJERO": {
-      "cancelada": 45,
-      "vigente": 356,
-      "no_actualizada": 563,
+      "cancelada": 48,
+      "vigente": 400,
+      "no_actualizada": 605,
       "inactivo": 4
     },
     "SOCIEDAD ANONIMA": {
-      "cancelada": 133,
-      "vigente": 1963,
-      "no_actualizada": 2081,
-      "inactivo": 11
+      "cancelada": 147,
+      "vigente": 2083,
+      "no_actualizada": 2202,
+      "inactivo": 15
     },
     "EMPRESA UNIPERSONAL": {
-      "cancelada": 9955,
-      "creado": 917,
-      "vigente": 70818,
-      "no_actualizada": 218792,
-      "inactivo": 11,
-      "eliminado": 4,
+      "cancelada": 10813,
+      "creado": 994,
+      "vigente": 76694,
+      "no_actualizada": 235500,
+      "inactivo": 14,
+      "eliminado": 6,
       "anulado": 2
     },
     "SOCIEDAD EN COMANDITA SIMPLE": {
-      "no_actualizada": 25,
+      "no_actualizada": 27,
       "vigente": 2,
       "cancelada": 1
     },
     "SOCIEDAD COLECTIVA": {
-      "no_actualizada": 101,
-      "vigente": 11,
+      "no_actualizada": 107,
+      "vigente": 12,
       "cancelada": 1
     },
     "SOCIEDAD ANONIMA MIXTA": {
-      "vigente": 7,
-      "no_actualizada": 7
+      "vigente": 8,
+      "no_actualizada": 8
     },
     "ENTIDAD FINANCIERA DE VIVIENDA": {
       "vigente": 3,
@@ -174,18 +175,18 @@
     }
   },
   "estado_registro": {
-    "CANCELADO": 12418,
-    "CREADO": 965,
-    "ACTIVO": 377380,
-    "INACTIVO": 227,
-    "ELIMINADO": 4,
+    "CANCELADO": 13455,
+    "CREADO": 1046,
+    "ACTIVO": 407771,
+    "INACTIVO": 250,
+    "ELIMINADO": 6,
     "ANULADO": 2
   },
   "partes": [
     {
       "name": "seprec-empresas-01.ndjson.gz",
-      "rows": 390996,
-      "bytes": 25606766
+      "rows": 422530,
+      "bytes": 27672781
     }
   ]
 }

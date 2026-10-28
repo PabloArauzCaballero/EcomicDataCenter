@@ -5,8 +5,14 @@
  * arma `gacetadecomercio.gob.bo` (todos los filtros vacíos, `limite` ≤ 100,
  * `pagina`). Sin sesión ni captcha. 228.671 publicaciones el 27-oct-2026, de
  * 2017 (las de FUNDEMPRESA migradas) a hoy, cada una con la matrícula de la
- * empresa, el título del acto y la fecha. La API acepta la llamada desde la
- * página de `miempresa.seprec.gob.bo` igual que desde la de la Gaceta.
+ * empresa, el título del acto y la fecha. La llamada se hace desde la página de
+ * `gacetadecomercio.gob.bo`: desde la de `miempresa` el preflight CORS del POST
+ * falla («Failed to fetch»).
+ *
+ * El orden es por fecha de publicación descendente: lo publicado entre dos
+ * corridas corre las páginas hacia adelante. Por eso conviene bajar la Gaceta
+ * entera en una sola tanda de días, o volver a pedir las primeras páginas al
+ * final; el armador deduplica por `id`.
  *
  * De aquí sale la fecha de constitución de las sociedades cuya constitución se
  * publicó en la Gaceta; el registro (`buscarEmpresas`) no publica la fecha de
@@ -16,7 +22,7 @@
 import { mkdirSync, existsSync, writeFileSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { join } from 'node:path';
-import { fetchJson, pool } from './seprec-browser.mjs';
+import { fetchJson, pool, pastDeadline } from './seprec-browser.mjs';
 
 const LIMIT = 100;
 const body = (pagina) => ({
@@ -53,5 +59,5 @@ export async function collectGaceta(page, out, threads = 2) {
     save(p, r.json.datos.filas);
     if (++n % 100 === 0) console.log(`[gaceta] ${n}/${todo.length}`);
   });
-  console.log('[gaceta] completa');
+  console.log(pastDeadline() ? '[gaceta] corte por plazo' : '[gaceta] completa');
 }

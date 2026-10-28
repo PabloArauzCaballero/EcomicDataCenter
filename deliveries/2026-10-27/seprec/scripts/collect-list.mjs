@@ -14,7 +14,7 @@
 import { mkdirSync, existsSync, writeFileSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { join } from 'node:path';
-import { fetchJson, pool } from './seprec-browser.mjs';
+import { fetchJson, pool, pastDeadline } from './seprec-browser.mjs';
 
 export async function collectList(page, out, threads = 2, limit = 1000) {
   const dir = join(out, 'list');
@@ -39,5 +39,5 @@ export async function collectList(page, out, threads = 2, limit = 1000) {
     save(p, r.json);
     if (++done % 20 === 0) console.log(`[listado] ${done}/${todo.length}`);
   });
-  console.log('[listado] completo');
+  console.log(pastDeadline() ? '[listado] corte por plazo' : '[listado] completo');
 }

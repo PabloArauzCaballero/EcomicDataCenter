@@ -6,65 +6,70 @@ que usa el portal `miempresa.seprec.gob.bo` («Consulta de empresas»), sin sesi
 captcha.
 
 <!-- ESTADO -->
-## Estado de esta entrega (PARCIAL, se reanuda)
+## Estado de esta entrega
 
-- **Listado: 391 de 423 páginas → 390.996 unidades** de las 422.530 que declara la API (92,5 %).
-  Faltan las páginas **392 a 423** del orden alfabético por razón social: las razones sociales
-  desde «T…» (la última guardada termina en «TEXTILES RIELYS») hasta la «Z». La corrida se cortó
-  dos veces porque la laptop se quedó sin RAM (Claude Code mata los procesos en segundo plano bajo
-  presión de memoria); no se relanzó una tercera vez.
-- **Frente al 398.131 del SEPREC (nov-2025):** esa cifra cuenta unidades no canceladas, renovadas o
-  no. Aquí hay **377.380 con `estado_registro` ACTIVO (94,8 % de esa referencia)**; de ellas
-  104.978 con matrícula renovada (`vigente`) y 272.402 sin renovar (`no_actualizada`).
-- **Paginación:** el orden es por razón social con desempates inestables; en 391.000 filas leídas
-  hubo 4 repetidas, así que unas 4 unidades se perdieron entre páginas. Se dedupe por `id`.
-- **Gaceta: 8 de 2.287 páginas** (799 publicaciones): prácticamente sin empezar; por eso
-  `fecha_constitucion_gaceta` y `publicaciones_gaceta` casi siempre van `null`.
-- **Fichas: 0.** Bloqueadas (ver «Bloqueos», punto 2): NIT, municipio, dirección y actividad vacíos.
+- **Listado COMPLETO: 423 de 423 páginas → 422.530 unidades únicas.** Es el total que declaraba
+  la API el 27-oct (422.530). Las páginas 1-391 se bajaron el 27-oct y las 392-423 el 28-oct, cuando
+  la API ya declaraba 422.536: faltan unas 6 inscripciones de esas horas, menos del 0,002 %.
+- **Frente al 398.131 del SEPREC (nov-2025):** esa cifra cuenta las unidades no canceladas,
+  renovadas o no. Aquí hay **407.771 con `estado_registro` ACTIVO (102,4 % de esa referencia: el
+  registro creció desde noviembre)**. De ellas, 114.513 tienen la matrícula renovada (`vigente`) y
+  293.258 no (`no_actualizada`).
+- **Paginación:** el orden es por razón social con desempates inestables. En las primeras 391.000
+  filas leídas hubo 4 repetidas; se deduplica por `id`.
+- **Gaceta: 8 de 2.287 páginas** (799 publicaciones, las más recientes al 27-oct). Sin terminar.
+  `fecha_constitucion_gaceta` y `publicaciones_gaceta` casi siempre van `null`. Dos razones:
+  1. El primer turno del 28-oct falló por un error mío: el POST se hacía desde la página de
+     `miempresa` y el preflight CORS lo rechaza. Ya está corregido: `run-all.mjs` abre la Gaceta
+     desde su propio origen.
+  2. El turno siguiente lo mató Claude Code por falta de RAM en la laptop. Fue la segunda muerte
+     por memoria del día, así que se paró, como dice la regla del barrido.
+- **Fichas: 0.** Siguen bloqueadas (ver «Bloqueos», punto 2), así que el NIT, el municipio, la
+  dirección y la actividad van vacíos. Esquivar el filtro antibots es una decisión del usuario.
 
-### Conteos (390.996 unidades)
+### Conteos (422.530 unidades)
 
 | Departamento | Unidades | | Tipo societario | Unidades |
 | --- | ---: | --- | --- | ---: |
-| La Paz | 120.375 | | Empresa unipersonal | 300.499 |
-| Santa Cruz | 116.420 | | Sociedad de responsabilidad limitada | 85.177 |
-| Cochabamba | 65.553 | | Sociedad anónima | 4.188 |
-| Tarija | 19.044 | | Sociedad constituida en el extranjero | 968 |
-| Oruro | 18.523 | | Sociedad colectiva | 113 |
-| Potosí | 18.323 | | Sociedad en comandita simple | 28 |
-| Chuquisaca | 16.057 | | Sociedad anónima mixta | 14 |
-| Beni | 12.381 | | Entidad financiera de vivienda | 4 |
-| Pando | 4.315 | | Sociedad en comandita por acciones | 4 |
+| La Paz | 130.774 | | Empresa unipersonal | 324.023 |
+| Santa Cruz | 126.315 | | Sociedad de responsabilidad limitada | 92.828 |
+| Cochabamba | 70.883 | | Sociedad anónima | 4.447 |
+| Tarija | 20.441 | | Sociedad constituida en el extranjero | 1.057 |
+| Oruro | 19.710 | | Sociedad colectiva | 120 |
+| Potosí | 19.518 | | Sociedad en comandita simple | 30 |
+| Chuquisaca | 17.110 | | Sociedad anónima mixta | 16 |
+| Beni | 13.183 | | Entidad financiera de vivienda | 4 |
+| Pando | 4.591 | | Sociedad en comandita por acciones | 4 |
 | Sin dato | 5 | | Empresa pública departamental mixta | 1 |
 
 | Estado | Unidades |
 | --- | ---: |
-| `no_actualizada` (ACTIVO, matrícula no renovada) | 272.402 |
-| `vigente` (ACTIVO, matrícula renovada) | 104.978 |
-| `cancelada` | 12.418 |
-| `creado` | 965 |
-| `inactivo` | 227 |
-| `eliminado` | 4 |
+| `no_actualizada` (ACTIVO, matrícula no renovada) | 293.258 |
+| `vigente` (ACTIVO, matrícula renovada) | 114.513 |
+| `cancelada` | 13.455 |
+| `creado` | 1.046 |
+| `inactivo` | 250 |
+| `eliminado` | 6 |
 | `anulado` | 2 |
 
-El cruce estado × departamento y tipo × estado está en `summary.json`. Como faltan las razones
-sociales de la T a la Z, los repartos son de esta parte, no del registro entero.
+Los cruces estado × departamento y tipo × estado están en `summary.json`.
 
-### Cómo reanudar
+### Cómo reanudar la Gaceta
 
 ```bash
 export PW_DIR=<carpeta con playwright-core>
 # <out> es la carpeta de trabajo con list/ y gaceta/; las páginas ya guardadas se saltan.
-node scripts/run-all.mjs <out> 2 list,gaceta
+# Turnos de 38 minutos como máximo; en la laptop, por el candado compartido:
+#   bash <scratchpad>/gate.sh chromium 700 node scripts/run-all.mjs <out> 2 gaceta 38
+node scripts/run-all.mjs <out> 2 gaceta 38
 node scripts/build-delivery.mjs <out> deliveries/2026-10-27/seprec
 ```
 
-Las páginas crudas ya bajadas (`list/p-0001…p-0391.json.gz`, unos 15 MB) no van en la rama:
-quedaron en la carpeta de trabajo de la sesión (scratchpad, `seprec/out/`). Si se pierden,
-`run-all.mjs` las vuelve a pedir; el listado entero son 423 peticiones de unos 3 s. Para completar
-solo lo que falta basta con correr la fase `list` sobre una carpeta que ya tenga las 391 páginas:
-pedirá las 32 restantes. Las páginas del final dependen del orden alfabético del día en que se
-pidan; reconstruir la carpeta entera de una vez evita que una inscripción nueva corra las páginas.
+Las páginas crudas (`list/p-0001…p-0423.json.gz` y `gaceta/g-00001…g-00008.json.gz`) no van en la
+rama: están en la carpeta de trabajo de la sesión (scratchpad, `seprec/out/`). La Gaceta ordena por
+fecha de publicación descendente, así que lo publicado entre dos turnos corre las páginas hacia
+adelante. Al terminar conviene volver a pedir las primeras páginas (borrar `g-00001…g-000NN` y
+correr de nuevo). El armador deduplica por `id`.
 
 ## Archivos
 
@@ -86,7 +91,7 @@ llamadas desde un navegador.
 | `empresas/buscarEmpresas?filtro=&tipoFiltro=nombre\|matricula\|geo&limite=&pagina=` | GET | ninguna | Listado paginado: `id`, `matricula`, `matriculaAnterior`, `razonSocial`, `estado` (ACTIVO/CANCELADO/CREADO/INACTIVO/ELIMINADO), `codEstadoActualizacion` (MATRICULA RENOVADA / NO RENOVADA), `codTipoUnidadEconomica`, departamento, `idEstablecimiento`. `datos.total` da el total. **`limite` acepta 1000 o más.** `filtro=%20` (un espacio) coincide con todo: 422.530 unidades. `filtro=` vacío o `%` → 412 «caracteres especiales». `tipoFiltro=geo` (con `lat`/`lon`) → 500. |
 | `empresas/informacionBasicaEmpresa/{id}/establecimiento/{idEstablecimiento}` | GET | ninguna, **pero ver bloqueos** | Ficha «Más información»: `nit`, `objetos_sociales`, `mesCierreGestion`, `ultimoAnioActualizacion`, domicilio (vía, número, edificio, piso, lat/lon, departamento, provincia, municipio) y contactos (teléfonos, correos, web). Solo para matrículas **renovadas**; a las no renovadas y canceladas responde 412 «No se encontró la empresa o esta inactiva». |
 | `empresas/consultarEstadoHabilitacion/{matricula}` | GET | ninguna | Estado de habilitación tras la migración de FUNDEMPRESA (`escenario`, `observacion`). Sin valor para el directorio. |
-| `publicaciones` (Gaceta Electrónica de Comercio) | POST JSON | ninguna | Índice de la Gaceta: `id`, `codigo`, `titulo` del acto, `resumen`, `fechaPublicacion`, `empresa.{matricula, matriculaAnterior, razonSocial}`. `limite` ≤ 100. 228.671 publicaciones, de 2017 a hoy. |
+| `publicaciones` (Gaceta Electrónica de Comercio) | POST JSON | ninguna | Índice de la Gaceta: `id`, `codigo`, `titulo` del acto, `resumen`, `fechaPublicacion`, `empresa.{matricula, matriculaAnterior, razonSocial}`. `limite` ≤ 100. 228.671 publicaciones, de 2017 a hoy. Hay que llamarlo desde la página de `gacetadecomercio.gob.bo`: desde `miempresa` el preflight CORS falla. |
 | `publicaciones/catalogos/lista` | POST JSON | ninguna | Catálogo de tipos de acto publicables. |
 | `empresas/informacionGeneralEmpresa/{id}`, `empresas/constitucionModificaciones/{id}`, `empresas/listarKardex/{id}`, `empresas/{id}/estados-financieros`, `empresa/{id}/beneficiariosFinales`, `empresas/buscarEmpresaPorClave`, `empresas/vinculos-persona/{id}`, `certificados/buscar/{matricula}` | GET | **401 «Usuario no autorizado»** | Son del panel con sesión de Ciudadanía Digital (`miempresa` → login). Ahí están la constitución, el kárdex (fechas de inscripción y actos), los estados financieros, los socios y representantes y el certificado de matrícula. No se intentó entrar. |
 
