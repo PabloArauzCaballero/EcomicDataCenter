@@ -171,7 +171,7 @@ describe('site subscription routes: behaviour', () => {
 describe('admin subscription routes: behaviour', () => {
   it('opens a trial with paid_until and an activation token, and 409 on a taken e-mail', async () => {
     const create = jest
-      .fn()
+      .fn<Promise<AccountRow | null>, Parameters<SubscriberAdminRepository['create']>>()
       .mockResolvedValueOnce({ ...ACCOUNT, status: 'TRIAL' })
       .mockResolvedValueOnce(null);
     const controller = new AdminSubscriptionsController(identity, {
@@ -187,10 +187,10 @@ describe('admin subscription routes: behaviour', () => {
       serviceInquiryId: null,
     };
     const answer = await controller.create(body, 'r');
-    const [, status, paidUntil] = create.mock.calls[0] as [unknown, string, Date];
+    const [, status, paidUntil] = create.mock.calls[0]!;
     expect(status).toBe('TRIAL');
-    expect(Math.round((paidUntil.getTime() - Date.now()) / 86_400_000)).toBe(14);
-    expect(answer.data).toMatchObject({ activationToken: expect.any(String) });
+    expect(Math.round((paidUntil!.getTime() - Date.now()) / 86_400_000)).toBe(14);
+    expect(typeof (answer.data as { activationToken: unknown }).activationToken).toBe('string');
     await expect(controller.create({ ...body, trialDays: 0 }, 'r')).rejects.toBeInstanceOf(
       ConflictError,
     );
