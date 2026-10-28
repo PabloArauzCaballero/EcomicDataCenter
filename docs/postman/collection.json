@@ -3052,7 +3052,7 @@
       "name": "Subscriptions",
       "item": [
         {
-          "name": "Check a customer sign-in; one generic 401 for every failure",
+          "name": "Sign in an owner or an ACTIVE member; one identical 401 for an unknown e-mail, a wrong password, and any password while locked (15 min after 10 consecutive failures; a reset token or the operator's unlock ends it)",
           "request": {
             "method": "POST",
             "header": [
@@ -3072,7 +3072,7 @@
                 "sessions"
               ]
             },
-            "description": "Check a customer sign-in; one generic 401 for every failure",
+            "description": "Sign in an owner or an ACTIVE member; one identical 401 for an unknown e-mail, a wrong password, and any password while locked (15 min after 10 consecutive failures; a reset token or the operator's unlock ends it)",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -3122,6 +3122,442 @@
                   "type": "string"
                 }
               ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change the invoicing data; null or blank clears a field, an absent one keeps it",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}"
+              ]
+            },
+            "description": "Change the invoicing data; null or blank clears a field, an absent one keeps it",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organization\": \"string\",\n  \"legalName\": \"string\",\n  \"taxId\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "End the owner's sessions by raising its sessionVersion",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}/sessions/revoke",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "sessions",
+                "revoke"
+              ]
+            },
+            "description": "End the owner's sessions by raising its sessionVersion",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Issue a reset token for an owner, or an ACTIVE member, of an account that is not CANCELLED; 202 with an empty data object otherwise",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/password-resets",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "password-resets"
+              ]
+            },
+            "description": "Issue a reset token for an owner, or an ACTIVE member, of an account that is not CANCELLED; 202 with an empty data object otherwise",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Every account that is neither PENDING nor CANCELLED, with this month's usage and its ACTIVE members",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/notices/candidates",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "notices",
+                "candidates"
+              ]
+            },
+            "description": "Every account that is neither PENDING nor CANCELLED, with this month's usage and its ACTIVE members",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Claim a notice before sending it; 201 claimed:true once, 200 claimed:false after",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/notices/claim",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "notices",
+                "claim"
+              ]
+            },
+            "description": "Claim a notice before sending it; 201 claimed:true once, 200 claimed:false after",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subscriberAccountId\": \"00000000-0000-4000-8000-000000000001\",\n  \"kind\": \"USAGE_80\",\n  \"periodKey\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Release a claim after a failed send so the next run retries; idempotent",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/notices/release",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "notices",
+                "release"
+              ]
+            },
+            "description": "Release a claim after a failed send so the next run retries; idempotent",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"subscriberAccountId\": \"00000000-0000-4000-8000-000000000001\",\n  \"kind\": \"USAGE_80\",\n  \"periodKey\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Members of an account, oldest first",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}/members",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "members"
+              ]
+            },
+            "description": "Members of an account, oldest first",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invite a member and answer its activation token once; 409 when the e-mail is in use or the plan has no seat left",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}/members",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "members"
+              ]
+            },
+            "description": "Invite a member and answer its activation token once; 409 when the e-mail is in use or the plan has no seat left",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"maxMembers\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "One member, with its status and sessionVersion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}/members/{{memberId}}",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "members",
+                "{{memberId}}"
+              ]
+            },
+            "description": "One member, with its status and sessionVersion",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove a member and end its sessions",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}/members/{{memberId}}/remove",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "members",
+                "{{memberId}}",
+                "remove"
+              ]
+            },
+            "description": "Remove a member and end its sessions",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change an ACTIVE member's password; the current one is checked under the member's sign-in lock, with the same generic 401",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{apiBaseUrl}}/site/subscriptions/accounts/{{subscriberAccountId}}/members/{{memberId}}/password",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "site",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "members",
+                "{{memberId}}",
+                "password"
+              ]
+            },
+            "description": "Change an ACTIVE member's password; the current one is checked under the member's sign-in lock, with the same generic 401",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currentPassword\": \"string\",\n  \"newPassword\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             }
           },
           "response": []
@@ -3207,7 +3643,7 @@
           "response": []
         },
         {
-          "name": "Change the password; 401 when the current one is wrong",
+          "name": "Change the password; the current one is checked under the sign-in lock, with the same generic 401",
           "request": {
             "method": "POST",
             "header": [
@@ -3229,7 +3665,7 @@
                 "password"
               ]
             },
-            "description": "Change the password; 401 when the current one is wrong",
+            "description": "Change the password; the current one is checked under the sign-in lock, with the same generic 401",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -3253,7 +3689,7 @@
           "response": []
         },
         {
-          "name": "Spend a one-time token and set the password; 400 if the token is not valid",
+          "name": "Spend a one-time token and set the password of the owner or member it names; 400 if the token is not valid",
           "request": {
             "method": "POST",
             "header": [
@@ -3273,7 +3709,7 @@
                 "activations"
               ]
             },
-            "description": "Spend a one-time token and set the password; 400 if the token is not valid",
+            "description": "Spend a one-time token and set the password of the owner or member it names; 400 if the token is not valid",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -3477,7 +3913,7 @@
           "response": []
         },
         {
-          "name": "Change plan, billing period, state or invoicing data",
+          "name": "Change plan, billing period, state or invoicing data; unlock: true clears the sign-in lock",
           "request": {
             "method": "PATCH",
             "header": [
@@ -3498,7 +3934,7 @@
                 "{{subscriberAccountId}}"
               ]
             },
-            "description": "Change plan, billing period, state or invoicing data",
+            "description": "Change plan, billing period, state or invoicing data; unlock: true clears the sign-in lock",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -3517,6 +3953,71 @@
                   "language": "json"
                 }
               }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "End the sessions of the owner and of every member",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/subscriptions/accounts/{{subscriberAccountId}}/sessions/revoke",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "sessions",
+                "revoke"
+              ]
+            },
+            "description": "End the sessions of the owner and of every member",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Members of an account, oldest first",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiBaseUrl}}/admin/subscriptions/accounts/{{subscriberAccountId}}/members",
+              "host": [
+                "{{apiBaseUrl}}"
+              ],
+              "path": [
+                "admin",
+                "subscriptions",
+                "accounts",
+                "{{subscriberAccountId}}",
+                "members"
+              ]
+            },
+            "description": "Members of an account, oldest first",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
             }
           },
           "response": []
@@ -3554,7 +4055,7 @@
           "response": []
         },
         {
-          "name": "Record a payment; the account becomes ACTIVE until the covered day ends in La Paz",
+          "name": "Record a payment; the account becomes ACTIVE and paid_until moves to the end of the covered day in La Paz, never back",
           "request": {
             "method": "POST",
             "header": [
@@ -3576,7 +4077,7 @@
                 "payments"
               ]
             },
-            "description": "Record a payment; the account becomes ACTIVE until the covered day ends in La Paz",
+            "description": "Record a payment; the account becomes ACTIVE and paid_until moves to the end of the covered day in La Paz, never back",
             "auth": {
               "type": "bearer",
               "bearer": [
@@ -3600,7 +4101,7 @@
           "response": []
         },
         {
-          "name": "Issue a one-time activation or reset token, answered once",
+          "name": "Issue a one-time activation or reset token, answered once; earlier unused ones of the same purpose stop working",
           "request": {
             "method": "POST",
             "header": [
@@ -3622,7 +4123,7 @@
                 "tokens"
               ]
             },
-            "description": "Issue a one-time activation or reset token, answered once",
+            "description": "Issue a one-time activation or reset token, answered once; earlier unused ones of the same purpose stop working",
             "auth": {
               "type": "bearer",
               "bearer": [

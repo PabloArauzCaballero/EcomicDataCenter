@@ -1,45 +1,34 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Patch, Post } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ACTOR_ROLES } from '../../common/auth/actor';
 import { Roles } from '../../common/auth/auth.decorators';
-import {
-  ApplicationError,
-  ConflictError,
-  NotFoundError,
-  RequestValidationError,
-} from '../../common/errors/application.error';
+import { ConflictError, NotFoundError } from '../../common/errors/application.error';
 import { RequestId } from '../../common/http/request-id.decorator';
 import { ZodValidationPipe } from '../../common/validation/zod-validation.pipe';
 import type { AdminEnvelope } from './admin.envelope';
 import { DeploymentIdentity } from './deployment-identity';
 import { answer } from './subscription-envelope';
 import { SubscriberAccountRepository } from './subscriber-account.repository';
+import { SubscriberAdminRepository } from './subscriber-admin.repository';
 import { SubscriberKeyRepository } from './subscriber-key.repository';
+import { SubscriberSignInService } from './subscriber-sign-in.service';
 import { toAccountSummary } from './subscription-account-row';
-import { hashPassword, issueApiKey, sha256Hex, verifyPassword } from './subscription-secrets';
+import { toMemberSummary } from './subscription-member-row';
+import { issueApiKey } from './subscription-secrets';
 import {
   accountParamsSchema,
-  activationSchema,
   apiKeyCreationSchema,
   apiKeyParamsSchema,
   apiKeyVerificationSchema,
-  passwordChangeSchema,
+  profileUpdateSchema,
   sessionSchema,
   usageIncrementSchema,
-  type Activation,
   type ApiKeyCreation,
   type ApiKeyVerification,
-  type PasswordChange,
+  type ProfileUpdate,
   type Session,
   type UsageIncrement,
 } from './subscription.schemas';
-
-/** One answer for every failed sign-in, so it never tells which part was wrong. */
-export class InvalidCredentialsError extends ApplicationError {
-  constructor() {
-    super('UNAUTHORIZED', 'Invalid e-mail or password', 401);
-  }
-}
 
 type AccountParams = { subscriberAccountId: string };
 
@@ -49,8 +38,9 @@ type AccountParams = { subscriberAccountId: string };
  * Every route takes the site's own machine role, `SITE_SUBSCRIPTIONS`; the
  * customer's identity is established by the site after `POST /sessions` and
  * passed as the account in the path. This role can sign customers in, manage
- * their keys and password, and meter usage — never open accounts, record
- * payments or change plans, which belong to `SUBSCRIPTION_ADMIN`.
+ * their keys and invoicing data, and meter usage — never open accounts, record
+ * payments or change plans, which belong to `SUBSCRIPTION_ADMIN`. Passwords,
+ * tokens and members have their own controllers on the same base path.
  *
  * Passwords, tokens, keys and e-mails are never logged; the audit interceptor
  * records only the names of body fields.
@@ -62,23 +52,28 @@ export class SiteSubscriptionsController {
   constructor(
     private readonly identity: DeploymentIdentity,
     private readonly accounts: SubscriberAccountRepository,
+    private readonly register: SubscriberAdminRepository,
     private readonly keys: SubscriberKeyRepository,
+    private readonly signIns: SubscriberSignInService,
   ) {}
 
   @Post('sessions')
   @HttpCode(HttpStatus.OK)
   @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
-  @ApiOperation({ operationId: 'openSubscriberSession', summary: 'Check a customer sign-in' })
+  @ApiOperation({ operationId: 'openSubscriberSession', summary: 'Sign in an owner or member' })
   async signIn(
     @Body(new ZodValidationPipe(sessionSchema)) session: Session,
     @RequestId() requestId: string,
   ): Promise<AdminEnvelope<unknown>> {
-    const found = await this.accounts.findCredentialsByEmail(session.email);
-    // verifyPassword runs scrypt against a decoy when there is no hash, so an
-    // unknown e-mail costs the same time as a wrong password.
-    const valid = await verifyPassword(session.password, found?.passwordHash ?? null);
-    if (!found || !valid) throw new InvalidCredentialsError();
-    return answer(this.identity, { account: toAccountSummary(found.account) }, requestId);
+    const principal = await this.signIns.signIn(session.email, session.password);
+    return answer(
+      this.identity,
+      {
+        account: toAccountSummary(principal.account),
+        member: principal.member ? toMemberSummary(principal.member) : null,
+      },
+      requestId,
+    );
   }
 
   @Get('accounts/:subscriberAccountId')
@@ -111,6 +106,20 @@ export class SiteSubscriptionsController {
       },
       requestId,
     );
+  }
+
+  /** The customer's own invoicing data; plan and state stay the operator's. */
+  @Patch('accounts/:subscriberAccountId')
+  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
+  @ApiOperation({ operationId: 'updateSubscriberProfile', summary: 'Change invoicing data' })
+  async updateProfile(
+    @Param(new ZodValidationPipe(accountParamsSchema)) params: AccountParams,
+    @Body(new ZodValidationPipe(profileUpdateSchema)) change: ProfileUpdate,
+    @RequestId() requestId: string,
+  ): Promise<AdminEnvelope<unknown>> {
+    const account = await this.register.update(params.subscriberAccountId, change);
+    if (!account) throw new NotFoundError('Subscriber account', params.subscriberAccountId);
+    return answer(this.identity, { account: toAccountSummary(account) }, requestId);
   }
 
   @Post('accounts/:subscriberAccountId/api-keys')
@@ -156,45 +165,6 @@ export class SiteSubscriptionsController {
   ): Promise<void> {
     const revoked = await this.keys.revoke(params.subscriberAccountId, params.apiKeyId);
     if (!revoked) throw new NotFoundError('API key', params.apiKeyId);
-  }
-
-  @Post('accounts/:subscriberAccountId/password')
-  @HttpCode(HttpStatus.NO_CONTENT)
-  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
-  @ApiOperation({ operationId: 'changeSubscriberPassword', summary: 'Change the password' })
-  async changePassword(
-    @Param(new ZodValidationPipe(accountParamsSchema)) params: AccountParams,
-    @Body(new ZodValidationPipe(passwordChangeSchema)) body: PasswordChange,
-  ): Promise<void> {
-    const id = params.subscriberAccountId;
-    const stored = await this.accounts.findPasswordHash(id);
-    if (!stored) throw new NotFoundError('Subscriber account', id);
-    const valid = await verifyPassword(body.currentPassword, stored.hash);
-    if (!valid) throw new InvalidCredentialsError();
-    await this.accounts.setPassword(id, await hashPassword(body.newPassword));
-  }
-
-  @Post('activations')
-  @HttpCode(HttpStatus.OK)
-  @Roles(ACTOR_ROLES.SITE_SUBSCRIPTIONS)
-  @ApiOperation({
-    operationId: 'activateSubscriberAccount',
-    summary: 'Spend a token, set a password',
-  })
-  async activate(
-    @Body(new ZodValidationPipe(activationSchema)) body: Activation,
-    @RequestId() requestId: string,
-  ): Promise<AdminEnvelope<unknown>> {
-    const passwordHash = await hashPassword(body.password);
-    const account = await this.accounts.activate(
-      sha256Hex(body.token),
-      passwordHash,
-      body.termsVersion,
-    );
-    if (!account) {
-      throw new RequestValidationError({ token: 'The token is invalid, expired or already used' });
-    }
-    return answer(this.identity, { account: toAccountSummary(account) }, requestId);
   }
 
   @Post('usage')

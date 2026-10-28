@@ -53,6 +53,10 @@ export interface AccountRow {
   billing_period: BillingPeriod;
   status: AccountStatus;
   paid_until: Date | null;
+  /** Raised to end every session the site issued before; starts at 1. */
+  session_version: number;
+  /** While in the future, every sign-in is refused with the generic 401. */
+  locked_until: Date | null;
   created_at: Date;
   /** `created_at` with its microseconds, used only for the cursor. */
   created_at_key: string;
@@ -61,7 +65,8 @@ export interface AccountRow {
 /** The select list shared by every read of an account, never the password hash. */
 export const ACCOUNT_COLUMNS = `
   subscriber_account_id::text AS subscriber_account_id, email, full_name, organization,
-  legal_name, tax_id, plan_code, billing_period, status, paid_until, created_at,
+  legal_name, tax_id, plan_code, billing_period, status, paid_until, session_version,
+  locked_until, created_at,
   to_char(created_at AT TIME ZONE 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS.US"Z"') AS created_at_key`;
 
 /** The first day of the current month in UTC, the key of the usage counters. */
@@ -80,6 +85,9 @@ export interface AccountSummary {
   readonly effectiveStatus: EffectiveStatus;
   readonly entitled: boolean;
   readonly paidUntil: string | null;
+  readonly sessionVersion: number;
+  /** Null once the lock has passed, even if the stored instant is still there. */
+  readonly lockedUntil: string | null;
   readonly createdAt: string;
 }
 
@@ -98,8 +106,15 @@ export function toAccountSummary(row: AccountRow, now: Date = new Date()): Accou
     effectiveStatus: state,
     entitled: isEntitled(state),
     paidUntil: row.paid_until ? row.paid_until.toISOString() : null,
+    sessionVersion: Number(row.session_version),
+    lockedUntil: activeLock(row.locked_until, now),
     createdAt: row.created_at.toISOString(),
   };
+}
+
+/** The instant a sign-in lock ends, as ISO, or null when there is none in force. */
+export function activeLock(lockedUntil: Date | null, now: Date = new Date()): string | null {
+  return lockedUntil && lockedUntil.getTime() > now.getTime() ? lockedUntil.toISOString() : null;
 }
 
 export interface UsageCount {
