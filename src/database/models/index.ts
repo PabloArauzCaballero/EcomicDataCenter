@@ -65,6 +65,8 @@ export { ServiceInquiryModel } from './service_inquiry.model';
 export { SourceExpectationModel } from './source_expectation.model';
 export { SubscriberAccountModel } from './subscriber_account.model';
 export { SubscriberApiKeyModel } from './subscriber_api_key.model';
+export { SubscriberMemberModel } from './subscriber_member.model';
+export { SubscriberNoticeModel } from './subscriber_notice.model';
 export { SubscriberPaymentModel } from './subscriber_payment.model';
 export { SubscriberTokenModel } from './subscriber_token.model';
 export { SubscriberUsageModel } from './subscriber_usage.model';
