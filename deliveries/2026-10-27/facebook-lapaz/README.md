@@ -4,14 +4,14 @@ Lugares de La Paz, El Alto y los demás municipios del departamento, sacados de
 páginas públicas de negocios en Facebook vistas **sin sesión**. Una fila por página
 de negocio confirmada, con la ubicación más precisa que la página publica.
 
-> Estado: EN CURSO — entrega parcial; la recolección sigue (limitada por la RAM de la laptop) y se actualiza en commits nuevos.
+> Estado: PARCIAL — la recolección se detuvo porque Claude Code mató el proceso dos veces por falta de RAM en la laptop compartida (con <800 MB libres casi toda la corrida). El recolector es reanudable: `node collect.mjs --work
 
 ## Archivos
 
 | Archivo | Filas | Qué tiene |
 |---|---:|---|
-| `facebook-lapaz.ndjson.gz` | 125 | Páginas con evidencia de estar en el departamento de La Paz. |
-| `facebook-lapaz-sin-ubicacion.ndjson.gz` | 0 | Páginas confirmadas que salieron en búsquedas de La Paz pero no publican dirección, ciudad ni punto. |
+| `facebook-lapaz.ndjson.gz` | 157 | Páginas con evidencia de estar en el departamento de La Paz. |
+| `facebook-lapaz-sin-ubicacion.ndjson.gz` | 1 | Páginas confirmadas que salieron en búsquedas de La Paz pero no publican dirección, ciudad ni punto. |
 | `facebook-otros-departamentos.ndjson.gz` | 1 | Páginas bolivianas de otros departamentos que aparecieron en las búsquedas (para cruzar con los agentes de Santa Cruz y del resto). |
 | `rejected-summary.json` | — | Sólo conteos, por estado y ciudad de la consulta, de lo que NO se publica. |
 | `manifest.json` | — | sha256 y tamaño de cada archivo, más el resumen de la corrida. |
@@ -41,29 +41,35 @@ Cada fila trae los campos comunes (`source`=facebook, `source_id`, `name`,
 
 ## Resultados
 
-- Consultas hechas: **23** (con algún resultado de Facebook: 23).
-- Páginas abiertas: **137** claves de URL → 133 páginas confirmadas únicas tras deduplicar por id.
-- Estados al abrir: OK 134 · NOT_PAGE 2 · RESTRICTED 1.
-- **Publicadas en La Paz: 125**; sin ubicación: 0; otros departamentos: 1 (Chuquisaca 1).
+- Consultas hechas: **28** (con algún resultado de Facebook: 28).
+- Páginas abiertas: **171** claves de URL → 167 páginas confirmadas únicas tras deduplicar por id.
+- Estados al abrir: OK 168 · NOT_PAGE 2 · RESTRICTED 1.
+- **Publicadas en La Paz: 157**; sin ubicación: 1; otros departamentos: 1 (Chuquisaca 1).
 
 Cobertura de `facebook-lapaz.ndjson.gz`:
 
 | Campo | % de filas |
 |---|---:|
-| lat/lon (punto fijado por el negocio) | 79.2 % |
-| dirección de calle (más que «La Paz, Bolivia») | 83.2 % |
-| dirección, cualquiera | 92.8 % |
-| teléfono | 77.6 % |
-| web | 47.2 % |
-| WhatsApp de empresa (sólo la marca) | 1.6 % |
-| zona (`locality`) | 38.4 % |
-| seguidores | 99.2 % |
+| lat/lon (punto fijado por el negocio) | 80.3 % |
+| dirección de calle (más que «La Paz, Bolivia») | 84.7 % |
+| dirección, cualquiera | 93.6 % |
+| teléfono | 77.7 % |
+| web | 45.2 % |
+| WhatsApp de empresa (sólo la marca) | 1.3 % |
+| zona (`locality`) | 43.3 % |
+| seguidores | 99.4 % |
 | fecha del último post | 100.0 % |
-| último post en los últimos 12 meses | 79.2 % |
+| último post en los últimos 12 meses | 80.9 % |
 
-Por municipio: La Paz 121 · El Alto 3 · (sin municipio) 1.
+Por municipio: La Paz 153 · El Alto 3 · (sin municipio) 1.
 
-Base de la ubicación: `ciudad_facebook` 117 · `ciudad_facebook+coordenadas_fuera` 3 · `nombre_de_la_pagina` 3 · `coordenadas` 1 · `texto_direccion` 1.
+Base de la ubicación: `ciudad_facebook` 148 · `ciudad_facebook+coordenadas_fuera` 3 · `nombre_de_la_pagina` 4 · `coordenadas` 1 · `texto_direccion` 1.
+
+**Alcance real:** las consultas van en el orden de `queries.mjs` (primero «<rubro> La Paz
+Bolivia», luego El Alto, luego zonas y luego municipios). Esta entrega sólo llegó a los primeros
+rubros de la ciudad de La Paz; El Alto, las zonas y los demás municipios casi no están, y por eso El
+Alto tiene tan pocas filas. No es un techo de la fuente: cada consulta devolvió 7 de 7 resultados
+de Facebook y ~6 páginas nuevas.
 
 ## Método
 
@@ -73,7 +79,7 @@ Base de la ubicación: `ciudad_facebook` 117 · `ciudad_facebook+coordenadas_fue
    Achumani, San Miguel, Centro, Villa Fátima, Obrajes, Irpavi, …, Ceja, 16 de Julio, Ciudad
    Satélite, Senkata, Villa Adela, Río Seco, …); 12 rubros × 44 municipios (Viacha, Achocalla,
    Copacabana, Coroico, Caranavi, Chulumani, Achacachi, Sorata, Patacamaya, …). En total
-   1484 consultas posibles; se hicieron 23.
+   1484 consultas posibles; se hicieron 28.
 2. **Lectura.** Cada página se abre con Playwright/Chromium **sin sesión**, agente de usuario de
    Chrome de escritorio, **sin JavaScript** y sin cargar nada más que el documento: Facebook pinta
    en el servidor todo lo que se lee (`<script type="application/json">` dentro del HTML), así que
@@ -113,6 +119,8 @@ Base de la ubicación: `ciudad_facebook` 117 · `ciudad_facebook+coordenadas_fue
   publicada (salvo ids, URL de la página, fechas y `phone`) y exige **0 hallazgos**; `build.mjs`
   aborta si encuentra alguno. `node privacy.test.mjs` prueba los casos de la revisión (ancho
   completo, guiones Unicode, dígitos árabe-índicos, «arroba/punto», …).
+- La limpieza ya estaba aplicada desde el primer push de esta rama (`01f718b`); los commits
+  siguientes sólo añaden filas. No se reescribió el historial ni se hizo force-push.
 - No se tocó ninguna base.
 
 Filas quitadas, por motivo: 
@@ -120,7 +128,7 @@ Filas quitadas, por motivo:
 - perfil personal (sin tarjeta de página): 2
 - no confirmadas: RESTRICTED 1, BLOCKED 0, NOT_FOUND 0
 - sin leer (error de red): 0
-- parecen de una persona: sin_tarjeta_de_pagina 1, categoria_de_persona 2
+- parecen de una persona: sin_tarjeta_de_pagina 1, categoria_de_persona 3
 - fuera de Bolivia: 4
 - webs no publicadas por llevar un número: 0
 - tramos borrados en texto libre: 2 numéricos, 0 correos
@@ -142,7 +150,7 @@ Filas quitadas, por motivo:
   DuckDuckGo HTML, desafío.
 - **Ritmo:** una consulta a la vez con 3-7 s de pausa y 1,5-4 s entre páginas; tras 3 consultas
   vacías seguidas el descubrimiento se pausa (2-15 min); tras 4 páginas BLOCKED seguidas, 10 min.
-  En esta corrida: 0 consultas de Yahoo vacías o con desafío, 0 pausas de descubrimiento, 0 pausas por BLOCKED, 26 esperas por memoria y 4 arranques/reanudaciones.
+  En esta corrida: 0 consultas de Yahoo vacías o con desafío, 0 pausas de descubrimiento, 0 pausas por BLOCKED, 34 esperas por memoria y 5 arranques/reanudaciones.
 - **Memoria de la laptop (el verdadero límite):** el equipo es compartido con otros 11 agentes y
   pasó buena parte de la corrida con < 800 MB libres (llegó a 1 MB). Por pedido del coordinador:
   un solo Chromium, un solo contexto abierto, nada en paralelo, y antes de cada consulta y cada

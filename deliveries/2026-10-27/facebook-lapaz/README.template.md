@@ -43,6 +43,12 @@ Cada fila trae los campos comunes (`source`=facebook, `source_id`, `name`,
 
 __RESULTADOS__
 
+**Alcance real:** las consultas van en el orden de `queries.mjs` (primero «<rubro> La Paz
+Bolivia», luego El Alto, luego zonas y luego municipios). Esta entrega sólo llegó a los primeros
+rubros de la ciudad de La Paz; El Alto, las zonas y los demás municipios casi no están, y por eso El
+Alto tiene tan pocas filas. No es un techo de la fuente: cada consulta devolvió 7 de 7 resultados
+de Facebook y ~6 páginas nuevas.
+
 ## Método
 
 1. **Descubrimiento.** Yahoo con `site:facebook.com <rubro> <lugar>`, una consulta a la vez, cada
@@ -91,6 +97,8 @@ __RESULTADOS__
   publicada (salvo ids, URL de la página, fechas y `phone`) y exige **0 hallazgos**; `build.mjs`
   aborta si encuentra alguno. `node privacy.test.mjs` prueba los casos de la revisión (ancho
   completo, guiones Unicode, dígitos árabe-índicos, «arroba/punto», …).
+- La limpieza ya estaba aplicada desde el primer push de esta rama (`01f718b`); los commits
+  siguientes sólo añaden filas. No se reescribió el historial ni se hizo force-push.
 - No se tocó ninguna base.
 
 Filas quitadas, por motivo: __REMOVED__
