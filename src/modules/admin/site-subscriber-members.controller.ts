@@ -8,10 +8,10 @@ import { ZodValidationPipe } from '../../common/validation/zod-validation.pipe';
 import type { AdminEnvelope } from './admin.envelope';
 import { DeploymentIdentity } from './deployment-identity';
 import { SubscriberMemberRepository } from './subscriber-member.repository';
+import { SubscriberSignInService } from './subscriber-sign-in.service';
 import { answer } from './subscription-envelope';
-import { InvalidCredentialsError } from './subscription-errors';
 import { toMemberSummary } from './subscription-member-row';
-import { hashPassword, issueToken, storedForm, verifyPassword } from './subscription-secrets';
+import { hashPassword, issueToken, storedForm } from './subscription-secrets';
 import {
   accountParamsSchema,
   memberCreationSchema,
@@ -40,6 +40,7 @@ export class SiteSubscriberMembersController {
   constructor(
     private readonly identity: DeploymentIdentity,
     private readonly members: SubscriberMemberRepository,
+    private readonly signIns: SubscriberSignInService,
   ) {}
 
   @Get('accounts/:subscriberAccountId/members')
@@ -125,10 +126,9 @@ export class SiteSubscriberMembersController {
     @Body(new ZodValidationPipe(passwordChangeSchema)) body: PasswordChange,
   ): Promise<void> {
     const { subscriberAccountId, memberId } = params;
-    const stored = await this.members.findPasswordHash(subscriberAccountId, memberId);
-    if (!stored) throw new NotFoundError('Subscriber member', memberId);
-    const valid = await verifyPassword(body.currentPassword, stored.hash);
-    if (!valid) throw new InvalidCredentialsError();
+    const target = { kind: 'MEMBER', subscriberAccountId, memberId } as const;
+    const found = await this.signIns.confirmPassword(target, body.currentPassword);
+    if (!found) throw new NotFoundError('Subscriber member', memberId);
     await this.members.setPassword(
       subscriberAccountId,
       memberId,

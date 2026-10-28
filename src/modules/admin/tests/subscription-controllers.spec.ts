@@ -57,7 +57,7 @@ describe.each([
   ['site', SiteSubscriptionsController, SITE, ADMIN, 7],
   ['site credentials', SiteSubscriberCredentialsController, SITE, ADMIN, 4],
   ['site members', SiteSubscriberMembersController, SITE, ADMIN, 5],
-  ['site notices', SiteSubscriberNoticesController, SITE, ADMIN, 2],
+  ['site notices', SiteSubscriberNoticesController, SITE, ADMIN, 3],
   ['admin', AdminSubscriptionsController, ADMIN, SITE, 8],
 ] as const)(
   '%s subscription routes: who may call what',
@@ -181,6 +181,7 @@ describe('site subscription routes: behaviour', () => {
       identity,
       { activate: jest.fn().mockResolvedValue(null) } as unknown as SubscriberAccountRepository,
       {} as SubscriberSessionRepository,
+      {} as SubscriberSignInService,
     );
     await expect(
       controller.activate(
@@ -188,6 +189,34 @@ describe('site subscription routes: behaviour', () => {
         'r',
       ),
     ).rejects.toMatchObject({ statusCode: 400 });
+  });
+
+  it('answers activation with the same {account, member} shape as sign-in', async () => {
+    const activate = jest
+      .fn()
+      .mockResolvedValueOnce({ account: ACCOUNT, member: null })
+      .mockResolvedValueOnce({ account: { ...ACCOUNT, session_version: 2 }, member: MEMBER });
+    const controller = new SiteSubscriberCredentialsController(
+      identity,
+      { activate } as unknown as SubscriberAccountRepository,
+      {} as SubscriberSessionRepository,
+      {} as SubscriberSignInService,
+    );
+    const body = { token: 't'.repeat(43), password: 'una-clave-larga', termsVersion: 'v1' };
+    const owner = await controller.activate(body, 'r');
+    expect(owner.data).toMatchObject({ account: { sessionVersion: 1 }, member: null });
+    const member = await controller.activate(body, 'r');
+    expect(member.data).toMatchObject({
+      account: { sessionVersion: 2 },
+      member: {
+        memberId: MEMBER.subscriber_member_id,
+        email: MEMBER.email,
+        fullName: MEMBER.full_name,
+        sessionVersion: 3,
+      },
+    });
+    // Only the token's hash reaches the repository.
+    expect(JSON.stringify(activate.mock.calls)).not.toContain(body.token);
   });
 });
 
