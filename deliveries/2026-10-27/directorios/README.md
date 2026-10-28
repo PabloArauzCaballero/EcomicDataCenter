@@ -8,18 +8,19 @@ términos prohíben este uso.
 
 | Directorio | Fichas en Bolivia | Fichas bajadas | % con coordenadas | % con dirección | % con NIT | % con fecha |
 |---|---:|---:|---:|---:|---:|---:|
-| amarillas.bo (Páginas Amarillas de Bolivia) | 3.541 empresas únicas (4.660 pares rubro×empresa) | 979 (27,6 %), PARCIAL | 0 | 99,6 | 0 | 0 |
+| amarillas.bo (Páginas Amarillas de Bolivia) | 3.541 empresas únicas (4.660 pares rubro×empresa) | 3.540 (99,97 %) | 0 | 98,8 | 0 | 0 |
 | boliviaempresas.com | 964 | 964 (100 %) | 0 | 17,0 | 0 | 100 (fecha de alta) |
 | CADECOCRUZ (Cámara de la Construcción de Santa Cruz) | 72 | 72 (100 %) | 0 | 100 | 0 | 0 |
-| **Total** | | **2.015** | | | | |
+| **Total** | | **4.576** | | | | |
 
-Teléfono comercial: amarillas.bo 5,2 % (solo viene en la página de cada empresa y se alcanzó a
-leer 93), boliviaempresas.com 49,6 % y CADECOCRUZ 100 %. Departamento: 100 % en las tres.
+Teléfono comercial: amarillas.bo 4,9 % por ahora (ver la nota de abajo), boliviaempresas.com
+49,6 % y CADECOCRUZ 100 %. Departamento: 100 % en las tres.
 
-**amarillas.bo quedó incompleto.** La máquina corría sin memoria: había menos de 800 MB libres la
-mayor parte del tiempo, y la regla era esperar 60 s en cada lote. Al final Claude Code mató el
-recolector por falta de memoria. Se recorrieron 95 de los 584 rubros por la vía de listados y 93
-páginas de empresa. Todo es reanudable desde lo guardado (ver «Cómo reanudar»).
+**amarillas.bo: el teléfono sigue en curso.** Ya están recorridos los 584 rubros, así que 3.540
+de las 3.541 empresas tienen nombre, rubros, dirección, zona y departamento. El slug que falta
+salía en la lista de rubros pero no en ninguna tarjeta. El teléfono y la web solo vienen en la
+página de cada empresa: en este corte van 331 de 3.541, y alrededor de la mitad trae teléfono
+comercial. El recorrido sigue a través del candado compartido de memoria (`gate.sh http 300`).
 
 «Fichas en Bolivia» es lo que el propio sitio publica, no lo que dice su publicidad. En
 boliviaempresas.com, por ejemplo, el título promete «+50.000 empresas» y su API pública devuelve

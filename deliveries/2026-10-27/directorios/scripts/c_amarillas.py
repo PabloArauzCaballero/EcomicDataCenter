@@ -33,11 +33,15 @@ else:
     json.dump(slugs, open(SLUGS, "w", encoding="utf-8"))
 print("slugs", len(slugs), flush=True)
 
-DONE = os.path.join(W, "records.ndjson")
+# Reparto opcional en 2 hilos (procesos): AM_PART=0|1 toma los slugs de índice par|impar y escribe
+# records_p<N>.ndjson; sin AM_PART escribe records.ndjson. Lo ya hecho en cualquier archivo se salta.
+PART = os.environ.get("AM_PART")
+DONE = os.path.join(W, f"records_p{PART}.ndjson" if PART is not None else "records.ndjson")
 done = set()
-if os.path.exists(DONE):
-    for line in open(DONE, encoding="utf-8"):
-        done.add(json.loads(line)["source_id"])
+for f in [os.path.join(W, "records.ndjson"), os.path.join(W, "records_p0.ndjson"), os.path.join(W, "records_p1.ndjson")]:
+    if os.path.exists(f):
+        for line in open(f, encoding="utf-8"):
+            done.add(json.loads(line)["source_id"])
 fh = open(DONE, "a", encoding="utf-8", newline="\n")
 
 
@@ -46,7 +50,7 @@ def txt(x):
 
 
 for k, s in enumerate(sorted(slugs)):
-    if s in done:
+    if s in done or (PART is not None and k % 2 != int(PART)):
         continue
     url = f"http://www.amarillas.bo/empresa/{s}"
     r = h.get(url)

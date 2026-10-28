@@ -30,10 +30,11 @@ if os.path.exists(os.path.join(W, "list_cards.ndjson")):
         else:
             cards[c["slug"]] = c
 pages = {}
-if os.path.exists(os.path.join(W, "records.ndjson")):
-    for line in open(os.path.join(W, "records.ndjson"), encoding="utf-8"):
-        r = json.loads(line)
-        pages[r["source_id"]] = r
+for fn in ("records.ndjson", "records_p0.ndjson", "records_p1.ndjson"):
+    if os.path.exists(os.path.join(W, fn)):
+        for line in open(os.path.join(W, fn), encoding="utf-8"):
+            r = json.loads(line)
+            pages[r["source_id"]] = r
 
 rows = []
 for slug in sorted(set(cards) | set(pages)):

@@ -26,8 +26,11 @@ def free_kb():
     return m.ullAvailPhys // 1024
 
 
-def wait_for_ram(min_kb=800000):
-    """Regla del coordinador: si queda menos de ~800 MB libres, esperar 60 s y volver a medir."""
+def wait_for_ram(min_kb=None):
+    """Regla del coordinador: si queda menos RAM libre que el umbral, esperar 60 s y volver a medir.
+    Umbral por defecto 800 MB; el candado compartido (gate.sh http 300) lo baja vía MIN_FREE_KB."""
+    if min_kb is None:
+        min_kb = int(os.environ.get("MIN_FREE_KB", "800000"))
     while True:
         f = free_kb()
         if f >= min_kb:
