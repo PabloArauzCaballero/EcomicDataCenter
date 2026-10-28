@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-10-27T23:13:36Z",
+  "generated_at": "2026-10-28T01:42:13Z",
   "branch": "datos/2026-10-27-directorios",
   "files": [
+    {
+      "path": "amarillas/amarillas.ndjson.gz",
+      "sha256": "3088238ac292fa7342402a2b94b127597826e55742311c6eb29b0f72729e628f",
+      "bytes": 106453,
+      "rows": 979,
+      "source": "amarillas.bo"
+    },
     {
       "path": "boliviaempresas/boliviaempresas.ndjson.gz",
       "sha256": "8928301371cc1d82998f2fca8763239ed233f071115459f967dae417548c4758",
