@@ -1,0 +1,189 @@
+{
+  "generated_at": "2026-10-28T01:47:58.095Z",
+  "unidades": 315998,
+  "total_declarado_por_la_api": 422530,
+  "referencia_vigentes_nov_2025": 398131,
+  "renovadas_en_listado": 96276,
+  "fichas_pedidas": 0,
+  "fichas_412": 0,
+  "gaceta_publicaciones": 799,
+  "gaceta_total_declarado": 228671,
+  "departamento": {
+    "POTOSI": 15635,
+    "LA PAZ": 97149,
+    "SANTA CRUZ": 92149,
+    "COCHABAMBA": 53059,
+    "TARIJA": 15355,
+    "PANDO": 3619,
+    "ORURO": 15267,
+    "BENI": 10319,
+    "CHUQUISACA": 13441,
+    "SIN DATO": 5
+  },
+  "tipo_societario": {
+    "SOCIEDAD DE RESPONSABILIDAD LIMITADA": 68601,
+    "SOCIEDAD CONSTITUIDA EN EL EXTRANJERO": 739,
+    "SOCIEDAD ANONIMA": 3311,
+    "EMPRESA UNIPERSONAL": 243232,
+    "SOCIEDAD EN COMANDITA SIMPLE": 22,
+    "SOCIEDAD COLECTIVA": 77,
+    "SOCIEDAD ANONIMA MIXTA": 10,
+    "ENTIDAD FINANCIERA DE VIVIENDA": 4,
+    "EMPRESA PUBLICA DEPARTAMENTAL MIXTA": 1,
+    "SOCIEDAD EN COMANDITA POR ACCIONES": 1
+  },
+  "estado": {
+    "cancelada": 10101,
+    "creado": 797,
+    "vigente": 85731,
+    "no_actualizada": 219179,
+    "inactivo": 184,
+    "eliminado": 4,
+    "anulado": 2
+  },
+  "estado_por_departamento": {
+    "POTOSI": {
+      "cancelada": 278,
+      "creado": 54,
+      "no_actualizada": 11257,
+      "vigente": 4034,
+      "inactivo": 12
+    },
+    "LA PAZ": {
+      "cancelada": 3562,
+      "creado": 214,
+      "vigente": 27381,
+      "no_actualizada": 65934,
+      "inactivo": 58
+    },
+    "SANTA CRUZ": {
+      "cancelada": 2493,
+      "creado": 241,
+      "no_actualizada": 63977,
+      "vigente": 25381,
+      "inactivo": 57
+    },
+    "COCHABAMBA": {
+      "cancelada": 2249,
+      "vigente": 15767,
+      "no_actualizada": 34827,
+      "inactivo": 41,
+      "creado": 171,
+      "eliminado": 2,
+      "anulado": 2
+    },
+    "TARIJA": {
+      "cancelada": 445,
+      "no_actualizada": 11252,
+      "vigente": 3626,
+      "creado": 30,
+      "inactivo": 2
+    },
+    "PANDO": {
+      "cancelada": 60,
+      "no_actualizada": 3027,
+      "vigente": 523,
+      "creado": 8,
+      "inactivo": 1
+    },
+    "ORURO": {
+      "cancelada": 480,
+      "inactivo": 7,
+      "vigente": 3906,
+      "no_actualizada": 10865,
+      "eliminado": 2,
+      "creado": 7
+    },
+    "BENI": {
+      "cancelada": 163,
+      "no_actualizada": 8346,
+      "vigente": 1768,
+      "creado": 40,
+      "inactivo": 2
+    },
+    "CHUQUISACA": {
+      "cancelada": 371,
+      "no_actualizada": 9693,
+      "vigente": 3345,
+      "creado": 29,
+      "inactivo": 3
+    },
+    "SIN DATO": {
+      "creado": 3,
+      "no_actualizada": 1,
+      "inactivo": 1
+    }
+  },
+  "con_ficha": 0,
+  "domicilio_vivienda": 0,
+  "con_coordenadas": 0,
+  "con_fecha_constitucion_gaceta": 175,
+  "con_publicaciones_gaceta": 529,
+  "tipo_por_estado": {
+    "SOCIEDAD DE RESPONSABILIDAD LIMITADA": {
+      "cancelada": 1899,
+      "vigente": 25796,
+      "no_actualizada": 40712,
+      "inactivo": 162,
+      "creado": 32
+    },
+    "SOCIEDAD CONSTITUIDA EN EL EXTRANJERO": {
+      "cancelada": 31,
+      "vigente": 273,
+      "no_actualizada": 432,
+      "inactivo": 3
+    },
+    "SOCIEDAD ANONIMA": {
+      "cancelada": 110,
+      "vigente": 1594,
+      "no_actualizada": 1596,
+      "inactivo": 11
+    },
+    "EMPRESA UNIPERSONAL": {
+      "cancelada": 8061,
+      "creado": 765,
+      "vigente": 58051,
+      "no_actualizada": 176341,
+      "inactivo": 8,
+      "eliminado": 4,
+      "anulado": 2
+    },
+    "SOCIEDAD EN COMANDITA SIMPLE": {
+      "no_actualizada": 20,
+      "vigente": 2
+    },
+    "SOCIEDAD COLECTIVA": {
+      "no_actualizada": 72,
+      "vigente": 5
+    },
+    "SOCIEDAD ANONIMA MIXTA": {
+      "vigente": 6,
+      "no_actualizada": 4
+    },
+    "ENTIDAD FINANCIERA DE VIVIENDA": {
+      "vigente": 3,
+      "no_actualizada": 1
+    },
+    "EMPRESA PUBLICA DEPARTAMENTAL MIXTA": {
+      "vigente": 1
+    },
+    "SOCIEDAD EN COMANDITA POR ACCIONES": {
+      "no_actualizada": 1
+    }
+  },
+  "estado_registro": {
+    "CANCELADO": 10101,
+    "CREADO": 797,
+    "ACTIVO": 304910,
+    "INACTIVO": 184,
+    "ELIMINADO": 4,
+    "ANULADO": 2
+  },
+  "partes": [
+    {
+      "name": "seprec-empresas-01.ndjson.gz",
+      "rows": 315998,
+      "bytes": 20656470
+    }
+  ]
+}

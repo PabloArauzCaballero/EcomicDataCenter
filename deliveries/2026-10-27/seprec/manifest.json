@@ -1,0 +1,57 @@
+{
+  "source": "seprec",
+  "generated_at": "2026-10-28T01:47:58.095Z",
+  "rows": 315998,
+  "files": [
+    {
+      "name": "README.md",
+      "bytes": 11162,
+      "sha256": "6f5b27ebe32aed7fcce32b63ac29f4098c0122efb66297372b4c5a767e5891ab"
+    },
+    {
+      "name": "seprec-empresas-01.ndjson.gz",
+      "bytes": 20656470,
+      "sha256": "5c5e4ceb7a8eb2bb98f6deba80d7f232c46cb00ca1fe7e7eeda00c2f54e86afb"
+    },
+    {
+      "name": "summary.json",
+      "bytes": 4207,
+      "sha256": "6cd6ebe2dd7b251273427ab96830231569dd70407fc2e38c388ce6322301193b"
+    },
+    {
+      "name": "scripts/build-delivery.mjs",
+      "bytes": 11202,
+      "sha256": "0ed1a79e1e1b2f5fb69c64d046d0d591a0624250acaa964699e2139278367a92"
+    },
+    {
+      "name": "scripts/collect-details.mjs",
+      "bytes": 3987,
+      "sha256": "92ada8b460fd171bf518b8b382fdd35ab14ae767aad7e1f40cd67d6b15f2cdfb"
+    },
+    {
+      "name": "scripts/collect-gaceta.mjs",
+      "bytes": 2772,
+      "sha256": "93d09d273c02dbce08904281ed3ffdde11cc982e7a0b212f8f0cda61aaee58c3"
+    },
+    {
+      "name": "scripts/collect-list.mjs",
+      "bytes": 2152,
+      "sha256": "422c4fec75562147cf4bc5e6f74aafb474090ce2380a628e5cad97a007d82807"
+    },
+    {
+      "name": "scripts/inspect-list.mjs",
+      "bytes": 1412,
+      "sha256": "9812de27b3cbfeffe61675b7b0f85ea81c21ba4d33dbda4333d90112b9b80313"
+    },
+    {
+      "name": "scripts/run-all.mjs",
+      "bytes": 1311,
+      "sha256": "ecb925b8adbce25fb1d0b5ea6cb892d53b93b0dc6ee4ac4563e783af365bc682"
+    },
+    {
+      "name": "scripts/seprec-browser.mjs",
+      "bytes": 6013,
+      "sha256": "3587f12963cca621b0e018a0ce41f9c6f47cbde7c2a565e9726be1d5f2a7d0c7"
+    }
+  ]
+}

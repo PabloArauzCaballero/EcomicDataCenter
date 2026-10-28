@@ -6,6 +6,28 @@ que usa el portal `miempresa.seprec.gob.bo` («Consulta de empresas»), sin sesi
 captcha.
 
 <!-- ESTADO -->
+## Estado de esta entrega (PARCIAL, se reanuda)
+
+- **Listado: 316 de 423 páginas** (315.998 unidades de 422.530 que declara la API, 74,8 %). La
+  corrida se detuvo porque la laptop se quedó sin RAM (Claude Code mata los procesos en segundo
+  plano bajo presión de memoria). Las páginas que faltan son la 317 a la 423 del orden por razón
+  social, es decir, las razones sociales que empiezan más tarde en el alfabeto.
+- **Gaceta: 8 de 2.287 páginas** (799 publicaciones). Prácticamente sin empezar.
+- **Fichas: 0.** Bloqueadas (ver «Bloqueos», punto 2).
+- Conteos de esta parte en `summary.json`.
+
+### Cómo reanudar
+
+```bash
+export PW_DIR=<carpeta con playwright-core>
+# <out> es la carpeta de trabajo con list/ y gaceta/; las páginas ya guardadas se saltan.
+node scripts/run-all.mjs <out> 2 list,gaceta
+node scripts/build-delivery.mjs <out> deliveries/2026-10-27/seprec
+```
+
+Las páginas crudas ya bajadas (`list/p-0001…p-0316.json.gz`, 13 MB) no van en la rama; quedaron en
+la carpeta de trabajo de la sesión. Si se pierden, `run-all.mjs` las vuelve a pedir (unos 40 min
+para el listado entero con 2 hilos y la RAM holgada).
 
 ## Archivos
 

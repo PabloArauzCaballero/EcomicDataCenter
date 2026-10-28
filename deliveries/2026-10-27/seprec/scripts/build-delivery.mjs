@@ -14,7 +14,7 @@
  *
  *   node build-delivery.mjs <out> <destino>
  */
-import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync, statSync, createReadStream } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, appendFileSync, mkdirSync, existsSync, statSync, createReadStream } from 'node:fs';
 import { gunzipSync, gzipSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
@@ -30,15 +30,9 @@ const MAX_PART = 90 * 1024 * 1024;
 const readGz = (f) => JSON.parse(gunzipSync(readFileSync(f)).toString('utf8'));
 const clean = (s) => (typeof s === 'string' ? s.replace(/\s+/gu, ' ').trim() || null : s ?? null);
 
-// 1. Listado
-const list = new Map();
-for (const f of readdirSync(join(out, 'list')).sort()) {
-  const page = readGz(join(out, 'list', f));
-  for (const r of page.filas) {
-    const key = `${r.id}/${r.idEstablecimiento}`;
-    if (!list.has(key)) list.set(key, { row: r, retrieved_at: page.retrieved_at });
-  }
-}
+// 1. Listado: se recorre página por página más abajo (entero no cabe en una
+// máquina con poca RAM libre); aquí solo se guardan las claves vistas.
+const seenKeys = new Set();
 
 // 2. Fichas
 const details = new Map();
@@ -102,19 +96,38 @@ const bump = (o, k) => (o[k ?? 'SIN DATO'] = (o[k ?? 'SIN DATO'] ?? 0) + 1);
 const parts = [];
 let buf = [];
 let bufBytes = 0;
-function flush() {
-  if (!buf.length) return;
-  const name = `seprec-empresas-${String(parts.length + 1).padStart(2, '0')}.ndjson.gz`;
-  const gz = gzipSync(Buffer.from(buf.join(''), 'utf8'), { level: 9 });
-  writeFileSync(join(dest, name), gz);
-  parts.push({ name, rows: buf.length, bytes: gz.length });
-  buf = [];
-  bufBytes = 0;
+let current = null;
+let renewed = 0;
+/*
+ * Cada bloque de ~24 MB se comprime como un miembro gzip y se añade a la parte
+ * en curso (gzip admite miembros concatenados: zcat, gunzip y zlib los leen de
+ * corrido). La parte se cierra al pasar de 80 MB, así ninguna llega a 90 MB.
+ */
+function flush(final = false) {
+  if (buf.length) {
+    if (!current) {
+      current = { name: `seprec-empresas-${String(parts.length + 1).padStart(2, '0')}.ndjson.gz`, rows: 0, bytes: 0 };
+      parts.push(current);
+      writeFileSync(join(dest, current.name), Buffer.alloc(0));
+    }
+    const gz = gzipSync(Buffer.from(buf.join(''), 'utf8'), { level: 9 });
+    appendFileSync(join(dest, current.name), gz);
+    current.rows += buf.length;
+    current.bytes += gz.length;
+    buf = [];
+    bufBytes = 0;
+  }
+  if (final || (current && current.bytes > 80 * 1024 * 1024)) current = null;
 }
 
-const keys = [...list.keys()].sort((a, b) => Number(a.split('/')[0]) - Number(b.split('/')[0]));
-for (const key of keys) {
-  const { row: r, retrieved_at: listAt } = list.get(key);
+for (const f of readdirSync(join(out, 'list')).sort()) {
+ const page = readGz(join(out, 'list', f));
+ const listAt = page.retrieved_at;
+ for (const r of page.filas) {
+  const key = `${r.id}/${r.idEstablecimiento}`;
+  if (seenKeys.has(key)) continue;
+  seenKeys.add(key);
+  if (r.codEstadoActualizacion?.nombre === 'MATRICULA RENOVADA') renewed++;
   const det = details.get(key);
   const d = det?.datos;
   const tipo = clean(r.codTipoUnidadEconomica?.nombre);
@@ -158,7 +171,7 @@ for (const key of keys) {
     direccion: hideAddress ? null : direccionDe(dir),
     latitud: Number.isFinite(lat) ? lat : null,
     longitud: Number.isFinite(lon) ? lon : null,
-    domicilio_vivienda: residence,
+    domicilio_vivienda: dir ? residence : null,
     sitio_web: d?.sitio_web ?? null,
     sucursales: null,
     publicaciones_gaceta: pubs.length ? pubs : null,
@@ -174,7 +187,13 @@ for (const key of keys) {
   };
   bump(counts.departamento, departamento);
   bump(counts.tipo_societario, tipo);
+  counts.tipo_por_estado ??= {};
+  counts.tipo_por_estado[tipo ?? 'SIN DATO'] ??= {};
+  bump(counts.tipo_por_estado[tipo ?? 'SIN DATO'], estado);
   bump(counts.estado, estado);
+  // El 398.131 del SEPREC cuenta unidades «vigentes» en el sentido de no
+  // canceladas (estado ACTIVO), renovadas o no; por eso se cuenta aparte.
+  bump((counts.estado_registro ??= {}), r.estado);
   counts.estado_por_departamento[departamento ?? 'SIN DATO'] ??= {};
   bump(counts.estado_por_departamento[departamento ?? 'SIN DATO'], estado);
   if (det) counts.con_ficha++;
@@ -185,19 +204,17 @@ for (const key of keys) {
   const line = JSON.stringify(rec) + '\n';
   buf.push(line);
   bufBytes += Buffer.byteLength(line);
-  // ~6:1 de compresión medida; se corta en 400 MB sin comprimir para quedar
-  // muy por debajo de 90 MB comprimidos.
-  if (bufBytes > 400 * 1024 * 1024) flush();
+  if (bufBytes > 24 * 1024 * 1024) flush();
+ }
 }
-flush();
+flush(true);
 for (const p of parts) if (p.bytes > MAX_PART) throw new Error(`${p.name} pesa ${p.bytes} bytes, más de 90 MB`);
 
 const listMeta = existsSync(join(out, 'list-meta.json')) ? JSON.parse(readFileSync(join(out, 'list-meta.json'), 'utf8')) : null;
 const gacetaMeta = existsSync(join(out, 'gaceta-meta.json')) ? JSON.parse(readFileSync(join(out, 'gaceta-meta.json'), 'utf8')) : null;
-const renewed = [...list.values()].filter((v) => v.row.codEstadoActualizacion?.nombre === 'MATRICULA RENOVADA').length;
 const summary = {
   generated_at: new Date().toISOString(),
-  unidades: keys.length,
+  unidades: seenKeys.size,
   total_declarado_por_la_api: listMeta?.total ?? null,
   referencia_vigentes_nov_2025: 398131,
   renovadas_en_listado: renewed,
@@ -224,5 +241,5 @@ const sdir = join(dest, 'scripts');
 if (existsSync(sdir)) {
   for (const name of readdirSync(sdir).sort()) files.push({ name: `scripts/${name}`, bytes: statSync(join(sdir, name)).size, sha256: await sha256(join(sdir, name)) });
 }
-writeFileSync(join(dest, 'manifest.json'), JSON.stringify({ source: 'seprec', generated_at: summary.generated_at, rows: keys.length, files }, null, 2) + '\n');
-console.log(JSON.stringify({ unidades: keys.length, con_ficha: counts.con_ficha, partes: parts }, null, 1));
+writeFileSync(join(dest, 'manifest.json'), JSON.stringify({ source: 'seprec', generated_at: summary.generated_at, rows: seenKeys.size, files }, null, 2) + '\n');
+console.log(JSON.stringify({ unidades: seenKeys.size, con_ficha: counts.con_ficha, partes: parts }, null, 1));
