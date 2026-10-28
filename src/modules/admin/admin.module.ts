@@ -30,10 +30,18 @@ import { SeedLedgerRepository } from './seed-ledger.repository';
 import { SeedRunRepository } from './seed-run.repository';
 import { SeedPublicationService } from './seed-publication.service';
 import { SiteAvailabilityService } from './site-availability.service';
+import { SiteSubscriberCredentialsController } from './site-subscriber-credentials.controller';
+import { SiteSubscriberMembersController } from './site-subscriber-members.controller';
+import { SiteSubscriberNoticesController } from './site-subscriber-notices.controller';
 import { SiteSubscriptionsController } from './site-subscriptions.controller';
 import { SubscriberAccountRepository } from './subscriber-account.repository';
 import { SubscriberAdminRepository } from './subscriber-admin.repository';
 import { SubscriberKeyRepository } from './subscriber-key.repository';
+import { SubscriberMemberRepository } from './subscriber-member.repository';
+import { SubscriberNoticeRepository } from './subscriber-notice.repository';
+import { SubscriberPaymentRepository } from './subscriber-payment.repository';
+import { SubscriberSessionRepository } from './subscriber-session.repository';
+import { SubscriberSignInService } from './subscriber-sign-in.service';
 
 /**
  * The administrative surface: read the operation, and act on the seeds.
@@ -55,6 +63,9 @@ import { SubscriberKeyRepository } from './subscriber-key.repository';
     AdminInquiriesController,
     AdminSubscriptionsController,
     SiteSubscriptionsController,
+    SiteSubscriberCredentialsController,
+    SiteSubscriberMembersController,
+    SiteSubscriberNoticesController,
   ],
   providers: [
     DeploymentIdentity,
@@ -76,6 +87,11 @@ import { SubscriberKeyRepository } from './subscriber-key.repository';
     SubscriberAccountRepository,
     SubscriberAdminRepository,
     SubscriberKeyRepository,
+    SubscriberMemberRepository,
+    SubscriberNoticeRepository,
+    SubscriberPaymentRepository,
+    SubscriberSessionRepository,
+    SubscriberSignInService,
     PublicationStateRepository,
     SeedContextProvider,
     SeedLedgerRepository,

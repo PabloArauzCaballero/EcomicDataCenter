@@ -138,6 +138,13 @@ export interface IssuedToken {
   readonly expiresAt: Date;
 }
 
+/** What the register keeps of a token: its hash and when it lapses, never the token. */
+export type StoredToken = Pick<IssuedToken, 'hash' | 'expiresAt'>;
+
+export function storedForm(token: IssuedToken): StoredToken {
+  return { hash: token.hash, expiresAt: token.expiresAt };
+}
+
 /** A single-use activation or reset token, valid for seven days from `now`. */
 export function issueToken(now: Date = new Date()): IssuedToken {
   const token = randomBytes(32).toString('base64url');

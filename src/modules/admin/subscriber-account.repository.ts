@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { QueryTypes, type Sequelize } from 'sequelize';
+import { QueryTypes, type Sequelize, type Transaction } from 'sequelize';
 import { WRITER_DATABASE } from '../../database/database.tokens';
 import {
   ACCOUNT_COLUMNS,
@@ -7,11 +7,21 @@ import {
   type AccountRow,
   type UsageCount,
 } from './subscription-account-row';
+import { replaceToken } from './subscriber-tokens';
+import { MEMBER_COLUMNS, type MemberRow } from './subscription-member-row';
+import type { StoredToken } from './subscription-secrets';
 import { USAGE_KINDS, type UsageKind } from './subscription.schemas';
 
-export interface AccountCredentials {
+/** Whoever a spent token named: the owner (member null) or one of its members. */
+export interface Activated {
   readonly account: AccountRow;
-  readonly passwordHash: string | null;
+  readonly member: MemberRow | null;
+}
+
+/** Who a self-service reset token was issued to; `memberId` null for the owner. */
+export interface ResetHolder {
+  readonly fullName: string;
+  readonly memberId: string | null;
 }
 
 export interface ApiKeyRow {
@@ -37,19 +47,6 @@ export interface ApiKeyRow {
 export class SubscriberAccountRepository {
   constructor(@Inject(WRITER_DATABASE) private readonly writer: Sequelize) {}
 
-  async findCredentialsByEmail(email: string): Promise<AccountCredentials | null> {
-    const rows = await this.writer.query<AccountRow & { password_hash: string | null }>(
-      `SELECT ${ACCOUNT_COLUMNS}, password_hash
-         FROM operations.subscriber_account
-        WHERE email = :email`,
-      { type: QueryTypes.SELECT, replacements: { email } },
-    );
-    const row = rows[0];
-    if (!row) return null;
-    const { password_hash: passwordHash, ...account } = row;
-    return { account, passwordHash };
-  }
-
   async findPasswordHash(subscriberAccountId: string): Promise<{ hash: string | null } | null> {
     const rows = await this.writer.query<{ password_hash: string | null }>(
       `SELECT password_hash FROM operations.subscriber_account
@@ -60,11 +57,14 @@ export class SubscriberAccountRepository {
     return row ? { hash: row.password_hash } : null;
   }
 
-  async findById(subscriberAccountId: string): Promise<AccountRow | null> {
+  async findById(
+    subscriberAccountId: string,
+    transaction: Transaction | null = null,
+  ): Promise<AccountRow | null> {
     const rows = await this.writer.query<AccountRow>(
       `SELECT ${ACCOUNT_COLUMNS} FROM operations.subscriber_account
         WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)`,
-      { type: QueryTypes.SELECT, replacements: { subscriberAccountId } },
+      { type: QueryTypes.SELECT, transaction, replacements: { subscriberAccountId } },
     );
     return rows[0] ?? null;
   }
@@ -92,11 +92,15 @@ export class SubscriberAccountRepository {
     );
   }
 
-  /** Replaces the password hash. Returns false when the account does not exist. */
+  /**
+   * Replaces the password hash and raises `session_version`, so every other
+   * session of the owner ends. Returns false when the account does not exist.
+   */
   async setPassword(subscriberAccountId: string, passwordHash: string): Promise<boolean> {
     const rows = await this.writer.query<{ subscriber_account_id: string }>(
       `UPDATE operations.subscriber_account
-          SET password_hash = :passwordHash, updated_at = now()
+          SET password_hash = :passwordHash, session_version = session_version + 1,
+              updated_at = now()
         WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
         RETURNING subscriber_account_id::text AS subscriber_account_id`,
       { type: QueryTypes.SELECT, replacements: { subscriberAccountId, passwordHash } },
@@ -105,46 +109,123 @@ export class SubscriberAccountRepository {
   }
 
   /**
-   * Spends a one-time token and sets the password and the terms it accepted.
+   * Issues a RESET token for whoever signs in with this e-mail: an owner whose
+   * account is not CANCELLED, or else an ACTIVE member of such an account.
+   *
+   * The holder's row is locked first and its earlier unused RESET tokens are
+   * spent, so only the newest link works. Returns null when the e-mail names
+   * nobody who may reset — the caller answers alike either way.
+   */
+  async issueReset(email: string, token: StoredToken): Promise<ResetHolder | null> {
+    return this.writer.transaction(async (transaction) => {
+      const owners = await this.writer.query<{ subscriber_account_id: string; full_name: string }>(
+        `SELECT subscriber_account_id::text AS subscriber_account_id, full_name
+           FROM operations.subscriber_account
+          WHERE email = :email AND status <> 'CANCELLED'
+          FOR UPDATE`,
+        { type: QueryTypes.SELECT, transaction, replacements: { email } },
+      );
+      const members = owners[0]
+        ? []
+        : await this.writer.query<{
+            subscriber_account_id: string;
+            subscriber_member_id: string;
+            full_name: string;
+          }>(
+            `SELECT m.subscriber_account_id::text AS subscriber_account_id,
+                    m.subscriber_member_id::text AS subscriber_member_id, m.full_name
+               FROM operations.subscriber_member m
+               JOIN operations.subscriber_account a
+                 ON a.subscriber_account_id = m.subscriber_account_id
+              WHERE m.email = :email AND m.status = 'ACTIVE' AND a.status <> 'CANCELLED'
+              FOR UPDATE OF m`,
+            { type: QueryTypes.SELECT, transaction, replacements: { email } },
+          );
+      const holder = owners[0]
+        ? { ...owners[0], subscriber_member_id: null }
+        : (members[0] ?? null);
+      if (!holder) return null;
+      await replaceToken(
+        this.writer,
+        transaction,
+        {
+          subscriberAccountId: holder.subscriber_account_id,
+          subscriberMemberId: holder.subscriber_member_id,
+        },
+        'RESET',
+        token,
+      );
+      return { fullName: holder.full_name, memberId: holder.subscriber_member_id };
+    });
+  }
+
+  /**
+   * Spends a one-time token and sets the password of whoever it names.
    *
    * The token is consumed by a conditional UPDATE — unused and unexpired, in one
    * statement — so two concurrent activations with the same token cannot both
-   * succeed. The status is left as the operator set it: activation proves the
-   * customer owns the e-mail, it does not grant a plan. Returns null when the
-   * token is unknown, expired or already used.
+   * succeed. Spending it raises the holder's `session_version` and clears its
+   * sign-in lock and failure count. An owner's token also records the terms it
+   * accepted; the status is left as the operator set it, because activation
+   * proves the customer owns the e-mail, it does not grant a plan. A member's
+   * token works only while the member is ACTIVE.
+   *
+   * Returns null when the token is unknown, expired, already used, or names a
+   * member that was removed.
    */
   async activate(
     tokenHash: string,
     passwordHash: string,
     termsVersion: string,
-  ): Promise<AccountRow | null> {
+  ): Promise<Activated | null> {
     return this.writer.transaction(async (transaction) => {
-      const spent = await this.writer.query<{ subscriber_account_id: string }>(
+      const spent = await this.writer.query<{
+        subscriber_account_id: string;
+        subscriber_member_id: string | null;
+      }>(
         `UPDATE operations.subscriber_token
             SET used_at = now()
           WHERE token_hash = :tokenHash AND used_at IS NULL AND expires_at > now()
-          RETURNING subscriber_account_id::text AS subscriber_account_id`,
+          RETURNING subscriber_account_id::text AS subscriber_account_id,
+                    subscriber_member_id::text AS subscriber_member_id`,
         { type: QueryTypes.SELECT, transaction, replacements: { tokenHash } },
       );
-      const owner = spent[0];
-      if (!owner) return null;
+      const holder = spent[0];
+      if (!holder) return null;
+      const subscriberAccountId = holder.subscriber_account_id;
+      if (holder.subscriber_member_id) {
+        const members = await this.writer.query<MemberRow>(
+          `UPDATE operations.subscriber_member
+              SET password_hash = :passwordHash, session_version = session_version + 1,
+                  failed_login_count = 0, locked_until = NULL
+            WHERE subscriber_member_id = CAST(:subscriberMemberId AS uuid) AND status = 'ACTIVE'
+            RETURNING ${MEMBER_COLUMNS}`,
+          {
+            type: QueryTypes.SELECT,
+            transaction,
+            replacements: { subscriberMemberId: holder.subscriber_member_id, passwordHash },
+          },
+        );
+        const member = members[0];
+        if (!member) return null;
+        const account = await this.findById(subscriberAccountId, transaction);
+        return account ? { account, member } : null;
+      }
       const rows = await this.writer.query<AccountRow>(
         `UPDATE operations.subscriber_account
             SET password_hash = :passwordHash, terms_version = :termsVersion,
-                terms_accepted_at = now(), updated_at = now()
+                terms_accepted_at = now(), session_version = session_version + 1,
+                failed_login_count = 0, locked_until = NULL, updated_at = now()
           WHERE subscriber_account_id = CAST(:subscriberAccountId AS uuid)
           RETURNING ${ACCOUNT_COLUMNS}`,
         {
           type: QueryTypes.SELECT,
           transaction,
-          replacements: {
-            subscriberAccountId: owner.subscriber_account_id,
-            passwordHash,
-            termsVersion,
-          },
+          replacements: { subscriberAccountId, passwordHash, termsVersion },
         },
       );
-      return rows[0] ?? null;
+      const account = rows[0];
+      return account ? { account, member: null } : null;
     });
   }
 }

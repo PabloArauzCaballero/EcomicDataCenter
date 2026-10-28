@@ -6,12 +6,14 @@ export const BILLING_PERIODS = ['MONTHLY', 'ANNUAL'] as const;
 export const ACCOUNT_STATUSES = ['PENDING', 'TRIAL', 'ACTIVE', 'SUSPENDED', 'CANCELLED'] as const;
 export const USAGE_KINDS = ['API', 'DOWNLOAD', 'CHAT', 'MAP'] as const;
 export const TOKEN_PURPOSES = ['ACTIVATE', 'RESET'] as const;
+export const NOTICE_KINDS = ['USAGE_80', 'EXPIRY_5D', 'GRACE'] as const;
 
 export type PlanCode = (typeof PLAN_CODES)[number];
 export type BillingPeriod = (typeof BILLING_PERIODS)[number];
 export type AccountStatus = (typeof ACCOUNT_STATUSES)[number];
 export type UsageKind = (typeof USAGE_KINDS)[number];
 export type TokenPurpose = (typeof TOKEN_PURPOSES)[number];
+export type NoticeKind = (typeof NOTICE_KINDS)[number];
 
 /** E-mail compared and stored lowercased, so one person cannot hold two accounts. */
 const email = z
@@ -122,6 +124,53 @@ export const accountUpdateSchema = z
     legalName: patchText(200),
     taxId: patchText(40),
     organization: patchText(160),
+    /** Clears the owner's sign-in lock and failure count; only `true` is meaningful. */
+    unlock: z.literal(true).optional(),
+  })
+  .strict();
+
+/** What a customer may change about its own account: invoicing data only. */
+export const profileUpdateSchema = z
+  .object({
+    organization: patchText(160),
+    legalName: patchText(200),
+    taxId: patchText(40),
+  })
+  .strict();
+
+export const passwordResetSchema = z.object({ email }).strict();
+
+const MONTH_KEY = /^\d{4}-(?:0[1-9]|1[0-2])$/u;
+const DAY_KEY =
+  /^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])(?:T[0-9:.]+(?:Z|[+-]\d{2}:\d{2}))?$/u;
+
+/**
+ * Claims a notice before the site sends it. The period key is the site's:
+ * `YYYY-MM` for USAGE_80, and the `paidUntil` day (a date, or the full ISO
+ * instant) for EXPIRY_5D and GRACE, so a renewed plan opens a new period.
+ */
+export const noticeClaimSchema = z
+  .object({
+    subscriberAccountId: z.uuid(),
+    kind: z.enum(NOTICE_KINDS),
+    periodKey: z.string().trim().min(1).max(40),
+  })
+  .strict()
+  .refine((claim) => (claim.kind === 'USAGE_80' ? MONTH_KEY : DAY_KEY).test(claim.periodKey), {
+    path: ['periodKey'],
+    message: 'YYYY-MM for USAGE_80, the paidUntil day otherwise',
+  });
+
+export const memberParamsSchema = z
+  .object({ subscriberAccountId: z.uuid(), memberId: z.uuid() })
+  .strict();
+
+export const memberCreationSchema = z
+  .object({
+    email,
+    fullName: z.string().trim().min(2).max(120),
+    /** Members the plan allows besides the owner; the site derives it from the plan. */
+    maxMembers: z.number().int().min(0).max(100),
   })
   .strict();
 
@@ -152,3 +201,7 @@ export type AccountCreation = z.infer<typeof accountCreationSchema>;
 export type AccountUpdate = z.infer<typeof accountUpdateSchema>;
 export type Payment = z.infer<typeof paymentSchema>;
 export type TokenRequest = z.infer<typeof tokenRequestSchema>;
+export type ProfileUpdate = z.infer<typeof profileUpdateSchema>;
+export type PasswordReset = z.infer<typeof passwordResetSchema>;
+export type NoticeClaim = z.infer<typeof noticeClaimSchema>;
+export type MemberCreation = z.infer<typeof memberCreationSchema>;
