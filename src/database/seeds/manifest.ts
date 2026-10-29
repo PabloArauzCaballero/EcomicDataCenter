@@ -227,6 +227,12 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-agemed-pharmacies-poi/',
       'boot/bolivia-fsq-health-poi/',
       'boot/bolivia-fsq-poi/',
+      'boot/bolivia-overture-2610-poi/',
+      'boot/bolivia-osm-2610-poi/',
+      'boot/bolivia-official-2610-poi/',
+      'boot/bolivia-yango-poi/',
+      'boot/bolivia-facebook-poi/',
+      'boot/bolivia-geoportal-poi/',
       'boot/bolivia-place-municipality/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
@@ -271,7 +277,13 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // corpus ya daba a esos mismos locales; 8.706 sin actualizar desde antes
     // de 2020, marcados. Sin bancos, cajeros ni colegios: ASFI y SIE ya los
     // enumeran todos.
-    '1.9.0',
+    // 2026-10-29: el barrido del 2026-10-27 — 8.429 lugares que el corpus no tenía, cruzados
+    // por identificador y por nombre a menos de 150 m: 2.690 nuevos de Overture 2026-10-21.0,
+    // 389 de OpenStreetMap (26-oct), 1.143 oficiales (oficinas del Estado, mercados de La Paz,
+    // aeropuertos de NAABOL, 103 estaciones de GNV de la ANH y 682 puntos nuevos de la ASFI),
+    // 1.365 de Yango Deli, 197 páginas de Facebook y 2.645 de los geoportales de La Paz y Santa
+    // Cruz. Sin teléfonos ni correos.
+    '1.10.0',
   ),
   historical(
     'bolivia-road-network',
