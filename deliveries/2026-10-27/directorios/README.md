@@ -13,14 +13,13 @@ términos prohíben este uso.
 | CADECOCRUZ (Cámara de la Construcción de Santa Cruz) | 72 | 72 (100 %) | 0 | 100 | 0 | 0 |
 | **Total** | | **4.577** | | | | |
 
-Teléfono comercial: amarillas.bo 47,1 %, boliviaempresas.com 49,6 % y CADECOCRUZ 100 %.
+Teléfono comercial: amarillas.bo 58,0 %, boliviaempresas.com 49,6 % y CADECOCRUZ 100 %.
 Departamento: 100 % en las tres.
 
-**amarillas.bo: faltan algunas páginas de empresa.** Las 3.541 empresas tienen nombre, rubros,
-departamento y, en el 98,8 %, dirección y zona. El teléfono y la web solo vienen en la página de
-cada empresa, y en este corte se leyeron 2.811 de 3.541 (79 %). Las demás todavía no tienen
-teléfono; `raw.company_page_fetched = false` las marca. Ese recorrido es reanudable (ver «Cómo
-reanudar»).
+**amarillas.bo: completo.** Las 3.541 empresas tienen nombre, rubros, departamento y, en el
+98,8 %, dirección y zona. El teléfono y la web solo vienen en la página de cada empresa; se leyeron
+las 3.541 (100 %) y el 58,0 % publica un teléfono comercial. Revisión de privacidad sobre este
+archivo final: 0 correos y ningún nombre con apariencia de persona conserva teléfono.
 
 «Fichas en Bolivia» es lo que el propio sitio publica, no lo que dice su publicidad. En
 boliviaempresas.com, por ejemplo, el título promete «+50.000 empresas» y su API pública devuelve
