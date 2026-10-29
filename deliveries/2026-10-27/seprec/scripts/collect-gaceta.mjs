@@ -25,6 +25,8 @@ import { join } from 'node:path';
 import { fetchJson, pool, pastDeadline } from './seprec-browser.mjs';
 
 const LIMIT = 100;
+const POLITE_MS = Number(process.env.POLITE_MS ?? 700); // pausa cortés entre páginas, por hilo
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const body = (pagina) => ({
   fechaInicial: '', fecha: '', fechaFinal: '', categoria: '', texto: '', razonSocial: '',
   tipoPublicacion: '', matricula: '', resumen: '', limite: LIMIT, pagina,
@@ -58,6 +60,7 @@ export async function collectGaceta(page, out, threads = 2) {
     if (!r.json.finalizado) throw new Error(`pagina ${p}: ${JSON.stringify(r.json).slice(0, 200)}`);
     save(p, r.json.datos.filas);
     if (++n % 100 === 0) console.log(`[gaceta] ${n}/${todo.length}`);
+    await sleep(POLITE_MS);
   });
   console.log(pastDeadline() ? '[gaceta] corte por plazo' : '[gaceta] completa');
 }
