@@ -6,6 +6,32 @@ que usa el portal `miempresa.seprec.gob.bo` («Consulta de empresas»), sin sesi
 captcha.
 
 <!-- ESTADO -->
+## Gaceta — corrida en la nube del 29-oct (PARCIAL)
+
+- **997 de 2.289 páginas** (el total creció: la API declara ahora 228.886 publicaciones). **99.568
+  publicaciones únicas** (99.700 filas leídas; 132 repetidas por `id`), de **59.475 empresas**
+  distintas (79 sin matrícula). Rango de fechas: **2023-06-30 a 2026-10-29** (las más recientes;
+  faltan las anteriores, hasta 2017). Por año: 2023 15.970 · 2024 30.265 · 2025 28.761 · 2026 24.572.
+  1.425 tipos de publicación; los mayores: cambio de dirección de la empresa (46.860), constitución
+  de S.R.L./colectiva/comandita simple (16.592), modificación de la constitución (8.245),
+  transferencia de cuotas (7.390). Detalle completo en `gaceta-summary.json`.
+- **Sin terminar:** el tope de tiempo de la tarea en segundo plano cortó la descarga. Hubo cortes de red
+  intermitentes (`Failed to fetch`, sin 403 ni desafío anti-bots), que los reintentos con retroceso
+  absorbieron a ~5-9 páginas/min. No se re-pidieron las primeras páginas al final, así que lo
+  publicado durante la corrida puede estar corrido unas filas; se deduplica por `id`.
+- **Archivos:** `seprec-gaceta-01.ndjson.gz` (una fila por publicación: `id_publicacion`, `codigo`,
+  `matricula`, `matricula_anterior`, `razon_social`, `tipo_publicacion`, `fecha_publicacion`,
+  `enlace`, `fuente_api`) y `gaceta-summary.json`. El `enlace` es la Gaceta pública: la API no da una
+  URL por aviso y no se inventó.
+- **Privacidad:** solo datos de la empresa. No hay `resumen`, socios, representantes ni ficha
+  `informacionBasicaEmpresa`. Razones sociales de unipersonales se dejan como en el padrón; un correo
+  (1) o un número de 6+ dígitos (2) dentro de una razón social se tapó (`[correo omitido]`,
+  `[número omitido]`). `scripts/verify-gaceta-privacy.mjs` (independiente, NFKC, dígitos con
+  separadores): **0 hallazgos** en 99.568 filas.
+- **Reanudar:** `node scripts/run-all.mjs <out> 1 gaceta 30` (en `PW_DIR`/`CHROME_PATH` el
+  headless-shell de Chromium) y luego `node scripts/build-gaceta.mjs <out> deliveries/2026-10-27/seprec`
+  y `node scripts/verify-gaceta-privacy.mjs deliveries/2026-10-27/seprec`.
+
 ## Estado de esta entrega
 
 - **Listado COMPLETO: 423 de 423 páginas → 422.530 unidades únicas.** Es el total que declaraba

@@ -22,8 +22,8 @@ const ALLOWED = ['source', 'id_publicacion', 'codigo', 'matricula', 'matricula_a
 const FORMAT = {
   id_publicacion: /^\d{1,9}$/u,
   codigo: /^\d{1,9}\/\d{4}$/u,
-  matricula: /^\d{4,13}$/u,
-  matricula_anterior: /^\d{4,13}$/u,
+  matricula: /^\d{3,13}$/u,
+  matricula_anterior: /^\d{3,13}$/u,
   fecha_publicacion: /^\d{4}-\d{2}-\d{2}$/u,
   enlace: /^https:\/\/gacetadecomercio\.gob\.bo\/#\/publicaciones$/u,
   fuente_api: /^https:\/\/servicios\.seprec\.gob\.bo\/api\/publicaciones$/u,
@@ -31,7 +31,7 @@ const FORMAT = {
 };
 const TEXT_FIELDS = ['razon_social', 'tipo_publicacion'];
 
-const EMAIL = /[\p{L}\p{N}._%+'-]+\s*(?:@|\(\s*at\s*\)|\[\s*at\s*\]|\barroba\b)\s*[\p{L}\p{N}-]+(?:\s*(?:\.|\bpunto\b)\s*[\p{L}\p{N}-]+)+/iu;
+const EMAIL = /[\p{L}\p{N}._%+'-]+(?:@|\s*(?:\(\s*at\s*\)|\[\s*at\s*\]|\barroba\b)\s*)[\p{L}\p{N}-]+(?:\s*(?:\.|\bpunto\b)\s*[\p{L}\p{N}-]+)+/iu;
 const DIGIT_RUN = /(?:\d[\s.\-–—()/]*){6,}/u; // ≥ 6 dígitos seguidos, con separadores: teléfono o cédula
 const CI_WORD = /\b(?:c\s*\.?\s*i\s*\.?|c[eé]dula|carnet|ci\s*n[º°o]?)\b\s*[:.\-]?\s*\d/iu;
 const PHONE_WORD = /\b(?:tel[eé]fono|tel|cel|celular|whatsapp|fono|cont[aá]cto)\b\s*[:.\-]?\s*\+?\d/iu;

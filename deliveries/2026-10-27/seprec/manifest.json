@@ -1,17 +1,27 @@
 {
   "source": "seprec",
-  "generated_at": "2026-10-28T08:07:54.160Z",
+  "generated_at": "2026-10-29T23:44:05.990Z",
   "rows": 422530,
   "files": [
     {
       "name": "README.md",
-      "bytes": 13717,
-      "sha256": "fbe157845ac1f2877e7880faa04df087df712cf252026d7438cf9f6db062bf26"
+      "bytes": 15879,
+      "sha256": "59f6815291e168c95d7d4af27473fd4cdb38ddbd3e13dc00eff9e68306ee51cd"
+    },
+    {
+      "name": "gaceta-summary.json",
+      "bytes": 134295,
+      "sha256": "de9814edd928c38ab9d81713bf8f03f6528d5869e3bf38d0b884f7efb23e2a50"
     },
     {
       "name": "seprec-empresas-01.ndjson.gz",
       "bytes": 27672781,
       "sha256": "6771f17908bf53da6fcaea347bd6992d274c4b30b6b911a623e6db5cc33fef94"
+    },
+    {
+      "name": "seprec-gaceta-01.ndjson.gz",
+      "bytes": 3139290,
+      "sha256": "19f234dcfe073bfb9e5165e0082ebc43395d761be29141b3a5716a561017e85e"
     },
     {
       "name": "summary.json",
@@ -24,14 +34,19 @@
       "sha256": "0ed1a79e1e1b2f5fb69c64d046d0d591a0624250acaa964699e2139278367a92"
     },
     {
+      "name": "scripts/build-gaceta.mjs",
+      "bytes": 6173,
+      "sha256": "7189176f7d0b459ad73ab2a3b6048fdf9cbfa8bb4dae73a79793f9a7cf392d03"
+    },
+    {
       "name": "scripts/collect-details.mjs",
       "bytes": 3987,
       "sha256": "92ada8b460fd171bf518b8b382fdd35ab14ae767aad7e1f40cd67d6b15f2cdfb"
     },
     {
       "name": "scripts/collect-gaceta.mjs",
-      "bytes": 3158,
-      "sha256": "b779cdc0f7ae89ba98dd1195c88f4c9715255e0d9bd96bafc604566b0d144a50"
+      "bytes": 3345,
+      "sha256": "84cb2142e213f62fe3488f0f3fc31e017867d93d58f4163ff6c0b1fe0fc6585d"
     },
     {
       "name": "scripts/collect-list.mjs",
@@ -52,6 +67,12 @@
       "name": "scripts/seprec-browser.mjs",
       "bytes": 6465,
       "sha256": "fc0a4879379970d6f0e93af6f18cf1e5762ce85ee5da0fc6c88dc0959e6d4d87"
+    },
+    {
+      "name": "scripts/verify-gaceta-privacy.mjs",
+      "bytes": 3304,
+      "sha256": "9e17cea902fab7bf12580cb8db952d98d29e6da6b619675f8fbf0617bc05b6df"
     }
-  ]
+  ],
+  "gaceta_rows": 99568
 }

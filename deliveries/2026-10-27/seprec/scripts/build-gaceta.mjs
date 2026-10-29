@@ -15,6 +15,8 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { gunzipSync, gzipSync } from 'node:zlib';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
+import { readdirSync as ls, statSync } from 'node:fs';
 
 const [out, dest] = process.argv.slice(2);
 if (!out || !dest) throw new Error('uso: node build-gaceta.mjs <out> <destino>');
@@ -25,6 +27,15 @@ const clean = (s) => (typeof s === 'string' ? s.replace(/\s+/gu, ' ').trim() || 
 // La API no da una URL por aviso y no se inventa una: `enlace` es la Gaceta pública
 // donde se consultan los avisos; la fila se identifica por `id_publicacion` y `codigo`.
 const GACETA_URL = 'https://gacetadecomercio.gob.bo/#/publicaciones';
+// Un nombre de empresa puede traer un correo o un número largo (teléfono, cédula): se tapan.
+const redactions = { correo: 0, numero: 0 };
+function scrub(text) {
+  if (text == null) return text;
+  let t = text.normalize('NFKC');
+  t = t.replace(/[^\s@]+@[^\s@]+\.[^\s@]+/gu, () => (redactions.correo++, '[correo omitido]'));
+  t = t.replace(/(?:\d[\s.\-–—()/]*){6,}/gu, () => (redactions.numero++, '[número omitido]'));
+  return t;
+}
 const MAX_PART = 80 * 1024 * 1024;
 
 const gDir = join(out, 'gaceta');
@@ -51,8 +62,8 @@ const rows = [...byId.values()]
     codigo: clean(p.codigo),
     matricula: clean(p.matricula),
     matricula_anterior: clean(p.matriculaAnterior),
-    razon_social: clean(p.razonSocial?.replace(/^["'\s]+|["'\s]+$/gu, '')),
-    tipo_publicacion: clean(p.titulo),
+    razon_social: scrub(clean(p.razonSocial?.replace(/^["'\s]+|["'\s]+$/gu, ''))),
+    tipo_publicacion: scrub(clean(p.titulo)),
     fecha_publicacion: p.fechaPublicacion ? String(p.fechaPublicacion).slice(0, 10) : null,
     enlace: GACETA_URL,
     fuente_api: 'https://servicios.seprec.gob.bo/api/publicaciones',
@@ -98,7 +109,17 @@ const summary = {
   sin_matricula: rows.filter((r) => !r.matricula).length,
   por_anio: byYear,
   por_tipo_publicacion: count('tipo_publicacion'),
+  campos_tapados: redactions,
   partes: parts,
 };
 writeFileSync(join(dest, 'gaceta-summary.json'), JSON.stringify(summary, null, 2) + '\n');
 console.log(JSON.stringify({ ...summary, por_tipo_publicacion: Object.keys(summary.por_tipo_publicacion).length + ' tipos' }, null, 1));
+
+// manifest.json: sha256 de cada archivo de la entrega (empresas + Gaceta + scripts).
+const sha = (f) => createHash('sha256').update(readFileSync(f)).digest('hex');
+const listed = ls(dest).filter((n) => n !== 'manifest.json' && statSync(join(dest, n)).isFile()).sort();
+const entries = listed.map((name) => ({ name, bytes: statSync(join(dest, name)).size, sha256: sha(join(dest, name)) }));
+const sdir = join(dest, 'scripts');
+if (existsSync(sdir)) for (const name of ls(sdir).sort()) entries.push({ name: `scripts/${name}`, bytes: statSync(join(sdir, name)).size, sha256: sha(join(sdir, name)) });
+const prev = existsSync(join(dest, 'manifest.json')) ? JSON.parse(readFileSync(join(dest, 'manifest.json'), 'utf8')) : {};
+writeFileSync(join(dest, 'manifest.json'), JSON.stringify({ ...prev, generated_at: summary.generated_at, gaceta_rows: rows.length, files: entries }, null, 2) + '\n');
