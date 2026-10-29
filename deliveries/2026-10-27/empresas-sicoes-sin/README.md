@@ -5,7 +5,7 @@ Recolección del 27-oct-2026 para enriquecer y cruzar el registro del SEPREC. Do
 
 | Carpeta | Archivo | Filas | Con NIT | Con dirección | Con NIT y dirección |
 |---|---|---:|---:|---:|---:|
-| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 22.487 (22,4 %) | 20.283 (20,2 %) |
+| `sicoes_rupe/` | `sicoes_rupe_proveedores.ndjson.gz` | 100.569 | 74.872 (74,4 %) | 45.968 (45,7 %) | 20.283 (20,2 %) |
 | `sin/` | `sin_listas_publicadas.ndjson.gz` | 743.326 | 743.326 (100 %) | 0 (0 %) | 0 (0 %) |
 | (sin carpeta) | Ministerio de Trabajo | 0 | — | — | — |
 
@@ -123,10 +123,10 @@ datos nunca salieron de `_work/` en la máquina local.
   naturales extranjeras obtenidas no se guarda ninguna, porque ninguna tiene NIT.
 - Las asociaciones accidentales (consorcios para una licitación) no tienen NIT en el RUPE. El documento con que se registran va
   en `raw.numero_documento`.
-- **Fichas consultadas (`getDatosRupe`): 77.076 de 100.569 filas.** La actividad solo viene en las filas con
+- **Fichas consultadas (`getDatosRupe`): 100.569 de 100.569 filas.** La actividad solo viene en las filas con
   `raw.detalle_consultado = true`, y la dirección solo en esas mismas filas cuando no son unipersonales. El orden de consulta fue: primero los proveedores con NIT (empresas, cooperativas, OECAS, APPS,
   asociaciones civiles, entidades públicas), después las personas jurídicas extranjeras y al final las asociaciones accidentales.
-  **Estado de la reanudación (28-oct, 04:02):** la consulta de fichas se reanudó por el candado compartido y Claude Code la volvió a cerrar por falta de memoria en la laptop. Fue la segunda vez, así que por regla se dejó parada. Las fichas que faltan están en `sicoes_rupe/fichas_pendientes.txt`. Para reanudar: `RUPE_TODO=sicoes_rupe/fichas_pendientes.txt python -P _scripts/sic_rupe_detail.py <dir_de_trabajo> 2`. Escribe `<dir_de_trabajo>/detail.jsonl`, una línea por ficha, que se une a este NDJSON por `raw.rupe`. A unas 400 fichas por minuto con 2 hilos.
+  **Estado (29-oct-2026, corrida en la nube):** se consultaron las 23.688 fichas pendientes (0 errores) y se fusionaron por código RUPE con las mismas reglas de `build_delivery.py` (`_scripts/merge_pendientes.py`, `_scripts/finalize_merge.py`). `fichas_pendientes.txt` queda vacío: no falta ninguna ficha. Con dirección publicable: 45.968 (antes 22.487); con actividad: 97.074 (96,5 %).
 
 ### Adjudicaciones (`adjudicado_por_anio`)
 

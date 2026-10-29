@@ -4,13 +4,13 @@
  "files": [
   {
    "path": "sicoes_rupe/fichas_pendientes.txt",
-   "sha256": "8fbeff43fe2080bb6d9777410f75fbe3f7871b415156f0e58c0aa7317d45c184",
-   "bytes": 165431
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "bytes": 0
   },
   {
    "path": "sicoes_rupe/sicoes_rupe_proveedores.ndjson.gz",
-   "sha256": "12ce10e095cbc3df3b6f934d768be5e50802b318a7a7381c1feb13bffb29419e",
-   "bytes": 47988737,
+   "sha256": "3cf03a277485441282f61aa86200c17c9a10e104d7f3c3681a64114b6593b17d",
+   "bytes": 53461515,
    "rows": 100569
   },
   {
@@ -31,9 +31,9 @@
    "unipersonal_presunta": 54580,
    "filas": 100569,
    "con_nit": 74872,
-   "con_direccion": 22487,
+   "con_direccion": 45968,
    "con_nit_y_direccion": 20283,
-   "con_actividad": 74320,
+   "con_actividad": 97074,
    "tipo:Empresa-Persona Jurídica": 72643,
    "direccion_omitida_unipersonal": 54576,
    "tipo:Asociación Civil sin Fines de Lucro-Persona Jurídica": 598,
@@ -46,7 +46,7 @@
    "tipo:Extranjera-Persona Jurídica": 1112,
    "listados_unicos": 101283,
    "declarados_por_el_portal_en_tipos_listados": 103395,
-   "detalles": 77076,
+   "detalles": 100569,
    "telefonos:sucursal": 4,
    "telefonos:direccion": 57,
    "telefonos_con_separadores:direccion": 44,
