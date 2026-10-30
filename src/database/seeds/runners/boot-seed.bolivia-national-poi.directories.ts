@@ -90,4 +90,15 @@ export const PLACE_DIRECTORIES = [
   'boot/bolivia-fsq-health-poi',
   // El resto de Foursquare: gastronomia, comercio, hospedaje, servicios. Mismas reglas.
   'boot/bolivia-fsq-poi',
+  /*
+   * Barrido del 2026-10-27 (ramas `datos/2026-10-27-*`), una carpeta por entrega y cada una
+   * cruzada con todo lo anterior por identificador y por nombre a menos de 150 m. Ver
+   * `scripts/places/build_oct27_places_seeds.py` y `docs/runbooks/places-load-2026-10-27.md`.
+   */
+  'boot/bolivia-overture-2610-poi',
+  'boot/bolivia-osm-2610-poi',
+  'boot/bolivia-official-2610-poi', // oficinas del Estado, ANH y ASFI: sin licencia abierta
+  'boot/bolivia-yango-poi', // catalogo privado, sin licencia abierta
+  'boot/bolivia-facebook-poi', // paginas publicas, sin licencia abierta
+  'boot/bolivia-geoportal-poi', // GAMLP y GAMSCS, sin licencia declarada
 ] as const;
