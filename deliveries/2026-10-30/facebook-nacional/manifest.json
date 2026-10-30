@@ -1,0 +1,24 @@
+{
+ "delivery": "facebook-nacional",
+ "date": "2026-10-30",
+ "source": "facebook",
+ "method": "Lector local sin sesion (C:/wt/fb-nacional/fetch.mjs), una pagina cada 60-75 s; enlaces a Facebook que publica Overture y descubiertos sin leer del 27-oct",
+ "records": 85,
+ "readStatus": {
+  "OK": 150,
+  "categoria_sin_familia_no_viaja": 65,
+  "SKIPPED_PERSONAL": 6,
+  "BLOCKED": 4,
+  "RESTRICTED": 5
+ },
+ "files": [
+  {
+   "path": "facebook-nacional.ndjson.gz",
+   "bytes": 9684,
+   "sha256": "43f8367db326a05167be8c864d73674c1baa7d3adcea3fea7bc619f235d51381",
+   "records": 85,
+   "format": "ndjson+gzip"
+  }
+ ],
+ "privacy": "sin telefono, whatsapp, intro_items ni profile_id"
+}
