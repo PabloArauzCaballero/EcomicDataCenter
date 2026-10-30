@@ -14,6 +14,254 @@
  },
  "assignments": [
   {
+   "placeId": "geofabrik:pois_areas:1414528513",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1414931303",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030803",
+   "municipality": "Tolata",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:141561303",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1416398463",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1416543532",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1416612230",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1416872158",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1416874112",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1416878580",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1416884386",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1416896777",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1416990673",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1417026681",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1417030615",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1417037494",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080302",
+   "municipality": "San Borja",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1417247617",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:141725116",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1417639314",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:141802491",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1418110254",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1418960913",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1418972845",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070103",
+   "municipality": "Porongo",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1418972878",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070103",
+   "municipality": "Porongo",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1418972886",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070103",
+   "municipality": "Porongo",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1419087706",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1420635488",
+   "method": "MUNICIPIO",
+   "municipalityCode": "040401",
+   "municipality": "Curahuara de Carangas",
+   "department": "Oruro",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1421377374",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020302",
+   "municipality": "Caquiaviri",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:142453984",
+   "method": "MUNICIPIO",
+   "municipalityCode": "040701",
+   "municipality": "Huanuni",
+   "department": "Oruro",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1426508500",
+   "method": "MUNICIPIO",
+   "municipalityCode": "090301",
+   "municipality": "Puerto Gonzalo Moreno",
+   "department": "Pando",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1426787471",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020606",
+   "municipality": "Tipuani",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "geofabrik:pois_areas:1426787472",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020606",
+   "municipality": "Tipuani",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
    "placeId": "geofabrik:pois_areas:1426788240",
    "method": "MUNICIPIO",
    "municipalityCode": "020606",
@@ -39763,254 +40011,6 @@
    "municipalityCode": "070101",
    "municipality": "Santa Cruz de la Sierra",
    "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:561802285",
-   "method": "MUNICIPIO",
-   "municipalityCode": "040102",
-   "municipality": "Caracollo",
-   "department": "Oruro",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:562048200",
-   "method": "MUNICIPIO",
-   "municipalityCode": "040101",
-   "municipality": "Oruro",
-   "department": "Oruro",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:562309224",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030903",
-   "municipality": "Tiquipaya",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:562309225",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030903",
-   "municipality": "Tiquipaya",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:562342705",
-   "method": "MUNICIPIO",
-   "municipalityCode": "050502",
-   "municipality": "Toro Toro",
-   "department": "Potosí",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:562396092",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030401",
-   "municipality": "Tarata",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:562523126",
-   "method": "MUNICIPIO",
-   "municipalityCode": "050401",
-   "municipality": "Colquechaca",
-   "department": "Potosí",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:563674397",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:563932391",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:563969705",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:564151875",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:564483401",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020801",
-   "municipality": "Viacha",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:564803055",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:564873423",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178746",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178752",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178755",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178757",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178759",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178760",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178765",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178771",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178772",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178773",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178776",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178778",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178779",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178781",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178792",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178794",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "geofabrik:pois_areas:565178795",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020101",
-   "municipality": "La Paz",
-   "department": "La Paz",
    "distanceMetres": null
   }
  ]
