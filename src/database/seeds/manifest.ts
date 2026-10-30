@@ -233,6 +233,8 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
       'boot/bolivia-yango-poi/',
       'boot/bolivia-facebook-poi/',
       'boot/bolivia-geoportal-poi/',
+      'boot/bolivia-facebook-nacional-poi/',
+      'boot/bolivia-gamlp-restaurant-poi/',
       'boot/bolivia-place-municipality/',
     ],
     // 2026-09-21: el catálogo de 2.330 familias clasificó las 40.482 filas que
@@ -283,7 +285,10 @@ export const SEED_PACKAGES: readonly SeedPackageDeclaration[] = [
     // aeropuertos de NAABOL, 103 estaciones de GNV de la ANH y 682 puntos nuevos de la ASFI),
     // 1.365 de Yango Deli, 197 páginas de Facebook y 2.645 de los geoportales de La Paz y Santa
     // Cruz. Sin teléfonos ni correos.
-    '1.10.0',
+    // 2026-10-30: segunda tanda — 868 restaurantes del padrón del GAMLP que se llaman con un
+    // nombre comercial (fuera todo lo que lleva un nombre de pila o es solo la razón social de
+    // una persona) y 31 páginas de Facebook del lector nacional. Sin teléfonos ni correos.
+    '1.11.0',
   ),
   historical(
     'bolivia-road-network',

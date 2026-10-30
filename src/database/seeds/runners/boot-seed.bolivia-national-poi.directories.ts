@@ -101,4 +101,7 @@ export const PLACE_DIRECTORIES = [
   'boot/bolivia-yango-poi', // catalogo privado, sin licencia abierta
   'boot/bolivia-facebook-poi', // paginas publicas, sin licencia abierta
   'boot/bolivia-geoportal-poi', // GAMLP y GAMSCS, sin licencia declarada
+  // Segunda tanda (2026-10-30): mismas reglas, al final para no mover nada de lo anterior.
+  'boot/bolivia-facebook-nacional-poi', // paginas publicas, sin licencia abierta
+  'boot/bolivia-gamlp-restaurant-poi', // padron del GAMLP, solo nombres comerciales
 ] as const;
