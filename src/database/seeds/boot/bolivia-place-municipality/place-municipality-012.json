@@ -14,6 +14,254 @@
  },
  "assignments": [
   {
+   "placeId": "osm:way:1208206830",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1208206840",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1208653683",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209264144",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209264145",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209264146",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209264148",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209264151",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209264152",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209273788",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070104",
+   "municipality": "La Guardia",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209501681",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070104",
+   "municipality": "La Guardia",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209535899",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070104",
+   "municipality": "La Guardia",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209535900",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070104",
+   "municipality": "La Guardia",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209612995",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070104",
+   "municipality": "La Guardia",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209621656",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209627984",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209647962",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030901",
+   "municipality": "Quillacollo",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209653214",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209773456",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209799241",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209939813",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209953404",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209956817",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209956818",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209957048",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1209957584",
+   "method": "MUNICIPIO",
+   "municipalityCode": "010101",
+   "municipality": "Sucre",
+   "department": "Chuquisaca",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1210198699",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1210217766",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1210217771",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1210874290",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070601",
+   "municipality": "Portachuelo",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:way:1210912959",
+   "method": "MUNICIPIO",
+   "municipalityCode": "030101",
+   "municipality": "Cochabamba",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
    "placeId": "osm:way:1211057728",
    "method": "MUNICIPIO",
    "municipalityCode": "070401",
@@ -39759,254 +40007,6 @@
   },
   {
    "placeId": "tel_bo:cajero:2f8d75026c97248165ea2d31",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:2fb7a23d1baff5a80711424c",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:2fe3ad3cffac6ab6ff16ac84",
-   "method": "MUNICIPIO",
-   "municipalityCode": "071001",
-   "municipality": "Montero",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:302850cb9ff8a3ab601581e2",
-   "method": "MUNICIPIO",
-   "municipalityCode": "071001",
-   "municipality": "Montero",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3030edcf865662859c951903",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:30855ef88e28c49b7b021c9d",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:30989bf7df3a604228cfd067",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:31250331457ec347cab85100",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:318725f793d18f4fc322beae",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3265476204052fe99969bf9b",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:327af31524f7edca54c885f0",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3425c08676f5d476394598d6",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3597a8dbe1741181e36aadb0",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:35fc24024a9b0a083ce5077a",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:35fd8451b79c2bcfba475b07",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:363448a1cfa25fac62dd4fd2",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3647a3b135d4238a80e237e9",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:366b5e73aa126fcaa44b59c5",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3698a628cf86ae9cb523ff27",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:36e4ce696334b902e341019c",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:37e1b495135fe2ccfcc9dbcf",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:382b71391229eede7a297cc5",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:38bfc2aaebfdd5cb1f962fac",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3965e17e41b7ed29c1f4e507",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3abb87130f6e9a6f9615a415",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3c390532f4b2478de83a915d",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3c595b03d0db676b6197e51f",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3c61fc0b2bbf0b072dd43c80",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3caf003906279ebed0060af8",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3cff4c7f2534b0994729363c",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3d26c705dd3caf022a2e8810",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "tel_bo:cajero:3dd9e11aad657baa5668a0fa",
    "method": "MUNICIPIO",
    "municipalityCode": "070101",
    "municipality": "Santa Cruz de la Sierra",

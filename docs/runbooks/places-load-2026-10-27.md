@@ -53,3 +53,28 @@ python scripts/places/assign_place_municipality.py --adm3 bol_admin3.geojson --a
 Comprobado al construir: las 64.161 asignaciones de municipio anteriores salen idénticas (0
 cambiadas, 0 desaparecidas) y las seis carpetas pasan el esquema `bolivia-national-poi-v3`.
 Verificar tras desplegar: `nationalPlace` en `/api/readers` debe subir en 8.429 en cada servidor.
+
+## Segunda tanda (2026-10-30): 899 más, paquete 1.11.0
+
+| Carpeta | Lugares | De dónde |
+| --- | ---: | --- |
+| `bolivia-facebook-nacional-poi` | 31 | Lector nacional de páginas de Facebook (`C:/wt/fb-nacional`), lo leído hasta el corte; entrega `datos/2026-10-30-facebook-nacional` |
+| `bolivia-gamlp-restaurant-poi` | 868 | Padrón de restaurantes del GAMLP (`sit:restaurantes`), solo nombres comerciales |
+
+- **Regla para el padrón del GAMLP** (antes fuera por la razón social de los unipersonales): entra
+  solo lo que se llama con un nombre comercial —palabra del rubro, forma societaria o nombre entre
+  comillas— y no lleva ningún nombre de pila (`GIVEN_NAMES` en el constructor). Quedan fuera 1.601
+  de 2.747. Se prefiere perder un local a publicar a una persona.
+- **Teléfonos dentro de la dirección**: el padrón y algunas páginas los escriben en el texto.
+  `without_phones` los quita en estas dos carpetas. Seis filas de la primera tanda llevan un
+  teléfono en el nombre o la dirección (4 de Overture, 1 de IBMETRO, 1 del GAMLP); no se reescriben
+  aquí porque el cargador es idempotente por huella y una fila corregida entraría al lado de la vieja.
+- La entrega de Facebook ya viaja sin teléfono, WhatsApp, `intro_items` ni `profile_id`, y solo con
+  las categorías de `FACEBOOK_FAMILY` (85 de 150 páginas leídas bien).
+
+```sh
+python scripts/places/build_oct27_places_seeds.py --deliveries <d>/deliveries/2026-10-27 facebook_nacional gamlp_restaurants
+```
+
+Comprobado: las 65.517 asignaciones de municipio anteriores salen idénticas y `bolivia-facebook-poi`
+no cambia al reconstruirla con el constructor nuevo. Tras desplegar, `nationalPlace` sube en 899.
