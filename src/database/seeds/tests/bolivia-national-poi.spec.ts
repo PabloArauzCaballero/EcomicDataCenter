@@ -295,4 +295,57 @@ describe('bolivia national place seed', () => {
     const seed = boliviaNationalPoiSchema.parse(seedWith(shop));
     expect(seed.places[0]?.department).toBe('Santa Cruz');
   });
+
+  // Barrido del 2026-10-27: identificadores y publicadores que entran por primera vez.
+  it('accepts the identifiers and publishers of the 2026-10-27 sweep', () => {
+    const cases: ReadonlyArray<[string, string, string]> = [
+      [
+        'estado:segip_oficinas:0123456789abcdef01234567',
+        'SEGIP',
+        'canal_declarado_por_la_entidad_en_su_propio_directorio',
+      ],
+      [
+        'gamlp:lpm_restaurantes:0123456789abcdef01234567',
+        'GAMLP (SIT La Paz)',
+        'capa_del_geoportal_municipal_a_familia_existente',
+      ],
+      [
+        'gamscs:farmacia:0123456789abcdef01234567',
+        'GAMSCS (Guia Urbana)',
+        'capa_del_geoportal_municipal_a_familia_existente',
+      ],
+      [
+        'yango:3268223',
+        'Yango Deli',
+        'categoria_de_la_plataforma_a_familia_existente_por_tabla_escrita',
+      ],
+      [
+        'facebook:100108545496507',
+        'Facebook (paginas publicas)',
+        'categoria_de_la_plataforma_a_familia_existente_por_tabla_escrita',
+      ],
+      [
+        'osm:node:213270537',
+        'OpenStreetMap contributors',
+        'etiqueta_osm_por_familia_ya_asignada_en_el_corpus',
+      ],
+      [
+        'anh:estacion:ANH05397-CGNES01',
+        'ANH',
+        'actividad_declarada_por_el_regulador_en_su_registro',
+      ],
+    ];
+    for (const [placeId, publisher, classificationMethod] of cases) {
+      expect(() =>
+        boliviaNationalPoiSchema.parse(
+          seedWith(placeWith({ placeId, publisher, classificationMethod })),
+        ),
+      ).not.toThrow();
+    }
+    expect(() =>
+      boliviaNationalPoiSchema.parse(
+        seedWith(placeWith({ placeId: 'facebook:pagina-sin-numero' })),
+      ),
+    ).toThrow();
+  });
 });

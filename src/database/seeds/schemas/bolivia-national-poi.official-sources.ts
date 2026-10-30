@@ -27,6 +27,30 @@ export const OFFICIAL_PUBLISHERS = [
   'Ministerio de Salud y Deportes (SNIS-VE)',
   // Directorio colaborativo, Apache-2.0: lo crean usuarios, no lo respalda nadie (2026-09-28).
   'Foursquare Open Source Places',
+  /*
+   * Barrido del 2026-10-27. Las entidades del Estado publican sus propias sedes en su sitio
+   * (plantilla de AGETIC casi siempre): el publicador y el sujeto del dato son el mismo, y por
+   * eso cada una se nombra por su nombre. Los dos municipios publican capas de su geoportal;
+   * Yango Deli y Facebook son plataformas privadas donde el propio comercio declara el punto.
+   */
+  'SEGIP',
+  'SIN (Impuestos Nacionales)',
+  'Aduana Nacional',
+  'ABC',
+  'AJAM',
+  'ATT',
+  'AGBC (Correos de Bolivia)',
+  'ENTEL',
+  'IBMETRO',
+  'INSO',
+  'Ministerio de Trabajo',
+  'NAABOL',
+  'SENARECOM',
+  'YLB',
+  'GAMLP (SIT La Paz)',
+  'GAMSCS (Guia Urbana)',
+  'Yango Deli',
+  'Facebook (paginas publicas)',
 ] as const;
 
 /**
@@ -39,7 +63,7 @@ export const OFFICIAL_PUBLISHERS = [
  * no numera nada: su identificador sale del contenido de la fila.
  */
 export const OFFICIAL_PLACE_IDENTIFIER =
-  /^(?:sie:rue:\d{6,10}|anh:estacion:ANH\d{3,8}-[A-Z]{2,8}\d{1,4}|tel_bo:cajero:[0-9a-f]{24}|asfi:paf:\d{1,10}|snis:establecimiento:\d{5,10}|fsq:[0-9a-f]{24})$/u;
+  /^(?:sie:rue:\d{6,10}|anh:estacion:ANH\d{3,8}-[A-Z]{2,8}\d{1,4}|tel_bo:cajero:[0-9a-f]{24}|asfi:paf:\d{1,10}|snis:establecimiento:\d{5,10}|fsq:[0-9a-f]{24}|estado:[a-z_]{3,40}:[0-9a-f]{24}|(?:gamlp|gamscs):[a-z0-9_]{2,40}:[0-9a-f]{24}|yango:\d{1,12}|facebook:\d{5,20})$/u;
 
 /**
  * Como se clasifico.
@@ -54,6 +78,14 @@ export const OFFICIAL_CLASSIFICATION_METHODS = [
   'actividad_declarada_por_un_directorio_privado',
   // La categoria que un usuario de Foursquare eligio, llevada a una familia que el catalogo ya tiene.
   'categoria_foursquare_a_familia_existente',
+  /*
+   * 2026-10-27. La etiqueta de OpenStreetMap (o la categoria de la plataforma, o la capa del
+   * geoportal) llevada a una familia que el catalogo ya tiene: por voto de los lugares ya
+   * cargados con esa misma etiqueta, o por una tabla escrita en el constructor.
+   */
+  'etiqueta_osm_por_familia_ya_asignada_en_el_corpus',
+  'categoria_de_la_plataforma_a_familia_existente_por_tabla_escrita',
+  'capa_del_geoportal_municipal_a_familia_existente',
 ] as const;
 
 /** Un punto que un tercero puso en su mapa, sin decir como. */
