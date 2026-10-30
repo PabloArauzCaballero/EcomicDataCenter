@@ -24,6 +24,13 @@ de la lista —nunca con las posteriores, para que reconstruir una no cambie lo 
 6. `bolivia-geoportal-poi`: capas de establecimientos de los geoportales de La Paz (GAMLP) y
    Santa Cruz (Guía Urbana del GAMSCS).
 
+Segunda tanda (2026-10-30), al final del orden para no mover nada de las seis primeras:
+
+7. `bolivia-facebook-nacional-poi`: lo que el lector nacional de páginas de Facebook leyó hasta
+   el corte (entrega `deliveries/2026-10-30/facebook-nacional`, ver `facebook_nacional`).
+8. `bolivia-gamlp-restaurant-poi`: el padrón de restaurantes del GAMLP (`sit:restaurantes`),
+   solo los que se llaman con un nombre comercial (ver `gamlp_restaurants`).
+
 Lo que NO se carga, y por qué, va en el runbook: directorios sin coordenadas (Páginas
 Amarillas, boliviaempresas, CADECOCRUZ), PedidosYa (archivo de Wayback) y Uber Eats (2020),
 y las capas de los geoportales con nombres de personas o sin nombre.
@@ -53,7 +60,8 @@ CATALOGUE = Path(__file__).resolve().parent / 'catalogue' / 'bolivia-place-famil
 MUNICIPALITIES = Path(__file__).resolve().parent / 'catalogue' / 'bolivia-municipalities.json'
 PIECE = 1200
 ORDER = ['bolivia-overture-2610-poi', 'bolivia-osm-2610-poi', 'bolivia-official-2610-poi',
-         'bolivia-yango-poi', 'bolivia-facebook-poi', 'bolivia-geoportal-poi']
+         'bolivia-yango-poi', 'bolivia-facebook-poi', 'bolivia-geoportal-poi',
+         'bolivia-facebook-nacional-poi', 'bolivia-gamlp-restaurant-poi']
 TWIN_M = 50
 NOT_A_VOTE = {'OTRA_ENTIDAD', 'OV_SERVICES_AND_BUSINESS', 'LUGAR_SIN_TAXONOMIA'}
 GENERIC = {'RESTAURANTE', 'RESTAURANT', 'TIENDA', 'MERCADO', 'IGLESIA', 'PLAZA', 'CANCHA', 'OFICINA',
@@ -114,6 +122,20 @@ def generic_name(name: str) -> bool:
 def text(value, limit: int) -> str | None:
     value = re.sub(r'\s+', ' ', str(value or '')).strip()
     return value[:limit] or None
+
+
+PHONE = re.compile(r'(?:\b(?:CEL|CELULAR|TEL|TELF|TELEFONO|WHATSAPP|WSP)\b\.?:?\s*)?'
+                   r'(?:\(?\+?\s*5\s*[19]\s*[19]\s*\)?[\s-]*)?(?:\(?\d\)?[\s-]*)?\d{7,8}(?!\d)', re.IGNORECASE)
+
+
+def without_phones(value) -> str | None:
+    """La dirección sin los números de teléfono que a veces trae escritos, ni el relleno «S/N»."""
+    if not value:
+        return None
+    value = PHONE.sub(' ', str(value))
+    value = re.sub(r'(?:\s*S/N\b)+', ' S/N', value, flags=re.IGNORECASE)
+    value = re.sub(r'(?:\s*S/N\s*)+$|[\s,;:-]+$', '', value.strip())
+    return value.strip(' ,;:-') or None
 
 
 def tags(values: dict) -> dict[str, str]:
@@ -633,10 +655,11 @@ FACEBOOK_FAMILY = {
 FACEBOOK_STALE_BEFORE = '2024'
 
 
-def facebook(deliveries: Path) -> None:
-    b = Builder('bolivia-facebook-poi')
+def facebook(deliveries: Path, directory: str = 'bolivia-facebook-poi', files=FACEBOOK_FILES,
+             release: str = '2026-10-28', delivery_uri: str = 'datos/2026-10-27-facebook-lapaz') -> None:
+    b = Builder(directory)
     manifests = []
-    for folder, name in FACEBOOK_FILES:
+    for folder, name in files:
         delivery = deliveries / folder
         manifests.append(verify(delivery, [name]))
         for row in rows(delivery / name):
@@ -664,7 +687,7 @@ def facebook(deliveries: Path) -> None:
                 family=family, placeId=place_id, publisherRecordId=str(row['source_id']),
                 publisher='Facebook (paginas publicas)', name=text(row['name'], 300),
                 locality=text(row.get('municipality'), 160), department=text(row.get('department'), 80),
-                address=text(row.get('address'), 300), latitude=row['lat'], longitude=row['lon'], genericFamily=False,
+                address=text(without_phones(row.get('address')), 300), latitude=row['lat'], longitude=row['lon'], genericFamily=False,
                 classificationMethod='categoria_de_la_plataforma_a_familia_existente_por_tabla_escrita',
                 categoryKey=text(row['category_raw'], 120),
                 positionMethod='coordenada_publicada_por_un_directorio_privado_no_entrada_verificada',
@@ -680,12 +703,24 @@ def facebook(deliveries: Path) -> None:
                 resemblesHeldPlace=resembles,
                 licence='Pagina publica de Facebook, sin licencia abierta declarada',
             )
-    b.write('facebook-poi', {
-        'publishers': ['Facebook (paginas publicas)'], 'release': '2026-10-28', 'extractionDate': '2026-10-28',
+    b.write(directory.removeprefix('bolivia-'), {
+        'publishers': ['Facebook (paginas publicas)'], 'release': release, 'extractionDate': release,
         'deliverySha256': hashlib.sha256(''.join(manifests).encode()).hexdigest(),
         'deliveryReportSha256': manifests[0],
-        'deliveryUri': 'https://github.com/PabloArauzCaballero/EcomicDataCenter/tree/datos/2026-10-27-facebook-lapaz',
+        'deliveryUri': f'https://github.com/PabloArauzCaballero/EcomicDataCenter/tree/{delivery_uri}',
         'upstreamDatasets': ['https://www.facebook.com/']})
+
+
+def facebook_nacional(deliveries: Path) -> None:
+    """El lector nacional (2026-10-29 en adelante), con las mismas reglas que `facebook`.
+
+    Lee los enlaces a Facebook que Overture publica para cada lugar y los descubiertos sin leer
+    del 27-oct, una página por vez y sin sesión. Su entrega ya viene sin teléfonos y solo con las
+    categorías de `FACEBOOK_FAMILY`; vive en `deliveries/2026-10-30`, junto a las del 27-oct.
+    """
+    facebook(deliveries.parent / '2026-10-30', 'bolivia-facebook-nacional-poi',
+             [('facebook-nacional', 'facebook-nacional.ndjson.gz')], '2026-10-30',
+             'datos/2026-10-30-facebook-nacional')
 
 
 # ----------------------------------------------------------------------------- 6. Geoportales
@@ -785,8 +820,121 @@ def geoportal(deliveries: Path) -> None:
                              'https://guiaurbana.gmsantacruz.gob.bo/guiaurbana/public/api/']})
 
 
+# ----------------------------------------------------------------------------- 8. Restaurantes del GAMLP
+
+# El padrón municipal de actividades económicas (`sit:restaurantes`) nombra cada local por su
+# razón social, y la de un unipersonal es el nombre de su dueño. Regla de esta carga: entra
+# solo lo que se llama con un nombre comercial —tiene una palabra del rubro, una forma
+# societaria o un nombre entre comillas— y no lleva ningún nombre de pila; todo lo demás se
+# queda fuera. «CAFE SNACK "MIRANDA TAPIA ANITA"» o «"HEALTHY BAR" DE ANGELICA ...» caen por el
+# nombre de pila; «GUSTAVO TOUCHARD TAPIA» por las dos cosas. Se prefiere perder un local a
+# publicar a una persona.
+RESTAURANT_WORDS = re.compile(
+    r'\b(RESTAURANT\w*|RESTO\w*|SNACK\w*|CAFE\w*|COFFEE|COFFE|CONFITERIA|PENSION|POLLO\w*|POLLERIA|'
+    r'PIZZ\w*|BURGER\w*|HAMBURG\w*|PARRILL\w*|CHURRASQ\w*|BRASA\w*|ASADOS?|GRILL|BAR|PUB|DISCOTECA|KARAOKE|'
+    r'SALTEN\w*|EMPANAD\w*|HELAD\w*|PASTEL\w*|PANADERIA|COMIDA\w*|GASTRONOM\w*|CEVICHER\w*|MARISQUER\w*|'
+    r'SUSHI|CHIFA|TACO\w*|BROASTER|SANDWICH\w*|SALON|EVENTOS|PATIO|FOOD|DELI|BISTRO|TRATTORIA|CERVECER\w*|'
+    r'LOUNGE|CATERING|JUGUER\w*|TEA|FAST)\b')
+LEGAL_FORM = re.compile(r'\b(S\.?R\.?L\.?|LTDA\.?|S\.?A\.?)(?=\s|$|")')
+GIVEN_NAMES = frozenset("""
+ABEL ABIGAIL ABRAHAM ADA ADELA ADOLFO ADRIAN ADRIANA AGUSTIN ALAIN ALBA ALBERTO ALEJANDRA ALEJANDRO ALEX
+ALEXANDER ALFONSO ALFREDO ALICIA ALINE ALVARO AMALIA AMANDA AMPARO ANA ANABEL ANDREA ANDRES ANGEL ANGELA
+ANGELICA ANITA ANTONIA ANTONIO ARIEL ARMANDO ARTURO AUGUSTO AURORA BEATRIZ BENITO BERNARDO BERTHA BLANCA
+BORIS BRAYAN BRENDA BRIAN BRUNO CAMILA CANDY CARLA CARLOS CARMEN CAROLINA CATALINA CECILIA CELIA CESAR
+CINTIA CLARA CLAUDIA CRISTIAN CRISTINA CYNTHIA DAMIAN DANIEL DANIELA DANNY DARIO DAVID DAYANA DEBORA DELIA
+DENIS DIANA DIEGO DORA EDGAR EDSON EDUARDO EDWIN ELENA ELIANA ELIAS ELISA ELIZABETH ELSA ELVIS EMILIA
+EMILIO ENRIQUE ERICK ERIKA ERNESTO ESTEBAN ESTELA ESTHER EUGENIA EVA EVELYN FABIAN FABIOLA FATIMA FEDERICO
+FELIPE FELIX FERNANDO FLOR FLORA FRANCISCO FRANKLIN FREDDY GABRIEL GABRIELA GENARO GERARDO GERMAN GIOVANNA
+GISELA GLADYS GLORIA GONZALO GRACIELA GREGORIO GRISELDA GUADALUPE GUILLERMO GUSTAVO HECTOR HELEN HERNAN
+HILDA HUGO HUMBERTO IGNACIO INES IRENE IRMA ISAAC ISABEL IVAN IVONNE JACQUELINE JAIME JAVIER JENNY JESSICA
+JESUS JHON JHONNY JIMENA JOAQUIN JOHN JORGE JOSE JOSEFINA JUAN JUANA JUDITH JULIA JULIAN JULIO JULIETA
+KAREN KARINA KATHERINE KATIA LAURA LEONARDO LETICIA LIDIA LILIAN LILIANA LIZ LIZETH LORENA LOURDES LUCIA
+LUIS LUISA LUZ MAGALY MANUEL MARCELA MARCELO MARCO MARCOS MARGARITA MARIA MARIANA MARIBEL MARINA MARIO
+MARISOL MARLENE MARTA MARTHA MARTIN MAURICIO MAXIMO MELISSA MERCEDES MIGUEL MILTON MIRIAM MIRTHA MONICA
+NANCY NATALIA NELLY NELSON NICOLAS NOELIA NORA NORMA OLGA OMAR ORLANDO OSCAR OSVALDO PABLO PAMELA PAOLA
+PATRICIA PATRICIO PAULA PAULINO PEDRO RAFAEL RAMIRO RAMON RAQUEL RAUL REBECA REYNALDO RENE RICARDO
+RIGOBERTO ROBERTO RODRIGO ROGELIO ROLANDO ROMULO ROSA ROSARIO ROSMERY RUBEN RUTH SABINA SAMUEL SANDRA
+SANTIAGO SARA SAUL SEBASTIAN SERGIO SILVIA SIMON SOFIA SONIA SUSANA TATIANA TERESA TOMAS URSULA VALERIA
+VANESSA VERONICA VICENTE VICTOR VICTORIA VIRGINIA VIVIANA WALTER WILLIAM WILMA WILSON WILFREDO XIMENA
+YESSICA YOLANDA ZULMA RODOLFO ADALID ALCIDES AMILCAR BENJAMIN CRISTHIAN CHRISTIAN JHONATAN JONATHAN MARCIO NILDA NOEMI VILMA
+ZENON ZACARIAS TEODORO TEOFILO NESTOR LIMBERT JHOSELIN JOSUE ISRAEL EFRAIN ELMER GRETY
+""".split())
+RESTAURANT_FAMILY = {
+    'SERVICIO DE RESTAURANTES': 'RESTAURANTE', 'ELABORACION Y COMERCIALIZACION DE COMIDA': 'RESTAURANTE',
+    'EXPENDIO DE BEBIDA Y COMIDA': 'RESTAURANTE', 'COMIDA RAPIDA': 'COMIDA_RAPIDA', 'SNACK': 'CAFE',
+    'SERVICIO DE CAFETERIA': 'CAFE', 'CONFITERIA': 'CAFE', 'RESTAUTANTE Y PUB': 'BAR_PUB',
+    'RESTAUTANTE Y BAR': 'BAR_PUB',
+    'ACTIVIDADES DE EXPENDIO DE COMIDAS EN LOCALES EN LOCALES Y PUESTOS DE COMIDAS': 'RESTAURANTE',
+}
+# Lo que el nombre dice con más precisión que la actividad registrada.
+RESTAURANT_BY_NAME = [(re.compile(r'\bSALTEN'), 'SALTENERIA'), (re.compile(r'\bDISCOTECA'), 'DISCOTECA_NIGHTCLUB'),
+                      (re.compile(r'\bSALON DE EVENTOS\b|\bEVENTOS\b'), 'CENTRO_EVENTOS'),
+                      (re.compile(r'\bHELAD'), 'HELADERIA'), (re.compile(r'\bPASTELER|\bPANADER'), 'PANADERIA_PASTELERIA')]
+RESTAURANT_FILE = 'gamlp-sit-la-paz/sit__restaurantes.ndjson.gz'
+
+
+def commercial_name(name: str) -> bool:
+    if not name or '\ufffd' in name:  # sin razón social, o el padrón perdió la Ñ o un acento: no se sabe qué decía
+        return False
+    plain = folded(name)
+    if set(re.findall(r'[A-Z]+', plain)) & GIVEN_NAMES:
+        return False
+    return bool(RESTAURANT_WORDS.search(plain) or LEGAL_FORM.search(name.upper()) or '"' in name)
+
+
+def gamlp_restaurants(deliveries: Path) -> None:
+    delivery = deliveries / 'geoportales'
+    manifest = verify(delivery, [RESTAURANT_FILE])
+    b = Builder('bolivia-gamlp-restaurant-poi')
+    for row in rows(delivery / RESTAURANT_FILE):
+        if not commercial_name(row['name']):
+            b.dropped['razon_social_sin_nombre_comercial_o_con_nombre_de_pila'] += 1
+            continue
+        name = re.sub(r'\s+', ' ', row['name'].replace('"', ' ')).strip(' .')
+        if not in_bolivia(row['lat'], row['lon']):
+            b.dropped['sin_coordenada'] += 1
+            continue
+        if generic_name(name):
+            b.dropped['nombre_es_solo_la_actividad'] += 1
+            continue
+        activity = row['category_raw'].split(' | ')[-1].strip()
+        family = RESTAURANT_FAMILY.get(activity)
+        if family is None:
+            b.dropped['actividad_sin_familia'] += 1
+            continue
+        plain = folded(name)
+        family = next((f for pattern, f in RESTAURANT_BY_NAME if pattern.search(plain)), family)
+        digest = hashlib.sha1(f"sit:restaurantes:{row['source_id']}".encode()).hexdigest()[:24]
+        place_id = f'gamlp:sit_restaurantes:{digest}'
+        ok, resembles = b.novel(place_id, name, row['lon'], row['lat'])
+        if not ok:
+            continue
+        b.place(
+            family=family, placeId=place_id, publisherRecordId=str(row['source_id'])[:200],
+            publisher='GAMLP (SIT La Paz)', name=text(name, 300), locality=text(row.get('municipality'), 160),
+            department=text(row.get('department'), 80), address=text(without_phones(row.get('address')), 300),
+            latitude=row['lat'], longitude=row['lon'], genericFamily=False,
+            classificationMethod='capa_del_geoportal_municipal_a_familia_existente',
+            categoryKey=text(activity, 120),
+            positionMethod='coordenada_publicada_por_la_entidad_no_entrada_verificada',
+            dataLevel='CONTACTO_Y_DIRECCION_PUBLICADOS',
+            warnings=['padron_municipal_de_actividades_no_confirma_local_abierto'],
+            sourceDatasetUrl=text(row.get('source_url'), 400), snapshotTakenAt=row['retrieved_at'],
+            sourceTags=tags({'capa': 'sit:restaurantes', 'actividad': activity,
+                             'actualizado': row.get('source_updated_at')}),
+            resemblesHeldPlace=resembles,
+            licence='Servicio publico del GAMLP (SIT), sin licencia declarada; citar GAMLP - SIT',
+        )
+    b.write('gamlp-restaurant-poi', {
+        'publishers': ['GAMLP (SIT La Paz)'], 'release': '2026-10-27', 'extractionDate': '2026-10-27',
+        'deliverySha256': manifest, 'deliveryReportSha256': sha256(delivery / RESTAURANT_FILE),
+        'deliveryUri': 'https://github.com/PabloArauzCaballero/EcomicDataCenter/tree/datos/2026-10-27-geoportales',
+        'upstreamDatasets': ['https://sitservicios.lapaz.bo/geoserver/ows']})
+
+
 STEPS = {'overture': overture, 'osm': osm, 'official': official, 'yango': yango, 'facebook': facebook,
-         'geoportal': geoportal}
+         'geoportal': geoportal, 'facebook_nacional': facebook_nacional,
+         'gamlp_restaurants': gamlp_restaurants}
 
 
 def main() -> None:

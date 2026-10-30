@@ -14,6 +14,254 @@
  },
  "assignments": [
   {
+   "placeId": "osm:node:7276596958",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031301",
+   "municipality": "Mizque",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7277802710",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7278474685",
+   "method": "MUNICIPIO",
+   "municipalityCode": "051201",
+   "municipality": "Uyuni",
+   "department": "Potosí",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7279884926",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031002",
+   "municipality": "Colomi",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7279899320",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031002",
+   "municipality": "Colomi",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7279911840",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031002",
+   "municipality": "Colomi",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7279912291",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031002",
+   "municipality": "Colomi",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7279915578",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031002",
+   "municipality": "Colomi",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7280293747",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7280293751",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7280307718",
+   "method": "MUNICIPIO",
+   "municipalityCode": "021702",
+   "municipality": "San Pedro de Tiquina",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7281099158",
+   "method": "MUNICIPIO",
+   "municipalityCode": "040101",
+   "municipality": "Oruro",
+   "department": "Oruro",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7281215823",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7281215824",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7282552786",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7282610986",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7282952985",
+   "method": "MUNICIPIO",
+   "municipalityCode": "050101",
+   "municipality": "Potosí",
+   "department": "Potosí",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7283226970",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031003",
+   "municipality": "Villa Tunari",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7288628985",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080101",
+   "municipality": "Trinidad",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7288629085",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080101",
+   "municipality": "Trinidad",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7288629285",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080101",
+   "municipality": "Trinidad",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7288640285",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080101",
+   "municipality": "Trinidad",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7288758785",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080101",
+   "municipality": "Trinidad",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7289316983",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020101",
+   "municipality": "La Paz",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7290111300",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7291731085",
+   "method": "MUNICIPIO",
+   "municipalityCode": "080101",
+   "municipality": "Trinidad",
+   "department": "Beni",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7293286282",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031003",
+   "municipality": "Villa Tunari",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7293729004",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070901",
+   "municipality": "Samaipata",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7293741256",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070101",
+   "municipality": "Santa Cruz de la Sierra",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7293743890",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070105",
+   "municipality": "El Torno",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:7294594985",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070103",
+   "municipality": "Porongo",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
    "placeId": "osm:node:7295732485",
    "method": "MUNICIPIO",
    "municipalityCode": "051201",
@@ -39763,254 +40011,6 @@
    "municipalityCode": "010101",
    "municipality": "Sucre",
    "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1208206830",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1208206840",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1208653683",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209264144",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209264145",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209264146",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209264148",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209264151",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209264152",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209273788",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070104",
-   "municipality": "La Guardia",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209501681",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070104",
-   "municipality": "La Guardia",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209535899",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070104",
-   "municipality": "La Guardia",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209535900",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070104",
-   "municipality": "La Guardia",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209612995",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070104",
-   "municipality": "La Guardia",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209621656",
-   "method": "MUNICIPIO",
-   "municipalityCode": "010101",
-   "municipality": "Sucre",
-   "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209627984",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209647962",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030901",
-   "municipality": "Quillacollo",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209653214",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209773456",
-   "method": "MUNICIPIO",
-   "municipalityCode": "010101",
-   "municipality": "Sucre",
-   "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209799241",
-   "method": "MUNICIPIO",
-   "municipalityCode": "010101",
-   "municipality": "Sucre",
-   "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209939813",
-   "method": "MUNICIPIO",
-   "municipalityCode": "010101",
-   "municipality": "Sucre",
-   "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209953404",
-   "method": "MUNICIPIO",
-   "municipalityCode": "010101",
-   "municipality": "Sucre",
-   "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209956817",
-   "method": "MUNICIPIO",
-   "municipalityCode": "010101",
-   "municipality": "Sucre",
-   "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209956818",
-   "method": "MUNICIPIO",
-   "municipalityCode": "010101",
-   "municipality": "Sucre",
-   "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209957048",
-   "method": "MUNICIPIO",
-   "municipalityCode": "010101",
-   "municipality": "Sucre",
-   "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1209957584",
-   "method": "MUNICIPIO",
-   "municipalityCode": "010101",
-   "municipality": "Sucre",
-   "department": "Chuquisaca",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1210198699",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1210217766",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1210217771",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070101",
-   "municipality": "Santa Cruz de la Sierra",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1210874290",
-   "method": "MUNICIPIO",
-   "municipalityCode": "070601",
-   "municipality": "Portachuelo",
-   "department": "Santa Cruz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:way:1210912959",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
    "distanceMetres": null
   }
  ]

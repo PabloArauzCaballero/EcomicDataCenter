@@ -14,6 +14,254 @@
  },
  "assignments": [
   {
+   "placeId": "osm:node:5245920964",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031003",
+   "municipality": "Villa Tunari",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5245937073",
+   "method": "MUNICIPIO",
+   "municipalityCode": "050801",
+   "municipality": "Tupiza",
+   "department": "Potosí",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5245937220",
+   "method": "MUNICIPIO",
+   "municipalityCode": "050801",
+   "municipality": "Tupiza",
+   "department": "Potosí",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246084453",
+   "method": "MUNICIPIO",
+   "municipalityCode": "040903",
+   "municipality": "Chipaya",
+   "department": "Oruro",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246205128",
+   "method": "MUNICIPIO",
+   "municipalityCode": "021102",
+   "municipality": "Irupana",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246211297",
+   "method": "MUNICIPIO",
+   "municipalityCode": "021201",
+   "municipality": "Pucarani",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246214304",
+   "method": "MUNICIPIO",
+   "municipalityCode": "021204",
+   "municipality": "Puerto Pérez",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246219956",
+   "method": "MUNICIPIO",
+   "municipalityCode": "051201",
+   "municipality": "Uyuni",
+   "department": "Potosí",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246254579",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031206",
+   "municipality": "Entre Ríos",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246432576",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070201",
+   "municipality": "Warnes",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246453382",
+   "method": "MUNICIPIO",
+   "municipalityCode": "071101",
+   "municipality": "Concepción",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246489629",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031003",
+   "municipality": "Villa Tunari",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246511240",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031202",
+   "municipality": "Pojo",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246528440",
+   "method": "MUNICIPIO",
+   "municipalityCode": "031301",
+   "municipality": "Mizque",
+   "department": "Cochabamba",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246528518",
+   "method": "MUNICIPIO",
+   "municipalityCode": "040102",
+   "municipality": "Caracollo",
+   "department": "Oruro",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246530049",
+   "method": "MUNICIPIO",
+   "municipalityCode": "040102",
+   "municipality": "Caracollo",
+   "department": "Oruro",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246564005",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020102",
+   "municipality": "Palca",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246571903",
+   "method": "MUNICIPIO",
+   "municipalityCode": "070702",
+   "municipality": "Charagua",
+   "department": "Santa Cruz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246577792",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020402",
+   "municipality": "Mocomoco",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246577802",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020402",
+   "municipality": "Mocomoco",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246587271",
+   "method": "MUNICIPIO",
+   "municipalityCode": "050602",
+   "municipality": "Vitichi",
+   "department": "Potosí",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246598015",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020803",
+   "municipality": "Tiahuanacu",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246614826",
+   "method": "MUNICIPIO",
+   "municipalityCode": "021203",
+   "municipality": "Batallas",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246614832",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246615025",
+   "method": "MUNICIPIO",
+   "municipalityCode": "020105",
+   "municipality": "El Alto",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246629680",
+   "method": "MUNICIPIO",
+   "municipalityCode": "060502",
+   "municipality": "El Puente",
+   "department": "Tarija",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246652170",
+   "method": "MUNICIPIO",
+   "municipalityCode": "060302",
+   "municipality": "Caraparí",
+   "department": "Tarija",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246698122",
+   "method": "MUNICIPIO",
+   "municipalityCode": "051201",
+   "municipality": "Uyuni",
+   "department": "Potosí",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246698123",
+   "method": "MUNICIPIO",
+   "municipalityCode": "051201",
+   "municipality": "Uyuni",
+   "department": "Potosí",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246698139",
+   "method": "MUNICIPIO",
+   "municipalityCode": "060201",
+   "municipality": "Padcaya",
+   "department": "Tarija",
+   "distanceMetres": null
+  },
+  {
+   "placeId": "osm:node:5246714441",
+   "method": "MUNICIPIO",
+   "municipalityCode": "021202",
+   "municipality": "Laja",
+   "department": "La Paz",
+   "distanceMetres": null
+  },
+  {
    "placeId": "osm:node:5247594221",
    "method": "MUNICIPIO",
    "municipalityCode": "020304",
@@ -39759,254 +40007,6 @@
   },
   {
    "placeId": "osm:node:5936905597",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936905598",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936905621",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936905626",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936905752",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936905964",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936905965",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936906245",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936906561",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936906632",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060303",
-   "municipality": "Villamontes",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936906849",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5936992421",
-   "method": "MUNICIPIO",
-   "municipalityCode": "031003",
-   "municipality": "Villa Tunari",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5937336237",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030901",
-   "municipality": "Quillacollo",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5937802970",
-   "method": "MUNICIPIO",
-   "municipalityCode": "031003",
-   "municipality": "Villa Tunari",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5937802971",
-   "method": "MUNICIPIO",
-   "municipalityCode": "031003",
-   "municipality": "Villa Tunari",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5937803115",
-   "method": "MUNICIPIO",
-   "municipalityCode": "031003",
-   "municipality": "Villa Tunari",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5937803116",
-   "method": "MUNICIPIO",
-   "municipalityCode": "031003",
-   "municipality": "Villa Tunari",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5937855046",
-   "method": "MUNICIPIO",
-   "municipalityCode": "031003",
-   "municipality": "Villa Tunari",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5937855298",
-   "method": "MUNICIPIO",
-   "municipalityCode": "031003",
-   "municipality": "Villa Tunari",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5939650515",
-   "method": "MUNICIPIO",
-   "municipalityCode": "040101",
-   "municipality": "Oruro",
-   "department": "Oruro",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5939651910",
-   "method": "MUNICIPIO",
-   "municipalityCode": "040602",
-   "municipality": "Pazña",
-   "department": "Oruro",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5940922397",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5941197785",
-   "method": "MUNICIPIO",
-   "municipalityCode": "020105",
-   "municipality": "El Alto",
-   "department": "La Paz",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5941560985",
-   "method": "MUNICIPIO",
-   "municipalityCode": "030101",
-   "municipality": "Cochabamba",
-   "department": "Cochabamba",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5943425563",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5943426641",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5943426680",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5943426941",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5943426977",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5943426982",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5943427049",
-   "method": "MUNICIPIO",
-   "municipalityCode": "060301",
-   "municipality": "Yacuiba",
-   "department": "Tarija",
-   "distanceMetres": null
-  },
-  {
-   "placeId": "osm:node:5943427054",
    "method": "MUNICIPIO",
    "municipalityCode": "060301",
    "municipality": "Yacuiba",
