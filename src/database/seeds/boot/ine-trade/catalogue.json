@@ -1152,10 +1152,10 @@
    "use": "421"
   },
   "1207109000": {
-   "name": "LAS DEMAS NUECES Y ALMENDRAS DE PALMA",
+   "name": "LAS DEMAS,NUECES Y ALMENDRAS DE PALMA",
    "chapter": "12",
-   "cuci": "2223",
-   "gce": "111",
+   "cuci": "2227",
+   "gce": "210",
    "ciiu": "0111",
    "activity": "A11",
    "tnt": "34",
@@ -2355,9 +2355,11 @@
    "name": "LOS DEMAS,ACEITES DE MANI (CACAHUETE,CACAHUATE) Y SUS FRACCIONES,INCLUSO REFINADO,PERO SIN MODIFICAR QUIMICAMENTE",
    "chapter": "15",
    "cuci": "4213",
-   "gce": "121",
+   "gce": "220",
    "ciiu": "1514",
-   "use": "512"
+   "use": "512",
+   "activity": "D6",
+   "tnt": "34"
   },
   "1509100000": {
    "name": "ACEITE DE OLIVA VIRGEN Y SUS FRACCIONES",
@@ -3015,6 +3017,14 @@
    "ciiu": "1512",
    "use": "113"
   },
+  "1604139010": {
+   "name": "1604139010",
+   "chapter": "16",
+   "cuci": "0371",
+   "gce": "122",
+   "ciiu": "1512",
+   "use": "113"
+  },
   "1604139090": {
    "name": "LOS DEMÁS SARDINAS, SARDINELAS Y ESPADINES ENTEROS O EN TROZOS, EXCEPTO PICADOS",
    "chapter": "16",
@@ -3374,7 +3384,7 @@
    "use": "113"
   },
   "1701130000": {
-   "name": "AZUCAR DE CAÑA MENCIONADO EN LA NOTA 2 DE SUBPARTIDA DE ESTE CAPITULO",
+   "name": "AZUCAR DE CANA MENCIONADO EN LA NOTA 2 DE SUBPARTIDA DE ESTE CAPITULO",
    "chapter": "17",
    "cuci": "0611",
    "gce": "121",
@@ -24413,7 +24423,7 @@
    "tnt": "14"
   },
   "3920209000": {
-   "name": "LAS DEMAS PLACAS, LAMINAS, HOJAS Y TIRAS, DE POLIMEROS DE PROPILENO SIN REFUERZO, ESTRATIFICACIÓN NI SOPORTE O COMBINACION SIMILAR CON O",
+   "name": "LAS DEMAS PLACAS,LAMINAS,HOJAS Y TIRAS,D/POLIMEROS D/PROPILENO SIN REFUERZO,ESTRATIFICACION NI SOPORTE O COMBINACION SIMILAR CON OTRAS MATERIAS",
    "chapter": "39",
    "cuci": "5822",
    "gce": "220",
@@ -32659,12 +32669,14 @@
    "use": "111"
   },
   "0810905000": {
-   "name": "UCHUVAS (UVILLAS),FRESCAS",
+   "name": "UCHUVAS (UVILLAS), FRESCAS",
    "chapter": "08",
    "cuci": "0579",
    "gce": "112",
    "ciiu": "0113",
-   "use": "111"
+   "use": "111",
+   "activity": "A11",
+   "tnt": "34"
   },
   "0810909000": {
    "name": "LAS DEMAS FRUTAS O FRUTOS,FRESCOS",
@@ -34242,7 +34254,7 @@
    "use": "612"
   },
   "4407990010": {
-   "name": "LAS DEMÁS MADERAS TROPICALES DE PALO SANTO BULNESIA SAMIENTOI",
+   "name": "LAS DEMAS MADERAS TROPICALES DE PALO SANTO BULNESIA SAMIENTOI",
    "chapter": "44",
    "cuci": "2484",
    "gce": "220",
@@ -44779,7 +44791,7 @@
    "use": "150"
   },
   "6106900000": {
-   "name": "CAMISAS,BLUSAS Y BLUSAS CAMISERAS DE LAS DEMAS MATERIAS TEXTILES,DE PUNTO,PARA MUJERES O NIÑAS",
+   "name": "CAMISAS,BLUSAS Y BLUSAS CAMISERAS DE LAS DEMAS MATERIAS TEXTILES,DE PUNTO,PARA MUJERES O NINAS",
    "chapter": "61",
    "cuci": "8447",
    "gce": "620",
@@ -63862,7 +63874,9 @@
    "cuci": "7212",
    "gce": "410",
    "ciiu": "2921",
-   "use": "710"
+   "use": "710",
+   "activity": "D29",
+   "tnt": "34"
   },
   "8433604000": {
    "name": "LAS DEMAS MAQUINAS CLASIFICADORAS",
@@ -77830,7 +77844,9 @@
    "cuci": "7821",
    "gce": "521",
    "ciiu": "3410",
-   "use": "920"
+   "use": "920",
+   "activity": "D29",
+   "tnt": "34"
   },
   "8704319020": {
    "name": "VEHICULOS AUTOMOVILES PARA TRASNPORTE DE MERCANCIAS CON MOTOR DE EMBOLO (PISTON). DE ENCENDIDO POR CHISPA. DE PESO TOTAL CON CARGA MAXIMA INFERIOR O IGUAL A 5 T. EQUIPADOS CON SISTEMA DE CARBURACION A",
@@ -90172,7 +90188,7 @@
   },
   "800": {
    "name": "TOGO",
-   "zone": "COMUNIDAD ECONOMICA  DE LOS ESTADOS DE AFRICA OCCIDENTAL",
+   "zone": "COMUNIDAD ECONOMICA  DE LOS ESTADOS DE AFRICA OCCIDEN",
    "bloc": null
   },
   "805": {
