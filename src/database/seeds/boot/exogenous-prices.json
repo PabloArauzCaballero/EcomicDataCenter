@@ -15,8 +15,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -1623,6 +1623,11 @@
           "period": "2026-09",
           "value": "116.8",
           "excerpt": "2026M09 | Crude oil, Brent ($/bbl) | 116.8"
+        },
+        {
+          "period": "2026-10",
+          "value": "125",
+          "excerpt": "2026M10 | Crude oil, Brent ($/bbl) | 125"
         }
       ]
     },
@@ -1641,8 +1646,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -3249,6 +3254,11 @@
           "period": "2026-09",
           "value": "96.9",
           "excerpt": "2026M09 | Crude oil, WTI ($/bbl) | 96.9"
+        },
+        {
+          "period": "2026-10",
+          "value": "97.7",
+          "excerpt": "2026M10 | Crude oil, WTI ($/bbl) | 97.7"
         }
       ]
     },
@@ -3268,7 +3278,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGASUSGULF&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "488a63034f1843cec89bb67ab6aaaba3f1f3b153824136c9112c5513bd4d0cb7",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -4894,7 +4904,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DDFUELUSGULF&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "3718c1549e63b2b265e7830bd40659b3dc0596acf104be7ad2811f69029e4c6b",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -6134,8 +6144,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -7742,6 +7752,11 @@
           "period": "2026-09",
           "value": "2.95",
           "excerpt": "2026M09 | Natural gas, US ($/mmbtu) | 2.95"
+        },
+        {
+          "period": "2026-10",
+          "value": "2.96",
+          "excerpt": "2026M10 | Natural gas, US ($/mmbtu) | 2.96"
         }
       ]
     },
@@ -7760,8 +7775,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -9368,6 +9383,11 @@
           "period": "2026-09",
           "value": "25.42",
           "excerpt": "2026M09 | Natural gas, Europe ($/mmbtu) | 25.42"
+        },
+        {
+          "period": "2026-10",
+          "value": "28.5",
+          "excerpt": "2026M10 | Natural gas, Europe ($/mmbtu) | 28.5"
         }
       ]
     },
@@ -9386,8 +9406,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -10992,8 +11012,13 @@
         },
         {
           "period": "2026-09",
-          "value": "14.25",
-          "excerpt": "2026M09 | Liquefied natural gas, Japan ($/mmbtu) | 14.25"
+          "value": "16.26",
+          "excerpt": "2026M09 | Liquefied natural gas, Japan ($/mmbtu) | 16.260000000000002"
+        },
+        {
+          "period": "2026-10",
+          "value": "16.59",
+          "excerpt": "2026M10 | Liquefied natural gas, Japan ($/mmbtu) | 16.59"
         }
       ]
     },
@@ -11013,7 +11038,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DPROPANEMBTX&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "4ce0c0ea765d1ba037bccd9109f7bc9625db73b7216822d51189d1ceb1799c0d",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -12643,8 +12668,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -14251,6 +14276,11 @@
           "period": "2026-09",
           "value": "147.1",
           "excerpt": "2026M09 | Coal, Australian ($/mt) | 147.1"
+        },
+        {
+          "period": "2026-10",
+          "value": "152.3",
+          "excerpt": "2026M10 | Coal, Australian ($/mt) | 152.30000000000001"
         }
       ]
     },
@@ -14269,8 +14299,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -15877,6 +15907,11 @@
           "period": "2026-09",
           "value": "4319",
           "excerpt": "2026M09 | Gold ($/troy oz) | 4319"
+        },
+        {
+          "period": "2026-10",
+          "value": "4105",
+          "excerpt": "2026M10 | Gold ($/troy oz) | 4105"
         }
       ]
     },
@@ -15895,8 +15930,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -17503,6 +17538,11 @@
           "period": "2026-09",
           "value": "64.6",
           "excerpt": "2026M09 | Silver ($/troy oz) | 64.599999999999994"
+        },
+        {
+          "period": "2026-10",
+          "value": "57",
+          "excerpt": "2026M10 | Silver ($/troy oz) | 57"
         }
       ]
     },
@@ -17521,8 +17561,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -19129,6 +19169,11 @@
           "period": "2026-09",
           "value": "4021",
           "excerpt": "2026M09 | Zinc ($/mt) | 4021"
+        },
+        {
+          "period": "2026-10",
+          "value": "3818",
+          "excerpt": "2026M10 | Zinc ($/mt) | 3818"
         }
       ]
     },
@@ -19147,8 +19192,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -20755,6 +20800,11 @@
           "period": "2026-09",
           "value": "1873",
           "excerpt": "2026M09 | Lead ($/mt) | 1873"
+        },
+        {
+          "period": "2026-10",
+          "value": "1860",
+          "excerpt": "2026M10 | Lead ($/mt) | 1860"
         }
       ]
     },
@@ -20773,8 +20823,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -22381,6 +22431,11 @@
           "period": "2026-09",
           "value": "53712",
           "excerpt": "2026M09 | Tin ($/mt) | 53712"
+        },
+        {
+          "period": "2026-10",
+          "value": "51696",
+          "excerpt": "2026M10 | Tin ($/mt) | 51696"
         }
       ]
     },
@@ -22399,8 +22454,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -24007,6 +24062,11 @@
           "period": "2026-09",
           "value": "14474",
           "excerpt": "2026M09 | Copper ($/mt) | 14474"
+        },
+        {
+          "period": "2026-10",
+          "value": "14508",
+          "excerpt": "2026M10 | Copper ($/mt) | 14508"
         }
       ]
     },
@@ -24025,8 +24085,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -25633,6 +25693,11 @@
           "period": "2026-09",
           "value": "97.7",
           "excerpt": "2026M09 | Iron ore, cfr spot ($/dmtu) | 97.7"
+        },
+        {
+          "period": "2026-10",
+          "value": "90.8",
+          "excerpt": "2026M10 | Iron ore, cfr spot ($/dmtu) | 90.8"
         }
       ]
     },
@@ -25651,8 +25716,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -27259,6 +27324,11 @@
           "period": "2026-09",
           "value": "3283",
           "excerpt": "2026M09 | Aluminum ($/mt) | 3283"
+        },
+        {
+          "period": "2026-10",
+          "value": "3061",
+          "excerpt": "2026M10 | Aluminum ($/mt) | 3061"
         }
       ]
     },
@@ -27278,7 +27348,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1017&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "a54486673a6999ebcb8778c74b73295981fa0b0e75797b764d4b60a1941590f3",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -28903,8 +28973,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -30511,6 +30581,11 @@
           "period": "2026-09",
           "value": "524",
           "excerpt": "2026M09 | Soybeans ($/mt) | 524"
+        },
+        {
+          "period": "2026-10",
+          "value": "515",
+          "excerpt": "2026M10 | Soybeans ($/mt) | 515"
         }
       ]
     },
@@ -30529,8 +30604,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -32137,6 +32212,11 @@
           "period": "2026-09",
           "value": "447",
           "excerpt": "2026M09 | Soybean meal ($/mt) | 447"
+        },
+        {
+          "period": "2026-10",
+          "value": "453",
+          "excerpt": "2026M10 | Soybean meal ($/mt) | 453"
         }
       ]
     },
@@ -32155,8 +32235,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -33763,6 +33843,11 @@
           "period": "2026-09",
           "value": "1615",
           "excerpt": "2026M09 | Soybean oil ($/mt) | 1615"
+        },
+        {
+          "period": "2026-10",
+          "value": "1546",
+          "excerpt": "2026M10 | Soybean oil ($/mt) | 1546"
         }
       ]
     },
@@ -33781,8 +33866,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -35237,8 +35322,13 @@
         },
         {
           "period": "2026-09",
-          "value": "1390",
-          "excerpt": "2026M09 | Sunflower oil ($/mt) | 1390"
+          "value": "1393",
+          "excerpt": "2026M09 | Sunflower oil ($/mt) | 1393"
+        },
+        {
+          "period": "2026-10",
+          "value": "1413",
+          "excerpt": "2026M10 | Sunflower oil ($/mt) | 1413"
         }
       ]
     },
@@ -35257,8 +35347,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -36865,6 +36955,11 @@
           "period": "2026-09",
           "value": "239.6",
           "excerpt": "2026M09 | Maize ($/mt) | 239.6"
+        },
+        {
+          "period": "2026-10",
+          "value": "226.5",
+          "excerpt": "2026M10 | Maize ($/mt) | 226.5"
         }
       ]
     },
@@ -36883,8 +36978,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -38491,6 +38586,11 @@
           "period": "2026-09",
           "value": "482",
           "excerpt": "2026M09 | Rice, Thai 5% ($/mt) | 482"
+        },
+        {
+          "period": "2026-10",
+          "value": "489",
+          "excerpt": "2026M10 | Rice, Thai 5% ($/mt) | 489"
         }
       ]
     },
@@ -38509,8 +38609,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -40117,6 +40217,11 @@
           "period": "2026-09",
           "value": "347",
           "excerpt": "2026M09 | Wheat, US HRW ($/mt) | 347"
+        },
+        {
+          "period": "2026-10",
+          "value": "317",
+          "excerpt": "2026M10 | Wheat, US HRW ($/mt) | 317"
         }
       ]
     },
@@ -40135,8 +40240,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -41743,6 +41848,11 @@
           "period": "2026-09",
           "value": "0.41",
           "excerpt": "2026M09 | Sugar, world ($/kg) | 0.41"
+        },
+        {
+          "period": "2026-10",
+          "value": "0.43",
+          "excerpt": "2026M10 | Sugar, world ($/kg) | 0.43"
         }
       ]
     },
@@ -41761,8 +41871,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -43369,6 +43479,11 @@
           "period": "2026-09",
           "value": "7.26",
           "excerpt": "2026M09 | Coffee, Arabica ($/kg) | 7.26"
+        },
+        {
+          "period": "2026-10",
+          "value": "7.4",
+          "excerpt": "2026M10 | Coffee, Arabica ($/kg) | 7.4"
         }
       ]
     },
@@ -43387,8 +43502,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -44995,6 +45110,11 @@
           "period": "2026-09",
           "value": "5.92",
           "excerpt": "2026M09 | Cocoa ($/kg) | 5.92"
+        },
+        {
+          "period": "2026-10",
+          "value": "5.75",
+          "excerpt": "2026M10 | Cocoa ($/kg) | 5.75"
         }
       ]
     },
@@ -45013,8 +45133,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -46621,6 +46741,11 @@
           "period": "2026-09",
           "value": "1.12",
           "excerpt": "2026M09 | Banana, US ($/kg) | 1.1200000000000001"
+        },
+        {
+          "period": "2026-10",
+          "value": "1.18",
+          "excerpt": "2026M10 | Banana, US ($/kg) | 1.18"
         }
       ]
     },
@@ -46639,8 +46764,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -48247,6 +48372,11 @@
           "period": "2026-09",
           "value": "6.86",
           "excerpt": "2026M09 | Beef ** ($/kg) | 6.86"
+        },
+        {
+          "period": "2026-10",
+          "value": "6.83",
+          "excerpt": "2026M10 | Beef ** ($/kg) | 6.83"
         }
       ]
     },
@@ -48265,8 +48395,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -49873,6 +50003,11 @@
           "period": "2026-09",
           "value": "1.81",
           "excerpt": "2026M09 | Chicken ** ($/kg) | 1.81"
+        },
+        {
+          "period": "2026-10",
+          "value": "1.84",
+          "excerpt": "2026M10 | Chicken ** ($/kg) | 1.84"
         }
       ]
     },
@@ -49891,8 +50026,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -51499,6 +51634,11 @@
           "period": "2026-09",
           "value": "2916",
           "excerpt": "2026M09 | Fish meal ($/mt) | 2916"
+        },
+        {
+          "period": "2026-10",
+          "value": "2840",
+          "excerpt": "2026M10 | Fish meal ($/mt) | 2840"
         }
       ]
     },
@@ -51517,8 +51657,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -53125,6 +53265,11 @@
           "period": "2026-09",
           "value": "407.5",
           "excerpt": "2026M09 | Urea ($/mt) | 407.5"
+        },
+        {
+          "period": "2026-10",
+          "value": "420",
+          "excerpt": "2026M10 | Urea ($/mt) | 420"
         }
       ]
     },
@@ -53143,8 +53288,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -54751,6 +54896,11 @@
           "period": "2026-09",
           "value": "800.6",
           "excerpt": "2026M09 | DAP ($/mt) | 800.6"
+        },
+        {
+          "period": "2026-10",
+          "value": "803.1",
+          "excerpt": "2026M10 | DAP ($/mt) | 803.1"
         }
       ]
     },
@@ -54769,8 +54919,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -56377,6 +56527,11 @@
           "period": "2026-09",
           "value": "690",
           "excerpt": "2026M09 | TSP ($/mt) | 690"
+        },
+        {
+          "period": "2026-10",
+          "value": "692",
+          "excerpt": "2026M10 | TSP ($/mt) | 692"
         }
       ]
     },
@@ -56395,8 +56550,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
-        "upstreamSha256": "ea1c350827878ea3bbe30e3cda16a13fd3bd5b409b8458940dc94a36b5a33154",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3c8d9d8dbb48342fdbf24777c39a8ce8964cc2fd0958f72f6779e6e4ad99cde2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -58003,6 +58158,11 @@
           "period": "2026-09",
           "value": "367.5",
           "excerpt": "2026M09 | Potassium chloride ** ($/mt) | 367.5"
+        },
+        {
+          "period": "2026-10",
+          "value": "357.5",
+          "excerpt": "2026M10 | Potassium chloride ** ($/mt) | 357.5"
         }
       ]
     },
@@ -58022,7 +58182,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU066&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "cd076249983ad77a787adbd569402f3d9c0b53d48d0423fa0e5ed407001e4484",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -59648,7 +59808,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0662&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "c4918282ec3980867e91379be838a2e19441de057e3ad51e493b19230f654486",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -61274,7 +61434,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU06530109&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "a24a488ba65b4444a3cd4b08c2c231971b4fb5a9173d96000e9f54b2609aad7d",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -62695,7 +62855,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU065201&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "fc116d88ca3af72dfbd54d7618db63568620f3601d9149d73e1c618ac812583c",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -64321,7 +64481,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0613020T1&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "467087dd0752002041711fa70ac6e851e5f68905a826f3d0e342bc8ab4fb0bdc",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -65827,7 +65987,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU0614&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "383bbcfa43d91863e6bccd092edf1dc790db52752ed61e99d93eb6e8d9dc4620",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -67453,7 +67613,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1322&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "fb1d0943928da93ef6c43400a0870e32f7961c604260807b14a1939bb7409bfb",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -69079,7 +69239,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU133501&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "eba78c0bc038ea02eaf65251470568b0fedfb26632299fca1a5d2764f60a03bf",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -70705,7 +70865,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU101705&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "71decaa302695e03232fdcd0d2d5f18f35b1c9983d8d0aced9f428a4ee786604",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -72301,7 +72461,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU101704&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "bfaea3f95c8a4561a320da516f738458ce35306893f36d326468a91dca4be616",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -73927,7 +74087,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1333&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "107fcbf37a298b59471b3ec0190f88e035971d4b150056ceafde8523e2afc5f2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -75553,7 +75713,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1321&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "03c706d632184914b42193dca8fc5345679af01685b5fe1d20fa121fbc063d2e",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -77179,7 +77339,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU1342&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "e9e84ea58ae9664b16196f520c7d1e8f36790caad63d73e300a127ce9e378da4",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -78805,7 +78965,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU081&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "6dd32e6c001b4f110a3fdab27a8c9eae24cb812af80da56a9eae3307caae81f8",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80430,8 +80590,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80471,8 +80631,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80502,8 +80662,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80533,8 +80693,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80564,8 +80724,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80595,8 +80755,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80626,8 +80786,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80657,8 +80817,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80688,8 +80848,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80719,8 +80879,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80750,8 +80910,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80781,8 +80941,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80812,8 +80972,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fbx.freightos.com/",
-        "upstreamSha256": "1cd712681fe16d66510fe32d62dd8daa869808c0756a53e27b2884a90eecf1c2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0ef4496a9b31fa0744cb4b7136c104bd1f43317d97bcf2c1748081c75ecc3461",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80843,8 +81003,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://www.freightos.com/enterprise/terminal/fax-global-freightos-air-index/",
-        "upstreamSha256": "2191fd71dfce7766aa490c78fe852aa46aa59b90a1663bec479b3d4ffad266d6",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3fe5bae5639eb46d4dd01c51ce0bdfce23495a144cfb267ae0a5d00db9e87a18",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -80885,7 +81045,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCU483111483111&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "aff7986106046d726dca3cb5ed0782dcf83335e3bba168001cddb943829a1de5",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -82511,7 +82671,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCU481112481112&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "34b0e5f93f66afd7dcb2e3878101550be6c56750ea080bf47ce573bafc93203e",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -83902,7 +84062,7 @@
       "provenance": {
         "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCU488510488510&fq=Monthly&fam=avg&cosd=2000-01-01",
         "upstreamSha256": "0b4a134f57cb78a6c717ec8dc96ab4d2f9df7091e03ae808e070f33893c0c24d",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -85527,8 +85687,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/e23b83a7-7cf7-40b0-87f7-6c03a2d3b2bc/",
-        "upstreamSha256": "7a66862d3c1ec4341d56bfcd0114feec7b6716ac002473c1d4f584a03b1c5c7b",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "65e636ae15408ec4ffe1fabfe1bb8c357a225a9428a32a65f76bd46f6e0d8396",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -87123,8 +87283,8 @@
         },
         {
           "period": "2026-09",
-          "value": "260",
-          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":260}"
+          "value": "254.4",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":254.4}"
         },
         {
           "period": "2026-10",
@@ -87148,8 +87308,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/3fefffb8-a60a-43f6-9f70-b71479f44a04/",
-        "upstreamSha256": "7bfb044fa844702e7e7f4a90a46a395640fe874f9b480a5de3f04c0317b3a8fe",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "b27ed8a22af4e7294fe087a166e721046d150561daf25267b5dd339bf0085e5c",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -88754,8 +88914,8 @@
         },
         {
           "period": "2026-09",
-          "value": "222.16",
-          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":222.16}"
+          "value": "218.6",
+          "excerpt": "{\"date\":\"2026-09-01\",\"price_value\":218.6}"
         },
         {
           "period": "2026-10",
@@ -88779,8 +88939,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/d471f6ae-21d2-4c05-a910-55f042fdebf1/",
-        "upstreamSha256": "97d448bf7a95c6e15a4fb11d9192b260ba013b9c70e0f53a8cd72bcb029377a6",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "1de82b2b1677788b9d1a1cf95570dbd0acdca510b1269725eebfa76eaf575100",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -89810,8 +89970,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/16bc8be4-6b15-4551-a9d8-7084ddee3a1c/",
-        "upstreamSha256": "56adbb94ea33027d7ba7e3ebaccebb5a1f0fa213ab8c7dff515c4592cd3787a9",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "df8cb92947a041096ce4b5737e030777ed406eca67f28620066e52e9521f0dfe",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -91357,7 +91517,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/897688ad-9181-4c54-a7fd-abd48684797a/",
         "upstreamSha256": "e3eb3429c8ad813adc27fc465b5dbfed11eecc89a82002e002b3c7ca6a0cab29",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -92983,7 +93143,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/ab4ef0f6-aa61-4fd2-ad26-29f6b82a8311/",
         "upstreamSha256": "6022ded67ee6e4fba91c54782cfd9e0cff4ac7e39131284243e3edf0a52d689c",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -94609,7 +94769,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/223de48c-f284-486a-8bb6-fdbdaf81a4ba/",
         "upstreamSha256": "11cc641d136a2b67ef9c761ca6bef9969a7751162ab05331f635d13579f50fee",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -96235,7 +96395,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/70d0099b-3cda-4997-9bf1-dfc86ed1927c/",
         "upstreamSha256": "bd169abeed3b9266b5cb98412c120eae01eb58126c521594f1a9fb8926fae877",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -97861,7 +98021,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/050a093f-268a-415b-8e1a-a87033d1908f/",
         "upstreamSha256": "ced89648aad1cc470daa256e1e5a1958ee6f822d5ef24b83cebf40efe4ad9905",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -99487,7 +99647,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/23397429-69b2-472f-bfed-19d0bd943937/",
         "upstreamSha256": "3f155d9a750211bd530218ba8ce65e67c3bad89609fc341bc94610115d0de550",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -101113,7 +101273,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/a2d52862-666a-45d6-8887-2f6a56205000/",
         "upstreamSha256": "0d2a36bd02936f855d85521efdcbcaa5242f664f15ee4035341258e153a2fd65",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -102738,8 +102898,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/3418d905-0fcc-4cdf-85d5-2a3c0de6c484/",
-        "upstreamSha256": "5735337a2f62418f47ef61af19f60440acfb191664f23fa7d51dd3ccf804adf8",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "4b38aefa74258fa68cffb346b8c0057ab9483aff81e321948975ff07bf671a12",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -103714,8 +103874,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/8aab93c3-b940-44c7-89a4-e88cdf34aad0/",
-        "upstreamSha256": "87c29336662c193429a32a2c6aaa5c27d8c91234bdd92ba1ac287b5cce39f8d2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "971b49338e1714386d5489da4b789d9184dea3828e53a9feb0fc2c69fe08b957",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -104455,8 +104615,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/ee40cfe4-8069-4211-a149-c56d4851883d/",
-        "upstreamSha256": "1c5e7bb12c9900cc25d57fbebad2e2bd96e50732432c5b31d594d6fc19a1ac7a",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "aad5f3fbb1fe27c239c4578d9f43b3b9de5111a2532ec91fe48117092b97a4cc",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -105406,8 +105566,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/21a5e40b-605f-436c-80df-2c44f4bac0b4/",
-        "upstreamSha256": "4c25428477cadcf4918128d1058f9cdb24b02feb4337bf258b1a33cbb09e96f4",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "0de96aa254a9abebe0eab73e43d819f71c8249fe8cedac2cc68592d27680dfe2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -106212,8 +106372,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/6ed43cda-91e9-435c-9c63-76dde9c3903c/",
-        "upstreamSha256": "9966e453f4cece2fa906c179320d6eb82801ec21715ddd0cb6a0ef8c7d927bb7",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "06ab818ca9ca5e4301848815cfbaa5c3016456aaf8d698f758cd8ceca8e228bc",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -107178,8 +107338,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/0e96d94d-0e31-41b1-ba2d-6f5bf34bed65/",
-        "upstreamSha256": "205f96735e22f4ec71628116a7be48689028280ab955420461a4606074a940b7",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "e78f93d28356678e495705ed637845491883fd9b3ef96895cc3c5197748c26bd",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -107959,8 +108119,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/0bf18386-4f8f-4c69-a17a-9a530c945976/",
-        "upstreamSha256": "def9d43364582e4494cb75def7f9bb5f3bd56aeb9425b6ee8f6d1980485b1c35",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "84c64749849030907d43910148a17d4e1ca472f64aca9a296d246c529dd45a23",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -108400,8 +108560,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/6365c28c-3790-466c-92c9-c83c44c7b3e8/",
-        "upstreamSha256": "83690ac70b9e765a7c775214d180ae69d6544aeb38f97dd0135c8b95ae0989d9",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "e5e81e2019cde444e4deb5cfd415d73dc58e2ec4fc8a2181aff88c847ef4dd49",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -109326,8 +109486,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/72f3baa1-6e68-44d8-9840-7fef195bd3f4/",
-        "upstreamSha256": "52a61dd20f0aa95213e88dd75a94cd68a74092943dc97cf9e5c1c82e0ad7ad06",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3bb9024973580b2642f8876311805a81bdd3505a203f9a0271933398940b658a",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -110467,8 +110627,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/77b36eee-4579-4aac-a40b-2d4e5c198e27/",
-        "upstreamSha256": "1f7810194c222e64c288306e5582e976b66b3c36491233e9d04425ed63b68240",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "8c874394ba84f6d0e02fd5e284fd9b0b0f654b696fd16643e7e2e950466eef7b",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -111568,8 +111728,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/172d7372-7cde-4fcd-841e-7d3cd58569ff/",
-        "upstreamSha256": "e01f065a3f75e2c60edbaaac9f64922cb74dd57fca4245a585f5a44f99960e9c",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "83afd7439b462f3fcb6cbb884b0af5b27d513942023dbe26d04370da9277ad80",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -112649,8 +112809,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/073aa226-3629-4bec-99c1-9f450a280262/",
-        "upstreamSha256": "48a3a407879e079e1aab004695dd3edb25037c860e7d4f6fb3f0939c2594a34f",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "9804382feae69b288a010f8d0f6090818f80c04aa9a12d8f819fa0cd10c236e8",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -113730,8 +113890,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/d0c53b28-d380-481b-a19c-ffd8233cdd30/",
-        "upstreamSha256": "1ec1c218fd635c458e741ef1fc70571961a69a37e80fbf66df29cca65499f1d4",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3f77b9010fb6abec13c2910d9731b5cf4c38d53ab9c1c058bd198efa15e389df",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -114856,8 +115016,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/ad042b5d-5013-463c-95ea-6986c79eff80/",
-        "upstreamSha256": "c2f8399740049eedcbf0d9714df369ca79ebb7971f53112dd3a1f42e4a0c4a97",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "863a69188dce90f0a72dea144a93ed1683732e6a5ae454ccde3c3671fe2b6273",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -115967,8 +116127,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/6c9683dd-73b0-4298-86b5-ba42c413cbed/",
-        "upstreamSha256": "16ba488e0eebee1487f785d8f07fa2c205e941a1aa704318ef192115df501254",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "f8c9bd4d1a3525b3fd7f613ddb763ca3842128bb80159bf4eddd37c606642dd2",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -117053,8 +117213,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/d07783c8-cff4-4220-b39a-3ef40a6b8cb3/",
-        "upstreamSha256": "8d1574196ac1909d8eea09e54170ffae5137da88b9fed610307524133c6099ee",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "b8f2ed77893e7c98c1f9d4736dfe0d5133792f2ead02be69059afc3091000e79",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -118145,7 +118305,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/45ef01a5-e664-4299-8c19-3c737cf9bb17/",
         "upstreamSha256": "0998739002304d47a54a9298d32bae3cc8f0461100611fc52be54360f432b28b",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -119076,7 +119236,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/7d725895-1aa2-4b1c-af08-c61ea51b92b4/",
         "upstreamSha256": "3ea26163c25e42c5d31f1fbda1c567f99819cb46dc7d4323619251b633e6e4c5",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -119991,8 +120151,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/c061e903-0c64-4e53-afe2-988cdbdab45e/",
-        "upstreamSha256": "007a78b67ba9c103cbc9e068be6554b2c39e0ff4d86527b659c2d05af1171a3e",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "806ff236004fa277156ba5161be955d22a6a224f17c56ec9853576cc34b57b15",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -120903,7 +121063,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/cd8576e4-e902-454b-abea-46ab179fb811/",
         "upstreamSha256": "7f4291d1e0e37b903d546a0dfafddfa146697cfe50fd3f2bc039e8e534a0b99d",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -121798,8 +121958,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/f9d49e62-4ae2-48ce-bf41-62ca1a9813d3/",
-        "upstreamSha256": "9e5e2a8eeb66a02387a4b0a5ed9b40baddb53d8e12dd9d91879701d346ec16b3",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "16df51b049b61330106f400d3f18d5543292c20c0b419ef771a68868afec0a96",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -122939,8 +123099,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/3867f9c8-1d37-4e9a-94ae-1f6d24b4c730/",
-        "upstreamSha256": "d1b97b5b278a88df8132703c3e5d782a26d2b41ad720946f0d295e64bccb12d4",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "3f18c31f723830c88b4b0f0bf61f5fce9ccc3eff1883d0099c990bef8911e449",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -124050,8 +124210,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/06664ade-2f8f-40ea-962f-f44d31e35b68/",
-        "upstreamSha256": "74872c0e297c4a96ba15726c53068700ca45ebc9eaa08b21060f9a96daff20ac",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "135fe9d077f6bc8f44657c81e976c47c5ab6363ee64913bf955d2eadfbbd0370",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -125136,8 +125296,8 @@
       "frequency": "MONTHLY",
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/0b16549f-afc0-4b78-92a3-04deacc85c5c/",
-        "upstreamSha256": "ecf2b1bcbe33414655848001303b282762f9b739ff7fcaaa6281f81aea66d792",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "upstreamSha256": "455a17c20042ab47f703c49cda9e2d5a39183823a863b85f8a45caa927fb4f06",
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -126228,7 +126388,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/658b3fc6-350f-4630-9c62-eb61026f2cd8/",
         "upstreamSha256": "71384f409bcc689b4fa1ee7b751c58676b7e418297674c88d38ce6303c47aed3",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -126774,7 +126934,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/da3df29d-58f6-4453-9b1a-3ed24c4f73b7/",
         "upstreamSha256": "cd632968f926850acaa77ba0287ae6ac38a0cd8c339d3c51eb8dff2c009802d2",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -127320,7 +127480,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/53463e30-c254-4698-8c18-2ec7906a7b5d/",
         "upstreamSha256": "fe2efde0dce8b206e22787fbe1f16ce90dbc08361ee7a37bb32e8363538fbe87",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -128406,7 +128566,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/372ac15a-2ed1-4904-8d94-1058885ffc7e/",
         "upstreamSha256": "1e6ef59a053ce204b1c35cfed51e566f715f8d3d7265af3351f4a569b21add34",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -129492,7 +129652,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/2d79f438-7772-49c5-a68e-bc308d379b96/",
         "upstreamSha256": "d7e23efa8f9a7eb4b15766e03ef2ebf5bc99d0dc135518b9e67a0f0564406d11",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -130038,7 +130198,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/f406c9e1-f3ba-4631-9062-cec1cab81ff7/",
         "upstreamSha256": "6d5e65d3821014820405a400fceb22d75b6e4dd13529eff53a371d21ea889018",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -130584,7 +130744,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/48c8e355-85a8-4dd5-ae17-cc9a19a38a15/",
         "upstreamSha256": "11d35024f3abee376eb4a6cafb63386b0ab4c02ebef261943f66262003ddc8fb",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -131130,7 +131290,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/cd22c0a3-9bf7-41c1-9f5a-86a749c684cd/",
         "upstreamSha256": "814e1692a8f517530fc7e6e67f0c2b5bcdf57086e7a556ba62198c4d3860ee38",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -131676,7 +131836,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/55253f8e-d22b-4f62-a123-8b94ab215510/",
         "upstreamSha256": "c9dcb75b283582e22421e6cfe1093e59e3c8e4b14723bf3800d057c40ffe0d85",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
@@ -132762,7 +132922,7 @@
       "provenance": {
         "sourceUrl": "https://fpma.fao.org/giews/v4/price_module/api/v1/FpmaSeriePrice/4b93359e-c4e1-49cb-86d8-b210c8d52555/",
         "upstreamSha256": "cc4901a66b60833d425d38a137f8aa7d65c59e84d7a9a8ae434bc87975c15be7",
-        "retrievedAt": "2026-11-03T18:25:00Z"
+        "retrievedAt": "2026-11-04T03:00:01Z"
       },
       "points": [
         {
