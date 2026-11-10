@@ -3602,12 +3602,12 @@
         },
         {
           "date": "2026-11-10",
-          "value": "12.00",
+          "value": "11.95",
           "basis": "OFFICIAL_FEED",
-          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>11.11</ns1:ValorCompra><ns1:ValorVenta>12.00</ns1:ValorVenta></ns1:Cotizacion>",
+          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>11.05</ns1:ValorCompra><ns1:ValorVenta>11.95</ns1:ValorVenta></ns1:Cotizacion>",
           "sourceUrl": "https://sjoven.bisa.com/assets/cotizaciones.xml",
-          "upstreamSha256": "dfa26f3d006b746097f4e9e6f04fff4d090df14f8ecac6e1be9d3fb57d6e419f",
-          "retrievedAt": "2026-11-10T04:36:39Z"
+          "upstreamSha256": "9e5ed5dcae550d6fa189c9783496c1af8ae6763570c3e026c72bc50e019460ad",
+          "retrievedAt": "2026-11-10T18:39:56Z"
         }
       ]
     },
@@ -3984,12 +3984,12 @@
         },
         {
           "date": "2026-11-10",
-          "value": "11.11",
+          "value": "11.05",
           "basis": "OFFICIAL_FEED",
-          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>11.11</ns1:ValorCompra><ns1:ValorVenta>12.00</ns1:ValorVenta></ns1:Cotizacion>",
+          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>11.05</ns1:ValorCompra><ns1:ValorVenta>11.95</ns1:ValorVenta></ns1:Cotizacion>",
           "sourceUrl": "https://sjoven.bisa.com/assets/cotizaciones.xml",
-          "upstreamSha256": "dfa26f3d006b746097f4e9e6f04fff4d090df14f8ecac6e1be9d3fb57d6e419f",
-          "retrievedAt": "2026-11-10T04:36:39Z"
+          "upstreamSha256": "9e5ed5dcae550d6fa189c9783496c1af8ae6763570c3e026c72bc50e019460ad",
+          "retrievedAt": "2026-11-10T18:39:56Z"
         }
       ]
     },
@@ -4645,12 +4645,12 @@
         },
         {
           "date": "2026-11-10",
-          "value": "11.94",
+          "value": "11.99",
           "basis": "OFFICIAL_FEED",
-          "excerpt": "USDT Venta: 11.94 | USDT Compra: 11.75",
+          "excerpt": "USDT Venta: 11.99 | USDT Compra: 11.70",
           "sourceUrl": "https://www.bcp.com.bo/",
-          "upstreamSha256": "6507d0df29ea78435b03a080eead2fe110e065431694e23e0b5fc7ea644a7c94",
-          "retrievedAt": "2026-11-10T04:36:39Z"
+          "upstreamSha256": "f4187ccf50af57f91fa6592eece66859220a576d8982dadc496a90760c567484",
+          "retrievedAt": "2026-11-10T18:39:56Z"
         }
       ]
     },
@@ -5072,12 +5072,12 @@
         },
         {
           "date": "2026-11-10",
-          "value": "11.75",
+          "value": "11.70",
           "basis": "OFFICIAL_FEED",
-          "excerpt": "USDT Venta: 11.94 | USDT Compra: 11.75",
+          "excerpt": "USDT Venta: 11.99 | USDT Compra: 11.70",
           "sourceUrl": "https://www.bcp.com.bo/",
-          "upstreamSha256": "6507d0df29ea78435b03a080eead2fe110e065431694e23e0b5fc7ea644a7c94",
-          "retrievedAt": "2026-11-10T04:36:39Z"
+          "upstreamSha256": "f4187ccf50af57f91fa6592eece66859220a576d8982dadc496a90760c567484",
+          "retrievedAt": "2026-11-10T18:39:56Z"
         }
       ]
     }
