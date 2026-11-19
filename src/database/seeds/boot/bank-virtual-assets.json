@@ -1530,6 +1530,15 @@
           "sourceUrl": "https://cuentacripto.bancofie.com.bo/apertura-cripto",
           "upstreamSha256": "85c167819d8afb223e75e4b05d433e7ce9911272eb5693185505ac06b9817814",
           "retrievedAt": "2026-11-18T04:14:42Z"
+        },
+        {
+          "date": "2026-11-19",
+          "value": "1",
+          "basis": "OFFICIAL_PAGE",
+          "excerpt": "-> --> --> Términos y Condiciones Abre tu cuenta Cripto FIE Compra, vende, recibe y envía USDT en minutos 100% en línea Comenzar Tu Cuenta Cripto en minutos, desde la palma de tu mano. Apertura Inmediata Banca móvi",
+          "sourceUrl": "https://cuentacripto.bancofie.com.bo/apertura-cripto",
+          "upstreamSha256": "c19ac58ca73c6fe2d8f73a3967dba337dcfcd3b69cf687b4e2e07c1783406168",
+          "retrievedAt": "2026-11-19T19:28:45Z"
         }
       ]
     },
@@ -4376,12 +4385,12 @@
         },
         {
           "date": "2026-11-19",
-          "value": "11.92",
+          "value": "11.96",
           "basis": "OFFICIAL_FEED",
-          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>11.03</ns1:ValorCompra><ns1:ValorVenta>11.92</ns1:ValorVenta></ns1:Cotizacion>",
+          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>10.96</ns1:ValorCompra><ns1:ValorVenta>11.96</ns1:ValorVenta></ns1:Cotizacion>",
           "sourceUrl": "https://sjoven.bisa.com/assets/cotizaciones.xml",
-          "upstreamSha256": "fca6f89de5f15ebed79ec199d00be6d9db1dc658c9336bd33cf1db6a7e66a5fd",
-          "retrievedAt": "2026-11-19T04:08:18Z"
+          "upstreamSha256": "376a07c51dcb8f0ed93cfcfab174c007f72d345c5f0b069b35ba5384a6064e42",
+          "retrievedAt": "2026-11-19T19:28:45Z"
         }
       ]
     },
@@ -4839,12 +4848,12 @@
         },
         {
           "date": "2026-11-19",
-          "value": "11.03",
+          "value": "10.96",
           "basis": "OFFICIAL_FEED",
-          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>11.03</ns1:ValorCompra><ns1:ValorVenta>11.92</ns1:ValorVenta></ns1:Cotizacion>",
+          "excerpt": "<ns1:Cotizacion><ns1:Moneda>UST</ns1:Moneda><ns1:MonedaCambio>BOB</ns1:MonedaCambio><ns1:ValorCompra>10.96</ns1:ValorCompra><ns1:ValorVenta>11.96</ns1:ValorVenta></ns1:Cotizacion>",
           "sourceUrl": "https://sjoven.bisa.com/assets/cotizaciones.xml",
-          "upstreamSha256": "fca6f89de5f15ebed79ec199d00be6d9db1dc658c9336bd33cf1db6a7e66a5fd",
-          "retrievedAt": "2026-11-19T04:08:18Z"
+          "upstreamSha256": "376a07c51dcb8f0ed93cfcfab174c007f72d345c5f0b069b35ba5384a6064e42",
+          "retrievedAt": "2026-11-19T19:28:45Z"
         }
       ]
     },
@@ -5581,12 +5590,12 @@
         },
         {
           "date": "2026-11-19",
-          "value": "12.03",
+          "value": "11.93",
           "basis": "OFFICIAL_FEED",
-          "excerpt": "USDT Venta: 12.03 | USDT Compra: 11.75",
+          "excerpt": "USDT Venta: 11.93 | USDT Compra: 11.75",
           "sourceUrl": "https://www.bcp.com.bo/",
-          "upstreamSha256": "d05d88e4f32e8f91a8693469259d0cd5482fcbaf6e4f574052242f9563b19bc3",
-          "retrievedAt": "2026-11-19T04:08:18Z"
+          "upstreamSha256": "71603e28ea80d2f1dab714934ad5754285181c32798d3f7a0651edf801157a80",
+          "retrievedAt": "2026-11-19T19:28:45Z"
         }
       ]
     },
