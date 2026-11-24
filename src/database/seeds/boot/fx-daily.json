@@ -4967,6 +4967,60 @@
       "sourceUrl": "https://api.dolarbluebolivia.click/v1/chart/export?from=2026-11-18&to=2026-11-22&format=json&bucket=1d",
       "documentSha256": "b9b45a7bd5e62741f2dcaf3f2cd4b31b3dcf8b918b05a2652390fc62648dc967",
       "retrievedAt": "2026-11-23T03:42:34Z"
+    },
+    {
+      "indicatorCode": "FX_OFFICIAL_USD_BOB",
+      "priceSide": "BUY",
+      "eventDate": "2026-11-23",
+      "value": "11.75",
+      "unit": "BOB/USD",
+      "publisher": "DOLAR BLUE BOLIVIA",
+      "originator": "BANCO CENTRAL DE BOLIVIA",
+      "assertion": "Tipo de cambio oficial BOB/USD, promedio del 2026-11-23, compra: 11.75 Bs.",
+      "excerpt": "{\"t\":1795392000,\"bb\":11.9609,\"bs\":12.0093,\"ob\":11.75,\"os\":11.75}",
+      "sourceUrl": "https://api.dolarbluebolivia.click/v1/chart/export?from=2026-11-19&to=2026-11-23&format=json&bucket=1d",
+      "documentSha256": "868f01cc97875a7e87edbab08933a02f24ce081600fb05d46d1b5b2dd071b523",
+      "retrievedAt": "2026-11-24T06:56:50Z"
+    },
+    {
+      "indicatorCode": "FX_OFFICIAL_USD_BOB",
+      "priceSide": "SELL",
+      "eventDate": "2026-11-23",
+      "value": "11.75",
+      "unit": "BOB/USD",
+      "publisher": "DOLAR BLUE BOLIVIA",
+      "originator": "BANCO CENTRAL DE BOLIVIA",
+      "assertion": "Tipo de cambio oficial BOB/USD, promedio del 2026-11-23, venta: 11.75 Bs.",
+      "excerpt": "{\"t\":1795392000,\"bb\":11.9609,\"bs\":12.0093,\"ob\":11.75,\"os\":11.75}",
+      "sourceUrl": "https://api.dolarbluebolivia.click/v1/chart/export?from=2026-11-19&to=2026-11-23&format=json&bucket=1d",
+      "documentSha256": "868f01cc97875a7e87edbab08933a02f24ce081600fb05d46d1b5b2dd071b523",
+      "retrievedAt": "2026-11-24T06:56:50Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USD_BOB",
+      "priceSide": "BUY",
+      "eventDate": "2026-11-23",
+      "value": "11.9609",
+      "unit": "BOB/USD",
+      "publisher": "DOLAR BLUE BOLIVIA",
+      "assertion": "Dolar paralelo BOB/USD, promedio del 2026-11-23, compra: 11.9609 Bs.",
+      "excerpt": "{\"t\":1795392000,\"bb\":11.9609,\"bs\":12.0093,\"ob\":11.75,\"os\":11.75}",
+      "sourceUrl": "https://api.dolarbluebolivia.click/v1/chart/export?from=2026-11-19&to=2026-11-23&format=json&bucket=1d",
+      "documentSha256": "868f01cc97875a7e87edbab08933a02f24ce081600fb05d46d1b5b2dd071b523",
+      "retrievedAt": "2026-11-24T06:56:50Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USD_BOB",
+      "priceSide": "SELL",
+      "eventDate": "2026-11-23",
+      "value": "12.0093",
+      "unit": "BOB/USD",
+      "publisher": "DOLAR BLUE BOLIVIA",
+      "assertion": "Dolar paralelo BOB/USD, promedio del 2026-11-23, venta: 12.0093 Bs.",
+      "excerpt": "{\"t\":1795392000,\"bb\":11.9609,\"bs\":12.0093,\"ob\":11.75,\"os\":11.75}",
+      "sourceUrl": "https://api.dolarbluebolivia.click/v1/chart/export?from=2026-11-19&to=2026-11-23&format=json&bucket=1d",
+      "documentSha256": "868f01cc97875a7e87edbab08933a02f24ce081600fb05d46d1b5b2dd071b523",
+      "retrievedAt": "2026-11-24T06:56:50Z"
     }
   ]
 }
