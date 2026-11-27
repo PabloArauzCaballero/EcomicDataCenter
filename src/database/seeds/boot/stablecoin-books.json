@@ -4031,6 +4031,21 @@
     {
       "indicatorCode": "FX_PARALLEL_USDC_BOB",
       "asset": "USDC",
+      "priceSide": "BUY",
+      "eventDate": "2026-11-27",
+      "value": "11",
+      "unit": "BOB/USD",
+      "venue": "OKEXP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDC/BOB okexp2p bid 11 time 1795809319.",
+      "excerpt": "\"okexp2p\":{\"ask\":12.32,\"totalAsk\":12.32,\"bid\":11,\"totalBid\":11,\"time\":1795809319}",
+      "sourceUrl": "https://criptoya.com/api/usdc/bob/1",
+      "documentSha256": "e1e8f00ad57476aa0b07a9f874d0c5ddc704c629ff470b6bb73727714dd3363f",
+      "retrievedAt": "2026-11-27T19:55:30Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDC_BOB",
+      "asset": "USDC",
       "priceSide": "SELL",
       "eventDate": "2026-11-23",
       "value": "12.23",
@@ -4087,6 +4102,21 @@
       "sourceUrl": "https://criptoya.com/api/usdc/bob/1",
       "documentSha256": "5cf7fd338898d63aae786db2d270b161c37ceb8ca9c583c66534ee0869340afa",
       "retrievedAt": "2026-11-26T20:07:57Z"
+    },
+    {
+      "indicatorCode": "FX_PARALLEL_USDC_BOB",
+      "asset": "USDC",
+      "priceSide": "SELL",
+      "eventDate": "2026-11-27",
+      "value": "12.32",
+      "unit": "BOB/USD",
+      "venue": "OKEXP2P",
+      "publisher": "CRIPTOYA",
+      "assertion": "USDC/BOB okexp2p ask 12.32 time 1795809319.",
+      "excerpt": "\"okexp2p\":{\"ask\":12.32,\"totalAsk\":12.32,\"bid\":11,\"totalBid\":11,\"time\":1795809319}",
+      "sourceUrl": "https://criptoya.com/api/usdc/bob/1",
+      "documentSha256": "e1e8f00ad57476aa0b07a9f874d0c5ddc704c629ff470b6bb73727714dd3363f",
+      "retrievedAt": "2026-11-27T19:55:30Z"
     },
     {
       "indicatorCode": "FX_PARALLEL_USDC_BOB",
